@@ -1,4 +1,4 @@
-package main.java.com.github.typicalitguy.special.sudoku;
+package com.github.typicalitguy.special.sudoku;
 
 public class SudokuSolver_II {
 	private static final int GRID_SIZE = 9;

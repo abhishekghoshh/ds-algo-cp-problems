@@ -2,8 +2,8 @@
  * 
  */
 /**
- * @author ghosh
+ * @author typicalitguy
  *
  */
-module william_fiset {
+module algorithm_and_data_structure {
 }

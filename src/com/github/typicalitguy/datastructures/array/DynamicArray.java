@@ -3,7 +3,7 @@
  *
  * @author William Fiset, william.alexandre.fiset@gmail.com
  */
-package main.java.com.github.typicalitguy.datastructures.array;
+package com.github.typicalitguy.datastructures.array;
 
 @SuppressWarnings("unchecked")
 public class DynamicArray<T> implements Iterable<T> {
