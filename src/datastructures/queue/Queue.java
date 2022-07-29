@@ -1,4 +1,4 @@
-package com.github.typicalitguy.datastructures.queue;
+package datastructures.queue;
 
 /**
  * @author liujingkun, liujkon@gmail.com

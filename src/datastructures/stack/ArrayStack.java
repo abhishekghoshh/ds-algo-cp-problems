@@ -1,4 +1,4 @@
-package com.github.typicalitguy.datastructures.stack;
+package datastructures.stack;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;

@@ -1,4 +1,4 @@
-package com.github.typicalitguy.datastructures.stack;
+package datastructures.stack;
 
 /** @author liujingkun */
 public interface Stack<T> {

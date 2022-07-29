@@ -5,7 +5,7 @@
  *
  * @author William Fiset, william.alexandre.fiset@gmail.com
  */
-package com.github.typicalitguy.datastructures.array;
+package datastructures.array;
 
 public class IntArray implements Iterable<Integer> {
 

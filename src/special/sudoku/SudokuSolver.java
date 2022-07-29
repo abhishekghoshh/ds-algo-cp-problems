@@ -1,4 +1,4 @@
-package com.github.typicalitguy.special.sudoku;
+package special.sudoku;
 
 public class SudokuSolver {
 

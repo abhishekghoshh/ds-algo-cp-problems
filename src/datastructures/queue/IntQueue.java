@@ -7,7 +7,7 @@
  *
  * @author William Fiset, william.alexandre.fiset@gmail.com, liujingkun, liujkon@gmail.com
  */
-package com.github.typicalitguy.datastructures.queue;
+package datastructures.queue;
 
 public class IntQueue implements Queue<Integer> {
 

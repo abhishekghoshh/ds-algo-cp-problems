@@ -3,7 +3,7 @@
  *
  * @author William Fiset, william.alexandre.fiset@gmail.com
  */
-package com.github.typicalitguy.datastructures.queue;
+package datastructures.queue;
 
 public class LinkedQueue<T> implements Iterable<T>, Queue<T> {
 

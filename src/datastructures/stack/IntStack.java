@@ -7,7 +7,7 @@
  *
  * @author William Fiset, william.alexandre.fiset@gmail.com
  */
-package com.github.typicalitguy.datastructures.stack;
+package datastructures.stack;
 
 public class IntStack implements Stack<Integer> {
 
