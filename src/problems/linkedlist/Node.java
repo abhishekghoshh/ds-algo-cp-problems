@@ -84,4 +84,15 @@ public class Node<T> {
 		return "Node [data=" + data + ", holders=" + holders + ", next=" + next + "]";
 	}
 
+	public void print() {
+		print(this);
+	}
+
+	public static <T> void print(Node<T> node) {
+		while(null!=node) {
+			System.out.println(node.data);
+			node=node.next;
+		}
+	}
+
 }
