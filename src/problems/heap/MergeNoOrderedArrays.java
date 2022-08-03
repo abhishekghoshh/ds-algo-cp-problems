@@ -1,4 +1,4 @@
-package HeapProblems;
+package problems.heap;
 
 public class MergeNoOrderedArrays {
     

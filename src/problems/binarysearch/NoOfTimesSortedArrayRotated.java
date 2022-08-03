@@ -1,4 +1,4 @@
-package BinarySearchQuestions;
+package problems.binarysearch;
 
 public class NoOfTimesSortedArrayRotated {
     public static void main(String args[]) {

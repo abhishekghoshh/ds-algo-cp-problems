@@ -1,4 +1,4 @@
-package HeapProblems;
+package problems.heap;
 
 public class GenericPair<T1, T2> {
     private T1 first;

@@ -1,5 +1,4 @@
-package HeapProblems;
-
+package problems.heap;
 
 
 public class Pair {

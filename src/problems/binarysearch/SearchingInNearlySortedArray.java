@@ -1,4 +1,4 @@
-package BinarySearchQuestions;
+package problems.binarysearch;
 
 public class SearchingInNearlySortedArray {
     public static void main(String args[]) {

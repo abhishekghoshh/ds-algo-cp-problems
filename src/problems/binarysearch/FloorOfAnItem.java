@@ -1,4 +1,4 @@
-package BinarySearchQuestions;
+package problems.binarysearch;
 
 public class FloorOfAnItem {
     public static void main(String args[]) {
