@@ -1,7 +1,21 @@
-"# Algorithm-and-data-structure-in-java" 
+<h2>Data structures and algorithms in java</h2>
 
 Competetive problems:
 <ul>
+    <li>Stack Problems
+        <ul>
+            <li>Nearest greater in left side (NearestGreaterToLeft)</li>
+            <li>Nearest smaller in left side (NearestSmallerToLeft)</li>
+            <li>Nearest greater in right side (NearestGreaterToRight)</li>
+            <li>Nearest smaller in right side (NearestSmallerToRight)</li>
+            <li>Stock span (StockSpan)</li>
+            <li>Maximum area of histogram (MaximumAreaOfHistogram)</li>
+            <li>Maximum area of a rectangle in a binary matrix</li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </li>
     <li>Dynamic problems
         <ul>
             <li>Bounded Knapsack problem
