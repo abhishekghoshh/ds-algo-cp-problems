@@ -2,6 +2,24 @@
 
 Competetive problems:
 <ul>
+    <li>Binary Search Problems
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </li>
     <li>Stack Problems
         <ul>
             <li>Nearest greater in left side (NearestGreaterToLeft)</li>
