@@ -10,7 +10,7 @@ public class SearchingInNearlySortedArray {
     }
 
     private static int search(int[] arr, int low, int high, int length, int key) {
-        while (low < high) {
+        while (low <= high) {
             int mid = low + (high - low) / 2;
             if (arr[mid] == key) {
                 return mid;

@@ -23,7 +23,7 @@ public class OrderNotKnownBinarySearch {
     }
 
     private static int increasingOrderSearch(int[] arr, int low, int high, int key) {
-        while (low < high) {
+        while (low <= high) {
             int mid = low + (high - low) / 2;
             if (arr[mid] == key) {
                 return mid;
@@ -38,7 +38,7 @@ public class OrderNotKnownBinarySearch {
     }
 
     private static int decreasingOrderSearch(int[] arr, int low, int high, int key) {
-        while (low < high) {
+        while (low <= high) {
             int mid = low + (high - low) / 2;
             if (arr[mid] == key) {
                 return mid;
