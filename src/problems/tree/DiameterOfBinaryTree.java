@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.tree;
+package problems.tree;
 
 public class DiameterOfBinaryTree {
     
