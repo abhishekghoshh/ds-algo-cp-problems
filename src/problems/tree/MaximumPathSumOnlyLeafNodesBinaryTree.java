@@ -17,26 +17,26 @@ public class MaximumPathSumOnlyLeafNodesBinaryTree {
 
 	public static int maxPathSum(TreeNode root) {
 		Holder holder = new Holder();
-		value(root, holder);
+		maxPath(root, holder);
 		return holder.value;
 	}
 
-	private static int value(TreeNode root, Holder holder) {
+	private static int maxPath(TreeNode root, Holder holder) {
 		if (null == root) {
 			return 0;
 		}
-		int leftValue = value(root.left, holder);
-		int rightValue = value(root.right, holder);
+		int left = maxPath(root.left, holder);
+		int right = maxPath(root.right, holder);
 
 		// if its a part of ans
-		int value = root.val + Math.max(leftValue, rightValue);
+		int maxPath = root.val + Math.max(left, right);
 
 		// if its the ans
-		int tempPathSum = root.val + leftValue + rightValue;
+		int tempPathSum = root.val + left + right;
 		if (tempPathSum > holder.value) {
 			holder.value = tempPathSum;
 		}
 
-		return value;
+		return maxPath;
 	}
 }
