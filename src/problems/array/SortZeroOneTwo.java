@@ -1,5 +1,12 @@
 package problems.array;
-
+/*
+ * 
+ * problem links :
+ * 
+ * 
+ * Solution link : 
+ * 
+ * */
 public class SortZeroOneTwo {
 
 	public static void main(String[] args) {
