@@ -46,7 +46,7 @@ public class SearchInRowAndColumnSortedMatrix {
 		int high = row * column - 1;
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
-			int item = matrix[getRow(mid, row)][getColumn(mid, row)];
+			int item = matrix[getRow(mid, column)][getColumn(mid, column)];
 			if (item == key) {
 				System.out.println(
 						String.format("matrix[%d][%d] : %d", getRow(mid, row), getColumn(mid, row), key));
@@ -59,12 +59,12 @@ public class SearchInRowAndColumnSortedMatrix {
 		}
 	}
 
-	private static int getColumn(int mid, int row) {
-		return mid % row;
+	private static int getColumn(int mid, int column) {
+		return mid % column;
 	}
 
-	private static int getRow(int mid, int row) {
-		return mid / row;
+	private static int getRow(int mid, int column) {
+		return mid / column;
 	}
 	
 

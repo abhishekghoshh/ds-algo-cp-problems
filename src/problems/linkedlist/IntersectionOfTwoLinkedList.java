@@ -2,73 +2,74 @@ package problems.linkedlist;
 
 public class IntersectionOfTwoLinkedList {
 	public static void main(String[] args) {
-		findIntersectionByValue();
-		findIntersectionByRefeference();
+		type2();
+		type3();
 	}
 
-	private static void findIntersectionByRefeference() {
-		Node<Integer> common = new Node<>(15).next(new Node<>(30)).build();
-		Node<Integer> head1 = new Node<>(10).next(new Node<>(6)).next(new Node<>(9)).next(common).build();
-
-		Node<Integer> head2 = new Node<>(10).next(common).build();
-		int count1 = head1.getCount();
-		int count2 = head2.getCount();
-		int distance = Math.abs(count1 - count2);
-		if (count1 > count2) {
-			while (distance != 0) {
-				distance--;
-				head1 = head1.next;
-			}
-		} else if (count1 < count2) {
-			while (distance != 0) {
-				distance--;
-				head2 = head2.next;
+	// two linked list having common point
+	private static void type3() {
+		Node<Integer> common = new Node<>(15, 30);
+		Node<Integer> headA = new Node<>(10, 6, 9).next(common).build();
+		Node<Integer> headB = new Node<>(10, 11).next(common).build();
+		int count1 = count(headA);
+		int count2 = count(headB);
+		while (count1 != count2) {
+			if (count1 > count2) {
+				headA = headA.next;
+				count1--;
+			} else {
+				headB = headB.next;
+				count2--;
 			}
 		}
-		while (null != head1 && null != head2) {
-			if (head1 == head2)
-				break;
-			head1 = head1.next;
-			head2 = head2.next;
+		while (headA != headB) {
+			headA = headA.next;
+			headB = headB.next;
 		}
-		System.out.println(null != head1 ? head1.data : Integer.MIN_VALUE);
+		System.out.println(null != headA ? headA.toString() : "[]");
 	}
 
-	private static void findIntersectionByValue() {
-		Node<Integer> head1 = new Node<>(10).next(new Node<>(6)).next(new Node<>(9)).next(new Node<>(15))
-				.next(new Node<>(30)).build();
+	private static int count(Node<Integer> head) {
+		int length = 0;
+		while (null != head) {
+			head = head.next;
+			length++;
+		}
+		return length;
+	}
 
-		Node<Integer> head2 = new Node<>(10).next(new Node<>(15)).next(new Node<>(30)).build();
-		;
-
-		int count1 = head1.getCount();
-		int count2 = head2.getCount();
-		int distance = Math.abs(count1 - count2);
-		if (count1 > count2) {
-			while (distance != 0) {
-				distance--;
-				head1 = head1.next;
-			}
-		} else if (count1 < count2) {
-			while (distance != 0) {
-				distance--;
-				head2 = head2.next;
+	// two linked list has the common data
+	private static void type2() {
+		Node<Integer> headA = new Node<>(10, 6, 9, 15, 30);
+		Node<Integer> headB = new Node<>(10, 15, 30);
+		Node<Integer> common = null;
+		int count1 = count(headA);
+		int count2 = count(headB);
+		boolean isStarted = false;
+		while (count1 != count2) {
+			if (count1 > count2) {
+				headA = headA.next;
+				count1--;
+			} else {
+				headB = headB.next;
+				count2--;
 			}
 		}
 		int data = Integer.MIN_VALUE;
-		while (null != head1 && null != head2) {
-			if (head1.data == head2.data) {
-				if (data == Integer.MIN_VALUE) {
-					data = head1.data;
+		while (null != headA && null != headB) {
+			if (headA.data == headB.data) {
+				if (!isStarted) {
+					isStarted = true;
+					common = headA;
 				}
 			} else {
-				if (data != Integer.MIN_VALUE) {
-					data = Integer.MIN_VALUE;
+				if (isStarted) {
+					isStarted = false;
 				}
 			}
-			head1 = head1.next;
-			head2 = head2.next;
+			headA = headA.next;
+			headB = headB.next;
 		}
-		System.out.println(data);
+		System.out.println(null != common ? common.toString() : "[]");
 	}
 }

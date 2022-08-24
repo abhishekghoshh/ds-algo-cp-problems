@@ -11,6 +11,24 @@ public class Node<T> {
 		this.data = data;
 		this.next = null;
 	}
+	Node() {
+		this.next = null;
+	}
+
+	@SafeVarargs
+	Node(T... datas) {
+		if (datas.length == 0) {
+			throw new IllegalArgumentException("Atleast on data needed");
+		}
+		this.data = datas[0];
+		Node<T> node = this;
+		Node<T> newNode = null;
+		for (int i = 1; i < datas.length; i++) {
+			newNode = new Node<>(datas[i]);
+			node.next = newNode;
+			node = newNode;
+		}
+	}
 
 	/**
 	 * @return T return the data
@@ -48,20 +66,37 @@ public class Node<T> {
 		return this;
 	}
 
+	// complete it
+	// next without build method
+	public Node<T> nextI(Node<T> next) {
+		Node<T> curreNode = this;
+		if (null != next) {
+
+		}
+		return this;
+	}
+
 	public Node<T> build() {
 		if (null != this.holders) {
-			Node<T> curreNode = this;
+			Node<T> currentNode = getLastNode(this);
 			for (Node<T> node : this.holders) {
-				curreNode.next = node;
+				currentNode.next = node;
 				Node<T> intermediateNode = node;
 				while (intermediateNode.next != null) {
 					intermediateNode = intermediateNode.next;
 				}
-				curreNode = intermediateNode;
+				currentNode = intermediateNode;
 			}
 			this.holders = null;
 		}
 		return this;
+	}
+
+	private Node<T> getLastNode(Node<T> node) {
+		while (null != node.next) {
+			node = node.next;
+		}
+		return node;
 	}
 
 	public int getCount() {
@@ -81,7 +116,20 @@ public class Node<T> {
 
 	@Override
 	public String toString() {
-		return "Node [data=" + data + ", holders=" + holders + ", next=" + next + "]";
+		Node<T> node = this;
+		StringBuilder sb = new StringBuilder();
+		sb.append("[ ");
+		while (null != node) {
+			if (null != node.next) {
+				sb.append(node.data + ", ");
+			}
+			if (null == node.next) {
+				sb.append(node.data);
+			}
+			node = node.next;
+		}
+		sb.append(" ]");
+		return sb.toString();
 	}
 
 	public void print() {
@@ -89,10 +137,7 @@ public class Node<T> {
 	}
 
 	public static <T> void print(Node<T> node) {
-		while(null!=node) {
-			System.out.println(node.data);
-			node=node.next;
-		}
+		System.out.println(node.toString());
 	}
 
 }
