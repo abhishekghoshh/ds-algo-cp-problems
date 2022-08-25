@@ -1,33 +1,34 @@
 package problems.linkedlist;
 
-import java.util.*;
-
 public class Node<T> {
-	private List<Node<T>> holders = null;
 	public T data;
 	public Node<T> next;
+	public Node<T> last;
 
 	Node(T data) {
 		this.data = data;
 		this.next = null;
+		last = this;
 	}
+
 	Node() {
 		this.next = null;
+		last = this;
 	}
 
 	@SafeVarargs
 	Node(T... datas) {
-		if (datas.length == 0) {
-			throw new IllegalArgumentException("Atleast on data needed");
-		}
-		this.data = datas[0];
 		Node<T> node = this;
-		Node<T> newNode = null;
-		for (int i = 1; i < datas.length; i++) {
-			newNode = new Node<>(datas[i]);
-			node.next = newNode;
-			node = newNode;
+		if (datas.length != 0) {
+			node.data = datas[0];
+			Node<T> newNode = null;
+			for (int i = 1; i < datas.length; i++) {
+				newNode = new Node<>(datas[i]);
+				node.next = newNode;
+				node = newNode;
+			}
 		}
+		this.last = node;
 	}
 
 	/**
@@ -59,40 +60,16 @@ public class Node<T> {
 	}
 
 	public Node<T> next(Node<T> next) {
-		if (null == this.holders) {
-			this.holders = new ArrayList<>();
-		}
-		this.holders.add(next);
+		this.last.next = next;
+		this.last = next.last;
 		return this;
 	}
 
-	// complete it
-	// next without build method
-	public Node<T> nextI(Node<T> next) {
-		Node<T> curreNode = this;
-		if (null != next) {
-
-		}
-		return this;
+	public Node<T> last() {
+		return this.last;
 	}
 
-	public Node<T> build() {
-		if (null != this.holders) {
-			Node<T> currentNode = getLastNode(this);
-			for (Node<T> node : this.holders) {
-				currentNode.next = node;
-				Node<T> intermediateNode = node;
-				while (intermediateNode.next != null) {
-					intermediateNode = intermediateNode.next;
-				}
-				currentNode = intermediateNode;
-			}
-			this.holders = null;
-		}
-		return this;
-	}
-
-	private Node<T> getLastNode(Node<T> node) {
+	public static <T> Node<T> last(Node<T> node) {
 		while (null != node.next) {
 			node = node.next;
 		}
@@ -139,5 +116,4 @@ public class Node<T> {
 	public static <T> void print(Node<T> node) {
 		System.out.println(node.toString());
 	}
-
 }

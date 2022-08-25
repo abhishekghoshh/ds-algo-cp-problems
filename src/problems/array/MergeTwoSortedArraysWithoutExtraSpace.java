@@ -16,6 +16,39 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		type1();
 		type2();
 		type3();
+		type4();
+	}
+
+	// TODO check it another time
+	// don't use it two often
+	// without extra space swap sort approach
+	// time complexity O(log(m+n))
+	private static void type4() {
+		int[] nums1 = { 1, 2, 4, 5, 6, 0 };
+		int m = 5;
+		int[] nums2 = { 3 };
+		int n = 1;
+		for (int i = 0; i < n; i++) {
+			nums1[i + m] = nums2[i];
+		}
+		if (m != 0) {
+			int length = m + n;
+			int size = length;
+			int left = 0, right = 0;
+			while (length != 0) {
+				length = (int) Math.ceil(length / 2);
+				left = 0;
+				right = left + length;
+				while (right < size) {
+					if (nums1[left] > nums1[right]) {
+						swap(nums1, nums1, left, right);
+					}
+					left++;
+					right++;
+				}
+			}
+		}
+		print(nums1);
 	}
 
 	// without extra space insertion sort approach
@@ -25,8 +58,26 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int m = 3;
 		int[] nums2 = { 2, 5, 6 };
 		int n = 3;
+		int right = 0, temp = 0;
+		for (int i = 0; i < m; i++) {
+			if (nums1[i] > nums2[0]) {
+				swap(nums1, nums2, i, 0);
+				right = 0;
+				temp = nums2[0];
+				while (right < n - 1 && temp > nums2[right + 1]) {
+					nums2[right] = nums2[right + 1];
+					right++;
+				}
+				nums2[right] = temp;
+			}
+		}
+		print(nums1, nums2);
+	}
 
-		print(nums1);
+	private static void swap(int[] nums1, int[] nums2, int i, int j) {
+		int temp = nums1[i];
+		nums1[i] = nums2[j];
+		nums2[j] = temp;
 	}
 
 	// without extra space brute force approach
@@ -38,7 +89,7 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int n = 3;
 
 		for (int i = 0; i < n; i++) {
-			nums1[i + n] = nums2[i];
+			nums1[i + m] = nums2[i];
 		}
 		Arrays.sort(nums1);
 		print(nums1);
@@ -71,9 +122,11 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		print(answer);
 	}
 
-	private static void print(int[] answer) {
-		for (int num : answer) {
-			System.out.print(num + " ");
+	private static void print(int[]... arrays) {
+		for (int[] array : arrays) {
+			for (int num : array) {
+				System.out.print(num + " ");
+			}
 		}
 		System.out.println();
 	}

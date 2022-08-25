@@ -1,10 +1,53 @@
 package problems.array;
 
+/*
+ * Problem link :
+ * https://www.interviewbit.com/problems/repeat-and-missing-number-array/
+ * https://www.codingninjas.com/codestudio/problems/873366?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * 
+ * Solution link :https://www.youtube.com/watch?v=5nMGY4VUoRY&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=4
+ * */
 public class RepeatAndMissingNumber {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+		type4();
+	}
+
+	// TODO use XOR approach
+	private static void type4() {
+
+	}
+
+	// using mathematics and linear algebra
+	// we know summation of n and summation of n^2 by formula
+	// we have all the numbers
+	// lets say a is missing and b is duplicate
+	// so a-b = sum(arr) - sum(1..n)
+	// and a^2 -b^2 = sum(arr^2) - sum(a^2 .. n^2)
+	// from that we can find a+b
+	// now we have a+b and a-b, we can easily find a and b
+	private static void type3() {
+		int nums[] = { 3, 1, 2, 5, 3 };
+		int n = nums.length;
+		int calculatedSum = 0;
+		int calculatedSquaredSum = 0;
+		for (int item : nums) {
+			calculatedSum = calculatedSum + item;
+			calculatedSquaredSum = calculatedSquaredSum + item * item;
+		}
+		int sum = n * (n + 1) / 2;
+		int squaredSum = n * (n + 1) * (2 * n + 1) / 6;
+		int difference = sum - calculatedSum;
+		int addition = (squaredSum - calculatedSquaredSum) / difference;
+		int missingElement = (addition + difference) / 2;
+		int duplicateElement = (addition - difference) / 2;
+
+		System.out.println("Missing element is " + missingElement);
+		System.out.println("duplicate element is " + duplicateElement);
+
 	}
 
 	// if the list is modifiable we can use swap sort

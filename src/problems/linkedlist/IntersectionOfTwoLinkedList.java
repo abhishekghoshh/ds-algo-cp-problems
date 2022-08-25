@@ -9,8 +9,8 @@ public class IntersectionOfTwoLinkedList {
 	// two linked list having common point
 	private static void type3() {
 		Node<Integer> common = new Node<>(15, 30);
-		Node<Integer> headA = new Node<>(10, 6, 9).next(common).build();
-		Node<Integer> headB = new Node<>(10, 11).next(common).build();
+		Node<Integer> headA = new Node<>(10, 6, 9).next(common);
+		Node<Integer> headB = new Node<>(10, 11).next(common);
 		int count1 = count(headA);
 		int count2 = count(headB);
 		while (count1 != count2) {
@@ -55,7 +55,6 @@ public class IntersectionOfTwoLinkedList {
 				count2--;
 			}
 		}
-		int data = Integer.MIN_VALUE;
 		while (null != headA && null != headB) {
 			if (headA.data == headB.data) {
 				if (!isStarted) {

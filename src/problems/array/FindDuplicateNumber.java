@@ -3,6 +3,14 @@ package problems.array;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/1112602?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/find-the-duplicate-number/
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=32Ll35mhWg0&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=1
+ * */
 public class FindDuplicateNumber {
 
 	public static void main(String[] args) {
@@ -11,6 +19,13 @@ public class FindDuplicateNumber {
 		type3();
 		type4();
 
+	}
+
+	// TODO
+	// linked list cycle approach
+	private static void type5() {
+		int nums[] = { 1, 3, 4, 2, 2 };
+		int index = 0;
 	}
 
 	// swap sort without using extra space
@@ -66,6 +81,7 @@ public class FindDuplicateNumber {
 	}
 
 	// brute force approach o(n`2)
+	/// or sort the array
 	private static void type1() {
 		int nums[] = { 1, 3, 4, 2, 2 };
 		int length = nums.length;
