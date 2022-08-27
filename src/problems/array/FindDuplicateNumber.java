@@ -29,7 +29,7 @@ public class FindDuplicateNumber {
 	}
 
 	// swap sort without using extra space
-	// given array must be immutable
+	// given array must be mutable
 	private static void type4() {
 		int nums[] = { 1, 3, 4, 2, 2 };
 		int index = 0;

@@ -1,4 +1,4 @@
-package problems.findminningandduplicate;
+package problems.array;
 
 public class SwapSort {
 

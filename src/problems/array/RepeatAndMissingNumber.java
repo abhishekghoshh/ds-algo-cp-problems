@@ -10,6 +10,7 @@ package problems.array;
 public class RepeatAndMissingNumber {
 
 	public static void main(String[] args) {
+		type0();
 		type1();
 		type2();
 		type3();
@@ -42,15 +43,14 @@ public class RepeatAndMissingNumber {
 		int squaredSum = n * (n + 1) * (2 * n + 1) / 6;
 		int difference = sum - calculatedSum;
 		int addition = (squaredSum - calculatedSquaredSum) / difference;
-		int missingElement = (addition + difference) / 2;
-		int duplicateElement = (addition - difference) / 2;
+		int missing = (addition + difference) / 2;
+		int repeat = (addition - difference) / 2;
 
-		System.out.println("Missing element is " + missingElement);
-		System.out.println("duplicate element is " + duplicateElement);
+		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
 
 	}
 
-	// if the list is modifiable we can use swap sort
+	// if the list is modifiable then we can use swap sort
 	// then we don't have to use extra space
 	private static void type2() {
 		int nums[] = { 3, 1, 2, 5, 3 };
@@ -75,8 +75,9 @@ public class RepeatAndMissingNumber {
 		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
 	}
 
-	// if the list is non modifiable we can use swap sort
 	// then we can use one extra array to store the frequency
+	// after storing the frequency
+	// we can iterate through the frequency array and find missing and duplicate
 	private static void type1() {
 		final int nums[] = { 3, 1, 2, 5, 3 };
 		int frequency[] = new int[nums.length];
@@ -90,6 +91,37 @@ public class RepeatAndMissingNumber {
 				missing = i + 1;
 			} else if (frequency[i] > 1) {
 				repeat = i + 1;
+			}
+		}
+		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
+	}
+
+	// brute force approach
+	// time complexity O(2n^2)
+	// space complexity O(1)
+	private static void type0() {
+		int nums[] = { 3, 1, 2, 5, 3 };
+		int n = nums.length;
+		int repeat = 0;
+		int missing = 0;
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (nums[i] == nums[j]) {
+					repeat = nums[i];
+				}
+			}
+		}
+		for (int i = 1; i <= n; i++) {
+			boolean found = false;
+			for (int j = 0; j < n; j++) {
+				if (nums[j] == i) {
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				missing = i;
+				break;
 			}
 		}
 		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
