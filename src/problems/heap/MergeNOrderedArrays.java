@@ -1,58 +1,18 @@
 package problems.heap;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class ArrayPositionHolder {
-	private int top;
-	private int arrayPosition;
-	private int index;
+	int top;
+	int arrayPosition;
+	int index;
 
 	public ArrayPositionHolder(int top, int arrayPosition, int index) {
 		super();
 		this.top = top;
 		this.arrayPosition = arrayPosition;
 		this.index = index;
-	}
-
-	public int getTop() {
-		return top;
-	}
-
-	public void setTop(int top) {
-		this.top = top;
-	}
-
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
-	public int getArrayPosition() {
-		return arrayPosition;
-	}
-
-	public void setArrayPosition(int arrayPosition) {
-		this.arrayPosition = arrayPosition;
-	}
-
-	public ArrayPositionHolder top(int top) {
-		this.setTop(top);
-		return this;
-	}
-
-	public ArrayPositionHolder arrayPosition(int arrayPosition) {
-		this.setArrayPosition(arrayPosition);
-		return this;
-	}
-
-	public ArrayPositionHolder index(int index) {
-		this.setIndex(index);
-		return this;
 	}
 
 	@Override
@@ -69,7 +29,7 @@ public class MergeNOrderedArrays {
 		int[] sortedArray = new int[size];
 
 		PriorityQueue<ArrayPositionHolder> queue = new PriorityQueue<>(
-				Comparator.comparing(ArrayPositionHolder::getTop));
+				(first, second) -> Integer.compare(first.top, second.top));
 		int j = 0;
 		for (int[] array : arrays) {
 			queue.offer(new ArrayPositionHolder(array[0], j++, 0));
@@ -78,20 +38,22 @@ public class MergeNOrderedArrays {
 		int index = 0;
 		while (queue.size() != 0) {
 			ArrayPositionHolder topArrayPositionHolder = queue.poll();
-			int topItemIndex = topArrayPositionHolder.getIndex();
-			int topArrayIndex = topArrayPositionHolder.getArrayPosition();
+			int topItemIndex = topArrayPositionHolder.index;
+			int topArrayIndex = topArrayPositionHolder.arrayPosition;
 			if (queue.size() != 0) {
 				ArrayPositionHolder currentTopArrayPositionHolder = queue.peek();
-				int currentTopItemIndex = currentTopArrayPositionHolder.getIndex();
-				int currentTopArrayIndex = currentTopArrayPositionHolder.getArrayPosition();
+				int currentTopItemIndex = currentTopArrayPositionHolder.index;
+				int currentTopArrayIndex = currentTopArrayPositionHolder.arrayPosition;
 				int i;
 				for (i = topItemIndex; i < arrays[topArrayIndex].length
 						&& arrays[topArrayIndex][i] <= arrays[currentTopArrayIndex][currentTopItemIndex]; i++) {
 					sortedArray[index++] = arrays[topArrayIndex][i];
 				}
 				if (i != arrays[topArrayIndex].length) {
-					queue.offer(
-							topArrayPositionHolder.top(arrays[topArrayIndex][i]).arrayPosition(topArrayIndex).index(i));
+					topArrayPositionHolder.top = arrays[topArrayIndex][i];
+					topArrayPositionHolder.arrayPosition = topArrayIndex;
+					topArrayPositionHolder.index = i;
+					queue.offer(topArrayPositionHolder);
 				}
 			} else {
 				for (int i = topItemIndex; i < arrays[topArrayIndex].length; i++) {
