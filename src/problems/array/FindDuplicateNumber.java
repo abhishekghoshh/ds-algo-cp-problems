@@ -1,5 +1,6 @@
 package problems.array;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,18 +15,35 @@ import java.util.Set;
 public class FindDuplicateNumber {
 
 	public static void main(String[] args) {
+		type0();
 		type1();
 		type2();
 		type3();
 		type4();
-
+		type5();
 	}
 
-	// TODO
 	// linked list cycle approach
+	// it's same as cycle detection in linked list
+	// we will take two pointer slow and fast
+	// and move them by one and two
+	// if two links matches 
 	private static void type5() {
+		// int nums[] = { 1, 3, 4, 2, 8, 6, 5, 9, 8, 10, 11 };
 		int nums[] = { 1, 3, 4, 2, 2 };
-		int index = 0;
+		int slow, fast;
+		slow = nums[0];
+		fast = nums[nums[0]];
+		while (slow != fast) {
+			slow = nums[slow];
+			fast = nums[nums[fast]];
+		}
+		slow = nums[0];
+		while (slow != fast) {
+			slow = nums[slow];
+			fast = nums[fast];
+		}
+		System.out.println("Duplicate element is " + slow);
 	}
 
 	// swap sort without using extra space
@@ -80,9 +98,22 @@ public class FindDuplicateNumber {
 		System.out.println("Duplicate element is " + duplicateElement);
 	}
 
-	// brute force approach o(n`2)
-	/// or sort the array
+	/// sort the array and check linearly
+	// time complexity O(n*log(n))
 	private static void type1() {
+		int nums[] = { 1, 3, 4, 2, 2 };
+		int length = nums.length;
+		Arrays.sort(nums);
+		for (int i = 0; i < length - 1; i++) {
+			if (nums[i] == nums[i + 1]) {
+				System.out.println("Duplicate element is " + nums[i]);
+				break;
+			}
+		}
+	}
+
+	// brute force approach o(n`2)
+	private static void type0() {
 		int nums[] = { 1, 3, 4, 2, 2 };
 		int length = nums.length;
 		for (int i = 0; i < length - 1; i++) {

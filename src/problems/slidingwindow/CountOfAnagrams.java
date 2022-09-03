@@ -3,35 +3,40 @@ package problems.slidingwindow;
 public class CountOfAnagrams {
 
 	public static void main(String[] args) {
-		String text = "forxxorfxdofr";
-		String pattern = "for";
-		System.out.print(countAnagrams(text, pattern));
+		type1();
+		type2();
 	}
 
-	public static int countAnagrams(String text, String pattern) {
-		int[] patternArray = new int[26];
-		int[] textArray = new int[26];
-		int count = 0;
+	public static void type2() {
+		String text = "forxxorfxdofr";
+		String pattern = "for";
+
 		int textSize = text.length();
 		int patternSize = pattern.length();
-		int i = 0;
-		while (i < textSize) {
-			if (i < patternSize) {
-				patternArray[pattern.charAt(i) - 'a']++;
-				textArray[text.charAt(i) - 'a']++;
-			} else {
-				if (equals(patternArray, textArray)) {
-					count++;
-				}
-				textArray[text.charAt(i) - 'a']++;
-				textArray[text.charAt(i - patternSize) - 'a']--;
+		int[] patternArray = new int[26];
+		int[] textArray = new int[26];
+		int left = 0, right = 0, count = 0;
+		while (right < patternSize) {
+			patternArray[pattern.charAt(right) - 'a']++;
+			textArray[text.charAt(right) - 'a']++;
+			right++;
+		}
+		while (left < textSize - patternSize + 1) {
+			if (equals(patternArray, textArray)) {
+				count++;
 			}
-			i++;
+			if (left + patternSize == textSize) {
+				break;
+			}
+			textArray[text.charAt(left) - 'a']--;
+			textArray[text.charAt(left + patternSize) - 'a']++;
+			left++;
 		}
-		if (equals(patternArray, textArray)) {
-			count++;
-		}
-		return count;
+		System.out.print(count);
+	}
+
+	private static void type1() {
+
 	}
 
 	private static boolean equals(int[] patternArray, int[] textArray) {

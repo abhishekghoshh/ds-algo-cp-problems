@@ -1,32 +1,41 @@
 package problems.slidingwindow;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class FirstNegativeNumberInEveryWindowOfSizeK {
 
 	public static void main(String[] args) {
+		type1();
+		type2();
+	}
+
+	private static void type2() {
 		int arr[] = { 12, -1, -7, 8, -15, 30, 16, 28 };
-		int n = arr.length;
 		int k = 3;
-		int[] answer = new int[n - k + 1];
-		LinkedList<Integer> linkedList = new LinkedList<>();
-		for (int i = 0; i < k; i++) {
-			if (arr[i] < 0) {
-				linkedList.add(arr[i]);
+		int n = arr.length;
+		int size = n - k + 1;
+		int[] answer = new int[size];
+		Queue<Integer> queue = new LinkedList<>();
+		int left = 0, right = 0;
+		while (right < k) {
+			if (arr[right] < 0) {
+				queue.offer(arr[right]);
 			}
+			right++;
 		}
-		int index = 0;
-		for (int i = 0; i < n - k + 1; i++) {
-			if (!linkedList.isEmpty()) {
-				answer[index++] = linkedList.getFirst();
-				if (arr[i] == linkedList.getFirst()) {
-					linkedList.removeFirst();
+		while (left < size) {
+			if (!queue.isEmpty()) {
+				answer[left] = queue.peek();
+				if (queue.peek() == arr[left]) {
+					queue.poll();
 				}
+				left++;
 			} else {
-				answer[index++] = 0;
+				answer[left++] = 0;
 			}
-			if (i + k < n && arr[i + k] < 0) {
-				linkedList.add(arr[i + k]);
+			if (left < size && arr[left + k - 1] < 0) {
+				queue.offer(arr[left + k - 1]);
 			}
 		}
 		print(arr);
@@ -41,4 +50,7 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 		System.out.println();
 	}
 
+	private static void type1() {
+
+	}
 }
