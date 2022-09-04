@@ -32,7 +32,7 @@ public class CountInversionInArray {
 	// merge sort approach
 	// time complexity O(n*log(n))
 	// space complexity o(n)
-	// if we don't have to change the original array then 
+	// if we don't have to change the original array then
 	// we can copy the original and compute on that
 	// we will divide the array
 	// and on the merge we will do our operation
@@ -60,7 +60,7 @@ public class CountInversionInArray {
 		if (i < j) {
 			int mid = (i + j) / 2;
 			applyMergeSort(nums, i, mid, value);
-			applyMergeSort(nums, i, mid, value);
+			applyMergeSort(nums, mid + 1, j, value);
 			mergeWithComputation(nums, i, mid, j, value);
 		}
 	}
