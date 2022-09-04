@@ -27,18 +27,41 @@ public class FindDuplicateNumber {
 	// it's same as cycle detection in linked list
 	// we will take two pointer slow and fast
 	// and move them by one and two
-	// if two links matches 
+	// there will always be coalition as for some point nums[i]=nums[j]
+	// let say slow and fast pointer moves c+ml+x and c+nl+x
+	// where c is common space, m and n is rotation taken before coalition
+	// l is the cycle length
+	// x is coalition distance from starting point of cycle
+	// and let's say slow pointer goes d distance before coalition
+	// then fast pointer will be going 2d distance before coalition
+	// 2d-d = (c+nl+x) - (c+ml+x) => d = l*(n-m)
+	// so d is multiple of cycle length
+	// l*(n-m) = c+ml+x => c+x = l*(n-2m)
+	// so c+x is also multiple of cycle length
+	// that means after coalition point if we go to x distance
+	// then we will obviously get the starting of the cycle
+	// which is also the duplicate number
+	// time complexity of this more than O(n)
+	// as it may rotate some cycles
 	private static void type5() {
 		// int nums[] = { 1, 3, 4, 2, 8, 6, 5, 9, 8, 10, 11 };
 		int nums[] = { 1, 3, 4, 2, 2 };
 		int slow, fast;
 		slow = nums[0];
-		fast = nums[nums[0]];
-		while (slow != fast) {
+		fast = nums[0];
+		while (true) {
 			slow = nums[slow];
 			fast = nums[nums[fast]];
+			if (slow == fast) {
+				break;
+			}
 		}
+		// at this point we detects the cycle
 		slow = nums[0];
+		// now slow points to first
+		// fast points to coalition
+		// now move both pointers to one step
+		// their coalition point will be duplicate point
 		while (slow != fast) {
 			slow = nums[slow];
 			fast = nums[fast];

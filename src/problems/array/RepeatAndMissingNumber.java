@@ -17,9 +17,66 @@ public class RepeatAndMissingNumber {
 		type4();
 	}
 
-	// TODO use XOR approach
+	// best and optimized approach
+	// important
+	// use XOR approach
+	// this is based on X^X = 0 and X^0 = X
+	// lets say a is missing and b is duplicate
+	// now XOR(nums) ^ XOR(1..N)
+	// then it will be XOR of a and b
+	// as all the numbers of nums will be cancelled out with XOR(1..N)
+	// and in nums there will two b which will also cancelled out
+	// the value will only be a^b remaining from XOR(1..N)
 	private static void type4() {
+		int nums[] = { 3, 1, 2, 5, 3 };
+		int missing = 0;
+		int repeat = 0;
+		int xor = 0;
+		int n = nums.length;
 
+		// Get the xor of all array elements and numbers from 1 to n
+		for (int i = 0; i < n; i++) {
+			xor = xor ^ nums[i] ^ (i + 1);
+		}
+		// Get the rightmost set bit from xor
+		int rightestSetBit = xor & ~(xor - 1);
+		// like for 12 => 1100 it's 4 or 100
+		// for 17 => 10001 it's 1
+		// for 14 => 1110 it's 2 or 10
+
+		/*
+		 * Now divide elements into two sets by comparing rightmost set bit of xor1 with
+		 * the bit at the same position in each element. Also, get XORs of two sets. The
+		 * two XORs are the output elements. The following two for loops serve the
+		 * purpose
+		 */
+		for (int i = 0; i < n; i++) {
+			// we are checking nums[i] in which bucket
+			if ((nums[i] & rightestSetBit) != 0) {
+				missing = missing ^ nums[i];
+			} else {
+				repeat = repeat ^ nums[i];
+			}
+			// we are checking 1..N are in which bucket
+			if (((i + 1) & rightestSetBit) != 0) {
+				missing = missing ^ (i + 1);
+			} else {
+				repeat = repeat ^ (i + 1);
+			}
+		}
+		// NB! numbers can be swapped, maybe do a check
+		int count = 0;
+		for (int num : nums) {
+			if (missing == num) {
+				count++;
+			}
+		}
+		if (count != 0) {
+			int temp = missing;
+			missing = repeat;
+			repeat = temp;
+		}
+		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
 	}
 
 	// using mathematics and linear algebra
@@ -28,8 +85,11 @@ public class RepeatAndMissingNumber {
 	// lets say a is missing and b is duplicate
 	// so a-b = sum(arr) - sum(1..n)
 	// and a^2 -b^2 = sum(arr^2) - sum(a^2 .. n^2)
+	// so (a+b)*(a-b) = sum(arr^2) - sum(a^2 .. n^2)
 	// from that we can find a+b
 	// now we have a+b and a-b, we can easily find a and b
+	// only limitation is that
+	// we are doing square there might be a chance of overflow
 	private static void type3() {
 		int nums[] = { 3, 1, 2, 5, 3 };
 		int n = nums.length;
