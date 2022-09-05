@@ -1,5 +1,12 @@
 package problems.array;
 
+/*
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/980531?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/search-a-2d-matrix/
+ * Solution link :
+ * https://www.youtube.com/watch?v=ZYpYur0znng&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=15
+ * */
 public class SearchInRowAndColumnSortedMatrix {
 
 	public static void main(String[] args) {
@@ -18,12 +25,7 @@ public class SearchInRowAndColumnSortedMatrix {
 		// int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
 //		int[][] matrix = { { 1, 1 } };
 //		int target = 6;
-		int[][] matrix = { 
-				{ 10, 20, 30, 40 }, 
-				{ 15, 25, 35, 45 }, 
-				{ 27, 29, 37, 48 }, 
-				{ 32, 33, 39, 50 } 
-				};
+		int[][] matrix = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 27, 29, 37, 48 }, { 32, 33, 39, 50 } };
 		int target = 50;
 		int row = matrix.length;
 		int column = matrix[0].length;
@@ -61,12 +63,7 @@ public class SearchInRowAndColumnSortedMatrix {
 	private static void type2() {
 //		int[][] matrix = { { 1, 3, 5, 12 }, { 10, 11, 16, 20 }, { 17, 18, 19, 23 } };
 //		int target = 18;
-		int[][] matrix = { 
-				{ 10, 15, 17, 20 }, 
-				{ 22, 23, 25, 27 }, 
-				{ 28, 29, 32, 35 }, 
-				{ 37, 39, 45, 50 } 
-				};
+		int[][] matrix = { { 10, 15, 17, 20 }, { 22, 23, 25, 27 }, { 28, 29, 32, 35 }, { 37, 39, 45, 50 } };
 		int target = 50;
 		int row = matrix.length;
 		int column = matrix[0].length;

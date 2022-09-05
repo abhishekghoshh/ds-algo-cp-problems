@@ -1,5 +1,13 @@
 package problems.array;
 
+/*
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/1082146?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/powx-n/
+ * 
+ * Solution link : https://www.youtube.com/watch?v=l0YC3876qxg&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=16
+ * 
+ * */
 public class PowerOfXtoN {
 
 	public static void main(String[] args) {
@@ -12,19 +20,33 @@ public class PowerOfXtoN {
 	// itself at the same time, given that 3^6 is 9^3
 	private static void type2() {
 		double x = 2;
-		int n = 10;
-		double answer = 1;
-		while (n != 0) {
-			if (n % 2 == 0) {
-				n = n / 2;
-				x = x * x;
-			} else {
-				answer = answer * x;
-				n = (n - 1) / 2;
-				x = x * x;
+		int n = -2147483648;
+		double answer = 1.0;
+		long mn = n;
+		double xy = x;
+		if (x == 1) {
+			answer = 1;
+		} else if (x == 0) {
+			answer = 0;
+		} else if (n == 0) {
+			answer = 1;
+		} else if (n == 1) {
+			answer = x;
+		} else {
+			mn = n < 0 ? ((-1) * mn) : mn;
+			while (mn > 0) {
+				if (mn % 2 == 0) {
+					mn = mn / 2;
+					x = x * x;
+				} else {
+					answer = answer * x;
+					mn = (mn - 1);
+				}
 			}
+			answer = n > 0 ? answer : ((double) (1.0) / answer);
 		}
-		System.out.println(String.format("pow(%f,%d) is %f", x, n, answer));
+
+		System.out.println(String.format("pow(%f,%d) is %f", xy, n, answer));
 	}
 
 	// brute force approach
