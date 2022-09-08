@@ -63,7 +63,7 @@ public class LongestConsecutiveSequence {
 	// sort the array
 	// then linearly traverse
 	// time complexity o(n*log(n))
-	// space complexity o(1)
+	// space complexity o(n)
 	private static void type1() {
 		int[] nums = { 100, 4, 200, 1, 3, 2 };
 		if (nums.length == 0) {
