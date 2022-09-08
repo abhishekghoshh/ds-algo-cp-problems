@@ -68,7 +68,7 @@ public class TwoSum {
 				if (nums[mid] == target_) {
 					answer = new int[] { i, mid };
 					break;
-				} else if (nums[mid] < target) {
+				} else if (nums[mid] < target_) {
 					low = mid + 1;
 				} else {
 					high = mid - 1;
