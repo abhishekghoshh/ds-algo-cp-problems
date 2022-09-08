@@ -2,7 +2,6 @@ package problems.array;
 
 // A number z is good when it can be divided in two numbers x,y such that 
 // x^y=z x&y=0
-
 public class GoodNumberI {
 
 	public static void main(String[] args) {
@@ -82,6 +81,7 @@ public class GoodNumberI {
 		System.out.println(count);
 	}
 
+	// make the binary of z
 	private static int[] inBinary(int num) {
 		int length = 0, num_ = num, id;
 		while (num_ > 0) {
