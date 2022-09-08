@@ -1,10 +1,10 @@
-package problems.array;
+package problems.recursion;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SubsetSums {
+public class SubsetSumI {
 
 	public static void main(String[] args) {
 		type1();

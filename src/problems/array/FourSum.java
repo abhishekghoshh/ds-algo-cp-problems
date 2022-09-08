@@ -1,5 +1,6 @@
 package problems.array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -22,9 +23,71 @@ public class FourSum {
 		type2();
 	}
 
+	// 2 pointer approach
+	// time complexity O(n^3) + O(n*log(n))
+	// space complexity O(1)
 	private static void type2() {
 		int[] nums = { 1, 0, -1, 0, -2, 2 };
 		int target = 0;
+		Arrays.sort(nums);
+		int left, right, n = nums.length, leftItem, rightItem, sum;
+		List<List<Integer>> answer = new ArrayList<>();
+		for (int i = 0; i <= n - 4; i++) {
+
+			//if there is a series of duplicates then it will just take the first time when i==0
+			//when i> 0 then for all duplicate value will be skipped
+			if (i > 0 && nums[i] == nums[i - 1]) continue;
+			// in a series left most elements are the smallest
+			// if sum of i to i+3 elements are less than target then there is not point to check
+			if ((long) nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
+			// if left plus last 3 numbers are less than target 
+			// than means left most element is useless as last 3 numbers are the highest
+			// we have to skip this nums[i]
+			if ((long) nums[i] + nums[n - 3] + nums[n - 2] + nums[n - 1] < target) continue;
+
+			for (int j = i + 1; j <= n - 3; j++) {
+
+				//if there is a series of duplicates then it will just take the first time when j==i+1
+				//when j>i+1 then for all duplicate value will be skipped
+				if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+				// in a series left most elements are the smallest
+				// if sum of i and j to j+2 elements are less than target then there is not point to check
+				if ((long) nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target ) break;
+				// if nums[i] plus nums[j] and last 2 numbers are less than target 
+				// than means nums[j] is useless as last 2 numbers are the highest
+				// we have to skip this nums[j]
+				if ((long) nums[i] + nums[j] + nums[n - 2] + nums[n - 1] < target ) continue;
+				left = j + 1;
+				right = n - 1;
+				while (left < right) {
+					leftItem = nums[left];
+					rightItem = nums[right];
+					sum = nums[i] + nums[j] + leftItem + rightItem;
+					if (sum == target) {
+						answer.add(List.of(nums[i], nums[j], leftItem, rightItem));
+						//increasing left and skipping duplicates from the left
+						while (left < n && nums[left] == leftItem) {
+							left++;
+						}
+						//decreasing right and skipping duplicates from the right
+						while (right > j && nums[right] == rightItem) {
+							right--;
+						}
+					} else if (sum < target) {
+						//increasing left and skipping duplicates from the left
+						while (left < n && nums[left] == leftItem) {
+							left++;
+						}
+					} else {
+						//decreasing right and skipping duplicates from the right
+						while (right > j && nums[right] == rightItem) {
+							right--;
+						}
+					}
+				}
+			}
+		}
+		System.out.println(answer);
 	}
 
 	private static void type1() {
@@ -37,7 +100,7 @@ public class FourSum {
 		for (int i = 0; i < n; i++) {
 			for (int j = i + 1; j < n; j++) {
 				for (int k = j + 1; k < n; k++) {
-					target_ = (long)target - (long)nums[i] - (long)nums[j] - (long)nums[k];
+					target_ = (long) target - (long) nums[i] - (long) nums[j] - (long) nums[k];
 					low = k + 1;
 					high = n - 1;
 					while (low <= high) {
