@@ -1,10 +1,11 @@
 package problems.array;
+
 /*
  * 
  * problem links :
  * https://www.codingninjas.com/codestudio/problems/615?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * 
- * https://www.youtube.com/watch?v=kQ1mJlwW-c0
+ * Solution link : https://www.youtube.com/watch?v=kQ1mJlwW-c0
  * 
  * */
 
