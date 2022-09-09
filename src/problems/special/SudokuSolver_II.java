@@ -1,4 +1,4 @@
-package problems.others.sudoku;
+package problems.special;
 
 public class SudokuSolver_II {
 	private static final int GRID_SIZE = 9;

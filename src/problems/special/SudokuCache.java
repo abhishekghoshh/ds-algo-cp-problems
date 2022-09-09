@@ -1,4 +1,4 @@
-package problems.others.sudoku;
+package problems.special;
 
 import java.util.HashSet;
 import java.util.Set;
