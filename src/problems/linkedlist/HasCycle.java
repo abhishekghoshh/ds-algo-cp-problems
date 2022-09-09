@@ -4,11 +4,21 @@ public class HasCycle {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
 
 	}
 
+	// efficient approach without any extra space
+	// but it can go more than o(n)
+	// as it will 
 	// tortoise method
-	private static void type1() {
+	// here we have a slow node and fast node
+	// slow node goes one node at a time
+	// fast node goes two nodes
+	// if there is any loop then slow and fast will travel with different speed
+	// and after some they will reach to same node
+	// if there is no cycle then fast will exhaust automatically
+	private static void type2() {
 		Node<Integer> headA = new Node<>(10, 2);
 		Node<Integer> headB = new Node<>(10, 11);
 		Node<Integer> headC = new Node<>(15, 30, 45);
@@ -29,4 +39,7 @@ public class HasCycle {
 		System.out.println("cycle present : " + hasCycle);
 	}
 
+	private static void type1() {
+
+	}
 }
