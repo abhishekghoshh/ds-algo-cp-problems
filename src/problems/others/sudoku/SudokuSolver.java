@@ -1,4 +1,4 @@
-package special.sudoku;
+package problems.others.sudoku;
 
 public class SudokuSolver {
 

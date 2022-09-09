@@ -64,6 +64,8 @@ public class LongestConsecutiveSequence {
 	// then linearly traverse
 	// time complexity o(n*log(n))
 	// space complexity o(n)
+	// and we are distorting the array
+	// we can make a copy then operate on that
 	private static void type1() {
 		int[] nums = { 100, 4, 200, 1, 3, 2 };
 		if (nums.length == 0) {
