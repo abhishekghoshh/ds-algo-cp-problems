@@ -10,7 +10,7 @@ import java.util.Map;
  * Solution:
  * https://www.youtube.com/watch?v=fFVZt-6sgyo
  * */
-public class SubArraySumEqualsK {
+public class CountOfSubarraySumEqualsK {
 
 	public static void main(String[] args) {
 		type1();
@@ -29,12 +29,17 @@ public class SubArraySumEqualsK {
 		for (int i = 0; i < n; i++) {
 			sum = sum + nums[i];
 			reminder = sum - k;
-			count = count + (prefixSumMap.containsKey(reminder) ? prefixSumMap.get(reminder) : 0);
 			// if reminder exists that mean k also exists
 			// the number of prefix sum of reminder is equals the number prefix sum of k
-
-			prefixSumMap.put(sum, 1 + (prefixSumMap.containsKey(sum) ? prefixSumMap.get(sum) : 0));
-			// on every index we are counting the prefix sum count
+			if (prefixSumMap.containsKey(reminder)) {
+				count = count + prefixSumMap.get(reminder);
+			}
+			// on every index we are updating the prefix sum count
+			if (!prefixSumMap.containsKey(sum)) {
+				prefixSumMap.put(sum, 1);
+			} else {
+				prefixSumMap.put(sum, 1 + prefixSumMap.get(sum));
+			}
 		}
 		System.out.println("Count of subarry is " + count);
 	}
