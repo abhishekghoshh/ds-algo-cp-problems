@@ -37,6 +37,8 @@ public class LongestSubarrayWithSumEqualsZero {
 				if (prefixSum.containsKey(sum)) {
 					maxLength = Math.max(maxLength, i - prefixSum.get(sum));
 				} else {
+					// else add the sum in the prefixsum map with the current index
+					// we will not update the index of sum even if we find the same sum again
 					prefixSum.put(sum, i);
 				}
 			}

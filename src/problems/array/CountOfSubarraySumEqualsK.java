@@ -20,6 +20,19 @@ public class CountOfSubarraySumEqualsK {
 	// prefix sum approach
 	// time complexity O(n)
 	// space complexity O(n)
+	// suppose in a range of 0..x1..x2 the sum is x2
+	// and in the same range 0..x1 the xor is x1
+	// the xor of in between elements(x1+1..x2) is k
+	// we can say that x1 + k = x2 => x1 = x2 - k
+	// now we have everything just we have to find x1
+	// we will compute sum in every element and store it in map with its count
+	// Please Note
+	// prefixSumMap.put(0, 1); and if(sum==k) count++ has the same purpose
+	// if we include prefixSumMap.put(0, 1) then, at sum==k and reminder will be 0
+	// then count = count + prefixSumMap.get(reminder); it will be automatically
+	// added if we add if(sum==k) count++ then we will manually checking for k
+	// equality, at that time prefixSum.containsKey(0) will return false
+	// count = count + prefixSumMap.get(0);; will not be exexuted
 	private static void type2() {
 		int[] nums = { 1, 2, 3 };
 		int k = 3;
