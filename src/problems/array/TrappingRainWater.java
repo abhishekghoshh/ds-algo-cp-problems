@@ -2,8 +2,11 @@ package problems.array;
 
 /*
  * problem link:
+ * https://www.codingninjas.com/codestudio/problems/630519?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/trapping-rain-water/
  * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=43
  * */
 public class TrappingRainWater {
 
@@ -14,11 +17,46 @@ public class TrappingRainWater {
 		type4();
 	}
 
+	// 2 pointer approach
+	// time complexity O(n)
+	// space complexity O(1)
+	// We need a minimum of leftMax and rightMax.So if we take the case when
+	// height[l]<=height[r] we increase l++, so we can surely say that there is a
+	// block with a height more than height[l] to the right of l. And for the same
+	// reason when height[r]<=height[l] we can surely say that there is a block to
+	// the left of r which is at least of height[r]. So by traversing these cases
+	// and using two pointers approach the time complexity can be decreased without
+	// using extra space
 	private static void type4() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
-		int n = height.length;
-
+		int left = 0, right = height.length - 1, leftMax = 0, rightMax = 0, areaSum = 0;
+		while (left < right) {
+			// find the lower bound among height[left] or height[right]
+			// water label will be always equal to lowest among left and right height
+			if (height[left] <= height[right]) {
+				// height[left] is lower, so water is trapper on left side
+				// update leftmax or ans
+				if (height[left] > leftMax) {
+					leftMax = height[left];
+				} else {
+					// height[i] is less than leftmax so water can be stored
+					areaSum = areaSum + (leftMax - height[left]);
+				}
+				left++;
+			} else {
+				// height[right] is lower, so water is trapper on right side
+				// update rightmax or ans
+				if (height[right] > rightMax) {
+					rightMax = height[right];
+				} else {
+					// height[i] is less than rightmax so water can be stored
+					areaSum = areaSum + (rightMax - height[right]);
+				}
+				right--;
+			}
+		}
+		System.out.println("water collected " + areaSum);
 	}
 
 	// time complexity O(2n)
@@ -45,9 +83,10 @@ public class TrappingRainWater {
 			}
 			tempMax = Math.max(tempMax, height[i]);
 		}
-		System.out.println(areaSum);
+		System.out.println("water collected " + areaSum);
 	}
 
+	// prefix and suffix max array
 	// time complexity O(3n)
 	// space complexity O(2n)
 	// on every index we are calculating it left highest wall and right highest wall
@@ -78,7 +117,7 @@ public class TrappingRainWater {
 				areaSum = areaSum + tempArea;
 			}
 		}
-		System.out.println(areaSum);
+		System.out.println("water collected " + areaSum);
 	}
 
 	// brute force approach
@@ -88,7 +127,7 @@ public class TrappingRainWater {
 	private static void type1() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
-		int n = height.length, leftMax, rightMax, areaSum;
+		int n = height.length, leftMax, rightMax, areaSum = 0;
 		for (int i = 1; i < n - 1; i++) {
 			leftMax = rightMax = Integer.MIN_VALUE;
 			for (int j = i - 1; j >= 0; j--) {
@@ -97,11 +136,14 @@ public class TrappingRainWater {
 				}
 			}
 			for (int j = i + 1; j < n; j++) {
-				if (height[j] > leftMax) {
-					leftMax = height[j];
+				if (height[j] > rightMax) {
+					rightMax = height[j];
 				}
 			}
-
+			if (height[i] < Math.min(leftMax, rightMax)) {
+				areaSum = areaSum + Math.min(leftMax, rightMax) - height[i];
+			}
 		}
+		System.out.println("water collected " + areaSum);
 	}
 }
