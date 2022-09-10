@@ -7,6 +7,7 @@ import java.util.Map;
  * Problem link:
  * 
  * Solution:
+ * https://www.geeksforgeeks.org/longest-sub-array-sum-k/
  * */
 public class LongestSubarrayWithSumEqualsK {
 
@@ -16,9 +17,37 @@ public class LongestSubarrayWithSumEqualsK {
 		type3();
 	}
 
+	// variable length sliding window technique
+	// works on positive numbers only
+	// A simple intuition for the optimal approach is that, while forming a subarray
+	// if the sum as already greater than k, we can stop there and increase the
+	// starting index. Because, already the sum has reached k, if we are still going
+	// to add more elements, it would definitely go up.
+	// time complexity O(2 *n)
+	// space complexity O(1)
 	private static void type3() {
-		// TODO Auto-generated method stub
-
+		int[] nums = { 3, 8, 2, 4, 1, 0, 4, 1, 1, 1, 2, 0, 12 };
+		int k = 5;
+		int left = 0, right = 0, sum = 0, length = 0, n = nums.length;
+		while (right < n) {
+			sum += nums[right];
+			if (sum < k) {
+				right++;
+			} else if (sum == k) {
+				length = Math.max(length, right - left + 1);
+				right++;
+			} else if (sum > k) {
+				while (sum > k) {
+					sum -= nums[left];
+					left++;
+				}
+				if (sum == k) {
+					length = Math.max(length, right - left + 1);
+				}
+				right++;
+			}
+		}
+		System.out.println("max length is " + length);
 	}
 
 	// efficient approach

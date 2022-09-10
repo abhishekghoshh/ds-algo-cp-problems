@@ -116,4 +116,15 @@ public class Node<T> {
 	public static <T> void print(Node<T> node) {
 		System.out.println(node.toString());
 	}
+
+	public Node<T> attach(Node<T> head) {
+		this.last.next = head;
+		this.last = head.last;
+		return this;
+	}
+
+	public Node<T> cycle(Node<T> head1, Node<T> head2) {
+		this.attach(head1).attach(head2).attach(head1);
+		return this;
+	}
 }
