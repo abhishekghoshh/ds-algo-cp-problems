@@ -8,9 +8,12 @@ import java.util.Stack;
 public class MaximumAreaOfHistogram {
 	public static void main(String args[]) {
 		type1();
+		type2();
 	}
 
-	private static void type1() {
+	// time complexity o(5n)
+	// space complexity o(4n)
+	private static void type2() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int length = histogram.length;
 		int maxArea = 0, area;
@@ -72,5 +75,9 @@ public class MaximumAreaOfHistogram {
 			stack.add(i);
 		}
 		return vertices;
+	}
+
+	private static void type1() {
+
 	}
 }

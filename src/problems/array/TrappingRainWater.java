@@ -7,6 +7,9 @@ package problems.array;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=43
+ * 
+ * Blog :
+ * https://takeuforward.org/data-structure/trapping-rainwater/
  * */
 public class TrappingRainWater {
 

@@ -3,6 +3,7 @@ package problems.linkedlist;
 public class Node<T> {
 	public T data;
 	public Node<T> next;
+	public Node<T> random;
 	public Node<T> last;
 
 	Node(T data) {
@@ -95,17 +96,26 @@ public class Node<T> {
 	public String toString() {
 		Node<T> node = this;
 		StringBuilder sb = new StringBuilder();
-		sb.append("[ ");
-		while (null != node) {
-			if (null != node.next) {
-				sb.append(node.data + ", ");
-			}
-			if (null == node.next) {
+		sb.append("[");
+		if (null == node.random) {
+			while (null != node) {
 				sb.append(node.data);
+				if (null != node.next) {
+					sb.append(",");
+				}
+				node = node.next;
 			}
-			node = node.next;
+		} else {
+			while (null != node) {
+				sb.append("{").append("\"data\":").append(node.data).append(",").append("\"random\":")
+						.append(null != node.random ? node.random.data : "null").append("}");
+				if (null != node.next) {
+					sb.append(",");
+				}
+				node = node.next;
+			}
 		}
-		sb.append(" ]");
+		sb.append("]");
 		return sb.toString();
 	}
 
