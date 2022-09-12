@@ -23,12 +23,22 @@ public class MergeTwoSortedList {
 	// optimized merge approach used in merge operation in merge sort
 	// time complexity O(n)
 	// space complexity O(1)
+	// in place merge
 	private static void type2() {
 		Node<Integer> list1 = new Node<>(1, 4, 5, 7);
 		Node<Integer> list2 = new Node<>(2, 3, 6, 8, 9);
-
-		Node<Integer> head = null, headCopy = null, current = null;
+		Node<Integer> head = null;
 		if (null != list1 && null != list2) {
+			Node<Integer> headCopy = null, current = null;
+			// assigning the head and copy of head
+			if (list1.data < list2.data) {
+				head = headCopy = list1;
+				list1 = list1.next;
+			} else {
+				head = headCopy = list2;
+				list2 = list2.next;
+			}
+			// we will merge here
 			while (null != list1 && null != list2) {
 				if (list1.data < list2.data) {
 					current = list1;
@@ -37,14 +47,11 @@ public class MergeTwoSortedList {
 					current = list2;
 					list2 = list2.next;
 				}
-				if (null == head) {
-					headCopy = current;
-					head = headCopy;
-				} else {
-					headCopy.next = current;
-					headCopy = headCopy.next;
-				}
+				headCopy.next = current;// changing the next pointer of the previous node
+				headCopy = current;// assigning the current pointer to next loop
 			}
+			// at this point either l1 or l2 is null
+			// so we can directly attach the remaining linkedlist it the head
 			headCopy.next = null != list1 ? list1 : list2;
 		} else if (null == list1) {
 			head = list2;
