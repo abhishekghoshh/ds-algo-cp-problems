@@ -16,34 +16,43 @@ public class AddTwoNumbers {
 		type2();
 	}
 
-	// o(max(m,n)) without extra space
+	// time complexity o(max(m,n))
+	// space complexity O(1)
 	// in place summation
+	// here we will modify the existing list
+	// we will use l1 if it's not null else l2
 	private static void type2() {
 //		Node<Integer> l1 = new Node<>(2, 4, 3, 5);
 //		Node<Integer> l2 = new Node<>(5, 6, 4, 4, 8, 2);
 		Node<Integer> l1 = new Node<>(9, 9, 9, 9, 9, 9, 9, 9);
 		Node<Integer> l2 = new Node<>(9, 9, 9, 9);
 		int carry = 0, sum;
-		Node<Integer> prev = l1, res = l1;
-		while (l1 != null || l2 != null || carry != 0) {
+		// assigning head to l1 or l2
+		Node<Integer> head = null != l1 ? l1 : l2;
+		// made a copy of head for our computation
+		Node<Integer> prev = head;
+		while (null != l1 || null != l2 || carry != 0) {
 			sum = ((null != l1) ? l1.data : 0) + ((null != l2) ? l2.data : 0) + carry;
-			if (l1 != null) {
+			if (null != l1) {
+				// we are assuming that we will use l1 if not null
 				l1.data = sum % 10;
-				carry = sum / 10;
 				prev = l1;
-			} else if (l1 == null && l2 != null) {
+			} else if (null == l1 && null != l2) {
+				// we will use l2 for computation
 				l2.data = sum % 10;
-				carry = sum / 10;
+				// l1 has exhausted then we need to point last of l1 to current node of l2
+				// prev was point to l1 so prev.next=l2 will work
+				// after attaching now assign l2 to prev
 				prev.next = l2;
 				prev = l2;
 			} else {
 				prev.next = new Node<>(carry);
-				carry = 0;
 			}
+			carry = sum / 10;
 			l1 = (null != l1) ? l1.next : l1;
 			l2 = (null != l1) ? l1.next : l1;
 		}
-		res.print();
+		head.print();
 	}
 
 	// time complexity o(max(m,n)+1)
