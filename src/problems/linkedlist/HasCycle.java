@@ -2,7 +2,15 @@ package problems.linkedlist;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/*
+ * 
+ * problem links :
+ * https://www.codingninjas.com/codestudio/problems/628974?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/linked-list-cycle/
+ * 
+ * https://www.youtube.com/watch?v=354J83hX7RI&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=35
+ * 
+ * */
 public class HasCycle {
 
 	public static void main(String[] args) {
@@ -11,10 +19,10 @@ public class HasCycle {
 
 	}
 
+	// tortoise method
 	// efficient approach without any extra space
 	// but it can go more than o(n)
 	// as it will
-	// tortoise method
 	// here we have a slow node and fast node
 	// slow node goes one node at a time
 	// fast node goes two nodes
@@ -27,11 +35,6 @@ public class HasCycle {
 		Node<Integer> fast = head;
 		boolean hasCycle = false;
 		while (null != fast && null != fast.next) {
-			if (fast.next.next == null) {
-				// no cycle is present
-				// early break to reduce extra computation
-				break;
-			}
 			slow = slow.next;
 			fast = fast.next.next;
 			if (slow == fast) {

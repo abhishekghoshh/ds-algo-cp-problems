@@ -1,6 +1,7 @@
 package problems.linkedlist;
 
 public class Node<T> {
+	public static boolean isLastPoinerCheckEnabled = false;
 	public T data;
 	public Node<T> next;
 	public Node<T> random;
@@ -103,20 +104,30 @@ public class Node<T> {
 				if (null != node.next) {
 					sb.append(",");
 				}
+				if (isLastNode(node)) {
+					break;
+				}
 				node = node.next;
 			}
 		} else {
-			while (null != node) {
+			while (null != node || isLastNode(node)) {
 				sb.append("{").append("\"data\":").append(node.data).append(",").append("\"random\":")
 						.append(null != node.random ? node.random.data : "null").append("}");
 				if (null != node.next) {
 					sb.append(",");
+				}
+				if (isLastNode(node)) {
+					break;
 				}
 				node = node.next;
 			}
 		}
 		sb.append("]");
 		return sb.toString();
+	}
+
+	private boolean isLastNode(Node<T> node) {
+		return isLastPoinerCheckEnabled && last == node;
 	}
 
 	public void print() {

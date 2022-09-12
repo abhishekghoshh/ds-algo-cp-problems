@@ -3,6 +3,15 @@ package problems.linkedlist;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * 
+ * problem links :
+ * https://www.codingninjas.com/codestudio/problems/1112628?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/linked-list-cycle-ii/
+ * 
+ * https://www.youtube.com/watch?v=QfbOhn0WZ88&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=38
+ * 
+ * */
 public class StartingNodeOfCycle {
 
 	public static void main(String[] args) {

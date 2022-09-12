@@ -36,41 +36,42 @@ public class IsPalindromeOrNot {
 		// head = new Node<>(1, 1);
 		// head = new Node<>(1);
 		int size = 0;
-		Node<Integer> fast = head, slow = head, rightListStart, reversedRightListStart, leftListStart,
-				reversedRightListStartCopy;
+		Node<Integer> fast = head, slow = head, right, left, rightCopy;
 		boolean isPalindrome = true;
 		while (null != fast && null != fast.next) {
 			size = size + 2;
 			slow = slow.next;
 			fast = fast.next.next;
+			// fast is standing on last element
+			// number of nodes are odd
 			if (null != fast && null == fast.next) {
 				size++;
 			}
 		}
-		// only one node is in linked list
-		// so loop didn't got executed so slow will head pointer
+		// head==slow will occur when only one node is in linked list
+		// as loop didn't got executed so slow will head pointer
 		if (head != slow) {
 			// adjust the right list start
-			if (size % 2 == 0) {
-				rightListStart = slow;
-			} else {
-				rightListStart = slow.next;
+			// if size is odd then slow will point it exactly middle of the node
+			// so we have to move it to next
+			// if size is even then then it will be at the starting of the 2nd half
+			if (size % 2 == 1) {
+				slow = slow.next;
 			}
 			// reverse the remaining right
-			reversedRightListStart = reverse(rightListStart);
+			rightCopy = right = reverse(slow);
+			left = head;
 			// check while the right list is not null or any mismatch
-			reversedRightListStartCopy = reversedRightListStart;
-			leftListStart = head;
-			while (null != reversedRightListStart) {
-				if (reversedRightListStart.data != leftListStart.data) {
+			while (null != right) {
+				if (right.data != left.data) {
 					isPalindrome = false;
 					break;
 				}
-				reversedRightListStart = reversedRightListStart.next;
-				leftListStart = leftListStart.next;
+				right = right.next;
+				left = left.next;
 			}
 			// again reverse the right part
-			reverse(reversedRightListStartCopy);
+			reverse(rightCopy);
 		}
 		System.out.println("list is palidrome " + isPalindrome);
 	}

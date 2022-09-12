@@ -28,14 +28,16 @@ public class CloneLinkedListWithRandomPointer {
 	// on the third loop we will remove the duplicate nodes
 	private static void type2() {
 		Node<Integer> head = buildLinkedListWithRandomPointer();
-		Node<Integer> start = head, copy, current, newHead = null, newHeadCopy = null;
+
+		Node<Integer> start = head, copy, current;
 		// duplicate nodes will be made
 		while (null != start) {
-			current = start;
-			start = start.next;
-			copy = new Node<>(current.data);
-			copy.next = current.next;
-			current.next = copy;
+			current = start;// creating one copy for future
+			start = start.next;// goes to next element of the actual list
+			copy = new Node<>(current.data); // creating duplicate node
+			copy.next = current.next;// assigning duplicates next to current next
+			current.next = copy;// assigning current next to duplicate
+			// so duplicate node successfully place in between actual list node
 		}
 		start = head;
 		// at this point node size is 2n
@@ -46,20 +48,25 @@ public class CloneLinkedListWithRandomPointer {
 			start = start.next.next;
 		}
 		start = head;
+		// we will create a dummy node for storing the duplicate nodes
+		Node<Integer> newHead = new Node<>(0), previous;
+		previous = newHead;
+		// at this point also node size is 2n
 		// we will separate two list in this loop
 		while (null != start) {
-			current = start;
-			start = start.next.next;
-			if (null == newHead) {
-				newHeadCopy = current.next;
-				current.next = newHeadCopy.next;
-				newHead = newHeadCopy;
-			} else {
-				newHeadCopy.next = current.next;
-				newHeadCopy = current.next;
-				current.next = newHeadCopy.next;
-			}
+			current = start;// creating one copy for future
+			start = start.next.next;// goes to next element of the actual list
+			// pointing in between duplicate node to duplicate list's next
+			previous.next = current.next;
+			previous = previous.next;// previous moves to current duplicate node
+			// at this point duplicate node is pointing to next element of actual list
+			// so we will assign current's next pointer to duplicate's next
+			// so actual list will restore again
+			current.next = previous.next;
 		}
+		// as there was a dummy node at first
+		// so we will remove it
+		newHead = newHead.next;
 		System.out.println("Actual " + head);
 		System.out.println("Copy " + newHead);
 	}
@@ -69,27 +76,29 @@ public class CloneLinkedListWithRandomPointer {
 	// space complexity O(n)
 	private static void type1() {
 		Node<Integer> head = buildLinkedListWithRandomPointer();
-		Node<Integer> newHead = null, newHeadCopy = null, current, start = head;
+		// creating a dummy node for head at last we will remove it
+		Node<Integer> newHead = new Node<>(0);
+		Node<Integer> newHeadCopy = newHead;
+		Node<Integer> current, start = head;
 		Map<Node<Integer>, Node<Integer>> mapping = new HashMap<>();
 		while (null != start) {
-			if (null == newHead) {
-				newHeadCopy = new Node<>(start.data);
-				newHead = newHeadCopy;
-			} else {
-				current = new Node<>(start.data);
-				newHeadCopy.next = current;
-				newHeadCopy = current;
-			}
-			mapping.put(start, newHeadCopy);
+			current = new Node<>(start.data);
+			newHeadCopy.next = current;
+			newHeadCopy = current;
+			mapping.put(start, current);
 			start = start.next;
 		}
 		start = head;
-		newHeadCopy = newHead;
+		// as newHead has an extra dummy pointer
+		newHeadCopy = newHead.next;
 		while (null != newHeadCopy) {
 			newHeadCopy.random = null != start.random ? mapping.get(start.random) : null;
 			start = start.next;
 			newHeadCopy = newHeadCopy.next;
 		}
+		// as there was a dummy node at first
+		// so we will remove it
+		newHead = newHead.next;
 		System.out.println("Actual " + head);
 		System.out.println("Copy " + newHead);
 	}
