@@ -3,6 +3,8 @@ package problems.linkedlist;
 import java.util.HashMap;
 import java.util.Map;
 
+import util.LinkedListNode;
+
 /*
  * 
  * problem links :

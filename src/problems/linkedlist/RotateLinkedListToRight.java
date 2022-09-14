@@ -1,5 +1,7 @@
 package problems.linkedlist;
 
+import util.LinkedListNode;
+
 /*
  * 
  * problem links :

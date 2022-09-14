@@ -1,7 +1,7 @@
-package problems.linkedlist;
+package util;
 
 public class LinkedListNode<T> {
-	enum ToStringApproach {
+	public enum ToStringApproach {
 		SIMPLE, WITH_LAST, WITH_RANDOM, WITH_BOTTOM;
 	}
 
@@ -12,19 +12,19 @@ public class LinkedListNode<T> {
 	public LinkedListNode<T> last;
 	public LinkedListNode<T> bottom;
 
-	LinkedListNode(T data) {
+	public LinkedListNode(T data) {
 		this.data = data;
 		this.next = null;
 		last = this;
 	}
 
-	LinkedListNode() {
+	public LinkedListNode() {
 		this.next = null;
 		last = this;
 	}
 
 	@SafeVarargs
-	LinkedListNode(T... datas) {
+	public LinkedListNode(T... datas) {
 		LinkedListNode<T> node = this;
 		if (datas.length != 0) {
 			node.data = datas[0];
