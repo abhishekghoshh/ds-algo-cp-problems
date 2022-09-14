@@ -28,9 +28,9 @@ public class MiddleOfLinkedList {
 	// So 2nd pointer will go twice the first pointer
 	// so when 2nd pointer reaches the end the first pointer only goes to half
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5);
 		head.print();
-		Node<Integer> slow = head, fast = head;
+		LinkedListNode<Integer> slow = head, fast = head;
 		while (null != fast && null != fast.next) {
 			slow = slow.next;
 			fast = fast.next.next;
@@ -42,10 +42,10 @@ public class MiddleOfLinkedList {
 	// first will count the length
 	// now it will go half of the length
 	private static void type1() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5);
 		head.print();
 		int length = 0;
-		Node<Integer> copy = head;
+		LinkedListNode<Integer> copy = head;
 		while (null != copy) {
 			copy = copy.next;
 			length++;

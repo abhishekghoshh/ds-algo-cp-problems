@@ -26,7 +26,7 @@ import java.util.PriorityQueue;
 public class FlattenOfALinkedList {
 
 	public static void main(String[] args) {
-		Node.TO_STRING_APPROACH = Node.ToStringApproach.WITH_BOTTOM;
+		LinkedListNode.TO_STRING_APPROACH = LinkedListNode.ToStringApproach.WITH_BOTTOM;
 		type1();
 		type2();
 		type3();
@@ -37,18 +37,18 @@ public class FlattenOfALinkedList {
 	// time complexity O(n*m*log(n))
 	// space complexity O(n) for priority queue
 	private static void type3() {
-		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
-				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
-		PriorityQueue<Node<Integer>> heap = new PriorityQueue<>(
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+		PriorityQueue<LinkedListNode<Integer>> heap = new PriorityQueue<>(
 				(node1, node2) -> Integer.compare(node1.data, node2.data));
-		Node<Integer> current = head, next, lowest, currentLowest;
+		LinkedListNode<Integer> current = head, next, lowest, currentLowest;
 		while (null != current) {
 			heap.offer(current);
 			next = current.next;
 			current.next = null;
 			current = next;
 		}
-		head = new Node<>(0);
+		head = new LinkedListNode<>(0);
 		current = head;
 		while (!heap.isEmpty()) {
 			lowest = heap.poll();
@@ -81,13 +81,13 @@ public class FlattenOfALinkedList {
 	// total time complexity O(n*n*m)
 	// space complexity O(1)
 	private static void type2() {
-		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
-				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
 		head = flatten(head);
 		System.out.println(head);
 	}
 
-	private static Node<Integer> flatten(Node<Integer> head) {
+	private static LinkedListNode<Integer> flatten(LinkedListNode<Integer> head) {
 		if (null == head || null == head.next) {
 			return head;
 		}
@@ -101,12 +101,12 @@ public class FlattenOfALinkedList {
 	}
 
 	// merge opration
-	private static Node<Integer> merge(Node<Integer> l1, Node<Integer> l2) {
+	private static LinkedListNode<Integer> merge(LinkedListNode<Integer> l1, LinkedListNode<Integer> l2) {
 		// as l1 and l2 sorted order and the linked list it also sorted
 		// so l1.data<l2.data
 		// first pointer will always be l1's
-		Node<Integer> dummy = new Node<>(0);
-		Node<Integer> prev = dummy;
+		LinkedListNode<Integer> dummy = new LinkedListNode<>(0);
+		LinkedListNode<Integer> prev = dummy;
 		while (null != l1 && null != l2) {
 			if (l1.data <= l2.data) {
 				prev.bottom = l1;
@@ -135,10 +135,10 @@ public class FlattenOfALinkedList {
 	// total time complexity O(2*m*n)+O(m*n*log(m*n))
 	// space complexity O(m*n) to store it in array
 	private static void type1() {
-		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
-				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
-		Node<Integer> current = head, bottom, next, bottomNext;
-		List<Node<Integer>> list = new ArrayList<>();
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+		LinkedListNode<Integer> current = head, bottom, next, bottomNext;
+		List<LinkedListNode<Integer>> list = new ArrayList<>();
 		while (null != current) {
 			bottom = current;
 			while (null != bottom) {
@@ -152,9 +152,9 @@ public class FlattenOfALinkedList {
 			current = next;
 		}
 		Collections.sort(list, (node1, node2) -> Integer.compare(node1.data, node2.data));
-		head = new Node<>(0);
+		head = new LinkedListNode<>(0);
 		current = head;
-		for (Node<Integer> node : list) {
+		for (LinkedListNode<Integer> node : list) {
 			current.bottom = node;
 			current = node;
 		}

@@ -36,12 +36,12 @@ public class RotateLinkedListToRight {
 	// now we will assign head to 3.next which is 4
 	// also breaks 3's next pointer
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5);
 		// head.toStringApproach = ToStringApproach.WITH_LAST;
 		int k = 2;
 		// length is not zero or a single node or number of rotation is not zero
 		if (null != head && null != head.next && k != 0) {
-			Node<Integer> start = head;
+			LinkedListNode<Integer> start = head;
 			// we are initializing it length to 1
 			int length = 1, reminder;
 			// we need to go to the last pointer not null

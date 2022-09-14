@@ -40,10 +40,10 @@ public class IntersectionOfTwoLinkedList {
 	// so if we traverse both pointer in a loop until they became same then we will
 	// find our answer
 	private static void type4() {
-		Node<Integer> common = new Node<>(15, 30);
-		Node<Integer> headA = new Node<>(10, 6, 9).next(common);
-		Node<Integer> headB = new Node<>(10, 11).next(common);
-		Node<Integer> h1 = headA, h2 = headB;
+		LinkedListNode<Integer> common = new LinkedListNode<>(15, 30);
+		LinkedListNode<Integer> headA = new LinkedListNode<>(10, 6, 9).next(common);
+		LinkedListNode<Integer> headB = new LinkedListNode<>(10, 11).next(common);
+		LinkedListNode<Integer> h1 = headA, h2 = headB;
 		while (h1 != h2) {
 			h1 = null != h1 ? h1.next : headB;
 			h2 = null != h2 ? h2.next : headA;
@@ -57,11 +57,11 @@ public class IntersectionOfTwoLinkedList {
 	// time complexity O(2*max(n1,n2)))
 	// space complexity O(1)
 	private static void type3() {
-		Node<Integer> common = new Node<>(15, 30);
-		Node<Integer> headA = new Node<>(10, 6, 9).next(common);
-		Node<Integer> headB = new Node<>(10, 11).next(common);
+		LinkedListNode<Integer> common = new LinkedListNode<>(15, 30);
+		LinkedListNode<Integer> headA = new LinkedListNode<>(10, 6, 9).next(common);
+		LinkedListNode<Integer> headB = new LinkedListNode<>(10, 11).next(common);
 		int count1 = 0, count2 = 0;
-		Node<Integer> h1 = headA, h2 = headB;
+		LinkedListNode<Integer> h1 = headA, h2 = headB;
 		while (null != h1 || null != h2) {
 			if (null != h1) {
 				count1++;
@@ -92,9 +92,9 @@ public class IntersectionOfTwoLinkedList {
 	// time complexity O((n1+n2))+O(max((n1+n2)))
 	// space complexity O(1)
 	private static void type2() {
-		Node<Integer> headA = new Node<>(10, 6, 9, 15, 30);
-		Node<Integer> headB = new Node<>(10, 15, 30);
-		Node<Integer> point = null;
+		LinkedListNode<Integer> headA = new LinkedListNode<>(10, 6, 9, 15, 30);
+		LinkedListNode<Integer> headB = new LinkedListNode<>(10, 15, 30);
+		LinkedListNode<Integer> point = null;
 		int count1 = count(headA);
 		int count2 = count(headB);
 		boolean hasCommon = false;
@@ -127,15 +127,15 @@ public class IntersectionOfTwoLinkedList {
 	// time complexity(O(n1+n2)
 	// space complexity O(n1)
 	private static void type1() {
-		Node<Integer> common = new Node<>(15, 30);
-		Node<Integer> headA = new Node<>(10, 6, 9).next(common);
-		Node<Integer> headB = new Node<>(10, 11).next(common);
-		Node<Integer> point = null;
-		Set<Node<Integer>> set = new HashSet<>();
-		for (Node<Integer> node1 = headA; null != node1; node1 = node1.next) {
+		LinkedListNode<Integer> common = new LinkedListNode<>(15, 30);
+		LinkedListNode<Integer> headA = new LinkedListNode<>(10, 6, 9).next(common);
+		LinkedListNode<Integer> headB = new LinkedListNode<>(10, 11).next(common);
+		LinkedListNode<Integer> point = null;
+		Set<LinkedListNode<Integer>> set = new HashSet<>();
+		for (LinkedListNode<Integer> node1 = headA; null != node1; node1 = node1.next) {
 			set.add(node1);
 		}
-		for (Node<Integer> node2 = headB; null != node2; node2 = node2.next) {
+		for (LinkedListNode<Integer> node2 = headB; null != node2; node2 = node2.next) {
 			if (set.contains(node2)) {
 				point = node2;
 				break;
@@ -148,12 +148,12 @@ public class IntersectionOfTwoLinkedList {
 	// time complexity(O(n1*n2)
 	// space complexity (1)
 	private static void type0() {
-		Node<Integer> common = new Node<>(15, 30);
-		Node<Integer> headA = new Node<>(10, 6, 9).next(common);
-		Node<Integer> headB = new Node<>(10, 11).next(common);
-		Node<Integer> point = null;
-		for (Node<Integer> node1 = headA; null != node1; node1 = node1.next) {
-			for (Node<Integer> node2 = headB; null != node2; node2 = node2.next) {
+		LinkedListNode<Integer> common = new LinkedListNode<>(15, 30);
+		LinkedListNode<Integer> headA = new LinkedListNode<>(10, 6, 9).next(common);
+		LinkedListNode<Integer> headB = new LinkedListNode<>(10, 11).next(common);
+		LinkedListNode<Integer> point = null;
+		for (LinkedListNode<Integer> node1 = headA; null != node1; node1 = node1.next) {
+			for (LinkedListNode<Integer> node2 = headB; null != node2; node2 = node2.next) {
 				if (node1 == node2) {
 					point = node1;
 					break;
@@ -166,7 +166,7 @@ public class IntersectionOfTwoLinkedList {
 		System.out.println(common);
 	}
 
-	private static int count(Node<Integer> head) {
+	private static int count(LinkedListNode<Integer> head) {
 		int length = 0;
 		while (null != head) {
 			head = head.next;

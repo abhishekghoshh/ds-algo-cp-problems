@@ -29,14 +29,14 @@ public class IsPalindromeOrNot {
 	// total time complexity O(2n)
 	// space complexity O(1)
 	private static void type2() {
-		Node<Integer> head = null;
-		head = new Node<>(1, 2, 3, 5, 3, 2, 1);
-		// head = new Node<>(1, 2, 3, 3, 2, 1);
-		// head = new Node<>(1, 2, 1);
-		// head = new Node<>(1, 1);
-		// head = new Node<>(1);
+		LinkedListNode<Integer> head = null;
+		head = new LinkedListNode<>(1, 2, 3, 5, 3, 2, 1);
+		// head = new LinkedListNode<>(1, 2, 3, 3, 2, 1);
+		// head = new LinkedListNode<>(1, 2, 1);
+		// head = new LinkedListNode<>(1, 1);
+		// head = new LinkedListNode<>(1);
 		int size = 0;
-		Node<Integer> fast = head, slow = head, right, left, rightCopy;
+		LinkedListNode<Integer> fast = head, slow = head, right, left, rightCopy;
 		boolean isPalindrome = true;
 		while (null != fast && null != fast.next) {
 			size = size + 2;
@@ -76,8 +76,8 @@ public class IsPalindromeOrNot {
 		System.out.println("list is palidrome " + isPalindrome);
 	}
 
-	private static Node<Integer> reverse(Node<Integer> head) {
-		Node<Integer> current = null, previous = null;
+	private static LinkedListNode<Integer> reverse(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> current = null, previous = null;
 		while (null != head) {
 			if (null == current) {
 				current = head;
@@ -97,7 +97,7 @@ public class IsPalindromeOrNot {
 	// time complexity O(2n)
 	// space complexity O(n)
 	private static void type1() {
-		Node<Integer> head = new Node<>(1, 2, 3, 3, 2, 1);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 3, 2, 1);
 		List<Integer> list = new ArrayList<>();
 		while (null != head) {
 			list.add(head.data);

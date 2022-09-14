@@ -1,4 +1,5 @@
 package problems.linkedlist;
+
 /*
  * 
  * problem links :
@@ -18,7 +19,7 @@ public class ReverseOfLinkedList {
 
 	// In place reverse without extra space
 	private static void type3() {
-		Node<Integer> head = new Node<>(10, 6, 9, 15, 30);
+		LinkedListNode<Integer> head = new LinkedListNode<>(10, 6, 9, 15, 30);
 		head.print();
 		// new head is the new head, at first it is assign to null
 		// next pointer is to store the next pointer until we do the intermediate
@@ -31,7 +32,7 @@ public class ReverseOfLinkedList {
 		// here we are breaking the forward link and establishes a reverse link
 		// then we are assigning current node to previous, which will help in next
 		// iteration
-		Node<Integer> previous = null, next = null, current = head;
+		LinkedListNode<Integer> previous = null, next = null, current = head;
 		while (null != current) {
 			next = current.next;
 			current.next = previous;// attaching pointer to previous element
@@ -44,9 +45,9 @@ public class ReverseOfLinkedList {
 
 	// In place reverse without extra space
 	private static void type2() {
-		Node<Integer> head = new Node<>(10, 6, 9, 15, 30);
+		LinkedListNode<Integer> head = new LinkedListNode<>(10, 6, 9, 15, 30);
 		head.print();
-		Node<Integer> current = null, previous = null;
+		LinkedListNode<Integer> current = null, previous = null;
 		while (null != head) {
 			previous = current;
 			current = head;

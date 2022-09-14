@@ -25,8 +25,8 @@ public class DeleteNodeInALinkedList {
 		// You will not be given access to the head of the list
 		// instead you will be given access to the node to be deleted directly.
 		// It is guaranteed that the node to be deleted is not a tail node in the list.
-		Node<Integer> givenNode = new Node<>(5);
-		Node<Integer> head = new Node<>(1, 2, 3, 4).next(givenNode).next(new Node<>(6, 7, 8, 9));
+		LinkedListNode<Integer> givenNode = new LinkedListNode<>(5);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4).next(givenNode).next(new LinkedListNode<>(6, 7, 8, 9));
 		head.print();
 		givenNode.data = givenNode.next.data;
 		givenNode.next = givenNode.next.next;

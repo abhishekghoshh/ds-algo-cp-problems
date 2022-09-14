@@ -30,9 +30,9 @@ public class HasCycle {
 	// and after some they will reach to same node
 	// if there is no cycle then fast will exhaust automatically
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2).cycle(new Node<>(10, 11), new Node<>(15, 30, 45));
-		Node<Integer> slow = head;
-		Node<Integer> fast = head;
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
+		LinkedListNode<Integer> slow = head;
+		LinkedListNode<Integer> fast = head;
 		boolean hasCycle = false;
 		while (null != fast && null != fast.next) {
 			slow = slow.next;
@@ -49,8 +49,8 @@ public class HasCycle {
 	// time complexity o(n)
 	// space complexity o(n)
 	private static void type1() {
-		Node<Integer> head = new Node<>(1, 2).cycle(new Node<>(10, 11), new Node<>(15, 30, 45));
-		Set<Node<Integer>> set = new HashSet<>();
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
+		Set<LinkedListNode<Integer>> set = new HashSet<>();
 		boolean hasCycle = false;
 		while (null != head) {
 			if (!set.contains(head)) {

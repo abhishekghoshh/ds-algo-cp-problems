@@ -38,9 +38,9 @@ public class StartingNodeOfCycle {
 	// time complexity of this more than O(n)
 	// as it may rotate some cycles
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2).cycle(new Node<>(10, 11), new Node<>(15, 30, 45));
-		Node<Integer> slow = head;
-		Node<Integer> fast = head;
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
+		LinkedListNode<Integer> slow = head;
+		LinkedListNode<Integer> fast = head;
 		while (null != fast && null != fast.next) {
 			if (fast.next.next == null) {
 				// no cycle is present
@@ -57,7 +57,7 @@ public class StartingNodeOfCycle {
 		// again we will traverse from start
 		// and slow pointer will also go as it is
 		// and we know that after x distance start and slow pointer will collide
-		Node<Integer> start = head;
+		LinkedListNode<Integer> start = head;
 		while (start != slow) {
 			start = start.next;
 			slow = slow.next;
@@ -69,8 +69,8 @@ public class StartingNodeOfCycle {
 	// time complexity o(n)
 	// space complexity o(n)
 	private static void type1() {
-		Node<Integer> head = new Node<>(1, 2).cycle(new Node<>(10, 11), new Node<>(15, 30, 45));
-		Set<Node<Integer>> set = new HashSet<>();
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
+		Set<LinkedListNode<Integer>> set = new HashSet<>();
 		while (null != head) {
 			if (!set.contains(head)) {
 				set.add(head);

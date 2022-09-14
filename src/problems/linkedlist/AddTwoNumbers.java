@@ -22,15 +22,15 @@ public class AddTwoNumbers {
 	// here we will modify the existing list
 	// we will use l1 if it's not null else l2
 	private static void type2() {
-//		Node<Integer> l1 = new Node<>(2, 4, 3, 5);
-//		Node<Integer> l2 = new Node<>(5, 6, 4, 4, 8, 2);
-		Node<Integer> l1 = new Node<>(9, 9, 9, 9, 9, 9, 9, 9);
-		Node<Integer> l2 = new Node<>(9, 9, 9, 9);
+//		LinkedListNode<Integer> l1 = new LinkedListNode<>(2, 4, 3, 5);
+//		LinkedListNode<Integer> l2 = new LinkedListNode<>(5, 6, 4, 4, 8, 2);
+		LinkedListNode<Integer> l1 = new LinkedListNode<>(9, 9, 9, 9, 9, 9, 9, 9);
+		LinkedListNode<Integer> l2 = new LinkedListNode<>(9, 9, 9, 9);
 		int carry = 0, sum;
 		// assigning head to l1 or l2
-		Node<Integer> head = null != l1 ? l1 : l2;
+		LinkedListNode<Integer> head = null != l1 ? l1 : l2;
 		// made a copy of head for our computation
-		Node<Integer> prev = head;
+		LinkedListNode<Integer> prev = head;
 		while (null != l1 || null != l2 || carry != 0) {
 			sum = ((null != l1) ? l1.data : 0) + ((null != l2) ? l2.data : 0) + carry;
 			if (null != l1) {
@@ -46,7 +46,7 @@ public class AddTwoNumbers {
 				prev.next = l2;
 				prev = l2;
 			} else {
-				prev.next = new Node<>(carry);
+				prev.next = new LinkedListNode<>(carry);
 			}
 			carry = sum / 10;
 			l1 = (null != l1) ? l1.next : l1;
@@ -58,20 +58,20 @@ public class AddTwoNumbers {
 	// time complexity o(max(m,n)+1)
 	// space o(max(m,n)+1)
 	private static void type1() {
-		Node<Integer> l1 = new Node<>(2, 4, 3, 5);
-		Node<Integer> l2 = new Node<>(5, 6, 4);
+		LinkedListNode<Integer> l1 = new LinkedListNode<>(2, 4, 3, 5);
+		LinkedListNode<Integer> l2 = new LinkedListNode<>(5, 6, 4);
 		int carry = 0, sum = 0;
 		// assigning a dummy pointer
-		Node<Integer> head = new Node<>(0);
+		LinkedListNode<Integer> head = new LinkedListNode<>(0);
 		// prev will pointing to head
-		Node<Integer> prev = head, current;
+		LinkedListNode<Integer> prev = head, current;
 		// loop will go until both is null or carry is 0
 		while (null != l1 || null != l2 || carry != 0) {
 			// sum and carry is calculated even if there is any null list
 			sum = ((null != l1) ? l1.data : 0) + ((null != l2) ? l2.data : 0) + carry;
 			carry = sum / 10;
 			// temporary creating node
-			current = new Node<>(sum % 10);
+			current = new LinkedListNode<>(sum % 10);
 			// attaching current pointer to the previous pointer
 			// and then assigning current pointer to previous
 			prev.next = current;

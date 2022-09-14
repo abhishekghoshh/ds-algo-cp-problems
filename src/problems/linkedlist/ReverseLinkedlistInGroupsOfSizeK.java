@@ -27,15 +27,15 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 	// total time complexity O(2n)
 	// space complexity O(1)
 	private static void type3() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		int k = 4;
 		if (null != head && null != head.next && k != 1) {
 			int length = length(head);
 			// we are taking 3 pointers here previous, current and next
 			// as the first pointer does not have any previous so we will add dummy node
-			Node<Integer> dummyHead = new Node<>(0);
+			LinkedListNode<Integer> dummyHead = new LinkedListNode<>(0);
 			dummyHead.next = head;
-			Node<Integer> previous = dummyHead, current, next;
+			LinkedListNode<Integer> previous = dummyHead, current, next;
 			// we will start from 1
 			while (length >= k) {
 				current = previous.next;
@@ -59,7 +59,7 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 		System.out.println("rotated list is " + head);
 	}
 
-	private static int length(Node<Integer> head) {
+	private static int length(LinkedListNode<Integer> head) {
 		int count = 0;
 		while (null != head) {
 			count++;
@@ -74,16 +74,16 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 	// total time complexity O(2n)
 	// space complexity O(1)
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		int k = 3;
 		// start will always be last pointer of the previous window
 		// for the first element there is no previous so we have added a dummy pointer
 		// then attach the head with the dummy pointer
 		// from go first to last node of any window we need to go size-1 step
 		int n = k - 1;
-		Node<Integer> dummy = new Node<>(0);
+		LinkedListNode<Integer> dummy = new LinkedListNode<>(0);
 		dummy.next = head;
-		Node<Integer> start = dummy, current = head, next, right, left;
+		LinkedListNode<Integer> start = dummy, current = head, next, right, left;
 		while (null != current) {
 			// if we start traversing from start of the window then
 			// after k-1 operation current will be on last node of window
@@ -119,8 +119,8 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 		System.out.println("rotated list is " + head);
 	}
 
-	private static Node<Integer> reverse(Node<Integer> head) {
-		Node<Integer> current = null, previous = null;
+	private static LinkedListNode<Integer> reverse(LinkedListNode<Integer> head) {
+		LinkedListNode<Integer> current = null, previous = null;
 		while (null != head) {
 			previous = current;
 			current = head;
@@ -137,11 +137,11 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 	// total time complexity O(3n)
 	// space complexity O(n)
 	private static void type1() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		int k = 3;
-		List<Node<Integer>> list = new ArrayList<>();
+		List<LinkedListNode<Integer>> list = new ArrayList<>();
 		int left = 0, right = 0;
-		Node<Integer> current = head, next;
+		LinkedListNode<Integer> current = head, next;
 		while (null != current) {
 			next = current.next;
 			current.next = null;
@@ -156,9 +156,9 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 			}
 			current = next;
 		}
-		head = new Node<>(0);
+		head = new LinkedListNode<>(0);
 		current = head;
-		for (Node<Integer> item : list) {
+		for (LinkedListNode<Integer> item : list) {
 			current.next = item;
 			current = current.next;
 		}
@@ -166,8 +166,8 @@ public class ReverseLinkedlistInGroupsOfSizeK {
 		System.out.println("rotated list is " + head);
 	}
 
-	private static void reverse(List<Node<Integer>> list, int left, int right) {
-		Node<Integer> leftElement;
+	private static void reverse(List<LinkedListNode<Integer>> list, int left, int right) {
+		LinkedListNode<Integer> leftElement;
 		while (left < right) {
 			leftElement = list.get(left);
 			list.set(left, list.get(right));

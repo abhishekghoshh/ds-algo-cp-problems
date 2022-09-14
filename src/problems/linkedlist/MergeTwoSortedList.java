@@ -25,11 +25,11 @@ public class MergeTwoSortedList {
 	// space complexity O(1)
 	// in place merge
 	private static void type2() {
-		Node<Integer> list1 = new Node<>(1, 4, 5, 7);
-		Node<Integer> list2 = new Node<>(2, 3, 6, 8, 9);
-		Node<Integer> head = null;
+		LinkedListNode<Integer> list1 = new LinkedListNode<>(1, 4, 5, 7);
+		LinkedListNode<Integer> list2 = new LinkedListNode<>(2, 3, 6, 8, 9);
+		LinkedListNode<Integer> head = null;
 		if (null != list1 && null != list2) {
-			Node<Integer> headCopy = null, current = null;
+			LinkedListNode<Integer> headCopy = null, current = null;
 			// assigning the head and copy of head
 			if (list1.data < list2.data) {
 				head = headCopy = list1;
@@ -68,9 +68,9 @@ public class MergeTwoSortedList {
 	// time complexity O(n1+n2)+O((n1+n2)*log(n1+n2))+O(n1+n2)
 	// space complexity O(2*(n1+n2)) for list+linked list
 	private static void type1() {
-		Node<Integer> list1 = new Node<>(1, 4, 5, 7);
-		Node<Integer> list2 = new Node<>(2, 3, 6, 8, 9);
-		Node<Integer> list1Copy = list1, list2Copy = list2, head = null, headCopy = null;
+		LinkedListNode<Integer> list1 = new LinkedListNode<>(1, 4, 5, 7);
+		LinkedListNode<Integer> list2 = new LinkedListNode<>(2, 3, 6, 8, 9);
+		LinkedListNode<Integer> list1Copy = list1, list2Copy = list2, head = null, headCopy = null;
 		List<Integer> list = new ArrayList<>();
 		while (null != list1Copy) {
 			list.add(list1Copy.data);
@@ -83,10 +83,10 @@ public class MergeTwoSortedList {
 		Collections.sort(list);
 		for (int i = 0; i < list.size(); i++) {
 			if (null == head) {
-				headCopy = new Node<Integer>(list.get(i));
+				headCopy = new LinkedListNode<>(list.get(i));
 				head = headCopy;
 			} else {
-				headCopy.next = new Node<Integer>(list.get(i));
+				headCopy.next = new LinkedListNode<>(list.get(i));
 				headCopy = headCopy.next;
 			}
 		}

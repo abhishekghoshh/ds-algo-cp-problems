@@ -80,12 +80,12 @@ public class MaxHeap {
 
         public void print(){
             for(int i=0;i<size/2;i++){
-                System.out.print("Parent Node : " + heap[i] );
+                System.out.print("Parent LinkedListNode : " + heap[i] );
                 if(leftChild(i)<size){
-                    System.out.print( " Left Child Node: " + heap[leftChild(i)]);
+                    System.out.print( " Left Child LinkedListNode: " + heap[leftChild(i)]);
                 }
                 if(rightChild(i)<size) {
-                    System.out.print(" Right Child Node: "+ heap[rightChild(i)]);
+                    System.out.print(" Right Child LinkedListNode: "+ heap[rightChild(i)]);
                 }
                 System.out.println(); //for new line
             }

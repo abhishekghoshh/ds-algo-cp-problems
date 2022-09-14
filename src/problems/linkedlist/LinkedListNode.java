@@ -1,36 +1,36 @@
 package problems.linkedlist;
 
-public class Node<T> {
+public class LinkedListNode<T> {
 	enum ToStringApproach {
 		SIMPLE, WITH_LAST, WITH_RANDOM, WITH_BOTTOM;
 	}
 
 	public static ToStringApproach TO_STRING_APPROACH = ToStringApproach.SIMPLE;
 	public T data;
-	public Node<T> next;
-	public Node<T> random;
-	public Node<T> last;
-	public Node<T> bottom;
+	public LinkedListNode<T> next;
+	public LinkedListNode<T> random;
+	public LinkedListNode<T> last;
+	public LinkedListNode<T> bottom;
 
-	Node(T data) {
+	LinkedListNode(T data) {
 		this.data = data;
 		this.next = null;
 		last = this;
 	}
 
-	Node() {
+	LinkedListNode() {
 		this.next = null;
 		last = this;
 	}
 
 	@SafeVarargs
-	Node(T... datas) {
-		Node<T> node = this;
+	LinkedListNode(T... datas) {
+		LinkedListNode<T> node = this;
 		if (datas.length != 0) {
 			node.data = datas[0];
-			Node<T> newNode = null;
+			LinkedListNode<T> newNode = null;
 			for (int i = 1; i < datas.length; i++) {
-				newNode = new Node<>(datas[i]);
+				newNode = new LinkedListNode<>(datas[i]);
 				node.next = newNode;
 				node = newNode;
 			}
@@ -53,30 +53,30 @@ public class Node<T> {
 	}
 
 	/**
-	 * @return Node<T> return the next
+	 * @return LinkedListNode<T> return the next
 	 */
-	public Node<T> getNext() {
+	public LinkedListNode<T> getNext() {
 		return next;
 	}
 
 	/**
 	 * @param next the next to set
 	 */
-	public void setNext(Node<T> next) {
+	public void setNext(LinkedListNode<T> next) {
 		this.next = next;
 	}
 
-	public Node<T> next(Node<T> next) {
+	public LinkedListNode<T> next(LinkedListNode<T> next) {
 		this.last.next = next;
 		this.last = next.last;
 		return this;
 	}
 
-	public Node<T> last() {
+	public LinkedListNode<T> last() {
 		return this.last;
 	}
 
-	public static <T> Node<T> last(Node<T> node) {
+	public static <T> LinkedListNode<T> last(LinkedListNode<T> node) {
 		while (null != node.next) {
 			node = node.next;
 		}
@@ -87,7 +87,7 @@ public class Node<T> {
 		return count(this);
 	}
 
-	public static <T> int count(Node<T> node) {
+	public static <T> int count(LinkedListNode<T> node) {
 		if (null == node)
 			return 0;
 		int count = 0;
@@ -100,7 +100,7 @@ public class Node<T> {
 
 	@Override
 	public String toString() {
-		Node<T> node = this;
+		LinkedListNode<T> node = this;
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
 		this.TO_STRING_APPROACH = null != this.TO_STRING_APPROACH ? this.TO_STRING_APPROACH : ToStringApproach.SIMPLE;
@@ -142,7 +142,7 @@ public class Node<T> {
 		case WITH_BOTTOM:
 			while (null != node) {
 				sb.append("[").append(node.data);
-				Node<T> bottom = node.bottom;
+				LinkedListNode<T> bottom = node.bottom;
 				while (null != bottom) {
 					sb.append(",").append(bottom.data);
 					bottom = bottom.bottom;
@@ -172,27 +172,27 @@ public class Node<T> {
 		print(this);
 	}
 
-	public static <T> void print(Node<T> node) {
+	public static <T> void print(LinkedListNode<T> node) {
 		System.out.println(node.toString());
 	}
 
-	public Node<T> attach(Node<T> head) {
+	public LinkedListNode<T> attach(LinkedListNode<T> head) {
 		this.last.next = head;
 		this.last = head.last;
 		return this;
 	}
 
-	public Node<T> cycle(Node<T> head1, Node<T> head2) {
+	public LinkedListNode<T> cycle(LinkedListNode<T> head1, LinkedListNode<T> head2) {
 		this.attach(head1).attach(head2).attach(head1);
 		return this;
 	}
 
 	@SuppressWarnings("unchecked")
-	public Node<T> bottom(T... items) {
-		Node<T> node = this, current;
+	public LinkedListNode<T> bottom(T... items) {
+		LinkedListNode<T> node = this, current;
 		if (null != items && items.length > 0) {
 			for (T item : items) {
-				current = new Node<>(item);
+				current = new LinkedListNode<>(item);
 				node.bottom = current;
 				node = current;
 			}

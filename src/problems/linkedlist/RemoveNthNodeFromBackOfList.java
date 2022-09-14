@@ -20,10 +20,10 @@ public class RemoveNthNodeFromBackOfList {
 	// time complexity O(n)
 	// space complexity O(1)
 	private static void type2() {
-		Node<Integer> head = new Node<>(1, 2, 3, 4, 5, 6, 7, 8, 9);
+		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		int n = 3;
 
-		Node<Integer> left = head, right = head, prev;
+		LinkedListNode<Integer> left = head, right = head, prev;
 		// moving the right pointer to end of the window
 		// after n-1 operation it right will go to last element of the window
 		for (int i = 1; i <= n - 1 && null != right; i++) {

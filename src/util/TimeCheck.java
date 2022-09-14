@@ -1,4 +1,4 @@
-package problems.recursion;
+package util;
 
 public class TimeCheck {
     public static long timeTook(Runnable runnable){
