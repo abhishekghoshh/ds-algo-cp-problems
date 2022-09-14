@@ -1,11 +1,16 @@
 package problems.linkedlist;
 
 public class Node<T> {
-	public static boolean isLastPoinerCheckEnabled = false;
+	enum ToStringApproach {
+		SIMPLE, WITH_LAST, WITH_RANDOM, WITH_BOTTOM;
+	}
+
+	public static ToStringApproach TO_STRING_APPROACH = ToStringApproach.SIMPLE;
 	public T data;
 	public Node<T> next;
 	public Node<T> random;
 	public Node<T> last;
+	public Node<T> bottom;
 
 	Node(T data) {
 		this.data = data;
@@ -98,36 +103,69 @@ public class Node<T> {
 		Node<T> node = this;
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		if (null == node.random) {
+		this.TO_STRING_APPROACH = null != this.TO_STRING_APPROACH ? this.TO_STRING_APPROACH : ToStringApproach.SIMPLE;
+		switch (this.TO_STRING_APPROACH) {
+		case SIMPLE:
+			while (null != node) {
+				sb.append(node.data);
+				node = node.next;
+				if (null != node) {
+					sb.append(",");
+				}
+			}
+			break;
+		case WITH_LAST:
 			while (null != node) {
 				sb.append(node.data);
 				if (null != node.next) {
 					sb.append(",");
 				}
-				if (isLastNode(node)) {
+				if (last == node) {
+					if (sb.charAt(sb.length() - 1) == ',') {
+						sb.deleteCharAt(sb.length() - 1);
+					}
 					break;
 				}
 				node = node.next;
 			}
-		} else {
-			while (null != node || isLastNode(node)) {
+			break;
+		case WITH_RANDOM:
+			while (null != node) {
 				sb.append("{").append("\"data\":").append(node.data).append(",").append("\"random\":")
 						.append(null != node.random ? node.random.data : "null").append("}");
 				if (null != node.next) {
 					sb.append(",");
 				}
-				if (isLastNode(node)) {
-					break;
-				}
 				node = node.next;
 			}
+			break;
+		case WITH_BOTTOM:
+			while (null != node) {
+				sb.append("[").append(node.data);
+				Node<T> bottom = node.bottom;
+				while (null != bottom) {
+					sb.append(",").append(bottom.data);
+					bottom = bottom.bottom;
+				}
+				sb.append("]");
+				node = node.next;
+				if (null != node) {
+					sb.append(",");
+				}
+			}
+			break;
+		default:
+			while (null != node) {
+				sb.append(node.data);
+				node = node.next;
+				if (null != node) {
+					sb.append(",");
+				}
+			}
+			break;
 		}
 		sb.append("]");
 		return sb.toString();
-	}
-
-	private boolean isLastNode(Node<T> node) {
-		return isLastPoinerCheckEnabled && last == node;
 	}
 
 	public void print() {
@@ -146,6 +184,19 @@ public class Node<T> {
 
 	public Node<T> cycle(Node<T> head1, Node<T> head2) {
 		this.attach(head1).attach(head2).attach(head1);
+		return this;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Node<T> bottom(T... items) {
+		Node<T> node = this, current;
+		if (null != items && items.length > 0) {
+			for (T item : items) {
+				current = new Node<>(item);
+				node.bottom = current;
+				node = current;
+			}
+		}
 		return this;
 	}
 }

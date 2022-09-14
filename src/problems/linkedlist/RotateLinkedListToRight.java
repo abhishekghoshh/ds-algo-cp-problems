@@ -12,7 +12,6 @@ package problems.linkedlist;
 public class RotateLinkedListToRight {
 
 	public static void main(String[] args) {
-		// Node.isLastPoinerCheckEnabled = false;
 		type1();
 		type2();
 
@@ -38,6 +37,7 @@ public class RotateLinkedListToRight {
 	// also breaks 3's next pointer
 	private static void type2() {
 		Node<Integer> head = new Node<>(1, 2, 3, 4, 5);
+		// head.toStringApproach = ToStringApproach.WITH_LAST;
 		int k = 2;
 		// length is not zero or a single node or number of rotation is not zero
 		if (null != head && null != head.next && k != 0) {

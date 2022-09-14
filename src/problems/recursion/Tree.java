@@ -1,9 +1,6 @@
 package problems.recursion;
 
-import java.util.Comparator;
-
-public class Tree<T extends Comparable> {
+public class Tree<T extends Comparable<T>> {
     private Node<T> root;
-    
 }
 

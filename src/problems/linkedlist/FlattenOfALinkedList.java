@@ -1,5 +1,10 @@
 package problems.linkedlist;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+
 /*
  * 
  * problem links :
@@ -12,9 +17,16 @@ package problems.linkedlist;
  * Read 
  * https://www.geeksforgeeks.org/flattening-a-linked-list/
  * */
+//Given a Linked List of size N, where every node represents a sub-linked-list and contains two pointers:
+//(i) a next pointer to the next node,
+//(ii) a bottom pointer to a linked list where this node is head.
+//Each of the sub-linked-list is in sorted order.
+//Flatten the Link List such that all the nodes appear in a single level while maintaining the sorted order. 
+//Note: The flattened list will be printed using the bottom pointer instead of the next pointer.
 public class FlattenOfALinkedList {
 
 	public static void main(String[] args) {
+		Node.TO_STRING_APPROACH = Node.ToStringApproach.WITH_BOTTOM;
 		type1();
 		type2();
 		type3();
@@ -25,7 +37,41 @@ public class FlattenOfALinkedList {
 	// time complexity O(n*m*log(n))
 	// space complexity O(n) for priority queue
 	private static void type3() {
-
+		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
+				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
+		PriorityQueue<Node<Integer>> heap = new PriorityQueue<>(
+				(node1, node2) -> Integer.compare(node1.data, node2.data));
+		Node<Integer> current = head, next, lowest, currentLowest;
+		while (null != current) {
+			heap.offer(current);
+			next = current.next;
+			current.next = null;
+			current = next;
+		}
+		head = new Node<>(0);
+		current = head;
+		while (!heap.isEmpty()) {
+			lowest = heap.poll();
+			if (!heap.isEmpty()) {
+				currentLowest = heap.peek();
+				while (null != lowest && lowest.data <= currentLowest.data) {
+					current.bottom = lowest;
+					lowest = lowest.bottom;
+					current = current.bottom;
+				}
+				if (null != lowest) {
+					heap.offer(lowest);
+				}
+			} else {
+				while (null != lowest) {
+					current.bottom = lowest;
+					lowest = lowest.bottom;
+					current = current.bottom;
+				}
+			}
+		}
+		head = head.bottom;
+		System.out.println(head);
 	}
 
 	// merge approach
@@ -35,7 +81,50 @@ public class FlattenOfALinkedList {
 	// total time complexity O(n*n*m)
 	// space complexity O(1)
 	private static void type2() {
+		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
+				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
+		head = flatten(head);
+		System.out.println(head);
+	}
 
+	private static Node<Integer> flatten(Node<Integer> head) {
+		if (null == head || null == head.next) {
+			return head;
+		}
+		head.next = flatten(head.next);
+		head = merge(head, head.next);
+		// at this point l1 and l2 are merged in l1's bottom
+		// but there is a link between l1.next and l2
+		// so, after merge operation we are breaking the next link
+		head.next = null;
+		return head;
+	}
+
+	// merge opration
+	private static Node<Integer> merge(Node<Integer> l1, Node<Integer> l2) {
+		// as l1 and l2 sorted order and the linked list it also sorted
+		// so l1.data<l2.data
+		// first pointer will always be l1's
+		Node<Integer> dummy = new Node<>(0);
+		Node<Integer> prev = dummy;
+		while (null != l1 && null != l2) {
+			if (l1.data <= l2.data) {
+				prev.bottom = l1;
+				prev = l1;
+				l1 = l1.bottom;
+			} else {
+				prev.bottom = l2;
+				prev = l2;
+				l2 = l2.bottom;
+			}
+		}
+		if (null != l1) {
+			prev.bottom = l1;
+		} else {
+			prev.bottom = l2;
+		}
+
+		return dummy.bottom;
 	}
 
 	// brute force approach
@@ -43,9 +132,34 @@ public class FlattenOfALinkedList {
 	// O(n*m) to put it in array
 	// O((n*m)log(n*m)) to sort the array
 	// O(n*m) to create new linked list
-	// total time complexity
+	// total time complexity O(2*m*n)+O(m*n*log(m*n))
+	// space complexity O(m*n) to store it in array
 	private static void type1() {
-
+		Node<Integer> head = new Node<>(5).bottom(7, 8, 30).attach(new Node<>(10).bottom(20))
+				.attach(new Node<>(19).bottom(22, 50)).attach(new Node<>(28).bottom(35, 40, 45));
+		Node<Integer> current = head, bottom, next, bottomNext;
+		List<Node<Integer>> list = new ArrayList<>();
+		while (null != current) {
+			bottom = current;
+			while (null != bottom) {
+				list.add(bottom);
+				bottomNext = bottom.bottom;
+				bottom.bottom = null;
+				bottom = bottomNext;
+			}
+			next = current.next;
+			current.next = null;
+			current = next;
+		}
+		Collections.sort(list, (node1, node2) -> Integer.compare(node1.data, node2.data));
+		head = new Node<>(0);
+		current = head;
+		for (Node<Integer> node : list) {
+			current.bottom = node;
+			current = node;
+		}
+		head = head.bottom;
+		System.out.println(head);
 	}
 
 }
