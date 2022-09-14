@@ -2,7 +2,6 @@ package problems.greedy;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -34,35 +33,37 @@ public class NMeetingsInOneRoom {
 		int end[] = { 2, 4, 6, 7, 9, 9 };
 		List<Meeting> meetings = new ArrayList<>();
 		for (int i = 0; i < start.length; i++) {
-			meetings.add(new Meeting(start[i], end[i]));
+			meetings.add(new Meeting(i + 1, start[i], end[i]));
 		}
-		Collections.sort(meetings, Comparator.comparing(Meeting::end));
+		Collections.sort(meetings, (meeting1, meeting2) -> Integer.compare(meeting1.end, meeting2.end));
+		List<Integer> meetingIndexes = new ArrayList<>();
 		int count = 1, endTime = meetings.get(0).end;
 		for (int i = 1; i < meetings.size(); i++) {
 			if (endTime < meetings.get(i).start) {
+				meetingIndexes.add(meetings.get(i).position);
 				count++;
 				endTime = meetings.get(i).end;
 			}
 		}
 		System.out.println("Total meeting count is " + count);
+		System.out.println("Total meetings is " + meetingIndexes);
 	}
 
 	private static class Meeting {
+		public int position;
 		public int start;
 		public int end;
 
-		public Meeting(int start, int end) {
+		public Meeting(int position, int start, int end) {
+			this.position = position;
 			this.start = start;
 			this.end = end;
 		}
 
-		public int end() {
-			return this.end;
-		}
-
 		@Override
 		public String toString() {
-			return "Meeting [start=" + start + ", end=" + end + "]";
+			return "Meeting [position=" + position + ", start=" + start + ", end=" + end + "]";
 		}
+
 	}
 }
