@@ -20,16 +20,16 @@ public class ReverseStack {
 		}
 		int item = stack.pop();
 		reverse(stack);
-		push(stack, item);
+		insertAtBottom(stack, item);
 	}
 
-	private static void push(Stack<Integer> stack, int item) {
+	private static void insertAtBottom(Stack<Integer> stack, int item) {
 		if (stack.isEmpty()) {
 			stack.push(item);
 			return;
 		}
 		int lastItem = stack.pop();
-		push(stack, item);
+		insertAtBottom(stack, item);
 		stack.push(lastItem);
 	}
 

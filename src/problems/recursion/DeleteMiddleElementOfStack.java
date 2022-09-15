@@ -6,8 +6,46 @@ public class DeleteMiddleElementOfStack {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+		type3();
 	}
 
+	// recursive type2
+	private static void type3() {
+		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
+		// we will pass three parameter
+		// stack, current index,stack size
+		deleteMiddle2(stack, 1, stack.size());
+		System.out.println(stack);
+	}
+
+	private static void deleteMiddle2(Stack<Integer> stack, int current, int size) {
+		if (stack.isEmpty()) {
+			return;
+		}
+		int item = stack.pop();
+		deleteMiddle2(stack, current + 1, size);
+		if (current != (size / 2) + 1) {
+			stack.push(item);
+		}
+	}
+
+	// Iteratively
+	private static void type2() {
+		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
+		int size = stack.size();
+		Stack<Integer> tempStack = new Stack<>();
+		while (stack.size() > (size / 2) + 1) {
+			tempStack.push(stack.pop());
+		}
+		stack.pop();
+		while (!tempStack.isEmpty()) {
+			stack.push(tempStack.pop());
+		}
+		System.out.println(stack);
+	}
+
+	// recursive type1
 	private static void type1() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
 		// we will pass three parameter
