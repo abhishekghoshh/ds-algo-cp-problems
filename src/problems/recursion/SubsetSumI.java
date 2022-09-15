@@ -30,7 +30,10 @@ public class SubsetSumI {
 		if (i == arr.length) {
 			answer.add(sum);
 		} else {
+			// we have 2 choices either to take it or not to tke it
+			// here we are not taking it
 			treverse(arr, i + 1, sum, answer);
+			// here we are taking the arr[i]
 			treverse(arr, i + 1, sum + arr[i], answer);
 		}
 	}
