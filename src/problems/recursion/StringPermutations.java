@@ -5,6 +5,10 @@ import java.util.List;
 
 public class StringPermutations {
 	public static void main(String[] args) {
+		type1();
+	}
+
+	private static void type1() {
 		String string = "ab";
 		List<String> permutations = new ArrayList<>();
 		computePermutations(string, "", permutations);
