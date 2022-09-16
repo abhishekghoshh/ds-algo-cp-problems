@@ -10,7 +10,8 @@ package problems.array;
  * 
  * */
 //Maximum sub array problem
-public class KadanesAlgorithm {
+//Kadane's Algorithm
+public class MaxSumForConsecutiveElements {
 
 	public static void main(String[] args) {
 		type1();

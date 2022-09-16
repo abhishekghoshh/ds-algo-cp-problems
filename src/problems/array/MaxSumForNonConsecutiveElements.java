@@ -1,13 +1,22 @@
-package problems.dynamicprogramming.others;
+package problems.array;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaxSumInArrayForNonConsecutiveElements {
+public class MaxSumForNonConsecutiveElements {
 	public static void main(String[] args) {
+		type1();
+		type2();
+
+	}
+
+	private static void type2() {
+		int[] arr = { 5, 5, 10, 100, 10, 5 };
+	}
+
+	private static void type1() {
 		int[] arr = { 5, 5, 10, 100, 10, 5 };
 		System.out.println(FindMaxSum(arr, arr.length));
-
 	}
 
 	public static int FindMaxSum(int arr[], int n) {
