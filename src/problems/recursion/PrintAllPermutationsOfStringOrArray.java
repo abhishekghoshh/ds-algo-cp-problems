@@ -3,7 +3,7 @@ package problems.recursion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringPermutations {
+public class PrintAllPermutationsOfStringOrArray {
 	public static void main(String[] args) {
 		type1();
 	}
