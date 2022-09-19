@@ -24,6 +24,9 @@ public class LetterCasePermutation {
 	private static void type2() {
 		String s = "a1b2";
 		List<String> answer = new ArrayList<>();
+		// we are just making the string to char array
+		// so the char array will have all the elements
+		// we dont have to add anything later
 		traverse(s, 0, s.toCharArray(), answer);
 		System.out.println(answer);
 	}
@@ -34,11 +37,16 @@ public class LetterCasePermutation {
 			return;
 		}
 		if (Character.isLetter(bucket[index])) {
+			// first we will consider the lower case
+			// so changing the case to lower
+			// whatever the case was previously
 			bucket[index] = Character.toLowerCase(bucket[index]);
 			traverse(s, index + 1, bucket, answer);
+			// now will change the case to upper
 			bucket[index] = Character.toUpperCase(bucket[index]);
 			traverse(s, index + 1, bucket, answer);
 		} else {
+			// as this is a digit so we dont have to add anything
 			traverse(s, index + 1, bucket, answer);
 		}
 	}
@@ -60,16 +68,24 @@ public class LetterCasePermutation {
 			return;
 		}
 		char ch = s.charAt(index);
-		if (!Character.isLetter(ch)) {
-			bucket.append(ch);
-			traverse(s, index + 1, bucket, answer);
-			bucket.deleteCharAt(bucket.length() - 1);
-		} else {
+		// if the character is a letter then only we can change it's case
+		if (Character.isLetter(ch)) {
+			// first we will consider the lower case
 			bucket.append(Character.toLowerCase(ch));
 			traverse(s, index + 1, bucket, answer);
+			// after the computation we will remove it
 			bucket.deleteCharAt(bucket.length() - 1);
 
+			// now will use the upper case
 			bucket.append(Character.toUpperCase(ch));
+			traverse(s, index + 1, bucket, answer);
+			// after the computation we will remove it
+			bucket.deleteCharAt(bucket.length() - 1);
+
+		} else {
+			// if its a index then we have dont have anything to do
+			// just add it and increase the index
+			bucket.append(ch);
 			traverse(s, index + 1, bucket, answer);
 			bucket.deleteCharAt(bucket.length() - 1);
 		}

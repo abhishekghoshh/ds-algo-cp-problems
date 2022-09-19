@@ -19,6 +19,7 @@ public class PrintAllPalindromePartitioning {
 		type2();
 	}
 
+	// TODO check it later
 	private static void type2() {
 		String s = "aabcb";
 		List<List<String>> list = new ArrayList<>();
@@ -71,6 +72,8 @@ public class PrintAllPalindromePartitioning {
 			return;
 		}
 		for (int i = start; i <= end; i++) {
+			// we are breaking the string into two parts such that the first part is
+			// palindrome, then we are checking with the remaining string
 			if (i == start || isPalindrome(s, start, i)) {
 				bucket.add(s.substring(start, i + 1));
 				traverse(s, i + 1, end, bucket, answer);

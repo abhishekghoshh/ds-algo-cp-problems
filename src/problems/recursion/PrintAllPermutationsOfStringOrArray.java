@@ -45,6 +45,9 @@ public class PrintAllPermutationsOfStringOrArray {
 		Set<Character> set = new HashSet<>();
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
+			// we will only consider one element at a label if it is not used previously
+			// that's why we are using set to keep track of the characters which we have
+			// already used in this label
 			if (!set.contains(ch)) {
 				String remainingString = string.substring(0, i) + string.substring(i + 1);
 				previous.append(ch);
@@ -55,6 +58,8 @@ public class PrintAllPermutationsOfStringOrArray {
 		}
 	}
 
+	// same as type previous type3
+	// in place of char array here it is int array
 	private static void type4() {
 		int[] nums = { 1, 2, 3 };
 		List<List<Integer>> answer = new ArrayList<>();
@@ -91,27 +96,25 @@ public class PrintAllPermutationsOfStringOrArray {
 	// if its a int array then we can take List of Integer for bucket
 	private static void type3() {
 		String string = "abc";
-		char[] array = string.toCharArray();
 		List<String> answer = new ArrayList<>();
-		StringBuilder previous = new StringBuilder();
-		computePermutations3(array, 0, previous, answer);
+		computePermutations3(string.toCharArray(), 0, answer);
 		System.out.println(answer);
 	}
 
-	private static void computePermutations3(char[] array, int index, StringBuilder previous, List<String> answer) {
+	private static void computePermutations3(char[] array, int index, List<String> answer) {
 		if (index == array.length) {
-			// at this time the value of previous and array is same
-			// but to save some computation we are using string builder to store all the
-			// previous values
-			answer.add(previous.toString());
+			answer.add(new String(array));
 			return;
 		}
+		// let say the string is abcd, and index is 0
+		// now we are choosing c to be the first
+		// so we swap it with index so string will be cbad
+		// now again we will start recursion from index+1
+		// gain after all the computation we will replace it back
 		for (int i = index; i < array.length; i++) {
-			previous.append(array[i]);
 			swap(array, i, index);
-			computePermutations3(array, index + 1, previous, answer);
+			computePermutations3(array, index + 1, answer);
 			swap(array, i, index);
-			previous.deleteCharAt(previous.length() - 1);
 		}
 	}
 
@@ -137,6 +140,7 @@ public class PrintAllPermutationsOfStringOrArray {
 		if (set.size() == string.length()) {
 			answer.add(previous.toString());
 		}
+		// at every point we recursion we will add one unique element
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
 			if (!set.contains(ch)) {
@@ -164,6 +168,10 @@ public class PrintAllPermutationsOfStringOrArray {
 		if (null == string || string.isEmpty()) {
 			answer.add(previous.toString());
 		}
+		// suppose string is abcd and previous is empty
+		// so we will first consider a, bcd then b,acd then c,abd then
+		// now for a,bcd , previous is a and current string is bcd
+		// we will follow the same ab,cd then ac,bd then ad,bc
 		for (int i = 0; i < string.length(); i++) {
 			String remainingString = string.substring(0, i) + string.substring(i + 1);
 			previous.append(string.charAt(i));

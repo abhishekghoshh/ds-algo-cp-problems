@@ -31,6 +31,8 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 	private static void type2() {
 		int n = 3;
 		List<String> answer = new ArrayList<>();
+		// we will create a bucket of 1
+		// so for 5 digit we will make 11111
 		char[] bucket = createBucketWithAllOnes(n);
 		traverse(0, 0, n, bucket, answer);
 		System.out.println(answer);
@@ -41,10 +43,14 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 			answer.add(new String(bucket));
 			return;
 		}
+		// as the bucket has already all ones so we don't have to add one to bucket
+		// externally again, we will just increase the one's counter
 		traverse(numberOfOne + 1, numberOfZero, n, bucket, answer);
 		if (numberOfOne > numberOfZero) {
+			// as we are considering 0 here so we are changing that position to 1
 			bucket[numberOfOne + numberOfZero] = '0';
 			traverse(numberOfOne, numberOfZero + 1, n, bucket, answer);
+			// again after computation we are changing it back to 1
 			bucket[numberOfOne + numberOfZero] = '1';
 		}
 	}
@@ -69,9 +75,13 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 			answer.add(bucket.toString());
 			return;
 		}
+		// as we can add 1 anytime
+		// so we are adding to be a part of answer
 		bucket.append("1");
 		traverse(numberOfOne + 1, numberOfZero, n, bucket, answer);
 		bucket.deleteCharAt(bucket.length() - 1);
+
+		// if number of one greater than number of zeros then only we will be adding 0
 		if (numberOfOne > numberOfZero) {
 			bucket.append("0");
 			traverse(numberOfOne, numberOfZero + 1, n, bucket, answer);

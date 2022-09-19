@@ -33,6 +33,8 @@ public class CombinationSumWithUniqueElements {
 	private static void type2() {
 		int[] candidates = { 10, 1, 2, 7, 6, 1, 5 };
 		int target = 8;
+		// we will sort the array then all the duplicate elements will come one after
+		// another
 		Arrays.sort(candidates);
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
@@ -47,8 +49,11 @@ public class CombinationSumWithUniqueElements {
 			return;
 		}
 		for (int i = currentIndex; i < candidates.length; i++) {
+			// this condition will skip the duplicate elements
 			if (i != currentIndex && candidates[i] == candidates[i - 1])
 				continue;
+			// if current element is greater than target then there is no point to check
+			// index+1 elements as the array is sorted
 			if (candidates[i] > target)
 				return;
 			bucket.add(candidates[i]);
@@ -61,6 +66,7 @@ public class CombinationSumWithUniqueElements {
 	private static void type1() {
 		int[] candidates = { 10, 1, 2, 7, 6, 5 };
 		int target = 8;
+		// for early computation we will sort the array
 		Arrays.sort(candidates);
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
@@ -68,19 +74,24 @@ public class CombinationSumWithUniqueElements {
 		System.out.println(answer);
 	}
 
-	private static void traverse(int[] candidates, int i, int target, List<Integer> bucket,
+	private static void traverse(int[] candidates, int index, int target, List<Integer> bucket,
 			List<List<Integer>> answer) {
 		if (target == 0) {
 			answer.add(new ArrayList<>(bucket));
 		}
-		if (i == candidates.length)
+		// if index is length and target is not zero so we are not capable make target
+		if (index == candidates.length)
 			return;
-		if (candidates[i] <= target) {
-			bucket.add(candidates[i]);
-			traverse(candidates, i + 1, target - candidates[i], bucket, answer);
+		// we will add the element if it is less than the current target
+		// and we know that if the item is not capable then index+1 element will also
+		// unable to make it
+		if (candidates[index] <= target) {
+			// choosing the element
+			bucket.add(candidates[index]);
+			traverse(candidates, index + 1, target - candidates[index], bucket, answer);
 			bucket.remove(bucket.size() - 1);
-
-			traverse(candidates, i + 1, target, bucket, answer);
+			// not choosing the element
+			traverse(candidates, index + 1, target, bucket, answer);
 		}
 	}
 }

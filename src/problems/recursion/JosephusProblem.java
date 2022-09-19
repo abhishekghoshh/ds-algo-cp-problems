@@ -48,6 +48,10 @@ public class JosephusProblem {
 	 * from k%n + 1. So, we must make adjustments to the position returned by
 	 * Josephus(n – 1, k).
 	 */
+	// time complexity O(n)
+	// space complexity O(1)
+	// TODO study it later
+	// https://www.youtube.com/watch?v=dzYq5VEMZIg
 	private static void type2() {
 		int n = 7;
 		int k = 3;
@@ -80,11 +84,16 @@ public class JosephusProblem {
 	}
 
 	private static int findWinner(List<Integer> alivePersons, int k, int start) {
+		// if there is only one person alive then return the person
 		if (alivePersons.size() == 1) {
 			return alivePersons.get(0);
 		}
+		// find the person who is to be killed
 		start = (start + k - 1) % alivePersons.size();
+		// kill the person
 		alivePersons.remove(start);
+		// as the person is killed now so the next person will take his place
+		// we can again start counting from that index
 		return findWinner(alivePersons, k, start);
 
 	}
