@@ -1,4 +1,4 @@
-package problems.array;
+package problems.slidingwindow;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,10 +12,11 @@ import java.util.Set;
  * 
  * Solution:
  * https://www.youtube.com/watch?v=qtVh-XEpsJo&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=27
+ * https://www.youtube.com/watch?v=L6cffskouPQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=11
  * */
 
 // tags : hash table, sliding window, array, string
-public class LongestSubstringWithoutRepeat {
+public class LongestSubstringWithoutRepeatingCharacters {
 
 	public static void main(String[] args) {
 		type1();

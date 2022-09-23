@@ -3,6 +3,13 @@ package problems.slidingwindow;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+ * Problem link : 
+ * https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=uUXXEgK2Jh8&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=4
+ * */
 public class FirstNegativeNumberInEveryWindowOfSizeK {
 
 	public static void main(String[] args) {
@@ -11,39 +18,49 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 	}
 
 	private static void type2() {
-		int arr[] = { 12, -1, -7, 8, -15, 30, 16, 28 };
-		int k = 3;
+		int arr[] = { -8, 2, 3, -6, 10 };
+		int k = 2;
 		int n = arr.length;
+		// size of the result array
 		int size = n - k + 1;
 		int[] answer = new int[size];
 		Queue<Integer> queue = new LinkedList<>();
 		int left = 0, right = 0;
+		// we are collecting all the negative numbers from 0 to k-1
 		while (right < k) {
 			if (arr[right] < 0) {
 				queue.offer(arr[right]);
 			}
 			right++;
 		}
-		while (left < size) {
+		// currently left=0 and right=k
+		// we are doing right<=n because we are calculating the answer for previous
+		// window
+		while (right <= n) {
+			// checking the answer for the previous window
+			// at the first iteration it is checking the answer for first window
 			if (!queue.isEmpty()) {
 				answer[left] = queue.peek();
+				// is the start first element of queue is start of the window
 				if (queue.peek() == arr[left]) {
 					queue.poll();
 				}
-				left++;
 			} else {
-				answer[left++] = 0;
+				answer[left] = 0;
 			}
-			if (left < size && arr[left + k - 1] < 0) {
-				queue.offer(arr[left + k - 1]);
+			// if current right is less than zero or not
+			if (right < n && arr[right] < 0) {
+				queue.offer(arr[right]);
 			}
+			// shifting the window
+			left++;
+			right++;
 		}
 		print(arr);
 		print(answer);
 	}
 
 	private static void print(int[] arr) {
-		System.out.println();
 		for (int item : arr) {
 			System.out.print(item + " ");
 		}
