@@ -8,10 +8,14 @@ public class SudokuSolver {
 	private static final int GRID_SIZE = 9;
 
 	public static void main(String[] args) {
-
 		type1();
 		type2();
+		type3();
+	}
 
+	private static void type3() {
+		// TODO study https://leetcode.com/submissions/detail/811257299/
+		// top answers
 	}
 
 	private static void type2() {
