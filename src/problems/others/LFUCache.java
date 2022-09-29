@@ -10,6 +10,10 @@ public class LFUCache<T, R> {
 	Map<Integer, LRUCache<T, R>> frequencyMap;
 	Map<T, Node<T, R>> cache;
 
+	public LFUCache() {
+		this(3);
+	}
+
 	public LFUCache(int capacity) {
 		this.capacity = capacity;
 		frequencyMap = new HashMap<>();
@@ -20,6 +24,7 @@ public class LFUCache<T, R> {
 		if (cache.containsKey(key)) {
 			Node<T, R> node = cache.get(key);
 			updateFrequencyAndAdd(node);
+			return node.value();
 		}
 		return null;
 	}
@@ -44,7 +49,8 @@ public class LFUCache<T, R> {
 			updateFrequencyAndAdd(node);
 		} else {
 			if (size == capacity) {
-				frequencyMap.get(leastFrequency).removeTail();
+				Node<T, R> last = frequencyMap.get(leastFrequency).removeTail();
+				cache.remove(last.key());
 				if (frequencyMap.get(leastFrequency).isEmpty()) {
 					frequencyMap.remove(leastFrequency);
 				}
@@ -56,8 +62,14 @@ public class LFUCache<T, R> {
 			if (!frequencyMap.containsKey(node.frequency)) {
 				frequencyMap.put(node.frequency, new LRUCache<>());
 			}
+			cache.put(key, node);
 			frequencyMap.get(node.frequency).put(node);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "LFUCache {size=" + size + ", capacity=" + capacity + ", frequencyMap=" + frequencyMap + "}";
 	}
 
 	public static class LRUCache<T, R> {
@@ -88,12 +100,29 @@ public class LFUCache<T, R> {
 			node.next.prev = prev;
 		}
 
-		public void removeTail() {
-			remove(tail.prev);
+		public Node<T, R> removeTail() {
+			Node<T, R> node = tail.prev;
+			remove(node);
+			return node;
 		}
 
 		public boolean isEmpty() {
 			return size == 0;
+		}
+
+		public String toString() {
+			Node<T, R> node = head.next;
+			StringBuilder sb = new StringBuilder();
+			sb.append("[");
+			while (tail != node) {
+				sb.append(node.value());
+				node = node.next;
+				if (tail != node) {
+					sb.append(",");
+				}
+			}
+			sb.append("]");
+			return sb.toString();
 		}
 	}
 
@@ -149,7 +178,34 @@ public class LFUCache<T, R> {
 	}
 
 	public static void main(String[] args) {
+		LFUCache<Integer, String> cache = new LFUCache<>(3);
+		cache.put(1, "Abhishek");
+		cache.put(2, "Nasim Molla");
+		System.out.println(cache);
+		cache.put(3, "Bishal Mukherjee");
+		System.out.println(cache);
+		cache.put(1, "Abhishek Ghosh");
+		System.out.println(cache);
+		System.out.println(cache.get(2));
+		System.out.println(cache);
+		cache.put(4, "Abhishek Pal");
+		cache.put(4, "Abhishek Pal");
+		cache.put(1, "Abhishek Ghosh");
+		System.out.println(cache);
 
+//		LFUCache<Integer, Integer> cache = new LFUCache<>(3);
+//		cache.put(1, 1);
+//		cache.put(2, 2);
+//		System.out.println(cache);
+//		System.out.println(cache.get(1));
+//		System.out.println(cache);
+//		cache.put(3, 3);
+//		System.out.println(cache);
+//		System.out.println(cache.get(2));
+//		cache.put(4, 4);
+//		System.out.println(cache);
+//		System.out.println(cache.get(1));
+//		System.out.println(cache);
 	}
 
 }

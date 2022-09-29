@@ -15,6 +15,10 @@ public class LRUCache<T, R> {
 	// better if we have a dynamic key value pair based on situation
 	Map<T, Node<T, R>> cache;
 
+	public LRUCache() {
+		this(3);
+	}
+
 	public LRUCache(int capacity) {
 		this.capacity = capacity;
 		cache = new HashMap<>();
