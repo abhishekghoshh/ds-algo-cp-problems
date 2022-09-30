@@ -1,4 +1,4 @@
-package problems.others;
+package problems.linkedlist;
 
 import java.util.HashMap;
 import java.util.Map;
