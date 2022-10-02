@@ -23,14 +23,15 @@ public class SubsetSum {
 		type2();
 	}
 
+
 	// pick non pick method
-	// Given array has duplicate characters
-	// With set
+	// same as previous just that we are taking set
+	// so there will be no duplicate sum
 	private static void type2() {
-		int[] arr = { 1, 2, 1, 3, 2, 4 };
+		int[] arr = { 1, 2, 1, 3, 2, 4, 5 };
 		Set<Integer> answer = new HashSet<>();
 		treverseWithSet(arr, 0, 0, answer);
-		List<Integer> allSubsetSum = new ArrayList<Integer>(answer);
+		List<Integer> allSubsetSum = new ArrayList<>(answer);
 		Collections.sort(allSubsetSum);
 		System.out.println(allSubsetSum);
 	}
@@ -48,16 +49,18 @@ public class SubsetSum {
 	}
 
 	// pick non pick method
-	// Given array has only unique characters
+	// Given array has non unique characters
 	// brute force approach will be to find the power set and then find all the sum
 	// of the sets in power set
 	// But we will not do it
 	// we compute the sum while traversing and in that we will wither choose the
-	// number or we don't
-	// at last we will sort the answer array
+	// number or we don't and save the sum in list
+	// at last we will sort the answer list
 	// time complexity will be O(2^n) + sort of 2^n elements
+	// list may contain some duplicate as 1+2 is 3 and the if we take only 3 then
+	// also sum will be 3
 	private static void type1() {
-		int[] arr = { 5, 1, 2 };
+		int[] arr = { 5, 1, 2, 3 };
 		List<Integer> answer = new ArrayList<>();
 		treverse(arr, 0, 0, answer);
 		Collections.sort(answer);

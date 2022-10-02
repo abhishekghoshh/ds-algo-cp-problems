@@ -2,7 +2,15 @@ package problems.recursion;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/*
+ * Problem link : 
+ * codingninjas.com/codestudio/problems/758961?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://leetcode.com/problems/sudoku-solver/
+ * 
+ * Solution link:
+ * https://www.youtube.com/watch?v=FWAIf_EVUKE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=59
+ * https://takeuforward.org/data-structure/sudoku-solver/
+ * */
 public class SudokuSolver {
 
 	private static final int GRID_SIZE = 9;

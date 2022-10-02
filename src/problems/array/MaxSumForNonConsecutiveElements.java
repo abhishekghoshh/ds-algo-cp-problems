@@ -10,6 +10,9 @@ public class MaxSumForNonConsecutiveElements {
 
 	}
 
+	// without using any extra array
+	// we will use three pointers to store the results
+	// TODO complete it
 	private static void type2() {
 		int[] arr = { 5, 5, 10, 100, 10, 5 };
 	}
