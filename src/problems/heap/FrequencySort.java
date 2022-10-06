@@ -1,7 +1,6 @@
 package problems.heap;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,18 +8,22 @@ import java.util.PriorityQueue;
 
 public class FrequencySort {
 	public static void main(String[] args) {
+		type1();
+	}
+
+	private static void type1() {
 		int arr[] = { 7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9 };
-		int k = 4;
 		Map<Integer, Integer> frequencyMap = frequencyMap(arr);
-		PriorityQueue<Pair> queue = new PriorityQueue<>(Comparator.comparing(Pair::getSecond));
+		PriorityQueue<Pair> queue = new PriorityQueue<>(
+				(pair1, pair2) -> Integer.compare(pair1.second, pair2.second));
 		for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
 			queue.offer(new Pair(entry.getKey(), entry.getValue()));
 		}
 		List<Integer> list = new ArrayList<>();
 		while (queue.size() != 0) {
 			Pair pair = queue.poll();
-			for (int i = 0; i < pair.getSecond(); i++) {
-				list.add(pair.getFirst());
+			for (int i = 0; i < pair.second; i++) {
+				list.add(pair.first);
 			}
 		}
 		System.out.println(list);
@@ -36,5 +39,19 @@ public class FrequencySort {
 			}
 		}
 		return frequencyMap;
+	}
+	private static class Pair {
+		public int first;
+		public int second;
+
+		public Pair(int first, int second) {
+			this.first = first;
+			this.second = second;
+		}
+
+		@Override
+		public String toString() {
+			return "Pair [first=" + first + ", second=" + second + "]";
+		}
 	}
 }

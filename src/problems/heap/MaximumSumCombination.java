@@ -13,8 +13,9 @@ import java.util.Set;
  * problem links :
  * https://www.codingninjas.com/codestudio/problems/k-max-sum-combinations_975322?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://www.interviewbit.com/problems/maximum-sum-combinations/
- * Solution link : 
  * 
+ * Solution link : 
+ * https://www.youtube.com/watch?v=55TeHh37Ly8
  * */
 public class MaximumSumCombination {
 
@@ -22,12 +23,14 @@ public class MaximumSumCombination {
 		type1();
 		type2();
 		type3();
+		// type3_();
 	}
-	
+
 	private static void type3() {
 		Integer[] arr1 = { 1, 4, 2, 3 };
 		Integer[] arr2 = { 2, 5, 1, 6 };
 		int c = 4;
+		int n = arr1.length;
 		PriorityQueue<Point> maxHeap = new PriorityQueue<>((point1, point2) -> Integer.compare(point2.sum, point1.sum));
 		Arrays.sort(arr1, Collections.reverseOrder());
 		Arrays.sort(arr2, Collections.reverseOrder());
@@ -40,15 +43,19 @@ public class MaximumSumCombination {
 		while (list.size() < c) {
 			point = maxHeap.poll();
 			list.add(point.sum);
-			Point point1 = new Point(point.left + 1, point.right, arr1[point.left + 1] + arr2[point.right]);
-			Point point2 = new Point(point.left, point.right + 1, arr1[point.left] + arr2[point.right + 1]);
-			if (!set.contains(point1)) {
-				set.add(point1);
-				maxHeap.offer(point1);
+			if (point.left + 1 < n) {
+				Point point1 = new Point(point.left + 1, point.right, arr1[point.left + 1] + arr2[point.right]);
+				if (!set.contains(point1)) {
+					set.add(point1);
+					maxHeap.offer(point1);
+				}
 			}
-			if (!set.contains(point2)) {
-				set.add(point2);
-				maxHeap.offer(point2);
+			if (point.right + 1 < n) {
+				Point point2 = new Point(point.left, point.right + 1, arr1[point.left] + arr2[point.right + 1]);
+				if (!set.contains(point2)) {
+					set.add(point2);
+					maxHeap.offer(point2);
+				}
 			}
 		}
 		System.out.println(list);
@@ -124,7 +131,7 @@ public class MaximumSumCombination {
 
 	// brute force
 	// time complexity (n^2 + n^2*log(n^2) + c)
-	//space complexity O(c
+	// space complexity O(c
 	private static void type1() {
 		int[] arr1 = { 1, 4, 2, 3 };
 		int[] arr2 = { 2, 5, 1, 6 };
@@ -140,4 +147,40 @@ public class MaximumSumCombination {
 		System.out.println(list);
 	}
 
+	// ignore this
+	// this is copy of type3
+	public static void type3_() {
+		List<Integer> a = new ArrayList<>(List.of(1, 4, 2, 3));
+		List<Integer> b = new ArrayList<>(List.of(2, 5, 1, 6));
+		int c = 4;
+		int n = b.size();
+		PriorityQueue<Point> maxHeap = new PriorityQueue<>((point1, point2) -> Integer.compare(point2.sum, point1.sum));
+		Collections.sort(a, Collections.reverseOrder());
+		Collections.sort(b, Collections.reverseOrder());
+
+		Point point = new Point(0, 0, a.get(0) + b.get(0));
+		ArrayList<Integer> list = new ArrayList<>(c);
+		maxHeap.offer(point);
+		Set<Point> set = new HashSet<>();
+		set.add(point);
+		while (list.size() < c) {
+			point = maxHeap.poll();
+			list.add(point.sum);
+			if (point.left + 1 < n) {
+				Point point1 = new Point(point.left + 1, point.right, a.get(point.left + 1) + b.get(point.right));
+				if (!set.contains(point1)) {
+					set.add(point1);
+					maxHeap.offer(point1);
+				}
+			}
+			if (point.right + 1 < n) {
+				Point point2 = new Point(point.left, point.right + 1, a.get(point.left) + b.get(point.right + 1));
+				if (!set.contains(point2)) {
+					set.add(point2);
+					maxHeap.offer(point2);
+				}
+			}
+		}
+		System.out.println(list);
+	}
 }

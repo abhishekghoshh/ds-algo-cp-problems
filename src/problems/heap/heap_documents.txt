@@ -1,6 +1,0 @@
-keywords -> k, small or largest
-min or max heap
-kth smallest -> max heap
-
-kth largerst -> min heap
-make a max heap of k elements
