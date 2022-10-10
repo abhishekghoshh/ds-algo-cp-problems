@@ -55,7 +55,7 @@ public class AggresiveCows {
 		int prevCow = stalls.get(0);
 		for (int i = 1; i < stalls.size(); i++) {
 			if (stalls.get(i) - prevCow >= distance) {
-				k--;
+				cows++;
 				prevCow = stalls.get(i);
 			}
 		}
