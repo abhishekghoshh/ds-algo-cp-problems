@@ -1,27 +1,29 @@
 package problems.tree;
 
+import util.TreeNode;
+
 public class DiameterOfBinaryTree {
 
 	public static void main(String args[]) {
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
+		type1();
+	}
+
+	private static void type1() {
+		TreeNode<Integer> root = new TreeNode<>(1);
+		root.left = new TreeNode<>(2);
+		root.right = new TreeNode<>(3);
+		root.left.left = new TreeNode<>(4);
+		root.left.right = new TreeNode<>(5);
 		System.out.println(diameterOfBinaryTree(root));
 	}
 
-	static class Value {
-		public int value = Integer.MIN_VALUE;;
-	}
-
-	public static int diameterOfBinaryTree(TreeNode root) {
+	public static int diameterOfBinaryTree(TreeNode<Integer> root) {
 		Value value = new Value();
 		height(root, value);
 		return value.value - 1;
 	}
 
-	private static int height(TreeNode root, Value value) {
+	private static int height(TreeNode<Integer> root, Value value) {
 		if (null == root) {
 			return 0;
 		}
@@ -35,4 +37,9 @@ public class DiameterOfBinaryTree {
 		}
 		return height;
 	}
+
+	private static class Value {
+		public int value = Integer.MIN_VALUE;;
+	}
+
 }

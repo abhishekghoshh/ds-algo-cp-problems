@@ -1,13 +1,15 @@
 package problems.tree;
 
+import util.TreeNode;
+
 public class MaximumPathSumOnlyLeafNodesBinaryTree {
 
 	public static void main(String args[]) {
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(-2);
-		root.left.right = new TreeNode(-1);
+		TreeNode<Integer> root = new TreeNode<>(1);
+		root.left = new TreeNode<>(2);
+		root.right = new TreeNode<>(3);
+		root.left.left = new TreeNode<>(-2);
+		root.left.right = new TreeNode<>(-1);
 		System.out.println(maxPathSum(root));
 	}
 
@@ -15,13 +17,13 @@ public class MaximumPathSumOnlyLeafNodesBinaryTree {
 		public int value = Integer.MIN_VALUE;
 	}
 
-	public static int maxPathSum(TreeNode root) {
+	public static int maxPathSum(TreeNode<Integer> root) {
 		Holder holder = new Holder();
 		maxPath(root, holder);
 		return holder.value;
 	}
 
-	private static int maxPath(TreeNode root, Holder holder) {
+	private static int maxPath(TreeNode<Integer> root, Holder holder) {
 		if (null == root) {
 			return 0;
 		}
