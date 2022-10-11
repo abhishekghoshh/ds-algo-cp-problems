@@ -25,6 +25,7 @@ public class TreeNode<T> {
 		this.right = right;
 		this.parent = parent;
 	}
+
 	public T getVal() {
 		return val;
 	}
@@ -74,5 +75,38 @@ public class TreeNode<T> {
 	public TreeNode<T> right(TreeNode<T> right) {
 		this.setRight(right);
 		return this;
+	}
+
+	public static TreeNode<Integer> withCount(int count) {
+		Integer[] array = new Integer[count];
+		for (int i = 1; i <= count; i++) {
+			array[i - 1] = i;
+		}
+		return withAllNodesGiven(array);
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> TreeNode<T> withAllNodesGiven(T... array) {
+		TreeNode<T>[] nodes = (TreeNode<T>[]) new TreeNode[array.length];
+		for (int i = 0; i < array.length; i++) {
+			if (null != array[i]) {
+				nodes[i] = new TreeNode<T>(array[i]);
+			} else {
+				nodes[i] = null;
+			}
+
+		}
+		TreeNode<T> root = nodes[0];
+		for (int i = 0; i < array.length; i++) {
+			if (null != nodes[i]) {
+				if (i * 2 + 1 < array.length && null != nodes[i * 2 + 1]) {
+					nodes[i].left = nodes[i * 2 + 1];
+				}
+				if (i * 2 + 2 < array.length && null != nodes[i * 2 + 2]) {
+					nodes[i].right = nodes[i * 2 + 2];
+				}
+			}
+		}
+		return root;
 	}
 }
