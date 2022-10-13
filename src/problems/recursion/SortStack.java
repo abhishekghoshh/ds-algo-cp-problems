@@ -2,6 +2,12 @@ package problems.recursion;
 
 import java.util.Stack;
 
+/*
+ * 
+ * Problem link : https://www.codingninjas.com/codestudio/problems/sort-a-stack_985275?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTab=1
+ * 
+ * Solution link :
+ * */
 public class SortStack {
 
 	public static void main(String[] args) {

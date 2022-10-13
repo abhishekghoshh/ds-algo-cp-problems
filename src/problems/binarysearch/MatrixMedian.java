@@ -11,6 +11,7 @@ import java.util.List;
  * 
  * Solution is :
  * https://www.youtube.com/watch?v=63fPPOdIr2c&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=63
+ * https://takeuforward.org/data-structure/median-of-row-wise-sorted-matrix/
  * 
  * https://www.youtube.com/watch?v=_4rxBuhyLXw
  * https://www.geeksforgeeks.org/find-median-row-wise-sorted-matrix/#:~:text=Simple%20Method%3A%20The%20simplest%20method,O(r*c).
@@ -20,16 +21,16 @@ public class MatrixMedian {
 	public static void main(String[] args) {
 		type1();
 		type2();
-//		System.out.println(search(new int[] { 1, 3, 6, 6, 6, 7, 8 }, 1));
 	}
 
-	// TODO check the
 	// https://www.geeksforgeeks.org/find-median-row-wise-sorted-matrix/#:~:text=Simple%20Method%3A%20The%20simplest%20method,O(r*c).
-	// url later and study one more time
+	// study one more time
 	private static void type2() {
-		int[][] matrix = { { 1, 3, 5 }, { 2, 6, 9 }, { 3, 6, 9 } };
+		int[][] matrix = { { 2, 5, 5 }, { 2, 5, 12 }, { 3, 5, 15 } };
+		// as per the given question r and c will always be odd
+		// so r*c will also be odd and there will be element from 0 to r*c-1 element
 		int r = matrix.length, c = matrix[0].length;
-		int low = Integer.MAX_VALUE, high = Integer.MAX_VALUE;
+		int low = Integer.MAX_VALUE, high = Integer.MIN_VALUE;
 		for (int i = 0; i < r; i++) {
 			if (low > matrix[i][0]) {
 				low = matrix[i][0];
@@ -38,15 +39,21 @@ public class MatrixMedian {
 				high = matrix[i][c - 1];
 			}
 		}
-		//
-		int medianIndex = (r * c + 1) / 2;
+		// median element index will be (row*column-1)/2
+		int medianIndex = (r * c - 1) / 2;
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
 			int position = 0;
+			// for every mid we will find the position in every row
+			// then we will add it
+			// to know it's actual position in the combined sorted array
 			for (int i = 0; i < r; i++) {
 				position = position + upperBoundIndex(matrix[i], mid);
 			}
-			if (position < medianIndex) {
+			// if position is greater than median
+			// then we know that the mid element can not be the median
+			// so we initialize low with mid+1
+			if (position <= medianIndex) {
 				low = mid + 1;
 			} else {
 				high = mid - 1;
@@ -59,7 +66,7 @@ public class MatrixMedian {
 		int low = 0, high = row.length - 1, mid;
 		while (low <= high) {
 			mid = low + (high - low) / 2;
-			if (row[mid] < item) {
+			if (row[mid] <= item) {
 				low = mid + 1;
 			} else {
 				high = mid - 1;
@@ -75,7 +82,8 @@ public class MatrixMedian {
 	// O(n*log(n)) to sort the list
 	// space complexity O(n) for the list
 	private static void type1() {
-		int[][] matrix = { { 1, 3, 5 }, { 2, 6, 9 }, { 3, 6, 9 } };
+//		int[][] matrix = { { 1, 3, 5 }, { 2, 6, 9 }, { 3, 6, 9 } };
+		int[][] matrix = { { 2, 5, 5 }, { 2, 5, 12 }, { 3, 5, 15 } };
 		List<Integer> list = new ArrayList<>();
 		for (int[] row : matrix) {
 			for (int item : row) {
@@ -85,11 +93,9 @@ public class MatrixMedian {
 		Collections.sort(list);
 		System.out.println(list);
 		int size = list.size();
-		if (size % 2 == 0) {
-			System.out.println((list.get(size / 2 - 1) + list.get(size / 2)) / 2);
-		} else {
-			System.out.println(list.get(size / 2));
-		}
+		int answer = list.get((size - 1) / 2);
+		System.out.println(answer);
+
 	}
 
 }
