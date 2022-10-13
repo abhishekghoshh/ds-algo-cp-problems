@@ -42,10 +42,11 @@ public class PreOrderTraversal {
 	}
 
 	private static void preOrder(TreeNode<Integer> root, List<Integer> answer) {
-		if (null != root) {
-			answer.add(root.val);
-			preOrder(root.left, answer);
-			preOrder(root.right, answer);
+		if (null == root) {
+			return;
 		}
+		answer.add(root.val);
+		preOrder(root.left, answer);
+		preOrder(root.right, answer);
 	}
 }

@@ -30,10 +30,11 @@ public class PostOrderTraversal {
 	}
 
 	private static void postOrder(TreeNode<Integer> root, List<Integer> answer) {
-		if (null != root) {
-			postOrder(root.left, answer);
-			postOrder(root.right, answer);
-			answer.add(root.val);
+		if (null == root) {
+			return;
 		}
+		postOrder(root.left, answer);
+		postOrder(root.right, answer);
+		answer.add(root.val);
 	}
 }
