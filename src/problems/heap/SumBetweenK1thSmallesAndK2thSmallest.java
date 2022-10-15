@@ -6,6 +6,10 @@ import java.util.PriorityQueue;
 
 public class SumBetweenK1thSmallesAndK2thSmallest {
 	public static void main(String[] args) {
+		type1();
+	}
+
+	private static void type1() {
 		int k1 = 3;
 		int k2 = 6;
 		int array[] = { 20, 8, 22, 4, 12, 10, 14 };

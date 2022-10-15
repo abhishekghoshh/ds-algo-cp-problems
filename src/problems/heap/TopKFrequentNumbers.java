@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+import util.Pair;
+
 public class TopKFrequentNumbers {
 	public static void main(String[] args) {
 		type1();
@@ -16,25 +18,26 @@ public class TopKFrequentNumbers {
 		int arr[] = { 7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9 };
 		int k = 4;
 		Map<Integer, Integer> frequencyMap = frequencyMap(arr);
-		PriorityQueue<Pair> minHeap = new PriorityQueue<>(
+		PriorityQueue<Pair<Integer, Integer>> minHeap = new PriorityQueue<>(
 				(pair1, pair2) -> Integer.compare(pair1.second, pair2.second));
 		for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
 			// System.out.println(entry.getKey() +" : "+ entry.getValue()+" "+queue);
 			if (minHeap.size() < k) {
-				minHeap.offer(new Pair(entry.getKey(), entry.getValue()));
+				minHeap.offer(new Pair<>(entry.getKey(), entry.getValue()));
 			} else {
 				if (entry.getValue() > minHeap.peek().second) {
 					minHeap.poll();
-					minHeap.offer(new Pair(entry.getKey(), entry.getValue()));
+					minHeap.offer(new Pair<>(entry.getKey(), entry.getValue()));
 				}
 			}
 		}
-		List<Pair> list = buildPairList(minHeap);
+		List<Pair<Integer, Integer>> list = buildPairList(minHeap);
 		System.out.println(list);
 	}
 
-	private static List<Pair> buildPairList(PriorityQueue<Pair> queue) {
-		LinkedList<Pair> list = new LinkedList<>();
+	private static List<Pair<Integer, Integer>> buildPairList(
+			PriorityQueue<Pair<Integer, Integer>> queue) {
+		LinkedList<Pair<Integer, Integer>> list = new LinkedList<>();
 		while (queue.size() > 0) {
 			list.addFirst(queue.poll());
 		}
@@ -51,21 +54,5 @@ public class TopKFrequentNumbers {
 			}
 		}
 		return frequencyMap;
-	}
-
-	private static class Pair {
-		public int first;
-		public int second;
-
-		public Pair(int first, int second) {
-			this.first = first;
-			this.second = second;
-		}
-
-		@Override
-		public String toString() {
-			return "Pair [first=" + first + ", second=" + second + "]";
-		}
-
 	}
 }

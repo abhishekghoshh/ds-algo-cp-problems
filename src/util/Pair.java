@@ -1,9 +1,9 @@
-package problems.heap;
+package util;
 
-public class GenericPair<T1, T2> {
-    private T1 first;
-    private T2 second;
-    public GenericPair(T1 first, T2 second) {
+public class Pair<T1, T2> {
+    public T1 first;
+    public T2 second;
+    public Pair(T1 first, T2 second) {
         this.first = first;
         this.second = second;
     }
@@ -40,7 +40,7 @@ public class GenericPair<T1, T2> {
 
     @Override
     public String toString() {
-        return "GenericPair [first=" + first + ", second=" + second + "]";
+        return "Pair [first=" + first + ", second=" + second + "]";
     }
 
 }

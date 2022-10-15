@@ -5,7 +5,11 @@ import java.util.PriorityQueue;
 
 public class KthLargestElement {
     public static void main(String[] args) {
-        int[] array = {1,4,6,2,8,5,3,9,0,7};
+        type1();
+    }
+
+	private static void type1() {
+		int[] array = {1,4,6,2,8,5,3,9,0,7};
         int k =3;
         PriorityQueue<Integer> pQueue = new PriorityQueue<>(Comparator.naturalOrder());
         for(int item:array){
@@ -19,5 +23,5 @@ public class KthLargestElement {
             }
         }
         System.out.println(pQueue.peek());
-    }
+	}
 }
