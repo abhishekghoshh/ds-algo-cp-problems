@@ -5,19 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class NearestSmallerToLeft {
+public class PreviousSmallerElement {
 	public static void main(String args[]) {
-		Integer[] arr = { 1, 3, 2, 4, 3, 3 };
-		int length = arr.length;
-		List<Integer> answer = nearestSmallerToLeft(arr, length);
-		System.out.println(Arrays.asList(arr));
-		System.out.println(answer);
+		type2();
 	}
 
-	private static List<Integer> nearestSmallerToLeft(Integer[] arr, int length) {
+	private static void type2() {
+		Integer[] arr = { 1, 3, 2, 4, 3, 3 };
+		int n = arr.length;
 		Stack<Integer> stack = new Stack<>();
 		List<Integer> answer = new ArrayList<>();
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < n; i++) {
 			if (stack.size() == 0) {
 				answer.add(-1);
 			} else {
@@ -36,7 +34,7 @@ public class NearestSmallerToLeft {
 			}
 			stack.add(arr[i]);
 		}
-		return answer;
+		System.out.println(Arrays.asList(arr));
+		System.out.println(answer);
 	}
-
 }
