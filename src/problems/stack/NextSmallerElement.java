@@ -39,5 +39,5 @@ public class NextSmallerElement {
 		System.out.println(Arrays.asList(arr));
 		System.out.println(answer);
 	}
-
 }
+

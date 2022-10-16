@@ -1,6 +1,6 @@
 package problems.dynamicprogramming.matrixchainmultiplication;
 
-public class PalindromePartitioningRecursive {
+public class PalindromePartitioning {
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -8,20 +8,15 @@ public class PalindromePartitioningRecursive {
 
 	private static void type2() {
 		String str = "snitinak";
-		int length = str.length();
-		int[][] memo = initialize(length);
-		int minCost = minCost(str, 0, length - 1, memo);
-		System.out.println(minCost);
-	}
-
-	private static int[][] initialize(int length) {
-		int[][] memo = new int[length + 1][length + 1];
-		for (int i = 0; i <= length; i++) {
-			for (int j = 0; j <= length; j++) {
+		int n = str.length();
+		int[][] memo = new int[n + 1][n + 1];
+		for (int i = 0; i <= n; i++) {
+			for (int j = 0; j <= n; j++) {
 				memo[i][j] = -1;
 			}
 		}
-		return memo;
+		int minCost = minCost(str, 0, n - 1, memo);
+		System.out.println(minCost);
 	}
 
 	private static int minCost(String str, int i, int j, int[][] memo) {
@@ -47,8 +42,8 @@ public class PalindromePartitioningRecursive {
 
 	private static void type1() {
 		String str = "xnitinjk";
-		int length = str.length();
-		int minCost = minCost(str, 0, length - 1);
+		int n = str.length();
+		int minCost = minCost(str, 0, n - 1);
 		System.out.println(minCost);
 	}
 
