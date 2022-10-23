@@ -2,6 +2,15 @@ package problems.stack;
 
 import java.util.Stack;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/min-stack/submissions/
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
+ * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
+ * 
+ * */
 public class MinStack {
 
 	public static void main(String[] args) {
@@ -16,97 +25,130 @@ public class MinStack {
 		stack.push(7);
 		stack.push(3);
 		stack.push(3);
-		System.out.println(stack);
-		stack.pop();
-		stack.pop();
-		stack.pop();
-		System.out.println(stack);
+		System.out.println("current stack is " + stack);
+		System.out.println("popped element " + stack.pop());
+		System.out.println("popped element " + stack.pop());
+		System.out.println("popped element " + stack.pop());
+		System.out.println("current stack is " + stack);
 	}
 
 	public static class MinStack2 {
-		private Stack<Integer> stack = new Stack<>();
-		private Integer minElement;
+		// we will store the elements in the stack
+		// and we will also use one variable for storing the current minimum element
+		// we will derive one logic to to store the previous logic
+		private Stack<Integer> stack = null;
+		private int min;
 
-		public Integer peek() {
-			if (stack.size() == 0) {
-				return -1;
-			}
-			return stack.peek();
+		// space complexity is O(n)
+		// if the item is lesser than the current min then we will push (2*item-min)
+		// suppose our current min is x and new item is x-1, so will add {2*(x-1)-x}
+		// to the stack, which is x-2 which will be our corrupted value
+		// so the newly added item will always be lesser the current min
+		// as our current min is x-1
+		// so while popping when we encounter any value lesser than the current min then
+		// we should know that it is the currpted value that we have stored earlier
+		// so after popping the current min we have to again find the previous min
+		// that we can find easily by doing this=> 2*(x-1)-(x-2) => x
+		public MinStack2() {
+			stack = new Stack<>();
 		}
 
-		public Integer min() {
-			if (stack.size() == 0) {
-				return -1;
-			}
-			return minElement;
+		public int peek() {
+			return stack.isEmpty() ? Integer.MIN_VALUE : stack.peek();
 		}
 
-		public Integer pop() {
-			if (stack.size() == 0) {
-				return -1;
+		public int min() {
+			return stack.isEmpty() ? Integer.MIN_VALUE : min;
+		}
+
+		// time complexity O(1)
+		public void push(int val) {
+			// if the stack is empty
+			// then we can add the item to stack
+			// and that element will also be the minimum
+			if (stack.isEmpty()) {
+				min = val;
+				stack.add(val);
+			} else if (val > min) {
+				// if the element is greater than the current min
+				// then we can just directly add the element to the stack
+				stack.add(val);
+			} else {
+				// if the element is lesser than the current min
+				// then we will store the (2 * val - previous min) into the stack
+				// (2 * val - previous min) will always be lesser than equal to the current min
+				// which will be our indicator to know that the current top of the stack is the
+				// min element
+				// (2 * val - min) is not the actual value, it is a corrupted value
+				stack.add(2 * val - min);
+				min = val;
 			}
-			if (stack.peek() > minElement) {
+		}
+
+		public int pop() {
+			if (stack.isEmpty()) {
+				return Integer.MIN_VALUE;
+			}
+			// if current top is greater than current min then we can safely pop
+			if (stack.peek() > min) {
 				return stack.pop();
 			} else {
-				Integer tempMinElement = minElement;
-				minElement = 2 * minElement - stack.peek();
-				stack.pop();
-				return tempMinElement;
-			}
-		}
-
-		public void push(Integer item) {
-			if (stack.size() == 0) {
-				minElement = item;
-				stack.add(item);
-			} else if (item > minElement) {
-				stack.add(item);
-			} else {
-				stack.add(2 * item - minElement);
-				minElement = item;
+				// current top is the min element
+				// first we will save the current min
+				// then we will try to find our previous min
+				int tempMin = min;
+				// (2 * min - stack.pop()) is our previous min
+				min = 2 * min - stack.pop();
+				return tempMin;
 			}
 		}
 
 		@Override
 		public String toString() {
-			return "stack " + stack + " \nminElement " + minElement;
+			return "{\"stack\": " + stack + ", \"min\": " + min + "}";
 		}
 	}
 
 	private static void type1() {
-		MinStack1 minStackWithSpace = new MinStack1();
-		minStackWithSpace.push(5);
-		minStackWithSpace.push(6);
-		minStackWithSpace.push(7);
-		minStackWithSpace.push(3);
-		minStackWithSpace.push(3);
-		System.out.println(minStackWithSpace);
-		minStackWithSpace.pop();
-		minStackWithSpace.pop();
-		minStackWithSpace.pop();
-		System.out.println(minStackWithSpace);
+		MinStack1 stack = new MinStack1();
+		stack.push(5);
+		stack.push(6);
+		stack.push(7);
+		stack.push(3);
+		stack.push(3);
+		System.out.println("current stack is " + stack);
+		System.out.println("popped element " + stack.pop());
+		System.out.println("popped element " + stack.pop());
+		System.out.println("popped element " + stack.pop());
+		System.out.println("current stack is " + stack);
 	}
 
 	public static class MinStack1 {
-		private Stack<Integer> stack = new Stack<>();
-		private Stack<Integer> minStack = new Stack<>();
+		// we will use two stack
+		// one for storing all the elements
+		// another for storing the min elements only
+		private Stack<Integer> stack = null;
+		private Stack<Integer> minStack = null;
 
+		// space complexity is O(2n)
+		public MinStack1() {
+			stack = new Stack<>();
+			minStack = new Stack<>();
+		}
+
+		// time complexity O(1)
 		public Integer peek() {
-			if (stack.size() == 0) {
-				return -1;
-			}
-			return stack.peek();
+			return stack.isEmpty() ? Integer.MIN_VALUE : stack.peek();
 		}
 
+		// time complexity O(1)
 		public Integer min() {
-			if (minStack.size() == 0) {
-				return -1;
-			}
-			return minStack.peek();
+			return minStack.isEmpty() ? Integer.MIN_VALUE : minStack.peek();
 		}
 
-		public Integer pop() {
-			if (stack.size() == 0) {
+		// time complexity O(1)
+		public int pop() {
+			if (stack.isEmpty()) {
 				return -1;
 			}
 			if (stack.peek() == minStack.peek()) {
@@ -115,8 +157,9 @@ public class MinStack {
 			return stack.pop();
 		}
 
+		// time complexity O(1)
 		public void push(Integer item) {
-			if (minStack.size() == 0 || item <= minStack.peek()) {
+			if (minStack.isEmpty() || item <= minStack.peek()) {
 				minStack.push(item);
 			}
 			stack.push(item);
@@ -124,7 +167,7 @@ public class MinStack {
 
 		@Override
 		public String toString() {
-			return "stack " + stack + " \nminStack" + minStack;
+			return "{\"elements\": " + stack + ", \"min\": " + minStack + "}";
 		}
 	}
 }
