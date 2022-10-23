@@ -5,6 +5,8 @@ package problems.array;
  * https://www.codingninjas.com/codestudio/problems/893046?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/next-permutation/
  * 
+ * https://leetcode.com/problems/next-greater-element-iii/
+ * 
  * solution link
  * https://www.youtube.com/watch?v=LuLCLgMElus&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
  * */

@@ -2,7 +2,14 @@ package problems.stack;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+/*
+ * Problem link :
+ * https://leetcode.com/problems/implement-stack-using-queues/
+ * 
+ * Solution link :
+ * 
+ * 
+ * */
 public class StackUsingQueue {
 
 	public static void main(String[] args) {

@@ -2,6 +2,14 @@ package problems.stack;
 
 import java.util.Stack;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/valid-parentheses/
+ * 
+ * Solution link :
+ * 
+ * 
+ * */
 public class CheckForBalancedParenthesis {
 
 	public static void main(String[] args) {
@@ -15,6 +23,7 @@ public class CheckForBalancedParenthesis {
 		System.out.println(answer);
 	}
 
+	// TODO check later
 	private static boolean isValid2(String s) {
 		char[] stack = new char[s.length()];
 		int head = 0;
@@ -48,12 +57,17 @@ public class CheckForBalancedParenthesis {
 		Stack<Character> stack = new Stack<>();
 		for (int i = 0; i < s.length(); i++) {
 			char ch = s.charAt(i);
+			// if the character is an opening parenthesis then we will just add it
 			if (ch == '(' || ch == '{' || ch == '[') {
 				stack.push(ch);
 			} else {
-				if (stack.size() == 0) {
+				// at this point the current character is a closing parenthesis
+				if (stack.isEmpty()) {
+					// if stack is empty that mean there is no opening parenthesis to match this
+					// closing parenthesis
 					return false;
 				}
+				// for a proper closing parenthesis there must be one opening parenthesis
 				if ((ch == ')' && stack.peek() == '(') || (ch == '}' && stack.peek() == '{')
 						|| (ch == ']' && stack.peek() == '[')) {
 					stack.pop();

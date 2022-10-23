@@ -3,6 +3,17 @@ package problems.stack;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Problem link :
+ * 
+ * 
+ * Solution link :
+ * 
+ * 
+ * Study link :
+ * https://www.youtube.com/watch?v=P1bAPZg5uaE&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd
+ * 
+ * */
 public class Stack {
 
 	public static void main(String[] args) {
