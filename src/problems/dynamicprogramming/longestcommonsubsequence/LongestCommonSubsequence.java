@@ -9,27 +9,27 @@ public class LongestCommonSubsequence {
 	}
 
 	private static void type3() {
-		String s1 = "xabcmagg";
-		String s2 = "abcdamg";
+		String s1 = "abac";
+		String s2 = "cab";
 		int n1 = s1.length();
 		int n2 = s2.length();
-		int[][] memo = new int[n1 + 1][n2 + 1];
+		int[][] dp = new int[n1 + 1][n2 + 1];
 		for (int i = 0; i <= n1; i++) {
-			memo[i][n2] = 0;
+			dp[i][n2] = 0;
 		}
 		for (int j = 0; j <= n2; j++) {
-			memo[n1][j] = 0;
+			dp[n1][j] = 0;
 		}
 		for (int i = 1; i <= n1; i++) {
 			for (int j = 1; j <= n2; j++) {
 				if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
-					memo[i][j] = 1 + memo[i - 1][j - 1];
+					dp[i][j] = 1 + dp[i - 1][j - 1];
 				} else {
-					memo[i][j] = Math.max(memo[i - 1][j], memo[i][j - 1]);
+					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
 				}
 			}
 		}
-		int count = memo[n1][n2];
+		int count = dp[n1][n2];
 		System.out.println(count);
 	}
 
