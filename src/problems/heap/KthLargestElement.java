@@ -1,6 +1,5 @@
 package problems.heap;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /*
@@ -10,26 +9,118 @@ import java.util.PriorityQueue;
  * 
  * Solution link : https://www.youtube.com/watch?v=edXdVwkYHF8
  * 
+ * https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/
+ * 
  * */
 public class KthLargestElement {
 	public static void main(String[] args) {
 		type1();
+		type2();
+		type3();
 	}
 
-	private static void type1() {
-		int[] array = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
+	// TODO check later
+	private static void type3() {
+		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;
-		PriorityQueue<Integer> pQueue = new PriorityQueue<>(Comparator.naturalOrder());
-		for (int item : array) {
-			if (pQueue.size() < k) {
-				pQueue.offer(item);
+		int max = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
+		int element = -1;
+		for (int i = 0; i < nums.length; i++) {
+			if (max < nums[i]) {
+				max = nums[i];
+			}
+			if (min > nums[i]) {
+				min = nums[i];
+			}
+		}
+		int a[] = new int[max - min + 1];
+		for (int i = 0; i < nums.length; i++)
+			a[nums[i] - min] = a[nums[i] - min] + 1;
+		int cnt = 0;
+		for (int i = max - min; i >= 0; i--) {
+			cnt = cnt + a[i];
+			if (cnt >= k) {
+				element = i + min;
+				break;
+			}
+		}
+		System.out.println(element);
+	}
+
+	// partition mechanism
+	private static void type2() {
+		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
+		int k = 3;
+		int low = 0, high = nums.length - 1, kth = -1;
+		while (low <= high) {
+			// we will use the partition technique used is quick sort
+			// after one partition the one item will be placed in it's place
+			// and all lesser elements will be placed in it's left and all larger elements
+			// will be placed in it's right
+			int idx = partition(nums, low, high);
+			// if idx == k-1 then we can just return the idx element
+			if (idx == k - 1) {
+				kth = nums[idx];
+				break;
+			}
+			// else depending upon the idx value we will shrink the array size
+			if (idx < k - 1) {
+				low = idx + 1;
 			} else {
-				if (pQueue.peek() < item) {
-					pQueue.poll();
-					pQueue.offer(item);
+				high = idx - 1;
+			}
+		}
+		System.out.println(kth);
+	}
+
+	// quick sort partition mechanism
+	// TODO check later
+	private static int partition(int[] nums, int low, int high) {
+		int pivot = nums[low];
+		int l = low + 1;
+		int r = high;
+		while (l <= r) {
+			if (nums[l] < pivot && nums[r] > pivot) {
+				swap(nums, l, r);
+				l++;
+				r--;
+			}
+			if (nums[l] >= pivot) {
+				l++;
+			}
+			if (nums[r] <= pivot) {
+				r--;
+			}
+		}
+		swap(nums, low, r);
+		return r;
+	}
+
+	private static void swap(int[] nums, int l, int r) {
+		int temp = nums[l];
+		nums[l] = nums[r];
+		nums[r] = temp;
+	}
+
+	// using min heap
+	// we will use min heap
+	// and only store the k largest elements in the heap
+	// after all the iteration we will return the heap top element
+	private static void type1() {
+		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
+		int k = 3;
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+		for (int num : nums) {
+			if (minHeap.size() < k) {
+				minHeap.offer(num);
+			} else {
+				if (minHeap.peek() < num) {
+					minHeap.poll();
+					minHeap.offer(num);
 				}
 			}
 		}
-		System.out.println(pQueue.peek());
+		System.out.println(minHeap.peek());
 	}
 }
