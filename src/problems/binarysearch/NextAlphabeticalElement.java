@@ -1,32 +1,36 @@
 package problems.binarysearch;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/find-smallest-letter-greater-than-target/
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=X45c37QMdX0&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=12
+ * 
+ * */
 public class NextAlphabeticalElement {
 
 	public static void main(String[] args) {
-		char[] elements = { 'a', 'b', 'm', 'n', 'x', 'y', 'z' };
-		int low = 0;
-		int high = elements.length - 1;
-		char key = 'z';
-		int index = search(elements, low, high, key);
-		char result = index!=elements.length?elements[index]:'#';
-		System.out.println(result);
+		type2();
 
 	}
 
-	private static int search(char[] elements, int low, int high, char key) {
-		int index = -1;
+	private static void type2() {
+//		char[] letters = { 'a', 'b', 'm', 'n', 'x', 'x', 'x', 'y', 'z' };
+//		char target = 'x';
+		char[] letters = { 'c', 'f', 'j' };
+		char target = 'a';
+		int low = 0;
+		int high = letters.length - 1;
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
-			if (elements[mid] == key) {
-				return mid + 1;
-			} else if (elements[mid] < key) {
+			if (letters[mid] <= target) {
 				low = mid + 1;
 			} else {
 				high = mid - 1;
-				index = mid;
 			}
 		}
-		return index;
+		char result = low != letters.length ? letters[low] : '#';
+		System.out.println(result);
 	}
-
 }

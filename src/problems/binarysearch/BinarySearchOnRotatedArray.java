@@ -2,13 +2,14 @@ package problems.binarysearch;
 
 /*
  * Problem link : 
+ * https://leetcode.com/problems/search-in-rotated-sorted-array/
  * https://www.codingninjas.com/codestudio/problems/630450?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * 
  * 
  * Solution is :
  * https://www.youtube.com/watch?v=r3pMQ8-Ad5s&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=65
  * https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/
- * https://www.youtube.com/watch?v=Id-DdcWb5AU
+ * https://www.youtube.com/watch?v=Id-DdcWb5AU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=8
  * 
  * */
 public class BinarySearchOnRotatedArray {

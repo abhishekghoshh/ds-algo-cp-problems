@@ -10,6 +10,8 @@ import java.util.Stack;
  * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
  * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
  * 
+ * blog link :
+ * https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/
  * */
 public class MinStack {
 
@@ -36,8 +38,8 @@ public class MinStack {
 		// we will store the elements in the stack
 		// and we will also use one variable for storing the current minimum element
 		// we will derive one logic to to store the previous logic
-		private Stack<Integer> stack = null;
-		private int min;
+		private Stack<Long> stack = null;
+		private Long min;
 
 		// space complexity is O(n)
 		// if the item is lesser than the current min then we will push (2*item-min)
@@ -51,21 +53,23 @@ public class MinStack {
 		// that we can find easily by doing this=> 2*(x-1)-(x-2) => x
 		public MinStack2() {
 			stack = new Stack<>();
+			min = Long.MAX_VALUE;
 		}
 
 		public int peek() {
-			return stack.isEmpty() ? Integer.MIN_VALUE : stack.peek();
+			return stack.isEmpty() ? Integer.MIN_VALUE : stack.peek().intValue();
 		}
 
 		public int min() {
-			return stack.isEmpty() ? Integer.MIN_VALUE : min;
+			return stack.isEmpty() ? Integer.MIN_VALUE : min.intValue();
 		}
 
 		// time complexity O(1)
-		public void push(int val) {
+		public void push(int value) {
 			// if the stack is empty
 			// then we can add the item to stack
 			// and that element will also be the minimum
+			Long val = Long.valueOf(value);
 			if (stack.isEmpty()) {
 				min = val;
 				stack.add(val);
@@ -91,15 +95,15 @@ public class MinStack {
 			}
 			// if current top is greater than current min then we can safely pop
 			if (stack.peek() > min) {
-				return stack.pop();
+				return stack.pop().intValue();
 			} else {
 				// current top is the min element
 				// first we will save the current min
 				// then we will try to find our previous min
-				int tempMin = min;
+				Long tempMin = min;
 				// (2 * min - stack.pop()) is our previous min
 				min = 2 * min - stack.pop();
-				return tempMin;
+				return tempMin.intValue();
 			}
 		}
 
