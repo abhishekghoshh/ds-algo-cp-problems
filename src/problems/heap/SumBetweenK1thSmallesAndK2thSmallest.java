@@ -3,19 +3,26 @@ package problems.heap;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
+/*
+ * Problem link :
+ * https://practice.geeksforgeeks.org/problems/sum-of-elements-between-k1th-and-k2th-smallest-elements3133/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=3ioQQQrnw4Q&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=10
+ * 
+ * */
 public class SumBetweenK1thSmallesAndK2thSmallest {
 	public static void main(String[] args) {
 		type1();
 	}
 
 	private static void type1() {
-		int k1 = 3;
-		int k2 = 6;
-		int array[] = { 20, 8, 22, 4, 12, 10, 14 };
-		PriorityQueue<Integer> queue1 = new PriorityQueue<>(Comparator.reverseOrder());
-		PriorityQueue<Integer> queue2 = new PriorityQueue<>(Comparator.reverseOrder());
-		for (int item : array) {
+		long k1 = 3;
+		long k2 = 6;
+		long array[] = { 20, 8, 22, 4, 12, 10, 14 };
+		PriorityQueue<Long> queue1 = new PriorityQueue<>(Comparator.reverseOrder());
+		PriorityQueue<Long> queue2 = new PriorityQueue<>(Comparator.reverseOrder());
+		for (long item : array) {
 			if (queue1.size() < k1) {
 				queue1.offer(item);
 			} else {
@@ -33,9 +40,10 @@ public class SumBetweenK1thSmallesAndK2thSmallest {
 				}
 			}
 		}
-		int k1thSmallest = queue1.peek();
-		int k2thSmallest = queue2.peek();
-		System.out.println(Arrays.stream(array).filter(item -> item > k1thSmallest && item < k2thSmallest).reduce(0,
-				Integer::sum));
+		long k1thSmallest = queue1.peek();
+		long k2thSmallest = queue2.peek();
+		long sum = Arrays.stream(array).filter(item -> item > k1thSmallest && item < k2thSmallest).reduce(0, Long::sum);
+		System.out.println(sum);
+
 	}
 }

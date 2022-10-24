@@ -1,5 +1,12 @@
 package problems.recursion;
-
+/*
+ * Problem link :
+ * 
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=AZ4jEY_JAVc&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=6
+ * 
+ * */
 public class SortArray {
 	public static void main(String[] args) {
 		type1();

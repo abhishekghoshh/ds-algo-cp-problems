@@ -1,7 +1,14 @@
 package problems.recursion;
 
 import java.util.Stack;
-
+/*
+ * Problem link :
+ * https://practice.geeksforgeeks.org/problems/delete-middle-element-of-a-stack/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=oCcUNRMl7dA&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=8
+ * 
+ * */
 public class DeleteMiddleElementOfStack {
 
 	public static void main(String[] args) {

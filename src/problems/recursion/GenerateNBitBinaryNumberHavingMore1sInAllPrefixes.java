@@ -5,7 +5,7 @@ import java.util.List;
 
 /*
  * Problem links:
- * 
+ * https://practice.geeksforgeeks.org/problems/print-n-bit-binary-numbers-having-more-1s-than-0s0252/1
  * 
  * Solution link
  * https://www.youtube.com/watch?v=U81n0UYtk98&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=18
@@ -33,7 +33,10 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 		List<String> answer = new ArrayList<>();
 		// we will create a bucket of 1
 		// so for 5 digit we will make 11111
-		char[] bucket = createBucketWithAllOnes(n);
+		char[] bucket = new char[n];
+		for (int i = 0; i < n; i++) {
+			bucket[i] = '1';
+		}
 		traverse(0, 0, n, bucket, answer);
 		System.out.println(answer);
 	}
@@ -53,14 +56,6 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 			// again after computation we are changing it back to 1
 			bucket[numberOfOne + numberOfZero] = '1';
 		}
-	}
-
-	private static char[] createBucketWithAllOnes(int n) {
-		char[] bucket = new char[n];
-		for (int i = 0; i < n; i++) {
-			bucket[i] = '1';
-		}
-		return bucket;
 	}
 
 	private static void type1() {

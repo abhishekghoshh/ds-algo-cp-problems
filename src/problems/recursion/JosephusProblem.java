@@ -12,6 +12,8 @@ import java.util.List;
  * 
  * https://www.geeksforgeeks.org/josephus-problem-set-1-a-on-solution/
  * https://leetcode.com/problems/find-the-winner-of-the-circular-game/discuss/1152474/Josephus-Problem
+ * 
+ * https://www.interviewbit.com/blog/josephus-problem/
  * */
 public class JosephusProblem {
 

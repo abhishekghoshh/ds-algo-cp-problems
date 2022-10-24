@@ -1,7 +1,14 @@
 package problems.recursion;
 
 import util.TreeNode;
-
+/*
+ * Problem link :
+ * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=aqLTbtWh40E&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=5
+ * 
+ * */
 public class HeightOfBinaryTree {
 	public static void main(String[] args) {
 		type1();

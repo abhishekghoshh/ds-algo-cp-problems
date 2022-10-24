@@ -8,16 +8,31 @@ import java.util.PriorityQueue;
 
 import util.Pair;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/top-k-frequent-elements
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6
+ * 
+ * */
 public class TopKFrequentNumbers {
 	public static void main(String[] args) {
 		type1();
+		type2();
+
+	}
+
+	// see leetcode solutions
+	// https://leetcode.com/submissions/detail/829211677/
+	private static void type2() {
 
 	}
 
 	private static void type1() {
-		int arr[] = { 7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9 };
+		int nums[] = { 7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9 };
 		int k = 4;
-		Map<Integer, Integer> frequencyMap = frequencyMap(arr);
+		Map<Integer, Integer> frequencyMap = frequencyMap(nums);
 		PriorityQueue<Pair<Integer, Integer>> minHeap = new PriorityQueue<>(
 				(pair1, pair2) -> Integer.compare(pair1.second, pair2.second));
 		for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
@@ -35,8 +50,7 @@ public class TopKFrequentNumbers {
 		System.out.println(list);
 	}
 
-	private static List<Pair<Integer, Integer>> buildPairList(
-			PriorityQueue<Pair<Integer, Integer>> queue) {
+	private static List<Pair<Integer, Integer>> buildPairList(PriorityQueue<Pair<Integer, Integer>> queue) {
 		LinkedList<Pair<Integer, Integer>> list = new LinkedList<>();
 		while (queue.size() > 0) {
 			list.addFirst(queue.poll());

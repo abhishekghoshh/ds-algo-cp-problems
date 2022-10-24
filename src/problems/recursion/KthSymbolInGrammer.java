@@ -1,17 +1,20 @@
 package problems.recursion;
 
 /*
+ * Problem link :
  * Problem link : https://leetcode.com/problems/k-th-symbol-in-grammar/
  * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=5P84A0YCo_Y&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=10
+ * 
  * */
-//We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
-// Now in every subsequent row, we look at the previous row and replace each
-// occurrence of 0 with 01, and each occurrence of 1 with 10.For example, for n
-// = 3, the 1st row is 0, the 2nd row is 01, and the 3rd row is 0110. Given two
-// integer n and k, return the kth (1-indexed) symbol in the nth row of a table
-// of n rows.
 public class KthSymbolInGrammer {
-
+	// We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
+	// Now in every subsequent row, we look at the previous row and replace each
+	// occurrence of 0 with 01, and each occurrence of 1 with 10.For example, for n
+	// = 3, the 1st row is 0, the 2nd row is 01, and the 3rd row is 0110. Given two
+	// integer n and k, return the kth (1-indexed) symbol in the nth row of a table
+	// of n rows.
 	public static void main(String[] args) {
 		type1();
 	}

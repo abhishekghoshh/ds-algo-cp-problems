@@ -1,7 +1,14 @@
 package problems.recursion;
 
 import java.util.Stack;
-
+/*
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/reverse-stack-using-recursion_631875
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=8YXQ68oHjAs&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=9
+ * 
+ * */
 public class ReverseStack {
 
 	public static void main(String[] args) {

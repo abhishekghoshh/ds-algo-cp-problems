@@ -5,7 +5,7 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/letter-case-permutation/
+ * https://leetcode.com/problems/generate-parentheses/
  * https://practice.geeksforgeeks.org/problems/generate-all-possible-parentheses/1
  * 
  * Solution link
@@ -15,6 +15,34 @@ public class GenrateAllBalancedParenthesis {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// same as type1
+	// we are nt using string buffer here
+	// rather we are using array
+	private static void type2() {
+		int n = 3;
+		char[] bucket = new char[2 * n];
+		List<String> answer = new ArrayList<>();
+		traverse(answer, bucket, 0, 0, n);
+		System.out.println(answer);
+	}
+
+	private static void traverse(List<String> list, char[] bucket, int opening, int closing, int n) {
+		if (opening > n) {
+			return;
+		}
+		if (opening == n && closing == n) {
+			list.add(new String(bucket));
+			return;
+		}
+		bucket[opening + closing] = '(';
+		traverse(list, bucket, opening + 1, closing, n);
+		if (opening > closing) {
+			bucket[opening + closing] = ')';
+			traverse(list, bucket, opening, closing + 1, n);
+		}
 	}
 
 	private static void type1() {
