@@ -22,13 +22,16 @@ public class MaxSumForConsecutiveElements {
 	// Kadane's algorithm of o(n)
 	// we carry a sub array if its sum is positive else we'll initialize it to 0
 	private static void type2() {
-		int[] array = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-		int maxSum = array[0];
-		int sum = array[0];
-		for (int i = 1; i < array.length; i++) {
-			sum = sum + array[i];
+		int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+		int maxSum = nums[0];
+		int sum = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			// on each step we will add the element to the sum
+			// but if the item + previous sum is lesser than the item
+			// then we initialize the sum to current item
+			sum = Math.max(nums[i], sum + nums[i]);
+			// we will again check the current sum is max sum or not
 			maxSum = Math.max(maxSum, sum);
-			sum = sum > 0 ? sum : 0;
 		}
 		System.out.println("Maximum subarray value is " + maxSum);
 	}

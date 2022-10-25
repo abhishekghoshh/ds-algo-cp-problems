@@ -5,9 +5,14 @@ import java.util.Map;
 
 /*
  * Problem link:
+ * https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
  * 
  * Solution:
+ * https://www.youtube.com/watch?v=cyu_nuW5utA&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=7
+ * https://www.youtube.com/watch?v=TfQPoaRDeMQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=8
+ * 
  * https://www.geeksforgeeks.org/longest-sub-array-sum-k/
+ * https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/
  * */
 public class LongestSubarrayWithSumEqualsK {
 
@@ -17,45 +22,12 @@ public class LongestSubarrayWithSumEqualsK {
 		type3();
 	}
 
-	// variable length sliding window technique
-	// works on positive numbers only
-	// A simple intuition for the optimal approach is that, while forming a subarray
-	// if the sum as already greater than k, we can stop there and increase the
-	// starting index. Because, already the sum has reached k, if we are still going
-	// to add more elements, it would definitely go up.
-	// time complexity O(2 *n)
-	// space complexity O(1)
-	private static void type3() {
-		int[] nums = { 3, 8, 2, 4, 1, 0, 4, 1, 1, 1, 2, 0, 12 };
-		int k = 5;
-		int left = 0, right = 0, sum = 0, length = 0, n = nums.length;
-		while (right < n) {
-			sum += nums[right];
-			if (sum < k) {
-				right++;
-			} else if (sum == k) {
-				length = Math.max(length, right - left + 1);
-				right++;
-			} else if (sum > k) {
-				while (sum > k) {
-					sum -= nums[left];
-					left++;
-				}
-				if (sum == k) {
-					length = Math.max(length, right - left + 1);
-				}
-				right++;
-			}
-		}
-		System.out.println("max length is " + length);
-	}
-
 	// efficient approach
 	// works on negative numbers as
 	// prefix sum approach
 	// Time complexity O(n)
 	// space complexity O(n)
-	private static void type2() {
+	private static void type3() {
 		int[] nums = { 3, -5, 8, -14, 2, 4, 0, -1, -3, 4, 12 };
 		int k = 5;
 		// int[] nums = { 10, 5, 2, 7, 1, 9 };
@@ -82,6 +54,39 @@ public class LongestSubarrayWithSumEqualsK {
 				if (!prefixSum.containsKey(sum)) {
 					prefixSum.put(sum, i);
 				}
+			}
+		}
+		System.out.println("max length is " + length);
+	}
+
+	// variable length sliding window technique
+	// works on positive numbers only
+	// A simple intuition for the optimal approach is that, while forming a subarray
+	// if the sum as already greater than k, we can stop there and increase the
+	// starting index. Because, already the sum has reached k, if we are still going
+	// to add more elements, it would definitely go up.
+	// time complexity O(2 *n)
+	// space complexity O(1)
+	private static void type2() {
+		int[] nums = { 3, 8, 2, 4, 1, 0, 4, 1, 1, 1, 2, 0, 12 };
+		int k = 5;
+		int left = 0, right = 0, sum = 0, length = 0, n = nums.length;
+		while (right < n) {
+			sum += nums[right];
+			if (sum < k) {
+				right++;
+			} else if (sum == k) {
+				length = Math.max(length, right - left + 1);
+				right++;
+			} else if (sum > k) {
+				while (sum > k) {
+					sum -= nums[left];
+					left++;
+				}
+				if (sum == k) {
+					length = Math.max(length, right - left + 1);
+				}
+				right++;
 			}
 		}
 		System.out.println("max length is " + length);

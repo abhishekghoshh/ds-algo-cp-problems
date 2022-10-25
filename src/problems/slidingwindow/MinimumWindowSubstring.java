@@ -11,11 +11,83 @@ import java.util.Map;
  * https://www.youtube.com/watch?v=iwv1llyN6mo&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=13
  * */
 public class MinimumWindowSubstring {
-
+	// Given two strings s and t of lengths m and n respectively, return the minimum
+	// window substring of s such that every character in t (including duplicates)
+	// is included in the window. If there is no such substring, return the empty
+	// string "".
+	// The testcases will be generated such that the answer is unique.
+	// A substring is a contiguous sequence of characters within the string.
+	// TODO check later https://leetcode.com/submissions/detail/829698608/
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
+		type4();
+		type5();
+	}
+
+	private static void type5() {
+		String s = "ADOBECODEBANCABN";
+		String t = "ABC";
+		int[] map = new int[128];
+		for (char c : t.toCharArray()) {
+			map[c]++;
+		}
+		int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
+		while (end < s.length()) {
+			final char c1 = s.charAt(end);
+			if (map[c1] > 0)
+				counter--;
+			map[c1]--;
+			end++;
+			while (counter == 0) {
+				if (minLen > end - start) {
+					minLen = end - start;
+					minStart = start;
+				}
+				final char c2 = s.charAt(start);
+				map[c2]++;
+				if (map[c2] > 0)
+					counter++;
+				start++;
+			}
+		}
+
+		String minWindow = minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
+		System.out.println(minWindow);
+	}
+
+	// TODO check later
+	private static void type4() {
+		String s = "ADOBECODEBANCABN";
+		String t = "ABC";
+		int[] map = new int[127];
+		for (char c : t.toCharArray()) {
+			++map[c];
+		}
+		int count = t.length();
+		char[] sc = s.toCharArray();
+		int resLen = Integer.MAX_VALUE;
+		int resIndex = 0;
+		int start = 0;
+		for (int i = 0; i < sc.length; ++i) {
+			count -= (--map[sc[i]] >>> 31) ^ 1;
+			if (count == 0) {
+				while (true) {
+					var c = sc[start++];
+					if (++map[c] > 0)
+						break;
+				}
+				++count;
+				int len = i - start + 2;
+				if (len < resLen) {
+					resLen = len;
+					resIndex = start - 1;
+				}
+			}
+		}
+		String minWindow = s.substring(resIndex, resIndex + resLen);
+		System.out.println(minWindow);
 	}
 
 	// TODO study later
@@ -110,6 +182,7 @@ public class MinimumWindowSubstring {
 		System.out.println(minString);
 	}
 
+	// brute force approach
 	private static void type1() {
 		String s = "ADOBECODEBANC";
 		String t = "ABC";

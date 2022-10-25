@@ -5,7 +5,8 @@ import java.util.Map;
 
 /*
  * Problem link:
- * 
+ * https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
+ * https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
  * 
  * Solution:
  * https://www.youtube.com/watch?v=Lav6St0W_pQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=10

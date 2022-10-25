@@ -6,6 +6,7 @@ import java.util.Queue;
 /*
  * Problem link : 
  * https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+ * https://www.codingninjas.com/codestudio/problems/first-negative-in-every-window_759333?leftPanelTab=1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=uUXXEgK2Jh8&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=4
@@ -17,10 +18,11 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 		type2();
 	}
 
+
 	private static void type2() {
-		int arr[] = { -8, 2, 3, -6, 10 };
+		int nums[] = { -8, 2, 3, -6, 10 };
 		int k = 2;
-		int n = arr.length;
+		int n = nums.length;
 		// size of the result array
 		int size = n - k + 1;
 		int[] answer = new int[size];
@@ -28,8 +30,8 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 		int left = 0, right = 0;
 		// we are collecting all the negative numbers from 0 to k-1
 		while (right < k) {
-			if (arr[right] < 0) {
-				queue.offer(arr[right]);
+			if (nums[right] < 0) {
+				queue.offer(nums[right]);
 			}
 			right++;
 		}
@@ -42,21 +44,21 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 			if (!queue.isEmpty()) {
 				answer[left] = queue.peek();
 				// is the start first element of queue is start of the window
-				if (queue.peek() == arr[left]) {
+				if (queue.peek() == nums[left]) {
 					queue.poll();
 				}
 			} else {
 				answer[left] = 0;
 			}
 			// if current right is less than zero or not
-			if (right < n && arr[right] < 0) {
-				queue.offer(arr[right]);
+			if (right < n && nums[right] < 0) {
+				queue.offer(nums[right]);
 			}
 			// shifting the window
 			left++;
 			right++;
 		}
-		print(arr);
+		print(nums);
 		print(answer);
 	}
 
@@ -67,7 +69,8 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 		System.out.println();
 	}
 
+	// brute force approach
 	private static void type1() {
-
+	
 	}
 }
