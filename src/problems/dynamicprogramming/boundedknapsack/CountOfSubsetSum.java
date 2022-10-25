@@ -23,9 +23,12 @@ public class CountOfSubsetSum {
 		int target = 25;
 		int n = nums.length;
 		int[][] memo = new int[n + 1][target + 1];
+		// with n equal to 0 we can not make any target sum
 		for (int i = 0; i <= target; i++) {
 			memo[0][i] = 0;
 		}
+		// but to make taget sum equal to 0 we have always one option
+		// that is empty set
 		for (int i = 0; i <= n; i++) {
 			memo[i][0] = 1;
 		}
@@ -42,6 +45,8 @@ public class CountOfSubsetSum {
 		System.out.println(count);
 	}
 
+	// using memoization
+	// TODO do it later
 	private static void type1() {
 		// TODO Auto-generated method stub
 
