@@ -2,6 +2,14 @@ package problems.binarytree;
 
 import util.TreeNode;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
+ * 
+ * Solution link :
+ * 
+ * 
+ * */
 public class SecondMinimumValueInBinaryTree {
 
 	public static void main(String[] args) {
