@@ -15,6 +15,41 @@ public class MaxRectangularAreaOfBinaryMatrix {
 	public static void main(String args[]) {
 		type1();
 		type2();
+		type3();
+	}
+
+	private static void type3() {
+		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
+		int m = matrix.length, n = matrix[0].length;
+		int[] histogram = new int[n];
+		int maxArea = 0;
+		for (int i = 0; i < m; i++) {
+			// we will update the histogram on each iteration
+			// and add the current row to the histogram
+			for (int j = 0; j < n; j++) {
+				// if the cell is zero then it has no point of adding previous
+				// so we set it to 0
+				// else we will add 1 to the height
+				histogram[j] = matrix[i][j] == 0 ? 0 : histogram[j] + 1;
+			}
+			maxArea = Math.max(maxArea, maxAreaOfHistogramOptimized(histogram, n));
+		}
+		System.out.println(maxArea);
+	}
+
+	private static int maxAreaOfHistogramOptimized(int[] histogram, int n) {
+		int max = 0;
+		int[] stack = new int[n + 1];
+		int top = -1, height, width;
+		for (int i = 0; i <= n; i++) {
+			while (top != -1 && (i == n || histogram[stack[top]] > histogram[i])) {
+				height = histogram[stack[top--]];
+				width = (top == -1) ? i : i - stack[top] - 1;
+				max = Math.max(max, height * width);
+			}
+			stack[++top] = i;
+		}
+		return max;
 	}
 
 	private static void type2() {
