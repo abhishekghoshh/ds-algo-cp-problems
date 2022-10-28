@@ -1,5 +1,6 @@
 package problems.stack;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /*
@@ -10,12 +11,66 @@ import java.util.Stack;
  * https://www.youtube.com/watch?v=St0Jf_VmG_g&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=8
  * 
  * */
-//TODO study https://leetcode.com/submissions/detail/828547688/
 public class MaxRectangularAreaOfBinaryMatrix {
 	public static void main(String args[]) {
 		type1();
 		type2();
 		type3();
+		type4();
+	}
+
+	// TODO study later
+	private static void type4() {
+		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
+		int row = matrix.length;
+		int col = matrix[0].length;
+		int[] left = new int[col];
+		int[] right = new int[col];
+		int[] height = new int[col];
+		Arrays.fill(right, col);
+
+		int max = 0;
+		for (int i = 0; i < row; i++) {
+			max = Math.max(max, dp(i, col, left, right, height, matrix));
+		}
+		System.out.println(max);
+	}
+
+	private static int dp(int r, int col, int[] left, int[] right, int height[], int[][] matrix) {
+		int currentLeft = 0;
+		int currentRight = col;
+
+		// update height cache
+		for (int i = 0; i < col; i++) {
+			if (matrix[r][i] == 1)
+				height[i]++;
+			else
+				height[i] = 0;
+		}
+		// update left cache
+		for (int i = 0; i < col; i++) {
+			if (matrix[r][i] == 1)
+				left[i] = Math.max(left[i], currentLeft);
+			else {
+				left[i] = 0;
+				currentLeft = i + 1;
+			}
+		}
+		// update right cache
+		for (int i = col - 1; i >= 0; i--) {
+			if (matrix[r][i] == 1)
+				right[i] = Math.min(right[i], currentRight);
+			else {
+				right[i] = col;
+				currentRight = i;
+			}
+		}
+		// update area
+		int max = 0;
+		for (int i = 0; i < col; i++) {
+			max = Math.max(max, (right[i] - left[i]) * height[i]);
+		}
+		return max;
 	}
 
 	private static void type3() {

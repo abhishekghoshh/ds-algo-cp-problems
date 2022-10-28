@@ -33,11 +33,48 @@ public class TargetSum {
 
 	}
 
+	// 2D Dynamic Programming
 	private static void type5() {
+		int[] nums = { 1, 1, 1, 2, 3 };
+		int target = 2;
+		int n = nums.length;
+		int total = Arrays.stream(nums).sum();
+		int[][] dp = new int[nums.length][2 * total + 1];
+		dp[0][nums[0] + total] = 1;
+		dp[0][-nums[0] + total] += 1;
 
+		for (int i = 1; i < n; i++) {
+			for (int sum = -total; sum <= total; sum++) {
+				if (dp[i - 1][sum + total] > 0) {
+					dp[i][sum + nums[i] + total] += dp[i - 1][sum + total];
+					dp[i][sum - nums[i] + total] += dp[i - 1][sum + total];
+				}
+			}
+		}
+		int count = Math.abs(target) > total ? 0 : dp[nums.length - 1][target + total];
+		System.out.println(count);
 	}
 
 	// Recursion with Memoization
+	// In the last approach, we can observe that a lot of redundant function calls
+	// were made with the same value of i as the current index and the same value of
+	// sum as the current sum, since the same values could be obtained through
+	// multiple paths in the recursion tree. In order to remove this redundancy, we
+	// make use of memoization as well to store the results which have been
+	// calculated earlier.
+
+	// Thus,for every call to calculate(nums, i, sum, S), we store the result
+	// obtained in memo[i][sum + total], where total stands for the sum of all the
+	// elements from the input array. The factor of total has been added as an
+	// offset to the sumsum value to map all the sumsums possible to positive
+	// integer range. By making use of memoization, we can get the result of each
+	// redundant function call in constant time.
+
+	// Time complexity: O(t *n)). The memo array of size O(t*n) has been filled just
+	// once. Here, tt refers to the sum of the numsnums array and nn refers to the
+	// length of the nums array.
+	// Space complexity: O(t*n). The depth of recursion tree can go up to nn. The
+	// memo array contains t*n elements.
 	private static void type4() {
 		int[] nums = { 1, 1, 1, 2, 3 };
 		int target = 2;
@@ -46,6 +83,8 @@ public class TargetSum {
 		for (int num : nums) {
 			sum = sum + num;
 		}
+		// 0 <= nums[i] <= 1000 criteria is in the input
+		// if all num is less than zero then we can just use Math.abs(sum)
 		// we will add sum as offset
 		// as at some point there be an situation where current sum can be less than
 		// zero, so to tackle that we will increase the array size by sum

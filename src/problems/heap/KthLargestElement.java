@@ -19,7 +19,6 @@ public class KthLargestElement {
 		type3();
 	}
 
-	// TODO check later
 	private static void type3() {
 		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;
@@ -34,12 +33,12 @@ public class KthLargestElement {
 				min = nums[i];
 			}
 		}
-		int a[] = new int[max - min + 1];
+		int freq[] = new int[max - min + 1];
 		for (int i = 0; i < nums.length; i++)
-			a[nums[i] - min] = a[nums[i] - min] + 1;
+			freq[nums[i] - min]++;
 		int cnt = 0;
 		for (int i = max - min; i >= 0; i--) {
-			cnt = cnt + a[i];
+			cnt = cnt + freq[i];
 			if (cnt >= k) {
 				element = i + min;
 				break;
@@ -75,13 +74,12 @@ public class KthLargestElement {
 	}
 
 	// quick sort partition mechanism
-	// TODO check later
 	private static int partition(int[] nums, int low, int high) {
 		int pivot = nums[low];
 		int l = low + 1;
 		int r = high;
 		while (l <= r) {
-			if (nums[l] < pivot && nums[r] > pivot) {
+			if (nums[l] < pivot && pivot < nums[r]) {
 				swap(nums, l, r);
 				l++;
 				r--;
@@ -94,6 +92,8 @@ public class KthLargestElement {
 			}
 		}
 		swap(nums, low, r);
+		// after this all elements before r will be greater than arr[r] and all elements
+		// after r will be less than arr[r]
 		return r;
 	}
 
