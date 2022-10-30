@@ -22,29 +22,33 @@ public class KthLargestElement {
 	private static void type3() {
 		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;
-		int max = Integer.MIN_VALUE;
+		int kth = -1;
 		int min = Integer.MAX_VALUE;
-		int element = -1;
+		int max = Integer.MIN_VALUE;
 		for (int i = 0; i < nums.length; i++) {
-			if (max < nums[i]) {
-				max = nums[i];
+			final int num = nums[i];
+			if (num < min) {
+				min = num;
 			}
-			if (min > nums[i]) {
-				min = nums[i];
-			}
-		}
-		int freq[] = new int[max - min + 1];
-		for (int i = 0; i < nums.length; i++)
-			freq[nums[i] - min]++;
-		int cnt = 0;
-		for (int i = max - min; i >= 0; i--) {
-			cnt = cnt + freq[i];
-			if (cnt >= k) {
-				element = i + min;
-				break;
+			if (max < num) {
+				max = num;
 			}
 		}
-		System.out.println(element);
+
+		final int[] distincNumsCount = new int[max - min + 1];
+		for (int i = 0; i < nums.length; i++) {
+			distincNumsCount[nums[i] - min]++;
+		}
+
+		int numsCount = 0;
+		for (int i = distincNumsCount.length - 1; i >= 0; i--) {
+			numsCount += distincNumsCount[i];
+			if (k <= numsCount) {
+				kth = i + min;
+			}
+		}
+
+		System.out.println(kth);
 	}
 
 	// partition mechanism

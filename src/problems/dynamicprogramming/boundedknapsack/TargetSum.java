@@ -9,6 +9,8 @@ import java.util.Arrays;
  * Solution link :
  * https://www.youtube.com/watch?v=Hw6Ygp3JBYw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12
  * 
+ * https://www.youtube.com/watch?v=g0npyaQtAQM
+ * 
  */
 public class TargetSum {
 
@@ -21,7 +23,7 @@ public class TargetSum {
 	// evaluates to target.
 	public static void main(String[] args) {
 		type2();
-		// for explanation from type3 to type5 see leetcode solution section
+		// for explanation from type3 to type6 see leetcode solution section
 		// https://leetcode.com/problems/target-sum/solution/
 		type3();
 		type4();
@@ -29,22 +31,71 @@ public class TargetSum {
 		type6();
 	}
 
+	// If we look closely at the last solution, we can observe that to evaluate the
+	// current row of dp, only the values of the last row of dp are needed.
+	// Thus, we can save some space by using a 1D DP array instead of a 2D DP array.
+	// The only change we need to make is that we have to create an array next
+	// of the same size as dp so that we can update it while scanning through dp
+	// since it is not safe to mutate dp when the iteration is in progress. After
+	// the iteration is completed, we set dp equal to next and create a new
+	// empty array next before the next iteration starts, and so on.
+	// Time complexity: O(t \cdot n)O(t⋅n). Each of the nn dp arrays of size tt has
+	// been filled just once. Here, tt refers to the sum of the numsnums array and
+	// nn refers to the length of the numsnums array.
+	// Space complexity: O(t)O(t). Two dp arrays of size 2 \cdot t + 12⋅t+1 are
+	// used, therefore the space usage is O(t)O(t).
 	private static void type6() {
+		int[] nums = { 1, 1, 1, 2, 3 };
+		int target = 2;
+		int total = Arrays.stream(nums).sum();
+		int[] dp = new int[2 * total + 1];
+		dp[nums[0] + total] = 1;
+		dp[-nums[0] + total] += 1;
 
+		for (int i = 1; i < nums.length; i++) {
+			int[] next = new int[2 * total + 1];
+			for (int sum = -total; sum <= total; sum++) {
+				if (dp[sum + total] > 0) {
+					next[sum + nums[i] + total] += dp[sum + total];
+					next[sum - nums[i] + total] += dp[sum + total];
+				}
+			}
+			dp = next;
+		}
+
+		int count = Math.abs(target) > total ? 0 : dp[target + total];
+		System.out.println(count);
 	}
 
 	// 2D Dynamic Programming
+
+	// Time complexity: O(t \cdot n)O(t⋅n). The dp array of size O(t \cdot n)O(t⋅n)
+	// has been filled just once. Here, tt refers to the sum of the numsnums array
+	// and nn refers to the length of the numsnums array.
+	// Space complexity: O(t \cdot n)O(t⋅n). dp array of size t \cdot nt⋅n is used.
 	private static void type5() {
 		int[] nums = { 1, 1, 1, 2, 3 };
 		int target = 2;
 		int n = nums.length;
 		int total = Arrays.stream(nums).sum();
-		int[][] dp = new int[nums.length][2 * total + 1];
+		// if we think closely then then intermediate sum can be range from -total to
+		// +total, - total when all signs are negative and +total when all signs are
+		// positive
+		// so our range will be from o..n and -total..+total
+		// so can make our dp array to store intermediate result
+		// but we can not use negative index
+		// so we will add offset.. our offset will the total sum
+		int[][] dp = new int[n][2 * total + 1];
+		// till 0th element the total sum can be +oth element or -0th element
+		// so we will increment the count
 		dp[0][nums[0] + total] = 1;
 		dp[0][-nums[0] + total] += 1;
 
 		for (int i = 1; i < n; i++) {
 			for (int sum = -total; sum <= total; sum++) {
+				// dp[i - 1][sum + total] > 0 this means with i-1 elements we can
+				// construct sum, if it's 0 then the sum is possible with previous elements
+				// now we will increment sum+num[i] and sum-nums[i] for ith row
 				if (dp[i - 1][sum + total] > 0) {
 					dp[i][sum + nums[i] + total] += dp[i - 1][sum + total];
 					dp[i][sum - nums[i] + total] += dp[i - 1][sum + total];
@@ -97,17 +148,17 @@ public class TargetSum {
 		System.out.println(count);
 	}
 
-	public static int calculate(int[] nums, int i, int sum, int S, int[][] memo, int total) {
+	public static int calculate(int[] nums, int i, int sum, int target, int[][] memo, int total) {
 		if (i == nums.length) {
-			return sum == S ? 1 : 0;
+			return sum == target ? 1 : 0;
 		} else {
 			if (memo[i][sum + total] != Integer.MIN_VALUE) {
 				return memo[i][sum + total];
 			}
 			// int add = calculate(nums, i + 1, sum + nums[i], S, memo,total);
 			// int subtract = calculate(nums, i + 1, sum - nums[i], S, memo,total);
-			memo[i][sum + total] = calculate(nums, i + 1, sum + nums[i], S, memo, total)
-					+ calculate(nums, i + 1, sum - nums[i], S, memo, total);
+			memo[i][sum + total] = calculate(nums, i + 1, sum + nums[i], target, memo, total)
+					+ calculate(nums, i + 1, sum - nums[i], target, memo, total);
 			return memo[i][sum + total];
 		}
 	}

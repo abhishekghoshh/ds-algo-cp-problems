@@ -53,6 +53,7 @@ public class PrintingKnapSack {
 			int temp = indices.get(r);
 			indices.set(r, indices.get(l));
 			indices.set(l, temp);
+			l++;r--;
 		}
 		List<List<Integer>> answer = Arrays.asList(Arrays.asList(profit), indices);
 		System.out.println(answer);

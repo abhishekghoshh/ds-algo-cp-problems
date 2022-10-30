@@ -9,7 +9,9 @@ package problems.dynamicprogramming.boundedknapsack;
  * 
  */
 public class CountOfSubsetSumDifference {
-
+	// 1 <= n <= 15
+	// nums.length == 2 * n
+	// -107 <= nums[i] <= 107
 	public static void main(String[] args) {
 		type2();
 	}

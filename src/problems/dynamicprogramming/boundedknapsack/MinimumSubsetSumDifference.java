@@ -2,7 +2,6 @@ package problems.dynamicprogramming.boundedknapsack;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=-GtpxG6l_Mc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=10
@@ -12,12 +11,9 @@ public class MinimumSubsetSumDifference {
 
 	public static void main(String args[]) {
 		type2();
-		type3();
 	}
 
-	private static void type3() {
-		
-	}
+	
 
 	// only works with positive integer
 	// We need a better solution
