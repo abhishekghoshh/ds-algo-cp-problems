@@ -1,8 +1,10 @@
 package problems.dynamicprogramming.unboundedknapsack;
 
+import java.util.Arrays;
+
 /*
  * Problem link :
- * https://leetcode.com/problems/coin-change/submissions/
+ * https://leetcode.com/problems/coin-change
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16
@@ -12,6 +14,25 @@ public class MinimumNoOfCoinsForCoinChange {
 
 	public static void main(String[] args) {
 		type3();
+		type4();
+	}
+
+	// TODO study later
+	private static void type4() {
+		int coins[] = { 1, 2, 3, 4, 5, 9, 11 };
+		int amount = 12;
+		int[] dp = new int[amount + 1];
+		// assigning all values to max possibility
+		Arrays.fill(dp, amount + 1);
+		// for 0 amount minimum number of coins needed is 0
+		dp[0] = 0;
+		for (int coin : coins) {
+			for (int i = coin; i <= amount; ++i) {
+				dp[i] = Math.min(dp[i - coin] + 1, dp[i]);
+			}
+		}
+		int minCount = dp[amount] == amount + 1 ? -1 : dp[amount];
+		System.out.println(minCount);
 	}
 
 	private static void type3() {

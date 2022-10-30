@@ -22,11 +22,12 @@ public class MaxiumNoOfWaysForCoinChange {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int[] dp = new int[amount + 1];
+		// to make zero amount we always have one option which is to consider the zero
+		// subset
 		dp[0] = 1;
-
 		for (int coin : coins) {
-			for (int x = coin; x < amount + 1; ++x) {
-				dp[x] += dp[x - coin];
+			for (int i = coin; i < amount + 1; i++) {
+				dp[i] += dp[i - coin];
 			}
 		}
 		int maxTime = dp[amount];
