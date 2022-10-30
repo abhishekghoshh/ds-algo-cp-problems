@@ -1,5 +1,12 @@
 package problems.dynamicprogramming.unboundedknapsack;
-
+/*
+ * Problem link :
+ * https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=aycn9KO8_Ls&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13
+ * 
+ */
 public class KnapSackWithRepeatedItems {
 
 	public static void main(String[] args) {
