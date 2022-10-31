@@ -1,7 +1,22 @@
 package problems.dynamicprogramming.matrixchainmultiplication;
-
+/*
+ * Problem link :
+ * https://practice.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=D7AFvtnDeMU&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=32
+ * https://www.youtube.com/watch?v=kMK148J9qEE&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=33
+ * https://www.youtube.com/watch?v=9uUVFNOT3_Y&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=34
+ * 
+ */
 public class MatrixChainMultiplication {
 
+	// Given a sequence of matrices, find the most efficient way to multiply these
+	// matrices together. The efficient way is the one that involves the least
+	// number of multiplications.
+	// The dimensions of the matrices are given in an array arr[] of size N (such
+	// that N = number of matrices + 1) where the ith matrix has the dimensions
+	// (arr[i-1] x arr[i]).
 	public static void main(String[] args) {
 		type1();
 		type2();
