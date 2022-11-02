@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.unboundedknapsack;
+package problems.dynamicprogramming;
 
 /*
  * Problem link :

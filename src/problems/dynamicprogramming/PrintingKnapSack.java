@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.boundedknapsack;
+package problems.dynamicprogramming;
 
 import java.util.ArrayList;
 import java.util.Arrays;

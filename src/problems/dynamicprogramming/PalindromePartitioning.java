@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.matrixchainmultiplication;
+package problems.dynamicprogramming;
 
 import java.util.Arrays;
 

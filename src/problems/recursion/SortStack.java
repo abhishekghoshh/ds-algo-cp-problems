@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /*
  * Problem link : 
+ * https://practice.geeksforgeeks.org/problems/sort-a-stack/1
  * https://www.codingninjas.com/codestudio/problems/sort-a-stack_985275?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTab=1
  * 
  * Solution link :

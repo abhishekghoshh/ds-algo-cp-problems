@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.longestcommonsubsequence;
+package problems.dynamicprogramming;
 
 /*
  * Problem link :

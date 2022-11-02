@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.unboundedknapsack;
+package problems.dynamicprogramming;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1

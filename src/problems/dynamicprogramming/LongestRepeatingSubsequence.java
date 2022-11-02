@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.longestcommonsubsequence;
+package problems.dynamicprogramming;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1

@@ -1,4 +1,4 @@
-package problems.dynamicprogramming.unboundedknapsack;
+package problems.dynamicprogramming;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
