@@ -18,6 +18,7 @@ public class BitSet {
 	}
 
 	// constraint 0 <= n <= 30
+	// if the constraint is 0 <= n <= 60 then we can use double data type
 	// space complexity O(1)
 	// time complexity O(1)
 	private static void type1() {
@@ -32,7 +33,8 @@ public class BitSet {
 	}
 
 	private static class Set {
-		int set = 0;
+		int set = 0;//0 <= n <= 30
+		long longSet = 0L;// 0 <= n <= 60
 
 		// time complexity O(1)
 		// space complexity O(1)
