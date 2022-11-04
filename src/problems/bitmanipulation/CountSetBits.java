@@ -9,7 +9,7 @@ package problems.bitmanipulation;
  * https://www.geeksforgeeks.org/count-set-bits-in-an-integer/
  * 
  */
-public class CountSetBitsInInteger {
+public class CountSetBits {
 	// Signed Right shift operator (>>)
 	// Unsigned Right shift operator (>>>)
 	// Left shift operator(<<)
@@ -17,8 +17,24 @@ public class CountSetBitsInInteger {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
 
+	// time complexity O(number of set bit)
+	private static void type3() {
+//		int n = 2147483647;
+		int n = -2147483648;
+		int ones = 0;
+		while (n != 0) {
+			// on each iteration we will remove its right most set bit
+			n = n & (n - 1);
+			ones++;
+		}
+		System.out.println(ones);
+	}
+
+	// time complexity O(log(n))
+	// same as previous one type2
 	private static void type2() {
 //		int n = 2147483647;
 		int n = -2147483648;
@@ -30,6 +46,7 @@ public class CountSetBitsInInteger {
 		System.out.println(ones);
 	}
 
+	// time complexity O(log(n))
 	// in case of negative it will fail as >> is a signed shift operator
 	// in MSB of negative number there is one and by using >> it will not shift to
 	// lsb, it will stay as it is, so in place of >> we can use >>>
