@@ -1,6 +1,6 @@
 package problems.bitmanipulation;
 
-public class ExtractTheLastSetBit {
+public class ExtractTheRightMostSetBit {
 
 	public static void main(String[] args) {
 		type1();
