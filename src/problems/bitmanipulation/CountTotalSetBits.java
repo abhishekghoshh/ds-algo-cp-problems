@@ -6,7 +6,8 @@ package problems.bitmanipulation;
  * https://leetcode.com/problems/counting-bits/
  * 
  * Solution link :
- * 
+ * https://www.youtube.com/watch?v=ZzZcFXDcbJw
+ * https://www.youtube.com/watch?v=kU5G5-6xEF4
  * 
  */
 public class CountTotalSetBits {
