@@ -9,7 +9,7 @@ package problems.bitmanipulation;
  * 
  * 
  */
-public class CheckIfPowerOfTwo {
+public class NumberIsPowerOfTwo {
 	// Given a non-negative integer N. The task is to check if N is a power of 2.
 	// More formally, check if N can be expressed as 2x for some x.
 	public static void main(String[] args) {
@@ -31,6 +31,8 @@ public class CheckIfPowerOfTwo {
 		System.out.println(isPowerofTwo);
 	}
 
+	// brute force
+	// count the number of ones present
 	private static void type1() {
 		long n = 0;
 		if (n == 0) {
