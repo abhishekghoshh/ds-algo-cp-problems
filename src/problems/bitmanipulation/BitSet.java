@@ -34,7 +34,7 @@ public class BitSet {
 
 	private static class Set {
 		int set = 0;//0 <= n <= 30
-		long longSet = 0L;// 0 <= n <= 60
+//		long longSet = 0L;// 0 <= n <= 60
 
 		// time complexity O(1)
 		// space complexity O(1)
