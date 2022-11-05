@@ -17,11 +17,64 @@ public class CountTotalSetBits {
 		type2();
 		type3();
 		type4();
+		type5();
+		type6();
 	}
 
+	// 0 0 0 0 0
+	// 0 0 0 0 1
+	// 0 0 0 1 0
+	// 0 0 0 1 1
+	// 0 0 1 0 0
+	// 0 0 1 0 1
+	// 0 0 1 1 0
+	// 0 0 1 1 1
+	// 0 1 0 0 0
+	// 0 1 0 0 1
+	// 0 1 0 1 0
+	// 0 1 0 1 1
+	// 0 1 1 0 0
+	// 0 1 1 0 1
+	// 0 1 1 1 0
+	// 0 1 1 1 1
+	// 1 0 0 0 0
+	private static void type6() {
+		int n = 7;
+		int count = 0;
+		int index = 3;
+		int mask = 1 << index;
+		while (index >= 0) {
+			if ((n & mask) != 0) {
+				int temp = (1 << index) * (index + 1);
+				count = count + 1 + temp;
+//				n = n & (~(1 << index));
+			}
+			mask = mask >> 1;
+			index--;
+		}
+		System.out.println(count);
+	}
+
+	// 0 0 0 0 0
+	// 0 0 0 0 1
+	// 0 0 0 1 0
+	// 0 0 0 1 1
+	// 0 0 1 0 0
+	// 0 0 1 0 1
+	// 0 0 1 1 0
+	// 0 0 1 1 1
+	// 0 1 0 0 0
+	// 0 1 0 0 1
+	// 0 1 0 1 0
+	// 0 1 0 1 1
+	// 0 1 1 0 0
+	// 0 1 1 0 1
+	// 0 1 1 1 0
+	// 0 1 1 1 1
+	// 1 0 0 0 0
 	// count total set bits from 1 to n inclusive
 	private static void type4() {
-		int n = 9;
+		int n = 7;
 		int count = 0;
 		int arr[] = new int[n + 1];
 		for (int i = 1; i <= n; i++) {
@@ -31,12 +84,38 @@ public class CountTotalSetBits {
 		System.out.println(count);
 	}
 
+	private static void type5() {
+		int n = 7;
+		int count = countSetBits(n);
+		System.out.println(count);
+	}
+
+	// Function to return sum of count of set bits in the integers from 1 to n.
+	public static int countSetBits(int n) {
+		if (n == 0)
+			return 0;
+		int x = largestPowerOf2(n);
+		int a = x * (1 << (x - 1));
+		int b = n - (1 << x) + 1;
+		int c = n - (1 << x);
+		int ans = a + b + countSetBits(c);
+		return ans;
+	}
+
+	public static int largestPowerOf2(int n) {
+		int x = 0;
+		while ((1 << x) <= n) {
+			x++;
+		}
+		return x - 1;
+	}
+
 	// it is same as type2
 	// i/2 and i>>1 is same
 	// i%2 and i&1 is same
 	// be cautious while working with bitwise operator
 	private static void type3() {
-		int n = 3;
+		int n = 7;
 		int arr[] = new int[n + 1];
 		for (int i = 1; i <= n; i++) {
 			arr[i] = arr[i >> 1] + (i & 1);
@@ -54,7 +133,7 @@ public class CountTotalSetBits {
 	// count(n/2)+1 if n is negative
 	// so we can store the previous results in array
 	private static void type2() {
-		int n = 10;
+		int n = 7;
 		int arr[] = new int[n + 1];
 		for (int i = 1; i <= n; i++) {
 			arr[i] = arr[i / 2] + i % 2;
@@ -68,7 +147,7 @@ public class CountTotalSetBits {
 	// so total time complexity is O(n*log(n))
 	// but we can do better
 	private static void type1() {
-		int n = 10;
+		int n = 7;
 		int[] arr = new int[n + 1];
 		for (int i = 0; i <= n; i++) {
 			arr[i] = count(i);

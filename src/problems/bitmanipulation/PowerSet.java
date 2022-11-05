@@ -2,7 +2,15 @@ package problems.bitmanipulation;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+ * Problem link :
+ * https://leetcode.com/problems/subsets/
+ * https://practice.geeksforgeeks.org/problems/power-set4302/1
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=b7AYbpM5YrE
+ * 
+ */
 public class PowerSet {
 
 	public static void main(String[] args) {
