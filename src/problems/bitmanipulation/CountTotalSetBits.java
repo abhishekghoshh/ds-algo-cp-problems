@@ -21,33 +21,29 @@ public class CountTotalSetBits {
 		type6();
 	}
 
-	// 0 0 0 0 0
-	// 0 0 0 0 1
-	// 0 0 0 1 0
-	// 0 0 0 1 1
-	// 0 0 1 0 0
-	// 0 0 1 0 1
-	// 0 0 1 1 0
-	// 0 0 1 1 1
-	// 0 1 0 0 0
-	// 0 1 0 0 1
-	// 0 1 0 1 0
-	// 0 1 0 1 1
-	// 0 1 1 0 0
-	// 0 1 1 0 1
-	// 0 1 1 1 0
-	// 0 1 1 1 1
-	// 1 0 0 0 0
+	// suppose the number is 01100
+	// we can break the number such as
+	// 01000
+	// 00100
+	// we know how to find total set bit count when it is 2^n
+	// so we will find 01000 then 00100
+	// but we have also keep track of the bits for extra 1
+	// as range is 01000 -> 01001->01010->01011->>>01100
+	// so there is one extra 1 bit for for 000->100 bit
 	private static void type6() {
-		int n = 7;
+		int n = 100;
 		int count = 0;
-		int index = 3;
+		// we will start from 30 then we will count for every set bit
+		int index = 30;
 		int mask = 1 << index;
 		while (index >= 0) {
 			if ((n & mask) != 0) {
-				int temp = (1 << index) * (index + 1);
-				count = count + 1 + temp;
-//				n = n & (~(1 << index));
+				// we have found one set bit
+				// the number is 2 to power n then total count is n*2^(n-1)+1
+				// (n - mask) for the extra 1 bits in the left
+				count += index * (1 << (index - 1)) + 1 + (n - mask);
+				// removing the left most set bit
+				n = n & (~mask);
 			}
 			mask = mask >> 1;
 			index--;
@@ -55,37 +51,17 @@ public class CountTotalSetBits {
 		System.out.println(count);
 	}
 
-	// 0 0 0 0 0
-	// 0 0 0 0 1
-	// 0 0 0 1 0
-	// 0 0 0 1 1
-	// 0 0 1 0 0
-	// 0 0 1 0 1
-	// 0 0 1 1 0
-	// 0 0 1 1 1
-	// 0 1 0 0 0
-	// 0 1 0 0 1
-	// 0 1 0 1 0
-	// 0 1 0 1 1
-	// 0 1 1 0 0
-	// 0 1 1 0 1
-	// 0 1 1 1 0
-	// 0 1 1 1 1
-	// 1 0 0 0 0
-	// count total set bits from 1 to n inclusive
-	private static void type4() {
-		int n = 7;
-		int count = 0;
-		int arr[] = new int[n + 1];
-		for (int i = 1; i <= n; i++) {
-			arr[i] = arr[i >> 1] + (i & 1);
-			count = count + arr[i];
-		}
-		System.out.println(count);
-	}
-
+	// suppose the number is 01100
+	// we can break the number such as
+	// 01000
+	// 00100
+	// we know how to find total set bit count when it is 2^n
+	// so we will find 01000 then 00100
+	// but we have also keep track of the bits for extra 1
+	// as range is 01000 -> 01001->01010->01011->>>01100
+	// so there is one extra 1 bit for for 000->100 bit
 	private static void type5() {
-		int n = 7;
+		int n = 100;
 		int count = countSetBits(n);
 		System.out.println(count);
 	}
@@ -94,20 +70,33 @@ public class CountTotalSetBits {
 	public static int countSetBits(int n) {
 		if (n == 0)
 			return 0;
-		int x = largestPowerOf2(n);
-		int a = x * (1 << (x - 1));
-		int b = n - (1 << x) + 1;
-		int c = n - (1 << x);
-		int ans = a + b + countSetBits(c);
-		return ans;
+		int index = leftMostSetBitIndex(n);
+		// the number is 2 to power n then total count is n*2^(n-1)+1
+		// (n - (1 << index)) for the extra 1 bits in the left
+		int totalBitForLeftSetBit = index * (1 << (index - 1)) + 1 + (n - (1 << index));
+		n = n - (1 << index);
+		return totalBitForLeftSetBit + countSetBits(n);
 	}
 
-	public static int largestPowerOf2(int n) {
+	public static int leftMostSetBitIndex(int n) {
 		int x = 0;
 		while ((1 << x) <= n) {
 			x++;
 		}
 		return x - 1;
+	}
+
+	// same as type3
+	// we are just finding the total count here
+	private static void type4() {
+		int n = 100;
+		int count = 0;
+		int arr[] = new int[n + 1];
+		for (int i = 1; i <= n; i++) {
+			arr[i] = arr[i >> 1] + (i & 1);
+			count = count + arr[i];
+		}
+		System.out.println(count);
 	}
 
 	// it is same as type2
