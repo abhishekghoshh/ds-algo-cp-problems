@@ -27,3 +27,5 @@ local.properties
 *.launch
 /bin/
 /~$SDE_SHEET.xlsx
+/.idea/
+/classes/
