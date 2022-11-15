@@ -1,5 +1,7 @@
 package problems.stack;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 /*
@@ -39,6 +41,7 @@ public class NextSmallerElement {
 		}
 		print(arr);
 		print(answer);
+		
 	}
 
 	// same as next greater element

@@ -25,7 +25,7 @@ public class SubstringPossibleWithConditionI {
 		// String s ="0000000001098700600050000000400003000020001";
 		String s = "919089088";
 		int n = s.length(), left;
-		long previousSum, currentSum, sum = 0;
+		long previousSum, currentSum, sum = 0L;
 		boolean isPossible = false;
 		Stack<Long> stack = new Stack<>();
 		for (int i = 0; i < n; i++) {

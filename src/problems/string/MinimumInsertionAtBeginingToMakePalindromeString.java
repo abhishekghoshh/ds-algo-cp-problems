@@ -1,9 +1,24 @@
 package problems.string;
 
+/*
+ * Problem link :
+ * https://www.interviewbit.com/problems/minimum-characters-required-to-make-a-string-palindromic/
+ * https://www.codingninjas.com/codestudio/problems/893000?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTab=1
+ * 
+ * Solution link :
+ * 
+ * 
+ */
 public class MinimumInsertionAtBeginingToMakePalindromeString {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// TODO complete the optimal approach
+	private static void type2() {
+
 	}
 
 	// brute force

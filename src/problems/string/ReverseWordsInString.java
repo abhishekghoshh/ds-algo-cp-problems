@@ -2,10 +2,12 @@ package problems.string;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /*
  * Problem link : 
  * https://leetcode.com/problems/reverse-words-in-a-string
+ * https://www.codingninjas.com/codestudio/problems/696444?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * 
  * Solution link:
  * 
@@ -13,11 +15,111 @@ import java.util.List;
 public class ReverseWordsInString {
 
 	public static void main(String[] args) {
+		// TODO study all the approaches
+		type0();
 		type1();
 		type2();
+		type3();
+		type4();
+		type5();
+		type6();
 	}
 
-	private static void type2() {
+	private static void type6() {
+		String s = "a good   example";
+		char[] sc = s.toCharArray();
+		char[] result = new char[sc.length];
+		int outPos = 0;
+		for (int i = sc.length - 1; i >= 0; i--) {
+			while (i >= 0 && sc[i] == ' ')
+				i--;
+			if (i < 0)
+				break;
+			int endOfWord = i;
+			while (i > 0 && sc[i - 1] != ' ')
+				i--;
+			if (outPos > 0)
+				result[outPos++] = ' ';
+			for (int j = i; j <= endOfWord; j++)
+				result[outPos++] = sc[j];
+		}
+		String answer = String.valueOf(result, 0, outPos);
+		System.out.println(answer);
+	}
+
+	public static void type5() {
+		String s = "a good   example";
+		StringBuilder sb = new StringBuilder();
+		for (int i = s.length() - 1; i >= 0; i--) {
+			if (s.charAt(i) != ' ') {
+				if (sb.length() > 0)
+					sb.append(' ');
+				int j = i;
+				while (i >= 0 && s.charAt(i) != ' ') {
+					i--;
+				}
+				i++;
+				sb.append(s.substring(i, j + 1));
+			}
+		}
+		String answer = sb.toString();
+		System.out.println(answer);
+	}
+
+	public static void type4() {
+		String s = "a good   example";
+		int n = s.length();
+		StringBuilder ans = new StringBuilder("");
+		StringBuilder temp = new StringBuilder("");
+		for (int i = n - 1; i >= 0; i--) {
+			char ch = s.charAt(i);
+			if (ch != ' ')
+				temp.append(ch);
+			if ((ch == ' ' || i == 0) && temp.length() > 0) {
+				if (ans.length() > 0)
+					ans.append(" ");
+				temp.reverse();
+				ans.append(temp);
+				temp.setLength(0);
+			}
+		}
+		String answer = ans.toString();
+		System.out.println(answer);
+	}
+
+	public static void type3() {
+		String s = "a good   example";
+		Stack<String> st = new Stack<String>();
+		for (String a : s.trim().split(" ")) {
+			if (!a.isEmpty())
+				st.push(a);
+		}
+		StringBuilder sb = new StringBuilder();
+		while (!st.isEmpty()) {
+			sb.append(st.pop());
+			sb.append(" ");
+		}
+		String answer = sb.toString().trim();
+		System.out.println(answer);
+	}
+
+	public static void type2() {
+		String s = "a good   example";
+		s = s.trim();
+		String str[] = s.split("\\s+");
+		StringBuilder res = new StringBuilder();
+		for (int i = str.length - 1; i >= 0; i--) {
+			res.append(str[i]);
+			if (i != 0) {
+				res.append(" ");
+			}
+		}
+		String answer = res.toString();
+		System.out.println(answer);
+	}
+
+	@Deprecated
+	private static void type1() {
 		String s = "a good   example";
 		if (null == s || s.length() == 1)
 			return;
@@ -66,7 +168,8 @@ public class ReverseWordsInString {
 		}
 	}
 
-	private static void type1() {
+	@Deprecated
+	private static void type0() {
 		String s = "a good   example";
 		int left = 0, right = 0;
 		s = s.trim();

@@ -1,4 +1,13 @@
 package problems.string;
+/*
+ * Problem link :
+ * https://leetcode.com/problems/longest-common-prefix/
+ * https://www.codingninjas.com/codestudio/problems/2090383?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * 
+ * Solution link :
+ * 
+ * 
+ */
 
 public class LongestCommonPrefix {
 
