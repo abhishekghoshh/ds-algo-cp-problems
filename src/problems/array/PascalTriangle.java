@@ -14,6 +14,8 @@ import java.util.List;
  * */
 public class PascalTriangle {
 
+	// for any row in pascal triangle
+	// the sum is 2^(n-1)
 	public static void main(String[] args) {
 		type1();
 		type2();
