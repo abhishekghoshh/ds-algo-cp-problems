@@ -15,6 +15,11 @@ public class PrimeCount {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	private static void type3() {
+		
 	}
 
 	// better approach
