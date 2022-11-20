@@ -1,4 +1,4 @@
-package problems.maths;
+package problems.primes;
 
 import java.util.Arrays;
 

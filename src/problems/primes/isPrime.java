@@ -1,4 +1,4 @@
-package problems.maths;
+package problems.primes;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/prime-number2314/1
