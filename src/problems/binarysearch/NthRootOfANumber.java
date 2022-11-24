@@ -21,7 +21,7 @@ public class NthRootOfANumber {
 		int n = 3;
 
 		double mid, low = 1, high = m;
-		double delta = 1e-7;
+		double delta = 1e-14;
 		while ((high - low) > delta) {
 			mid = (low + high) / 2.0;
 			if (pow(mid, n) < m) {

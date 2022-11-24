@@ -2,6 +2,7 @@ package problems.primes;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/number-of-factors1435/1
@@ -16,6 +17,45 @@ public class FindMultiples {
 		type1();
 		type2();
 		type2_();
+		type3();
+	}
+
+	private static class Node {
+		int value;
+		Node next;
+
+		public Node(int value) {
+			this.value = value;
+			this.next = null;
+		}
+
+		public Node add(int i) {
+			Node node = new Node(i);
+			node.next = this.next;
+			this.next = node;
+			return node;
+		}
+	}
+
+	// it will take sqrt(n) time complexity
+	private static void type3() {
+		int n = 120;
+		Node head = new Node(-1);
+		Node copy = head;
+		for (int i = 1; i * i <= n; i++) {
+			if (n % i == 0) {
+				head = head.add(i);
+				if (n / i != i) {
+					head.add(n / i);
+				}
+			}
+		}
+		head = copy.next;
+		while (null != head) {
+			System.out.print(head.value + " ");
+			head = head.next;
+		}
+		System.out.println();
 	}
 
 	private static void type2_() {
