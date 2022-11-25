@@ -33,21 +33,25 @@ public class CombinationSumWithRepeatedElements {
 	}
 
 	private static void type2() {
-		int[] candidates = { 3, 6, 2, 7 };
+		int[] nums = { 1, 2, 3 };
 		int target = 7;
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
-		Arrays.sort(candidates);
-		traverse2(candidates, 0, target, bucket, answer);
+		Arrays.sort(nums);
+		traverse2(nums, 0, target, bucket, answer);
 		System.out.println(answer);
 	}
 
-	private static void traverse2(int[] candidates, int index, int target, List<Integer> bucket,
-			List<List<Integer>> answer) {
-		// we dont have to check for the index is length or not as we will not go to the
-		// bottom of the recursion
-		// as we have sorted the array
-		if (index == candidates.length) {
+	private static void traverse2(int[] nums, int index, int target, List<Integer> bucket, List<List<Integer>> answer) {
+		// we don't have to check only for the index is length
+		// and add it to answer
+		// as we are also considering the same elements so when i=n-1
+		// on that time also we are calling with n-1, we are not increasing the index
+		// so target==0 is enough base condition to handle it
+		// on index===nums.length there is a chance that target=0 but that is already
+		// handled in another base case
+		// this is valid only if we have sorted the array
+		if (index == nums.length) {
 			return;
 		}
 		if (target == 0) {
@@ -56,16 +60,16 @@ public class CombinationSumWithRepeatedElements {
 		}
 		// if we can accommodate the element then we have two option either to include
 		// it or not
-		if (candidates[index] <= target) {
+		if (nums[index] <= target) {
 
 			// we will accommodate the element
 			// but as we can use the same element so we will start again from index
-			bucket.add(candidates[index]);
-			traverse2(candidates, index, target - candidates[index], bucket, answer);
+			bucket.add(nums[index]);
+			traverse2(nums, index, target - nums[index], bucket, answer);
 			bucket.remove(bucket.size() - 1);
 
 			// we will not include the element to be a part of answer
-			traverse2(candidates, index + 1, target, bucket, answer);
+			traverse2(nums, index + 1, target, bucket, answer);
 		}
 		// if index element is not capable then we can not make the target with index+1
 		/*
@@ -75,17 +79,16 @@ public class CombinationSumWithRepeatedElements {
 	}
 
 	private static void type1() {
-		int[] candidates = { 3, 6, 2, 7 };
+		int[] nums = { 3, 6, 2, 7 };
 		int target = 7;
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
-		traverse(candidates, 0, target, bucket, answer);
+		traverse(nums, 0, target, bucket, answer);
 		System.out.println(answer);
 	}
 
-	private static void traverse(int[] candidates, int index, int target, List<Integer> bucket,
-			List<List<Integer>> answer) {
-		if (index == candidates.length) {
+	private static void traverse(int[] nums, int index, int target, List<Integer> bucket, List<List<Integer>> answer) {
+		if (index == nums.length) {
 			if (target == 0) {
 				answer.add(new ArrayList<>(bucket));
 			}
@@ -93,19 +96,19 @@ public class CombinationSumWithRepeatedElements {
 		}
 		// if we can accommodate the element then we have two option either to include
 		// it or not
-		if (candidates[index] <= target) {
+		if (nums[index] <= target) {
 			// we will accommodate the element
 			// but as we can use the same element so we will start again from index
-			bucket.add(candidates[index]);
-			traverse(candidates, index, target - candidates[index], bucket, answer);
+			bucket.add(nums[index]);
+			traverse(nums, index, target - nums[index], bucket, answer);
 			bucket.remove(bucket.size() - 1);
 
 			// we will not include the element to be a part of answer
-			traverse(candidates, index + 1, target, bucket, answer);
+			traverse(nums, index + 1, target, bucket, answer);
 
 		} else {
 			// we can not accommodate that element we we will just go to the next element
-			traverse(candidates, index + 1, target, bucket, answer);
+			traverse(nums, index + 1, target, bucket, answer);
 		}
 	}
 
