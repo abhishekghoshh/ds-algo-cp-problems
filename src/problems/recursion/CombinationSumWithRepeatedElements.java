@@ -29,17 +29,42 @@ public class CombinationSumWithRepeatedElements {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 
 	}
 
+	// count the number of subset
+	private static void type3() {
+		int[] nums = { 3, 1, 4, 2 };
+		int target = 7;
+		Arrays.sort(nums);
+		int count = count(nums, 0, target);
+		System.out.println(count);
+	}
+
+	private static int count(int[] nums, int i, int target) {
+		if (target == 0)
+			return 1;
+		if (i == nums.length)
+			return 0;
+		// if current num is less than equal to target then we have 2 condition
+		// either to add it or ignore it
+		// so if we add it then we will not increase the index
+		// as we will also check for the same index 
+		// if num then is not capable then there is no point that next element will also
+		// able to make it, as we have sorted the array
+		return nums[i] <= target ? count(nums, i, target - nums[i]) + count(nums, i + 1, target) : 0;
+	}
+
 	private static void type2() {
-		int[] nums = { 1, 2, 3 };
+		int[] nums = { 3, 1, 4, 2 };
 		int target = 7;
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
 		Arrays.sort(nums);
 		traverse2(nums, 0, target, bucket, answer);
 		System.out.println(answer);
+		System.out.println(answer.size());
 	}
 
 	private static void traverse2(int[] nums, int index, int target, List<Integer> bucket, List<List<Integer>> answer) {
