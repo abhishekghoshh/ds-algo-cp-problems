@@ -6,7 +6,8 @@ import java.util.Stack;
 
 /*
  * Problem link :
- * 
+ * https://leetcode.com/problems/online-stock-span/
+ * https://www.codingninjas.com/codestudio/problems/span-of-ninja-coin_1475049?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=6

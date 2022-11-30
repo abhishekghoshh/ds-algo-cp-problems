@@ -3,14 +3,29 @@ package problems.graph;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+ * Problem link :
+ * https://leetcode.com/problems/rotting-oranges/
+ * https://www.codingninjas.com/codestudio/problems/701655?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=yf3oUhkvqA0
+ * 
+ * https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/
+ * 
+ */
 public class RottenOranges {
 
+	// 2 – represents a rotten orange
+	// 1 – represents a Fresh orange
+	// 0 – represents an Empty Cell
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
 
-	private static void type2() {
+	private static void type3() {
 		int[][] grid = { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
 		int answer = orangesRotting(grid);
 		System.out.println(answer);
@@ -48,7 +63,6 @@ public class RottenOranges {
 				|| (1 < grid[i][j] && grid[i][j] < time)) {
 			return;
 		}
-
 		grid[i][j] = time;
 		transform(i - 1, j, grid, time + 1);
 		transform(i + 1, j, grid, time + 1);
@@ -56,6 +70,65 @@ public class RottenOranges {
 		transform(i, j + 1, grid, time + 1);
 	}
 
+	private static void type2() {
+		int[][] grid = { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
+		if (grid == null || grid.length == 0)
+			return;
+		int rows = grid.length;
+		int cols = grid[0].length;
+		Queue<int[]> queue = new LinkedList<>();
+		int freshCount = 0;
+		// Put the position of all rotten oranges in queue
+		// count the number of fresh oranges
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				if (grid[i][j] == 2) {
+					queue.offer(new int[] { i, j });
+				}
+				if (grid[i][j] != 0) {
+					freshCount++;
+				}
+			}
+		}
+		if (freshCount == 0)
+			return;
+		int minimumTime = 0, count = 0;
+		int dx[] = { 0, 0, 1, -1 };
+		int dy[] = { 1, -1, 0, 0 };
+
+		// bfs starting from initially rotten oranges
+		while (!queue.isEmpty()) {
+			// take the current size of the queue
+			// because we need to check that for the current set of oranges
+			// it is possible to rot new oranges or not
+			int size = queue.size();
+			count += size;
+			for (int i = 0; i < size; i++) {
+				int[] point = queue.poll();
+				for (int j = 0; j < 4; j++) {
+					int x = point[0] + dx[j];
+					int y = point[1] + dy[j];
+
+					if (x < 0 || y < 0 || x >= rows || y >= cols || grid[x][y] == 0 || grid[x][y] == 2)
+						continue;
+
+					grid[x][y] = 2;
+					queue.offer(new int[] { x, y });
+				}
+			}
+			// if the set of initial oranges are able to rot new oranges then it will add to
+			// queue, queue size will not be empty
+			if (queue.size() != 0) {
+				minimumTime++;
+			}
+		}
+		int answer = freshCount == count ? minimumTime : -1;
+		System.out.println(answer);
+	}
+
+	// using queue
+	// we will start from the oranges which is rotten
+	// we will store the point and apply bfs on them
 	private static void type1() {
 		int[][] grid = { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
 		int answer;

@@ -5,10 +5,11 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/min-stack/submissions/
+ * https://www.codingninjas.com/codestudio/problems/min-stack_3843991?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
- * https://www.youtube.com/watch?v=asf9P2Rcopo&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
+ * https://www.youtube.com/watch?v=V09NfaGf2ao
  * 
  * blog link :
  * https://takeuforward.org/data-structure/implement-min-stack-o2n-and-on-space-complexity/
@@ -105,6 +106,14 @@ public class MinStack {
 				min = 2 * min - stack.pop();
 				return tempMin.intValue();
 			}
+		}
+
+		public int top() {
+			Long val = stack.peek();
+			if (val < min) {
+				return min.intValue();
+			}
+			return val.intValue();
 		}
 
 		@Override

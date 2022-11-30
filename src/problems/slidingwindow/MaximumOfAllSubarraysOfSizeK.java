@@ -1,7 +1,7 @@
 package problems.slidingwindow;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 /*
  * Problem link:
@@ -9,8 +9,9 @@ import java.util.LinkedList;
  * 
  * Solution:
  * https://www.youtube.com/watch?v=xFJXtB5vSmM&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=6
+ * https://www.youtube.com/watch?v=CZQGRp93K4k&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=83
  * 
- * 
+ * https://takeuforward.org/data-structure/sliding-window-maximum/
  * https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
  * */
 public class MaximumOfAllSubarraysOfSizeK {
@@ -22,7 +23,7 @@ public class MaximumOfAllSubarraysOfSizeK {
 		type4();
 	}
 
-	// TODO stucy later
+	// TODO study later
 	// space complexity is O(2n)
 	// for storing max from the right and max from the left
 	// time complexity is (2n+k)
@@ -103,44 +104,36 @@ public class MaximumOfAllSubarraysOfSizeK {
 	}
 
 	// sliding window
+	// time complexity O(2n)
 	private static void type2() {
 		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 3;
 		int n = nums.length;
-		int size = n - k + 1;
-		int[] answer = new int[size];
-		Deque<Integer> deque = new LinkedList<>();
-		int left = 0, right = 0;
-		while (right < k) {
-			if (deque.isEmpty() || deque.peekLast() >= nums[right]) {
-				deque.offerLast(nums[right]);
-			} else {
-				while (!deque.isEmpty() && deque.peekLast() < nums[right]) {
-					deque.pollLast();
-				}
-				deque.offerLast(nums[right]);
+		int[] maxs = new int[n - k + 1];
+		int right = 0;
+		// store index
+		// we will store items in decreasing manner so every time the queue peek will
+		// have the maximum value
+		Deque<Integer> deque = new ArrayDeque<>();
+		for (int i = 0; i < nums.length; i++) {
+			// remove numbers out of range k
+			// i-k th element is from last window
+			// as the current range is from i-k+1 to i
+			if (!deque.isEmpty() && deque.peek() == i - k) {
+				deque.poll();
 			}
-			right++;
+			// remove smaller numbers in k range as they are useless
+			// if there is any greater number encountered then there is no point of store
+			// previous smaller number
+			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+				deque.pollLast();
+			}
+			deque.offer(i);
+			if (i >= k - 1) {
+				maxs[right++] = nums[deque.peek()];
+			}
 		}
-		while (right <= n) {
-			answer[left] = deque.peekFirst();
-			if (deque.peekFirst() == nums[left]) {
-				deque.pollFirst();
-			}
-			if (right < n) {
-				if (deque.isEmpty() || deque.peekLast() >= nums[right]) {
-					deque.offerLast(nums[right]);
-				} else {
-					while (!deque.isEmpty() && deque.peekLast() < nums[right]) {
-						deque.pollLast();
-					}
-					deque.offerLast(nums[right]);
-				}
-			}
-			left++;
-			right++;
-		}
-		print(answer);
+		print(maxs);
 	}
 
 	private static void print(int[] nums) {
