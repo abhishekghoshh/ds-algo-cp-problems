@@ -14,7 +14,7 @@ public class ReverseWords {
 	}
 
 	private static void type1() {
-		String s = "the sky is blue";
+		String s = "the sky is   blue";
 		// answer is eht yks si blue
 		char[] arr = s.trim().toCharArray();
 		int left = 0, right = 0;
