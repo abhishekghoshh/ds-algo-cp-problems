@@ -17,7 +17,7 @@ public class CompareVersionNumber {
 	}
 
 	// same as previous one
-	// just here we are using character array insted of string
+	// just here we are using character array instead of string
 	private static void type2() {
 		System.out.println(compareVersion2("1.01", "1.001"));
 	}
@@ -27,6 +27,7 @@ public class CompareVersionNumber {
 		int i = 0, j = 0, n1 = arr1.length, n2 = arr2.length;
 		int v1 = 0, v2 = 0;
 		while (i < n1 || j < n2) {
+			// calculating the first number
 			if (i < n1) {
 				while (i < n1 && arr1[i] != '.') {
 					v1 = v1 * 10 + (arr1[i++] - '0');
@@ -34,6 +35,7 @@ public class CompareVersionNumber {
 				if (i < n1)
 					i++;
 			}
+			// calculating the second number
 			if (j < n2) {
 				while (j < n2 && arr2[j] != '.') {
 					v2 = v2 * 10 + (arr2[j++] - '0');
@@ -52,6 +54,7 @@ public class CompareVersionNumber {
 	}
 
 	// optimized approach
+	// splitting using regex with built method
 	private static void type1() {
 		System.out.println(compareVersion1("1.01", "1.001"));
 	}
