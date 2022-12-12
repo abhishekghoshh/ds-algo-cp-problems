@@ -31,7 +31,7 @@ public class Trie {
 	private static final int ALPHABET_SIZE = 26;
 	private Node head;
 
-	private Trie() {
+	public Trie() {
 		head = new Node();
 	}
 

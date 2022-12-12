@@ -13,7 +13,12 @@ package problems.trie;
 
 public class PrefixTrieWithCountWords {
 	public static void main(String[] args) {
-		PrefixTrieWithCountWords trie = new PrefixTrieWithCountWords();
+		type1();
+
+	}
+
+	private static void type1() {
+		Trie trie = new Trie();
 		trie.insert("samsung");
 		trie.insert("samsung");
 		System.out.println(trie.countWordsEqualTo("samsung"));
@@ -21,143 +26,145 @@ public class PrefixTrieWithCountWords {
 		trie.erase("samsung");
 		System.out.println(trie.countWordsEqualTo("samsung"));
 		System.out.println(trie.countWordsStartingWith("sams"));
-
 	}
 
-	private static final int ALPHABET_SIZE = 26;
-	private Node head;
+	public static class Trie {
+		private static final int ALPHABET_SIZE = 26;
+		private Node head;
 
-	public PrefixTrieWithCountWords() {
-		head = new Node();
-	}
+		public Trie() {
+			head = new Node();
+		}
 
-	public void insert(String word) {
-		if (null == word || word.isBlank())
-			return;
-		Node node = head;
-		char[] arr = word.toLowerCase().toCharArray();
-		for (char ch : arr) {
-			if (node.isNull(ch)) {
-				node = node.set(ch);
-			} else {
+		public void insert(String word) {
+			if (null == word || word.isBlank())
+				return;
+			Node node = head;
+			char[] arr = word.toLowerCase().toCharArray();
+			for (char ch : arr) {
+				if (node.isNull(ch)) {
+					node = node.set(ch);
+				} else {
+					node = node.get(ch);
+				}
+				node.incrementCountPreffix();
+			}
+			node.incrementEndsWith();
+		}
+
+		public int countWordsEqualTo(String word) {
+			if (null == word || word.isBlank())
+				return 0;
+			Node node = head;
+			char[] arr = word.toLowerCase().toCharArray();
+			for (char ch : arr) {
+				if (node.isNull(ch)) {
+					return 0;
+				}
 				node = node.get(ch);
 			}
-			node.incrementCountPreffix();
+			return node.getEndsWith();
 		}
-		node.incrementEndsWith();
-	}
 
-	public int countWordsEqualTo(String word) {
-		if (null == word || word.isBlank())
-			return 0;
-		Node node = head;
-		char[] arr = word.toLowerCase().toCharArray();
-		for (char ch : arr) {
-			if (node.isNull(ch)) {
+		public int countWordsStartingWith(String word) {
+			if (null == word || word.isBlank())
 				return 0;
+			Node node = head;
+			char[] arr = word.toLowerCase().toCharArray();
+			for (char ch : arr) {
+				if (node.isNull(ch)) {
+					return 0;
+				}
+				node = node.get(ch);
 			}
-			node = node.get(ch);
+			return node.getCountPreffix();
 		}
-		return node.getEndsWith();
-	}
 
-	public int countWordsStartingWith(String word) {
-		if (null == word || word.isBlank())
-			return 0;
-		Node node = head;
-		char[] arr = word.toLowerCase().toCharArray();
-		for (char ch : arr) {
-			if (node.isNull(ch)) {
-				return 0;
+		public void erase(String word) {
+			if (null == word || word.isBlank())
+				return;
+			Node node = head;
+			char[] arr = word.toLowerCase().toCharArray();
+			// we will only erase an word if it is present
+			erase(node, arr, 0);
+		}
+
+		private boolean erase(Node node, char[] arr, int i) {
+			if (i == arr.length) {
+				// at the last if there is any word which is ending
+				// then only we will delete endsWith variable and return true
+				if (node.getEndsWith() > 0) {
+					node.decrementEndsWith();
+					return true;
+				} else {
+					return false;
+				}
 			}
-			node = node.get(ch);
+			char ch = arr[i];
+			// as we are not deleting the links so we have to check if the count prefix is
+			// greater than 0 or not
+			if (!node.isNull(ch) && node.get(ch).getCountPreffix() > 0) {
+				// erase will only return true if the there is the word found
+				if (erase(node.get(ch), arr, i + 1)) {
+					// if the word is found then we will decrement count prefix and return true
+					node.get(ch).decrementCountPreffix();
+					return true;
+				}
+			}
+			return false;
 		}
-		return node.getCountPreffix();
-	}
 
-	public void erase(String word) {
-		if (null == word || word.isBlank())
-			return;
-		Node node = head;
-		char[] arr = word.toLowerCase().toCharArray();
-		// we will only erase an word if it is present
-		erase(node, arr, 0);
-	}
+		public class Node {
+			private Node[] nodes;
+			private int countPreffix = 0;
+			private int endsWith = 0;
 
-	private boolean erase(Node node, char[] arr, int i) {
-		if (i == arr.length) {
-			// at the last if there is any word which is ending
-			// then only we will delete endsWith variable and return true
-			if (node.getEndsWith() > 0) {
-				node.decrementEndsWith();
-				return true;
-			} else {
-				return false;
+			Node() {
+				this.nodes = new Node[ALPHABET_SIZE];
+			}
+
+			public void incrementCountPreffix() {
+				this.countPreffix++;
+			}
+
+			public void decrementCountPreffix() {
+				this.countPreffix--;
+			}
+
+			public int getCountPreffix() {
+				return countPreffix;
+			}
+
+			public void incrementEndsWith() {
+				this.endsWith++;
+			}
+
+			public void decrementEndsWith() {
+				this.endsWith--;
+			}
+
+			public int getEndsWith() {
+				return endsWith;
+			}
+
+			public Node get(char ch) {
+				return nodes[index(ch)];
+			}
+
+			public boolean isNull(char ch) {
+				return null == nodes[index(ch)];
+			}
+
+			public Node set(char ch) {
+				Node node = new Node();
+				nodes[index(ch)] = node;
+				return node;
+			}
+
+			private int index(char ch) {
+				return ch - 'a';
 			}
 		}
-		char ch = arr[i];
-		// as we are not deleting the links so we have to check if the count prefix is
-		// greater than 0 or not
-		if (!node.isNull(ch) && node.get(ch).getCountPreffix() > 0) {
-			// erase will only return true if the there is the word found
-			if (erase(node.get(ch), arr, i + 1)) {
-				// if the word is found then we will decrement count prefix and return true
-				node.get(ch).decrementCountPreffix();
-				return true;
-			}
-		}
-		return false;
 	}
 
-	public class Node {
-		private Node[] nodes;
-		private int countPreffix = 0;
-		private int endsWith = 0;
-
-		Node() {
-			this.nodes = new Node[ALPHABET_SIZE];
-		}
-
-		public void incrementCountPreffix() {
-			this.countPreffix++;
-		}
-
-		public void decrementCountPreffix() {
-			this.countPreffix--;
-		}
-
-		public int getCountPreffix() {
-			return countPreffix;
-		}
-
-		public void incrementEndsWith() {
-			this.endsWith++;
-		}
-
-		public void decrementEndsWith() {
-			this.endsWith--;
-		}
-
-		public int getEndsWith() {
-			return endsWith;
-		}
-
-		public Node get(char ch) {
-			return nodes[index(ch)];
-		}
-
-		public boolean isNull(char ch) {
-			return null == nodes[index(ch)];
-		}
-
-		public Node set(char ch) {
-			Node node = new Node();
-			nodes[index(ch)] = node;
-			return node;
-		}
-
-		private int index(char ch) {
-			return ch - 'a';
-		}
-	}
 }
