@@ -2,97 +2,19 @@ package problems.trie;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+ * Problem link :
+ * https://leetcode.com/problems/implement-trie-prefix-tree/
+ * https://www.codingninjas.com/codestudio/problems/implement-trie_631356?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp
+ * 
+ * https://takeuforward.org/data-structure/implement-trie-1/
+ * 
+ */
 
 public class Trie {
-	private static final int ALPHABET_SIZE = 26;
-	private TrieNode trieNode;
-
-	private Trie() {
-		trieNode = new TrieNode();
-	}
-
-	public void insert(String word) {
-		if (null != word && !word.isBlank()) {
-			TrieNode trieNode = this.trieNode;
-			for (int i = 0; i < word.length(); i++) {
-				int position = getAsciiValue(Character.toLowerCase(word.charAt(i)));
-				if (hasNoChildren(trieNode, position)) {
-					trieNode.children[position] = new TrieNode();
-				}
-				trieNode = trieNode.children[position];
-			}
-			trieNode.isEndOfWord = true;
-		}
-	}
-
-	public boolean search(String word) {
-		if (null != word && !word.isBlank()) {
-			TrieNode trieNode = this.trieNode;
-			for (int i = 0; i < word.length(); i++) {
-				int position = getAsciiValue(Character.toLowerCase(word.charAt(i)));
-				if (hasNoChildren(trieNode, position)) {
-					return false;
-				}
-				trieNode = trieNode.children[position];
-			}
-			return trieNode.isEndOfWord;
-		}
-		return false;
-	}
-
-	public List<String> prefixSearch(String word) {
-		List<String> words = new ArrayList<>();
-		if (null != word && !word.isBlank()) {
-			TrieNode trieNode = this.trieNode;
-			for (int i = 0; i < word.length(); i++) {
-				int position = getAsciiValue(Character.toLowerCase(word.charAt(i)));
-				if (hasNoChildren(trieNode, position)) {
-					return words;
-				}
-				trieNode = trieNode.children[position];
-			}
-			prefixSearch(words, trieNode, new StringBuilder(word));
-		}
-		return words;
-	}
-
-	private void prefixSearch(List<String> words, TrieNode trieNode, StringBuilder word) {
-		if (null != trieNode) {
-			if (trieNode.isEndOfWord) {
-				words.add(word.toString());
-			}
-			for (int i = 0; i < ALPHABET_SIZE; i++) {
-				if (hasChildren(trieNode, i)) {
-					prefixSearch(words, trieNode.children[i], word.append((char) (97 + i)));
-					word.deleteCharAt(word.length() - 1);
-				}
-			}
-		}
-	}
-
-	private boolean hasNoChildren(TrieNode trieNode, int position) {
-		return trieNode.children[position] == null;
-	}
-
-	private boolean hasChildren(TrieNode trieNode, int position) {
-		return trieNode.children[position] != null;
-	}
-
-	private int getAsciiValue(char ch) {
-		return ch - 'a';
-	}
-
-	private class TrieNode {
-		TrieNode[] children;
-		boolean isEndOfWord;
-
-		TrieNode() {
-			this.children = new TrieNode[ALPHABET_SIZE];
-			this.isEndOfWord = false;
-		}
-
-	}
-
 	public static void main(String[] args) {
 		Trie trie = new Trie();
 		trie.insert("Abhishek");
@@ -101,8 +23,120 @@ public class Trie {
 		System.out.println(trie.search("Abhishek"));
 		System.out.println(trie.search("Abhi"));
 		System.out.println(trie.search("Buddhu"));
-		System.out.println(trie.search("Nasim"));
-		System.out.println(trie.prefixSearch("ab"));
+		System.out.println(trie.prefixSearch("Abhi"));
+		System.out.println(trie.prefixSearch("Abhishiktaaa"));
 
 	}
+
+	private static final int ALPHABET_SIZE = 26;
+	private Node head;
+
+	private Trie() {
+		head = new Node();
+	}
+
+	public void insert(String word) {
+		if (null == word || word.isBlank())
+			return;
+		Node node = head;
+		char[] arr = word.toLowerCase().toCharArray();
+		for (char ch : arr) {
+			if (node.isNull(ch)) {
+				node = node.set(ch);
+			} else {
+				node = node.get(ch);
+			}
+		}
+		node.setEnd();
+	}
+
+	public boolean search(String word) {
+		if (null == word || word.isBlank())
+			return false;
+		Node node = head;
+		char[] arr = word.toLowerCase().toCharArray();
+		for (char ch : arr) {
+			if (node.isNull(ch))
+				return false;
+			node = node.get(ch);
+		}
+		return node.isEnd();
+	}
+
+	public boolean startsWith(String prefix) {
+		if (null == prefix || prefix.isBlank())
+			return false;
+		Node node = head;
+		char[] arr = prefix.toLowerCase().toCharArray();
+		for (char ch : arr) {
+			if (node.isNull(ch))
+				return false;
+			node = node.get(ch);
+		}
+		return true;
+	}
+
+	public List<String> prefixSearch(String prefix) {
+		List<String> words = new ArrayList<>();
+		if (null == prefix || prefix.isBlank())
+			return words;
+		Node node = this.head;
+		char[] arr = prefix.toLowerCase().toCharArray();
+		for (char ch : arr) {
+			if (node.isNull(ch))
+				return words;
+			node = node.get(ch);
+		}
+		return prefixSearch(words, node, new StringBuilder(new String(arr)));
+	}
+
+	private List<String> prefixSearch(List<String> words, Node node, StringBuilder word) {
+		if (node.isEnd()) {
+			words.add(word.toString());
+		}
+		for (char ch = 'a'; ch <= 'z'; ch++) {
+			if (!node.isNull(ch)) {
+				word.append(ch);
+				prefixSearch(words, node.get(ch), word);
+				word.deleteCharAt(word.length() - 1);
+			}
+		}
+		return words;
+	}
+
+	public class Node {
+		private Node[] nodes;
+		private boolean isEnd;
+
+		Node() {
+			this.nodes = new Node[ALPHABET_SIZE];
+		}
+
+		public boolean isEnd() {
+			return this.isEnd;
+		}
+
+		public void setEnd() {
+			this.isEnd = true;
+		}
+
+		public Node get(char ch) {
+			return nodes[index(ch)];
+		}
+
+		public boolean isNull(char ch) {
+			return null == nodes[index(ch)];
+		}
+
+		public Node set(char ch) {
+			Node node = new Node();
+			nodes[index(ch)] = node;
+			return node;
+		}
+
+		private int index(char ch) {
+			return ch - 'a';
+		}
+	}
+
 }
