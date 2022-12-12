@@ -1,65 +1,73 @@
 package problems.string;
 
+import java.util.Arrays;
+
 /*
  * Problem link :
  * https://www.codingninjas.com/codestudio/problems/1112619?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
  * 
  * Solution link :
- * 
+ * https://www.youtube.com/watch?v=QlwzsWs0oyc -> pepcoding
  * 
  */
 public class ZFuntion {
 
+	// TODO study later
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
+	// Z array
 	private static void type2() {
-
+		String str = "aaxaabcaaaaxaabcaa";
+		char[] st = str.toCharArray();
+		int[] lps = new int[st.length];
+		int i = 1, j = 0;
+		while (i < st.length) {
+			if (st[i] == st[j]) {
+				lps[i] = j + 1;
+				i++;
+				j++;
+			} else if (j > 0) {
+				j = lps[j - 1];
+			} else {
+				i++;
+			}
+		}
+		print(lps);
 	}
 
 	// kmp algorithm
 	private static void type1() {
-		String haystack = "sadbutsad", needle = "sad";
-		int count = 0;
-		char[] s1 = haystack.toCharArray();
-		char[] s2 = needle.toCharArray();
-		int[] pattern = new int[s2.length];
-		int i, j;
-		for (i = 0; i < pattern.length; i++) {
-			pattern[i] = -1;
-		}
-		i = 1;
-		j = 0;
-		while (i < s2.length) {
-			if (s2[i] == s2[j]) {
-				pattern[i] = j;
+		String str = "aaxaabcaaaaxaabcaa";
+		String ptrn = "aabcaa";
+
+		char[] st = (ptrn + "&" + str).toCharArray();
+		int[] lps = new int[st.length];
+
+		int i = 1, j = 0;
+		while (i < st.length) {
+			if (st[i] == st[j]) {
+				lps[i] = j + 1;
 				i++;
 				j++;
 			} else if (j > 0) {
-				j = pattern[j - 1] + 1;
+				j = lps[j - 1];
 			} else {
 				i++;
 			}
 		}
-		i = 0;
-		j = 0;
-		while (i < s1.length) {
-			if (s1[i] == s2[j]) {
-				if (j == s2.length - 1) {
-					count++;
-					// return i - s2.length + 1 ;
-				}
-				i++;
-				j++;
-			} else if (j > 0) {
-				j = pattern[j - 1] + 1;
-			} else {
-				i++;
-			}
+		int[] zArray = Arrays.copyOfRange(lps, ptrn.length() + 1, lps.length);
+		print(zArray);
+	}
+
+	private static void print(int[] nums) {
+		for (int num : nums) {
+			System.out.print(num + " ");
 		}
+		System.out.println();
 	}
 
 }

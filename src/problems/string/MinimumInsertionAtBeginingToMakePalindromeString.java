@@ -10,6 +10,8 @@ package problems.string;
  * 
  * https://www.youtube.com/watch?v=j-1NLHybCSg
  * 
+ * https://www.youtube.com/watch?v=j-1NLHybCSg
+ * 
  * 
  * https://www.youtube.com/watch?v=pE4D55Yti7o
  * https://www.youtube.com/watch?v=y1o7ygP-VpQ
@@ -21,6 +23,14 @@ public class MinimumInsertionAtBeginingToMakePalindromeString {
 		type1();
 		type2();
 		type3();
+		type4();
+	}
+
+	// using KMP algorithm
+	// LPS array -> longest prefix suffix array
+	// check geeksforgeeks solution
+	private static void type4() {
+
 	}
 
 	// using manacher's algorithm
