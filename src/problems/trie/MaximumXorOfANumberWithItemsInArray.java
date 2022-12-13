@@ -24,6 +24,8 @@ public class MaximumXorOfANumberWithItemsInArray {
 		for (int item : nums) {
 			trie.insert(item);
 		}
+		xor = trie.getMaxXor(num);
+		System.out.println(xor);
 
 	}
 
@@ -37,7 +39,25 @@ public class MaximumXorOfANumberWithItemsInArray {
 
 		public void insert(int n) {
 			Node node = head;
-			for (int i = 31; i >= 0; i--) {
+			int mask = 1 << BIT_SIZE;
+			for (int i = BIT_SIZE; i >= 0; i--) {
+				int bit = (n & mask) == 0 ? 0 : 1;
+				if (node.isNull(bit)) {
+					node = node.set(bit);
+				} else {
+					node = node.get(bit);
+				}
+				// at the first time mask is 1<<31
+				// which is negative
+				// so we have to use unsigned shift operator >>>
+				// signed shift operator is not useful here
+				mask = mask >>> 1;
+			}
+		}
+
+		public void insert2(int n) {
+			Node node = head;
+			for (int i = BIT_SIZE; i >= 0; i--) {
 				int bit = (n >> i) & 1;
 				if (node.isNull(bit)) {
 					node = node.set(bit);
@@ -57,13 +77,17 @@ public class MaximumXorOfANumberWithItemsInArray {
 				// 1-bit is equal to ~1 or the inverse of bit
 				// we can maximize the xor if the reverse bit is present
 				if (!node.isNull(1 - bit)) {
-					node = node.set(1 - bit);
+					node = node.get(1 - bit);
 					// set the i'th bit in maxXor
 					maxXor = maxXor | mask;
 				} else {
 					node = node.get(bit);
 				}
-				mask = mask >> 1;
+				// at the first time mask is 1<<31
+				// which is negative
+				// so we have to use unsigned shift operator >>>
+				// signed shift operator is not useful here
+				mask = mask >>> 1;
 			}
 			return maxXor;
 		}
@@ -113,6 +137,7 @@ public class MaximumXorOfANumberWithItemsInArray {
 				return node;
 			}
 		}
+
 	}
 
 	// brute force approach
