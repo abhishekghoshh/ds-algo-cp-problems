@@ -19,6 +19,7 @@ public class CountDistinctSubstrings {
 	}
 
 	// modified trie approach
+	// time complexity O(n^2)
 	private static void type2() {
 		String str = "abab";
 		char[] arr = str.toCharArray();
