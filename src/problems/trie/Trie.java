@@ -104,6 +104,15 @@ public class Trie {
 		return words;
 	}
 
+	// TODO complete this method
+	public List<String> prefixSearch(String prefix, int n) {
+		List<String> words = new ArrayList<>();
+		if (null == prefix || prefix.isBlank())
+			return words;
+		// implement
+		return words;
+	}
+
 	public class Node {
 		private Node[] nodes;
 		private boolean isEnd;
