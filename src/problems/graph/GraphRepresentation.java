@@ -6,6 +6,19 @@ import static util.OnlineJudgeInit.set;
 import java.util.ArrayList;
 import java.util.List;;
 
+/*
+ * Problem link :
+ * 
+ * https://practice.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1
+ * 
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=M3_pLsDdeuU&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
+ * https://www.youtube.com/watch?v=3oI-34aPMWM&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=2
+ * https://www.youtube.com/watch?v=OsNklbh9gYI&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=3
+ * 
+ * https://takeuforward.org/graph/introduction-to-graph/
+ */
 public class GraphRepresentation {
 
 	public static void main(String[] args) {
@@ -16,6 +29,41 @@ public class GraphRepresentation {
 		directedGraphUsingAdjacencyList();
 		weightedGraphUsingMatrix();
 		weightedGraphUsingAdjacenyList();
+		type1();
+		type2();
+	}
+
+	private static void type2() {
+		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+		adj.add(new ArrayList<>(List.of(1, 4)));
+		adj.add(new ArrayList<>(List.of(0, 2, 3, 4)));
+		adj.add(new ArrayList<>(List.of(1, 3)));
+		adj.add(new ArrayList<>(List.of(1, 2, 4)));
+		adj.add(new ArrayList<>(List.of(0, 1, 3)));
+		int v = 5;
+
+		for (int i = 0; i < adj.size(); i++) {
+			System.out.print(i + "->");
+			for (int end : adj.get(i)) {
+				System.out.print(end + "->");
+			}
+			System.out.println();
+		}
+
+	}
+
+	private static void type1() {
+		// Given an integer n representing number of vertices. Find out how many
+		// undirected graphs (not necessarily connected) can be constructed out of a
+		// given n number of vertices.
+
+		// Explanation: There are total n*(n-1)/2 possible edges. For every edge, there
+		// are to possible options, either we pick it or don't pick. So total number of
+		// possible graphs is 2 ^ n(n-1)/2.
+
+		int n = 5;
+		long ans = (long) Math.pow(2, n * (n - 1) / 2);
+		System.out.println(ans);
 	}
 
 	private static void weightedGraphUsingAdjacenyList() {
