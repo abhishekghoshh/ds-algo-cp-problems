@@ -77,7 +77,7 @@ public class RottenOranges {
 		int rows = grid.length;
 		int cols = grid[0].length;
 		Queue<int[]> queue = new LinkedList<>();
-		int freshCount = 0;
+		int totalOranges = 0;
 		// Put the position of all rotten oranges in queue
 		// count the number of fresh oranges
 		for (int i = 0; i < rows; i++) {
@@ -86,13 +86,13 @@ public class RottenOranges {
 					queue.offer(new int[] { i, j });
 				}
 				if (grid[i][j] != 0) {
-					freshCount++;
+					totalOranges++;
 				}
 			}
 		}
-		if (freshCount == 0)
+		if (totalOranges == 0)
 			return;
-		int minimumTime = 0, count = 0;
+		int time = 0, orangeCount = 0;
 		int dx[] = { 0, 0, 1, -1 };
 		int dy[] = { 1, -1, 0, 0 };
 
@@ -102,27 +102,25 @@ public class RottenOranges {
 			// because we need to check that for the current set of oranges
 			// it is possible to rot new oranges or not
 			int size = queue.size();
-			count += size;
+			orangeCount += size;
 			for (int i = 0; i < size; i++) {
 				int[] point = queue.poll();
 				for (int j = 0; j < 4; j++) {
 					int x = point[0] + dx[j];
 					int y = point[1] + dy[j];
-
-					if (x < 0 || y < 0 || x >= rows || y >= cols || grid[x][y] == 0 || grid[x][y] == 2)
-						continue;
-
-					grid[x][y] = 2;
-					queue.offer(new int[] { x, y });
+					if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && grid[x][y] == 1) {
+						grid[x][y] = 2;
+						queue.offer(new int[] { x, y });
+					}
 				}
 			}
 			// if the set of initial oranges are able to rot new oranges then it will add to
 			// queue, queue size will not be empty
 			if (queue.size() != 0) {
-				minimumTime++;
+				time++;
 			}
 		}
-		int answer = freshCount == count ? minimumTime : -1;
+		int answer = totalOranges == orangeCount ? time : -1;
 		System.out.println(answer);
 	}
 
