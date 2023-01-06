@@ -85,8 +85,27 @@ public class Graph {
 		return graph;
 	}
 
+	public static ArrayList<ArrayList<Integer>> adjacencyList(int[][] list) {
+		ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>();
+		for (int[] row : list) {
+			ArrayList<Integer> vertices = new ArrayList<>();
+			for (int vertex : row)
+				vertices.add(vertex);
+			adjacencyList.add(vertices);
+		}
+		return adjacencyList;
+	}
+
+	public static void print(ArrayList<ArrayList<Integer>> adjacencyList) {
+		int n = adjacencyList.size();
+		System.out.println("Undirected graph using adjacency list");
+		for (int i = 1; i <= n; i++) {
+			System.out.println(i + " -> " + adjacencyList.get(i));
+		}
+	}
+
 	public static void print(int[][] graph) {
-		int n = graph.length;
+		int n = graph.length - 1;
 		System.out.println("Undirected graph with matrix");
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++) {
