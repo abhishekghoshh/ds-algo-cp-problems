@@ -1,7 +1,10 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /*
  * Problem link :
@@ -33,8 +36,44 @@ public class FindEventualSafeStates {
 		type2();
 	}
 
+	// using bfs or topo sort
 	private static void type2() {
+		ArrayList<ArrayList<Integer>> adjacencyList = adjacencyList();
+		int v = 7;
+		// so we know the terminal nodes are safe always
+		// so we will backtrack from terminal nodes
+		// terminal nodes will have no out degree
+		// as we will use topo sort so we have to use indegree
+		// so we will reverse the graph
 
+		ArrayList<ArrayList<Integer>> reverseAdjacencyList = new ArrayList<>();
+		int[] indegree = new int[v];
+		Queue<Integer> queue = new LinkedList<>();
+		// we will do the reverse and calculate the indegree in the same loop
+		for (int i = 0; i < v; i++)
+			reverseAdjacencyList.add(new ArrayList<>());
+		for (int i = 0; i < v; i++)
+			for (int node : adjacencyList.get(i)) {
+				reverseAdjacencyList.get(node).add(i);
+				indegree[i]++;
+			}
+		for (int i = 0; i < v; i++)
+			if (indegree[i] == 0)
+				queue.offer(i);
+
+		List<Integer> answer = new ArrayList<>();
+
+		while (!queue.isEmpty()) {
+			int point = queue.poll();
+			answer.add(point);
+			for (int node : reverseAdjacencyList.get(point)) {
+				indegree[node]--;
+				if (indegree[node] == 0)
+					queue.offer(node);
+			}
+		}
+		Collections.sort(answer);
+		System.out.println(answer);
 	}
 
 	// using dfs
