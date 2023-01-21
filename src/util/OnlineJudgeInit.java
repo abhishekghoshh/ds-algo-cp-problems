@@ -17,7 +17,7 @@ public class OnlineJudgeInit {
 
 	public static void set() {
 		String rootPath = System.getProperty("user.dir");
-
+		
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
 		String className = stackTraceElements[stackTraceElements.length - 1].getClassName();
 		String[] args = className.split("[.]");
@@ -26,8 +26,6 @@ public class OnlineJudgeInit {
 		String folderName = args[args.length - 2];
 
 		setInputOutputStream(rootPath, inputFileName, outputFileName, folderName);
-
-		scanner = new Scanner(System.in);
 	}
 
 	private static void setInputOutputStream(String rootPath, String inputFileName, String outputFileName,
@@ -47,9 +45,10 @@ public class OnlineJudgeInit {
 		System.setOut(printInConsole);
 	}
 
-	private static void set(String inputFilePath, String outputFilePath) {
+	public static void set(String inputFilePath, String outputFilePath) {
 		setInputStream(inputFilePath);
 		setOutputStream(outputFilePath);
+		scanner = new Scanner(System.in);
 	}
 
 	private static void setInputStream(String inputFilePath) {
