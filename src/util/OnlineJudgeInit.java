@@ -16,8 +16,13 @@ public class OnlineJudgeInit {
 	public static Scanner scanner = null;
 
 	public static void set() {
+		// System.out.println(System.getProperty("user.dir"));
+		// C:\Users\ghosh\OneDrive\Desktop\projects\github-projects\ds-algo-cp-problems
+		// System.out.println(System.getProperty("user.home"));
+		// C:\Users\ghosh
+
 		String rootPath = System.getProperty("user.dir");
-		
+
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
 		String className = stackTraceElements[stackTraceElements.length - 1].getClassName();
 		String[] args = className.split("[.]");
