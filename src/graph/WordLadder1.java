@@ -46,13 +46,13 @@ public class WordLadder1 {
 
 		Set<String> visited = new HashSet<>();
 		visited.add(beginWord);
-		Queue<String> q = new LinkedList<>();
-		q.add(beginWord);
+		Queue<String> queue = new LinkedList<>();
+		queue.add(beginWord);
 		int level = 1;
-		while (!q.isEmpty()) {
-			int size = q.size();
+		while (!queue.isEmpty()) {
+			int size = queue.size();
 			for (int i = 0; i < size; i++) {
-				String word = q.poll();
+				String word = queue.poll();
 				if (word.equals(endWord)) {
 					System.out.println(level);
 					return;
@@ -67,7 +67,7 @@ public class WordLadder1 {
 						continue;
 					for (String transformedWord : group) {
 						if (!visited.contains(transformedWord)) {
-							q.add(transformedWord);
+							queue.add(transformedWord);
 							visited.add(transformedWord);
 						}
 					}
