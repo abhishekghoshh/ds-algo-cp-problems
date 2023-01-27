@@ -11,8 +11,11 @@ import java.util.Queue;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=V6H1qAeB-l4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=32
+ * https://www.youtube.com/watch?v=PATgNiuTP20&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=33
+ * https://www.youtube.com/watch?v=3dINsjyfooY&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=34
  * 
- * https://takeuforward.org/data-structure/g-35-print-shortest-path-dijkstras-algorithm/
+ * https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/
+ * https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/
  */
 public class DjkastraAlgorithm {
 	// Given a weighted, undirected and connected graph of V vertices and an
@@ -80,6 +83,10 @@ public class DjkastraAlgorithm {
 		Queue<int[]> minHeap = new LinkedList<>();
 		minHeap.offer(new int[] { s, 0 });
 
+		// we will start from the source node and explore all it's neighour nodes
+		// and try to relax the edges
+		// and as we are using the priorityQueue or the min heap
+		// so we will get the least distance node at the top
 		while (!minHeap.isEmpty()) {
 			int[] pair = minHeap.poll();
 			int source = pair[0];
