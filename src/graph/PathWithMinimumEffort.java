@@ -1,5 +1,8 @@
 package graph;
 
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/path-with-minimum-effort/
@@ -13,16 +16,79 @@ package graph;
  */
 public class PathWithMinimumEffort {
 
+	// You are a hiker preparing for an upcoming hike. You are given heights, a 2D
+	// array of size rows x columns, where heights[row][col] represents the height
+	// of cell (row, col). You are situated in the top-left cell, (0, 0), and you
+	// hope to travel to the bottom-right cell, (rows-1, columns-1) (i.e.,
+	// 0-indexed). You can move up, down, left, or right, and you wish to find a
+	// route that requires the minimum effort.
+
+	// A route's effort is the maximum absolute difference in heights between two
+	// consecutive cells of the route.
+
+	// Return the minimum effort required to travel from the top-left cell to the
+	// bottom-right cell.
 	public static void main(String[] args) {
 		type1();
+		type2();
 	}
 
+	private static void type2() {
+		// check out other solutions
+	}
+
+	// study it one more time
 	private static void type1() {
 		int[][] heights = { { 1, 2, 2 }, { 3, 8, 2 }, { 5, 3, 5 } };
-		int rows=heights.length;
-		int column= heights[0].length;
-		int[][] minDis= new int[rows][column];
-		
+		int row = heights.length;
+		int column = heights[0].length;
+
+		// Create a distance matrix with initially all the cells marked as
+		// unvisited and the dist for source cell (0,0) as 0.
+		int[][] dist = new int[row][column];
+		for (int i = 0; i < dist.length; i++) {
+			Arrays.fill(dist[i], Integer.MAX_VALUE);
+		}
+		dist[0][0] = 0;
+
+		// The following delta rows and delts columns array are created such that
+		// each index represents each adjacent node that a cell may have
+		// in a direction.
+		int[][] dir = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+
+		PriorityQueue<int[]> minHeap = new PriorityQueue<>((p1, p2) -> Integer.compare(p1[0], p2[0]));
+		minHeap.offer(new int[] { 0, 0, 0 });
+
+		int diff = 0;
+		// Iterate through the matrix by popping the elements out of the queue
+		// and pushing whenever a shorter distance to a cell is found.
+		while (!minHeap.isEmpty()) {
+			int[] pair = minHeap.poll();
+			int d = pair[0];
+			int x = pair[1];
+			int y = pair[2];
+			if (x == row - 1 && y == column - 1) {
+				diff = d;
+				break;
+			}
+			for (int i = 0; i < 4; i++) {
+				int r = x + dir[i][0];
+				int c = y + dir[i][1];
+				if (r >= 0 && r < row && c >= 0 && c < column) {
+					// Effort can be calculated as the max value of differences
+					// between the heights of the node and its adjacent nodes.
+					int newEffort = Math.max(Math.abs(heights[x][y] - heights[r][c]), d);
+					// If the calculated effort is less than the prev value
+					// we update as we need the min effort.
+					if (newEffort < dist[r][c]) {
+						dist[r][c] = newEffort;
+						minHeap.add(new int[] { newEffort, r, c });
+					}
+				}
+			}
+		}
+		System.out.println(diff);
+
 	}
 
 }
