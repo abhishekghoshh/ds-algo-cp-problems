@@ -5,6 +5,17 @@ import java.util.List;
 import java.util.Stack;
 
 import util.TreeNode;
+/*
+ * Problem link :
+ * https://leetcode.com/problems/binary-tree-inorder-traversal/
+ * 
+ * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=Z_NEgBgbRVI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=7
+ * https://www.youtube.com/watch?v=lxTGsVXjwvM&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=11
+ * 
+ * https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/
+ */
 
 public class InOrderTraversal {
 
@@ -45,17 +56,16 @@ public class InOrderTraversal {
 	// With recursion
 	private static void type1() {
 		TreeNode<Integer> root = TreeNode.withCount(7);
-		List<Integer> answer = new ArrayList<>();
-		inOrder(root, answer);
+		List<Integer> answer = inOrder(root, new ArrayList<>());
 		System.out.println(answer);
 	}
 
-	private static void inOrder(TreeNode<Integer> root, List<Integer> answer) {
-		if (null == root) {
-			return;
+	private static List<Integer> inOrder(TreeNode<Integer> root, List<Integer> answer) {
+		if (null != root) {
+			inOrder(root.left, answer);
+			answer.add(root.val);
+			inOrder(root.right, answer);
 		}
-		inOrder(root.left, answer);
-		answer.add(root.val);
-		inOrder(root.right, answer);
+		return answer;
 	}
 }
