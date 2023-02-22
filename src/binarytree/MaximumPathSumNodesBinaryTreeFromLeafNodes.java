@@ -23,9 +23,13 @@ public class MaximumPathSumNodesBinaryTreeFromLeafNodes {
 		System.out.println(maxPathSum.get());
 	}
 
+	// as we are taking from the leaf
+	// so we can not discard any value
 	private static int maxPath(TreeNode<Integer> root, MaxPathSum maxPathSum) {
+		// if this is null then it will return 0
 		if (null == root)
 			return 0;
+		// if this is a leaf node then it will return the node value
 		if (null == root.left && null == root.right) {
 			return root.val;
 		}
