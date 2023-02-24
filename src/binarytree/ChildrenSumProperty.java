@@ -17,29 +17,63 @@ public class ChildrenSumProperty {
 	// the sum of their child nodes.
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// NOTE
+	// this is taken from striver video
+	// this problem is not in the geekforgeeks link
+	private static void type2() {
+		TreeNode<Integer> root = TreeNode.withAllNodesGiven(2, 35, 10, 2, 3, 5, 2);
+		System.out.println(root.levelOrder());
+		reorder(root);
+		System.out.println(root.levelOrder());
+	}
+
+	// TODO study it later
+	// it will change the dynamics of the tree
+	private static void reorder(TreeNode<Integer> root) {
+		if (root == null)
+			return;
+		int child = 0;
+		if (root.left != null)
+			child += root.left.val;
+		if (root.right != null)
+			child += root.right.val;
+		if (child < root.val) {
+			if (root.left != null)
+				root.left.val = root.val;
+			else if (root.right != null)
+				root.right.val = root.val;
+		}
+		reorder(root.left);
+		reorder(root.right);
+		int tot = 0;
+		if (root.left != null)
+			tot += root.left.val;
+		if (root.right != null)
+			tot += root.right.val;
+		if (root.left != null || root.right != null)
+			root.val = tot;
 	}
 
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(9, 3, 3, 1, 2);
-		int val = isSumProperty(root) > 0 ? 1 : 0;
+		TreeNode<Integer> root = TreeNode.withAllNodesGiven(10, 10);
+		int val = isSumProperty(root) != -1 ? 1 : 0;
 		System.out.println(val);
 	}
 
 	public static int isSumProperty(TreeNode<Integer> root) {
 		if (null == root)
-			return -1;
-		int leftSum = isSumProperty(root.left);
-		int rightSum = isSumProperty(root.right);
-		Integer val = root.val;
-		if (leftSum == -1 && rightSum == -1) {
-			return val;
-		} else if (leftSum == -1) {
-			return rightSum == val ? val + rightSum : 0;
-		} else if (rightSum == -1) {
-			return leftSum == val ? val + leftSum : 0;
-		} else {
-			return leftSum + rightSum == val ? val + leftSum + rightSum : 0;
+			return 0;
+		if (null == root.left && null == root.right) {
+			return root.val;
 		}
+		int leftVal = isSumProperty(root.left);
+		int rightVal = isSumProperty(root.right);
+		if (leftVal == -1 || rightVal == -1)
+			return -1;
+		return leftVal + rightVal == root.val ? root.val : -1;
 	}
 
 }

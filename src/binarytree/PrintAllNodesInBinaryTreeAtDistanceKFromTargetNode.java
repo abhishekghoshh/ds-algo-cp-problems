@@ -14,8 +14,9 @@ import util.TreeNode;
  * Solution link :
  * https://www.youtube.com/watch?v=i9ORlEy6EsI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=31
  */
-public class PrintAllAtDistanceK {
+public class PrintAllNodesInBinaryTreeAtDistanceKFromTargetNode {
 
+	// These is a problem of least common ancester
 	public static void main(String[] args) {
 		type1();
 		type2();

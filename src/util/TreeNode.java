@@ -130,6 +130,16 @@ public class TreeNode<T> {
 		return root;
 	}
 
+	@Override
+	public String toString() {
+		return "[val=" + val + ", left=" + (null == left ? "null" : left.val) + ", right="
+				+ (null == right ? "null" : right.val) + "]";
+	}
+
+	public List<T> inOrder() {
+		return inOrder(this, new ArrayList<>());
+	}
+
 	public static <T> List<T> inOrder(TreeNode<T> curr, List<T> list) {
 		if (curr != null) {
 			inOrder(curr.left, list);
@@ -137,6 +147,10 @@ public class TreeNode<T> {
 			inOrder(curr.right, list);
 		}
 		return list;
+	}
+
+	public List<T> preOrder() {
+		return preOrder(this, new ArrayList<>());
 	}
 
 	public static <T> List<T> preOrder(TreeNode<T> curr, List<T> list) {
@@ -148,6 +162,10 @@ public class TreeNode<T> {
 		return list;
 	}
 
+	public List<T> postOrder() {
+		return postOrder(this, new ArrayList<>());
+	}
+
 	public static <T> List<T> postOrder(TreeNode<T> curr, List<T> list) {
 		if (curr != null) {
 			postOrder(curr.left, list);
@@ -155,6 +173,10 @@ public class TreeNode<T> {
 			list.add(curr.val);
 		}
 		return list;
+	}
+
+	public List<List<T>> levelOrder() {
+		return levelOrder(this);
 	}
 
 	public static <T> List<List<T>> levelOrder(TreeNode<T> root) {
