@@ -99,7 +99,6 @@ public class BinaryTreeTraversal {
 	static void inOrderTraversal(TreeNode<Integer> curr, ArrayList<Integer> inOrder) {
 		if (curr == null)
 			return;
-
 		inOrderTraversal(curr.left, inOrder);
 		inOrder.add(curr.val);
 		inOrderTraversal(curr.right, inOrder);
