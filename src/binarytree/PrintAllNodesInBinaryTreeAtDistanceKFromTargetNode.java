@@ -20,6 +20,9 @@ public class PrintAllNodesInBinaryTreeAtDistanceKFromTargetNode {
 	public static void main(String[] args) {
 		type1();
 		type2();
+
+		// NOTE solution of Striver is very complex and time consuming. better follow
+		// this 2 approach
 	}
 
 	// Optimized approach

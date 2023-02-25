@@ -29,6 +29,9 @@ public class MinimunTimeTakenToBurnDownBinaryTree {
 		type1();
 		type2();
 		type3();
+
+		// NOTE solution of Striver is very complex and time consuming. better follow
+		// this 3 approach
 	}
 
 	private static int minDistance = 0;
