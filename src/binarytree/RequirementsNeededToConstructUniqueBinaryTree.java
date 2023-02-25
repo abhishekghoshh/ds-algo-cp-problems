@@ -9,7 +9,7 @@ package binarytree;
 public class RequirementsNeededToConstructUniqueBinaryTree {
 
 	public static void main(String[] args) {
-
+		// Other than inorder traversal given we can not make a unique binary tree
 	}
 
 }
