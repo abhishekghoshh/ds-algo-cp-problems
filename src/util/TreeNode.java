@@ -1,15 +1,17 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class TreeNode<T> {
+public class TreeNode<T extends Comparable<T>> {
 	public T val;
 	public TreeNode<T> left;
 	public TreeNode<T> right;
 	public TreeNode<T> parent;
+	int count = 1;
 
 	public TreeNode() {
 	}
@@ -105,8 +107,45 @@ public class TreeNode<T> {
 		return withAllNodesGiven(array);
 	}
 
+	public static TreeNode<Integer> makeBST(int count) {
+		Integer[] array = new Integer[count];
+		for (int i = 1; i <= count; i++) {
+			array[i - 1] = i;
+		}
+		return makeBST(array, 0, count - 1);
+	}
+
+	public static <T extends Comparable<T>> TreeNode<T> makeBST(T[] array) {
+		Arrays.sort(array);
+		return makeBST(array, 0, array.length - 1);
+	}
+
+	private static <T extends Comparable<T>> TreeNode<T> makeBST(T[] array, int leftBound, int rightBound) {
+		if (leftBound == rightBound)
+			return new TreeNode<>(array[leftBound]);
+		if (leftBound >= 0 && leftBound < array.length && rightBound >= 0 && rightBound < array.length
+				&& leftBound < rightBound) {
+			int mid = (leftBound + rightBound) / 2;
+			TreeNode<T> root = new TreeNode<>(array[mid]);
+			root.left = makeBST(array, leftBound, mid - 1);
+			root.right = makeBST(array, mid + 1, rightBound);
+			return root;
+		}
+		return null;
+	}
+
+	public TreeNode<T> searchBST(T val) {
+		return searchBST(this, val);
+	}
+
+	public static <T extends Comparable<T>> TreeNode<T> searchBST(TreeNode<T> root, T val) {
+		if (null == root || root.val == val)
+			return root;
+		return val.compareTo(root.val) < 1 ? searchBST(root.left, val) : searchBST(root.right, val);
+	}
+
 	@SuppressWarnings("unchecked")
-	public static <T> TreeNode<T> withAllNodesGiven(T... array) {
+	public static <T extends Comparable<T>> TreeNode<T> withAllNodesGiven(T... array) {
 		TreeNode<T>[] nodes = (TreeNode<T>[]) new TreeNode[array.length];
 		for (int i = 0; i < array.length; i++) {
 			if (null != array[i]) {
@@ -140,7 +179,7 @@ public class TreeNode<T> {
 		return inOrder(this, new ArrayList<>());
 	}
 
-	public static <T> List<T> inOrder(TreeNode<T> curr, List<T> list) {
+	public static <T extends Comparable<T>> List<T> inOrder(TreeNode<T> curr, List<T> list) {
 		if (curr != null) {
 			inOrder(curr.left, list);
 			list.add(curr.val);
@@ -153,7 +192,7 @@ public class TreeNode<T> {
 		return preOrder(this, new ArrayList<>());
 	}
 
-	public static <T> List<T> preOrder(TreeNode<T> curr, List<T> list) {
+	public static <T extends Comparable<T>> List<T> preOrder(TreeNode<T> curr, List<T> list) {
 		if (curr != null) {
 			list.add(curr.val);
 			preOrder(curr.left, list);
@@ -166,7 +205,7 @@ public class TreeNode<T> {
 		return postOrder(this, new ArrayList<>());
 	}
 
-	public static <T> List<T> postOrder(TreeNode<T> curr, List<T> list) {
+	public static <T extends Comparable<T>> List<T> postOrder(TreeNode<T> curr, List<T> list) {
 		if (curr != null) {
 			postOrder(curr.left, list);
 			postOrder(curr.right, list);
@@ -179,7 +218,7 @@ public class TreeNode<T> {
 		return levelOrder(this);
 	}
 
-	public static <T> List<List<T>> levelOrder(TreeNode<T> root) {
+	public static <T extends Comparable<T>> List<List<T>> levelOrder(TreeNode<T> root) {
 		Queue<TreeNode<T>> queue = new LinkedList<>();
 		List<List<T>> wrapList = new LinkedList<List<T>>();
 		if (root == null)

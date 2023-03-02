@@ -16,47 +16,60 @@ import util.TreeNode;
  */
 public class FlattenBinaryTreeToLinkedList {
 	public static void main(String[] args) {
-		type0();
-		type1();
-		type2();
-		type3();
+		type00_();
+		type0_();
+		type1_();
+		type2_();
+		type3_();
 	}
 
-	private static void type3() {
+	private static void type3_() {
 		TreeNode<Integer> root = util.TreeNode.withCount(15);
 		flat(root);
+		System.out.println(root.preOrder());
 	}
 
 	@SuppressWarnings("unchecked")
+	// every function call will flat the tree and give me the start node and last
+	// node of that list
+	// so currently I have root then start node of the left side list and last node
+	// of the left side list, and also the first node of the right side list and
+	// last node of the right side list
+	// now my work is connect this sequence
+	// root -> left side list start
+	// left side list end -> right side list start
+	// now I have
+	// root ---> right side list end
 	public static TreeNode<Integer>[] flat(TreeNode<Integer> root) {
 		if (null == root)
 			return null;
-		TreeNode<Integer> start = root, end = root;
-		TreeNode<Integer>[] left = flat(root.left);
-		TreeNode<Integer>[] right = flat(root.right);
-		if (null != left) {
+		TreeNode<Integer> last = root;
+		TreeNode<Integer>[] leftSideList = flat(root.left);
+		TreeNode<Integer>[] rightSideList = flat(root.right);
+		if (null != leftSideList) {
 			root.left = null;
-			root.right = left[0];
-			end = left[1];
+			root.right = leftSideList[0];
+			last = leftSideList[1];
 		}
-		if (null != right) {
-			end.right = right[0];
-			end = right[1];
+		if (null != rightSideList) {
+			last.right = rightSideList[0];
+			last = rightSideList[1];
 		}
-		return new TreeNode[] { start, end };
+		return new TreeNode[] { root, last };
 	}
 
-	private static void type2() {
+	private static void type2_() {
 		TreeNode<Integer> root = util.TreeNode.withCount(15);
-		flatten_(root);
+		flatten(root);
+		System.out.println(root.preOrder());
 	}
 
-	public static void flatten_(TreeNode<Integer> root) {
+	public static void flatten(TreeNode<Integer> root) {
 		if (root == null) {
 			return;
 		}
-		flatten_(root.right);
-		flatten_(root.left);
+		flatten(root.right);
+		flatten(root.left);
 		TreeNode<Integer> last = root.right;
 		root.right = root.left;
 		root.left = null;
@@ -65,24 +78,30 @@ public class FlattenBinaryTreeToLinkedList {
 		root.right = last;
 	}
 
-	private static void type1() {
+	// morris traversal
+	// check striver solution
+	private static void type1_() {
 		TreeNode<Integer> root = util.TreeNode.withCount(15);
-		TreeNode<Integer> cur = root;
-		while (cur != null) {
-			if (cur.left != null) {
-				TreeNode<Integer> pre = cur.left;
-				while (pre.right != null) {
-					pre = pre.right;
+		TreeNode<Integer> curr = root;
+		while (curr != null) {
+			if (curr.left != null) {
+				TreeNode<Integer> prev = curr.left;
+				while (prev.right != null) {
+					prev = prev.right;
 				}
-				pre.right = cur.right;
-				cur.right = cur.left;
-				cur.left = null;
+				prev.right = curr.right;
+				curr.right = curr.left;
+				curr.left = null;
 			}
-			cur = cur.right;
+			curr = curr.right;
 		}
+		System.out.println(root.preOrder());
 	}
 
-	private static void type0() {
+	// same as previous
+	// iterative preorder
+	// check striver solution
+	private static void type0_() {
 		TreeNode<Integer> root = util.TreeNode.withCount(15);
 		if (root == null)
 			return;
@@ -98,5 +117,28 @@ public class FlattenBinaryTreeToLinkedList {
 				current.right = stack.peek();
 			current.left = null;
 		}
+		System.out.println(root.preOrder());
+	}
+
+	// check striver solution
+	// using reverse pre order
+	private static void type00_() {
+		TreeNode<Integer> root = util.TreeNode.withCount(15);
+		if (root == null)
+			return;
+		reversePostOrder(root);
+		System.out.println(root.preOrder());
+	}
+
+	private static TreeNode<Integer> prev = null;
+
+	private static void reversePostOrder(TreeNode<Integer> root) {
+		if (root == null)
+			return;
+		reversePostOrder(root.right);
+		reversePostOrder(root.left);
+		root.right = prev;
+		root.left = null;
+		prev = root;
 	}
 }
