@@ -36,9 +36,9 @@ public class SerializerAndDeserializeBinaryTree {
 		System.out.println(outputNode.inOrder());
 	}
 
-	private static void serialize(TreeNode<Integer> root, StringBuilder curr) {
+	public static void serialize(TreeNode<Integer> root, StringBuilder curr) {
 		if (root == null) {
-			curr.append("n");
+			curr.append('n');
 			return;
 		}
 		curr.append(root.val).append(" ");
@@ -47,7 +47,7 @@ public class SerializerAndDeserializeBinaryTree {
 		serialize(root.right, curr);
 	}
 
-	private static TreeNode<Integer> deserialize(char[] data, int[] index) {
+	public static TreeNode<Integer> deserialize(char[] data, int[] index) {
 		if (index[0] == data.length)
 			return null;
 		if (data[index[0]] == 'n')
