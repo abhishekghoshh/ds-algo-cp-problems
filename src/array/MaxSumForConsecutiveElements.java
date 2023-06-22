@@ -16,7 +16,14 @@ public class MaxSumForConsecutiveElements {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 
+	}
+
+	// Without extra space
+	private static void type3() {
+		int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+		int prev = 0, prev2 = 0;
 	}
 
 	// Kadane's algorithm of o(n)

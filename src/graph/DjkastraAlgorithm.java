@@ -16,6 +16,8 @@ import java.util.Queue;
  * 
  * https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/
  * https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/
+ * 
+ * https://www.youtube.com/watch?v=EFg3u_E6eHU
  */
 public class DjkastraAlgorithm {
 	// Given a weighted, undirected and connected graph of V vertices and an

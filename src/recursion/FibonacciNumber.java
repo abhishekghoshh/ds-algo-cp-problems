@@ -1,5 +1,12 @@
 package recursion;
-
+/*
+ * Problem link :
+ *
+ *
+ * Solution link :
+ *
+ *
+ */
 public class FibonacciNumber {
 
 	public static void main(String[] args) {
@@ -7,6 +14,29 @@ public class FibonacciNumber {
 		type2();
 		type3();
 		type4();
+		type5();
+	}
+
+	private static class Solution {
+		private static final int[] mem = new int[31];
+		static {
+			mem[0] = 0;
+			mem[1] = 1;
+		}
+
+		public int fib(int n) {
+			if (n == 0)
+				return 0;
+			else if (mem[n] != 0)
+				return mem[n];
+			else
+				return mem[n] = fib(n - 1) + fib(n - 2);
+		}
+	}
+
+	private static void type5() {
+		Solution solution = new Solution();
+		System.out.println(solution.fib(10));
 	}
 
 	private static void type4() {
