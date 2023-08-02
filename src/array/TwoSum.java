@@ -2,7 +2,9 @@ package array;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 /*
  * 
  * problem links :
@@ -26,6 +28,28 @@ public class TwoSum {
 		type2();
 		type3();
 		type4();
+		type5();
+	}
+
+	private static void type5() {
+		int[] nums = { 2, 7, 11, 15 };
+		int target = 9;
+		int[] answer = { -1, -1 };
+		
+		Set<Integer> set = new HashSet<>();
+        int i=0;
+        while(i<nums.length && !set.contains(target-nums[i])){
+            set.add(nums[i++]);
+        }
+        System.out.println(set);
+        System.out.println(i);
+        for(int j=0;j<nums.length;j++){
+            if(nums[i]+nums[j]==target) {
+            	answer[0]=j;
+            	answer[1]=i;
+            }
+        }
+		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
 	}
 
 	// two pointer technique
