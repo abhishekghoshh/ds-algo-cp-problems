@@ -3,6 +3,8 @@ package linkedlist;
 public class DesignLinkedList {
 
 	public static void main(String[] args) {
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.addAtHead(2);
 	}
 
 	static class MyLinkedList {
@@ -25,6 +27,9 @@ public class DesignLinkedList {
 		}
 
 		public int get(int index) {
+			if(index>=n) {
+				return -1;
+			}
 			List current = head;
 			while (index > 0) {
 				current = current.next;
@@ -60,7 +65,7 @@ public class DesignLinkedList {
 		public void addAtIndex(int index, int val) {
 			if (index == 0) {
 				addAtHead(val);
-			} else if (index == n - 1) {
+			} else if (index == n) {
 				addAtTail(val);
 			} else {
 				List parent = head;
@@ -77,7 +82,9 @@ public class DesignLinkedList {
 		}
 
 		public void deleteAtIndex(int index) {
-			if (index == 0) {
+			if(index>=n) {
+				return;
+			}else if (index == 0) {
 				head = head.next;
 			} else {
 				List parent = head;
