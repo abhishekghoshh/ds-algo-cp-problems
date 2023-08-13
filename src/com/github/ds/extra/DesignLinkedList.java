@@ -1,4 +1,15 @@
-package linkedlist;
+package com.github.ds.extra;
+
+/*
+ *
+ * problem links :
+ * https://leetcode.com/problems/design-linked-list/
+ *
+ * Solution link :
+ *
+ *
+ *
+ * */
 
 public class DesignLinkedList {
 
