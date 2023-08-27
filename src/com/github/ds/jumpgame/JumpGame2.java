@@ -1,4 +1,4 @@
-package com.github.ds.extra;
+package com.github.ds.jumpgame;
 
 import java.util.Arrays;
 
@@ -21,7 +21,7 @@ public class JumpGame2 {
     private static void type1() {
         int[] nums = {2, 3, 1, 1, 4};
         int n = nums.length;
-        int answer = jump(nums, 0;
+        int answer = jump(nums, 0);
         System.out.println(answer);
     }
 

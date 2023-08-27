@@ -10,8 +10,10 @@
 - FibonacciSeries
 - ClimbingStairs
 - FrogJump
+- FrogJumpWithKDistances
 - HouseRobber1
 - HouseRobber2
 - NinjaTraining
 - GridUniquePaths
 - GridUniquePathsWithObstacles
+- MinimumPathSum
