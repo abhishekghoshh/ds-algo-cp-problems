@@ -1,4 +1,7 @@
 package com.github.ds.jumpgame;
+
+import java.util.PriorityQueue;
+
 /*
  *
  * problem links :
@@ -16,44 +19,38 @@ public class JumpGame {
     }
 
     private static void type2() {
-        int[] nums = {2, 3, 1, 1, 4};
-        boolean[] memo = new boolean[nums.length];
-        boolean canJump = canJump(nums, 0, memo);
-        System.out.println(canJump);
-    }
-
-    private static boolean canJump(int[] nums, int current, boolean[] memo) {
-        if (current == nums.length - 1)
-            return true;
-        if (current >= nums.length || nums[current] == 0)
-            return false;
-        if (memo[current])
-            return true;
-        for (int i = nums[current]; i >= 1; i--) {
-            int next = current + i;
-            boolean isPossible = canJump(nums, next, memo);
-            if (isPossible)
-                return memo[current] = true;
+        int[] nums = {};
+        int curr = nums[0], n = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            if (i == curr && nums[i] == 0) {
+                break;
+            }
+            curr = Math.max(i + nums[i], curr);
         }
-        return memo[current] = false;
+        System.out.println(curr + " " + (n - 1));
+        boolean ans = curr >= n - 1;
+        System.out.println(ans);
     }
 
     private static void type1() {
-        int[] nums = {2, 3, 1, 1, 4};
-        boolean canJump = canJump(nums, 0);
-        System.out.println(canJump);
+        int[] nums = {};
+        if (nums[0] == nums.length - 1) {
+            System.out.println(true);
+            return;
+        }
+
+        PriorityQueue<Integer> heap = new PriorityQueue<>(nums.length);
+        heap.add(nums.length - 1);
+
+        for (int i = nums.length - 2; i > 0; --i) {
+            if ((i + nums[i]) >= heap.peek()) {
+                heap.add(i);
+            }
+        }
+
+        boolean ans = nums[0] >= heap.peek();
+        System.out.println(ans);
     }
 
-    private static boolean canJump(int[] nums, int current) {
-        if (current == nums.length - 1)
-            return true;
-        if (current >= nums.length || nums[current] == 0)
-            return false;
-        for (int i = 1; i <= nums[current]; i++) {
-            boolean isPossible = canJump(nums, current + i);
-            if (isPossible)
-                return true;
-        }
-        return false;
-    }
+
 }
