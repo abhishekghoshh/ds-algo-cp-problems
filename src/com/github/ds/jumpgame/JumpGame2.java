@@ -14,24 +14,12 @@ import java.util.Arrays;
  * */
 public class JumpGame2 {
     public static void main(String[] args) {
-        type0();
         type1();
     }
 
+
+    // brute force solution
     private static void type1() {
-        int[] nums = {2, 3, 1, 1, 4};
-        int n = nums.length;
-        int answer = jump(nums, 0);
-        System.out.println(answer);
-    }
-
-    private static int jump(int[] nums, int i) {
-        if (i == nums.length - 1)
-            return nums[i];
-        return 0;
-    }
-
-    private static void type0() {
         int[] nums = {2, 3, 1, 1, 4};
         int n = nums.length;
         int[] minPath = new int[n];
