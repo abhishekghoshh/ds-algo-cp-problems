@@ -1,7 +1,5 @@
 package com.github.ds.jumpgame;
 
-import java.util.PriorityQueue;
-
 /*
  *
  * problem links :
@@ -13,7 +11,7 @@ import java.util.PriorityQueue;
  * https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/55.%20Jump%20Game
  *
  * */
-public class JumpGame {
+public class JumpGame1 {
     public static void main(String[] args) {
         type1();
         type2();
