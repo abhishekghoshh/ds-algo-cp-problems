@@ -1,4 +1,4 @@
-package com.github.ds.extra;
+package com.github.ds.jumpgame;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +11,7 @@ import java.util.Set;
  * Solution link :
  *
  * */
-public class FrogJump2_Leetcode {
+public class FrogJump2 {
     public static void main(String[] args) {
         type1();
         type2();
