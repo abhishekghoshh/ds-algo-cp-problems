@@ -1,4 +1,4 @@
-package sort;
+package com.ds.sort;
 
 /*
  * Problem link :
@@ -26,7 +26,7 @@ public class QuickSort {
 		if (low < high) {
 			// partionIndex is partitioning index, arr[p] is now at right place
 			int partionIndex = partition_(arr, low, high);
-			// Separately sort elements before
+			// Separately com.ds.sort elements before
 			// partition and after partition
 			quickSort_(arr, low, partionIndex - 1);
 			quickSort_(arr, partionIndex + 1, high);

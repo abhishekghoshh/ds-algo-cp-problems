@@ -1,4 +1,4 @@
-package sort;
+package com.ds.sort;
 
 public class RecursiveInsertionSort {
 	/*

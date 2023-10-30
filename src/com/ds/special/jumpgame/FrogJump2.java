@@ -1,4 +1,4 @@
-package com.github.ds.jumpgame;
+package com.ds.special.jumpgame;
 
 import java.util.HashSet;
 import java.util.Set;
