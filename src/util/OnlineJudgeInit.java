@@ -1,11 +1,8 @@
 package util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class OnlineJudgeInit {
@@ -58,7 +55,8 @@ public class OnlineJudgeInit {
 
 	private static void setInputStream(String inputFilePath) {
 		try {
-			File initialFile = new File(inputFilePath);
+			Path path = Paths.get(inputFilePath);
+			File initialFile = new File(path.toString());
 			InputStream in = new FileInputStream(initialFile);
 			System.setIn(in);
 		} catch (FileNotFoundException e) {
@@ -66,7 +64,15 @@ public class OnlineJudgeInit {
 		}
 	}
 
-	private static void setOutputStream(String outputFile) {
+	private static void setOutputStream(String outputFilePath) {
+		Path path = Paths.get(outputFilePath);
+		File outputFile = new File(path.toString());
+		if (!outputFile.exists())
+			try {
+				System.out.println(outputFile.createNewFile());
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 		try {
 			PrintStream out = new PrintStream(new FileOutputStream(outputFile), true);
 			System.setOut(out);

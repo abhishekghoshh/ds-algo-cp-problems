@@ -19,9 +19,10 @@ public class JumpGame6 {
         type2();
         type3();
         type4();
+        type5();
     }
 
-    private static void type4() {
+    private static void type5() {
         int[] nums = {10, -5, -2, 4, 0, 3};
         int k = 3;
         int n = nums.length;
@@ -46,8 +47,27 @@ public class JumpGame6 {
                 maxJ = i;
             }
         }
+        System.out.println(dp[n - 1]);
+    }
 
-
+    private static void type4() {
+        int[] nums = {10, -5, -2, 4, 0, 3};
+        int k = 3;
+        int n = nums.length, wStart = 0, wEnd = 0, tmp = wStart;
+        int[] idx = new int[n];
+        idx[0] = 0;
+        for (int i = 1; i < n; i++) {
+            nums[i] = nums[i] + nums[wStart];
+            while (wEnd >= wStart && nums[i] >= nums[wEnd]) {
+                idx[wEnd] = i;
+                nums[wEnd--] = nums[i];
+            }
+            nums[++wEnd] = nums[i];
+            idx[wEnd] = i;
+            if ((wEnd - wStart + 1) > k || idx[wStart] <= (i - k))
+                wStart++;
+        }
+        System.out.println(nums[wEnd]);
     }
 
     private static void type3() {
@@ -66,7 +86,7 @@ public class JumpGame6 {
                 linkedList.removeLast();
             linkedList.add(i);
         }
-        System.out.println(nums[n - 1]);
+        System.out.println(sum[n - 1]);
     }
 
     private static void type2() {
@@ -77,8 +97,9 @@ public class JumpGame6 {
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> b[1] - a[1]);
         maxHeap.offer(new int[]{0, nums[0]});
         for (int i = 1; i < n; i++) {
-            while (i - maxHeap.peek()[0] > k)
+            while (!maxHeap.isEmpty() && i - maxHeap.peek()[0] > k)
                 maxHeap.poll();
+            if (maxHeap.isEmpty()) return;
             int[] top = maxHeap.peek();
             max = nums[i] + top[1];
             maxHeap.offer(new int[]{i, max});
