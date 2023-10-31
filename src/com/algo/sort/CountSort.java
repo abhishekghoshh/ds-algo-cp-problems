@@ -1,4 +1,4 @@
-package com.ds.sort;
+package com.algo.sort;
 
 import static com.util.ArrayUtil.*;
 

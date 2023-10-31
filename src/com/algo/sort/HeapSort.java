@@ -1,4 +1,4 @@
-package com.ds.sort;
+package com.algo.sort;
 
 import com.implementations.heap.MinHeap;
 
