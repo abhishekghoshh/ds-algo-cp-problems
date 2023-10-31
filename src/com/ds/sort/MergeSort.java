@@ -1,5 +1,7 @@
 package com.ds.sort;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/merge-sort/1
@@ -21,7 +23,7 @@ public class MergeSort {
 		print(arr);
 	}
 
-	static void mergeSort(int arr[], int l, int r) {
+	static void mergeSort(int[] arr, int l, int r) {
 		if (l < r) {
 			int mid = l + (r - l) / 2;
 			mergeSort(arr, l, mid);
@@ -30,35 +32,23 @@ public class MergeSort {
 		}
 	}
 
-	static void merge(int arr[], int l, int m, int r) {
+	static void merge(int[] arr, int l, int m, int r) {
 		int n = r - l + 1;
 		int[] copy = new int[n];
 		int left = l;
 		int right = m + 1;
 		int i = 0;
-		while (left <= m && right <= r) {
-			if (arr[left] < arr[right]) {
+		while (left <= m && right <= r)
+			if (arr[left] < arr[right])
 				copy[i++] = arr[left++];
-			} else {
+			else
 				copy[i++] = arr[right++];
-			}
-		}
-		while (left <= m) {
+		while (left <= m)
 			copy[i++] = arr[left++];
-		}
-		while (right <= r) {
+		while (right <= r)
 			copy[i++] = arr[right++];
-		}
-		for (i = 0; i < n; i++) {
+		for (i = 0; i < n; i++)
 			arr[l + i] = copy[i];
-		}
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 
 }

@@ -1,5 +1,9 @@
 package com.ds.sort;
 
+import com.util.ArrayUtil;
+
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * 
@@ -17,7 +21,7 @@ public class SelectionSort {
 
 	// The inner loop selects the minimum element in the unsorted array .
 	private static void type1() {
-		int arr[] = { 13, 46, 24, 52, 20, 9 };
+		int[] arr = { 13, 46, 24, 52, 20, 9 };
 		int n = arr.length;
 		for (int i = 0; i < n; i++) {
 			int minIndex = i;
@@ -37,12 +41,4 @@ public class SelectionSort {
 		}
 		print(arr);
 	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
-	}
-
 }

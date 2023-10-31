@@ -1,5 +1,8 @@
 package com.ds.sort;
 
+import static com.util.ArrayUtil.print;
+import static com.util.ArrayUtil.swap;
+
 /*
  * Problem link :
  * 
@@ -21,23 +24,11 @@ public class RecursiveBubbleSort {
 	}
 
 	private static void bubbleSort(int[] arr, int n) {
-		if (n == 0)
-			return;
+		if (n == 0) return;
 		// iterative place the highest element in last place
-		for (int i = 0; i < n - 1; i++) {
-			if (arr[i] > arr[i + 1]) {
-				int temp = arr[i];
-				arr[i] = arr[i + 1];
-				arr[i + 1] = temp;
-			}
-		}
+		for (int i = 0; i < n - 1; i++)
+			if (arr[i] > arr[i + 1])
+				swap(arr, i, i + 1);
 		bubbleSort(arr, n - 1);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 }

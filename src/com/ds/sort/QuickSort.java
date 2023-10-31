@@ -9,6 +9,9 @@ package com.ds.sort;
  * https://www.geeksforgeeks.org/quick-sort/
  * 
  */
+
+import static com.util.ArrayUtil.*;
+
 public class QuickSort {
 
 	public static void main(String[] args) {
@@ -19,17 +22,17 @@ public class QuickSort {
 	private static void type2() {
 		int[] arr = { 10, 7, 8, 9, 1, 5 };
 		int n = arr.length;
-		quickSort_(arr, 0, n - 1);
+		quickSort2(arr, 0, n - 1);
 	}
 
-	static void quickSort_(int[] arr, int low, int high) {
+	static void quickSort2(int[] arr, int low, int high) {
 		if (low < high) {
-			// partionIndex is partitioning index, arr[p] is now at right place
-			int partionIndex = partition_(arr, low, high);
-			// Separately com.ds.sort elements before
+			// partitionIndex is partitioning index, arr[p] is now at right place
+			int partitionIndex = partition2(arr, low, high);
+			// Separately sort elements before
 			// partition and after partition
-			quickSort_(arr, low, partionIndex - 1);
-			quickSort_(arr, partionIndex + 1, high);
+			quickSort2(arr, low, partitionIndex - 1);
+			quickSort2(arr, partitionIndex + 1, high);
 		}
 	}
 
@@ -38,15 +41,13 @@ public class QuickSort {
 	 * correct position in sorted array, and places all smaller (smaller than pivot)
 	 * to left of pivot and all greater elements to right of pivot
 	 */
-	static int partition_(int[] arr, int low, int high) {
+	static int partition2(int[] arr, int low, int high) {
 		// we are setting last item as pivot
 		int pivot = arr[high];
-		// Index of smaller element and indicates
-		// the right position of pivot found so far
-		int i = (low - 1);
+		// Index of smaller element and indicates the right position of pivot found so far
+		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
-			// If current element is smaller
-			// than the pivot
+			// If current element is smaller than the pivot
 			if (arr[j] < pivot) {
 				// Increment index of smaller element
 				i++;
@@ -58,61 +59,46 @@ public class QuickSort {
 	}
 
 	private static void type1() {
-		int arr[] = { 12, 10, 11, 13, 21, 24, 25, 20, 9 };
+		int[] arr = {12, 10, 11, 13, 21, 24, 25, 20, 9};
 		int n = arr.length;
-		quicksort(arr, 0, n - 1);
+		quicksort1(arr, 0, n - 1);
 		print(arr);
 	}
 
-	private static void quicksort(int arr[], int low, int high) {
+	private static void quicksort1(int[] arr, int low, int high) {
 		if (low < high) {
 			// after each partition method one item is placed in its actual position
 			// and on its left every item is smaller
 			// and on its right every item is greater
-			int partionIndex = partition(arr, low, high);
-			// after partionIndex element is placed on so we can do the same for
-			// low to partionIndex-1 and partionIndex+1 to high
-			quicksort(arr, low, partionIndex - 1);
-			quicksort(arr, partionIndex + 1, high);
+			int partitionIndex = partition1(arr, low, high);
+			// after partitionIndex element is placed on so we can do the same for
+			// low to partitionIndex-1 and partitionIndex+1 to high
+			quicksort1(arr, low, partitionIndex - 1);
+			quicksort1(arr, partitionIndex + 1, high);
 		}
 	}
 
-	private static int partition(int arr[], int low, int high) {
+	private static int partition1(int[] arr, int low, int high) {
 		// we are setting first item as pivot
 		int pivot = arr[low];
-		int i = low;
-		int j = high;
-		while (i < j) {
+		int start = low;
+		int end = high;
+		while (start < end) {
 			// this loop will break once there is item greater than pivot
-			while (arr[i] <= pivot && i <= high - 1) {
-				i++;
-			}
+			while (arr[start] <= pivot && start <= high - 1)
+				start++;
 			// this loop will break once there is item lesser than pivot
-			while (arr[j] > pivot && j >= low) {
-				j--;
-			}
+			while (arr[end] > pivot && end >= low)
+				end--;
 			// once we found two indices we will swap two items
 			// i > j means there are two partitions already made
-			if (i < j) {
-				swap(arr, i, j);
-			}
+			if (start < end)
+				swap(arr, start, end);
 		}
 		// after the iteration low+1 to j is lesser than pivot
-		swap(arr, j, low);
-		return j;
+		swap(arr, end, low);
+		return end;
 	}
 
-	private static void swap(int[] arr, int i, int j) {
-		int t = arr[i];
-		arr[i] = arr[j];
-		arr[j] = t;
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
-	}
 
 }

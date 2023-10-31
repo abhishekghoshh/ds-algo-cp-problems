@@ -1,6 +1,8 @@
 package com.ds.sort;
 
-import heap.MinHeap;
+import com.implementations.heap.MinHeap;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Problem link :
@@ -17,19 +19,11 @@ public class HeapSort {
 	}
 
 	private static void type1() {
-		int arr[] = { 10, 9, 8, 7 };
-		int i = 0;
-		MinHeap.Heap minHeap = new MinHeap.Heap(arr);
-		while (!minHeap.isEmpty()) {
+		int[] arr = {10, 9, 8, 7, 2, 5, 1, -1};
+		MinHeap minHeap = new MinHeap(arr);
+		for (int i = 0; i < arr.length; i++)
 			arr[i++] = minHeap.extractMin();
-		}
 		print(arr);
 	}
 
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
-	}
 }

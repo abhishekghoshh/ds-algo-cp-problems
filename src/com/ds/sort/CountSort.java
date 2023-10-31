@@ -1,5 +1,7 @@
 package com.ds.sort;
 
+import static com.util.ArrayUtil.*;
+
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/counting-sort/1
@@ -19,36 +21,21 @@ public class CountSort {
 	private static void type2() {
 		int[] arr = { 2, 5, 7, 5, 9, 15, 13, 2, 7, 8 };
 		int n = arr.length;
-		int[] copy = new int[n];
-		int index = 0;
-		int max = Integer.MIN_VALUE;
-		int min = Integer.MAX_VALUE;
-		for (int num : arr) {
-			copy[index++] = num;
-			if (num > max) {
-				max = num;
-			}
-			if (num < min) {
-				min = num;
-			}
-		}
+		int max = max(arr);
+		int min = min(arr);
+		int[] copy = copy(arr);
 		int range = max - min + 1;
-		int freq[] = new int[range];
+		int[] freq = new int[range];
 		// we are subtracting everything with minus because we want a range from 0
-		for (int i = 0; i < n; i++) {
-			freq[arr[i] - min]++;
-		}
-		// Modify the count array such that each element at each index stores the sum of
-		// previous counts.
-		// after this iteration all item freq array will store the corresponding indexes
-		// of every item of original array
+		for (int j : arr)
+			freq[j - min]++;
+		// Modify the count array such that each element at each index stores the sum of previous counts.
+		// after this iteration all item freq array will store the corresponding indexes of every item of original array
 		// if the array is 1 4 4 6 6 6 8
 		// then freq will be 0 1 0 0 2 0 3 0 1
-		for (int i = 1; i < range; i++) {
+		// after this iteration freq will be 0 1 1 1 3 3 6 6 7
+		for (int i = 1; i < range; i++)
 			freq[i] += freq[i - 1];
-		}
-		// after this iteration
-		// freq will be 0 1 1 1 3 3 6 6 7
 		// if we look closely 1 will be from [0-1)
 		// 4 will be from [1-3)
 		// 6 will be from [3-6)
@@ -67,29 +54,19 @@ public class CountSort {
 		print(arr);
 	}
 
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
-	}
-
 	private static void type1() {
 		String str = "geeksforgeeks";
 		char[] arr = str.toCharArray();
 		int n = arr.length;
 		int[] freq = new int[26];
-		for (int i = 0; i < n; i++) {
-			freq[arr[i] - 'a']++;
-		}
+		for (char c : arr)
+			freq[c - 'a']++;
 		int index = 0;
-		for (int i = 0; i < 26; i++) {
+		for (int i = 0; i < 26; i++)
 			while (freq[i] > 0) {
 				arr[index++] = (char) ('a' + i);
 				freq[i]--;
 			}
-		}
-		String sortedString = new String(arr);
-		System.out.println(sortedString);
+		print(arr);
 	}
 }

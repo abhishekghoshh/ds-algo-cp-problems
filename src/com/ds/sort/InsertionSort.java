@@ -1,5 +1,7 @@
 package com.ds.sort;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/insertion-sort/1
@@ -15,7 +17,6 @@ public class InsertionSort {
 	}
 
 	private static void type1() {
-		//int[] arr = { 4, 1, 3, 9, 7 };
 		int[] arr = { 24, 18, 38, 43, 14, 40, 1, 54 };
 		int n = arr.length;
 		for (int i = 1; i < n; i++) {
@@ -28,12 +29,5 @@ public class InsertionSort {
 			arr[j] = pivot;
 		}
 		print(arr);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 }
