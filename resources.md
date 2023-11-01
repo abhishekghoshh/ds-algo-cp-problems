@@ -18,4 +18,7 @@
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
   - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
+  - [Left rotate an array by D places](/src/com/ds/array/LeftRotateArray.java)
   - [Move Zeros to end](/src/com/ds/array/MovesZeroToEnd.java)
+  - [Linear Search](/src/com/ds/array/LinearSearch.java)
+  - 

@@ -12,7 +12,7 @@ import static com.util.ArrayUtil.print;
  *
  * https://takeuforward.org/data-structure/rotate-array-by-k-elements/
  * */
-public class RotateArray {
+public class LeftRotateArray {
 
 	public static void main(String[] args) {
 		type1();
