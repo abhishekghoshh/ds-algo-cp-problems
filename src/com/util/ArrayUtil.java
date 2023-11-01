@@ -4,7 +4,7 @@ public class ArrayUtil {
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
         arr[j] = arr[i];
-        arr[j] = temp;
+        arr[i] = temp;
     }
 
     public static void print(int[] arr) {

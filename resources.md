@@ -16,3 +16,6 @@
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
+  - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
+  - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
+  - [Move Zeros to end](/src/com/ds/array/MovesZeroToEnd.java)

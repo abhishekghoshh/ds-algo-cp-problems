@@ -1,10 +1,16 @@
-package array;
+package com.ds.array;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Problem link : 
  * https://leetcode.com/problems/rotate-array/
+ * https://www.codingninjas.com/studio/problems/rotate-array_1230543
+ *
  * Solution is :
- * 
+ * https://www.youtube.com/watch?v=wvcQg43_V8U
+ *
+ * https://takeuforward.org/data-structure/rotate-array-by-k-elements/
  * */
 public class RotateArray {
 
@@ -26,12 +32,6 @@ public class RotateArray {
 		print(nums);
 	}
 
-	private static void print(int[] nums) {
-		for (int item : nums) {
-			System.out.print(item);
-		}
-		System.out.println();
-	}
 
 	public static void reverse(int[] nums, int start, int end) {
 		while (start < end) {
@@ -58,7 +58,7 @@ public class RotateArray {
 			for (int j = n - 1; j > 0; j--) {
 				nums[j] = nums[j - 1];
 			}
-			// assign the last to zero'th item
+			// assign the last to zeroth items
 			nums[0] = last;
 		}
 		print(nums);
