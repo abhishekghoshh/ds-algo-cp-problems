@@ -1,5 +1,7 @@
 package com.util;
 
+import java.util.List;
+
 public class ArrayUtil {
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
@@ -7,9 +9,25 @@ public class ArrayUtil {
         arr[i] = temp;
     }
 
+    public static void print(List<Integer> arr) {
+        for (int item : arr) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
     public static void print(int[] arr) {
         for (int item : arr) {
             System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    public static void print(int[]... arrays) {
+        for (int[] array : arrays) {
+            for (int num : array) {
+                System.out.print(num + " ");
+            }
         }
         System.out.println();
     }

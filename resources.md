@@ -21,4 +21,7 @@
   - [Left rotate an array by D places](/src/com/ds/array/LeftRotateArray.java)
   - [Move Zeros to end](/src/com/ds/array/MovesZeroToEnd.java)
   - [Linear Search](/src/com/ds/array/LinearSearch.java)
-  - 
+  - [Union of Two Sorted Arrays](/src/com/ds/array/UnionOfTwoSortedArrays.java)
+  - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java) 
+    - Bit Manipulation
+  - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java) 

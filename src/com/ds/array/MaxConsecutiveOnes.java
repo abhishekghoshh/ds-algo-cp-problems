@@ -1,11 +1,12 @@
-package array;
+package com.ds.array;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/max-consecutive-ones/
- * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+ * https://www.codingninjas.com/studio/problems/traffic_6682625
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=bYWLJb3vCWY
  * https://www.youtube.com/watch?v=Mo33MjjMlyA&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=45
  * 
  * */
@@ -24,32 +25,31 @@ public class MaxConsecutiveOnes {
 	// space complexity O(1)
 	private static void type3() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
-		int n = nums.length, maxLength = 0, length = 0;
-		for (int i = 0; i < n; i++) {
-			if (nums[i] == 1) {
+		int max = 0, length = 0;
+		for (int num : nums) {
+			if (num == 1) {
 				length++;
 			} else {
-				maxLength = Math.max(length, maxLength);
+				max = Math.max(length, max);
 				length = 0;
 			}
 		}
-		maxLength = Math.max(length, maxLength);
+		max = Math.max(length, max);
 		System.out.println("max length is " + length);
 	}
 
 	// optimized approach
-	// on every 1 we are calculating length from it's start
+	// on every 1 we are calculating length from its start
 	// time complexity O(n)
 	// space complexity O(1)
 	private static void type2() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
 		int n = nums.length, length = 0, start = 0;
 		for (int i = 0; i < n; i++) {
-			if (nums[i] == 1) {
+			if (nums[i] == 1)
 				length = Math.max(length, i - start + 1);
-			} else {
+			else
 				start = i + 1;
-			}
 		}
 		System.out.println("max length is " + length);
 	}
@@ -60,15 +60,11 @@ public class MaxConsecutiveOnes {
 	private static void type1() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
 		int n = nums.length, length = 0;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++)
 			for (int j = i; j < n; j++) {
-				if (nums[j] == 1) {
-					length = Math.max(length, j - i + 1);
-				} else {
-					break;
-				}
+				if (nums[j] == 0) break;
+				length = Math.max(length, j - i + 1);
 			}
-		}
 		System.out.println("max length is " + length);
 	}
 
