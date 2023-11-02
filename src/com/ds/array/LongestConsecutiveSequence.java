@@ -1,4 +1,4 @@
-package array;
+package com.ds.array;
 
 import com.util.ArrayUtil;
 
@@ -53,9 +53,8 @@ public class LongestConsecutiveSequence {
 			if (bit) {
 				current++;
 			} else {
-				if (current > maxLen) {
+				if (current > maxLen)
 					maxLen = current;
-				}
 				current = 0;
 			}
 		if (current > maxLen)

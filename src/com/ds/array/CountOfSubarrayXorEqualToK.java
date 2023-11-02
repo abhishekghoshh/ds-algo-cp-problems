@@ -1,15 +1,19 @@
-package array;
+package com.ds.array;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /*
  * Problem link:
- * https://www.codingninjas.com/codestudio/problems/1115652?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/studio/problems/subarrays-with-xor-k_6826258?leftPanelTabValue=PROBLEM
+ * https://www.codingninjas.com/codestudio/problems/1115652
  * https://www.interviewbit.com/problems/subarray-with-given-xor/
  * 
  * Solution:
+ * https://www.youtube.com/watch?v=eZr-6p0B7ME&t=1s
  * https://www.youtube.com/watch?v=lO9R5CaGRPY&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=26
+ *
+ * https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/
  * */
 public class CountOfSubarrayXorEqualToK {
 
@@ -44,22 +48,16 @@ public class CountOfSubarrayXorEqualToK {
 		Map<Integer, Integer> prefixXor = new HashMap<>();
 		int xor = 0, n = nums.length, count = 0, previousXor;
 		prefixXor.put(0, 1);// zero prefix xor for empty sub array
-		for (int i = 0; i < n; i++) {
-			xor = xor ^ nums[i];
-			previousXor = xor ^ k;
-//			if (xor == k) {
-//				count++;
-//			}
-			previousXor = xor ^ k;
-			if (prefixXor.containsKey(previousXor)) {
-				count = count + prefixXor.get(previousXor);
-			}
-			if (!prefixXor.containsKey(xor)) {
-				prefixXor.put(xor, 1);
-			} else {
-				prefixXor.put(xor, prefixXor.get(xor) + 1);
-			}
-		}
+        for (int num : nums) {
+            xor = xor ^ num;
+            previousXor = xor ^ k;
+            if (prefixXor.containsKey(previousXor))
+                count = count + prefixXor.get(previousXor);
+            if (!prefixXor.containsKey(xor))
+                prefixXor.put(xor, 1);
+            else
+                prefixXor.put(xor, prefixXor.get(xor) + 1);
+        }
 		System.out.println("count is " + count);
 	}
 
@@ -74,9 +72,8 @@ public class CountOfSubarrayXorEqualToK {
 			xor = 0;
 			for (int j = i; j < nums.length; j++) {
 				xor = xor ^ nums[j];
-				if (xor == k) {
+				if (xor == k)
 					count++;
-				}
 			}
 		}
 		System.out.println("count is " + count);

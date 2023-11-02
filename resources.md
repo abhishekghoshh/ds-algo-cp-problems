@@ -27,6 +27,8 @@
   - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/ds/array/FindTheNumberAppearsOnlyOnce.java)
     - Bit-Manipulation
+  - [Longest Consecutive Sequence in an Array](/src/com/ds/array/LongestConsecutiveSequence.java)
+    - Hashing
   - [Longest Subarray with given Sum K(Positives)](/src/com/ds/array/LongestSubarrayWithSumEqualsK_1.java)
     - Prefix-Sum
     - Two-Pointer
@@ -35,3 +37,8 @@
   - [Longest Subarray with sum equals to Zero](/src/com/ds/array/LongestSubarrayWithSumEqualsZero.java)
     - Prefix-Sum
   - [Longest Subarray xor equal to K](/src/com/ds/array/LongestSubarrayXorEqualToK.java)
+    - Prefix-Sum
+  - [Count of subarray sum equals K](/src/com/ds/array/CountOfSubarraySumEqualsK.java)
+    - Prefix-Sum
+  - [Count of subarray xor equal to K](/src/com/ds/array/CountOfSubarrayXorEqualToK.java)
+    - Prefix-Sum
