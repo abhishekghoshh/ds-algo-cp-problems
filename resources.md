@@ -23,5 +23,15 @@
   - [Linear Search](/src/com/ds/array/LinearSearch.java)
   - [Union of Two Sorted Arrays](/src/com/ds/array/UnionOfTwoSortedArrays.java)
   - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java) 
-    - Bit Manipulation
-  - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java) 
+    - Bit-Manipulation
+  - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java)
+  - [Find the number that appears once, and the other numbers twice](/src/com/ds/array/FindTheNumberAppearsOnlyOnce.java)
+    - Bit-Manipulation
+  - [Longest Subarray with given Sum K(Positives)](/src/com/ds/array/LongestSubarrayWithSumEqualsK_1.java)
+    - Prefix-Sum
+    - Two-Pointer
+  - [Longest Subarray with given Sum K[Positives and Negatives]](/src/com/ds/array/LongestSubarrayWithSumEqualsK_2.java)
+    - Prefix-Sum
+  - [Longest Subarray with sum equals to Zero](/src/com/ds/array/LongestSubarrayWithSumEqualsZero.java)
+    - Prefix-Sum
+  - [Longest Subarray xor equal to K](/src/com/ds/array/LongestSubarrayXorEqualToK.java)

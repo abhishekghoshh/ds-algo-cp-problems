@@ -7,7 +7,7 @@ import java.util.Map;
  * Problem link:
  * https://leetcode.com/problems/subarray-sum-equals-k/submissions/
  * 
- * Solution:
+ * Solution link:
  * https://www.youtube.com/watch?v=fFVZt-6sgyo
  * */
 public class CountOfSubarraySumEqualsK {

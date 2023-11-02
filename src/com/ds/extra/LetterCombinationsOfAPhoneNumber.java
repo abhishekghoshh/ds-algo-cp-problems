@@ -1,4 +1,4 @@
-package com.github.ds.extra;
+package com.ds.extra;
 
 import java.util.ArrayList;
 import java.util.HashMap;

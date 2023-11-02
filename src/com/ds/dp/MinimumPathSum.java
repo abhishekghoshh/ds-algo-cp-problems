@@ -1,4 +1,4 @@
-package com.github.ds.dp;
+package com.ds.dp;
 
 import java.util.Arrays;
 
