@@ -51,3 +51,6 @@
   - [4 Sum | Find Quads that add up to a target value](/src/com/ds/array/FourSum.java)
     - Two-Pointer
     - Hashing
+  - [Sort an array of 0's 1's and 2's](/src/com/ds/array/SortZeroOneTwo.java)
+    - Three-Pointer(Dutch national flag)
+    - Hashing
