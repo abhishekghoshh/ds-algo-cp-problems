@@ -1,18 +1,17 @@
-package array;
+package com.ds.array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/pair-sum_697295?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/pair-sum_697295
  * https://leetcode.com/problems/two-sum/
- * 
- * Solution link : https://www.youtube.com/watch?v=dRUpbt8vHpo&list=PLgUwDviBIf0rVwua0kKYlsS_ik_1lyVK_&index=3
- * 
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=UXDSeD9mN-k&t=1s
+ * https://www.youtube.com/watch?v=dRUpbt8vHpo&list=PLgUwDviBIf0rVwua0kKYlsS_ik_1lyVK_&index=3
+ *
+ * https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
  * 
  * A reverse pair is a pair (i, j) where 0 <= i < j < nums.length and nums[i] > 2 * nums[j].
  * */
@@ -49,7 +48,7 @@ public class TwoSum {
             	answer[1]=i;
             }
         }
-		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
+		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 
 	// two pointer technique
@@ -72,7 +71,7 @@ public class TwoSum {
 				high--;
 			}
 		}
-		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
+		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 
 	// binary search approach
@@ -80,29 +79,28 @@ public class TwoSum {
 	// space complexity O(1)
 	private static void type3() {
 		int[] nums = { 2, 7, 11, 15 };
-		int target = 9, target_, n = nums.length, low, high, mid;
+		int target = 9, diff, n = nums.length, low, high, mid;
 		Arrays.sort(nums);
 		int[] answer = null;
 		for (int i = 0; i < n; i++) {
-			target_ = target - nums[i];
+			diff = target - nums[i];
 			low = i + 1;
 			high = n - 1;
 			while (low <= high) {
 				mid = low + (high - low) / 2;
-				if (nums[mid] == target_) {
+				if (nums[mid] == diff) {
 					answer = new int[] { i, mid };
 					break;
-				} else if (nums[mid] < target_) {
+				} else if (nums[mid] < diff) {
 					low = mid + 1;
 				} else {
 					high = mid - 1;
 				}
 			}
-			if (null != answer) {
+			if (null != answer)
 				break;
-			}
 		}
-		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
+		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 
 	// hashmap reminder approach
@@ -123,7 +121,7 @@ public class TwoSum {
 				map.put(nums[i], i);
 			}
 		}
-		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
+		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 
 	// Time complexity O(n^2)
@@ -131,10 +129,10 @@ public class TwoSum {
 	private static void type1() {
 		int[] nums = { 2, 7, 11, 15 };
 		int target = 9;
-		int length = nums.length;
+		int n = nums.length;
 		int[] answer = { -1, -1 };
-		for (int i = 0; i < length - 1; i++) {
-			for (int j = i + 1; j < length; j++) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
 				if (nums[i] + nums[j] == target) {
 					answer[0] = i;
 					answer[1] = j;
@@ -145,6 +143,6 @@ public class TwoSum {
 				break;
 			}
 		}
-		System.out.println(String.format("indexes are %d,%d", answer[0], answer[1]));
+		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 }

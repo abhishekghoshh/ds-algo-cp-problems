@@ -42,3 +42,12 @@
     - Prefix-Sum
   - [Count of subarray xor equal to K](/src/com/ds/array/CountOfSubarrayXorEqualToK.java)
     - Prefix-Sum
+  - [Two Sum : Check if a pair with given sum exists in Array](/src/com/ds/array/TwoSum.java)
+    - Two-Pointer
+    - Hashing
+  - [3 Sum : Find triplets that add up to a zero](/src/com/ds/array/ThreeSum.java)
+    - Two-Pointer
+    - Hashing
+  - [4 Sum | Find Quads that add up to a target value](/src/com/ds/array/FourSum.java)
+    - Two-Pointer
+    - Hashing

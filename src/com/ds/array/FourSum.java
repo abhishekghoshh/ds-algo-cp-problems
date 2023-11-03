@@ -1,26 +1,81 @@
-package array;
+package com.ds.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/983605?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/4sum/
+ * https://www.codingninjas.com/studio/problems/4sum_5713771
+ * https://www.codingninjas.com/codestudio/problems/983605
  * 
  * Solution link
+ * https://www.youtube.com/watch?v=eD95WRfh81c
  * https://www.youtube.com/watch?v=4ggF3tXIAp0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=22
- * 
- * 
+ *
+ * https://takeuforward.org/data-structure/4-sum-find-quads-that-add-up-to-a-target-value/
  * */
 public class FourSum {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	private static void type3() {
+		int[] nums = {1, 0, -1, 0, -2, 2};
+		int target = 0;
+		List<List<Integer>> answer = getCustomList(nums, target);
+		System.out.println(answer);
+	}
+
+	public static List<List<Integer>> getCustomList(int[] nums, int target) {
+		return new AbstractList<>() {
+			private List<List<Integer>> list;
+
+			public List<Integer> get(int index) {
+				init();
+				return list.get(index);
+			}
+
+			public int size() {
+				init();
+				return list.size();
+			}
+
+			private void init() {
+				if (list != null) return;
+				list = new ArrayList<>();
+				Arrays.sort(nums);
+				if (nums[0] > 0 && target < 0) return;
+				for (int i = 0, L = nums.length; i < L - 3; i++) {
+					for (int j = L - 1; j > i + 2; j--) {
+						int rem = target - nums[i] - nums[j];
+						int lo = i + 1, hi = j - 1;
+						while (lo < hi) {
+							int sum = nums[lo] + nums[hi];
+							if (sum > rem)
+								--hi;
+							else if (sum < rem)
+								++lo;
+							else {
+								long sumCheckOverflow = (long) nums[i] + (long) nums[lo] + (long) nums[hi] + (long) nums[j];
+								if (sumCheckOverflow > Integer.MAX_VALUE || sumCheckOverflow < Integer.MIN_VALUE)
+									return;
+								list.add(Arrays.asList(nums[i], nums[lo], nums[hi], nums[j]));
+								while (++lo <= hi && nums[lo - 1] == nums[lo]) continue;
+								while (--hi >= lo && nums[hi] == nums[hi + 1]) continue;
+							}
+						}
+						while (j >= 1 && nums[j] == nums[j - 1])
+							--j;
+					}
+					while (i < L - 1 && nums[i] == nums[i + 1])
+						++i;
+				}
+			}
+		};
 	}
 
 	// 2 pointer approach
@@ -33,20 +88,17 @@ public class FourSum {
 		int left, right, n = nums.length, leftItem, rightItem, sum;
 		List<List<Integer>> answer = new ArrayList<>();
 		for (int i = 0; i <= n - 4; i++) {
-
-			//if there is a series of duplicates then it will just take the first time when i==0
+			//if there is a series of duplicates, then it will just take the first time when i==0
 			//when i> 0 then for all duplicate value will be skipped
 			if (i > 0 && nums[i] == nums[i - 1]) continue;
-			// in a series left most elements are the smallest
-			// if sum of i to i+3 elements are less than target then there is not point to check
+			// in a series left, most elements are the smallest
+			// if sum of i to i+3 elements are less than target then there is no point to check
 			if ((long) nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
 			// if left plus last 3 numbers are less than target 
 			// than means left most element is useless as last 3 numbers are the highest
 			// we have to skip this nums[i]
 			if ((long) nums[i] + nums[n - 3] + nums[n - 2] + nums[n - 1] < target) continue;
-
 			for (int j = i + 1; j <= n - 3; j++) {
-
 				//if there is a series of duplicates then it will just take the first time when j==i+1
 				//when j>i+1 then for all duplicate value will be skipped
 				if (j > i + 1 && nums[j] == nums[j - 1]) continue;
@@ -121,29 +173,7 @@ public class FourSum {
 		System.out.println(answer);
 	}
 
-	private static class FourPoint {
-		private int x1;
-		private int x2;
-		private int x3;
-		private int x4;
-
-		public FourPoint(int x1, int x2, int x3, int x4) {
-			this.x1 = x1;
-			this.x2 = x2;
-			this.x3 = x3;
-			this.x4 = x4;
-		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + x1;
-			result = prime * result + x2;
-			result = prime * result + x3;
-			result = prime * result + x4;
-			return result;
-		}
+	private record FourPoint(int x1, int x2, int x3, int x4) {
 
 		@Override
 		public boolean equals(Object obj) {
@@ -160,9 +190,7 @@ public class FourSum {
 				return false;
 			if (x3 != other.x3)
 				return false;
-			if (x4 != other.x4)
-				return false;
-			return true;
+			return x4 == other.x4;
 		}
 
 		public List<Integer> list() {

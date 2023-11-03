@@ -39,10 +39,25 @@ public class ArrayUtil {
         System.out.println();
     }
 
+    public static int maxN(int... arr) {
+        int max = Integer.MIN_VALUE;
+        for (int item : arr)
+            if (item > max)
+                max = item;
+        return max;
+    }
     public static int max(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int item : arr) max = Math.max(item, max);
         return max;
+    }
+
+    public static int minN(int... arr) {
+        int min = Integer.MAX_VALUE;
+        for (int item : arr)
+            if (item < min)
+                min = item;
+        return min;
     }
 
     public static int min(int[] arr) {
