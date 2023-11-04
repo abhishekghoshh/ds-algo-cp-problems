@@ -1,12 +1,15 @@
 package array;
 
+import static com.util.ArrayUtil.print2D;
+
 /*
  * 
  * problem links :
  * https://leetcode.com/problems/set-matrix-zeroes/
- * https://www.codingninjas.com/codestudio/problems/set-matrix-zeros_3846774?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
- * 
- * Solution link : https://www.youtube.com/watch?v=M65xBewcqcI&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=8
+ * https://www.codingninjas.com/codestudio/problems/set-matrix-zeros_3846774
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=M65xBewcqcI&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=8
  * 
  * */
 public class SetMatrixToZero {
@@ -50,7 +53,7 @@ public class SetMatrixToZero {
 				matrix[i][0] = 0;
 			}
 		}
-		print(matrix);
+		print2D(matrix);
 	}
 	
 	//optimized approach with extra space of O(row)+O(column)
@@ -103,18 +106,7 @@ public class SetMatrixToZero {
 				}
 			}
 		}
-		print(matrix);
-		
-	}
-
-	private static void print(int[][] matrix) {
-		for (int[] row : matrix) {
-			for (int item : row) {
-				System.out.print(item + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		print2D(matrix);
 	}
 
 	private static void setRowAndColumnToNegativeValue(int row, int column, int[][] matrix) {

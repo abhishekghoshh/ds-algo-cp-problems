@@ -1,12 +1,14 @@
 package array;
 
+import static com.util.ArrayUtil.print;
+import static com.util.ArrayUtil.swap;
+
 /*
  * Problem link
- * https://www.codingninjas.com/codestudio/problems/893046?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/next-permutation/
- * 
  * https://leetcode.com/problems/next-greater-element-iii/
- * 
+ * https://www.codingninjas.com/codestudio/problems/893046
+ *
  * solution link
  * https://www.youtube.com/watch?v=LuLCLgMElus&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
  * */
@@ -35,9 +37,8 @@ public class NextPermutation {
 		// first traverse from the right and find the first element where a[i]<a[i+1]
 		int index = length - 2;
 		while (index >= 0) {
-			if (nums[index] < nums[index + 1]) {
+			if (nums[index] < nums[index + 1])
 				break;
-			}
 			index--;
 		}
 		if (index == -1) {// the number is a decreasing number like 54321
@@ -57,13 +58,6 @@ public class NextPermutation {
 		print(nums);
 	}
 
-	private static void print(int[] nums) {
-		for (int item : nums) {
-			System.out.print(item);
-		}
-		System.out.println();
-	}
-
 	private static void reverse(int[] nums, int i) {
 		int start = i;
 		int last = nums.length - 1;
@@ -72,12 +66,6 @@ public class NextPermutation {
 			start++;
 			last--;
 		}
-	}
-
-	private static void swap(int[] nums, int index, int swapingIndex) {
-		int temp = nums[index];
-		nums[index] = nums[swapingIndex];
-		nums[swapingIndex] = temp;
 	}
 
 }

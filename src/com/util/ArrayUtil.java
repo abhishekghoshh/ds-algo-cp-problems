@@ -9,6 +9,15 @@ public class ArrayUtil {
         arr[i] = temp;
     }
 
+    public static void print2D(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int item : row) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
     public static void print(List<Integer> arr) {
         for (int item : arr) {
             System.out.print(item + " ");
