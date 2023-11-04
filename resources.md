@@ -54,3 +54,9 @@
   - [Sort an array of 0's 1's and 2's](/src/com/ds/array/SortZeroOneTwo.java)
     - Three-Pointer(Dutch national flag)
     - Hashing
+  - [Find the Majority Element that occurs more than N/2 times](/src/com/ds/array/MajorityElementsNby2.java)
+    - Moore's voting algorithm
+    - Hashing
+  - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
+    - Moore's voting algorithm
+    - Hashing
