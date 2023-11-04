@@ -76,12 +76,9 @@ public class HouseRobber1 {
     }
 
     private static int houseRobber(int i, int[] nums, int[] memo) {
-        if (i == 0)
-            return nums[i];
-        if (i < 0)
-            return 0;
-        if (memo[i] != -1)
-            return memo[i];
+        if (i == 0) return nums[i];
+        if (i < 0) return 0;
+        if (memo[i] != -1) return memo[i];
         int takeCurrentHome = nums[i] + houseRobber(i - 2, nums, memo);
         int notTakeCurrentHome = houseRobber(i - 1, nums, memo);
         return memo[i] = Math.max(takeCurrentHome, notTakeCurrentHome);

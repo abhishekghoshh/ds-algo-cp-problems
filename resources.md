@@ -60,3 +60,6 @@
   - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
     - Moore's voting algorithm
     - Hashing
+  - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/MaxSumForConsecutiveElements.java)
+  - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/PrintMaxSumForConsecutiveElements.java)
+  - [Maximum Subarray Sum in an Array for non consecutive elements](/src/com/ds/array/MaxSumForNonConsecutiveElements.java)
