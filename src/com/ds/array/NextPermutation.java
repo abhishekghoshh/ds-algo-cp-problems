@@ -1,4 +1,4 @@
-package array;
+package com.ds.array;
 
 import static com.util.ArrayUtil.print;
 import static com.util.ArrayUtil.swap;
@@ -10,7 +10,10 @@ import static com.util.ArrayUtil.swap;
  * https://www.codingninjas.com/codestudio/problems/893046
  *
  * solution link
+ * https://www.youtube.com/watch?v=JDOXKqF60RQ&t=1s
  * https://www.youtube.com/watch?v=LuLCLgMElus&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
+ *
+ * https://takeuforward.org/data-structure/next_permutation-find-next-lexicographically-greater-permutation/
  * */
 public class NextPermutation {
 
@@ -33,27 +36,28 @@ public class NextPermutation {
 	public static void main(String[] args) {
 		int[] nums = { 5, 4, 3, 2, 1 };
 		print(nums);
-		int length = nums.length;
+		int n = nums.length;
 		// first traverse from the right and find the first element where a[i]<a[i+1]
-		int index = length - 2;
-		while (index >= 0) {
-			if (nums[index] < nums[index + 1])
+		// like 14532 -> here 4 < 5
+		int i = n - 2;
+		while (i >= 0) {
+			if (nums[i] < nums[i + 1])
 				break;
-			index--;
+			i--;
 		}
-		if (index == -1) {// the number is a decreasing number like 54321
+		if (i == -1) {// the number is a decreasing number like 54321
 			reverse(nums, 0);
 		} else {
-			// first traverse from the right and find the first element where a[index]<a[i]
-			int swapingIndex = length - 1;
-			while (swapingIndex > index) {
-				if (nums[index] < nums[swapingIndex]) {
+			// first traverse from the right and find the first element where a[breakingPoint] < a[swappingIndex]
+			int swappingIndex = n - 1;
+			while (swappingIndex > i) {
+				if (nums[i] < nums[swappingIndex]) {
 					break;
 				}
-				swapingIndex--;
+				swappingIndex--;
 			}
-			swap(nums, index, swapingIndex);
-			reverse(nums, index + 1);
+			swap(nums, i, swappingIndex);
+			reverse(nums, i + 1);
 		}
 		print(nums);
 	}

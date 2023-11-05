@@ -65,3 +65,7 @@
   - [Maximum Subarray Sum in an Array for non consecutive elements](/src/com/ds/array/MaxSumForNonConsecutiveElements.java)
   - [Stock Buy And Sell](/src/com/ds/array/BuyAndSellStock.java)
   - [Rearrange Array Elements by Sign](/src/com/ds/array/RearrangeArrayElementsBySign.java)
+  - [next_permutation : find next lexicographically greater permutation](/src/com/ds/array/NextPermutation.java)
+  - [Leaders in an Array](/src/com/ds/array/LeadersInAnArray.java)
+  - [Set Matrix Zero](/src/com/ds/array/SetMatrixToZero.java)
+  - [Rotate Image by 90 degree](/src/com/ds/array/RotateMatrix.java)
