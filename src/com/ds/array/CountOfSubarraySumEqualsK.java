@@ -5,10 +5,13 @@ import java.util.Map;
 
 /*
  * Problem link:
- * https://leetcode.com/problems/subarray-sum-equals-k/submissions/
+ * https://leetcode.com/problems/subarray-sum-equals-k
+ * https://www.codingninjas.com/studio/problems/subarray-sums-i_1467103
  * 
  * Solution link:
- * https://www.youtube.com/watch?v=fFVZt-6sgyo
+ * https://www.youtube.com/watch?v=xvNwoz-ufXA
+ *
+ * https://takeuforward.org/arrays/count-subarray-sum-equals-k/
  * */
 public class CountOfSubarraySumEqualsK {
 

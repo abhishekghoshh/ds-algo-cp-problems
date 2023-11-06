@@ -1,4 +1,6 @@
-package array;
+package com.ds.array;
+
+import com.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +10,9 @@ import java.util.List;
  * problem links :
  * https://leetcode.com/problems/pascals-triangle/
  * https://www.codingninjas.com/codestudio/problems/1089580?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
- * 
- * Solution link : https://www.youtube.com/watch?v=6FLvhQjZqvM&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=6FLvhQjZqvM&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
  * 
  * */
 public class PascalTriangle {
@@ -69,13 +72,7 @@ public class PascalTriangle {
 			triangle.add(current);
 			previous = current;
 		}
-		for (List<Integer> row : triangle) {
-			for (Integer item : row) {
-				System.out.print(item + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		ArrayUtil.print2D(triangle);
 	}
 
 }

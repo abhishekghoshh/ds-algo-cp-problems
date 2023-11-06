@@ -69,3 +69,5 @@
   - [Leaders in an Array](/src/com/ds/array/LeadersInAnArray.java)
   - [Set Matrix Zero](/src/com/ds/array/SetMatrixToZero.java)
   - [Rotate Image by 90 degree](/src/com/ds/array/RotateMatrix.java)
+  - [Spiral Traversal of Matrix](/src/com/ds/array/SpiralTraversalOfMatrix.java)
+  - [Program to generate Pascal’s Triangle](/src/com/ds/array/PascalTriangle.java)

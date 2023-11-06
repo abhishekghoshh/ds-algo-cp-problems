@@ -25,6 +25,15 @@ public class ArrayUtil {
         System.out.println();
     }
 
+    public static void print2D(List<List<Integer>> matrix) {
+        for (List<Integer> row : matrix) {
+            for (Integer item : row)
+                System.out.print(item + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     public static void print(int[] arr) {
         for (int item : arr) {
             System.out.print(item + " ");
