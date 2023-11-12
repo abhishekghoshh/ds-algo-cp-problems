@@ -9,6 +9,12 @@ public class ArrayUtil {
         arr[i] = temp;
     }
 
+    public static void swap(int[] nums1, int[] nums2, int i1, int i2) {
+        int temp = nums1[i1];
+        nums1[i1] = nums2[i2];
+        nums2[i2] = temp;
+    }
+
     public static void print2D(int[][] matrix) {
         for (int[] row : matrix) {
             for (int item : row) {

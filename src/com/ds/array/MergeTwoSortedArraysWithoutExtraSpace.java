@@ -1,14 +1,21 @@
-package array;
+package com.ds.array;
 
 import java.util.Arrays;
 
+import static com.util.ArrayUtil.print;
+import static com.util.ArrayUtil.swap;
+
 /*
  * problem link:
- * https://www.codingninjas.com/codestudio/problems/1214628?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/merge-sorted-array/
+ * https://www.codingninjas.com/codestudio/problems/1214628
+ *
  * 
  * Solution link:
+ * https://www.youtube.com/watch?v=n7uwj04E0I4
  * https://www.youtube.com/watch?v=hVl2b3bLzBw&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=5
+ *
+ * https://takeuforward.org/data-structure/merge-two-sorted-arrays-without-extra-space/
  * */
 
 //1st -> brute force approach
@@ -58,7 +65,7 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 	// size of the array will be m+n
 	// time complexity will be o(m+n)
 	private static void type2() {
-		int[] nums1 = { 1, 3, 4 };
+		int[] nums1 = {1, 3, 4, 0, 0, 0};
 		int[] nums2 = { 2, 5, 6 };
 		int m = 3;
 		int n = 3;
@@ -105,11 +112,6 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		print(nums1, nums2);
 	}
 
-	private static void swap(int[] nums1, int[] nums2, int i, int j) {
-		int temp = nums1[i];
-		nums1[i] = nums2[j];
-		nums2[j] = temp;
-	}
 
 	// without extra space
 	// brute force approach
@@ -127,13 +129,5 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		print(nums1);
 	}
 
-	private static void print(int[]... arrays) {
-		for (int[] array : arrays) {
-			for (int num : array) {
-				System.out.print(num + " ");
-			}
-		}
-		System.out.println();
-	}
 
 }

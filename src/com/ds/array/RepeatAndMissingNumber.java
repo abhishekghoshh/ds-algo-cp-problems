@@ -1,11 +1,16 @@
-package array;
+package com.ds.array;
 
 /*
  * Problem link :
  * https://www.interviewbit.com/problems/repeat-and-missing-number-array/
- * https://www.codingninjas.com/codestudio/problems/873366?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
- * 
- * Solution link :https://www.youtube.com/watch?v=5nMGY4VUoRY&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=4
+ * https://www.codingninjas.com/codestudio/problems/873366
+ * https://www.codingninjas.com/studio/problems/missing-and-repeating-numbers_6828164
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=2D0D8HE6uak
+ * https://www.youtube.com/watch?v=5nMGY4VUoRY&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=4
+ *
+ * https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/
  * */
 public class RepeatAndMissingNumber {
 
@@ -16,6 +21,7 @@ public class RepeatAndMissingNumber {
 		type3();
 		type4();
 	}
+
 
 	// best and optimized approach
 	// important
@@ -28,7 +34,7 @@ public class RepeatAndMissingNumber {
 	// and in nums there will two b which will also cancelled out
 	// the value will only be a^b remaining from XOR(1..N)
 	private static void type4() {
-		int nums[] = { 3, 1, 2, 5, 3 };
+		int[] nums = {3, 1, 2, 5, 3};
 		int missing = 0;
 		int repeat = 0;
 		int xor = 0;
@@ -91,7 +97,7 @@ public class RepeatAndMissingNumber {
 	// only limitation is that
 	// we are doing square there might be a chance of overflow
 	private static void type3() {
-		int nums[] = { 3, 1, 2, 5, 3 };
+		int[] nums = {3, 1, 2, 5, 3};
 		int n = nums.length;
 		int calculatedSum = 0;
 		int calculatedSquaredSum = 0;
@@ -110,10 +116,10 @@ public class RepeatAndMissingNumber {
 
 	}
 
-	// if the list is modifiable then we can use swap sort
+	// if the list is modifiable then we can use swap sort,
 	// then we don't have to use extra space
 	private static void type2() {
-		int nums[] = { 3, 1, 2, 5, 3 };
+		int[] nums = {3, 1, 2, 5, 3};
 		int index = 0;
 		int repeat = 0;
 		int missing = 0;
@@ -139,8 +145,8 @@ public class RepeatAndMissingNumber {
 	// after storing the frequency
 	// we can iterate through the frequency array and find missing and duplicate
 	private static void type1() {
-		final int nums[] = { 3, 1, 2, 5, 3 };
-		int frequency[] = new int[nums.length];
+		int[] nums = {3, 1, 2, 5, 3};
+		int[] frequency = new int[nums.length];
 		for (int item : nums) {
 			frequency[item - 1]++;
 		}
@@ -156,11 +162,12 @@ public class RepeatAndMissingNumber {
 		System.out.println("Repeat number is " + repeat + " Missing number is " + missing);
 	}
 
+	// Do not think of this approach ever
 	// brute force approach
 	// time complexity O(2n^2)
 	// space complexity O(1)
 	private static void type0() {
-		int nums[] = { 3, 1, 2, 5, 3 };
+		int[] nums = {3, 1, 2, 5, 3};
 		int n = nums.length;
 		int repeat = 0;
 		int missing = 0;
@@ -168,13 +175,14 @@ public class RepeatAndMissingNumber {
 			for (int j = i + 1; j < n; j++) {
 				if (nums[i] == nums[j]) {
 					repeat = nums[i];
+					break;
 				}
 			}
 		}
 		for (int i = 1; i <= n; i++) {
 			boolean found = false;
-			for (int j = 0; j < n; j++) {
-				if (nums[j] == i) {
+			for (int num : nums) {
+				if (num == i) {
 					found = true;
 					break;
 				}

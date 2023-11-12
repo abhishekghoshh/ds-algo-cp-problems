@@ -1,13 +1,19 @@
-package array;
+package com.ds.array;
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/615?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
- * 
- * Solution link : https://www.youtube.com/watch?v=kQ1mJlwW-c0
- * 
+ * https://www.codingninjas.com/studio/problems/number-of-inversions_6840276
+ * https://www.codingninjas.com/codestudio/problems/615
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=AseUmwVNaoY
+ * https://www.youtube.com/watch?v=kQ1mJlwW-c0
+ *
+ * https://takeuforward.org/data-structure/count-inversions-in-an-array/
  * */
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Description:
@@ -24,7 +30,7 @@ public class CountInversionInArray {
 		type3();
 	}
 
-	// frenwick tree approach
+	// TODO implement fenwick tree approach
 	private static void type3() {
 		// TODO Auto-generated method stub
 
@@ -107,11 +113,5 @@ public class CountInversionInArray {
 		System.out.println("Count is " + count);
 	}
 
-	private static void print(int[] nums) {
-		for (int num : nums) {
-			System.out.print(num + " ");
-		}
-		System.out.println();
-	}
 
 }

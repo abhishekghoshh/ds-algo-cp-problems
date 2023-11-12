@@ -6,18 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * 
- * problem links :
- * https://leetcode.com/problems/pascals-triangle/
- * https://www.codingninjas.com/codestudio/problems/1089580?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  *
- * Solution link :
+ * problem links:
+ * https://leetcode.com/problems/pascals-triangle/
+ * https://www.codingninjas.com/codestudio/problems/1089580
+ * https://www.codingninjas.com/studio/problems/print-pascal-s-triangle_6917910
+ *
+ * Solution link:
+ * https://www.youtube.com/watch?v=bR7mQgwQ_o8
  * https://www.youtube.com/watch?v=6FLvhQjZqvM&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9
- * 
+ *
+ * https://takeuforward.org/data-structure/program-to-generate-pascals-triangle/
  * */
 public class PascalTriangle {
 
-	// for any row in pascal triangle
+	// for any row in pascal triangle,
 	// the sum is 2^(n-1)
 	public static void main(String[] args) {
 		type1();
@@ -63,6 +66,7 @@ public class PascalTriangle {
 		for (int i = 0; i < numRows; i++) {
 			current = new ArrayList<>();
 			for (int j = 0; j <= i; j++) {
+				// for the first and last element in the row it is 1
 				if (j == 0 || j == i) {
 					current.add(1);
 				} else {

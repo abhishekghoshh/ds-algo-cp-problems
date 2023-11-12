@@ -1,14 +1,21 @@
-package array;
+package com.ds.array;
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/1112652?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/reverse-pairs/
- * 
- * Solution link : https://www.youtube.com/watch?v=S6rsAlj_iB4&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=20
- * 
- * 
+ * https://www.codingninjas.com/codestudio/problems/1112652
+ * https://www.codingninjas.com/studio/problems/team-contest_6840309
+ *
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=0e4bZaP3MDI
+ * https://www.youtube.com/watch?v=S6rsAlj_iB4&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=20
+ *
+ * https://takeuforward.org/data-structure/count-reverse-pairs/
+ */
+
+/*
  * A reverse pair is a pair (i, j) where 0 <= i < j < nums.length and nums[i] > 2 * nums[j].
  * */
 public class ReversePairs {

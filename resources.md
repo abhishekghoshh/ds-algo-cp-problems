@@ -24,6 +24,10 @@
   - [Union of Two Sorted Arrays](/src/com/ds/array/UnionOfTwoSortedArrays.java)
   - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java) 
     - Bit-Manipulation
+    - Hashing
+  - [Find the repeating and missing numbers](/src/com/ds/array/RepeatAndMissingNumber.java)
+    - Bit-Manipulation
+    - Hashing
   - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/ds/array/FindTheNumberAppearsOnlyOnce.java)
     - Bit-Manipulation
@@ -71,3 +75,8 @@
   - [Rotate Image by 90 degree](/src/com/ds/array/RotateMatrix.java)
   - [Spiral Traversal of Matrix](/src/com/ds/array/SpiralTraversalOfMatrix.java)
   - [Program to generate Pascal’s Triangle](/src/com/ds/array/PascalTriangle.java)
+  - [Merge Overlapping Sub-intervals](/src/com/ds/array/MergeOverlappingSubIntervals.java)
+  - [Merge two Sorted Arrays Without Extra Space](/src/com/ds/array/MergeTwoSortedArraysWithoutExtraSpace.java)
+  - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
+  - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
+  
