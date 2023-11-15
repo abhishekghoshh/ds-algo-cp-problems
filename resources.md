@@ -79,4 +79,5 @@
   - [Merge two Sorted Arrays Without Extra Space](/src/com/ds/array/MergeTwoSortedArraysWithoutExtraSpace.java)
   - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
+  - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
   
