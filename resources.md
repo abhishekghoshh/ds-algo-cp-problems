@@ -2,6 +2,7 @@
 
 #### Topics
 - Sort
+  - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
   - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
   - [Insertion sort](/src/com/algo/sort/InsertionSort.java)
@@ -16,6 +17,12 @@
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
+  - [Search in a sorted 2D matrix](/src/com/ds/array/SearchInRowAndColumnSortedMatrix.java)
+    - Binary-Search
+  - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java)
+    - Hashing
+    - Swap-Sort
+    - Cycle-Detection-Using-Tortoise-Method
   - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
   - [Left rotate an array by D places](/src/com/ds/array/LeftRotateArray.java)

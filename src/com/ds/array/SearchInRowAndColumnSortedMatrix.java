@@ -1,11 +1,17 @@
-package array;
+package com.ds.array;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/980531?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/search-a-2d-matrix/
+ * https://www.codingninjas.com/codestudio/problems/980531
+ * https://www.codingninjas.com/studio/problems/search-in-a-2d-matrix_980531
+ *
  * Solution link :
+ * https://www.youtube.com/watch?v=JXU4Akft7yk
  * https://www.youtube.com/watch?v=ZYpYur0znng&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=15
+ *
+ * https://takeuforward.org/data-structure/search-in-a-sorted-2d-matrix/
+ *
  * */
 public class SearchInRowAndColumnSortedMatrix {
 
@@ -17,9 +23,10 @@ public class SearchInRowAndColumnSortedMatrix {
 	}
 
 	// When integers are sorted row wise and column
-	// mean a[i][size-1]<a[i+1][0]
+	// means a[i][n-1] < a[i+1][0]
 	// start element of a row is greater than last element of previous row
 	// from there we will go either left side or bottom side
+	// we can think of the matrix as a large sorted array stored in a matrix
 	// time complexity is o(log(n*m))
 	private static void type3() {
 		// int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
@@ -32,13 +39,11 @@ public class SearchInRowAndColumnSortedMatrix {
 		int low = 0;
 		int high = row * column - 1;
 		int mid, i = 0, j = 0;
-		boolean found = false;
 		while (low <= high) {
 			mid = low + (high - low) / 2;
 			i = mid / column;
 			j = mid % column;
 			if (matrix[i][j] == target) {
-				found = true;
 				break;
 			} else if (matrix[i][j] < target) {
 				low = mid + 1;
@@ -46,15 +51,11 @@ public class SearchInRowAndColumnSortedMatrix {
 				high = mid - 1;
 			}
 		}
-		if (found) {
-			System.out.println(String.format("arr[%d][%d] = %d", i, j, matrix[i][j]));
-		} else {
-			System.out.println(target + " not found");
-		}
+		System.out.printf("arr[%d][%d] = %d%n", i, j, matrix[i][j]);
 	}
 
 	// When integers are sorted row wise and column
-	// but that does not mean a[i][size-1]<a[i+1][0]
+	// but that does not mean a[i][n-1] < a[i+1][0]
 	// start element of a row may or may not be greater than last element of
 	// previous row
 	// we will start from [0,last]
@@ -69,22 +70,16 @@ public class SearchInRowAndColumnSortedMatrix {
 		int column = matrix[0].length;
 		int r = 0;
 		int c = column - 1;
-		boolean found = false;
 		while (r <= row - 1 && c >= 0) {
 			if (matrix[r][c] > target) {
 				c--;
 			} else if (matrix[r][c] < target) {
 				r++;
 			} else {
-				found = true;
 				break;
 			}
 		}
-		if (found) {
-			System.out.println(String.format("arr[%d][%d] = %d", r, c, matrix[r][c]));
-		} else {
-			System.out.println(target + " not found");
-		}
+		System.out.printf("arr[%d][%d] = %d%n", r, c, matrix[r][c]);
 	}
 
 	// search all items
@@ -95,26 +90,17 @@ public class SearchInRowAndColumnSortedMatrix {
 		int row = matrix.length;
 		int column = matrix[0].length;
 		int x = -1, y = -1;
-		boolean found = false;
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
 				if (matrix[i][j] == target) {
 					x = i;
 					y = j;
-					found = true;
 					break;
 				}
 			}
-			if (found) {
-				break;
-			}
+			if (x != -1) break;
 		}
-		if (found) {
-			System.out.println(String.format("arr[%d][%d] = %d", x, y, matrix[x][y]));
-		} else {
-			System.out.println(target + " not found");
-		}
-
+		System.out.printf("arr[%d][%d] = %d%n", x, y, matrix[x][y]);
 	}
 
 }
