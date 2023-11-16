@@ -1,9 +1,9 @@
-package array;
+package com.ds.array;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/1081470?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/unique-paths/
+ * https://www.codingninjas.com/codestudio/problems/1081470
  * 
  * Solution link
  * https://www.youtube.com/watch?v=t_f0nwwdg5o
@@ -54,9 +54,7 @@ public class GridUniquePaths {
 		memo[1][1] = 1;
 		for (int i = 1; i <= m; i++) {
 			for (int j = 1; j <= n; j++) {
-				if (i == 1 && j == 1) {
-					continue;
-				}
+				if (i == 1 && j == 1) continue;
 				memo[i][j] = memo[i - 1][j] + memo[i][j - 1];
 			}
 		}
@@ -76,14 +74,9 @@ public class GridUniquePaths {
 	}
 
 	private static int findPaths(int i, int j, int m, int n, int[][] memo) {
-		if (i > m || j > n) {
-			return 0;
-		} else if (memo[i][j] != 0) {
-			return memo[i][j];
-		} else {
-			memo[i][j] = findPaths(i + 1, j, m, n, memo) + findPaths(i, j + 1, m, n, memo);
-			return memo[i][j];
-		}
+		if (i > m || j > n) return 0;
+		else if (memo[i][j] != 0) return memo[i][j];
+		else return memo[i][j] = findPaths(i + 1, j, m, n, memo) + findPaths(i, j + 1, m, n, memo);
 	}
 
 	// brute force approach
@@ -96,13 +89,9 @@ public class GridUniquePaths {
 	}
 
 	private static int findPaths(int i, int j, int m, int n) {
-		if (i == m && j == n) {
-			return 1;
-		} else if (i > m || j > n) {
-			return 0;
-		} else {
-			return findPaths(i + 1, j, m, n) + findPaths(i, j + 1, m, n);
-		}
+		if (i > m || j > n) return 0;
+		else if (i == m && j == n) return 1;
+		else return findPaths(i + 1, j, m, n) + findPaths(i, j + 1, m, n);
 	}
 
 }
