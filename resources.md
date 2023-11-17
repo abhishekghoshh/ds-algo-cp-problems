@@ -90,4 +90,11 @@
   - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
-  
+- sliding-window
+  - [Length of Longest Substring without any Repeating Character](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
+    - hashing
+    - Array
+    - Two-Pointer
+  - [Max Consecutive Ones III](/src/com/ds/slidingwindow/MaxConsecutiveOnes3.java)
+    - Array
+    - Two-Pointer
