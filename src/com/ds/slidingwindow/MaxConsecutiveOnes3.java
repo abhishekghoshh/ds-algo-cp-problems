@@ -17,9 +17,25 @@ public class MaxConsecutiveOnes3 {
     public static void main(String[] args) {
         type1();
         type2();
+        type3();
+        type4();
     }
 
-    private static void type2() {
+    private static void type4() {
+        int[] nums = {0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
+        int k = 1;
+        int left = 0, right = 0, zeroCount = 0;
+
+        while (right < nums.length) {
+            if (nums[right++] == 0) zeroCount++;
+            if (zeroCount > k && nums[left++] == 0) zeroCount--;
+        }
+
+        int max = right - left;
+        System.out.println(max);
+    }
+
+    private static void type3() {
         int[] nums ={0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 1;
         int start = 0;
@@ -40,6 +56,29 @@ public class MaxConsecutiveOnes3 {
         }
         System.out.println(end +","+ start);
         System.out.println(end - start);
+    }
+
+    private static void type2() {
+        int[] nums = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
+        int k = 1;
+        int start = 0;
+        int end = 0;
+        int zeros = 0;
+        int ones = 0;
+        int n = nums.length;
+        int max = 0;
+        while (end < n) {
+            if (zeros <= k) {
+                if (nums[end++] == 0) zeros++;
+                else ones++;
+            } else {
+                while (zeros != k)
+                    if (nums[start++] == 0) zeros--;
+                    else ones--;
+            }
+            if (zeros <= k) max = Math.max(max, ones + zeros);
+        }
+        System.out.println(max);
     }
 
     // let's say we have a series of 0's and 1's
