@@ -14,7 +14,7 @@ import java.util.Set;
  * 
  */
 
-public class SubarrayCountWithKDIfferentIntegers {
+public class SubarrayCountWithKDifferentIntegers {
 
 	public static void main(String[] args) {
 		type1();

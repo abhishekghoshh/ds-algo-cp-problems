@@ -14,7 +14,7 @@ public class MaximumSumSubarrayOfSizeK {
 	}
 
 	private static void type1() {
-		int arr[] = { 500, 1, 1, 2, 10, 2, 3, 1, 0, 10 };
+		int[] arr = {500, 1, 1, 2, 10, 2, 3, 1, 0, 10};
 		int k = 4;
 		int n = arr.length;
 		int max = Integer.MIN_VALUE, sum = 0;
@@ -28,7 +28,7 @@ public class MaximumSumSubarrayOfSizeK {
 		// then now left will be 0 and right will be 4
 		// and sum is arr[0]+arr[1]+arr[2]+arr[3]
 		// we are checking for the first window
-		max = Integer.max(max, sum);
+		max = Math.max(max, sum);
 		// now left =0 and right =k
 		while (right < n) {
 			// now we will calculate sum our current window

@@ -65,7 +65,7 @@ public class PickToys {
 				}
 				left++;
 			}
-			max = (right - left) > max ? (right - left) : max;
+			max = Math.max((right - left), max);
 		}
 		System.out.println(max);
 	}
@@ -103,7 +103,7 @@ public class PickToys {
 				}
 				left++;
 			}
-			max = (right - left) > max ? (right - left) : max;
+			max = Math.max((right - left), max);
 		}
 		System.out.println(max);
 	}

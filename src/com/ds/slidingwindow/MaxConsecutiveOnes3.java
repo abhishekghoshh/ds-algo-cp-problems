@@ -24,24 +24,23 @@ public class MaxConsecutiveOnes3 {
     private static void type4() {
         int[] nums = {0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 1;
-        int left = 0, right = 0, zeroCount = 0;
-
-        while (right < nums.length) {
-            if (nums[right++] == 0) zeroCount++;
-            if (zeroCount > k && nums[left++] == 0) zeroCount--;
+        int n = nums.length;
+        int max = 0;
+        int start = 0, end = 0, zeros = 0;
+        while (end < n) {
+            if (nums[end++] == 0) zeros++;
+            if (zeros > k && nums[start++] == 0) zeros--;
         }
-
-        int max = right - left;
+        max = end - start;
         System.out.println(max);
     }
 
     private static void type3() {
         int[] nums ={0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 1;
-        int start = 0;
-        int end = 0;
-        int zeros = 0;
-
+        int n = nums.length;
+        int max = 0;
+        int start = 0, end = 0, zeros = 0;
         while (end < nums.length) {
             if (nums[end] == 0) {
                 zeros++;
@@ -54,19 +53,14 @@ public class MaxConsecutiveOnes3 {
                 start++;
             }
         }
-        System.out.println(end +","+ start);
-        System.out.println(end - start);
     }
 
     private static void type2() {
         int[] nums = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 1;
-        int start = 0;
-        int end = 0;
-        int zeros = 0;
-        int ones = 0;
         int n = nums.length;
         int max = 0;
+        int start = 0, end = 0, zeros = 0, ones = 0;
         while (end < n) {
             if (zeros <= k) {
                 if (nums[end++] == 0) zeros++;

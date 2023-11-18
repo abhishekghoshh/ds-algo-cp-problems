@@ -28,7 +28,7 @@ public class MaximumOfAllSubarraysOfSizeK {
 	// for storing max from the right and max from the left
 	// time complexity is (2n+k)
 	private static void type4() {
-		int nums[] = { 1, 3, -1, -3, 5, 3, 6, 7 };
+		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 2;
 		int n = nums.length;
 		int[] left = new int[n];
@@ -155,7 +155,7 @@ public class MaximumOfAllSubarraysOfSizeK {
 		for (int i = 0; i < n - k + 1; i++) {
 			max = nums[i];
 			for (int j = 1; j < k; j++) {
-				max = max > nums[i + j] ? max : nums[i + j];
+				max = Math.max(max, nums[i + j]);
 			}
 			answer[i] = max;
 		}

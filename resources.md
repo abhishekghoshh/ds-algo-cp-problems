@@ -91,6 +91,9 @@
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
 - sliding-window
+  - [Maximum Sum Subarray of size K]
+
+- D
   - [Length of Longest Substring without any Repeating Character](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
     - hashing
     - Array
@@ -98,3 +101,4 @@
   - [Max Consecutive Ones III](/src/com/ds/slidingwindow/MaxConsecutiveOnes3.java)
     - Array
     - Two-Pointer
+  - [Fruit Into Baskets](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
