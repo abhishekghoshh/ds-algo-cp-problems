@@ -45,6 +45,7 @@
     - Two-Pointer
   - [Longest Subarray with given Sum K[Positives and Negatives]](/src/com/ds/array/LongestSubarrayWithSumEqualsK_2.java)
     - Prefix-Sum
+    - Two-Pointers
   - [Longest Subarray with sum equals to Zero](/src/com/ds/array/LongestSubarrayWithSumEqualsZero.java)
     - Prefix-Sum
   - [Longest Subarray xor equal to K](/src/com/ds/array/LongestSubarrayXorEqualToK.java)
@@ -91,7 +92,14 @@
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
 - sliding-window
-  - [Maximum Sum Subarray of size K]
+  - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
+  - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
+  - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
+  - [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
+  - [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
+  - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window]
+  - [Pick Toys | An Interesting Sliding Window Problem]
+  - [Minimum Window Substring | Variable Size Sliding Window]
 
 - D
   - [Length of Longest Substring without any Repeating Character](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)

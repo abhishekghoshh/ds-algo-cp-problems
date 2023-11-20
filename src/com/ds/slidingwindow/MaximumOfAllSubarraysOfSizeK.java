@@ -1,7 +1,9 @@
-package slidingwindow;
+package com.ds.slidingwindow;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Problem link:
@@ -74,18 +76,16 @@ public class MaximumOfAllSubarraysOfSizeK {
 		r++;
 		left++;
 		right++;
-		while (right < nums.length) {
+		while (right < n) {
 			if (nums[right] >= nums[maxIndex])
 				maxIndex = right;
-			else if (left > maxIndex) {
+			else if (left > maxIndex)
 				if (nums[right] >= nums[maxIndex] - 1)
 					maxIndex = right;
 				else if (nums[left] >= nums[maxIndex] - 1)
 					maxIndex = left;
-				else {
+				else
 					maxIndex = findMaxIndex(nums, left, right + 1);
-				}
-			}
 			answer[r++] = nums[maxIndex];
 			left++;
 			right++;
@@ -109,43 +109,33 @@ public class MaximumOfAllSubarraysOfSizeK {
 		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 3;
 		int n = nums.length;
-		int[] maxs = new int[n - k + 1];
+		int[] answer = new int[n - k + 1];
 		int right = 0;
 		// store index
-		// we will store items in decreasing manner so every time the queue peek will
+		// we will store items in a decreasing manner, so every time the queue peek will
 		// have the maximum value
 		Deque<Integer> deque = new ArrayDeque<>();
-		for (int i = 0; i < nums.length; i++) {
-			// remove numbers out of range k
-			// i-k th element is from last window
+		for (int i = 0; i < n; i++) {
+			// remove numbers out-of-range k
+			// i-k th element is from the last window
 			// as the current range is from i-k+1 to i
-			if (!deque.isEmpty() && deque.peek() == i - k) {
-				deque.poll();
-			}
+			if (!deque.isEmpty() && deque.peek() == i - k) deque.poll();
 			// remove smaller numbers in k range as they are useless
 			// if there is any greater number encountered then there is no point of store
 			// previous smaller number
-			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i])
 				deque.pollLast();
-			}
 			deque.offer(i);
-			if (i >= k - 1) {
-				maxs[right++] = nums[deque.peek()];
-			}
+			if (i >= k - 1)
+				answer[right++] = nums[deque.peek()];
 		}
-		print(maxs);
+		print(answer);
 	}
 
-	private static void print(int[] nums) {
-		for (int num : nums) {
-			System.out.print(num + " ");
-		}
-		System.out.println();
-	}
 
 	// brute force approach
 	private static void type1() {
-		int nums[] = { 1, 3, -1, -3, 5, 3, 6, 7 };
+		int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
 		int k = 2;
 		int n = nums.length;
 		// size of the result array
@@ -154,9 +144,8 @@ public class MaximumOfAllSubarraysOfSizeK {
 		int max;
 		for (int i = 0; i < n - k + 1; i++) {
 			max = nums[i];
-			for (int j = 1; j < k; j++) {
+			for (int j = 1; j < k; j++)
 				max = Math.max(max, nums[i + j]);
-			}
 			answer[i] = max;
 		}
 		print(nums);

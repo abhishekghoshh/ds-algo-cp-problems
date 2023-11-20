@@ -1,4 +1,4 @@
-package slidingwindow;
+package com.ds.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +9,7 @@ import java.util.Map;
  * https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
  * 
  * Solution:
+ * Aditya verma :
  * https://www.youtube.com/watch?v=Lav6St0W_pQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=10
  * */
 public class LargestSubstringWithKUniqueCharacters {
