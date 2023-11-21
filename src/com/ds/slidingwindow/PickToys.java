@@ -33,8 +33,38 @@ public class PickToys {
 		type2();
 		type3();
 		type4();
+		type5();
 	}
 
+	// TODO best possible solution in leetcode
+	// TODO study later
+	private static void type5() {
+		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
+		int max = 0;
+		int curMax = 0;
+		int prev = -1;
+		int prev2 = -1;
+		int prevCount = 0;
+		for (int fruit : fruits) {
+			if (fruit == prev || fruit == prev2) {
+				curMax++;
+			} else {
+				max = Math.max(max, curMax);
+				curMax = prevCount + 1;
+			}
+			if (fruit == prev) {
+				prevCount++;
+			} else {
+				prevCount = 1;
+				prev2 = prev;
+				prev = fruit;
+			}
+		}
+		max = Math.max(max, curMax);
+		System.out.println(max);
+	}
+
+	// TODO best possible solution I came up with
 	private static void type4() {
 		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
 		int k = 2;
