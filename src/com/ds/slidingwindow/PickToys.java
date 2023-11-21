@@ -1,4 +1,4 @@
-package slidingwindow;
+package com.ds.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,9 +6,10 @@ import java.util.Map;
 /*
  * Problem link:
  * https://leetcode.com/problems/fruit-into-baskets/
+ * https://www.codingninjas.com/studio/problems/fruits-and-baskets_985356
  * 
  * Solution:
- * https://www.youtube.com/watch?v=seOKHXB_w74&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=12
+ * Aditya Verma : https://www.youtube.com/watch?v=seOKHXB_w74&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=12
  * 
  */
 
@@ -30,6 +31,53 @@ public class PickToys {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+		type4();
+	}
+
+	private static void type4() {
+		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
+		int k = 2;
+		int n = fruits.length;
+		int left = 0, max = 0;
+		int types = 0;
+		int[] freq = new int[100001];
+		for (int right = 0; right < n; right++) {
+			int fruit = fruits[right];
+			if (freq[fruit] == 0) types++;
+			freq[fruit]++;
+			while (left < n && types > k) {
+				int fruitToBeRemoved = fruits[left++];
+				freq[fruitToBeRemoved]--;
+				if (freq[fruitToBeRemoved] == 0) types--;
+			}
+			max = Math.max(max, right - left + 1);
+		}
+		System.out.println(max);
+	}
+
+	private static void type3() {
+		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
+		int k = 2;
+		int n = fruits.length;
+		int left = 0, max = 0;
+		int types = 0;
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int right = 0; right < n; right++) {
+			int fruit = fruits[right];
+			if (!map.containsKey(fruit) || map.get(fruit) == 0) {
+				map.put(fruit, 1);
+				types++;
+			} else map.put(fruit, map.get(fruit) + 1);
+			while (left < n && types > k) {
+				int fruitToBeRemoved = fruits[left++];
+				int fruitToBeRemovedCount = map.get(fruitToBeRemoved);
+				map.put(fruitToBeRemoved, fruitToBeRemovedCount - 1);
+				if (fruitToBeRemovedCount == 1) types--;
+			}
+			max = Math.max(max, right - left + 1);
+		}
+		System.out.println(max);
 	}
 
 	// sliding window
@@ -39,15 +87,16 @@ public class PickToys {
 		int n = fruits.length;
 		int left = 0, right = 0, max = 0;
 		Map<Integer, Integer> map = new HashMap<>();
-		while (right < n && map.keySet().size() < k) {
+		int types = 0;
+		int fruitsSize = 0;
+		while (right < n && types < k) {
 			int fruit = fruits[right++];
 			if (!map.containsKey(fruit)) {
-				map.put(fruit, 0);
-			}
-			map.put(fruit, map.get(fruit) + 1);
+				map.put(fruit, 1);
+				types++;
+			} else map.put(fruit, map.get(fruit) + 1);
 		}
-		if (right == n)
-			return;
+//		if (right == n) return n;
 		max = right;
 		while (right < n) {
 			int fruit = fruits[right++];

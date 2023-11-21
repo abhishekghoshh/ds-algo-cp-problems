@@ -1,4 +1,4 @@
-package slidingwindow;
+package com.ds.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,9 @@ import java.util.Map;
  * https://leetcode.com/problems/minimum-window-substring/
  * 
  * Solution:
- * https://www.youtube.com/watch?v=iwv1llyN6mo&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=13
+ * Aditya Verma : https://www.youtube.com/watch?v=iwv1llyN6mo&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=13
+ *
+ *
  * */
 public class MinimumWindowSubstring {
 	// Given two strings s and t of lengths m and n respectively, return the minimum
@@ -26,33 +28,30 @@ public class MinimumWindowSubstring {
 		type5();
 	}
 
+	//TODO follow this approach for best solution
 	private static void type5() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
-		int[] map = new int[128];
-		for (char c : t.toCharArray()) {
-			map[c]++;
-		}
+		int n = s.length();
+		char[] arr = s.toCharArray();
+		int[] freq = new int[128];
+		for (char c : t.toCharArray()) freq[c]++;
 		int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
-		while (end < s.length()) {
-			final char c1 = s.charAt(end);
-			if (map[c1] > 0)
-				counter--;
-			map[c1]--;
-			end++;
+		char c1, c2;
+		while (end < n) {
+			c1 = arr[end++];
+			if (freq[c1] > 0) counter--;
+			freq[c1]--;
 			while (counter == 0) {
 				if (minLen > end - start) {
 					minLen = end - start;
 					minStart = start;
 				}
-				final char c2 = s.charAt(start);
-				map[c2]++;
-				if (map[c2] > 0)
-					counter++;
-				start++;
+				c2 = arr[start++];
+				freq[c2]++;
+				if (freq[c2] > 0) counter++;
 			}
 		}
-
 		String minWindow = minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
 		System.out.println(minWindow);
 	}
@@ -94,8 +93,6 @@ public class MinimumWindowSubstring {
 	private static void type3() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
-//		String s = "cabwefgewcwaefgcf";
-//		String t = "cae";
 		int tlen = t.length();
 		int slen = s.length();
 		if (slen == 0 || tlen == 0 || slen < tlen) {

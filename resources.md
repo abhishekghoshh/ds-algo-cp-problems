@@ -77,7 +77,7 @@
     - Combination-Approach
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/PrintMaxSumForConsecutiveElements.java)
-  - [Maximum Subarray Sum in an Array for non consecutive elements](/src/com/ds/array/MaxSumForNonConsecutiveElements.java)
+  - [Maximum Subarray Sum in an Array for non-consecutive elements](/src/com/ds/array/MaxSumForNonConsecutiveElements.java)
   - [Stock Buy And Sell](/src/com/ds/array/BuyAndSellStock.java)
   - [Rearrange Array Elements by Sign](/src/com/ds/array/RearrangeArrayElementsBySign.java)
   - [next_permutation : find next lexicographically greater permutation](/src/com/ds/array/NextPermutation.java)
@@ -97,16 +97,7 @@
   - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
   - [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
   - [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
-  - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window]
-  - [Pick Toys | An Interesting Sliding Window Problem]
-  - [Minimum Window Substring | Variable Size Sliding Window]
-
-- D
-  - [Length of Longest Substring without any Repeating Character](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
-    - hashing
-    - Array
-    - Two-Pointer
-  - [Max Consecutive Ones III](/src/com/ds/slidingwindow/MaxConsecutiveOnes3.java)
-    - Array
-    - Two-Pointer
-  - [Fruit Into Baskets](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
+  - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
+  - [Pick Toys | Fruit Into Baskets| An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/PickToys.java)
+  - [Minimum Window Substring | Variable Size Sliding Window](/src/com/ds/slidingwindow/MinimumWindowSubstring.java)
+  - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
