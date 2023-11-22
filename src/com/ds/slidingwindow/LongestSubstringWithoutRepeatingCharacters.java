@@ -24,6 +24,23 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		type1();
 		type2();
 		type3();
+		type4();
+	}
+
+	// best possible solution
+	private static void type4() {
+		String s = "abcabcbb";
+		int n = s.length();
+		boolean[] set = new boolean[128];
+		char[] arr = s.toCharArray();
+		int left = 0;
+		int max = 0;
+		for (int right = 0; right < n; right++) {
+			while (set[arr[right]]) set[arr[left++]] = false;
+			set[arr[right]] = true;
+			max = Math.max(max, right - left + 1);
+		}
+		System.out.println("max length is " + max);
 	}
 
 
