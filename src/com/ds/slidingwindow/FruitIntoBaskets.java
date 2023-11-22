@@ -37,7 +37,7 @@ public class FruitIntoBaskets {
 		type6();
 	}
 
-	// TODO best possible solution
+	// TODO best possible solution, same as type5 just it is less complicated to understand
 	// easy to understand and implement
 	// we have 3 cases
 	// current fruit is exactly prev type of fruit
@@ -45,6 +45,10 @@ public class FruitIntoBaskets {
 	// current fruit is a completely new fruit
 	// we will take two pointer
 	// one for previous another for previous to previous fruit
+	// also we will store the previous fruit count
+	// if there is a new type of fruit then we will set that count to 1
+	// because the current fruit will become my new prev fruit
+	// we will change the pointers accordingly
 	private static void type6() {
 		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
 		int max = 0;
