@@ -101,4 +101,5 @@
   - [Pick Toys | Fruit Into Baskets| An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/PickToys.java)
   - [Minimum Window Substring | Variable Size Sliding Window](/src/com/ds/slidingwindow/MinimumWindowSubstring.java)
   - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
-  - [Subarrays with K Different Integers](/src/com/ds/slidingwindow/SubarrayWithKDifferentIntegers.java)
+  - [Subarrays with at most K Different Integers](/src/com/ds/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)
+  - [Subarrays with exactly K Different Integers](/src/com/ds/slidingwindow/SubarrayWithExactlyKDifferentIntegers.java)
