@@ -13,7 +13,7 @@ import java.util.Map;
  * 
  */
 
-public class PickToys {
+public class FruitIntoBaskets {
 	// You are visiting a farm that has a single row of fruit trees arranged from
 	// left to right. The trees are represented by an integer array fruits where
 	// fruits[i] is the type of fruit the ith tree produces.
@@ -34,10 +34,41 @@ public class PickToys {
 		type3();
 		type4();
 		type5();
+		type6();
+	}
+
+	// TODO best possible solution
+	// easy to understand and implement
+	// we have 3 cases
+	// current fruit is exactly prev type of fruit
+	// current fruit is previous to previous type of fruit
+	// current fruit is a completely new fruit
+	// we will take two pointer
+	// one for previous another for previous to previous fruit
+	private static void type6() {
+		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
+		int max = 0;
+		int curMax = 0;
+		int prev = -1;
+		int prev2 = -1;
+		int prevContinuousCount = 0;
+		for (int fruit : fruits) {
+			if (fruit == prev) {
+				curMax++;
+				prevContinuousCount++;
+			} else {
+				if (fruit == prev2) curMax++;
+				else curMax = prevContinuousCount + 1;
+				prevContinuousCount = 1;
+				prev2 = prev;
+				prev = fruit;
+			}
+			max = Math.max(max, curMax);
+		}
+		System.out.println(max);
 	}
 
 	// TODO best possible solution in leetcode
-	// TODO study later
 	private static void type5() {
 		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
 		int max = 0;

@@ -98,7 +98,7 @@
   - [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
   - [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
   - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
-  - [Pick Toys | Fruit Into Baskets| An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/PickToys.java)
+  - [Fruit Into Baskets | Pick Toys | An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
   - [Minimum Window Substring | Variable Size Sliding Window](/src/com/ds/slidingwindow/MinimumWindowSubstring.java)
   - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
   - [Subarrays with at most K Different Integers](/src/com/ds/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)

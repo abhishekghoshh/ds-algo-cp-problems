@@ -1,20 +1,20 @@
-package com.ds.dp;
+package com.ds.striver.dp;
+
+import java.util.Arrays;
 
 /*
  *
  * problem links :
- * https://www.codingninjas.com/studio/problems/nth-fibonacci-number_74156
- *
+ * https://leetcode.com/problems/climbing-stairs/
+ * https://www.codingninjas.com/studio/problems/count-ways-to-reach-the-n-th-stairs_798650
  *
  * Solution link :
  * https://www.youtube.com/watch?v=tyB0ztf0DNY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=2
  *
- * https://takeuforward.org/data-structure/dynamic-programming-introduction/
+ * https://takeuforward.org/data-structure/dynamic-programming-climbing-stairs/
  * */
-
-import java.util.Arrays;
-
-public class FibonacciSeries {
+public class ClimbingStairs {
+    // This problem is same as fibonacci series
     public static void main(String[] args) {
         type1();
         type2();
@@ -27,7 +27,7 @@ public class FibonacciSeries {
     // space complexity O(1)
     private static void type4() {
         int n = 10;
-        int prev2 = 0;
+        int prev2 = 1;
         int prev = 1;
         int current;
         for (int i = 2; i <= n; i++) {
@@ -45,8 +45,7 @@ public class FibonacciSeries {
         int n = 10;
         int[] memo = new int[n + 1];
         Arrays.fill(memo, -1);
-        memo[0] = 0;
-        memo[1] = 1;
+        memo[0] = memo[1] = 1;
         for (int i = 2; i <= n; i++) {
             memo[i] = memo[i - 1] + memo[i - 2];
         }
@@ -60,17 +59,17 @@ public class FibonacciSeries {
         int n = 10;
         int[] memo = new int[n + 1];
         Arrays.fill(memo, -1);
-        int answer = fib(n, memo);
+        int answer = climbStairs(n, memo);
         System.out.println(answer);
     }
 
-    private static int fib(int n, int[] memo) {
+    private static int climbStairs(int n, int[] memo) {
         if (n <= 1) {
-            return n;
+            return 1;
         } else if (memo[n] != -1) {
             return memo[n];
         } else {
-            return memo[n] = fib(n - 1) + fib(n - 2);
+            return memo[n] = climbStairs(n - 1) + climbStairs(n - 2);
         }
     }
 
@@ -79,16 +78,16 @@ public class FibonacciSeries {
     // space complexity O(n) for stack space
     private static void type1() {
         int n = 10;
-        int answer = fib(n);
+        int answer = climbStairs(n);
         System.out.println(answer);
     }
 
 
-    private static int fib(int n) {
+    private static int climbStairs(int n) {
         if (n <= 1) {
-            return n;
+            return 1;
         } else {
-            return fib(n - 1) + fib(n - 2);
+            return climbStairs(n - 1) + climbStairs(n - 2);
         }
     }
 }
