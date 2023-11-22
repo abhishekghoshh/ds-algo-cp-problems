@@ -18,14 +18,14 @@ public class MaxConsecutiveOnes3 {
         type1();
         type2();
         type3();
-        type4();
     }
 
-    private static void type4() {
-        int[] nums = {0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
-        int k = 1;
+    // TODO study later
+    private static void type3() {
+        int[] nums = {0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1};
+        int k = 2;
         int n = nums.length;
-        int max = 0;
+        int max;
         int start = 0, end = 0, zeros = 0;
         while (end < n) {
             if (nums[end++] == 0) zeros++;
@@ -35,42 +35,20 @@ public class MaxConsecutiveOnes3 {
         System.out.println(max);
     }
 
-    private static void type3() {
-        int[] nums ={0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1};
-        int k = 1;
-        int n = nums.length;
-        int max = 0;
-        int start = 0, end = 0, zeros = 0;
-        while (end < nums.length) {
-            if (nums[end] == 0) {
-                zeros++;
-            }
-            end++;
-            if (zeros > k) {
-                if (nums[start] == 0) {
-                    zeros--;
-                }
-                start++;
-            }
-        }
-    }
-
+    // we will count the continuous k zeros
+    // if we find that then max count will
     private static void type2() {
         int[] nums = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
-        int k = 1;
-        int n = nums.length;
+        int k = 2;
         int max = 0;
-        int start = 0, end = 0, zeros = 0, ones = 0;
-        while (end < n) {
-            if (zeros <= k) {
-                if (nums[end++] == 0) zeros++;
-                else ones++;
-            } else {
-                while (zeros != k)
-                    if (nums[start++] == 0) zeros--;
-                    else ones--;
-            }
-            if (zeros <= k) max = Math.max(max, ones + zeros);
+        int start = 0, zeros = 0, ones = 0;
+        for (int num : nums) {
+            if (num == 0) zeros++;
+            else ones++;
+            while (zeros > k)
+                if (nums[start++] == 0) zeros--;
+                else ones--;
+            max = Math.max(max, ones + zeros);
         }
         System.out.println(max);
     }

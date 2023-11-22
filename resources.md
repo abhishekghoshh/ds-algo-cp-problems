@@ -103,4 +103,5 @@
   - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
   - [Subarrays with at most K Different Integers](/src/com/ds/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)
   - [Subarrays with exactly K Different Integers](/src/com/ds/slidingwindow/SubarrayWithExactlyKDifferentIntegers.java)
-  - 
+  - [Max Consecutive Ones III](/src/com/ds/slidingwindow/MaxConsecutiveOnes3.java)
+  - [Longest Repeating Character Replacement](/src/com/ds/slidingwindow/LongestRepeatingCharacterReplacement.java)
