@@ -5,6 +5,7 @@ import java.util.Map;
 
 /*
  * Problem link:
+ * https://www.codingninjas.com/studio/problems/longest-substring-with-at-most-k-distinct-characters_2221410
  * https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
  * https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
  * 
@@ -17,49 +18,52 @@ public class LargestSubstringWithKUniqueCharacters {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	// optimize approach
+	// but, same as using a hashmap
+	private static void type3() {
+		String s = "aabacbebebe";
+		int k = 2;
+		int max = -1;
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		int[] freq = new int[26];
+		int left = 0, types = 0;
+		for (int right = 0; right < n; right++) {
+			int chIndex = arr[right] - 'a';
+			freq[chIndex]++;
+			if (freq[chIndex] == 1) types++;
+			while (left < n && types > k) {
+				int itemToRemove = arr[left++] - 'a';
+				freq[itemToRemove]--;
+				if (freq[itemToRemove] == 0) types--;
+			}
+			if (types == k) max = Math.max(max, right - left + 1);
+		}
+		System.out.println(max);
 	}
 
 	// sliding window
 	private static void type2() {
 		String s = "aabacbebebe";
 		int k = 2;
-		int left = 0, right = 0, n = s.length();
-		String max = "";
-		Map<Character, Integer> map = new HashMap<>();
-		// we are going while we find our find window of k
-		while (right < n && map.keySet().size() < k) {
-			char ch = s.charAt(right++);
-			if (!map.containsKey(ch)) {
-				map.put(ch, 0);
+		int max = -1;
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		Map<Character, Integer> freq = new HashMap<>();
+		int left = 0, types = 0;
+		for (int right = 0; right < n; right++) {
+			char ch = arr[right];
+			freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+			if (freq.get(ch) == 1) types++;
+			while (left < n && types > k) {
+				char charToRemove = arr[left++];
+				freq.put(charToRemove, freq.get(charToRemove) - 1);
+				if (freq.get(charToRemove) == 0) types--;
 			}
-			map.put(ch, map.get(ch) + 1);
-		}
-		if (right == n && map.keySet().size() < k) {
-			return;
-		}
-		// calculating answer for the first window
-		max = (right - left) > max.length() ? s.substring(left, right) : max;
-		while (right < n) {
-			char ch = s.charAt(right++);
-			if (!map.containsKey(ch)) {
-				map.put(ch, 0); 
-			}
-			map.put(ch, map.get(ch) + 1);
-			
-			if (map.keySet().size() > k) {
-				while (map.keySet().size() != k) {
-					char leftChar = s.charAt(left);
-					int leftCharCount = map.get(leftChar);
-					if (leftCharCount > 1) {
-						map.put(leftChar, leftCharCount - 1);
-					} else {
-						map.remove(leftChar);
-					}
-					left = left + 1;
-				}
-			}
-			// calculating answer for the current window
-			max = (right - left) > max.length() ? s.substring(left, right) : max;
+			if (types == k) max = Math.max(max, right - left + 1);
 		}
 		System.out.println(max);
 	}

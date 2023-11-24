@@ -1,4 +1,4 @@
-package com.ds.special.jumpgame;
+package com.ds.series.jumpgame;
 
 /*
  *

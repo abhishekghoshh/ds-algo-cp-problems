@@ -6,6 +6,7 @@ import java.util.Map;
 /*
  * Problem link:
  * https://leetcode.com/problems/minimum-window-substring/
+ * https://www.codingninjas.com/studio/problems/minimum-window-substring_1215004
  * 
  * Solution:
  * Aditya Verma : https://www.youtube.com/watch?v=iwv1llyN6mo&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=13
@@ -19,164 +20,73 @@ public class MinimumWindowSubstring {
 	// string "".
 	// The testcases will be generated such that the answer is unique.
 	// A substring is a contiguous sequence of characters within the string.
-	// TODO check later https://leetcode.com/submissions/detail/829698608/
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
-		type4();
-		type5();
 	}
 
 	//TODO follow this approach for best solution
-	private static void type5() {
-		String s = "ADOBECODEBANCABN";
-		String t = "ABC";
-		int n = s.length();
-		char[] arr = s.toCharArray();
-		int[] freq = new int[128];
-		for (char c : t.toCharArray()) freq[c]++;
-		int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
-		char c1, c2;
-		while (end < n) {
-			c1 = arr[end++];
-			if (freq[c1] > 0) counter--;
-			freq[c1]--;
-			while (counter == 0) {
-				if (minLen > end - start) {
-					minLen = end - start;
-					minStart = start;
-				}
-				c2 = arr[start++];
-				freq[c2]++;
-				if (freq[c2] > 0) counter++;
-			}
-		}
-		String minWindow = minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
-		System.out.println(minWindow);
-	}
-
-	// TODO check later
-	private static void type4() {
-		String s = "ADOBECODEBANCABN";
-		String t = "ABC";
-		int[] map = new int[127];
-		for (char c : t.toCharArray()) {
-			++map[c];
-		}
-		int count = t.length();
-		char[] sc = s.toCharArray();
-		int resLen = Integer.MAX_VALUE;
-		int resIndex = 0;
-		int start = 0;
-		for (int i = 0; i < sc.length; ++i) {
-			count -= (--map[sc[i]] >>> 31) ^ 1;
-			if (count == 0) {
-				while (true) {
-					var c = sc[start++];
-					if (++map[c] > 0)
-						break;
-				}
-				++count;
-				int len = i - start + 2;
-				if (len < resLen) {
-					resLen = len;
-					resIndex = start - 1;
-				}
-			}
-		}
-		String minWindow = s.substring(resIndex, resIndex + resLen);
-		System.out.println(minWindow);
-	}
-
-	// TODO study later
 	private static void type3() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
-		int tlen = t.length();
-		int slen = s.length();
-		if (slen == 0 || tlen == 0 || slen < tlen) {
-			return;
-		}
-
-		int[] matches = new int['z' + 1];
-		for (int i = 0; i < tlen; ++i) {
-			matches[t.charAt(i)]++;
-		}
-		int count = tlen;
-		int left = 0, right = 0;
-		int minLeft = 0, minRight = 0;
-		while (right < slen) {
-			char currentChar = s.charAt(right);
-			if (matches[currentChar] > 0) {
-				--count;
-			}
-			matches[currentChar]--;
-			++right;
-			while (count == 0) {
-				if (minRight == 0 || minRight - minLeft > right - left) {
-					minRight = right;
-					minLeft = left;
+		int n1 = s.length();
+		char[] arr = s.toCharArray();
+		int[] freq = new int[128];
+		for (char c : t.toCharArray()) freq[c]++;
+		int left = 0;
+		int start = 0;
+		int minLen = Integer.MAX_VALUE;
+		int n2 = t.length();
+		char ch, itemToRemove;
+		for (int right = 0; right < n1; right++) {
+			ch = arr[right];
+			freq[ch]--;
+			if (freq[ch] >= 0) n2--;
+			while (n2 == 0) {
+				if (minLen > right - left + 1) {
+					minLen = right - left + 1;
+					start = left;
 				}
-				char frontChar = s.charAt(left);
-				if (++matches[frontChar] > 0) {
-					++count;
-				}
-				++left;
+				itemToRemove = arr[left++];
+				freq[itemToRemove]++;
+				if (freq[itemToRemove] > 0) n2++;
 			}
 		}
-
-		System.out.println(s.substring(minLeft, minRight));
-
+		String minWindow = minLen == Integer.MAX_VALUE ? "" : s.substring(start, start + minLen);
+		System.out.println(minWindow);
 	}
+
 
 	private static void type2() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
-//		String s = "cabwefgewcwaefgcf";
-//		String t = "cae";
-		int left = 0, right = 0, n = s.length();
-		char ch;
-		String minString = "";
+		char[] sArr = s.toCharArray();
+		int n1 = sArr.length;
+		char[] tArr = t.toCharArray();
+		int n2 = tArr.length;
+		int left = 0;
+		int minLen = Integer.MAX_VALUE;
+		int start = -1;
+		char ch, itemToRemove;
 		Map<Character, Integer> map = new HashMap<>();
-		for (int i = 0; i < t.length(); i++) {
-			ch = t.charAt(i);
-			if (!map.containsKey(ch)) {
-				map.put(ch, 1);
-			} else {
-				map.put(ch, map.get(ch) + 1);
+		for (char c : tArr) map.put(c, map.getOrDefault(c, 0) + 1);
+		for (int right = 0; right < n1; right++) {
+			ch = sArr[right];
+			map.put(ch, map.getOrDefault(ch, 0) - 1);
+			if (map.get(ch) >= 0) n2--;
+			while (n2 == 0) {
+				if (minLen > right - left + 1) {
+					minLen = right - left + 1;
+					start = left;
+				}
+				itemToRemove = sArr[left++];
+				map.put(itemToRemove, map.get(itemToRemove) + 1);
+				if (map.get(itemToRemove) > 0) n2++;
 			}
 		}
-		int letterCount = map.keySet().size();
-		while (right <= n) {
-			if (letterCount > 0) {
-				if (right == n)
-					break;
-				char rch = s.charAt(right++);
-				if (map.containsKey(rch)) {
-					map.put(rch, map.get(rch) - 1);
-					if (map.get(rch) == 0) {
-						letterCount--;
-					}
-				}
-			} else {
-				minString = minString.isEmpty() || minString.length() > (right - left) ? s.substring(left, right)
-						: minString;
-				while (left < n && letterCount == 0) {
-					char lch = s.charAt(left++);
-					if (map.containsKey(lch)) {
-						if (map.get(lch) == 0) {
-							letterCount++;
-						}
-						map.put(lch, map.get(lch) + 1);
-					}
-				}
-				minString = minString.isEmpty() || minString.length() > (right - (left - 1))
-						? s.substring(left - 1, right)
-						: minString;
-			}
-		}
-		System.out.println(minString);
+		String min = minLen == Integer.MAX_VALUE ? "" : s.substring(start, start + minLen);
+		System.out.println(min);
 	}
 
 	// brute force approach
