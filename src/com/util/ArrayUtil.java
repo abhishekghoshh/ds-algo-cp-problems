@@ -17,57 +17,45 @@ public class ArrayUtil {
 
     public static void print2D(int[][] matrix) {
         for (int[] row : matrix) {
-            for (int item : row) {
-                System.out.print(item + " ");
-            }
+            for (int item : row) System.out.print(item + " ");
             System.out.println();
         }
         System.out.println();
     }
     public static void print(List<Integer> arr) {
-        for (int item : arr) {
-            System.out.print(item + " ");
-        }
+        for (int item : arr) System.out.print(item + " ");
         System.out.println();
     }
 
     public static void print2D(List<List<Integer>> matrix) {
         for (List<Integer> row : matrix) {
-            for (Integer item : row)
-                System.out.print(item + " ");
+            for (Integer item : row) System.out.print(item + " ");
             System.out.println();
         }
         System.out.println();
     }
 
     public static void print(int[] arr) {
-        for (int item : arr) {
-            System.out.print(item + " ");
-        }
+        for (int item : arr) System.out.print(item + " ");
         System.out.println();
     }
 
     public static void print(int[]... arrays) {
         for (int[] array : arrays) {
-            for (int num : array) {
-                System.out.print(num + " ");
-            }
+            for (int num : array) System.out.print(num + " ");
+            System.out.println();
         }
         System.out.println();
     }
 
     public static void print(char[] arr) {
-        for (char item : arr) {
-            System.out.print(item + " ");
-        }
+        for (char item : arr) System.out.print(item + " ");
         System.out.println();
     }
 
     public static int maxN(int... arr) {
         int max = Integer.MIN_VALUE;
-        for (int item : arr)
-            if (item > max)
-                max = item;
+        for (int item : arr) if (item > max) max = item;
         return max;
     }
     public static int max(int[] arr) {
@@ -78,9 +66,7 @@ public class ArrayUtil {
 
     public static int minN(int... arr) {
         int min = Integer.MAX_VALUE;
-        for (int item : arr)
-            if (item < min)
-                min = item;
+        for (int item : arr) if (item < min) min = item;
         return min;
     }
 
@@ -91,7 +77,7 @@ public class ArrayUtil {
     }
 
     public static void copy(int[] array1, int[] array2) {
-        for (int i = 0; i < array1.length; i++) array1[i] = array2[i];
+        for (int i = 0; i < array1.length && i < array2.length; i++) array1[i] = array2[i];
     }
 
     public static int[] copy(int[] array) {

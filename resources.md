@@ -1,7 +1,7 @@
 # Resources
 
 #### Topics
-- Sort
+- sort
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
   - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
@@ -13,15 +13,15 @@
   - [Count sort](/src/com/algo/sort/CountSort.java)
   - [Radix sort](/src/com/algo/sort/RadixSort.java)
   - [Heap sort](/src/com/algo/sort/HeapSort.java)
-- Array
+- array
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
   - [Search in a sorted 2D matrix](/src/com/ds/array/SearchInRowAndColumnSortedMatrix.java)
-    - Binary-Search
+    - binary-search
   - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java)
-    - Hashing
-    - Swap-Sort
+    - hashing
+    - swap-sort
     - Cycle-Detection-Using-Tortoise-Method
   - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
@@ -30,51 +30,51 @@
   - [Linear Search](/src/com/ds/array/LinearSearch.java)
   - [Union of Two Sorted Arrays](/src/com/ds/array/UnionOfTwoSortedArrays.java)
   - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java) 
-    - Bit-Manipulation
-    - Hashing
+    - bit-manipulation
+    - hashing
   - [Find the repeating and missing numbers](/src/com/ds/array/RepeatAndMissingNumber.java)
-    - Bit-Manipulation
-    - Hashing
+    - bit-manipulation
+    - hashing
   - [Maximum Consecutive Ones](/src/com/ds/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/ds/array/FindTheNumberAppearsOnlyOnce.java)
-    - Bit-Manipulation
+    - bit-manipulation
   - [Longest Consecutive Sequence in an Array](/src/com/ds/array/LongestConsecutiveSequence.java)
-    - Hashing
+    - hashing
   - [Longest Subarray with given Sum K(Positives)](/src/com/ds/array/LongestSubarrayWithSumEqualsK_1.java)
-    - Prefix-Sum
-    - Two-Pointer
+    - prefix-sum
+    - two-pointer
   - [Longest Subarray with given Sum K[Positives and Negatives]](/src/com/ds/array/LongestSubarrayWithSumEqualsK_2.java)
-    - Prefix-Sum
-    - Two-Pointers
+    - prefix-sum
+    - two-pointer
   - [Longest Subarray with sum equals to Zero](/src/com/ds/array/LongestSubarrayWithSumEqualsZero.java)
-    - Prefix-Sum
+    - prefix-sum
   - [Longest Subarray xor equal to K](/src/com/ds/array/LongestSubarrayXorEqualToK.java)
-    - Prefix-Sum
+    - prefix-sum
   - [Count of subarray sum equals K](/src/com/ds/array/CountOfSubarraySumEqualsK.java)
-    - Prefix-Sum
+    - prefix-sum
   - [Count of subarray xor equal to K](/src/com/ds/array/CountOfSubarrayXorEqualToK.java)
-    - Prefix-Sum
+    - prefix-sum
   - [Two Sum : Check if a pair with given sum exists in Array](/src/com/ds/array/TwoSum.java)
-    - Two-Pointer
-    - Hashing
+    - two-pointer
+    - hashing
   - [3 Sum : Find triplets that add up to a zero](/src/com/ds/array/ThreeSum.java)
-    - Two-Pointer
-    - Hashing
+    - two-pointer
+    - hashing
   - [4 Sum | Find Quads that add up to a target value](/src/com/ds/array/FourSum.java)
-    - Two-Pointer
-    - Hashing
+    - two-pointer
+    - hashing
   - [Sort an array of 0's 1's and 2's](/src/com/ds/array/SortZeroOneTwo.java)
-    - Three-Pointer(Dutch national flag)
-    - Hashing
+    - three-pointer (Dutch national flag)
+    - hashing
   - [Find the Majority Element that occurs more than N/2 times](/src/com/ds/array/MajorityElementsNby2.java)
     - Moore's voting algorithm
-    - Hashing
+    - hashing
   - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
     - Moore's voting algorithm
-    - Hashing
+    - hashing
   - [Grid Unique Paths | Count paths from left-top to the right bottom of a matrix](/src/com/ds/array/GridUniquePaths.java)
-    - Dynamic-Programming
-    - Combination-Approach
+    - dynamic-programming
+    - combination-approach
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/PrintMaxSumForConsecutiveElements.java)
   - [Maximum Subarray Sum in an Array for non-consecutive elements](/src/com/ds/array/MaxSumForNonConsecutiveElements.java)
@@ -104,10 +104,11 @@
   - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
   - [Subarrays with at most K Different Integers](/src/com/ds/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)
   - [Subarrays with exactly K Different Integers](/src/com/ds/slidingwindow/SubarrayWithExactlyKDifferentIntegers.java)
+  - [Number of Substrings Containing All Three Characters](/src/com/ds/slidingwindow/NumberOfSubstringsContainingAllThreeCharacters.java)
   - [Max Consecutive Ones III](/src/com/ds/slidingwindow/MaxConsecutiveOnes3.java)
   - [Longest Repeating Character Replacement](/src/com/ds/slidingwindow/LongestRepeatingCharacterReplacement.java)
   - [Binary Subarrays With Sum](/src/com/ds/slidingwindow/BinarySubarraysWithSum.java)
-    - Prefix-sum
+    - prefix-sum
   - [Count Number of Nice Subarrays](/src/com/ds/slidingwindow/CountNumberOfNiceSubarrays.java)
-  - [Number of Substrings Containing All Three Characters](/src/com/ds/slidingwindow/NumberOfSubstringsContainingAllThreeCharacters.java)
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
+    - dynamic-programming
