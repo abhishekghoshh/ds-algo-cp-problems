@@ -91,8 +91,8 @@
   - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
-  - [Car Fleet](/src/com/ds/array/CarFleet.java)   **TBD**
-  - [Remove Element](/src/com/ds/array/RemoveElement.java)   **TBD**
+  - [Car Fleet](/src/com/ds/array/CarFleet.java) **TBD**
+  - [Remove Element](/src/com/ds/array/RemoveElement.java) **TBD**
 - **sliding-window**
   - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
@@ -116,13 +116,21 @@
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
     - dynamic-programming
 - **binary-search**
-  - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java)   **TBD**
+  - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
+- **string**
+  - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
+  - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
+  - [Largest Odd Number in String](/src/com/ds/string/LargestOddNumberInString.java)
+  - [Longest Common Prefix](/src/com/ds/string/LongestCommonPrefix.java)
+  - [Isomorphic Strings](/src/com/ds/string/IsomorphicStrings.java)
+  - [Rotate String](/src/com/ds/string/RotateString.java)
+  - [Check if two Strings are anagrams of each other](/src/com/ds/string/CheckForAnagrams.java)
 - **linked-list**
-  - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)   **TBD**
+  - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
 - **recursion**
-  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java)   **TBD**
+  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
 - **stack**
-  - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java)   **TBD**
+  - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java) **TBD**
     - array
     - string
     - dynamic-programming

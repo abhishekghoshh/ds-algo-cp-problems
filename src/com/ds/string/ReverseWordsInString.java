@@ -1,4 +1,4 @@
-package string;
+package com.ds.string;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,8 @@ import java.util.Stack;
 /*
  * Problem link : 
  * https://leetcode.com/problems/reverse-words-in-a-string
- * https://www.codingninjas.com/codestudio/problems/696444?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/696444
+ * https://www.codingninjas.com/studio/problems/reverse-words-in-a-string_696444
  * 
  * Solution link:
  * 
@@ -28,23 +29,28 @@ public class ReverseWordsInString {
 		type6();
 	}
 
+	// most optimized approach
 	private static void type6() {
 		String s = "a good   example";
-		char[] sc = s.toCharArray();
-		char[] result = new char[sc.length];
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		char[] result = new char[n];
 		int outPos = 0;
-		for (int i = sc.length - 1; i >= 0; i--) {
-			while (i >= 0 && sc[i] == ' ')
-				i--;
-			if (i < 0)
-				break;
+		// we will be looping through from last to first
+		for (int i = n - 1; i >= 0; i--) {
+			// skip all the trailing whitespaces first
+			while (i >= 0 && arr[i] == ' ') i--;
+			// if i<0 means there is no character found
+			if (i < 0) break;
+			// now we have found the end of the word
 			int endOfWord = i;
-			while (i > 0 && sc[i - 1] != ' ')
-				i--;
-			if (outPos > 0)
-				result[outPos++] = ' ';
+			// we will find the start of the word
+			while (i > 0 && arr[i - 1] != ' ') i--;
+			// now we will add the space after the previous word
+			if (outPos > 0) result[outPos++] = ' ';
+			// now we will copy word by word
 			for (int j = i; j <= endOfWord; j++)
-				result[outPos++] = sc[j];
+				result[outPos++] = arr[j];
 		}
 		String answer = String.valueOf(result, 0, outPos);
 		System.out.println(answer);

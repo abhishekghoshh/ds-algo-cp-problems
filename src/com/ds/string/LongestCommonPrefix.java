@@ -1,8 +1,9 @@
-package string;
+package com.ds.string;
 /*
  * Problem link :
  * https://leetcode.com/problems/longest-common-prefix/
- * https://www.codingninjas.com/codestudio/problems/2090383?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/2090383
+ * https://www.codingninjas.com/studio/problems/longest-common-prefix_628874
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=0sWShKIJoo4
@@ -30,14 +31,13 @@ public class LongestCommonPrefix {
 	}
 
 	private static void type4() {
-		String[] strs = { "flower", "flow", "flight" };
-		if (strs == null || strs.length == 0) {
-			return;
-		}
-		String pre = strs[0];
+		String[] stringArray = {"flower", "flow", "flight"};
+		String pre = stringArray[0];
 		int i = 1;
-		while (i < strs.length) {
-			while (strs[i].indexOf(pre) != 0)
+		while (i < stringArray.length) {
+			// if pre is not a substring, then we are then we are reducing the size of pre by 1
+			// indexOf method will give us -1 if there is no match
+			while (stringArray[i].indexOf(pre) != 0)
 				pre = pre.substring(0, pre.length() - 1);
 			i++;
 		}
