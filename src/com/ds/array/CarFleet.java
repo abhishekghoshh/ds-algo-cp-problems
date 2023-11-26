@@ -1,4 +1,4 @@
-package com.ds.extra;
+package com.ds.array;
 
 import java.util.Arrays;
 
@@ -11,9 +11,31 @@ import java.util.Arrays;
  *
  * */
 public class CarFleet {
+    // TODO study later
     public static void main(String[] args) {
         type1();
         type2();
+        type3();
+    }
+
+    private static void type3() {
+        int target = 10;
+        int[] position = {0, 4, 2};
+        int[] speed = {2, 1, 3};
+        int n = position.length;
+        float[] time = new float[target];
+        for (int i = 0; i < n; i++) {
+            time[position[i]] = (float) (target - position[i]) / speed[i];
+        }
+        int fleet = 0;
+        float maxTime = 0;
+        for (int i = target - 1; i >= 0; i--) {
+            if (time[i] > maxTime) {
+                maxTime = time[i];
+                fleet++;
+            }
+        }
+        System.out.println(fleet);
     }
 
     private static void type2() {

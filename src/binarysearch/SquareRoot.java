@@ -1,5 +1,15 @@
 package binarysearch;
 
+/*
+ *
+ * problem links :
+ * https://leetcode.com/problems/sqrtx/
+ *
+ * Solution link :
+ *
+ *
+ *
+ * */
 public class SquareRoot {
 
 	public static void main(String[] args) {
@@ -10,7 +20,7 @@ public class SquareRoot {
 
 	// newton raphson method
 	// root = (X+N/X)/2
-	// where X is imaginary root
+	// where X is an imaginary root
 	private static void type3() {
 		int n = 40;
 		double precision = 1e-14;
@@ -46,7 +56,8 @@ public class SquareRoot {
 
 	private static void type1() {
 		int n = 40;
-		System.out.println(Math.sqrt(n));
+		int sqrt = (int) Math.sqrt(n);
+		System.out.println(sqrt);
 	}
 
 }

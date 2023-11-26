@@ -1,4 +1,4 @@
-package com.ds.extra;
+package com.ds.linkedlist;
 
 /*
  *
@@ -15,7 +15,7 @@ package com.ds.extra;
 public class DesignLinkedList {
 
 	public static void main(String[] args) {
-		type1(); //
+		type1();
 		type2();
 	}
 

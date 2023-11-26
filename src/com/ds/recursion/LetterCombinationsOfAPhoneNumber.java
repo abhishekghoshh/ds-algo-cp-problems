@@ -1,4 +1,4 @@
-package com.ds.extra;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class LetterCombinationsOfAPhoneNumber {
 		}
 	}
 
-	// This problem is also using backtracking
+	// This problem is also using backtracking,
 	// but this is using extra space
 	// also rather than using hashmap of Integer and String or List of Char
 	// we can directly use a normal 2D array where of keypad values like {{},{},{a,b,c},{..})

@@ -1,4 +1,4 @@
-package com.ds.extra;
+package com.ds.binarysearch;
 
 /*
  *
@@ -17,7 +17,8 @@ public class CountNegativeNumbersInSortedMatrix {
     }
 
 
-    // binary search
+    // TODO optimized approach
+    // binary search approach
     // this problem derives inspiration from find element in row wise column wise sorted matrix
     // as the grid is row wise and column sorted
     // we know one that if we go from right to left it will increase
@@ -44,8 +45,7 @@ public class CountNegativeNumbersInSortedMatrix {
         int[][] grid = {{4, 3, 2, -1}, {3, 2, 1, -1}, {1, 1, -1, -2}, {-1, -1, -2, -3}};
         int negative = 0;
         for (int[] row : grid)
-            for (int num : row)
-                negative += (num < 0 ? 1 : 0);
+            for (int num : row) negative += (num < 0 ? 1 : 0);
         System.out.println(negative);
     }
 }

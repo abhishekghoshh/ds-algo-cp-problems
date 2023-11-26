@@ -1,4 +1,4 @@
-package com.ds.extra;
+package com.ds.stack;
 
 import java.util.Arrays;
 import java.util.Stack;

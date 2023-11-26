@@ -1,7 +1,7 @@
 # Resources
 
 #### Topics
-- sort
+- **sort**
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
   - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
@@ -13,7 +13,7 @@
   - [Count sort](/src/com/algo/sort/CountSort.java)
   - [Radix sort](/src/com/algo/sort/RadixSort.java)
   - [Heap sort](/src/com/algo/sort/HeapSort.java)
-- array
+- **array**
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
@@ -91,7 +91,9 @@
   - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
   - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
-- sliding-window
+  - [Car Fleet](/src/com/ds/array/CarFleet.java)**TBD**
+  - [Remove Element](/src/com/ds/array/RemoveElement.java)**TBD**
+- **sliding-window**
   - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
   - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
@@ -110,5 +112,17 @@
   - [Binary Subarrays With Sum](/src/com/ds/slidingwindow/BinarySubarraysWithSum.java)
     - prefix-sum
   - [Count Number of Nice Subarrays](/src/com/ds/slidingwindow/CountNumberOfNiceSubarrays.java)
+    - prefix-sum
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
+    - dynamic-programming
+- **binary-search**
+  - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java)**TBD**
+- **linked-list**
+  - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)**TBD**
+- **recursion**
+  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java)**TBD**
+- **stack**
+  - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java)**TBD**
+    - array
+    - string
     - dynamic-programming
