@@ -125,6 +125,17 @@
   - [Isomorphic Strings](/src/com/ds/string/IsomorphicStrings.java)
   - [Rotate String](/src/com/ds/string/RotateString.java)
   - [Check if two Strings are anagrams of each other](/src/com/ds/string/CheckForAnagrams.java)
+  - [Sort Characters by frequency](/src/com/ds/string/SortCharactersByFrequency.java)
+  - [Maximum Nesting Depth of the Parentheses](/src/com/ds/string/MaximumNestingDepthOfTheParentheses.java)
+  - [Roman to Integer](/src/com/ds/string/RomanToInteger.java)
+  - [Integer to Roman](/src/com/ds/string/IntegerToRoman.java)
+  - [Implement Atoi](/src/com/ds/string/StringToInteger.java)
+  - [Count With K Different Characters](/src/com/ds/string/CountSubstringsOfLengthK.java)
+    - sliding-window
+  - [Longest Palindromic Substring](/src/com/ds/string/LongestPalindromicSubstring.java)
+    - dynamic-programming
+    - array
+  - [Sum of Beauty of All Substrings](/src/com/ds/string/SumOfBeautyOfAllSubstrings.java)
 - **linked-list**
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
 - **recursion**

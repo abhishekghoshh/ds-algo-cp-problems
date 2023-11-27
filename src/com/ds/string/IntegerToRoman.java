@@ -1,4 +1,4 @@
-package string;
+package com.ds.string;
 
 /*
  * Problem link : 
@@ -14,6 +14,23 @@ public class IntegerToRoman {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	private static final String[] romans = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+	private static final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+
+	private static void type2() {
+		int num = 2994;
+		StringBuilder res = new StringBuilder();
+		for (int i = 0; i < values.length; i++) {
+			while (num >= values[i]) {
+				num -= values[i];
+				res.append(romans[i]);
+			}
+		}
+		System.out.println(res);
 	}
 
 	// we have added all the points
@@ -35,10 +52,32 @@ public class IntegerToRoman {
 	// 40 for 50
 	// 90 for 100
 	// 400 for 500
-	private static Point[] points = { new Point("I", 1), new Point("IV", 4), new Point("V", 5), new Point("IX", 9),
-			new Point("X", 10), new Point("XL", 40), new Point("L", 50), new Point("XC", 90), new Point("C", 100),
-			new Point("C", 100), new Point("CD", 400), new Point("D", 500), new Point("CM", 900),
-			new Point("M", 1000) };
+	private static final Point[] points = {
+			new Point("I", 1),
+			new Point("IV", 4),
+			new Point("V", 5),
+			new Point("IX", 9),
+			new Point("X", 10),
+			new Point("XL", 40),
+			new Point("L", 50),
+			new Point("XC", 90),
+			new Point("C", 100),
+			new Point("C", 100),
+			new Point("CD", 400),
+			new Point("D", 500),
+			new Point("CM", 900),
+			new Point("M", 1000)
+	};
+
+	private static class Point {
+		public String key;
+		public int value;
+
+		public Point(String key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+	}
 
 	private static void type1() {
 		int num = 2994;
@@ -54,14 +93,5 @@ public class IntegerToRoman {
 		System.out.println(sb);
 	}
 
-	private static class Point {
-		public String key;
-		public int value;
-
-		public Point(String key, int value) {
-			this.key = key;
-			this.value = value;
-		}
-	}
 
 }
