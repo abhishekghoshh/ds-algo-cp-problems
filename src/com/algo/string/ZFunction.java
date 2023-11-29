@@ -1,28 +1,30 @@
-package string;
+package com.algo.string;
 
 import java.util.Arrays;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/1112619?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
- * 
+ * https://www.codingninjas.com/codestudio/problems/1112619
+ *
  * Solution link :
- * https://www.youtube.com/watch?v=QlwzsWs0oyc -> pepcoding
+ * pepcoding : https://www.youtube.com/watch?v=QlwzsWs0oyc
  * 
  */
-public class ZFuntion {
+public class ZFunction {
 
-	// TODO study later
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
-	// Z array
+	// Z array or lps array
+	// Longest-Prefix-Suffix Array
 	private static void type2() {
-		String str = "aaxaabcaaaaxaabcaa";
-		char[] st = str.toCharArray();
+		String text = "aaxaabcaaaaxaabcaa";
+		char[] st = text.toCharArray();
 		int[] lps = new int[st.length];
 		int i = 1, j = 0;
 		while (i < st.length) {
@@ -63,11 +65,6 @@ public class ZFuntion {
 		print(zArray);
 	}
 
-	private static void print(int[] nums) {
-		for (int num : nums) {
-			System.out.print(num + " ");
-		}
-		System.out.println();
-	}
+
 
 }

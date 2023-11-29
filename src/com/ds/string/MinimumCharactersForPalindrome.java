@@ -1,23 +1,20 @@
-package string;
+package com.ds.string;
 
 /*
  * Problem link :
+ * https://leetcode.com/problems/shortest-palindrome
  * https://www.interviewbit.com/problems/minimum-characters-required-to-make-a-string-palindromic/
- * https://www.codingninjas.com/codestudio/problems/893000?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTab=1
+ * https://www.codingninjas.com/studio/problems/minimum-characters-for-palindrome_893000
+ * https://www.codingninjas.com/codestudio/problems/893000
  * 
  * Solution link :
- * https://www.youtube.com/watch?v=rLq2vMILp-c
- * 
- * https://www.youtube.com/watch?v=j-1NLHybCSg
- * 
- * https://www.youtube.com/watch?v=j-1NLHybCSg
- * 
- * 
- * https://www.youtube.com/watch?v=pE4D55Yti7o
- * https://www.youtube.com/watch?v=y1o7ygP-VpQ
+ * Consistent Code : https://www.youtube.com/watch?v=rLq2vMILp-c
+ * GeeksforGeeks Practice : https://www.youtube.com/watch?v=j-1NLHybCSg
+ * Let's Practice Together : https://www.youtube.com/watch?v=pE4D55Yti7o
+ * Sagar Malhotra : https://www.youtube.com/watch?v=y1o7ygP-VpQ
  * 
  */
-public class MinimumInsertionAtBeginingToMakePalindromeString {
+public class MinimumCharactersForPalindrome {
 
 	public static void main(String[] args) {
 		type1();
@@ -33,6 +30,7 @@ public class MinimumInsertionAtBeginingToMakePalindromeString {
 
 	}
 
+	// TODO study it later
 	// using manacher's algorithm
 	// time complexity O(2n)
 	private static void type3() {
@@ -76,6 +74,7 @@ public class MinimumInsertionAtBeginingToMakePalindromeString {
 	private static void type2() {
 		String s = "abcd";
 		char[] arr = s.toCharArray();
+		int n = arr.length;
 		int start = 0, end = arr.length - 1;
 		int last = end;
 		int count = 0;
@@ -90,28 +89,54 @@ public class MinimumInsertionAtBeginingToMakePalindromeString {
 			}
 		}
 		System.out.println(count);
+		int n1 = count + n;
+		char[] answer = new char[n1];
+		for (int i = 0, j = 0; i < n1; i++) {
+			if (count > 0) {
+				answer[i] = arr[n - 1 - i];
+				count--;
+			} else {
+				answer[i] = arr[j++];
+			}
+		}
+		String output = new String(answer);
+		System.out.println(output);
 	}
 
 	// brute force approach
+	// we will check 0 to n if it is a palindrome or not
+	// if it is not, then we will decrease from the end
+	// if a string is aac then the minimum character addition to make
+	// it a palindrome is c at the start the string will be caac
+	// if the string is abc then we have to add cb at the start to make
+	// it a palindrome.the string will become cbabc
 	private static void type1() {
 		String s = "abcd";
 		char[] arr = s.toCharArray();
-		int n = arr.length - 1;
-		int count = 0;
-		while (n > 0) {
-			if (isPalindrome(arr, 0, n - count))
-				break;
-			count++;
-		}
+		int n = arr.length, end = arr.length;
+		while (!isPalindrome(arr, end - 1)) end--;
+		int count = arr.length - end;
 		System.out.println(count);
+		int n1 = count + n;
+		char[] answer = new char[n1];
+		for (int i = 0, j = 0; i < n1; i++) {
+			if (count > 0) {
+				answer[i] = arr[n - 1 - i];
+				count--;
+			} else {
+				answer[i] = arr[j++];
+			}
+		}
+		String output = new String(answer);
+		System.out.println(output);
 	}
 
-	private static boolean isPalindrome(char[] arr, int start, int end) {
-		while (start < end) {
-			if (arr[start] != arr[end])
-				return false;
-			start++;
-			end--;
+	private static boolean isPalindrome(char[] arr, int right) {
+		int left = 0;
+		while (left < right) {
+			if (arr[left] != arr[right]) return false;
+			left++;
+			right--;
 		}
 		return true;
 	}

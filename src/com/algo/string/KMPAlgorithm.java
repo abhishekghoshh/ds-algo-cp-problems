@@ -1,16 +1,16 @@
-package string;
+package com.algo.string;
 
 import java.util.Arrays;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
- * https://www.codingninjas.com/codestudio/problems/1112621?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/1112621
  * 
  * Solution link :
- * https://www.youtube.com/watch?v=__Cu92rei1s -> pepcoding
- * 
- * https://www.youtube.com/watch?v=JoF0Z7nVSrA -> neetcode
+ * pepcoding : https://www.youtube.com/watch?v=__Cu92rei1s
+ *
+ * neetcode : https://www.youtube.com/watch?v=JoF0Z7nVSrA
  * 
  */
 public class KMPAlgorithm {
@@ -25,14 +25,16 @@ public class KMPAlgorithm {
 	// here we are thinking in terms of longest prefix suffix array
 	// check pepcoding for explanation
 	private static void type2() {
-		String str = "aaxaabcaaaaxaabcaa";
-		String ptrn = "aabcaa";
+		String string = "aaxaabcaaaaxaabcaa";
+		String pattern = "aabcaa";
 
-		char[] st = (ptrn + "&" + str).toCharArray();
-		int[] lps = new int[st.length];
+		char[] st = (pattern + "&" + string).toCharArray();
+		int n1 = st.length;
+		int n2 = pattern.length();
+		int[] lps = new int[n1];
 
 		int i = 1, j = 0;
-		while (i < st.length) {
+		while (i < n1) {
 			if (st[i] == st[j]) {
 				lps[i] = j + 1;
 				i++;
@@ -44,9 +46,8 @@ public class KMPAlgorithm {
 			}
 		}
 		int count = 0;
-		for (int num : lps) {
-			count += num == ptrn.length() ? 1 : 0;
-		}
+		for (int num : lps) count += num == n2 ? 1 : 0;
+
 		System.out.println(count);
 	}
 

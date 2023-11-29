@@ -1,6 +1,6 @@
 # Resources
 
-#### Topics
+#### Algorithm
 - **sort**
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
@@ -13,6 +13,12 @@
   - [Count sort](/src/com/algo/sort/CountSort.java)
   - [Radix sort](/src/com/algo/sort/RadixSort.java)
   - [Heap sort](/src/com/algo/sort/HeapSort.java)
+- **string**
+  - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
+  - [Z-Function](/src/com/algo/string/ZFunction.java)
+  - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
+
+#### Data-Structure
 - **array**
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
@@ -120,6 +126,7 @@
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
+  - [Reverse Words](/src/com/ds/string/ReverseWords.java)
   - [Largest Odd Number in String](/src/com/ds/string/LargestOddNumberInString.java)
   - [Longest Common Prefix](/src/com/ds/string/LongestCommonPrefix.java)
   - [Isomorphic Strings](/src/com/ds/string/IsomorphicStrings.java)
@@ -136,6 +143,10 @@
     - dynamic-programming
     - array
   - [Sum of Beauty of All Substrings](/src/com/ds/string/SumOfBeautyOfAllSubstrings.java)
+  - [Minimum Add to Make Parentheses Valid](/src/com/ds/string/MinimumAddToMakeParenthesesValid.java)
+  - [Count and Say](/src/com/ds/string/CountAndSay.java)
+  - [Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
+  - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
 - **linked-list**
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
 - **recursion**
