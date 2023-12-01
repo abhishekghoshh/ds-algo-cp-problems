@@ -122,6 +122,11 @@
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
     - dynamic-programming
 - **binary-search**
+  - [Binary Search](/src/com/ds/binarysearch/BinarySearch.java)
+  - [Lower Bound](/src/com/ds/binarysearch/LowerBound.java)
+  - [Upper Bound](/src/com/ds/binarysearch/UpperBound.java)
+  - [Search Insert Position](/src/com/ds/binarysearch/SearchInsertPosition.java)
+  - [Floor and Ceil in Sorted Array](/src/com/ds/binarysearch/FloorAndCeilInSortedArray.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
@@ -145,7 +150,7 @@
   - [Sum of Beauty of All Substrings](/src/com/ds/string/SumOfBeautyOfAllSubstrings.java)
   - [Minimum Add to Make Parentheses Valid](/src/com/ds/string/MinimumAddToMakeParenthesesValid.java)
   - [Count and Say](/src/com/ds/string/CountAndSay.java)
-  - [Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
+  - [Shortest Palindrome | Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
   - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
   - [Count Palindromic Subsequences](/src/com/ds/string/CountPalindromicSubsequences.java)
   - [Repeated String Match](/src/com/ds/string/RepeatedStringMatch.java)
