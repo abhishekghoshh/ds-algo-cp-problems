@@ -16,18 +16,76 @@ package com.ds.string;
  */
 public class MinimumCharactersForPalindrome {
 
+	// TODO study it later
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
 		type4();
+		type5();
+		type6();
 	}
 
-	// using KMP algorithm
-	// LPS array -> longest prefix suffix array
-	// check geeksforgeeks solution
-	private static void type4() {
+	private static void type6() {
+		String text = "AACECAAAA";
+		String reverse = new StringBuilder(text).reverse().toString();
+		//appending the reversed string with space to avoid mixing the original and reversed string. eg, aaaa and aaaa
+		String s = text + "#" + reverse;
+		int[] lps = new int[s.length() + 1];
+		lps[0] = 0;
+		int i = 1, prefixLen = 0;
+		while (i < s.length()) {
+			if (s.charAt(i) == s.charAt(prefixLen)) {
+				lps[i++] = ++prefixLen;
+			} else if (prefixLen > 0) {
+				prefixLen = lps[prefixLen - 1];
+			} else {
+				lps[i++] = 0;
+			}
+		}
+		//used the start subsequence of reversed string using the LPS array.
+		String output = reverse.substring(0, reverse.length() - lps[s.length() - 1]) + s;
+		System.out.println(output);
+	}
 
+	private static void type5() {
+		String s = "AACECAAAA";
+		int pow = 1, p = 31;
+		int hash1 = 0, hash2 = 0;
+		int pos = -1;
+		int n = s.length();
+		for (int i = 0; i < n; ++i) {
+			hash1 = (hash1 * p) + s.charAt(i) - 'a' + 1;
+			hash2 = hash2 + ((s.charAt(i) - 'a' + 1) * pow);
+			pow *= p;
+			if (hash1 == hash2)
+				pos = i;
+		}
+		String output = new StringBuilder().append(s.substring(pos + 1)).reverse().append(s).toString();
+		System.out.println(output);
+	}
+
+
+	// TODO best solution in leetcode
+	private static void type4() {
+		String s = "AACECAAAA";
+		int n = s.length();
+		int prefix = 0, postfix = 0, base = 31, pow = 1;
+		int maxLen = 0;
+		for (int i = 0; i < n; i++) {
+			int c = s.charAt(i) - 'a';
+			prefix = prefix * base + c;
+			postfix += c * pow;
+			pow *= base;
+			if (prefix == postfix)
+				maxLen = i + 1;
+		}
+		StringBuilder builder = new StringBuilder(maxLen + 2 * (n - maxLen));
+		for (int i = n - 1; i >= maxLen; i--)
+			builder.append(s.charAt(i));
+		builder.append(s);
+		String output = builder.toString();
+		System.out.println(output);
 	}
 
 	// TODO study it later
@@ -35,7 +93,7 @@ public class MinimumCharactersForPalindrome {
 	// time complexity O(2n)
 	private static void type3() {
 		String s = "AACECAAAA";
-		int maxPalindromeFromStart = 0;
+		int max = 0;
 		int n = 2 * s.length() + 3;
 		// initializing the transformed array
 		char[] arr = new char[n];
@@ -62,10 +120,10 @@ public class MinimumCharactersForPalindrome {
 			// modification on manacher's algorithm
 			// when the left window is from start
 			if (arr[i - 1 - lps[i]] == '@') {
-				maxPalindromeFromStart = Math.max(maxPalindromeFromStart, lps[i]);
+				max = Math.max(max, lps[i]);
 			}
 		}
-		int answer = s.length() - maxPalindromeFromStart;
+		int answer = s.length() - max;
 		System.out.println(answer);
 	}
 

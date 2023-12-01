@@ -51,6 +51,8 @@ public class KMPAlgorithm {
 		System.out.println(count);
 	}
 
+	// TODO fix this solution
+	// it is not working
 	// check algoexpert for explanation
 	private static void type1() {
 		String str = "aaxaabcaaaax";

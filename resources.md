@@ -147,6 +147,8 @@
   - [Count and Say](/src/com/ds/string/CountAndSay.java)
   - [Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
   - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
+  - [Count Palindromic Subsequences](/src/com/ds/string/CountPalindromicSubsequences.java)
+  - [Repeated String Match](/src/com/ds/string/RepeatedStringMatch.java)
 - **linked-list**
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
 - **recursion**
