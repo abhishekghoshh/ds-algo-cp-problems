@@ -127,6 +127,14 @@
   - [Upper Bound](/src/com/ds/binarysearch/UpperBound.java)
   - [Search Insert Position](/src/com/ds/binarysearch/SearchInsertPosition.java)
   - [Floor and Ceil in Sorted Array](/src/com/ds/binarysearch/FloorAndCeilInSortedArray.java)
+  - [Find the first or last occurrence of a given number in a sorted array](/src/com/ds/binarysearch/FirstAndLastOccurrenceOfANumberInASortedArray.java)
+  - [Count Occurrences in Sorted Array](/src/com/ds/binarysearch/CountOccurrencesInSortedArray.java)
+  - [Search in Rotated Sorted Array I](/src/com/ds/binarysearch/BinarySearchOnRotatedArray1.java)
+  - [Search in Rotated Sorted Array II](/src/com/ds/binarysearch/BinarySearchOnRotatedArray2.java)
+  - [Find out how many times the array has been rotated](/src/com/ds/binarysearch/NoOfTimesSortedArrayRotated.java)
+  - [Minimum in Rotated Sorted Array](/src/com/ds/binarysearch/MinimumInRotatedSortedArray.java)
+  - [Single Element in a Sorted Array](/src/com/ds/binarysearch/SingleElementInSortedArray.java)
+  - [Find peak element](/src/com/ds/binarysearch/FindPeakElement.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)

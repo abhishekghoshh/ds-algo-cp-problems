@@ -1,14 +1,17 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/find-peak-element/submissions/
+ * https://www.codingninjas.com/studio/problems/find-peak-element_1081482
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=cXxmbemS6XM
  * https://www.youtube.com/watch?v=OINnBJTRrMU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=17
- * 
+ *
+ * https://takeuforward.org/data-structure/peak-element-in-array/
  * */
-public class PeakElement {
+public class FindPeakElement {
 
 	public static void main(String[] args) {
 		type2();
@@ -17,29 +20,24 @@ public class PeakElement {
 	}
 
 	private static void type3() {
-		int nums[] = { 5, 25, 20, 15, 2, 23, 90, 67 };
+		int[] nums = {5, 25, 20, 15, 2, 23, 90, 67};
 		int index = findPeakElement(nums);
-		System.out.println(String.format("arr[%d] : %d", index, nums[index]));
+		System.out.printf("arr[%d] : %d%n", index, nums[index]);
 	}
 
+	// in one array, there can be multiple peaks
 	public static int findPeakElement(int[] nums) {
-		int n = nums.length - 1;
-		if (n == 0 || nums[0] > nums[1])
-			return 0;
-		if (nums[n] > nums[n - 1])
-			return n;
-		int flag = -1;
-		int l = 0, r = n;
-		while (l <= r) {
-			int mid = (l + r) / 2;
-			if (nums[mid] > nums[mid + 1] && nums[mid] > nums[mid - 1])
-				flag = mid;
-			if (nums[mid + 1] > nums[mid])
-				l = mid + 1;
-			else
-				r = mid - 1;
+		int n = nums.length;
+		if (n == 1 || nums[0] > nums[1]) return 0;
+		if (nums[n - 1] > nums[n - 2]) return n - 1;
+		int low = 0, high = n - 1, mid;
+		while (low <= high) {
+			mid = (low + high) / 2;
+			if (nums[mid] > nums[mid + 1] && nums[mid] > nums[mid - 1]) return mid;
+			if (nums[mid + 1] > nums[mid]) low = mid + 1;
+			else high = mid - 1;
 		}
-		return flag;
+		return -1;
 	}
 
 	// A peak element is an element that is strictly greater than its neighbors.
@@ -51,7 +49,7 @@ public class PeakElement {
 		int low = 0;
 		int high = nums.length - 1;
 		int index = findPeak(nums, low, high, nums.length);
-		System.out.println(String.format("arr[%d] : %d", index, nums[index]));
+		System.out.printf("arr[%d] : %d%n", index, nums[index]);
 	}
 
 	private static int findPeak(int[] nums, int low, int high, int n) {
