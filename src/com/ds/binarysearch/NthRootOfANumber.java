@@ -1,11 +1,14 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
- * Problem link : 
- * https://www.codingninjas.com/codestudio/problems/1062679?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/1062679
+ * https://www.codingninjas.com/studio/problems/nth-root-of-m_1062679
  * 
  * Solution is :
+ * https://www.youtube.com/watch?v=rjEJeYCasHs
  * https://www.youtube.com/watch?v=WjpswYrS2nY&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=63
+ *
  * https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/
  * https://www.geeksforgeeks.org/n-th-root-number/
  * */
@@ -30,14 +33,12 @@ public class NthRootOfANumber {
 				high = mid;
 			}
 		}
-		System.out.println(n + "th root of " + m + " is " + low);
+		System.out.println(low);
 	}
 
 	private static double pow(double number, int n) {
 		double ans = 1.0;
-		for (int i = 1; i <= n; i++) {
-			ans = ans * number;
-		}
+		for (int i = 1; i <= n; i++) ans = ans * number;
 		return ans;
 	}
 

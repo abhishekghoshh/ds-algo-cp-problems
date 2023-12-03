@@ -135,6 +135,9 @@
   - [Minimum in Rotated Sorted Array](/src/com/ds/binarysearch/MinimumInRotatedSortedArray.java)
   - [Single Element in a Sorted Array](/src/com/ds/binarysearch/SingleElementInSortedArray.java)
   - [Find peak element](/src/com/ds/binarysearch/FindPeakElement.java)
+  - [Finding Integer Sqrt of a number](/src/com/ds/binarysearch/SquareRoot.java)
+  - [Finding Fractional Sqrt of a number](/src/com/ds/binarysearch/FractionalSquareRoot.java)
+  - [Nth Root of a Number](/src/com/ds/binarysearch/NthRootOfANumber.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)

@@ -1,16 +1,14 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
  *
  * problem links :
- * https://leetcode.com/problems/sqrtx/
  *
  * Solution link :
  *
  *
- *
  * */
-public class SquareRoot {
+public class FractionalSquareRoot {
 
 	public static void main(String[] args) {
 		type1();
@@ -27,8 +25,7 @@ public class SquareRoot {
 		double x = n, root;
 		while (true) {
 			root = (x + n / x) / 2;
-			if (Math.abs(root - x) <= precision)
-				break;
+			if (Math.abs(root - x) <= precision) break;
 			x = root;
 		}
 		System.out.println(root);
@@ -38,25 +35,22 @@ public class SquareRoot {
 	private static void type2() {
 		int n = 40;
 		double precision = 1e-14;
-		double low = 0, high = n, answer = 0;
+		double low = 0, high = n, answer = 0, mid, square;
 		while (low < high) {
-			double mid = low + (high - low) / 2;
-			double square = mid * mid;
+			mid = low + (high - low) / 2;
+			square = mid * mid;
 			if (Math.abs(square - n) <= precision) {
 				answer = mid;
 				break;
-			} else if (square > n) {
-				high = mid;
-			} else {
-				low = mid;
-			}
+			} else if (square > n) high = mid;
+			else low = mid;
 		}
 		System.out.println(answer);
 	}
 
 	private static void type1() {
 		int n = 40;
-		int sqrt = (int) Math.sqrt(n);
+		double sqrt = Math.sqrt(n);
 		System.out.println(sqrt);
 	}
 
