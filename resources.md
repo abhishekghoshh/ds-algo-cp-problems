@@ -138,6 +138,9 @@
   - [Finding Integer Sqrt of a number](/src/com/ds/binarysearch/SquareRoot.java)
   - [Finding Fractional Sqrt of a number](/src/com/ds/binarysearch/FractionalSquareRoot.java)
   - [Nth Root of a Number](/src/com/ds/binarysearch/NthRootOfANumber.java)
+  - [Koko Eating Bananas](/src/com/ds/binarysearch/KokoEatingBananas.java)
+  - [Minimum Number of Days to Make m Bouquets](/src/com/ds/binarysearch/MinimumDaysToMakeMBouquets.java)
+  - [Find the Smallest Divisor Given a Threshold](/src/com/ds/binarysearch/FindTheSmallestDivisorGivenThreshold.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
