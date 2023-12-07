@@ -99,6 +99,7 @@
   - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
   - [Car Fleet](/src/com/ds/array/CarFleet.java) **TBD**
   - [Remove Element](/src/com/ds/array/RemoveElement.java) **TBD**
+  - [Reverse Integer](/src/com/ds/array/ReverseInteger.java)
 - **sliding-window**
   - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
@@ -141,6 +142,10 @@
   - [Koko Eating Bananas](/src/com/ds/binarysearch/KokoEatingBananas.java)
   - [Minimum Number of Days to Make m Bouquets](/src/com/ds/binarysearch/MinimumDaysToMakeMBouquets.java)
   - [Find the Smallest Divisor Given a Threshold](/src/com/ds/binarysearch/FindTheSmallestDivisorGivenThreshold.java)
+  - [Capacity To Ship Packages Within D Days](/src/com/ds/binarysearch/CapacityToShipPackagesWithinDDays.java)
+  - [Kth Missing Positive Number](/src/com/ds/binarysearch/KthMissingPositiveNumber.java)
+  - [Aggressive Cows](/src/com/ds/binarysearch/AggressiveCows.java)
+  - [Allocate Minimum Number of Pages](/src/com/ds/binarysearch/AllocateMinimumNumberOfPages.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
