@@ -1,12 +1,15 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
- * Problem link : 
- * https://www.codingninjas.com/codestudio/problems/985294?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
  * https://leetcode.com/problems/median-of-two-sorted-arrays/
- * 
+ * https://www.codingninjas.com/studio/problems/median-of-two-sorted-arrays_985294
+ * https://www.codingninjas.com/codestudio/problems/985294
+ *
  * Solution is :
  * https://www.youtube.com/watch?v=NTop3VTjmxk&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=66
+ *
+ *
  * https://takeuforward.org/data-structure/median-of-two-sorted-arrays-of-different-sizes/
  * */
 public class MedianOfTwoSortedArray {
@@ -15,8 +18,44 @@ public class MedianOfTwoSortedArray {
 		type1();
 		type2();
 		type3();
+		type4();
 	}
 
+	// same as previous just it looks clean
+	private static void type4() {
+		int[] nums1 = {2, 4, 6, 8};
+		int[] nums2 = {1, 3, 5, 7};
+		double answer = findMedian(nums1, nums2);
+		System.out.println(answer);
+	}
+
+	public static double findMedian(int[] a, int[] b) {
+		int n1 = a.length, n2 = b.length;
+		//if n1 is bigger swap the arrays:
+		if (n1 > n2) return findMedian(b, a);
+		int n = n1 + n2; //total length
+		int left = (n1 + n2 + 1) / 2; //length of left half
+		//apply binary search:
+		int low = 0, high = n1;
+		while (low <= high) {
+			int mid1 = (low + high) / 2;
+			int mid2 = left - mid1;
+			//calculate l1, l2, r1 and r2;
+			int l1 = (mid1 > 0) ? a[mid1 - 1] : Integer.MIN_VALUE;
+			int l2 = (mid2 > 0) ? b[mid2 - 1] : Integer.MIN_VALUE;
+			int r1 = (mid1 < n1) ? a[mid1] : Integer.MAX_VALUE;
+			int r2 = (mid2 < n2) ? b[mid2] : Integer.MAX_VALUE;
+
+			if (l1 <= r2 && l2 <= r1) {
+				if (n % 2 == 1) return Math.max(l1, l2);
+				else return ((double) (Math.max(l1, l2) + Math.min(r1, r2))) / 2.0;
+			} else if (l1 > r2) high = mid1 - 1;
+			else low = mid1 + 1;
+		}
+		return 0; //dummy statement
+	}
+
+	// TODO check this solution one more time
 	// binary search approach
 	// we will try to find the partition from both of the array
 	// such that the numbers in the left portion and the number in the right portion
@@ -26,10 +65,6 @@ public class MedianOfTwoSortedArray {
 	private static void type3() {
 		int[] nums1 = { 2, 4, 6, 8 };
 		int[] nums2 = { 1, 3, 5, 7 };
-
-//		int[] nums1 = { 5 };
-//		int[] nums2 = { 2, 4, 7, 11 ,15 };
-
 		double answer = findMedian(nums1, nums2, nums1.length, nums2.length);
 		System.out.println(answer);
 	}
@@ -38,9 +73,7 @@ public class MedianOfTwoSortedArray {
 	// space complexity O(1)
 	private static double findMedian(int[] nums1, int[] nums2, int n1, int n2) {
 		// we are assuming that the first array is always less in size
-		if (n1 > n2) {
-			return findMedian(nums2, nums1, n2, n1);
-		}
+		if (n1 > n2) return findMedian(nums2, nums1, n2, n1);
 		// low = 0 means we are not taking any elements from 1st array as the element of
 		// the 1st array are higher than the second array so element in the first array
 		// will fall after the median
@@ -81,41 +114,31 @@ public class MedianOfTwoSortedArray {
 			// than r1 and l2 will always be less than r2, but in the median l1 will also be
 			// less than the r2 and l2 will also be less than r1, that will make a perfect
 			// partition
-			if (l1 <= r2 && l2 <= r1) {
-				if ((n1 + n2) % 2 == 0) {
-					return ((double) Math.max(l1, l2) + Math.min(r1, r2)) / 2;
-				} else {
-					return Math.max(l1, l2);
-				}
-			} else if (l1 > r2) {
-				high = cut1 - 1;
-			} else {
-				low = cut1 + 1;
-			}
-
+			if (l1 <= r2 && l2 <= r1)
+				if ((n1 + n2) % 2 == 0) return ((double) Math.max(l1, l2) + Math.min(r1, r2)) / 2;
+				else return Math.max(l1, l2);
+			else if (l1 > r2) high = cut1 - 1;
+			else low = cut1 + 1;
 		}
 		return 0;
 	}
 
+	// same as previous just here we are not creating any other array
+	// we are using extra variable
 	// merge approach but without using the array
 	// space complexity O(1)
 	private static void type2() {
 		int[] nums1 = { 2, 4, 6, 8 };
 		int[] nums2 = { 1, 3, 5, 7 };
 
-//		int[] nums1 = { 5 };
-//		int[] nums2 = { 2, 4, 7, 11 ,15 };
-
 		int n1 = nums1.length, n2 = nums2.length, left = 0, right = 0;
+		int n = n1 + n2;
 		double answer = -1, prev = -1;
 		int medianIndex = (n1 + n2) / 2;
 		while (left < n1 && right < n2 && (left + right) <= medianIndex) {
 			prev = answer;
-			if (nums1[left] <= nums2[right]) {
-				answer = nums1[left++];
-			} else {
-				answer = nums2[right++];
-			}
+			if (nums1[left] <= nums2[right]) answer = nums1[left++];
+			else answer = nums2[right++];
 		}
 		while (left < n1 && (left + right) <= medianIndex) {
 			prev = answer;
@@ -125,43 +148,30 @@ public class MedianOfTwoSortedArray {
 			prev = answer;
 			answer = nums2[right++];
 		}
-		if ((n1 + n2) % 2 == 0) {
-			answer = (answer + prev) / 2;
-		}
+		if (n % 2 == 0) answer = (answer + prev) / 2;
+
 		System.out.println(answer);
 	}
 
-	// merge approach in merge sort
+	// merge algorithm in merge sort approach in merge sort
 	// time complexity O(n1+n2)
 	// space complexity O(n1+n2)
 	private static void type1() {
 		int[] nums1 = { 2, 4, 6, 8 };
 		int[] nums2 = { 1, 3, 5, 7 };
 
-//		int[] nums1 = { 5 };
-//		int[] nums2 = { 2, 4, 7, 11 ,15 };
-
-		int n1 = nums1.length, n2 = nums2.length, left = 0, right = 0, index = 0;
+		int n1 = nums1.length, n2 = nums2.length, left = 0, right = 0, i = 0;
+		int n = n1 + n2;
 		double answer;
 		int[] nums = new int[n1 + n2];
-		while (left < n1 && right < n2) {
-			if (nums1[left] <= nums2[right]) {
-				nums[index++] = nums1[left++];
-			} else {
-				nums[index++] = nums2[right++];
-			}
-		}
-		while (left < n1) {
-			nums[index++] = nums1[left++];
-		}
-		while (right < n2) {
-			nums[index++] = nums2[right++];
-		}
-		if ((n1 + n2) % 2 == 0) {
-			answer = ((double) nums[(n1 + n2) / 2 - 1] + nums[(n1 + n2) / 2]) / 2;
-		} else {
-			answer = nums[(n1 + n2) / 2];
-		}
+		while (left < n1 && right < n2)
+			if (nums1[left] <= nums2[right]) nums[i++] = nums1[left++];
+			else nums[i++] = nums2[right++];
+		while (left < n1) nums[i++] = nums1[left++];
+		while (right < n2) nums[i++] = nums2[right++];
+
+		if (n % 2 == 0) answer = ((double) nums[n / 2 - 1] + nums[n / 2]) / 2;
+		else answer = nums[n / 2];
 		print(nums);
 		System.out.println(answer);
 	}

@@ -1,4 +1,4 @@
-package util;
+package com.util;
 
 public class ArrayBuilder {
 	public static int[] buildArrayFromTestString(String str) {

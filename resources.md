@@ -23,8 +23,6 @@
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
-  - [Search in a sorted 2D matrix](/src/com/ds/array/SearchInRowAndColumnSortedMatrix.java)
-    - binary-search
   - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java)
     - hashing
     - swap-sort
@@ -146,7 +144,14 @@
   - [Kth Missing Positive Number](/src/com/ds/binarysearch/KthMissingPositiveNumber.java)
   - [Aggressive Cows](/src/com/ds/binarysearch/AggressiveCows.java)
   - [Allocate Minimum Number of Pages](/src/com/ds/binarysearch/AllocateMinimumNumberOfPages.java)
-  - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java) **TBD**
+  - [Split Array Largest Sum](/src/com/ds/binarysearch/SplitArrayLargestSum.java)
+  - [Painter's Partition Problem](/src/com/ds/binarysearch/PaintersPartitionProblem.java)
+  - [Minimize Max Distance to Gas Station](/src/com/ds/binarysearch/MinimizeMaxDistanceToGasStation.java)
+  - [Median of Two Sorted Arrays](/src/com/ds/binarysearch/MedianOfTwoSortedArray.java)
+  - [K-th Element of Two Sorted Arrays](/src/com/ds/binarysearch/KthElementOfTwoSortedArrays.java)
+  - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java)
+  - [Find the row with maximum number of 1](/src/com/ds/binarysearch/FindTheRowWithMaximumNumberOfOne.java)
+  - [Search in a sorted 2D matrix](/src/com/ds/array/SearchInRowAndColumnSortedMatrix.java)
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
