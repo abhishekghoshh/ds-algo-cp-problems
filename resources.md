@@ -151,7 +151,8 @@
   - [K-th Element of Two Sorted Arrays](/src/com/ds/binarysearch/KthElementOfTwoSortedArrays.java)
   - [Count Negative Numbers in a Sorted Matrix](/src/com/ds/binarysearch/CountNegativeNumbersInSortedMatrix.java)
   - [Find the row with maximum number of 1](/src/com/ds/binarysearch/FindTheRowWithMaximumNumberOfOne.java)
-  - [Search in a sorted 2D matrix](/src/com/ds/array/SearchInRowAndColumnSortedMatrix.java)
+  - [Search in a sorted 2D matrix](/src/com/ds/binarysearch/SearchInRowAndColumnSortedMatrix.java)
+  - [Search a 2D Matrix II](/src/com/ds/binarysearch/SearchInRowAndColumnSortedMatrix2.java)
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
