@@ -1,4 +1,4 @@
-package com.ds.array;
+package com.ds.binarysearch;
 
 /*
  * Problem link :
@@ -19,9 +19,10 @@ public class SearchInRowAndColumnSortedMatrix {
 		type1();
 		type2();
 		type3();
-
 	}
 
+
+	// TODO best approach
 	// When integers are sorted row wise and column
 	// means a[i][n-1] < a[i+1][0]
 	// start element of a row is greater than last element of previous row
@@ -29,9 +30,6 @@ public class SearchInRowAndColumnSortedMatrix {
 	// we can think of the matrix as a large sorted array stored in a matrix
 	// time complexity is o(log(n*m))
 	private static void type3() {
-		// int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
-//		int[][] matrix = { { 1, 1 } };
-//		int target = 6;
 		int[][] matrix = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 27, 29, 37, 48 }, { 32, 33, 39, 50 } };
 		int target = 50;
 		int row = matrix.length;
@@ -62,23 +60,16 @@ public class SearchInRowAndColumnSortedMatrix {
 	// from there we will go either left side or bottom side
 	// time complexity is o(n+m)
 	private static void type2() {
-//		int[][] matrix = { { 1, 3, 5, 12 }, { 10, 11, 16, 20 }, { 17, 18, 19, 23 } };
-//		int target = 18;
 		int[][] matrix = { { 10, 15, 17, 20 }, { 22, 23, 25, 27 }, { 28, 29, 32, 35 }, { 37, 39, 45, 50 } };
 		int target = 50;
 		int row = matrix.length;
 		int column = matrix[0].length;
 		int r = 0;
 		int c = column - 1;
-		while (r <= row - 1 && c >= 0) {
-			if (matrix[r][c] > target) {
-				c--;
-			} else if (matrix[r][c] < target) {
-				r++;
-			} else {
-				break;
-			}
-		}
+		while (r <= row - 1 && c >= 0)
+			if (matrix[r][c] > target) c--;
+			else if (matrix[r][c] < target) r++;
+			else break;
 		System.out.printf("arr[%d][%d] = %d%n", r, c, matrix[r][c]);
 	}
 
@@ -91,13 +82,12 @@ public class SearchInRowAndColumnSortedMatrix {
 		int column = matrix[0].length;
 		int x = -1, y = -1;
 		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < column; j++) {
+			for (int j = 0; j < column; j++)
 				if (matrix[i][j] == target) {
 					x = i;
 					y = j;
 					break;
 				}
-			}
 			if (x != -1) break;
 		}
 		System.out.printf("arr[%d][%d] = %d%n", x, y, matrix[x][y]);
