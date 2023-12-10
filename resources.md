@@ -153,6 +153,8 @@
   - [Find the row with maximum number of 1](/src/com/ds/binarysearch/FindTheRowWithMaximumNumberOfOne.java)
   - [Search in a sorted 2D matrix](/src/com/ds/binarysearch/SearchInRowAndColumnSortedMatrix.java)
   - [Search a 2D Matrix II](/src/com/ds/binarysearch/SearchInRowAndColumnSortedMatrix2.java)
+  - [Find a Peak Element II](/src/com/ds/binarysearch/FindPeakElementII.java)
+  - [Median of Row Wise Sorted Matrix](/src/com/ds/binarysearch/MedianOfRowWiseSortedMatrix.java)
 - **string**
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
