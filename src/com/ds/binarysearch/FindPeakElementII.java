@@ -28,13 +28,13 @@ public class FindPeakElementII {
     public static int[] findPeakGrid(int[][] mat) {
         int n = mat.length;
         int m = mat[0].length;
-        int low = 0, high = mat[0].length, mid;
+        int low = 0, high = m, mid;
         int row, left, right;
         while (low <= high) {
             mid = low + (high - low) / 2;
-            row = maxCol(mat, n, m, mid);
-            left = mid - 1 >= 0 ? mat[row][mid - 1] : -1;
-            right = mid + 1 < m ? mat[row][mid + 1] : -1;
+            row = maxRowForCol(mat, n, mid);
+            left = mid > 0 ? mat[row][mid - 1] : -1;
+            right = mid < m - 1 ? mat[row][mid + 1] : -1;
             if (mat[row][mid] > left && mat[row][mid] > right) return new int[]{row, mid};
             else if (mat[row][mid] < left) high = mid - 1;
             else low = mid + 1;
@@ -42,7 +42,7 @@ public class FindPeakElementII {
         return new int[]{-1, -1};
     }
 
-    public static int maxCol(int[][] mat, int n, int m, int col) {
+    public static int maxRowForCol(int[][] mat, int n, int col) { 
         int ind = -1;
         int max = -1;
         for (int i = 0; i < n; i++) {

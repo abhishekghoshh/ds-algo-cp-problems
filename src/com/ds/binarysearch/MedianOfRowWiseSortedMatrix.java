@@ -21,6 +21,36 @@ public class MedianOfRowWiseSortedMatrix {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	private static void type3() {
+		int[][] matrix = {{2, 5, 5}, {2, 5, 12}, {3, 5, 15}};
+		int answer = findMedian(matrix, matrix.length, matrix[0].length);
+		System.out.println(answer);
+	}
+
+	public static int findMedian(int[][] matrix, int m, int n) {
+		int low = 1;
+		int high = Integer.MAX_VALUE;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			int cnt = 0;
+			for (int i = 0; i < m; i++) cnt += findSmallerOrEqualThanMid(matrix[i], mid);
+			if (cnt <= (m * n) / 2) low = mid + 1;
+			else high = mid - 1;
+		}
+		return low;
+	}
+
+	public static int findSmallerOrEqualThanMid(int[] arr, int mid) {
+		int low = 0, high = arr.length - 1;
+		while (low <= high) {
+			int md = low + ((high - low) >> 1);
+			if (arr[md] <= mid) low = md + 1;
+			else high = md - 1;
+		}
+		return low;
 	}
 
 	// https://www.geeksforgeeks.org/find-median-row-wise-sorted-matrix/#:~:text=Simple%20Method%3A%20The%20simplest%20method,O(r*c).
