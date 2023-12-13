@@ -1,4 +1,4 @@
-package array;
+package com.ds.slidingwindow;
 /*
  * problem link:
  * https://leetcode.com/problems/container-with-most-water/
@@ -14,16 +14,26 @@ public class ContainerWithMostWater {
 	public static void main(String[] args) {
 		type1();
 		type2();
-		
 	}
 
-	// TODO check it later
-	// there is an greedy approach which can be achieved by next greater element technique
+	// try to solve it with the greedy approach
 	private static void type2() {
-		// TODO Auto-generated method stub
-		
 	}
 
+
+	// TODO two pointer approach
+	// The idea is to calculate most watered single container
+	// we don't meed to find it for using multiple containers with different height
+	// lets say the heights are 1 5 4 6 1
+	// the max water can be stored is
+	// 1 to 5 -> 1 unit
+	// 5 to 6 -> 10 unit
+	// 6 to 1 -> 1 unit
+	// but we will only take that continuous water
+	// from 5 to 6
+	// so we will now take two pointer left and right
+	// and we will try to calculate the water in between
+	// and then we will shrink the container size
 	private static void type1() {
 		int[] height = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
 		int left = 0;

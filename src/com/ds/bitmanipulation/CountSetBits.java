@@ -1,8 +1,9 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/number-of-1-bits/
+ * https://www.codingninjas.com/studio/problems/count-total-set-bits_784
  * 
  * Solution link :
  * https://www.codingninjas.com/codestudio/library/count-number-of-set-bits-in-an-integer
@@ -27,6 +28,10 @@ public class CountSetBits {
 		int ones = 0;
 		while (n != 0) {
 			// on each iteration we will remove its right most set bit
+			// let say we want to remove right most set bit from 100110
+			// then n-1 will be 100101
+			// if we do n & n-1
+			// we will get 100100
 			n = n & (n - 1);
 			ones++;
 		}
@@ -55,7 +60,7 @@ public class CountSetBits {
 		// int n = -2147483648;
 		int ones = 0;
 		while (n != 0) {
-			ones = ones + (n & 1);
+			ones += (n & 1);
 			n = n >> 1;
 		}
 		System.out.println(ones);

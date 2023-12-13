@@ -18,11 +18,12 @@ public class FindTheRowWithMaximumNumberOfOne {
         type1();
         type2();
         type3();
+        type3();
     }
 
     // TODO best solution
     // time complexity O(m+n)
-    private static void type3() {
+    private static void type4() {
         ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
         matrix.add(new ArrayList<>(Arrays.asList(1, 1, 1)));
         matrix.add(new ArrayList<>(Arrays.asList(0, 0, 1)));
@@ -43,6 +44,17 @@ public class FindTheRowWithMaximumNumberOfOne {
             }
         }
         System.out.println(maxI);
+    }
+
+    // TODO complete it
+    // optimized from the previous one
+    // we will calculate for the 1st row
+    // then for the next row we will check if there is any 1 present or not
+    // if not then we will go to next row
+    // if yes we will try to calculate the first 1 for that row
+    // we repeat this process until we go till nth row
+    private static void type3() {
+
     }
 
     // binary search approach

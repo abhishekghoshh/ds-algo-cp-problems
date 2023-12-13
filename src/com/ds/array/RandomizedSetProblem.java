@@ -1,15 +1,15 @@
-package array;
+package com.ds.array;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 /*
  * Problem link :
- * 
+ * https://leetcode.com/problems/insert-delete-getrandom-o1/
  * 
  * Solution link :
- * https://leetcode.com/problems/insert-delete-getrandom-o1/submissions/
- * 
+ *
+ *
  */
 public class RandomizedSetProblem {
 
@@ -17,33 +17,40 @@ public class RandomizedSetProblem {
 		type1();
 	}
 
+	private static void type1() {
+		RandomizedSet randomizedSet = new RandomizedSet();
+		randomizedSet.insert(1);
+		randomizedSet.insert(10);
+		randomizedSet.insert(20);
+		randomizedSet.insert(30);
+		for (int i = 0; i < 10; i++) System.out.println(randomizedSet.getRandom());
+	}
+
 	static class RandomizedSet {
 		Map<Integer, Integer> cache;
-		int[] arr = null;
+		int[] arr;
 		int size = 0;
+		Random random;
 
 		public RandomizedSet() {
 			arr = new int[100001];
 			cache = new HashMap<>();
+			random = new Random();
 		}
 
 		public boolean insert(int val) {
-			if (isPresent(val)) {
-				return false;
-			}
+			if (isPresent(val)) return false;
 			cache.put(val, size);
 			arr[size++] = val;
 			return true;
 		}
 
 		private boolean isPresent(int val) {
-			return cache.containsKey(val) && -1 != cache.get(val);
+			return cache.containsKey(val) && (-1 != cache.get(val));
 		}
 
 		public boolean remove(int val) {
-			if (!isPresent(val)) {
-				return false;
-			}
+			if (!isPresent(val)) return false;
 			int index = cache.get(val);
 			cache.put(arr[size - 1], index);
 			swap(arr, size - 1, index);
@@ -59,20 +66,7 @@ public class RandomizedSetProblem {
 		}
 
 		public int getRandom() {
-			// return arr[(int) (Math.random() * (double) size)];
-			return arr[new Random().nextInt(size)];
+			return arr[random.nextInt(size)];
 		}
 	}
-
-	private static void type1() {
-		RandomizedSet randomizedSet = new RandomizedSet();
-		randomizedSet.insert(1);
-		randomizedSet.insert(10);
-		randomizedSet.insert(20);
-		randomizedSet.insert(30);
-		for (int i = 0; i < 10; i++) {
-			System.out.println(randomizedSet.getRandom());
-		}
-	}
-
 }

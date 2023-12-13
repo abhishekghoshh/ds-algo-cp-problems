@@ -1,7 +1,8 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :
+ * https://www.codingninjas.com/studio/problems/odd-even_7993579
  * https://practice.geeksforgeeks.org/problems/odd-or-even3618/1
  * 
  * Solution link :

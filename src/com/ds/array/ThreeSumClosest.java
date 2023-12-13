@@ -1,10 +1,11 @@
-package array;
+package com.ds.array;
 
 import java.util.Arrays;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/3sum-closest/
+ *
  * Solution link
  * 
  * 
@@ -14,7 +15,30 @@ public class ThreeSumClosest {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 
+	}
+
+	private static void type3() {
+		int[] nums = {1, 1, 1, 0};
+		int target = 2;
+		int sum = Integer.MAX_VALUE >> 1;
+		int n = nums.length;
+		int tempSum;
+		int left, right;
+		Arrays.sort(nums);
+		for (int i = 0; i < n - 2; i++) {
+			left = i + 1;
+			right = n - 1;
+			while (left < right) {
+				tempSum = nums[i] + nums[left] + nums[right];
+//				if (tempSum == target) return tempSum;
+				if (Math.abs(sum - target) > Math.abs(tempSum - target)) sum = tempSum;
+				else if (tempSum > target) right--;
+				else left++;
+			}
+		}
+		System.out.println(sum);
 	}
 
 	private static void type2() {

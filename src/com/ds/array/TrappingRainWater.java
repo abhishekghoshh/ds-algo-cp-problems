@@ -1,15 +1,14 @@
-package array;
+package com.ds.array;
 
 /*
  * problem link:
- * https://www.codingninjas.com/codestudio/problems/630519?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/trapping-rain-water/
- * 
+ * https://www.codingninjas.com/codestudio/problems/630519
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=43
  * https://www.youtube.com/watch?v=FbGG2qpNp4U&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10
  * 
- * Blog :
  * https://takeuforward.org/data-structure/trapping-rainwater/
  * */
 public class TrappingRainWater {
@@ -29,38 +28,33 @@ public class TrappingRainWater {
 	// block with a height more than height[l] to the right of l. And for the same
 	// reason when height[r]<=height[l] we can surely say that there is a block to
 	// the left of r which is at least of height[r]. So by traversing these cases
-	// and using two pointers approach the time complexity can be decreased without
+	// and using two pointers approach, the time complexity can be decreased without
 	// using extra space
+	// TODO study it one more time
 	private static void type4() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
-		int left = 0, right = height.length - 1, leftMax = 0, rightMax = 0, areaSum = 0;
+		int left = 0, right = height.length - 1, leftMax = 0, rightMax = 0, area = 0;
 		while (left < right) {
 			// find the lower bound among height[left] or height[right]
-			// water label will be always equal to lowest among left and right height
+			// water label will always be equal to the lowest among left and right height
 			if (height[left] <= height[right]) {
-				// height[left] is lower, so water is trapper on left side
+				// height[left] is lower, so water is trapper on the left side
 				// update leftmax or ans
-				if (height[left] > leftMax) {
-					leftMax = height[left];
-				} else {
+				if (height[left] > leftMax) leftMax = height[left];
 					// height[i] is less than leftmax so water can be stored
-					areaSum = areaSum + (leftMax - height[left]);
-				}
+				else area = area + (leftMax - height[left]);
 				left++;
 			} else {
-				// height[right] is lower, so water is trapper on right side
+				// height[right] is lower, so water is trapper on the right side
 				// update rightmax or ans
-				if (height[right] > rightMax) {
-					rightMax = height[right];
-				} else {
+				if (height[right] > rightMax) rightMax = height[right];
 					// height[i] is less than rightmax so water can be stored
-					areaSum = areaSum + (rightMax - height[right]);
-				}
+				else area = area + (rightMax - height[right]);
 				right--;
 			}
 		}
-		System.out.println("water collected " + areaSum);
+		System.out.println("water collected " + area);
 	}
 
 	// time complexity O(2n)
@@ -93,8 +87,8 @@ public class TrappingRainWater {
 	// prefix and suffix max array
 	// time complexity O(3n)
 	// space complexity O(2n)
-	// on every index we are calculating it left highest wall and right highest wall
-	// the water height on each block will be equal to minimum of left highest and
+	// on every index we are calculating it left the highest wall and right highest wall
+	// the water height on each block will be equal to the minimum of left highest and
 	// right highest wall
 	// there will be no water on 0th wall and n-1th wall
 	private static void type2() {
@@ -105,19 +99,15 @@ public class TrappingRainWater {
 		int[] leftMax = new int[n];
 		int[] rightMax = new int[n];
 
-		leftMax[0] = tempMax = height[0];
-		for (int i = 1; i < n; i++) {
-			leftMax[i] = tempMax;
-			tempMax = Math.max(tempMax, height[i]);
-		}
-		rightMax[n - 1] = tempMax = height[n - 1];
-		for (int i = n - 2; i >= 0; i--) {
-			rightMax[i] = tempMax;
-			tempMax = Math.max(tempMax, height[i]);
-		}
+		tempMax = Integer.MIN_VALUE;
+		for (int i = 0; i < n; i++) leftMax[i] = tempMax = Math.max(tempMax, height[i]);
+		tempMax = Integer.MIN_VALUE;
+		for (int i = n - 1; i >= 0; i--) rightMax[i] = tempMax = Math.max(tempMax, height[i]);
+
+		int tempArea;
 		for (int i = 1; i < n - 1; i++) {
 			if (height[i] < leftMax[i] && height[i] < rightMax[i]) {
-				int tempArea = (Math.min(leftMax[i], rightMax[i]) - height[i]);
+				tempArea = Math.min(leftMax[i], rightMax[i]) - height[i];
 				areaSum = areaSum + tempArea;
 			}
 		}

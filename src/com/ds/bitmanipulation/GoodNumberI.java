@@ -1,7 +1,13 @@
-package array;
+package com.ds.bitmanipulation;
 
-// A number z is good when it can be divided in two numbers x,y such that 
-// x^y=z x&y=0
+/*
+ * Problem link :
+ *
+ * Solution link
+ *
+ *
+ * */
+// A number z is good when it can be divided in two numbers x,y such that x^y=z x&y=0
 public class GoodNumberI {
 
 	public static void main(String[] args) {
@@ -45,24 +51,24 @@ public class GoodNumberI {
 		int count = 0;
 		int num, leftSum, rightSum, reminder;
 		boolean toggle = true;
-		for (int i = 0; i < arr.length; i++) {
-			num = arr[i];
-			leftSum = rightSum = 0;
-			while (num > 0) {
-				reminder = num % 2;
-				if (reminder == 1) {
-					if (toggle) {
-						leftSum++;
-						toggle = false;
-					} else {
-						rightSum++;
-						toggle = true;
-					}
-				}
-				num = num / 2;
-			}
-			count = count + (leftSum != 0 && rightSum != 0 ? 1 : 0);
-		}
+        for (int j : arr) {
+            num = j;
+            leftSum = rightSum = 0;
+            while (num > 0) {
+                reminder = num % 2;
+                if (reminder == 1) {
+                    if (toggle) {
+                        leftSum++;
+                        toggle = false;
+                    } else {
+                        rightSum++;
+                        toggle = true;
+                    }
+                }
+                num = num / 2;
+            }
+            count = count + (leftSum != 0 && rightSum != 0 ? 1 : 0);
+        }
 		System.out.println(count);
 	}
 
@@ -72,12 +78,12 @@ public class GoodNumberI {
 	private static void type1() {
 		int[] arr = { 6, 11, 0, 8, 4, 32 };
 		int count = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] != 0) {
-				int[] binary = inBinary(arr[i]);
-				count = ifGoodNumber(binary) ? (count + 1) : count;
-			}
-		}
+        for (int num : arr) {
+            if (num != 0) {
+                int[] binary = inBinary(num);
+                count = ifGoodNumber(binary) ? (count + 1) : count;
+            }
+        }
 		System.out.println(count);
 	}
 

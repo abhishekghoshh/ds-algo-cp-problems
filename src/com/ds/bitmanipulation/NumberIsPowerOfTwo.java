@@ -1,9 +1,11 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/power-of-2-1587115620/1
  * https://leetcode.com/problems/power-of-two/
+ * https://www.codingninjas.com/studio/problems/power-of-two_893061
+ * https://practice.geeksforgeeks.org/problems/power-of-2-1587115620/1
+ *
  * 
  * Solution link :
  * 
@@ -18,32 +20,25 @@ public class NumberIsPowerOfTwo {
 	}
 
 	private static void type2() {
-		long n = 0;
-		if (n <= 0) {
-			System.out.println(false);
-			return;
-		}
+		int n = 0;
+//		if(n<=0) return false;
 		// if the number is 2^x then that number will be something like 10000...
 		// and the previous number has just the reverse number like 0111111...
-		// so their and operation will be 0
+		// so their and & operation will be 0
 		// so if n & (n - 1) is 0 that means the number is 2^x
-		boolean isPowerofTwo = (n & (n - 1)) == 0;
-		System.out.println(isPowerofTwo);
+		boolean isPowerOfTwo = (n & (n - 1)) == 0;
+		System.out.println(isPowerOfTwo);
 	}
 
 	// brute force
-	// count the number of ones present
+	// counts the number of ones present
 	private static void type1() {
-		long n = 0;
-		if (n == 0) {
-			System.out.println(false);
-			return;
-		}
-
+		int n = 0;
+//		if (n <= 0) return false;
 		int oneCount = 0;
 		boolean isPowerofTwo = true;
 		while (n != 0) {
-			oneCount += n & 1;
+			oneCount += (n & 1);
 			if (oneCount > 1) {
 				isPowerofTwo = false;
 				break;

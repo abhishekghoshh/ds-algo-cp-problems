@@ -1,10 +1,6 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
  * Problem link :
@@ -28,12 +24,10 @@ public class GroupAnagrams {
 		Map<String, List<String>> map = new HashMap<>();
 		for (String str : strs) {
 			int[] hash = new int[26];
-            for (char c : str.toCharArray()) {
-                hash[c - 'a']++;
-            }
-            String key = new String(Arrays.toString(hash));
-			if (!map.containsKey(key))
-				map.put(key, new ArrayList<>());
+			char[] arr = str.toCharArray();
+			for (char ch : arr) hash[ch - 'a']++;
+			String key = Arrays.toString(hash);
+			if (!map.containsKey(key)) map.put(key, new ArrayList<>());
 			map.get(key).add(str);
 		}
 		System.out.println(new ArrayList<>(map.values()));
@@ -46,8 +40,7 @@ public class GroupAnagrams {
 			char[] chs = str.toCharArray();
 			Arrays.sort(chs);
 			String sortedStr = new String(chs);
-			if (!map.containsKey(sortedStr))
-				map.put(sortedStr, new ArrayList<>());
+			if (!map.containsKey(sortedStr)) map.put(sortedStr, new ArrayList<>());
 			map.get(sortedStr).add(str);
 		}
 		System.out.println(new ArrayList<>(map.values()));

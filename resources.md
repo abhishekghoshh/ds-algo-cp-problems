@@ -21,6 +21,7 @@
 #### Data-Structure
 - **array**
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
+  - [Best Time to Buy and Sell Stock](/src/com/ds/array/MaxProfit.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
   - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java)
@@ -76,6 +77,7 @@
   - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
     - Moore's voting algorithm
     - hashing
+  - [Insert Delete GetRandom O(1)](/src/com/ds/array/RandomizedSetProblem.java)
   - [Grid Unique Paths | Count paths from left-top to the right bottom of a matrix](/src/com/ds/array/GridUniquePaths.java)
     - dynamic-programming
     - combination-approach
@@ -98,6 +100,8 @@
   - [Car Fleet](/src/com/ds/array/CarFleet.java) **TBD**
   - [Remove Element](/src/com/ds/array/RemoveElement.java) **TBD**
   - [Reverse Integer](/src/com/ds/array/ReverseInteger.java)
+  - [3Sum Closest](/src/com/ds/array/ThreeSumClosest.java)
+  - [Trapping Rain Water](/src/com/ds/array/TrappingRainWater.java)
 - **sliding-window**
   - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
@@ -120,6 +124,7 @@
     - prefix-sum
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
     - dynamic-programming
+  - [Container With Most Water](/src/com/ds/slidingwindow/ContainerWithMostWater.java)
 - **binary-search**
   - [Binary Search](/src/com/ds/binarysearch/BinarySearch.java)
   - [Lower Bound](/src/com/ds/binarysearch/LowerBound.java)
@@ -137,6 +142,7 @@
   - [Finding Integer Sqrt of a number](/src/com/ds/binarysearch/SquareRoot.java)
   - [Finding Fractional Sqrt of a number](/src/com/ds/binarysearch/FractionalSquareRoot.java)
   - [Nth Root of a Number](/src/com/ds/binarysearch/NthRootOfANumber.java)
+  - [Pow(x, n)](/src/com/ds/binarysearch/PowerOfXtoN.java)
   - [Koko Eating Bananas](/src/com/ds/binarysearch/KokoEatingBananas.java)
   - [Minimum Number of Days to Make m Bouquets](/src/com/ds/binarysearch/MinimumDaysToMakeMBouquets.java)
   - [Find the Smallest Divisor Given a Threshold](/src/com/ds/binarysearch/FindTheSmallestDivisorGivenThreshold.java)
@@ -190,3 +196,11 @@
     - array
     - string
     - dynamic-programming
+- **bit-manipulation**
+  - [Introduction to Bit Manipulation](/src/com/ds/bitmanipulation/BitManipulation.java)
+  - [Check whether K-th bit is set or not](/src/com/ds/bitmanipulation/CheckKthBitIsSetOrNot.java)
+  - [Check if a number is odd or not](/src/com/ds/bitmanipulation/OddOrEven.java)
+  - [Check if a number is power of 2 or not](/src/com/ds/bitmanipulation/NumberIsPowerOfTwo.java)
+  - [Count the number of set bits](/src/com/ds/bitmanipulation/CountSetBits.java)
+  - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightmostUnsetBit.java)
+  - [Good Number 1](/src/com/ds/bitmanipulation/GoodNumberI.java) **TBD**
