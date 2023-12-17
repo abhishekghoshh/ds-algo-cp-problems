@@ -16,21 +16,17 @@ public class NextAlphabeticalElement {
 	}
 
 	private static void type2() {
-//		char[] letters = { 'a', 'b', 'm', 'n', 'x', 'x', 'x', 'y', 'z' };
-//		char target = 'x';
-		char[] letters = { 'c', 'f', 'j' };
-		char target = 'a';
-		int low = 0;
-		int high = letters.length - 1;
+		char[] letters = {'a', 'b', 'm', 'n', 'x', 'x', 'x', 'y', 'z'};
+		char target = 'x';
+//		char[] letters = { 'c', 'f', 'j' };
+//		char target = 'a';
+		int low = 0, high = letters.length - 1, mid;
 		while (low <= high) {
-			int mid = low + (high - low) / 2;
-			if (letters[mid] <= target) {
-				low = mid + 1;
-			} else {
-				high = mid - 1;
-			}
+			mid = low + (high - low) / 2;
+			if (letters[mid] <= target) low = mid + 1;
+			else high = mid - 1;
 		}
-		char result = low != letters.length ? letters[low] : '#';
+		char result = low != letters.length ? letters[low] : letters[0];
 		System.out.println(result);
 	}
 }

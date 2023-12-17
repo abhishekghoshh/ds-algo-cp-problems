@@ -2,7 +2,7 @@ package string;
 /*
  * Problem link :
  * https://leetcode.com/problems/compare-version-numbers/
- * https://www.codingninjas.com/codestudio/problems/1062582?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/1062582
  * 
  * Solution link :
  * 
@@ -16,39 +16,31 @@ public class CompareVersionNumber {
 		type2();
 	}
 
-	// same as previous one
+	// same as the previous one
 	// just here we are using character array instead of string
 	private static void type2() {
 		System.out.println(compareVersion2("1.01", "1.001"));
 	}
 
 	private static int compareVersion2(String version1, String version2) {
-		char[] arr1 = version1.toCharArray(), arr2 = version2.toCharArray();
-		int i = 0, j = 0, n1 = arr1.length, n2 = arr2.length;
-		int v1 = 0, v2 = 0;
-		while (i < n1 || j < n2) {
-			// calculating the first number
-			if (i < n1) {
-				while (i < n1 && arr1[i] != '.') {
-					v1 = v1 * 10 + (arr1[i++] - '0');
-				}
-				if (i < n1)
-					i++;
-			}
-			// calculating the second number
-			if (j < n2) {
-				while (j < n2 && arr2[j] != '.') {
-					v2 = v2 * 10 + (arr2[j++] - '0');
-				}
-				if (j < n2)
-					j++;
-			}
-			if (v1 > v2) {
-				return 1;
-			} else if (v1 < v2) {
-				return -1;
-			}
+		char[] arr1 = version1.toCharArray();
+		char[] arr2 = version2.toCharArray();
+		int i1 = 0, i2 = 0;
+		int n1 = arr1.length, n2 = arr2.length;
+		int v1, v2;
+		while (i1 < n1 || i2 < n2) {
 			v1 = v2 = 0;
+			// calculating the first number
+			while (i1 < n1 && arr1[i1] != '.') v1 = v1 * 10 + (arr1[i1++] - '0');
+			// skipping the dot(.) character if it does not hit the length
+			if (i1 < n1) i1++;
+			// calculating the second number
+			while (i2 < n2 && arr2[i2] != '.') v2 = v2 * 10 + (arr2[i2++] - '0');
+			// skipping the dot(.) character if it does not hit the length
+			if (i2 < n2) i2++;
+			// checking the conditions
+			if (v1 > v2) return 1;
+			if (v1 < v2) return -1;
 		}
 		return 0;
 	}
@@ -66,13 +58,9 @@ public class CompareVersionNumber {
 		while (i < n1 || i < n2) {
 			v1 = i < n1 ? Integer.parseInt(arr1[i]) : 0;
 			v2 = i < n2 ? Integer.parseInt(arr2[i]) : 0;
-			if (v1 > v2) {
-				return 1;
-			} else if (v1 < v2) {
-				return -1;
-			} else {
-				i++;
-			}
+			if (v1 > v2) return 1;
+			else if (v1 < v2) return -1;
+			else i++;
 		}
 		return 0;
 	}

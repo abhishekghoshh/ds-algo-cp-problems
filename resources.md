@@ -204,3 +204,5 @@
   - [Count the number of set bits](/src/com/ds/bitmanipulation/CountSetBits.java)
   - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightmostUnsetBit.java)
   - [Good Number 1](/src/com/ds/bitmanipulation/GoodNumberI.java) **TBD**
+- **greedy**
+  - [candy](/src/com/ds/greedy/Candy.java) **TBD**

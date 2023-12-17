@@ -5,7 +5,7 @@ import java.util.Arrays;
 /*
  * Problem link : 
  * https://leetcode.com/problems/longest-palindromic-substring/description/
- * https://www.codingninjas.com/codestudio/problems/longest-palindromic-substring_758900?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/longest-palindromic-substring_758900
  * 
  * Solution link:
  * https://www.youtube.com/watch?v=06QIlUBLTz4
@@ -15,6 +15,7 @@ import java.util.Arrays;
  * */
 public class LongestPalindrome {
 
+	// TODO study later
 	public static void main(String[] args) {
 		type1();
 		type2();
