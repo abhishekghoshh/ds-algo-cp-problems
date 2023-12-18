@@ -1,17 +1,19 @@
 package primes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/number-of-factors1435/1
+ * https://www.codingninjas.com/studio/problems/print-all-divisors-of-a-number_1164188
  * 
  * Solution link :
  * 
  * 
  */
-public class FindMultiples {
+public class AllDivisorsOfANumber {
 
 	public static void main(String[] args) {
 		type1();
@@ -45,9 +47,7 @@ public class FindMultiples {
 		for (int i = 1; i * i <= n; i++) {
 			if (n % i == 0) {
 				head = head.add(i);
-				if (n / i != i) {
-					head.add(n / i);
-				}
+				if (n / i != i) head.add(n / i);
 			}
 		}
 		head = copy.next;
@@ -64,9 +64,7 @@ public class FindMultiples {
 		for (int i = 1; i * i <= n; i++) {
 			if (n % i == 0) {
 				count++;
-				if (n / i != i) {
-					count++;
-				}
+				if (n / i != i) count++;
 			}
 		}
 		System.out.println(count);
@@ -79,11 +77,10 @@ public class FindMultiples {
 		for (int i = 1; i * i <= n; i++) {
 			if (n % i == 0) {
 				answer.add(i);
-				if (n / i != i) {
-					answer.add(n / i);
-				}
+				if (n / i != i) answer.add(n / i);
 			}
 		}
+		Collections.sort(answer);
 		System.out.println(answer);
 	}
 
@@ -91,11 +88,8 @@ public class FindMultiples {
 	private static void type1() {
 		int n = 120;
 		List<Integer> answer = new ArrayList<>();
-		for (int i = 1; i <= n; i++) {
-			if (n % i == 0) {
-				answer.add(i);
-			}
-		}
+		for (int i = 1; i <= n; i++)
+			if (n % i == 0) answer.add(i);
 		System.out.println(answer);
 	}
 }

@@ -41,9 +41,7 @@ public class RepeatAndMissingNumber {
 		int n = nums.length;
 
 		// Get the xor of all array elements and numbers from 1 to n
-		for (int i = 0; i < n; i++) {
-			xor = xor ^ nums[i] ^ (i + 1);
-		}
+		for (int i = 0; i < n; i++) xor = xor ^ nums[i] ^ (i + 1);
 		// Get the rightmost set bit from xor
 		int rightestSetBit = xor & ~(xor - 1);
 		// like for 12 => 1100 it's 4 or 100
@@ -58,24 +56,16 @@ public class RepeatAndMissingNumber {
 		 */
 		for (int i = 0; i < n; i++) {
 			// we are checking nums[i] in which bucket
-			if ((nums[i] & rightestSetBit) != 0) {
-				missing = missing ^ nums[i];
-			} else {
-				repeat = repeat ^ nums[i];
-			}
+			if ((nums[i] & rightestSetBit) != 0) missing = missing ^ nums[i];
+			else repeat = repeat ^ nums[i];
 			// we are checking 1..N are in which bucket
-			if (((i + 1) & rightestSetBit) != 0) {
-				missing = missing ^ (i + 1);
-			} else {
-				repeat = repeat ^ (i + 1);
-			}
+			if (((i + 1) & rightestSetBit) != 0) missing = missing ^ (i + 1);
+			else repeat = repeat ^ (i + 1);
 		}
 		// NB! numbers can be swapped, maybe do a check
 		int count = 0;
 		for (int num : nums) {
-			if (missing == num) {
-				count++;
-			}
+			if (missing == num) count++;
 		}
 		if (count != 0) {
 			int temp = missing;

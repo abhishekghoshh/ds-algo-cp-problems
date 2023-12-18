@@ -3,6 +3,7 @@ package primes;
 /*
  * Problem link :
  * https://leetcode.com/problems/count-primes/description/
+ * https://www.codingninjas.com/studio/problems/prime-factorisation_1760849
  * 
  * Solution link :
  * 
@@ -16,6 +17,7 @@ public class SieveOfEratosthenes {
 		type2();
 		type3();
 	}
+
 
 	// 2nd level optimization j = i * i
 	// let's say we have already marked for till 4

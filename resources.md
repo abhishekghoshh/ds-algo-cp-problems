@@ -202,7 +202,12 @@
   - [Check if a number is odd or not](/src/com/ds/bitmanipulation/OddOrEven.java)
   - [Check if a number is power of 2 or not](/src/com/ds/bitmanipulation/NumberIsPowerOfTwo.java)
   - [Count the number of set bits](/src/com/ds/bitmanipulation/CountSetBits.java)
-  - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightmostUnsetBit.java)
+  - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightMostUnsetBit.java)
+  - [Swap two numbers](/src/com/ds/bitmanipulation/SwapTwoNumbers.java)
+  - [Divide Two Integers](/src/com/ds/bitmanipulation/DivideTwoIntegers.java)
+  - [Minimum Bit Flips to Convert Number](/src/com/ds/bitmanipulation/CountNumberOfBitsToFlipToConvertAtoB.java)
+  - [L to R XOR](/src/com/ds/bitmanipulation/XorOfARange.java)
+  - [Two Numbers With Odd Occurrences](/src/com/ds/bitmanipulation/TwoNumbersWithOddOccurrences.java)
   - [Good Number 1](/src/com/ds/bitmanipulation/GoodNumberI.java) **TBD**
 - **greedy**
   - [candy](/src/com/ds/greedy/Candy.java) **TBD**

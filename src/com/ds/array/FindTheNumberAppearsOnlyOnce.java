@@ -8,6 +8,7 @@ import java.util.Map;
  * https://leetcode.com/problems/single-number/
  * https://practice.geeksforgeeks.org/problems/find-the-odd-occurence4820/1
  * https://www.codingninjas.com/studio/problems/find-the-single-element_6680465
+ * https://www.codingninjas.com/studio/problems/one-odd-occurring_4606074
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=bYWLJb3vCWY&t=1369s
