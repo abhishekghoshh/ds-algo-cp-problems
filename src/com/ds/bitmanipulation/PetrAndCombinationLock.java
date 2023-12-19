@@ -1,4 +1,4 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :
@@ -8,7 +8,7 @@ package bitmanipulation;
  * 
  * 
  */
-public class BPetrAndCombinationLock {
+public class PetrAndCombinationLock {
 
 	public static void main(String[] args) {
 		type1();

@@ -1,4 +1,4 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 public class XorOfNnumbers {
 
@@ -32,15 +32,10 @@ public class XorOfNnumbers {
 
 	private static int xor(int n) {
 		int rem = n % 4;
-		if (rem == 0) {
-			return n;
-		} else if (rem == 1) {
-			return 1;
-		} else if (rem == 2) {
-			return n + 1;
-		} else {
-			return 0;
-		}
+		if (rem == 0) return n;
+		else if (rem == 1) return 1;
+		else if (rem == 2) return n + 1;
+		else return 0;
 	}
 
 	// brute force approach

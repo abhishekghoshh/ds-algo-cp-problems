@@ -1,4 +1,4 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :

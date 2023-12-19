@@ -1,10 +1,5 @@
 <h2>Data structures and algorithms in java</h2>
 
-Bit Manipulation :
-
-	https://www.youtube.com/watch?v=5rtVTYAk9KQ -> L1 | Bit Manipulations | Raj (Striver) | Introduction to Bit Manipulations
-	https://www.youtube.com/watch?v=ZwU6wSkepBI -> L2 | Bit Manipulations | Raj (Striver) | Problem Solving on Bit Manipulations
-	https://www.youtube.com/watch?v=VRePcT7lmCs -> Bit Manipulation by Scaler (2nd Half only) 
 
 Prime numbers:
 

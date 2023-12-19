@@ -1,4 +1,4 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 public class ExtractTheRightMostSetBit {
 

@@ -1,13 +1,13 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/single-number-iii/
+ * https://www.codingninjas.com/studio/problems/two-numbers-with-odd-occurrences_8160466
  * https://practice.geeksforgeeks.org/problems/two-numbers-with-odd-occurrences5846/1
  * 
  * Solution link :
@@ -18,8 +18,33 @@ public class FindTwoIntegerThatComeOnceInArray {
 
 	public static void main(String[] args) {
 		type1();
+		type1_();
 		type2();
+		type2_();
 	}
+
+	// same as type2
+	// check repeat and missing number problem
+	private static void type2_() {
+		int[] arr = {2, 4, 1, 3, 2, 4};
+		int xor = 0;
+		for (int num : arr) xor = xor ^ num;
+		// if the xor is 0001010100
+		// then x ^ y => 0001010100
+		// because all other numbers have the even count
+		int rightestSetBit = xor & ~(xor - 1);
+		int x = 0, y = 0;
+		for (int num : arr) {
+			if ((num ^ rightestSetBit) == 0) x = x ^ num;
+			else y = y ^ num;
+		}
+		int[] answer = null;
+		if (x > y) answer = new int[]{x, y};
+		else answer = new int[]{y, x};
+		print(answer);
+	}
+
+
 
 	// optimized approach
 	// time complexity O(2n)
@@ -49,36 +74,44 @@ public class FindTwoIntegerThatComeOnceInArray {
 		// we will extract the right most set bit which will also act as the mask
 		int mask = xor & (~(xor - 1));
 		int bucket1 = 0, bucket2 = 0;
-		for (int num : nums) {
-			if ((num & mask) == 0) {
-				bucket1 = bucket1 ^ num;
-			} else {
-				bucket2 = bucket2 ^ num;
-			}
-		}
+		for (int num : nums)
+			if ((num & mask) == 0) bucket1 = bucket1 ^ num;
+			else bucket2 = bucket2 ^ num;
+
 		List<Integer> list = List.of(bucket1, bucket2);
 		System.out.println(list);
 	}
 
+	// brute force approach
+	private static void type1_() {
+		int[] arr = {2, 4, 1, 3, 2, 4};
+		Set<Integer> set = new HashSet<>();
+		for (int num : arr) {
+			if (set.contains(num)) set.remove(num);
+			else set.add(num);
+		}
+		int[] answer = new int[2];
+		int i = 0;
+		for (int num : set) answer[i++] = num;
+		if (answer[0] < answer[1]) {
+			int temp = answer[1];
+			answer[1] = answer[0];
+			answer[0] = temp;
+		}
+		print(answer);
+	}
 	// brute force
 	// time complexity O(2n)
 	// space complexity O(n)
 	private static void type1() {
 		int[] nums = { 1, 1, 2, 2, 3, 4, 4, 5 };
 		Map<Integer, Integer> freq = new HashMap<>();
-		for (int num : nums) {
-			if (!freq.containsKey(num)) {
-				freq.put(num, 1);
-			} else {
-				freq.put(num, freq.get(num) + 1);
-			}
-		}
+		for (int num : nums)
+			if (!freq.containsKey(num)) freq.put(num, 1);
+			else freq.put(num, freq.get(num) + 1);
 		List<Integer> list = new ArrayList<>();
-		for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
-			if (entry.getValue() == 1) {
-				list.add(entry.getKey());
-			}
-		}
+		for (Map.Entry<Integer, Integer> entry : freq.entrySet())
+			if (entry.getValue() == 1) list.add(entry.getKey());
 		System.out.println(list);
 	}
 

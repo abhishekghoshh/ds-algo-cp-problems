@@ -1,7 +1,8 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 /*
  * Problem link :
+ * https://www.codingninjas.com/studio/problems/check-whether-k-th-bit-is-set-or-not_5026446
  * https://practice.geeksforgeeks.org/problems/check-whether-k-th-bit-is-set-or-not-1587115620/1
  * 
  * Solution link :
@@ -20,6 +21,22 @@ public class KthBitSetOrNot {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+		type4();
+	}
+
+	private static void type4() {
+		int n = 5, k = 1;
+		int sol = n >> (k - 1);
+		int kthBit = (sol & 1) == 1 ? 1 : 0;
+		System.out.println(kthBit);
+	}
+
+	private static void type3() {
+		int n = 5, k = 1;
+		int mask = 1 << (k - 1);
+		int kthBit = (n & mask) > 0 ? 1 : 0;
+		System.out.println(kthBit);
 	}
 
 	// rather than changing the input

@@ -8,7 +8,7 @@ package com.ds.bitmanipulation;
  *
  * */
 // A number z is good when it can be divided in two numbers x,y such that x^y=z x&y=0
-public class GoodNumberI {
+public class GoodNumber {
 
 	public static void main(String[] args) {
 		type1();

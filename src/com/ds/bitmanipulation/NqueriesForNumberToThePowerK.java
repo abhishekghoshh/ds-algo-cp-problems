@@ -1,4 +1,4 @@
-package bitmanipulation;
+package com.ds.bitmanipulation;
 
 import java.util.HashMap;
 import java.util.Map;
