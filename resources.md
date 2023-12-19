@@ -24,14 +24,17 @@
   - [Best Time to Buy and Sell Stock](/src/com/ds/array/MaxProfit.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
-  - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java) <details><summary>Other tags</summary>| hashing | swap-sort | Cycle-Detection-Using-Tortoise-Method |</details>
+  - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java)
+    - hashing
+    - swap-sort
+    - Cycle-Detection-Using-Tortoise-Method
   - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
   - [Left rotate an array by D places](/src/com/ds/array/LeftRotateArray.java)
   - [Move Zeros to end](/src/com/ds/array/MovesZeroToEnd.java)
   - [Linear Search](/src/com/ds/array/LinearSearch.java)
   - [Union of Two Sorted Arrays](/src/com/ds/array/UnionOfTwoSortedArrays.java)
-  - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java) 
+  - [Find missing number in an array](/src/com/ds/array/FindMissingNumberInAnArray.java)
     - bit-manipulation
     - hashing
   - [Find the repeating and missing numbers](/src/com/ds/array/RepeatAndMissingNumber.java)
@@ -193,45 +196,55 @@
     - array
     - string
     - dynamic-programming
-- **bit-manipulation**
-  - Resource
-    - [L1 | Bit Manipulations | Raj (Striver) | Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
-    - [L2 | Bit Manipulations | Raj (Striver) | Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
-    - [Bit Manipulation by Scaler (2nd Half only)](https://www.youtube.com/watch?v=VRePcT7lmCs)
-  - Codes
-    - [Introduction to Bit Manipulation](/src/com/ds/bitmanipulation/BitManipulation.java)
-    - [Negative of a Number](/src/com/ds/bitmanipulation/NegativeOfNumber.java)
-    - [How many Bits are required to represent a number](/src/com/ds/bitmanipulation/HowManyBitsRequiredToRepresentOneNumber.java)
-    - [Swap two numbers](/src/com/ds/bitmanipulation/SwapTwoNumbers.java)
-    - [XOR of 0 to n numbers](/src/com/ds/bitmanipulation/XorOfNnumbers.java)
-    - [L to R XOR](/src/com/ds/bitmanipulation/XorOfARange.java)
-    - [Set Kth bit of a number](/src/com/ds/bitmanipulation/SetKthBit.java)
-    - [Clear kth bit of a number](/src/com/ds/bitmanipulation/ClearKthBit.java)
-    - [Toggle kth bit of a number](/src/com/ds/bitmanipulation/ToggleKthBit.java)
-    - [Check whether K-th bit is set or not](/src/com/ds/bitmanipulation/KthBitSetOrNot.java)
-    - [Find nth magic number](/src/com/ds/bitmanipulation/FindNthMagicNumber.java)
-    - [Minimum Bit Flips to Convert Number](/src/com/ds/bitmanipulation/CountNumberOfBitsToFlipToConvertAtoB.java)
-    - [Check if a number is odd or not](/src/com/ds/bitmanipulation/OddOrEven.java)
-    - [Remove the right most set bit](/src/com/ds/bitmanipulation/RemoveTheRightMostSetBit.java)
-    - [Count the number of set bits](/src/com/ds/bitmanipulation/CountSetBits.java)
-    - [Check if a number is power of 2 or not](/src/com/ds/bitmanipulation/NumberIsPowerOfTwo.java)
-    - [Good Number](/src/com/ds/bitmanipulation/GoodNumber.java)
-    - [Extract the right most set bit](/src/com/ds/bitmanipulation/ExtractTheRightMostSetBit.java)
-    - [Extract the left most set bit](/src/com/ds/bitmanipulation/ExtractTheLeftMostSetBit.java)
-    - [Find total set bit for range 0 to 2^n](/src/com/ds/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java)
-    - [Count total set bits](/src/com/ds/bitmanipulation/CountTotalSetBits.java)
-    - [Find two integer come once in a array/Two Numbers With Odd Occurrences](/src/com/ds/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java)
-    - [XOR of every subset in a power set](/src/com/ds/bitmanipulation/XorOfEverySubset.java)
-    - [Petr and a Combination Lock](/src/com/ds/bitmanipulation/PetrAndCombinationLock.java)
-    - [Bit Set](/src/com/ds/bitmanipulation/BitSet.java)
-    - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightMostUnsetBit.java)
-    - [Divide Two Integers](/src/com/ds/bitmanipulation/DivideTwoIntegers.java)
-    - [Addition without plus(+) operator](/src/com/ds/bitmanipulation/AdditionWithoutPlusOperator.java)
-    - [Minimum XOR in an array](/src/com/ds/bitmanipulation/MinimumXorInArray.java)
-    - [Maximum XOR in an array](/src/com/ds/bitmanipulation/MaximumXorInArray.java)
-    - [Maximum XOR of two number](/src/com/ds/bitmanipulation/MaximumXorOfTwoNumber.java)
-    - [Maximum XOR with an element from array](/src/com/ds/bitmanipulation/MaximumXorWithAnElementFromArray.java)
-    - [Maximum XOR sum of two arrays ](/src/com/ds/bitmanipulation/MinimumXorSumOfTwoArrays.java)
-    - [Power of x to n](/src/com/ds/bitmanipulation/PowerOfXtoN.java)
-- **greedy**
-  - [candy](/src/com/ds/greedy/Candy.java) **TBD**
+
+
+<details>
+    <summary><strong>bit-manipulation</strong></summary>
+
+- Resource
+  - [L1 | Bit Manipulations | Raj (Striver) | Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
+  - [L2 | Bit Manipulations | Raj (Striver) | Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
+  - [Bit Manipulation by Scaler (2nd Half only)](https://www.youtube.com/watch?v=VRePcT7lmCs)
+
+- Codes
+  - [Introduction to Bit Manipulation](/src/com/ds/bitmanipulation/BitManipulation.java)
+  - [Negative of a Number](/src/com/ds/bitmanipulation/NegativeOfNumber.java)
+  - [How many Bits are required to represent a number](/src/com/ds/bitmanipulation/HowManyBitsRequiredToRepresentOneNumber.java)
+  - [Swap two numbers](/src/com/ds/bitmanipulation/SwapTwoNumbers.java)
+  - [XOR of 0 to n numbers](/src/com/ds/bitmanipulation/XorOfNnumbers.java)
+  - [L to R XOR](/src/com/ds/bitmanipulation/XorOfARange.java)
+  - [Set Kth bit of a number](/src/com/ds/bitmanipulation/SetKthBit.java)
+  - [Clear kth bit of a number](/src/com/ds/bitmanipulation/ClearKthBit.java)
+  - [Toggle kth bit of a number](/src/com/ds/bitmanipulation/ToggleKthBit.java)
+  - [Check whether K-th bit is set or not](/src/com/ds/bitmanipulation/KthBitSetOrNot.java)
+  - [Find nth magic number](/src/com/ds/bitmanipulation/FindNthMagicNumber.java)
+  - [Minimum Bit Flips to Convert Number](/src/com/ds/bitmanipulation/CountNumberOfBitsToFlipToConvertAtoB.java)
+  - [Check if a number is odd or not](/src/com/ds/bitmanipulation/OddOrEven.java)
+  - [Remove the right most set bit](/src/com/ds/bitmanipulation/RemoveTheRightMostSetBit.java)
+  - [Count the number of set bits](/src/com/ds/bitmanipulation/CountSetBits.java)
+  - [Check if a number is power of 2 or not](/src/com/ds/bitmanipulation/NumberIsPowerOfTwo.java)
+  - [Good Number](/src/com/ds/bitmanipulation/GoodNumber.java)
+  - [Extract the right most set bit](/src/com/ds/bitmanipulation/ExtractTheRightMostSetBit.java)
+  - [Extract the left most set bit](/src/com/ds/bitmanipulation/ExtractTheLeftMostSetBit.java)
+  - [Find total set bit for range 0 to 2^n](/src/com/ds/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java)
+  - [Count total set bits](/src/com/ds/bitmanipulation/CountTotalSetBits.java)
+  - [Find two integer come once in a array/Two Numbers With Odd Occurrences](/src/com/ds/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java)
+  - [XOR of every subset in a power set](/src/com/ds/bitmanipulation/XorOfEverySubset.java)
+  - [Petr and a Combination Lock](/src/com/ds/bitmanipulation/PetrAndCombinationLock.java)
+  - [Bit Set](/src/com/ds/bitmanipulation/BitSet.java)
+  - [Set The Rightmost Unset Bit](/src/com/ds/bitmanipulation/SetTheRightMostUnsetBit.java)
+  - [Divide Two Integers](/src/com/ds/bitmanipulation/DivideTwoIntegers.java)
+  - [Addition without plus(+) operator](/src/com/ds/bitmanipulation/AdditionWithoutPlusOperator.java)
+  - [Minimum XOR in an array](/src/com/ds/bitmanipulation/MinimumXorInArray.java)
+  - [Maximum XOR in an array](/src/com/ds/bitmanipulation/MaximumXorInArray.java)
+  - [Maximum XOR of two number](/src/com/ds/bitmanipulation/MaximumXorOfTwoNumber.java)
+  - [Maximum XOR with an element from array](/src/com/ds/bitmanipulation/MaximumXorWithAnElementFromArray.java)
+  - [Maximum XOR sum of two arrays ](/src/com/ds/bitmanipulation/MinimumXorSumOfTwoArrays.java)
+  - [Power of x to n](/src/com/ds/bitmanipulation/PowerOfXtoN.java)
+</details>
+
+<details>
+    <summary><strong>greedy</strong></summary>
+
+- [candy](/src/com/ds/greedy/Candy.java) **TBD**
+</details>
