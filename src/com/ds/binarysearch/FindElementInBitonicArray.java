@@ -1,4 +1,4 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
  * Problem link:

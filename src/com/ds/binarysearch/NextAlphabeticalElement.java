@@ -1,4 +1,4 @@
-package binarysearch;
+package com.ds.binarysearch;
 
 /*
  * Problem link :
@@ -18,8 +18,6 @@ public class NextAlphabeticalElement {
 	private static void type2() {
 		char[] letters = {'a', 'b', 'm', 'n', 'x', 'x', 'x', 'y', 'z'};
 		char target = 'x';
-//		char[] letters = { 'c', 'f', 'j' };
-//		char target = 'a';
 		int low = 0, high = letters.length - 1, mid;
 		while (low <= high) {
 			mid = low + (high - low) / 2;

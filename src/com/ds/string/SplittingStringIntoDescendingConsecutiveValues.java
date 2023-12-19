@@ -1,9 +1,9 @@
-package string;
+package com.ds.string;
 
 import java.util.Stack;
 
 /*
- * Problem link :
+ * Problem link:
  * https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values/
  *
  *

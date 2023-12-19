@@ -149,18 +149,27 @@
 
 - codes
   - [Binary Search](/src/com/ds/binarysearch/BinarySearch.java)
+  - [Binary Search in reverse sorted array](/src/com/ds/binarysearch/BinarySearchInReverseSortedArray.java)
+  - [Order not known binary search](/src/com/ds/binarysearch/OrderNotKnownBinarySearch.java)
   - [Lower Bound](/src/com/ds/binarysearch/LowerBound.java)
   - [Upper Bound](/src/com/ds/binarysearch/UpperBound.java)
   - [Search Insert Position](/src/com/ds/binarysearch/SearchInsertPosition.java)
   - [Floor and Ceil in Sorted Array](/src/com/ds/binarysearch/FloorAndCeilInSortedArray.java)
+  - [Next alphabetical element](/src/com/ds/binarysearch/NextAlphabeticalElement.java)
+  - [Find position in infinite sorted array](/src/com/ds/binarysearch/FindPositionInInfiniteSortedArray.java)
+  - [Closest element in a sorted array](/src/com/ds/binarysearch/ClosestElementInASortedArray.java)
+  - [First occurrence of 1 in an infinite sorted binary array](/src/com/ds/binarysearch/FirstOcurrenceOfOneInInfiniteBinaryArray.java)
   - [Find the first or last occurrence of a given number in a sorted array](/src/com/ds/binarysearch/FirstAndLastOccurrenceOfANumberInASortedArray.java)
   - [Count Occurrences in Sorted Array](/src/com/ds/binarysearch/CountOccurrencesInSortedArray.java)
   - [Search in Rotated Sorted Array I](/src/com/ds/binarysearch/BinarySearchOnRotatedArray1.java)
   - [Search in Rotated Sorted Array II](/src/com/ds/binarysearch/BinarySearchOnRotatedArray2.java)
+  - [Searching in nearly sorted array](/src/com/ds/binarysearch/SearchingInNearlySortedArray.java)
   - [Find out how many times the array has been rotated](/src/com/ds/binarysearch/NoOfTimesSortedArrayRotated.java)
   - [Minimum in Rotated Sorted Array](/src/com/ds/binarysearch/MinimumInRotatedSortedArray.java)
   - [Single Element in a Sorted Array](/src/com/ds/binarysearch/SingleElementInSortedArray.java)
   - [Find peak element](/src/com/ds/binarysearch/FindPeakElement.java)
+  - [Find maximum in bitonic array](/src/com/ds/binarysearch/FindMaximumInBitonicArray.java)
+  - [Find in bitonic array](/src/com/ds/binarysearch/FindElementInBitonicArray.java)
   - [Finding Integer Sqrt of a number](/src/com/ds/binarysearch/SquareRoot.java)
   - [Finding Fractional Sqrt of a number](/src/com/ds/binarysearch/FractionalSquareRoot.java)
   - [Nth Root of a Number](/src/com/ds/binarysearch/NthRootOfANumber.java)
@@ -189,6 +198,7 @@
     <summary><strong>string</strong></summary>
 
 - codes
+  - [Compare version number](/src/com/ds/string/CompareVersionNumber.java)
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
   - [Reverse Words](/src/com/ds/string/ReverseWords.java)
@@ -197,6 +207,7 @@
   - [Isomorphic Strings](/src/com/ds/string/IsomorphicStrings.java)
   - [Rotate String](/src/com/ds/string/RotateString.java)
   - [Check if two Strings are anagrams of each other](/src/com/ds/string/CheckForAnagrams.java)
+  - [Group anagrams](/src/com/ds/string/GroupAnagrams.java)
   - [Sort Characters by frequency](/src/com/ds/string/SortCharactersByFrequency.java)
   - [Maximum Nesting Depth of the Parentheses](/src/com/ds/string/MaximumNestingDepthOfTheParentheses.java)
   - [Roman to Integer](/src/com/ds/string/RomanToInteger.java)
@@ -210,10 +221,14 @@
   - [Sum of Beauty of All Substrings](/src/com/ds/string/SumOfBeautyOfAllSubstrings.java)
   - [Minimum Add to Make Parentheses Valid](/src/com/ds/string/MinimumAddToMakeParenthesesValid.java)
   - [Count and Say](/src/com/ds/string/CountAndSay.java)
+  - [Valid palindrome](/src/com/ds/string/ValidPalindrome.java)
   - [Shortest Palindrome | Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
-  - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
+  - [Longest palindromic substring](/src/com/ds/string/LongestPalindrome.java)
   - [Count Palindromic Subsequences](/src/com/ds/string/CountPalindromicSubsequences.java)
   - [Repeated String Match](/src/com/ds/string/RepeatedStringMatch.java)
+  - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
+  - [Find the index of first occurrence of a word in a string](/src/com/ds/string/FindTheIndexOfFirstOccurrenceInAString.java)
+  - [Splitting string into descending consecutive values](/src/com/ds/string/SplittingStringIntoDescendingConsecutiveValues.java)
 </details>
 
 
