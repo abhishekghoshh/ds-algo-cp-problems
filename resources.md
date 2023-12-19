@@ -1,7 +1,10 @@
 # Resources
 
-#### Algorithm
-- **sort**
+## Algorithm
+<details>
+    <summary><strong>sort</strong></summary>
+
+- codes
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
   - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
@@ -13,13 +16,22 @@
   - [Count sort](/src/com/algo/sort/CountSort.java)
   - [Radix sort](/src/com/algo/sort/RadixSort.java)
   - [Heap sort](/src/com/algo/sort/HeapSort.java)
-- **string**
+</details>
+
+<details>
+    <summary><strong>string</strong></summary>
+
+- codes
   - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
   - [Z-Function](/src/com/algo/string/ZFunction.java)
   - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
+</details>
 
-#### Data-Structure
-- **array**
+## Data-Structure
+<details>
+    <summary><strong>array</strong></summary>
+
+- codes
   - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
   - [Best Time to Buy and Sell Stock](/src/com/ds/array/MaxProfit.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
@@ -102,7 +114,12 @@
   - [Reverse Integer](/src/com/ds/array/ReverseInteger.java)
   - [3Sum Closest](/src/com/ds/array/ThreeSumClosest.java)
   - [Trapping Rain Water](/src/com/ds/array/TrappingRainWater.java)
-- **sliding-window**
+</details>
+
+<details>
+    <summary><strong>sliding-window</strong></summary>
+
+- codes
   - [Maximum Sum Subarray of size K](/src/com/ds/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
   - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
@@ -125,7 +142,12 @@
   - [Maximum Points You Can Obtain from Cards](/src/com/ds/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
     - dynamic-programming
   - [Container With Most Water](/src/com/ds/slidingwindow/ContainerWithMostWater.java)
-- **binary-search**
+</details>
+
+<details>
+    <summary><strong>binary-search</strong></summary>
+
+- codes
   - [Binary Search](/src/com/ds/binarysearch/BinarySearch.java)
   - [Lower Bound](/src/com/ds/binarysearch/LowerBound.java)
   - [Upper Bound](/src/com/ds/binarysearch/UpperBound.java)
@@ -161,7 +183,12 @@
   - [Search a 2D Matrix II](/src/com/ds/binarysearch/SearchInRowAndColumnSortedMatrix2.java)
   - [Find a Peak Element II](/src/com/ds/binarysearch/FindPeakElementII.java)
   - [Median of Row Wise Sorted Matrix](/src/com/ds/binarysearch/MedianOfRowWiseSortedMatrix.java)
-- **string**
+</details>
+
+<details>
+    <summary><strong>string</strong></summary>
+
+- codes
   - [Remove Outermost Parentheses](/src/com/ds/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/ds/string/ReverseWordsInString.java)
   - [Reverse Words](/src/com/ds/string/ReverseWords.java)
@@ -187,26 +214,42 @@
   - [Longest happy prefix](/src/com/ds/string/LongestHappyPrefix.java)
   - [Count Palindromic Subsequences](/src/com/ds/string/CountPalindromicSubsequences.java)
   - [Repeated String Match](/src/com/ds/string/RepeatedStringMatch.java)
-- **linked-list**
+</details>
+
+
+<details>
+    <summary><strong>linked-list</strong></summary>
+
+- codes
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
-- **recursion**
+</details>
+
+<details>
+    <summary><strong>recursion</strong></summary>
+
+- codes
   - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
-- **stack**
+</details>
+
+<details>
+    <summary><strong>stack</strong></summary>
+
+- codes
   - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java) **TBD**
     - array
     - string
     - dynamic-programming
-
+</details>
 
 <details>
     <summary><strong>bit-manipulation</strong></summary>
 
-- Resource
+- resources
   - [L1 | Bit Manipulations | Raj (Striver) | Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
   - [L2 | Bit Manipulations | Raj (Striver) | Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
   - [Bit Manipulation by Scaler (2nd Half only)](https://www.youtube.com/watch?v=VRePcT7lmCs)
 
-- Codes
+- codes
   - [Introduction to Bit Manipulation](/src/com/ds/bitmanipulation/BitManipulation.java)
   - [Negative of a Number](/src/com/ds/bitmanipulation/NegativeOfNumber.java)
   - [How many Bits are required to represent a number](/src/com/ds/bitmanipulation/HowManyBitsRequiredToRepresentOneNumber.java)
