@@ -24,7 +24,7 @@
   - [Best Time to Buy and Sell Stock](/src/com/ds/array/MaxProfit.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
-  - [Find the duplicate in an array of N+1 integers <details><summary>Other tags</summary>| hashing | swap-sort | Cycle-Detection-Using-Tortoise-Method </details>](/src/com/ds/array/FindDuplicateNumber.java)
+  - [Find the duplicate in an array of N+1 integers](/src/com/ds/array/FindDuplicateNumber.java) <details><summary><p>Other tags</p></summary>| hashing | swap-sort | Cycle-Detection-Using-Tortoise-Method |</details>
   - [Remove Duplicates in-place from Sorted Array](/src/com/ds/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/ds/array/LeftRotateByOne.java)
   - [Left rotate an array by D places](/src/com/ds/array/LeftRotateArray.java)
