@@ -322,7 +322,12 @@
 <details>
     <summary><strong>greedy</strong></summary>
 
-- [candy](/src/com/ds/greedy/Candy.java) **TBD**
+- resource
+  - dummy
+- codes
+  - [Assign Cookies](/src/com/ds/greedy/AssignCookies.java)
+  - [Fractional Knapsack](/src/com/ds/greedy/FractionalKnapsack.java)
+  - [candy](/src/com/ds/greedy/Candy.java) **TBD**
 </details>
 
 <details>
