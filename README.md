@@ -324,3 +324,24 @@
 
 - [candy](/src/com/ds/greedy/Candy.java) **TBD**
 </details>
+
+<details>
+    <summary><strong>segment tree</strong></summary>
+
+- resources
+  - [Masterclass: Range Query DS | Segment Trees | Fenwick Trees | Masterclasses By Striver | CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
+  - [Marathon Class on Range Query DS - 2 | Segment Trees | Fenwick Trees | Masterclasses By Striver) | CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
+- codes
+  - dummy
+</details>
+
+<details>
+    <summary><strong>tries</strong></summary>
+
+- resources
+  - [Trie Series | Striver | take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
+  - [L1 | Tries | Tries Master Class by Striver | CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
+  - [L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
+- codes
+  - dummy
+</details>

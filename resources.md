@@ -23,17 +23,6 @@ Graph and Tree Series:
 	https://www.youtube.com/watch?v=Qmt0QwzEmh0&list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu -> Data Structure by William fiset
 
 
-Tries:
-
-	https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1 -> Trie Series / Striver
-	https://www.youtube.com/watch?v=thsleiL6zxg -> L1 | Tries | Tries Master Class by Striver (for revise only)
-	https://www.youtube.com/watch?v=vAF8Wvs10Ts -> L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)
-
-Segment tree:
-
-	https://www.youtube.com/watch?v=NEG-SoyigGE -> Range Query DS | Segment Trees | Fenwick Trees 
-	https://www.youtube.com/watch?v=rXnXRU8yMF0 -> Range Query DS - 2 | Segment Trees | Fenwick Trees
-
 Coursera courses :
 
 	https://www.coursera.org/learn/algorithms-part1
