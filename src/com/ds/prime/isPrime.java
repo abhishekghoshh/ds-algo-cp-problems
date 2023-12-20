@@ -1,4 +1,4 @@
-package primes;
+package com.ds.prime;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/prime-number2314/1

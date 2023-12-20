@@ -1,4 +1,4 @@
-package primes;
+package com.ds.prime;
 /*
  * Problem link :
  * 
