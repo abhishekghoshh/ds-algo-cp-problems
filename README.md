@@ -327,7 +327,13 @@
 - codes
   - [Assign Cookies](/src/com/ds/greedy/AssignCookies.java)
   - [Fractional Knapsack](/src/com/ds/greedy/FractionalKnapsack.java)
-  - [candy](/src/com/ds/greedy/Candy.java) **TBD**
+  - [Find Minimum Number Of Coins](/src/com/ds/greedy/MinimumNumberOfCoins.java)
+  - [Lemonade Change](/src/com/ds/greedy/LemonadeChange.java)
+  - [Valid Parenthesis String with escape character(*)](/src/com/ds/greedy/ValidParenthesisStringWithEscapeCharacter.java)
+  - [N meetings in one room](/src/com/ds/greedy/NMeetingsInOneRoom.java)
+  - [Minimum number of platforms required for a railway](/src/com/ds/greedy/MinimumNumberOfPlatformNeeded.java)
+  - [Job Sequencing Problem](/src/com/ds/greedy/JobSchedulingProblem.java)
+  - [candy](/src/com/ds/greedy/Candy.java)
 </details>
 
 <details>
@@ -349,4 +355,24 @@
   - [L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
 - codes
   - dummy
+</details>
+
+
+## Some special problem
+
+<details>
+    <summary><strong>tries</strong></summary>
+
+- resources
+  - [Jump Game Problems | Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
+- codes
+  - [Jump Game 1](src/com/ds/series/jumpgame/JumpGame1.java)
+  - [Jump Game 2](src/com/ds/series/jumpgame/JumpGame2.java)
+  - [Jump Game 3](src/com/ds/series/jumpgame/JumpGame3.java)
+  - [Jump Game 4](src/com/ds/series/jumpgame/JumpGame4.java)
+  - [Jump Game 5](src/com/ds/series/jumpgame/JumpGame5.java)
+  - [Jump Game 6](src/com/ds/series/jumpgame/JumpGame6.java)
+  - [Jump Game 7](src/com/ds/series/jumpgame/JumpGame7.java)
+  - [Frog Jump 1](src/com/ds/series/jumpgame/FrogJump1.java)
+  - [Frog Jump 2](src/com/ds/series/jumpgame/FrogJump2.java)
 </details>

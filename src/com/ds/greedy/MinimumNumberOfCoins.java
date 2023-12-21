@@ -1,14 +1,16 @@
-package greedy;
+package com.ds.greedy;
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/975277?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
- *	https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
- * 
+ * https://www.codingninjas.com/codestudio/problems/975277
+ * https://www.codingninjas.com/studio/problems/find-minimum-number-of-coins_975277
+ *
  * Solution video :
  * https://www.youtube.com/watch?v=mVg9CfJvayM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=49
- * 
+ *
+ * https://takeuforward.org/data-structure/find-minimum-number-of-coins/
+ * https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
  * */
 public class MinimumNumberOfCoins {
 
@@ -35,13 +37,11 @@ public class MinimumNumberOfCoins {
 		for (int i = coins.length - 1; i >= 0; i--) {
 			if (amount >= coins[i]) {
 				coinsNeeded = amount / coins[i];
-				count = count + coinsNeeded;
-				amount = amount - coinsNeeded * coins[i];
-				System.out.println(coinsNeeded + " coins are taking of " + coins[i]);
+				count += coinsNeeded;
+				amount -= coinsNeeded * coins[i];
+				System.out.println(coins[i] + " coin count is " + coinsNeeded);
 			}
-			if (amount == 0) {
-				break;
-			}
+			if (amount == 0) break;
 		}
 		System.out.println("Coins needed " + count);
 	}

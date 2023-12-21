@@ -16,7 +16,35 @@ import java.util.Arrays;
 public class FractionalKnapsack {
 
 	public static void main(String[] args) {
+		type2();
 		type1();
+	}
+
+	// same as previous
+	// but here we will directly sort the given input array
+	private static void type2() {
+		int W = 50;
+		Item[] arr = {new Item(60, 10), new Item(100, 20), new Item(120, 30)};
+		int n = 3;
+		Arrays.sort(arr, (item1, item2) -> {
+			double profit1 = (double) (item1.value) / (double) (item1.weight);
+			double profit2 = (double) (item2.value) / (double) (item2.weight);
+			return Double.compare(profit2, profit1);
+		});
+
+		int weight = 0;
+		double profit = 0.0;
+
+		for (int i = 0; i < n; i++) {
+			if (weight + arr[i].weight <= W) {
+				weight += arr[i].weight;
+				profit += arr[i].value;
+			} else {
+				profit += ((double) arr[i].value / (double) arr[i].weight) * (double)( W - weight);
+				break;
+			}
+		}
+		System.out.println(profit);
 	}
 
 	// time complexity O(n*log(n))+O(n)
@@ -48,7 +76,7 @@ public class FractionalKnapsack {
 				break;
 			}
 		}
-		System.out.println("max profit is " + profit);
+		System.out.println(profit);
 	}
 
 	public static class Item {

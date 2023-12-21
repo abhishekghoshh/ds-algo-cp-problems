@@ -4,6 +4,7 @@ package com.ds.series.jumpgame;
  *
  * problem links :
  * https://leetcode.com/problems/jump-game/
+ * https://www.codingninjas.com/studio/problems/jump-game_3164697
  *
  * Solution link :
  * https://www.youtube.com/watch?v=C6AZyfj-Kyw&list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi&index=1
@@ -12,6 +13,7 @@ package com.ds.series.jumpgame;
  *
  * */
 public class JumpGame1 {
+    // TODO check one more time
     public static void main(String[] args) {
         type1();
         type2();
@@ -27,8 +29,7 @@ public class JumpGame1 {
     public static boolean canJump2(int[] nums) {
         int curr = nums[0], n = nums.length;
         for (int i = 0; i < n; i++) {
-            if (i == curr && nums[i] == 0)
-                break;
+            if (i == curr && nums[i] == 0) break;
             curr = Math.max(i + nums[i], curr);
         }
         return curr >= n - 1;
@@ -44,11 +45,9 @@ public class JumpGame1 {
         int n = nums.length;
         if (n == 1) return true;
         int max = 0;
-        for (int index = 0; index < n - 1 && max >= index; index++) {
-            if (max < index + nums[index])
-                max = index + nums[index];
-            if (max >= n - 1)
-                return true;
+        for (int i = 0; i < n - 1 && max >= i; i++) {
+            if (max < i + nums[i]) max = i + nums[i];
+            if (max >= n - 1) return true;
         }
         return false;
     }

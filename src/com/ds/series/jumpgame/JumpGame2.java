@@ -6,6 +6,7 @@ import java.util.Arrays;
  *
  * problem links :
  * https://leetcode.com/problems/jump-game-ii/
+ * https://www.codingninjas.com/studio/problems/jump-game_893178
  *
  * Solution link :
  * https://www.youtube.com/watch?v=BRnRPLNGWIo&list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi&index=2
