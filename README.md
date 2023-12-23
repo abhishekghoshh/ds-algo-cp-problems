@@ -26,6 +26,33 @@
     - [Z-Function](/src/com/algo/string/ZFunction.java)
     - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
 </details>
+<details>
+    <summary><strong>string</strong></summary>
+
+- codes
+  - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
+  - [Z-Function](/src/com/algo/string/ZFunction.java)
+  - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
+
+</details>
+<details>
+    <summary><strong>queue</strong></summary>
+
+- codes
+  - Dummy
+
+</details>
+
+<details>
+    <summary><strong>heap</strong></summary>
+
+- codes
+  - [Min Heap](/src/com/algo/heap/MinHeap.java)
+  - [Max heap](/src/com/algo/heap/MaxHeap.java)
+  - [Shortest Job First (or SJF) CPU Scheduling](/src/com/algo/heap/ShortestJobFirstSchedulingAlgorithm.java)
+    - greedy
+
+</details>
 
 ## Data-Structure
 <details>
@@ -334,6 +361,7 @@
   - [Minimum number of platforms required for a railway](/src/com/ds/greedy/MinimumNumberOfPlatformNeeded.java)
   - [Job Sequencing Problem](/src/com/ds/greedy/JobSchedulingProblem.java)
   - [candy](/src/com/ds/greedy/Candy.java)
+  - [Insert Interval](/src/com/ds/greedy/InsertInterval.java)
 </details>
 
 <details>
@@ -361,7 +389,7 @@
 ## Some special problem
 
 <details>
-    <summary><strong>tries</strong></summary>
+    <summary><strong>Jump Game</strong></summary>
 
 - resources
   - [Jump Game Problems | Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)

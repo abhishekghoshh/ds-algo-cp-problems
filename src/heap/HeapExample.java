@@ -1,7 +1,7 @@
 package heap;
 
-import com.implementations.heap.MaxHeap;
-import com.implementations.heap.MinHeap;
+import com.algo.heap.MaxHeap;
+import com.algo.heap.MinHeap;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

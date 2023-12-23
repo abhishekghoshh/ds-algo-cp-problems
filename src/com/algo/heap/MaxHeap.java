@@ -1,4 +1,4 @@
-package com.implementations.heap;
+package com.algo.heap;
 
 import java.util.Arrays;
 
