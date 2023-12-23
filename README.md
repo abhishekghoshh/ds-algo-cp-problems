@@ -132,6 +132,7 @@
     - [Spiral Traversal of Matrix](/src/com/ds/array/SpiralTraversalOfMatrix.java)
     - [Program to generate Pascal’s Triangle](/src/com/ds/array/PascalTriangle.java)
     - [Merge Overlapping Sub-intervals](/src/com/ds/array/MergeOverlappingSubIntervals.java)
+      - greedy
     - [Merge two Sorted Arrays Without Extra Space](/src/com/ds/array/MergeTwoSortedArraysWithoutExtraSpace.java)
     - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
     - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
@@ -362,6 +363,7 @@
   - [Job Sequencing Problem](/src/com/ds/greedy/JobSchedulingProblem.java)
   - [candy](/src/com/ds/greedy/Candy.java)
   - [Insert Interval](/src/com/ds/greedy/InsertInterval.java)
+  - [Non-overlapping Intervals](/src/com/ds/greedy/NonOverlappingIntervals.java)
 </details>
 
 <details>

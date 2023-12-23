@@ -1,5 +1,8 @@
 package com.ds.array;
 
+import com.util.ArrayUtil;
+
+import java.util.*;
 /*
  * Problem link :
  * https://leetcode.com/problems/merge-intervals/
@@ -13,9 +16,7 @@ package com.ds.array;
  * https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/
  * */
 
-import com.util.ArrayUtil;
 
-import java.util.*;
 
 public class MergeOverlappingSubIntervals {
 
