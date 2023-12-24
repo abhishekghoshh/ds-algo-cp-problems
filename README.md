@@ -165,6 +165,7 @@
     - [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
     - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
     - [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
+      - queue
     - [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
     - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
     - [Fruit Into Baskets | Pick Toys | An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
@@ -292,10 +293,14 @@
 
 - codes
   - [Implement Stack using Arrays](/src/com/ds/stack/Stack.java)
-    - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java) **TBD**
-        - array
-        - string
-        - dynamic-programming
+  - [Implement Stack using Queue](/src/com/ds/stack/StackUsingQueue.java)
+  - [Implement stack using Linkedlist](/src/com/ds/stack/StackUsingLinkedlist.java)
+  - [Valid Parentheses](/src/com/ds/stack/ValidParenthesis.java)
+  - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java)
+    - array
+    - string
+    - dynamic-programming
+  - [Implement Min Stack](/src/com/ds/stack/MinStack.java)
 </details>
 
 <details>
@@ -303,6 +308,9 @@
 
 - codes
   - [Implement Queue using Arrays](/src/com/ds/queue/Queue.java)
+  - [Implement Queue using Stack](/src/com/ds/queue/QueueUsingStack.java)
+  - [Implement queue using Linkedlist](/src/com/ds/queue/QueueUsingLinkedlist.java)
+  - [Implement Deque using Linkedlist](/src/com/ds/queue/DequeUsingLinkedlist.java)
 
 </details>
 

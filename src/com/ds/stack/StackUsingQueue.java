@@ -5,10 +5,12 @@ import java.util.Queue;
 /*
  * Problem link :
  * https://leetcode.com/problems/implement-stack-using-queues/
- * 
+ * https://www.codingninjas.com/studio/problems/stack-using-queue_795152
+ *
  * Solution link :
- * 
- * 
+ * https://www.youtube.com/watch?v=jDZQKzEtbYQ
+ *
+ * https://takeuforward.org/data-structure/implement-stack-using-single-queue/
  * */
 public class StackUsingQueue {
 
@@ -39,22 +41,22 @@ public class StackUsingQueue {
 		}
 
 		// we will use the same queue
-		// we will add all previous element one by one to the queue
-		// the the last added element will be in the front of the queue
+		// we will add all previous elements one by one to the queue
+		//  the last added element will be in the front of the queue
 		public void push(int x) {
 			int size = queue.size();
 			queue.offer(x);
-			while (size-- != 0) {
-				// front element added to the back
-				queue.offer(queue.poll());
-			}
+			// front element added to the back
+			while (size-- != 0) queue.offer(queue.poll());
 		}
 
 		public int pop() {
+			if (queue.isEmpty()) return -1;
 			return queue.poll();
 		}
 
 		public int top() {
+			if (queue.isEmpty()) return -1;
 			return queue.peek();
 		}
 
@@ -97,17 +99,19 @@ public class StackUsingQueue {
 			Queue<Integer> primary = secondary.isEmpty() ? this.primary : this.secondary;
 			Queue<Integer> secondary = primary == this.primary ? this.secondary : this.primary;
 			secondary.offer(x);
-			while (!primary.isEmpty()) {
-				secondary.offer(primary.poll());
-			}
+			while (!primary.isEmpty()) secondary.offer(primary.poll());
 		}
 
 		public int pop() {
-			return primary.size() != 0 ? primary.poll() : secondary.poll();
+			if (!primary.isEmpty()) return primary.poll();
+			if (!secondary.isEmpty()) return secondary.poll();
+			return -1;
 		}
 
 		public int top() {
-			return primary.size() != 0 ? primary.peek() : secondary.peek();
+			if (!primary.isEmpty()) return primary.peek();
+			if (!secondary.isEmpty()) return secondary.peek();
+			return -1;
 		}
 
 		public boolean empty() {
@@ -148,19 +152,17 @@ public class StackUsingQueue {
 		// space complexity O(2n)
 		public void push(int x) {
 			secondary.offer(x);
-			while (!primary.isEmpty()) {
-				secondary.offer(primary.poll());
-			}
-			while (!secondary.isEmpty()) {
-				primary.offer(secondary.poll());
-			}
+			while (!primary.isEmpty()) secondary.offer(primary.poll());
+			while (!secondary.isEmpty()) primary.offer(secondary.poll());
 		}
 
 		public int pop() {
+			if (primary.isEmpty()) return -1;
 			return primary.poll();
 		}
 
 		public int top() {
+			if (primary.isEmpty()) return -1;
 			return primary.peek();
 		}
 

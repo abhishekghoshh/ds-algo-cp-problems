@@ -1,7 +1,16 @@
 package com.ds.queue;
 
 import java.util.Stack;
-
+/*
+ * Problem link :
+ * https://leetcode.com/problems/implement-queue-using-stacks/
+ * https://www.codingninjas.com/studio/problems/day-25-:-queue-using-stack_799482
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=3Et9MrMc02A
+ *
+ * https://takeuforward.org/data-structure/implement-queue-using-stack/
+ * */
 public class QueueUsingStack {
 
 	public static void main(String[] args) {
@@ -41,27 +50,23 @@ public class QueueUsingStack {
 		}
 
 		// we will only pop from secondary stack
-		// if stack is not empty then we will directly pop from the secondary, else we
+		// if stack is not empty, then we will directly pop from the secondary, else we
 		// will add items from the primary to secondary, the overall time complexity is
-		// O(2n) for n items, for max of of the time pop will take O(1) time but when
+		// O(2n) for n items, for max of the time pop will take O(1) time but when
 		// the stack is empty then only for that time items are being pushed to
 		// secondary, and for n items that can be pushed only n times
 		public int pop() {
-			if (secondary.isEmpty()) {
-				while (!primary.isEmpty()) {
+			if (secondary.isEmpty())
+				while (!primary.isEmpty())
 					secondary.push(primary.pop());
-				}
-			}
 			return secondary.pop();
 		}
 
 		// same ad pop method
 		public int peek() {
-			if (secondary.isEmpty()) {
-				while (!primary.isEmpty()) {
+			if (secondary.isEmpty())
+				while (!primary.isEmpty())
 					secondary.push(primary.pop());
-				}
-			}
 			return secondary.peek();
 		}
 
@@ -105,13 +110,9 @@ public class QueueUsingStack {
 		// time complexity O(2n)
 		// space complexity O(n)
 		public void push(int x) {
-			while (!primary.isEmpty()) {
-				secondary.push(primary.pop());
-			}
+			while (!primary.isEmpty()) secondary.push(primary.pop());
 			secondary.push(x);
-			while (!secondary.isEmpty()) {
-				primary.push(secondary.pop());
-			}
+			while (!secondary.isEmpty()) primary.push(secondary.pop());
 		}
 
 		public int pop() {

@@ -1,4 +1,4 @@
-package stack;
+package com.ds.stack;
 
 import java.util.Stack;
 
@@ -18,8 +18,126 @@ public class MinStack {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+		type4();
 	}
 
+	// same as type2
+	// it is accepted in leetcode
+	private static void type4() {
+		MinStack3 stack = new MinStack3();
+		stack.push(5);
+		stack.push(6);
+		stack.push(7);
+		stack.push(3);
+		stack.push(3);
+		System.out.println("current stack is " + stack);
+		stack.pop();
+		System.out.println("popped element " + stack.top());
+		stack.pop();
+		System.out.println("popped element " + stack.getMin());
+		stack.pop();
+		System.out.println("popped element " + stack.top());
+		System.out.println("current stack is " + stack);
+	}
+
+	static class MinStack4 {
+		Stack<Long> st = new Stack<Long>();
+		Long mini;
+
+		// initialize your data structure here.
+		public MinStack4() {
+			mini = Long.MAX_VALUE;
+		}
+
+		public void push(int value) {
+			Long val = (long) value;
+			if (st.isEmpty()) {
+				mini = val;
+				st.push(val);
+			} else {
+				if (val < mini) {
+					st.push(2 * val - mini);
+					mini = val;
+				} else {
+					st.push(val);
+				}
+			}
+		}
+
+		public void pop() {
+			if (st.isEmpty()) return;
+			Long val = st.pop();
+			if (val < mini) mini = 2 * mini - val;
+		}
+
+		public int top() {
+			Long val = st.peek();
+			if (val < mini) return mini.intValue();
+			return val.intValue();
+		}
+
+		public int getMin() {
+			return mini.intValue();
+		}
+	}
+
+	// almost a brute force approach
+	private static void type3() {
+		MinStack3 stack = new MinStack3();
+		stack.push(5);
+		stack.push(6);
+		stack.push(7);
+		stack.push(3);
+		stack.push(3);
+		System.out.println("current stack is " + stack);
+		stack.pop();
+		System.out.println("popped element " + stack.top());
+		stack.pop();
+		System.out.println("popped element " + stack.getMin());
+		stack.pop();
+		System.out.println("popped element " + stack.top());
+		System.out.println("current stack is " + stack);
+	}
+
+	static class Pair {
+		int item, min;
+
+		Pair(int item, int min) {
+			this.item = item;
+			this.min = min;
+		}
+	}
+
+	static class MinStack3 {
+		Stack<Pair> stack;
+
+		public MinStack3() {
+			stack = new Stack<>();
+		}
+
+		public void push(int item) {
+			int min;
+			if (stack.isEmpty()) min = item;
+			else min = Math.min(stack.peek().min, item);
+			stack.push(new Pair(item, min));
+		}
+
+		public void pop() {
+			stack.pop();
+		}
+
+		public int top() {
+			return stack.peek().item;
+		}
+
+		public int getMin() {
+			return stack.peek().min;
+		}
+	}
+
+	// TODO optimized approach
+	// see it later
 	private static void type2() {
 		MinStack2 stack = new MinStack2();
 		stack.push(5);
@@ -35,9 +153,9 @@ public class MinStack {
 	}
 
 	public static class MinStack2 {
-		// we will store the elements in the stack
+		// we will store the elements in the stack,
 		// and we will also use one variable for storing the current minimum element
-		// we will derive one logic to to store the previous logic
+		// we will derive one logic to store the previous logic
 		private Stack<Long> stack = null;
 		private Long min;
 
@@ -48,7 +166,7 @@ public class MinStack {
 		// so the newly added item will always be lesser the current min
 		// as our current min is x-1
 		// so while popping when we encounter any value lesser than the current min then
-		// we should know that it is the currpted value that we have stored earlier
+		// we should know that it is the curred value that we have stored earlier
 		// so after popping the current min we have to again find the previous min
 		// that we can find easily by doing this=> 2*(x-1)-(x-2) => x
 		public MinStack2() {
@@ -69,7 +187,7 @@ public class MinStack {
 			// if the stack is empty
 			// then we can add the item to stack
 			// and that element will also be the minimum
-			Long val = Long.valueOf(value);
+			Long val = (long) value;
 			if (stack.isEmpty()) {
 				min = val;
 				stack.add(val);
@@ -90,28 +208,21 @@ public class MinStack {
 		}
 
 		public int pop() {
-			if (stack.isEmpty()) {
-				return Integer.MIN_VALUE;
-			}
+			if (stack.isEmpty()) return Integer.MIN_VALUE;
 			// if current top is greater than current min then we can safely pop
-			if (stack.peek() > min) {
-				return stack.pop().intValue();
-			} else {
-				// current top is the min element
-				// first we will save the current min
-				// then we will try to find our previous min
-				Long tempMin = min;
-				// (2 * min - stack.pop()) is our previous min
-				min = 2 * min - stack.pop();
-				return tempMin.intValue();
-			}
+			if (stack.peek() > min) return stack.pop().intValue();
+			// current top is the min element
+			// first we will save the current min
+			// then we will try to find our previous min
+			Long tempMin = min;
+			// (2 * min - stack.pop()) is our previous min
+			min = 2 * min - stack.pop();
+			return tempMin.intValue();
 		}
 
 		public int top() {
 			Long val = stack.peek();
-			if (val < min) {
-				return min.intValue();
-			}
+			if (val < min) return min.intValue();
 			return val.intValue();
 		}
 
@@ -121,6 +232,9 @@ public class MinStack {
 		}
 	}
 
+
+	// TODO there is an issue in this solution
+	// solve this
 	private static void type1() {
 		MinStack1 stack = new MinStack1();
 		stack.push(5);
@@ -139,8 +253,8 @@ public class MinStack {
 		// we will use two stack
 		// one for storing all the elements
 		// another for storing the min elements only
-		private Stack<Integer> stack = null;
-		private Stack<Integer> minStack = null;
+		private final Stack<Integer> stack;
+		private final Stack<Integer> minStack;
 
 		// space complexity is O(2n)
 		public MinStack1() {
@@ -160,20 +274,15 @@ public class MinStack {
 
 		// time complexity O(1)
 		public int pop() {
-			if (stack.isEmpty()) {
-				return -1;
-			}
-			if (stack.peek() == minStack.peek()) {
-				minStack.pop();
-			}
+			if (stack.isEmpty()) return -1;
+			if (stack.peek() == minStack.peek()) minStack.pop();
 			return stack.pop();
 		}
 
 		// time complexity O(1)
 		public void push(Integer item) {
-			if (minStack.isEmpty() || item <= minStack.peek()) {
+			if (minStack.isEmpty() || item <= minStack.peek())
 				minStack.push(item);
-			}
 			stack.push(item);
 		}
 

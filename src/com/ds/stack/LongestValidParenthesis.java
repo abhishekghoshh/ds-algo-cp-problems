@@ -78,10 +78,8 @@ public class LongestValidParenthesis {
         int max = 0;
         // exploration from left to right
         for (char c : chArr) {
-            if (c == '(')
-                open++;
-            else
-                close++;
+            if (c == '(') open++;
+            else close++;
             if (open == close)
                 max = Math.max(max, open + close);
             else if (close > open)
@@ -92,15 +90,12 @@ public class LongestValidParenthesis {
         // exploration from right to left
         open = close = 0;
         for (int i = n - 1; i >= 0; i--) {
-            if (chArr[i] == '(')
-                open++;
-            else
-                close++;
+            if (chArr[i] == '(') open++;
+            else close++;
             if (open == close)
                 max = Math.max(max, open + close);
             else if (open > close)
                 open = close = 0;
-
         }
         System.out.println(max);
     }
@@ -143,10 +138,9 @@ public class LongestValidParenthesis {
         int n = chArr.length;
         int max = 0;
         for (int i = 0; i < n; i++) {
-            for (int j = n - 1; j > 0 && j - i >= 1; j--) {
+            for (int j = n - 1; j > 0 && j - i >= 1; j--)
                 if (isValidParenthesis(chArr, i, j))
                     max = Math.max(max, j - i + 1);
-            }
         }
         System.out.println(max);
     }
@@ -160,10 +154,8 @@ public class LongestValidParenthesis {
             if (chArr[i] == '(') {
                 openBraces++;
             } else {
-                if (openBraces > 0)
-                    openBraces--;
-                else
-                    return false;
+                if (openBraces > 0) openBraces--;
+                else return false;
             }
         }
         return openBraces == 0;
