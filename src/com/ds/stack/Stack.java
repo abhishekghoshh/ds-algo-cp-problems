@@ -1,18 +1,18 @@
-package stack;
+package com.ds.stack;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /*
  * Problem link :
- * 
+ * https://www.codingninjas.com/studio/problems/stack-implementation-using-array_3210209
  * 
  * Solution link :
- * 
- * 
- * Study link :
+ * https://www.youtube.com/watch?v=GYptUgnIM_I
  * https://www.youtube.com/watch?v=P1bAPZg5uaE&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd
- * 
+ *
+ *
+ * https://takeuforward.org/data-structure/implement-stack-using-array/
  * */
 public class Stack {
 
@@ -104,7 +104,7 @@ public class Stack {
 
 	public static class StackUsingDynamicArray<T> {
 		private static final int DEFAULT_CAPACITY = 100;
-		private List<T> array;
+		private final List<T> array;
 		private int size = 0;
 
 		StackUsingDynamicArray() {
@@ -129,16 +129,12 @@ public class Stack {
 		}
 
 		public T pop() {
-			if (size == 0) {
-				throw new UnsupportedOperationException("No element present for popping");
-			}
+			if (size == 0) throw new UnsupportedOperationException("No element present for popping");
 			return array.remove(--size);
 		}
 
 		public T peek() {
-			if (size == 0) {
-				throw new UnsupportedOperationException("No element present for peeking");
-			}
+			if (size == 0) throw new UnsupportedOperationException("No element present for peeking");
 			return array.get(size - 1);
 		}
 	}
@@ -158,7 +154,7 @@ public class Stack {
 
 	public static class StackUsingArray<T> {
 		private static final int DEFAULT_CAPACITY = 100;
-		private T[] array;
+		private final T[] array;
 		private final int capacity;
 		private int size = 0;
 
@@ -181,23 +177,17 @@ public class Stack {
 		}
 
 		public void push(T item) {
-			if (size == capacity) {
-				throw new UnsupportedOperationException("Capacity is full");
-			}
+			if (size == capacity) throw new UnsupportedOperationException("Capacity is full");
 			array[size++] = item;
 		}
 
 		public T pop() {
-			if (size == 0) {
-				throw new UnsupportedOperationException("No element present for popping");
-			}
+			if (size == 0) throw new UnsupportedOperationException("No element present for popping");
 			return array[--size];
 		}
 
 		public T peek() {
-			if (size == 0) {
-				throw new UnsupportedOperationException("No element present for peeking");
-			}
+			if (size == 0) throw new UnsupportedOperationException("No element present for peeking");
 			return array[size - 1];
 		}
 

@@ -291,10 +291,19 @@
     <summary><strong>stack</strong></summary>
 
 - codes
+  - [Implement Stack using Arrays](/src/com/ds/stack/Stack.java)
     - [Longest Valid Parentheses](/src/com/ds/stack/LongestValidParenthesis.java) **TBD**
         - array
         - string
         - dynamic-programming
+</details>
+
+<details>
+    <summary><strong>queue</strong></summary>
+
+- codes
+  - [Implement Queue using Arrays](/src/com/ds/queue/Queue.java)
+
 </details>
 
 <details>

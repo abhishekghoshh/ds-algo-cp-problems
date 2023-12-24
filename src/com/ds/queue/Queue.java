@@ -1,5 +1,14 @@
-package queue;
+package com.ds.queue;
 
+/*
+ * Problem link :
+ * https://www.codingninjas.com/studio/problems/implement-queue-using-arrays_8390825
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=M6GnoUDpqEE&t=1s
+ *
+ * https://takeuforward.org/data-structure/implement-queue-using-array/
+ * */
 public class Queue {
 
 	public static void main(String[] args) {
@@ -22,8 +31,8 @@ public class Queue {
 	}
 
 	public static class DeQueue<T> {
-		private Node<T> start;
-		private Node<T> last;
+		private final Node<T> start;
+		private final Node<T> last;
 		private int size = 0;
 
 		private static class Node<T> {
@@ -206,58 +215,51 @@ public class Queue {
 	}
 
 	public static class QueueUsingArray<T> {
-		private T[] array;
-		private int start, end, size, capacity;
-
-		QueueUsingArray() {
-			this(16);
-		}
+		private final T[] array;
+		private int front;
+		private int rear;
+		private int size;
+		private final int capacity;
 
 		@SuppressWarnings("unchecked")
 		QueueUsingArray(int capacity) {
 			this.capacity = capacity;
 			array = (T[]) new Object[capacity];
-			start = -1;
-			end = -1;
+			front = -1;
+			rear = -1;
 			size = 0;
 		}
 
 		public void offer(T item) {
 			if (size == capacity) {
-				System.out.println("Queue is full\nExiting...");
-				System.exit(1);
+				System.out.println("Queue is full");
+				return;
 			}
-			if (end == -1) {
-				start = 0;
-				end = 0;
-			} else
-				end = (end + 1) % capacity;
-			array[end] = item;
+			if (rear == -1) front = rear = 0;
+			else rear = (rear + 1) % capacity;
+			array[rear] = item;
 			System.out.println("The element pushed is " + item);
 			size++;
 		}
 
 		public T poll() {
-			if (start == -1) {
-				System.out.println("Queue Empty\nExiting...");
-				System.exit(1);
+			if (front == -1) {
+				System.out.println("Queue Empty");
+				return null;
 			}
-			T popped = array[start];
-			if (size == 1) {
-				start = -1;
-				end = -1;
-			} else
-				start = (start + 1) % capacity;
+			T popped = array[front];
+			if (size == 1) front = rear = -1;
+			else front = (front + 1) % capacity;
 			size--;
 			return popped;
 		}
 
 		public T peek() {
-			if (start == -1) {
+			if (front == -1) {
 				System.out.println("Queue is Empty");
 				System.exit(1);
 			}
-			return array[start];
+			return array[front];
 		}
 
 		public int size() {
