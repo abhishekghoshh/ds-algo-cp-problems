@@ -15,13 +15,232 @@ import java.util.Map;
  */
 public class LFUCache {
 
+
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+		type4();
 	}
 
+	// accepted in leetcode
+	// TODO check the solution later
+	// here we are using node and doubly linked list
+	private static void type4() {
+
+	}
+
+	static class LFUCache4 {
+		static class Node {
+			int key, val;
+			int cnt = 1;
+			Node prev, next;
+
+			Node(int key, int val) {
+				this.key = key;
+				this.val = val;
+			}
+		}
+
+		Node[] keys = new Node[100001];
+		Node[] counts = new Node[200001];
+		Node tail;
+		int size = 0;
+		int capacity;
+
+		public LFUCache4(int capacity) {
+			this.capacity = capacity;
+		}
+
+		void remove(Node node) {
+			Node prev = node.prev;
+			Node next = node.next;
+			if (prev != null) prev.next = next;
+			if (next != null) next.prev = prev;
+			keys[node.key] = null;
+			if (counts[node.cnt] == node)
+				if (next != null && next.cnt == node.cnt)
+					counts[node.cnt] = next;
+				else counts[node.cnt] = null;
+			if (tail == node) tail = prev;
+			node.prev = null;
+			node.next = null;
+		}
+
+		void insert(Node node, Node next) {
+			counts[node.cnt] = node;
+			keys[node.key] = node;
+			if (next == null) {
+				if (tail != null) tail.next = node;
+				node.prev = tail;
+				tail = node;
+			} else {
+				if (next.prev != null) next.prev.next = node;
+				node.prev = next.prev;
+				node.next = next;
+				next.prev = node;
+			}
+		}
+
+		void moveUp(Node node) {
+			Node next = counts[node.cnt + 1] != null ? counts[node.cnt + 1] : counts[node.cnt];
+			if (next == node) next = node.next;
+			remove(node);
+			node.cnt++;
+			insert(node, next);
+		}
+
+		public int get(int key) {
+			Node node = keys[key];
+			if (node == null) return -1;
+			moveUp(node);
+			return node.val;
+		}
+
+		public void put(int key, int value) {
+			Node node = keys[key];
+			if (node == null) {
+				node = new Node(key, value);
+				if (size >= capacity) remove(tail);
+				else size++;
+				insert(node, counts[1]);
+			} else {
+				moveUp(node);
+				node.val = value;
+			}
+		}
+	}
+
+
+	// accepted in leetcode
+	// TODO check the solution later
+	// here we are using node and doubly linked list
+	private static void type3() {
+
+	}
+
+	static class LFUCache3 {
+		static class Node {
+			int key, val;
+			Node next, prev;
+			int freq = 1;
+
+			Node(int key, int value) {
+				this.key = key;
+				this.val = value;
+			}
+		}
+
+		static class DoublyLinkedList {
+			Node head, tail;
+
+			DoublyLinkedList() {
+				head = new Node(-1, -1);
+				tail = new Node(-1, -1);
+				head.next = tail;
+				tail.prev = head;
+			}
+
+
+			void addNode(Node node) {
+				Node next = head.next;
+				head.next = node;
+				node.prev = head;
+				head.next = node;
+				node.next = next;
+				next.prev = node;
+			}
+
+			Node removeNode() {
+				Node node = tail.prev;
+				node.prev.next = tail;
+				tail.prev = node.prev;
+				return node;
+			}
+
+
+			void removeNode(Node v) {
+				Node prev = v.prev;
+				Node next = v.next;
+				prev.next = next;
+				next.prev = prev;
+			}
+
+			boolean isEmpty() {
+				return head.next == tail;
+			}
+		}
+
+		HashMap<Integer, DoublyLinkedList> freqList = new HashMap<>();
+		HashMap<Integer, Node> lfuCache = new HashMap<>();
+		int capacity;
+		int minFreq;
+
+		public LFUCache3(int capacity) {
+			this.capacity = capacity;
+			minFreq = 1;
+		}
+
+		public int get(int key) {
+			if (lfuCache.get(key) == null) return -1;
+			Node node = lfuCache.get(key);
+			freqList.get(node.freq).removeNode(node);
+			if (freqList.get(node.freq).isEmpty()) {
+				if (minFreq == node.freq)
+					minFreq = node.freq + 1;
+			}
+			node.freq += 1;
+			if (freqList.get(node.freq) == null) {
+				DoublyLinkedList d = new DoublyLinkedList();
+				d.addNode(node);
+				freqList.put(node.freq, d);
+			} else {
+				freqList.get(node.freq).addNode(node);
+			}
+			return node.val;
+		}
+
+		public void put(int key, int value) {
+			if (capacity == 0) return;
+			if (lfuCache.get(key) != null) {
+				Node node = lfuCache.get(key);
+				freqList.get(node.freq).removeNode(node);
+				if (freqList.get(node.freq).isEmpty()) {
+					if (minFreq == node.freq)
+						minFreq = node.freq + 1;
+				}
+				node.freq += 1;
+				if (freqList.get(node.freq) == null) {
+					DoublyLinkedList d = new DoublyLinkedList();
+					d.addNode(node);
+					freqList.put(node.freq, d);
+				} else {
+					freqList.get(node.freq).addNode(node);
+				}
+				node.val = value;
+			} else {
+				if (lfuCache.size() == capacity) {
+					Node v = freqList.get(minFreq).removeNode();
+					lfuCache.remove(v.key);
+				}
+				Node newNode = new Node(key, value);
+				lfuCache.put(key, newNode);
+				if (freqList.get(1) != null) {
+					freqList.get(1).addNode(newNode);
+				} else {
+					DoublyLinkedList d = new DoublyLinkedList();
+					d.addNode(newNode);
+					freqList.put(1, d);
+				}
+				minFreq = 1;
+			}
+		}
+	}
+
+	// TODO solve it in leetcode
+	// this solution has some problem
 	// same as type 1
-	// this is specifically for leetcode
+	// this is specifically for leetcode,
 	// here we are specifying the types
 	private static void type2() {
 
@@ -139,7 +358,7 @@ public class LFUCache {
 		}
 	}
 
-	// TODO complete the leetcode problem
+	// TODO this solution has some problem
 	private static void type1() {
 		Cache<Integer, String> cache = new Cache<>(3);
 		cache.put(1, "Abhishek");
@@ -242,8 +461,8 @@ public class LFUCache {
 
 		public static class LRUCache<T, R> {
 			private int size = 0;
-			private Node<T, R> head;
-			private Node<T, R> tail;
+			private final Node<T, R> head;
+			private final Node<T, R> tail;
 
 			public LRUCache() {
 				head = new Node<>();
@@ -295,7 +514,7 @@ public class LFUCache {
 		}
 
 		public static class Node<T, R> {
-			private T key;
+			private final T key;
 			R value;
 			int frequency;
 			Node<T, R> prev;

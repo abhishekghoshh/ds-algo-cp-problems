@@ -59,7 +59,11 @@
   - [Shortest Job First (or SJF) CPU Scheduling](/src/com/algo/os/ShortestJobFirstSchedulingAlgorithm.java)
     - greedy
   - [LRU Cache](/src/com/algo/os/LRUCache.java)
+    - linked-list
+    - hashing
   - [LFU Cache](/src/com/algo/os/LFUCache.java)
+    - linked-list
+    - hashing
 
 </details>
 
