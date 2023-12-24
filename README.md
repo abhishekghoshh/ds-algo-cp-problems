@@ -49,8 +49,17 @@
 - codes
   - [Min Heap](/src/com/algo/heap/MinHeap.java)
   - [Max heap](/src/com/algo/heap/MaxHeap.java)
-  - [Shortest Job First (or SJF) CPU Scheduling](/src/com/algo/heap/ShortestJobFirstSchedulingAlgorithm.java)
+
+</details>
+
+<details>
+    <summary><strong>os</strong></summary>
+
+- codes
+  - [Shortest Job First (or SJF) CPU Scheduling](/src/com/algo/os/ShortestJobFirstSchedulingAlgorithm.java)
     - greedy
+  - [LRU Cache](/src/com/algo/os/LRUCache.java)
+  - [LFU Cache](/src/com/algo/os/LFUCache.java)
 
 </details>
 

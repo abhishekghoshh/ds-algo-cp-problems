@@ -1,4 +1,4 @@
-package com.algo.heap;
+package com.algo.os;
 
 import java.util.Arrays;
 import java.util.Comparator;

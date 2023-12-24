@@ -1,12 +1,13 @@
-package linkedlist;
+package com.algo.os;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/lfucache_3114758?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/lfu-cache/
+ * https://www.codingninjas.com/codestudio/problems/lfucache_3114758
+ *
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=0PSB9y8ehbk&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=79
@@ -16,6 +17,126 @@ public class LFUCache {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// same as type 1
+	// this is specifically for leetcode
+	// here we are specifying the types
+	private static void type2() {
+
+	}
+
+	public static class LFUCache2 {
+		private int size = 0;
+		private final int capacity;
+		private int leastFrequency = 1;
+		Map<Integer, LRUCache> frequencyMap;
+		Map<Integer, Node> cache;
+
+		public LFUCache2(int capacity) {
+			this.capacity = capacity;
+			frequencyMap = new HashMap<>();
+			cache = new HashMap<>();
+		}
+
+		public int get(int key) {
+			if (cache.containsKey(key)) {
+				Node node = cache.get(key);
+				updateFrequencyAndAdd(node);
+				return node.value;
+			}
+			return -1;
+		}
+
+		private void updateFrequencyAndAdd(Node node) {
+			frequencyMap.get(node.frequency).remove(node);
+			if (frequencyMap.get(node.frequency).isEmpty()) {
+				frequencyMap.remove(node.frequency);
+				leastFrequency = node.frequency + 1;
+			}
+			node.frequency++;
+			if (!frequencyMap.containsKey(node.frequency)) {
+				frequencyMap.put(node.frequency, new LRUCache());
+			}
+			frequencyMap.get(node.frequency).put(node);
+		}
+
+		public void put(int key, int value) {
+			if (cache.containsKey(key)) {
+				Node node = cache.get(key);
+				node.value = value;
+				updateFrequencyAndAdd(node);
+			} else {
+				if (size == capacity) {
+					Node last = frequencyMap.get(leastFrequency).removeTail();
+					cache.remove(last.key);
+					if (frequencyMap.get(leastFrequency).isEmpty()) {
+						frequencyMap.remove(leastFrequency);
+					}
+					size--;
+				}
+				size++;
+				leastFrequency = 1;
+				Node node = new Node(key, value, 1);
+				if (!frequencyMap.containsKey(node.frequency)) {
+					frequencyMap.put(node.frequency, new LRUCache());
+				}
+				cache.put(key, node);
+				frequencyMap.get(node.frequency).put(node);
+			}
+		}
+
+		public static class LRUCache {
+			public int size = 0;
+			public Node head, tail;
+
+			public LRUCache() {
+				head = new Node(-1, -1, 0);
+				tail = new Node(-1, -1, 0);
+				head.next = tail;
+				tail.prev = head;
+			}
+
+			public void put(Node node) {
+				size++;
+				Node next = head.next;
+				node.next = next;
+				node.prev = head;
+				head.next = node;
+				next.prev = node;
+			}
+
+			public void remove(Node node) {
+				size--;
+				Node prev = node.prev;
+				prev.next = node.next;
+				node.next.prev = prev;
+			}
+
+			public Node removeTail() {
+				Node node = tail.prev;
+				remove(node);
+				return node;
+			}
+
+			public boolean isEmpty() {
+				return size == 0;
+			}
+		}
+
+		public static class Node {
+			public int key, value, frequency;
+			public Node prev, next;
+
+			public Node(int key, int value, int frequency) {
+				this.frequency = frequency;
+				this.key = key;
+				this.value = value;
+				this.next = null;
+				this.prev = null;
+			}
+		}
 	}
 
 	// TODO complete the leetcode problem
