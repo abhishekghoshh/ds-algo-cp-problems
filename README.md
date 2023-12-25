@@ -33,6 +33,7 @@
   - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
   - [Z-Function](/src/com/algo/string/ZFunction.java)
   - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
+  - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
 </details>
 <details>
