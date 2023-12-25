@@ -2,6 +2,8 @@ package stack;
 
 import java.util.Stack;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/next-greater-element-ii
@@ -33,24 +35,19 @@ public class NextGreaterElement {
 	// same as previous type4
 	// here we are using array as stack instead of in build stack class of java
 	private static void type5() {
-		int nums[] = { 5, 7, 1, 2, 6, 0 };
+		int[] nums = { 5, 7, 1, 2, 6, 0 };
 		int n = nums.length;
-		int answer[] = new int[n];
+		int[] answer = new int[n];
 		int[] stack = new int[2 * n];
 		int top = -1;
 		// we will start from 2*n -1
 		// its like we are copying the same array and append it after the original
 		// so i%n will give the index which will be 0 to n-1
 		for (int i = 2 * n - 1; i >= 0; i--) {
-			while (top != -1 && stack[top] <= nums[i % n]) {
-				top--;
-			}
+			while (top != -1 && stack[top] <= nums[i % n]) top--;
 			if (i < n) {
-				if (top != -1) {
-					answer[i] = stack[top];
-				} else {
-					answer[i] = -1;
-				}
+				if (top != -1) answer[i] = stack[top];
+				else answer[i] = -1;
 			}
 			stack[++top] = nums[i % n];
 		}
@@ -61,23 +58,18 @@ public class NextGreaterElement {
 	// but it will check circular
 	// https://takeuforward.org/data-structure/next-greater-element-using-stack/
 	private static void type4() {
-		int nums[] = { 5, 7, 1, 2, 6, 0 };
+		int[] nums = {5, 7, 1, 2, 6, 0};
 		int n = nums.length;
-		int answer[] = new int[n];
+		int[] answer = new int[n];
 		Stack<Integer> stack = new Stack<>();
 		// we will start from 2*n -1
 		// its like we are copying the same array and append it after the original
 		// so i%n will give the index which will be 0 to n-1
 		for (int i = 2 * n - 1; i >= 0; i--) {
-			while (!stack.isEmpty() && stack.peek() <= nums[i % n]) {
-				stack.pop();
-			}
+			while (!stack.isEmpty() && stack.peek() <= nums[i % n]) stack.pop();
 			if (i < n) {
-				if (!stack.isEmpty()) {
-					answer[i] = stack.peek();
-				} else {
-					answer[i] = -1;
-				}
+				if (!stack.isEmpty()) answer[i] = stack.peek();
+				else answer[i] = -1;
 			}
 			stack.push(nums[i % n]);
 		}
@@ -94,15 +86,10 @@ public class NextGreaterElement {
 		int[] answer = new int[n];
 		Stack<Integer> stack = new Stack<>();
 		for (int i = n - 1; i >= 0; i--) {
-			while (!stack.isEmpty() && stack.peek() <= nums[i]) {
-				stack.pop();
-			}
+			while (!stack.isEmpty() && stack.peek() <= nums[i]) stack.pop();
 			// stack is empty that mean for the current element there is no next greater
-			if (stack.isEmpty()) {
-				answer[--m] = -1;
-			} else {
-				answer[--m] = stack.peek();
-			}
+			if (stack.isEmpty()) answer[--m] = -1;
+			else answer[--m] = stack.peek();
 			stack.add(nums[i]);
 		}
 		print(answer);
@@ -123,20 +110,15 @@ public class NextGreaterElement {
 			if (stack.isEmpty()) {
 				answer[--m] = -1;
 			} else {
+				// if the current peek is greater than the current element
 				if (stack.peek() > arr[i]) {
-					// if the current peek is greater than the current element
 					answer[--m] = stack.peek();
 				} else {
 					// we will pop until there is any greater element found
-					while (!stack.isEmpty() && stack.peek() <= arr[i]) {
-						stack.pop();
-					}
+					while (!stack.isEmpty() && stack.peek() <= arr[i]) stack.pop();
 					// stack is empty that mean for the current element there is no next greater
-					if (stack.isEmpty()) {
-						answer[--m] = -1;
-					} else {
-						answer[--m] = stack.peek();
-					}
+					if (stack.isEmpty()) answer[--m] = -1;
+					else answer[--m] = stack.peek();
 				}
 			}
 			// on each iteration we will store the current element
@@ -144,13 +126,6 @@ public class NextGreaterElement {
 		}
 		print(arr);
 		print(answer);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 
 	// brute force

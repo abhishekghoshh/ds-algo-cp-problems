@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/online-stock-span/
- * https://www.codingninjas.com/codestudio/problems/span-of-ninja-coin_1475049?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/span-of-ninja-coin_1475049
+ * https://www.codingninjas.com/studio/problems/stock-span_5243295
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=6
@@ -20,8 +23,8 @@ public class StockSpan {
 	// For example, if the price of a stock over the next 7 days were
 	// [100,80,60,70,60,75,85], then the stock spans would be [1,1,1,2,1,4,6].
 
-	// its a variation of previous greater element
-	// for each each index the answer will be i - previous greater element index
+	// its variation of the previous greater element
+	// for each index the answer will be i - previous greater element index
 	public static void main(String args[]) {
 		type1();
 		type2();
@@ -54,11 +57,10 @@ public class StockSpan {
 			i = 0;
 		}
 
-		// here we are using array as stack
+		// here we are using an array as stack
 		public int next(int price) {
 			prices[i] = price;
-			while (top > 0 && prices[stack[top]] <= price)
-				top--;
+			while (top > 0 && prices[stack[top]] <= price) top--;
 			int res = top == 0 ? i + 1 : i - stack[top];
 			stack[++top] = i++;
 			return res;
@@ -79,8 +81,8 @@ public class StockSpan {
 	}
 
 	private static class StockSpanner1 {
-		List<Integer> list = null;
-		Stack<Integer> stack = null;
+		List<Integer> list;
+		Stack<Integer> stack;
 
 		public StockSpanner1() {
 			list = new ArrayList<>();
@@ -93,14 +95,10 @@ public class StockSpan {
 			list.add(price);
 			int n = list.size();
 			int span;
-			while (!stack.isEmpty() && list.get(stack.peek()) <= price) {
+			while (!stack.isEmpty() && list.get(stack.peek()) <= price)
 				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				span = n;
-			} else {
-				span = n - 1 - stack.peek();
-			}
+			if (stack.isEmpty()) span = n;
+			else span = n - 1 - stack.peek();
 			stack.add(n - 1);
 			return span;
 		}
@@ -116,14 +114,10 @@ public class StockSpan {
 		Stack<Integer> stack = new Stack<>();
 		int j = 0;
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) {
+			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
 				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				answer[j++] = i + 1;
-			} else {
-				answer[j++] = i - stack.peek();
-			}
+			if (stack.isEmpty()) answer[j++] = i + 1;
+			else answer[j++] = i - stack.peek();
 			stack.push(i);
 		}
 		print(answer);
@@ -140,28 +134,15 @@ public class StockSpan {
 		int[] indices = new int[n];
 		int[] span = new int[n];
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) {
+			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
 				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				indices[i] = -1;
-			} else {
-				indices[i] = stack.peek();
-			}
+			if (stack.isEmpty()) indices[i] = -1;
+			else indices[i] = stack.peek();
 			stack.add(i);
 		}
 		// print(indices);
-		for (int i = 0; i < n; i++) {
-			span[i] = i - indices[i];
-		}
+		for (int i = 0; i < n; i++) span[i] = i - indices[i];
 		print(span);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 
 	// brute force

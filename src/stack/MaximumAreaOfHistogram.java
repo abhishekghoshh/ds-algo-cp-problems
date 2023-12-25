@@ -24,7 +24,7 @@ public class MaximumAreaOfHistogram {
 	// for every index we will check how much the current height can spread out
 	// let's take the heights as 1 4 2 6 3 1
 	// and we are at 2 so in left will spread till 4 and in right till 3
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
@@ -33,7 +33,7 @@ public class MaximumAreaOfHistogram {
 	}
 
 	// Same as previous one
-	// insread of using stack
+	// instead of using stack
 	// here we are using the array as stack
 	private static void type5() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };

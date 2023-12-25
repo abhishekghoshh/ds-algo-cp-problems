@@ -155,6 +155,9 @@
     - [Reverse Integer](/src/com/ds/array/ReverseInteger.java)
     - [3Sum Closest](/src/com/ds/array/ThreeSumClosest.java)
     - [Trapping Rain Water](/src/com/ds/array/TrappingRainWater.java)
+      - two-pointer
+      - stack
+      - dynamic-programming
 </details>
 
 <details>

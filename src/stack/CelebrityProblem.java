@@ -5,14 +5,14 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/find-the-celebrity/
- * https://www.codingninjas.com/codestudio/problems/the-celebrity-problem_982769?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/the-celebrity-problem_982769
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=Z5AEc12ieOs
  * https://www.youtube.com/watch?v=CiiXBvrX-5A
  * 
  */
-public class CelebirtyProblem {
+public class CelebrityProblem {
 
 	// A celebrity is a person who is known to all but does not know anyone at a
 	// party, it is not possible to have more than one celebrity
@@ -20,30 +20,22 @@ public class CelebirtyProblem {
 		type1();
 		type2();
 		type3();
-		type4();
-	}
-
-	private static void type4() {
-
 	}
 
 	private static void type3() {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
 		Stack<Integer> stack = new Stack<>();
-		for (int i = 0; i < n; i++)
-			stack.push(i);
+		for (int i = 0; i < n; i++) stack.push(i);
 		while (stack.size() >= 2) {
 			int p1 = stack.pop();
 			int p2 = stack.pop();
 			// if matrix[i][j] == 1 then i knows j so i is not celebrity
 			// if both matrix[i][j] and matrix[j][i] is 0 then both are not celebrity
 			// everybody should know the celebrity
-			if (matrix[p1][p2] == 1) {
-				stack.push(p2);
-			} else {
-				stack.push(p1);
-			}
+			if (matrix[p1][p2] == 1) stack.push(p2);
+			else stack.push(p1);
+
 		}
 		int c = stack.pop();
 		// at last we will cross check that our assumption is correct or not
@@ -63,16 +55,14 @@ public class CelebirtyProblem {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
 
-		// we will assume that 0th person is celebrity and update it once he knows
+		// we will assume that 0th person is a celebrity and update it once he knows
 		// anyone
 		int c = 0;
 		for (int i = 1; i < n; i++) {
 			// that means c knows i
-			// so c is not a celebrity
-			// so we will i as celebrity
-			if (matrix[c][i] == 1) {
-				c = i;
-			}
+			// so c is not a celebrity,
+			// so we will i as a celebrity
+			if (matrix[c][i] == 1) c = i;
 		}
 		// at last we will cross check that our assumption is correct or not
 		for (int i = 0; i < n; i++) {
@@ -93,9 +83,9 @@ public class CelebirtyProblem {
 	private static void type1() {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
-		// it means how many person know him
+		// it means how many persons know him
 		int[] in = new int[n];
-		// it means he knows how many person
+		// it means he knows how many persons
 		int[] out = new int[n];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {

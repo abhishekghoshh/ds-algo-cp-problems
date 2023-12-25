@@ -1,8 +1,8 @@
 package stack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Stack;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * Problem link :
@@ -13,7 +13,7 @@ import java.util.Stack;
  * 
  * */
 public class NextSmallerElement {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
@@ -29,14 +29,9 @@ public class NextSmallerElement {
 		int m = n;
 		int[] answer = new int[n];
 		for (int i = n - 1; i >= 0; i--) {
-			while (!stack.isEmpty() && stack.peek() >= arr[i]) {
-				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				answer[--m] = -1;
-			} else {
-				answer[--m] = stack.peek();
-			}
+			while (!stack.isEmpty() && stack.peek() >= arr[i]) stack.pop();
+			if (stack.isEmpty()) answer[--m] = -1;
+			else answer[--m] = stack.peek();
 			stack.add(arr[i]);
 		}
 		print(arr);
@@ -58,27 +53,15 @@ public class NextSmallerElement {
 				if (stack.peek() < arr[i]) {
 					answer[--m] = stack.peek();
 				} else {
-					while (!stack.isEmpty() && stack.peek() >= arr[i]) {
-						stack.pop();
-					}
-					if (stack.isEmpty()) {
-						answer[--m] = -1;
-					} else {
-						answer[--m] = stack.peek();
-					}
+					while (!stack.isEmpty() && stack.peek() >= arr[i]) stack.pop();
+					if (stack.isEmpty()) answer[--m] = -1;
+					else answer[--m] = stack.peek();
 				}
 			}
 			stack.add(arr[i]);
 		}
 		print(arr);
 		print(answer);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 
 	// brute force

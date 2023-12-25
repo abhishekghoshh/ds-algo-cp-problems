@@ -80,12 +80,9 @@ public class MaximumOfAllSubarraysOfSizeK {
 			if (nums[right] >= nums[maxIndex])
 				maxIndex = right;
 			else if (left > maxIndex)
-				if (nums[right] >= nums[maxIndex] - 1)
-					maxIndex = right;
-				else if (nums[left] >= nums[maxIndex] - 1)
-					maxIndex = left;
-				else
-					maxIndex = findMaxIndex(nums, left, right + 1);
+				if (nums[right] >= nums[maxIndex] - 1) maxIndex = right;
+				else if (nums[left] >= nums[maxIndex] - 1) maxIndex = left;
+				else maxIndex = findMaxIndex(nums, left, right + 1);
 			answer[r++] = nums[maxIndex];
 			left++;
 			right++;

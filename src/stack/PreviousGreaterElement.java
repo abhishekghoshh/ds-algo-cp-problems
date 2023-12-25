@@ -2,6 +2,8 @@ package stack;
 
 import java.util.Stack;
 
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * 
@@ -26,23 +28,18 @@ public class PreviousGreaterElement {
 		Stack<Integer> stack = new Stack<>();
 		int j = 0;
 		int[] answer = new int[n];
-		// as we are checking previous larger element so we will start from the begining
+		// as we are checking the previous larger element, so we will start from the beginning
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && stack.peek() <= arr[i]) {
-				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				answer[j++] = -1;
-			} else {
-				answer[j++] = stack.peek();
-			}
+			while (!stack.isEmpty() && stack.peek() <= arr[i]) stack.pop();
+			if (stack.isEmpty()) answer[j++] = -1;
+			else answer[j++] = stack.peek();
 			stack.add(arr[i]);
 		}
 		print(arr);
 		print(answer);
 	}
 
-	// same as next greater element
+	// same as the next greater element
 	private static void type2() {
 		int[] arr = { 1, 3, 2, 4, 3, 3 };
 		int n = arr.length;
@@ -57,27 +54,15 @@ public class PreviousGreaterElement {
 				if (stack.peek() > arr[i]) {
 					answer[j++] = stack.peek();
 				} else {
-					while (!stack.isEmpty() && stack.peek() <= arr[i]) {
-						stack.pop();
-					}
-					if (stack.isEmpty()) {
-						answer[j++] = -1;
-					} else {
-						answer[j++] = stack.peek();
-					}
+					while (!stack.isEmpty() && stack.peek() <= arr[i]) stack.pop();
+					if (stack.isEmpty()) answer[j++] = -1;
+					else answer[j++] = stack.peek();
 				}
 			}
 			stack.add(arr[i]);
 		}
 		print(arr);
 		print(answer);
-	}
-
-	private static void print(int[] arr) {
-		for (int item : arr) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
 	}
 
 	// brute force

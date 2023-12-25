@@ -1,9 +1,13 @@
 package stack;
 
+import com.util.ArrayUtil;
+
+import static com.util.ArrayUtil.print;
+
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/maximum-of-minimum-for-every-window-size3453/1
- * https://www.codingninjas.com/codestudio/problems/max-of-min_982935?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/max-of-min_982935
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=CK8PIAF-m2E
@@ -22,7 +26,7 @@ public class MaximumOfMinimumForEveryWindowSize {
 
 	// TODO study later
 	private static void type2() {
-		int arr[] = { 10, 20, 30, 50, 10, 70, 30 };
+		int[] arr = { 10, 20, 30, 50, 10, 70, 30 };
 		int n = arr.length;
 		// so we will consider each element and check it's span
 		// in what range it is minimum
@@ -100,13 +104,6 @@ public class MaximumOfMinimumForEveryWindowSize {
 			answer[k - 1] = max;
 		}
 		print(answer);
-	}
-
-	private static void print(int[] answer) {
-		for (int num : answer) {
-			System.out.print(num + " ");
-		}
-		System.out.println();
 	}
 
 }

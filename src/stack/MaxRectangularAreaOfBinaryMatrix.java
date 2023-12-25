@@ -5,14 +5,14 @@ import java.util.Stack;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/maximal-rectangle/submissions/
+ * https://leetcode.com/problems/maximal-rectangle
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=St0Jf_VmG_g&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=8
  * 
  * */
 public class MaxRectangularAreaOfBinaryMatrix {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
@@ -131,26 +131,18 @@ public class MaxRectangularAreaOfBinaryMatrix {
 		int[] left = new int[n];
 		Stack<Integer> stack = new Stack<>();
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i]) {
+			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i])
 				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				left[i] = -1;
-			} else {
-				left[i] = stack.peek();
-			}
+			if (stack.isEmpty()) left[i] = -1;
+			else left[i] = stack.peek();
 			stack.add(i);
 		}
 		stack = new Stack<>();
 		for (int i = n - 1; i >= 0; i--) {
-			while (stack.size() > 0 && histogram[stack.peek()] >= histogram[i]) {
+			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i])
 				stack.pop();
-			}
-			if (stack.size() == 0) {
-				right = n;
-			} else {
-				right = stack.peek();
-			}
+			if (stack.isEmpty()) right = n;
+			else right = stack.peek();
 			stack.add(i);
 			area = (right - left[i] - 1) * histogram[i];
 			max = Math.max(max, area);
