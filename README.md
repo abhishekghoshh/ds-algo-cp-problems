@@ -125,7 +125,7 @@
         - three-pointer (Dutch national flag)
         - hashing
     - [Find the Majority Element that occurs more than N/2 times](/src/com/ds/array/MajorityElementsNby2.java)
-        - Moore's voting algorithm
+        - Boyer Moore's voting algorithm
         - hashing
     - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
         - Moore's voting algorithm

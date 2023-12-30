@@ -12,6 +12,7 @@ import java.util.Map;
  * Solution link:
  * https://www.youtube.com/watch?v=nP_ns3uSh80
  * https://www.youtube.com/watch?v=AoX3BPWNnoE&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=17
+ * https://www.youtube.com/watch?v=OtCsBK7e4rk
  *
  * Https://takeuforward.org/data-structure/find-the-majority-element-that-occurs-more-than-n-2-times/
  * */
