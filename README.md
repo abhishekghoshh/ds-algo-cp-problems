@@ -68,6 +68,14 @@
 
 </details>
 
+<details>
+    <summary><strong>special</strong></summary>
+
+- codes
+  - [Meet in the Middle ](/src/com/algo/special/MeetInTheMiddle.java)
+
+</details>
+
 ## Data-Structure
 <details>
     <summary><strong>array</strong></summary>
@@ -372,7 +380,7 @@
 - codes
     - [Check if the number is prime or not](/src/com/ds/prime/isPrime.java)
     - [All divisors of a number](/src/com/ds/prime/AllDivisorsOfANumber.java)
-    - [Find three distinct numbers whose multiplication equal to n](/src/com/ds/prime/FindThreeDistinctNumbersWhoseMultiplicationEqualToN.java)
+    - [Find three distinct numbers whose multiplication equals to n](/src/com/ds/prime/FindThreeDistinctNumbersWhoseMultiplicationEqualToN.java)
     - [Sieve of Eratosthenes](/src/com/ds/prime/SieveOfEratosthenes.java)
     - [Prime count for the range 0 to N](/src/com/ds/prime/PrimeCount.java)
     - [Kth prime number](/src/com/ds/prime/KthPrimeNumber.java)
@@ -430,13 +438,31 @@
 - resources
   - [Jump Game Problems | Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
 - codes
-  - [Jump Game 1](src/com/ds/series/jumpgame/JumpGame1.java)
-  - [Jump Game 2](src/com/ds/series/jumpgame/JumpGame2.java)
-  - [Jump Game 3](src/com/ds/series/jumpgame/JumpGame3.java)
-  - [Jump Game 4](src/com/ds/series/jumpgame/JumpGame4.java)
-  - [Jump Game 5](src/com/ds/series/jumpgame/JumpGame5.java)
-  - [Jump Game 6](src/com/ds/series/jumpgame/JumpGame6.java)
-  - [Jump Game 7](src/com/ds/series/jumpgame/JumpGame7.java)
-  - [Frog Jump 1](src/com/ds/series/jumpgame/FrogJump1.java)
-  - [Frog Jump 2](src/com/ds/series/jumpgame/FrogJump2.java)
+  - [Jump Game 1](src/com/ds/special/jumpgame/JumpGame1.java)
+  - [Jump Game 2](src/com/ds/special/jumpgame/JumpGame2.java)
+  - [Jump Game 3](src/com/ds/special/jumpgame/JumpGame3.java)
+  - [Jump Game 4](src/com/ds/special/jumpgame/JumpGame4.java)
+  - [Jump Game 5](src/com/ds/special/jumpgame/JumpGame5.java)
+  - [Jump Game 6](src/com/ds/special/jumpgame/JumpGame6.java)
+  - [Jump Game 7](src/com/ds/special/jumpgame/JumpGame7.java)
+  - [Frog Jump 1](src/com/ds/special/jumpgame/FrogJump1.java)
+  - [Frog Jump 2](src/com/ds/special/jumpgame/FrogJump2.java)
+</details>
+
+<details>
+    <summary><strong>meet in the middle</strong></summary>
+
+- codes
+  - [Closest Subsequence Sum](/src/com/ds/special/meetinthemiddle/ClosestSubsequenceSum.java)
+  - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/ds/special/meetinthemiddle/PartitionArrayIntoTwoArraysToMinimizeSumDifference.java)
+
+</details>
+
+## Some special coding channels for hard problems
+
+<details>
+    <summary><strong>Jump Game</strong></summary>
+
+- resources
+  - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>

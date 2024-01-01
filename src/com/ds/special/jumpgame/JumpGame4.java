@@ -1,4 +1,4 @@
-package com.ds.series.jumpgame;
+package com.ds.special.jumpgame;
 
 
 import java.util.*;
