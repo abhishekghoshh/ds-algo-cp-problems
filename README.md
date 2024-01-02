@@ -322,6 +322,9 @@
     - dynamic-programming
   - [Implement Min Stack](/src/com/ds/stack/MinStack.java)
   - [Infix to Postfix](/src/com/ds/stack/InfixToPostfix.java)
+  - [Postfix to Infix](/src/com/ds/stack/PostfixToInfix.java)
+  - [Infix To Prefix](/src/com/ds/stack/InfixToPrefix.java)
+  - [Prefix to Infix](/src/com/ds/stack/PrefixToInfix.java)
 </details>
 
 <details>
