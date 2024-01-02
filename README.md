@@ -1,5 +1,13 @@
 # Resources
 
+## Basic
+<details>
+    <summary><strong>Math</strong></summary>
+
+- resources
+  - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
+</details>
+
 ## Algorithm
 <details>
     <summary><strong>sort</strong></summary>
@@ -313,6 +321,7 @@
     - string
     - dynamic-programming
   - [Implement Min Stack](/src/com/ds/stack/MinStack.java)
+  - [Infix to Postfix](/src/com/ds/stack/InfixToPostfix.java)
 </details>
 
 <details>
