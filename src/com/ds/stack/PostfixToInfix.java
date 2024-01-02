@@ -17,17 +17,23 @@ public class PostfixToInfix {
         type1();
     }
 
+    // we will go from start,
+    // whenever we encounter any operand we will push it to stack
+    // if there is any operand then we pop from the stack twice, and
+    // we will do the operation, and again we put it to the stack
+    // at last we pop the value from the stack and print it
     private static void type1() {
         String postfix = "ab+c+";
         char[] arr = postfix.toCharArray();
         Stack<StringBuilder> stack = new Stack<>();
+        StringBuilder first, second, res;
         for (char ch : arr) {
             if (Character.isLetterOrDigit(ch)) {
                 stack.push(new StringBuilder().append(ch));
             } else {
-                StringBuilder second = stack.pop();
-                StringBuilder first = stack.pop();
-                StringBuilder res = new StringBuilder()
+                second = stack.pop();
+                first = stack.pop();
+                res = new StringBuilder()
                         .append('(')
                         .append(first)
                         .append(ch)

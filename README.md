@@ -325,6 +325,8 @@
   - [Postfix to Infix](/src/com/ds/stack/PostfixToInfix.java)
   - [Infix To Prefix](/src/com/ds/stack/InfixToPrefix.java)
   - [Prefix to Infix](/src/com/ds/stack/PrefixToInfix.java)
+  - [Prefix to Postfix](/src/com/ds/stack/PrefixToPostfix.java)
+  - [Postfix to Prefix](/src/com/ds/stack/PostfixToPrefix.java)
 </details>
 
 <details>
