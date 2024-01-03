@@ -1,11 +1,14 @@
 package com.ds.stack;
 
+import java.util.Stack;
+
 /*
  *
  * problem links :
+ * https://www.codingninjas.com/studio/problems/postfix-to-prefix_1788455
  *
  * Solution link :
- *
+ * https://www.youtube.com/watch?v=smQ88h1qzQY
  *
  *
  * */
@@ -15,6 +18,19 @@ public class PostfixToPrefix {
     }
 
     private static void type1() {
-
+        String exp = "ab+cd-*";
+        char[] arr = exp.toCharArray();
+        Stack<String> stack = new Stack<>();
+        String first, second, res;
+        for (char ch : arr) {
+            if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+                second = stack.pop();
+                first = stack.pop();
+                res = ch + first + second;
+                stack.push(res);
+            } else stack.push("" + ch);
+        }
+        System.out.println(stack.peek());
+    }
     }
 }
