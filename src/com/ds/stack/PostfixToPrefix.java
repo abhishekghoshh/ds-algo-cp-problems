@@ -32,5 +32,5 @@ public class PostfixToPrefix {
         }
         System.out.println(stack.peek());
     }
-    }
+
 }

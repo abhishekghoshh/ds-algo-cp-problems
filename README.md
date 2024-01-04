@@ -327,6 +327,14 @@
   - [Prefix to Infix](/src/com/ds/stack/PrefixToInfix.java)
   - [Prefix to Postfix](/src/com/ds/stack/PrefixToPostfix.java)
   - [Postfix to Prefix](/src/com/ds/stack/PostfixToPrefix.java)
+  - [Next Greater Element](/src/com/ds/stack/NextGreaterElement.java)
+  - [Next Greater Element for different array](/src/com/ds/stack/NextGreaterElementForDifferentArray.java)
+  - [Next Greater Element in a Circle](/src/com/ds/stack/NextGreaterElementInCircle.java)
+  - [Number of Greater Elements to the right](/src/com/ds/stack/NumberOfGreaterElementsToTheRight.java)
+  - [Next Smaller Element](/src/com/ds/stack/NextSmallerElement.java)
+  - [Previous Greater Element](/src/com/ds/stack/PreviousGreaterElement.java)
+  - [Previous Smaller Element](/src/com/ds/stack/PreviousSmallerElement.java)
+
 </details>
 
 <details>
