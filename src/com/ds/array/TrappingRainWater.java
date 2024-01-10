@@ -1,9 +1,12 @@
 package com.ds.array;
 
+import java.util.Stack;
+
 /*
  * problem link:
  * https://leetcode.com/problems/trapping-rain-water/
  * https://www.codingninjas.com/codestudio/problems/630519
+ * https://www.codingninjas.com/studio/problems/trapping-rain-water_630519
  *
  * Solution link :
  * https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=43
@@ -14,6 +17,7 @@ package com.ds.array;
 public class TrappingRainWater {
 
 	public static void main(String[] args) {
+		type0();
 		type1();
 		type2();
 		type3();
@@ -139,5 +143,21 @@ public class TrappingRainWater {
 			}
 		}
 		System.out.println("water collected " + areaSum);
+	}
+
+	// using stack
+	private static void type0() {
+		int[] height = {1, 2, 4, 1, 3, 2, 1, 3};
+		int ans = 0;
+		Stack<Integer> st = new Stack<>();
+		for (int right = 0; right < height.length; right++) {
+			while (!st.isEmpty() && (height[right] > height[st.peek()])) {
+				int top = st.pop();
+				int left = (st.isEmpty()) ? -1 : st.peek();
+				if (!st.isEmpty())
+					ans += (Math.min(height[right], height[st.peek()]) - height[top]) * (right - left - 1);
+			}
+			st.push(right);
+		}
 	}
 }

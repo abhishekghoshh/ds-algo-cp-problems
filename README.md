@@ -1,12 +1,34 @@
-# Resources
+# One stop for Data structure and Algorithm problems and solutions
 
-## Basic
+## Resources
 <details>
-    <summary><strong>Math</strong></summary>
+    <summary><strong>Videos</strong></summary>
 
-- resources
+- Youtube Single videos
   - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
+- William Fiset
+  - [Data structures playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
+  - [Graph Theory Playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
+- Coursera
+  - [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome)
+  - [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2/home/welcome)
+  - [Algorithms Specialization]
+    - [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer/home/welcome)
+    - [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures/home/welcome)
+    - [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy/home/welcome)
+    - [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete/home/welcome)
+  - [Java Programming: Principles of Software Design](https://www.coursera.org/learn/java-programming-design-principles/home/welcome)
+  - [Distributed Programming in Java](https://www.coursera.org/learn/distributed-programming-in-java/home/welcome)
 </details>
+
+<details>
+    <summary><strong>A-Z DSA sheets</strong></summary>
+
+- [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
+- [neetcode.io](https://neetcode.io/practice)
+- [Leetcode DSA sheet by Fraz](https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9sFE/edit#gid=0)
+- [Questions by Love Babbar](https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view)
+- [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
 
 ## Algorithm
 <details>
@@ -334,6 +356,10 @@
   - [Next Smaller Element](/src/com/ds/stack/NextSmallerElement.java)
   - [Previous Greater Element](/src/com/ds/stack/PreviousGreaterElement.java)
   - [Previous Smaller Element](/src/com/ds/stack/PreviousSmallerElement.java)
+  - [Sum of subarray minimum](/src/com/ds/stack/SumOfSubarrayMinimum.java)
+  - [Sum of Subarray Ranges](/src/com/ds/stack/SumOfSubarrayRanges.java)
+  - [Asteroid Collision](/src/com/ds/stack/AsteroidCollision.java)
+  - [Remove K Digits](/src/com/ds/stack/RemoveKDigits.java)
 
 </details>
 
