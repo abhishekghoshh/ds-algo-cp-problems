@@ -510,8 +510,7 @@
 ## Some special coding channels for hard problems
 
 <details>
-    <summary><strong>Jump Game</strong></summary>
+    <summary><strong>Youtube Channels/strong></summary>
 
-- resources
-  - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
+- [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
