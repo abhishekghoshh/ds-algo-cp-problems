@@ -85,21 +85,6 @@
 </details>
 
 <details>
-    <summary><strong>os</strong></summary>
-
-- codes
-  - [Shortest Job First (or SJF) CPU Scheduling](/src/com/algo/os/ShortestJobFirstSchedulingAlgorithm.java)
-    - greedy
-  - [LRU Cache](/src/com/algo/os/LRUCache.java)
-    - linked-list
-    - hashing
-  - [LFU Cache](/src/com/algo/os/LFUCache.java)
-    - linked-list
-    - hashing
-
-</details>
-
-<details>
     <summary><strong>special</strong></summary>
 
 - codes
@@ -321,7 +306,13 @@
     <summary><strong>linked-list</strong></summary>
 
 - codes
-    - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java) **TBD**
+  - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
+  - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
+    - linked-list
+    - hashing
+  - [LFU Cache](/src/com/ds/linkedlist/LFUCache.java)
+    - linked-list
+    - hashing
 </details>
 
 <details>
@@ -451,6 +442,7 @@
   - [N meetings in one room](/src/com/ds/greedy/NMeetingsInOneRoom.java)
   - [Minimum number of platforms required for a railway](/src/com/ds/greedy/MinimumNumberOfPlatformNeeded.java)
   - [Job Sequencing Problem](/src/com/ds/greedy/JobSchedulingProblem.java)
+  - [Shortest Job First (or SJF) CPU Scheduling](/src/com/ds/greedy/ShortestJobFirstSchedulingAlgorithm.java)
   - [candy](/src/com/ds/greedy/Candy.java)
   - [Insert Interval](/src/com/ds/greedy/InsertInterval.java)
   - [Non-overlapping Intervals](/src/com/ds/greedy/NonOverlappingIntervals.java)
@@ -509,7 +501,7 @@
 ## Some special coding channels for hard problems
 
 <details>
-    <summary><strong>Youtube Channels/strong></summary>
+    <summary><strong>Youtube Channels</strong></summary>
 
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>

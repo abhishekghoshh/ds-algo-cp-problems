@@ -1,4 +1,4 @@
-package com.algo.os;
+package com.ds.linkedlist;
 
 import java.util.HashMap;
 import java.util.Map;
