@@ -16,18 +16,20 @@ public class SumOfSubarrayMinimum {
     public static void main(String[] args) {
         type1();
         type2();
+        type3();
+    }
+
+    // same as type2
+    // here we will use an array as stack
+    private static void type3() {
+
     }
 
     // using stack
     private static void type2() {
-        int[] arr = {3, 1, 2, 4};
-        int answer = sumSubarrayMins(arr);
-        System.out.println(answer);
-    }
+        int[] nums = {3, 1, 2, 4};
+        final int MOD = 1000000007;
 
-    static int MOD = 1000000007;
-
-    public static int sumSubarrayMins(int[] nums) {
         int n = nums.length;
         long[] previousSmaller = new long[n];
         long[] nextSmaller = new long[n];
@@ -60,9 +62,11 @@ public class SumOfSubarrayMinimum {
             net = nums[i] * prod;
             res = (res + net) % MOD;
         }
+        int answer = (int) (res % MOD);
 
-        return (int) (res % MOD);
+        System.out.println(answer);
     }
+
 
     // brute force
     // using 2 loops

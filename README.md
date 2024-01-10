@@ -358,6 +358,7 @@
   - [Previous Greater Element](/src/com/ds/stack/PreviousGreaterElement.java)
   - [Previous Smaller Element](/src/com/ds/stack/PreviousSmallerElement.java)
   - [Sum of subarray minimum](/src/com/ds/stack/SumOfSubarrayMinimum.java)
+  - [Sum of subarray maximum](/src/com/ds/stack/SumOfSubarrayMaximum.java)
   - [Sum of Subarray Ranges](/src/com/ds/stack/SumOfSubarrayRanges.java)
   - [Asteroid Collision](/src/com/ds/stack/AsteroidCollision.java)
   - [Remove K Digits](/src/com/ds/stack/RemoveKDigits.java)
@@ -441,8 +442,6 @@
 <details>
     <summary><strong>greedy</strong></summary>
 
-- resource
-  - dummy
 - codes
   - [Assign Cookies](/src/com/ds/greedy/AssignCookies.java)
   - [Fractional Knapsack](/src/com/ds/greedy/FractionalKnapsack.java)

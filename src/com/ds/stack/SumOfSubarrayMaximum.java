@@ -2,13 +2,11 @@ package com.ds.stack;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/sum-of-subarray-ranges/
- * https://www.codingninjas.com/studio/problems/subarray-range-sum_8365419
  *
  * Solution link :
- * https://www.youtube.com/watch?v=HyzeCKUkRS0&list=PLVXdTUhgoFMqfRJzzdpJ5aeWnGKRgviKd&index=19
- */
-public class SumOfSubarrayRanges {
+ *
+ * */
+public class SumOfSubarrayMaximum {
     public static void main(String[] args) {
         type1();
         type2();
@@ -23,8 +21,7 @@ public class SumOfSubarrayRanges {
 
     // optimized approach
     // using the stack
-    // if we have a fair understanding of the subarray minimum and subarray maximum
-    // then understanding of this problem is easy
+    // same as the sum of subarray minimum
     private static void type2() {
 
     }

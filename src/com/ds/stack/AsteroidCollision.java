@@ -10,6 +10,8 @@ import java.util.Stack;
  * https://www.codingninjas.com/studio/problems/asteroid-collision_977232
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=LN7KjRszjk4
+ *
  * */
 public class AsteroidCollision {
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class AsteroidCollision {
         type3();
     }
 
-    // same as type2
+    // same as type2,
     // but here we will not use stack data structure directly
     // we will use array as stack
     private static void type3() {
