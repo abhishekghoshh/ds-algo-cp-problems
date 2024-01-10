@@ -1,6 +1,15 @@
 # One stop for Data structure and Algorithm problems and solutions
 
 ## Resources
+
+<details>
+    <summary><strong>Blogs</strong></summary>
+
+- interview-experiences
+  - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
+  
+</details>
+
 <details>
     <summary><strong>Videos</strong></summary>
 
@@ -29,6 +38,10 @@
 - [Leetcode DSA sheet by Fraz](https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9sFE/edit#gid=0)
 - [Questions by Love Babbar](https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view)
 - [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
+- Coding Ninja
+  - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
+  - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
+  - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
 </details>
 
 ## Algorithm
