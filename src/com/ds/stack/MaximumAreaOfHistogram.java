@@ -1,11 +1,11 @@
-package stack;
+package com.ds.stack;
 
 import java.util.Stack;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
- * https://www.codingninjas.com/codestudio/problems/1058184?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/1058184
  * 
  * Solution link :
  * Aditya verma
@@ -16,14 +16,12 @@ import java.util.Stack;
  * https://www.youtube.com/watch?v=jC_cWLy7jSI&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=83
  * 
  * https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/
- * 
  * */
 
 public class MaximumAreaOfHistogram {
-	// study https://leetcode.com/submissions/detail/828537886/
-	// for every index we will check how much the current height can spread out
-	// let's take the heights as 1 4 2 6 3 1
-	// and we are at 2 so in left will spread till 4 and in right till 3
+	// for every index, we will check how much the current height can spread out
+	// let's take the heights as 1 4 2 6 3 1,
+	// and we are at 2 so in the left will spread till 4 and in right till 3
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -32,7 +30,7 @@ public class MaximumAreaOfHistogram {
 		type5();
 	}
 
-	// Same as previous one
+	// Same as the previous one
 	// instead of using stack
 	// here we are using the array as stack
 	private static void type5() {
@@ -59,7 +57,6 @@ public class MaximumAreaOfHistogram {
 	// after them the smallest element is themselves
 	private static void type4() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
-//		int[] histogram = { 2, 1, 5, 6, 2, 3 };
 		int n = histogram.length;
 		int max = 0, height, width;
 		Stack<Integer> stack = new Stack<>();
@@ -98,52 +95,15 @@ public class MaximumAreaOfHistogram {
 		System.out.println("Max area of histogram is " + max);
 	}
 
-	// time complexity o(4n)
-	// space complexity o(4n)
+	// same as previous just here we will use the stack
 	private static void type3() {
-		int[] heights = { 1, 3, 2, 4, 3, 5, 3 };
-		int n = heights.length;
-		int max = 0, area, right;
-		// time complexity o(2n) and space complexity o(2n)
-		// to compute left smaller index
-		int[] left = new int[n];
-		Stack<Integer> stack = new Stack<>();
-		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
-				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				left[i] = -1;
-			} else {
-				left[i] = stack.peek();
-			}
-			stack.add(i);
-		}
 
-		// we will find the right smaller vertices and calculate the area
-		// in the same loop
-		// time complexity o(2n) and space complexity o(2n)
-		// to compute right smaller index and are
-		stack = new Stack<>();
-		for (int i = n - 1; i >= 0; i--) {
-			while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
-				stack.pop();
-			}
-			if (stack.size() == 0) {
-				right = n;
-			} else {
-				right = stack.peek();
-			}
-			stack.add(i);
-			area = (right - left[i] - 1) * heights[i];
-			max = Math.max(max, area);
-		}
-		System.out.println("Max area of histogram is " + max);
 	}
 
-	// time complexity o(5n)
-	// space complexity o(4n)
 	// we will find previous smaller index and
+	// an height can spread in left and right
+	// till the heights in left or right are greater than equal to the current height
+	// so we will find left and right smaller index with the help of stack
 	private static void type2() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int n = histogram.length, max = 0, area;
@@ -152,29 +112,19 @@ public class MaximumAreaOfHistogram {
 		int[] left = new int[n];
 		Stack<Integer> stack = new Stack<>();
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i]) {
+			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i])
 				stack.pop();
-			}
-			if (stack.isEmpty()) {
-				left[i] = -1;
-			} else {
-				left[i] = stack.peek();
-			}
+			left[i] = stack.isEmpty() ? -1 : stack.peek();
 			stack.add(i);
 		}
 		// time complexity o(2n) and space complexity o(2n)
 		// to compute right smaller index
 		int[] right = new int[n];
-		stack = new Stack<>();
+		stack.clear();
 		for (int i = n - 1; i >= 0; i--) {
-			while (stack.size() > 0 && histogram[stack.peek()] >= histogram[i]) {
+			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i])
 				stack.pop();
-			}
-			if (stack.size() == 0) {
-				right[i] = n;
-			} else {
-				right[i] = stack.peek();
-			}
+			right[i] = stack.isEmpty() ? n : stack.peek();
 			stack.add(i);
 		}
 		// O(n) to compute this
@@ -192,12 +142,10 @@ public class MaximumAreaOfHistogram {
 		int max = 0, area, left, right;
 		for (int i = 0; i < length; i++) {
 			left = right = i;
-			while (left > 0 && histogram[left - 1] > histogram[i]) {
+			while (left > 0 && histogram[left - 1] > histogram[i])
 				left--;
-			}
-			while (right < length - 1 && histogram[right + 1] > histogram[i]) {
+			while (right < length - 1 && histogram[right + 1] > histogram[i])
 				right++;
-			}
 			area = (right - left + 1) * histogram[i];
 			max = Math.max(max, area);
 		}

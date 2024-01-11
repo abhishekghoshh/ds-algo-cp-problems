@@ -1,4 +1,4 @@
-package stack;
+package com.ds.stack;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -6,6 +6,7 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/maximal-rectangle
+ * https://www.codingninjas.com/studio/problems/maximum-size-rectangle-sub-matrix-with-all-1's_893017
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=St0Jf_VmG_g&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=8
@@ -73,19 +74,20 @@ public class MaxRectangularAreaOfBinaryMatrix {
 		return max;
 	}
 
+	// TODO explain this solution in the interview
 	private static void type3() {
 		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 		int m = matrix.length, n = matrix[0].length;
 		int[] histogram = new int[n];
 		int maxArea = 0;
-		for (int i = 0; i < m; i++) {
+		for (int[] row : matrix) {
 			// we will update the histogram on each iteration
 			// and add the current row to the histogram
-			for (int j = 0; j < n; j++) {
-				// if the cell is zero then it has no point of adding previous
+			for (int i = 0; i < n; i++) {
+				// if the cell is zero then it has no point of adding previous,
 				// so we set it to 0
 				// else we will add 1 to the height
-				histogram[j] = matrix[i][j] == 0 ? 0 : histogram[j] + 1;
+				histogram[i] = row[i] == 0 ? 0 : histogram[i] + 1;
 			}
 			maxArea = Math.max(maxArea, maxAreaOfHistogramOptimized(histogram, n));
 		}
@@ -107,19 +109,20 @@ public class MaxRectangularAreaOfBinaryMatrix {
 		return max;
 	}
 
+	// TODO simple solution to explain in the interview
 	private static void type2() {
 		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 		int m = matrix.length, n = matrix[0].length;
 		int[] histogram = new int[n];
 		int maxArea = 0;
-		for (int i = 0; i < m; i++) {
+		for (int[] row : matrix) {
 			// we will update the histogram on each iteration
 			// and add the current row to the histogram
-			for (int j = 0; j < n; j++) {
-				// if the cell is zero then it has no point of adding previous
+			for (int i = 0; i < n; i++) {
+				// if the cell is zero then it has no point of adding previous,
 				// so we set it to 0
 				// else we will add 1 to the height
-				histogram[j] = matrix[i][j] == 0 ? 0 : histogram[j] + 1;
+				histogram[i] = row[i] == 0 ? 0 : histogram[i] + 1;
 			}
 			maxArea = Math.max(maxArea, maxAreaOfHistogram(histogram, n));
 		}
@@ -133,8 +136,7 @@ public class MaxRectangularAreaOfBinaryMatrix {
 		for (int i = 0; i < n; i++) {
 			while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i])
 				stack.pop();
-			if (stack.isEmpty()) left[i] = -1;
-			else left[i] = stack.peek();
+			left[i] = stack.isEmpty() ? -1 : stack.peek();
 			stack.add(i);
 		}
 		stack = new Stack<>();

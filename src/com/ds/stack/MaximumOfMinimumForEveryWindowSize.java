@@ -1,4 +1,4 @@
-package stack;
+package com.ds.stack;
 
 import com.util.ArrayUtil;
 

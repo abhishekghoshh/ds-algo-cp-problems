@@ -359,6 +359,11 @@
   - [Sum of Subarray Ranges](/src/com/ds/stack/SumOfSubarrayRanges.java)
   - [Asteroid Collision](/src/com/ds/stack/AsteroidCollision.java)
   - [Remove K Digits](/src/com/ds/stack/RemoveKDigits.java)
+  - [Largest rectangle in a histogram](/src/com/ds/stack/MaximumAreaOfHistogram.java)
+  - [Maximal Rectangles in a Binary Matrix](/src/com/ds/stack/MaxRectangularAreaOfBinaryMatrix.java)
+  - [Sliding Window maximum](/src/com/ds/stack/MaximumOfMinimumForEveryWindowSize.java)
+  - [Stock span problem](/src/com/ds/stack/StockSpan.java)
+  - [The Celebrity Problem](/src/com/ds/stack/CelebrityProblem.java)
 
 </details>
 

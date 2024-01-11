@@ -1,4 +1,4 @@
-package stack;
+package com.ds.stack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class StockSpan {
 
 	// its variation of the previous greater element
 	// for each index the answer will be i - previous greater element index
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
