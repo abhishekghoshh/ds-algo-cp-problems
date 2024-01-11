@@ -86,7 +86,7 @@ public class MaximumOfMinimumForEveryWindowSize {
 	}
 
 	private static void type1() {
-		int arr[] = { 10, 20, 30, 50, 10, 70, 30 };
+		int[] arr = { 10, 20, 30, 50, 10, 70, 30 };
 		int n = arr.length;
 		int[] answer = new int[n];
 		// k is the size of the window
