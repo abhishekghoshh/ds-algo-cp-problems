@@ -1,4 +1,4 @@
-# One stop for Data structure and Algorithm problems and solutions
+# Data structure and Algorithm problems and solutions
 
 ## Resources
 
@@ -42,6 +42,7 @@
   - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
   - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
   - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
+- [Leetcode](https://leetcode.com/studyplan/)
 </details>
 
 ## Algorithm
@@ -80,13 +81,6 @@
   - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
 </details>
-<details>
-    <summary><strong>queue</strong></summary>
-
-- codes
-  - Dummy
-
-</details>
 
 <details>
     <summary><strong>heap</strong></summary>
@@ -97,13 +91,6 @@
 
 </details>
 
-<details>
-    <summary><strong>special</strong></summary>
-
-- codes
-  - [Meet in the Middle ](/src/com/algo/special/MeetInTheMiddle.java)
-
-</details>
 
 ## Data-Structure
 <details>
@@ -111,6 +98,7 @@
 
 - codes
     - [Largest Element in an Array](/src/com/ds/array/LargestElementInArray.java)
+    - [Longest Continuous Increasing Subsequence](/src/com/ds/array/LongestContinuousIncreasingSubsequence.java)
     - [Best Time to Buy and Sell Stock](/src/com/ds/array/MaxProfit.java)
     - [Find Second Smallest and Second-Largest Element in an array](/src/com/ds/array/SecondLargestElementInArray.java)
     - [Check if the array is sorted](/src/com/ds/array/CheckIfArrayIsSortedAndRotated.java)
@@ -331,6 +319,11 @@
 <details>
     <summary><strong>recursion</strong></summary>
 
+- resources
+  - [Recursion (Basics to Advanced) and Backtracking Series](https://www.youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
+  - [Recursion Masterclass | Learn in Just 3 days | Raj (Striver)](https://www.youtube.com/playlist?list=PLN4aKSfpk8TR-A59O9qR2VL0wqt3LrrnK)
+  - [Recursion Playlist | Coding | Interview Questions | Algorithm | Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
+  - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 - codes
     - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
 </details>
@@ -459,6 +452,36 @@
   - [candy](/src/com/ds/greedy/Candy.java)
   - [Insert Interval](/src/com/ds/greedy/InsertInterval.java)
   - [Non-overlapping Intervals](/src/com/ds/greedy/NonOverlappingIntervals.java)
+  - [Increasing Triplet Subsequence](/src/com/ds/greedy/IncreasingTripletSubsequence.java)
+</details>
+
+<details>
+    <summary><strong>dynamic-programming</strong></summary>
+
+- resources
+  - [Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges](https://www.youtube.com/watch?v=oBt53YbR9Kk)
+  - [Dynamic Programming Playlist | Coding | Interview Questions | Tutorials | Algorithm](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
+  - [Dynamic Programming Playlist | Interview Questions | Recursion | Tabulation | Striver | C++ | Java | DSA | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
+  - [Dynamic Programming](https://www.youtube.com/playlist?list=PLot-Xpze53lcvx_tjrr_m2lgD2NsRHlNO)
+  - [Dynamic programming](https://www.youtube.com/playlist?list=PLpO3gASfJEIJRnNG4q6QoHAYAATo466a_)
+  - [Dynamic Programming](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsAsbafOroUBnNV8fhZa7P4u)
+  - [Dynamic Programming - Level 1](https://www.youtube.com/playlist?list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy)
+  - [Dynamic Programming - Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
+  - [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
+</details>
+
+<details>
+    <summary><strong>binary-tree</strong></summary>
+
+- resources
+  - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+</details>
+
+<details>
+    <summary><strong>graph</strong></summary>
+
+- resources
+  - [Graph Series by Striver | C++ | Java | Interview Centric | Algorithms | Problems](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
 </details>
 
 <details>
@@ -467,8 +490,7 @@
 - resources
   - [Masterclass: Range Query DS | Segment Trees | Fenwick Trees | Masterclasses By Striver | CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
   - [Marathon Class on Range Query DS - 2 | Segment Trees | Fenwick Trees | Masterclasses By Striver) | CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
-- codes
-  - dummy
+  - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
 </details>
 
 <details>
@@ -478,12 +500,10 @@
   - [Trie Series | Striver | take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
   - [L1 | Tries | Tries Master Class by Striver | CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
   - [L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
-- codes
-  - dummy
 </details>
 
 
-## Some special problem
+## Special problem
 
 <details>
     <summary><strong>Jump Game</strong></summary>
@@ -505,16 +525,30 @@
 <details>
     <summary><strong>meet in the middle</strong></summary>
 
+- resources
+  - [Meet in the Middle | Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
+  - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
+  - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
 - codes
   - [Closest Subsequence Sum](/src/com/ds/special/meetinthemiddle/ClosestSubsequenceSum.java)
   - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/ds/special/meetinthemiddle/PartitionArrayIntoTwoArraysToMinimizeSumDifference.java)
 
 </details>
 
-## Some special coding channels for hard problems
+## Playlists for hard problems
+
+<details>
+    <summary><strong>Youtube playlists</strong></summary>
+
+- [Range Queries - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO)
+- [Text Processing - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEoZSwjEZT3TvpKG16FntFL)
+</details>
+
+## Channels for hard problems
 
 <details>
     <summary><strong>Youtube Channels</strong></summary>
 
+- [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
