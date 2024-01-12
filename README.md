@@ -43,6 +43,18 @@
   - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
   - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
 - [Leetcode](https://leetcode.com/studyplan/)
+- [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
+- GeekForGeeks
+  - [Microsoft SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/mts-1?tab=Chapters)
+  - [Amazon SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/Amazon-Test-Series?tab=Chapters)
+  - [SDE Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=a663236c31453b969852f9ea22507634&sortBy=submissions&sprint_name=SDE%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+  - [Beginner's DSA Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=ca8ae412173dbd8346c26a0295d098fd&sortBy=submissions&sprint_name=Beginner%27s%20DSA%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+  - [Love Babbar Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=94ade6723438d94ecf0c00c3937dad55&sortBy=submissions&sprint_name=Love%20Babbar%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+  - [Top 50 Array Problems](https://www.geeksforgeeks.org/explore?page=2&sprint=50746f92a895c22a50504ac0c1fb9c84&sortBy=submissions&sprint_name=Top%2050%20Array%20Problems)
+  - [Top 50 String Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=57184072610b884e5df3584cc534115d&sortBy=submissions&sprint_name=Top%2050%20String%20Problems)
+  - [Top 50 DP Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=93d672753b74440c7427214c8ebf866d&sortBy=submissions&sprint_name=Top%2050%20DP%20Problems)
+  - [Top 50 Graph Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=405e9db0f353691ad3b2d546b19145e9&sortBy=submissions&sprint_name=Top%2050%20Graph%20Problems)
+  - [Top 50 Tree Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=5f24de84b65bf7c4f4399c8111e26b81&sortBy=submissions&sprint_name=Top%2050%20Tree%20Problems)
 </details>
 
 ## Algorithm
@@ -375,6 +387,7 @@
   - [Implement Queue using Stack](/src/com/ds/queue/QueueUsingStack.java)
   - [Implement queue using Linkedlist](/src/com/ds/queue/QueueUsingLinkedlist.java)
   - [Implement Deque using Linkedlist](/src/com/ds/queue/DequeUsingLinkedlist.java)
+  - [Sliding Window maximum](/src/com/ds/queue/SlidingWindowMaximum.java)
 
 </details>
 

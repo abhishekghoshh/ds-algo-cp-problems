@@ -95,8 +95,7 @@ public class StockSpan {
 			list.add(price);
 			int n = list.size();
 			int span;
-			while (!stack.isEmpty() && list.get(stack.peek()) <= price)
-				stack.pop();
+			while (!stack.isEmpty() && list.get(stack.peek()) <= price) stack.pop();
 			if (stack.isEmpty()) span = n;
 			else span = n - 1 - stack.peek();
 			stack.add(n - 1);
@@ -114,8 +113,7 @@ public class StockSpan {
 		Stack<Integer> stack = new Stack<>();
 		int j = 0;
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
-				stack.pop();
+			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) stack.pop();
 			if (stack.isEmpty()) answer[j++] = i + 1;
 			else answer[j++] = i - stack.peek();
 			stack.push(i);
@@ -133,9 +131,11 @@ public class StockSpan {
 		Stack<Integer> stack = new Stack<>();
 		int[] indices = new int[n];
 		int[] span = new int[n];
+		// we will maintain a monotonic decreasing stack
 		for (int i = 0; i < n; i++) {
-			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
-				stack.pop();
+			// we are removing all the previous lesser or equal to elements
+			// it will pop until there is a large element in stack
+			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) stack.pop();
 			if (stack.isEmpty()) indices[i] = -1;
 			else indices[i] = stack.peek();
 			stack.add(i);

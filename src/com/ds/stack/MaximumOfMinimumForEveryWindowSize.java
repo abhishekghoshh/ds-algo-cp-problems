@@ -1,7 +1,5 @@
 package com.ds.stack;
 
-import com.util.ArrayUtil;
-
 import static com.util.ArrayUtil.print;
 
 /*
@@ -15,7 +13,7 @@ import static com.util.ArrayUtil.print;
  * https://www.youtube.com/watch?v=yRagSKdQgsc
  * 
  * https://leetcode.com/problems/sliding-window-maximum/discuss/2059348/maximum-of-minimum-for-every-window-size
- * 
+ * https://leetcode.com/problems/maximum-subarray-min-product/solutions/2705681/similar-to-question-find-maximum-of-minimum-in-each-window-size-c/
  */
 public class MaximumOfMinimumForEveryWindowSize {
 
@@ -92,10 +90,10 @@ public class MaximumOfMinimumForEveryWindowSize {
 		// k is the size of the window
 		for (int k = 1; k <= n; k++) {
 			int max = Integer.MIN_VALUE;
-			// we will compute maximum of minimum of all window of size k
+			// we will compute the maximum of the minimum of all windows of size k
 			for (int i = 0; i <= n - k; i++) {
 				int windowMin = Integer.MAX_VALUE, start = i;
-				// we will compute the the minimum of current window
+				// we will compute the minimum of current window
 				while (start - i < k) {
 					windowMin = Math.min(windowMin, arr[start++]);
 				}
