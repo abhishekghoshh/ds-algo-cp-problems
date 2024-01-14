@@ -380,6 +380,16 @@
 </details>
 
 <details>
+    <summary><strong>heaps</strong></summary>
+
+- codes
+  - [Implement a priority queue](/src/com/ds/heap/ImplementPriorityQueue.java)
+  - [Min Heap Implementation](/src/com/ds/heap/MinHeapImplementation.java)
+  - [Convert Min Heap To Max Heap](/src/com/ds/heap/ConvertMinHeapToMaxHeap.java)
+
+</details>
+
+<details>
     <summary><strong>queue</strong></summary>
 
 - codes
@@ -570,5 +580,3 @@
 - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
-
-## My random change
