@@ -567,9 +567,8 @@
 <details>
     <summary><strong>Youtube Channels</strong></summary>
 
-
-## My random change
-
 - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
+
+## My random change
