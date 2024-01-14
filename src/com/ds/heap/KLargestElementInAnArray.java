@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
@@ -12,13 +12,13 @@ import java.util.PriorityQueue;
  * https://www.youtube.com/watch?v=3DdP6Ef8YZM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=3
  * 
  * */
-public class KLargestElements {
+public class KLargestElementInAnArray {
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
-	//
+	// using priority queue
 	private static void type2() {
 		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;

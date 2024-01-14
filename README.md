@@ -388,6 +388,8 @@
   - [Convert Min Heap To Max Heap](/src/com/ds/heap/ConvertMinHeapToMaxHeap.java)
   - [Kth Largest Element in an Array](/src/com/ds/heap/KthLargestElement.java)
   - [Kth smallest Element in an Array](/src/com/ds/heap/KthSmallestElement.java)
+  - [K largest Element in an Array](/src/com/ds/heap/KLargestElementInAnArray.java)
+  - [Sort K sorted array](/src/com/ds/heap/SortKSortedArray.java)
 </details>
 
 <details>
