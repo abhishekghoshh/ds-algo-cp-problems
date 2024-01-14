@@ -380,13 +380,14 @@
 </details>
 
 <details>
-    <summary><strong>heaps</strong></summary>
+    <summary><strong>heap</strong></summary>
 
 - codes
   - [Implement a priority queue](/src/com/ds/heap/ImplementPriorityQueue.java)
   - [Min Heap Implementation](/src/com/ds/heap/MinHeapImplementation.java)
   - [Convert Min Heap To Max Heap](/src/com/ds/heap/ConvertMinHeapToMaxHeap.java)
-
+  - [Kth Largest Element in an Array](/src/com/ds/heap/KthLargestElement.java)
+  - [Kth smallest Element in an Array](/src/com/ds/heap/KthSmallestElement.java)
 </details>
 
 <details>
