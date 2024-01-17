@@ -390,6 +390,8 @@
   - [Kth smallest Element in an Array](/src/com/ds/heap/KthSmallestElement.java)
   - [K largest Element in an Array](/src/com/ds/heap/KLargestElementInAnArray.java)
   - [Sort K sorted array](/src/com/ds/heap/SortKSortedArray.java)
+  - [Merge M sorted Arrays](/src/com/ds/heap/MergeNSortedArrays.java)
+  - [Merge k Sorted Lists](/src/com/ds/heap/MergeKSortedLists.java)
 </details>
 
 <details>

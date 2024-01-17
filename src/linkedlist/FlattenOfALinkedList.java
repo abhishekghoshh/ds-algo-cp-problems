@@ -1,19 +1,19 @@
 package linkedlist;
 
+import util.LinkedListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import util.LinkedListNode;
-
 /*
- * 
- * problem links :
- * https://www.codingninjas.com/codestudio/problems/1112655?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ *
+ * problem links:
+ * https://www.codingninjas.com/codestudio/problems/1112655
  * https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1
- * 
- * Solution video :
+ *
+ * Solution video:
  * https://www.youtube.com/watch?v=ysytSSXpAI0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=39
  * 
  * Read 
@@ -39,8 +39,10 @@ public class FlattenOfALinkedList {
 	// time complexity O(n*m*log(n))
 	// space complexity O(n) for priority queue
 	private static void type3() {
-		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
-				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30)
+				.attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50))
+				.attach(new LinkedListNode<>(28).bottom(35, 40, 45));
 		PriorityQueue<LinkedListNode<Integer>> heap = new PriorityQueue<>(
 				(node1, node2) -> Integer.compare(node1.data, node2.data));
 		LinkedListNode<Integer> current = head, next, lowest, currentLowest;
@@ -83,8 +85,10 @@ public class FlattenOfALinkedList {
 	// total time complexity O(n*n*m)
 	// space complexity O(1)
 	private static void type2() {
-		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
-				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30)
+				.attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50))
+				.attach(new LinkedListNode<>(28).bottom(35, 40, 45));
 		head = flatten(head);
 		System.out.println(head);
 	}
@@ -137,8 +141,11 @@ public class FlattenOfALinkedList {
 	// total time complexity O(2*m*n)+O(m*n*log(m*n))
 	// space complexity O(m*n) to store it in array
 	private static void type1() {
-		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30).attach(new LinkedListNode<>(10).bottom(20))
-				.attach(new LinkedListNode<>(19).bottom(22, 50)).attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+		LinkedListNode<Integer> head = new LinkedListNode<>(5).bottom(7, 8, 30)
+				.attach(new LinkedListNode<>(10).bottom(20))
+				.attach(new LinkedListNode<>(19).bottom(22, 50))
+				.attach(new LinkedListNode<>(28).bottom(35, 40, 45));
+
 		LinkedListNode<Integer> current = head, bottom, next, bottomNext;
 		List<LinkedListNode<Integer>> list = new ArrayList<>();
 		while (null != current) {
