@@ -412,6 +412,9 @@
   - [Sort K sorted array](/src/com/ds/heap/SortKSortedArray.java)
   - [Merge M sorted Arrays](/src/com/ds/heap/MergeNSortedArrays.java)
   - [Merge k Sorted Lists](/src/com/ds/heap/MergeKSortedLists.java)
+  - [Replace elements by its rank in the array](/src/com/ds/heap/ReplaceElementsByItsRankInArray.java)
+  - [Task Scheduler](/src/com/ds/heap/TaskScheduler.java)
+  - [Hands of Straights](/src/com/ds/heap/HandsOfStraights.java)
 </details>
 
 <details>
