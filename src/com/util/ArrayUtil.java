@@ -1,5 +1,7 @@
 package com.util;
 
+import com.algo.linkedlist.LinkedList;
+
 import java.util.List;
 
 public class ArrayUtil {
@@ -84,5 +86,13 @@ public class ArrayUtil {
         int[] copy = new int[array.length];
         copy(copy, array);
         return copy;
+    }
+
+    public static void print(LinkedList linkedList) {
+        while (null != linkedList) {
+            System.out.print(linkedList.val + " ");
+            linkedList = linkedList.next;
+        }
+        System.out.println();
     }
 }

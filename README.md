@@ -103,6 +103,14 @@
 
 </details>
 
+<details>
+    <summary><strong>Linked List</strong></summary>
+
+- codes
+  - [Singly Linked List](/src/com/algo/linkedlist/LinkedList.java)
+
+</details>
+
 
 ## Data-Structure
 <details>
@@ -380,6 +388,18 @@
 </details>
 
 <details>
+    <summary><strong>queue</strong></summary>
+
+- codes
+  - [Implement Queue using Arrays](/src/com/ds/queue/Queue.java)
+  - [Implement Queue using Stack](/src/com/ds/queue/QueueUsingStack.java)
+  - [Implement queue using Linkedlist](/src/com/ds/queue/QueueUsingLinkedlist.java)
+  - [Implement Deque using Linkedlist](/src/com/ds/queue/DequeUsingLinkedlist.java)
+  - [Sliding Window maximum](/src/com/ds/queue/SlidingWindowMaximum.java)
+
+</details>
+
+<details>
     <summary><strong>heap</strong></summary>
 
 - codes
@@ -392,18 +412,6 @@
   - [Sort K sorted array](/src/com/ds/heap/SortKSortedArray.java)
   - [Merge M sorted Arrays](/src/com/ds/heap/MergeNSortedArrays.java)
   - [Merge k Sorted Lists](/src/com/ds/heap/MergeKSortedLists.java)
-</details>
-
-<details>
-    <summary><strong>queue</strong></summary>
-
-- codes
-  - [Implement Queue using Arrays](/src/com/ds/queue/Queue.java)
-  - [Implement Queue using Stack](/src/com/ds/queue/QueueUsingStack.java)
-  - [Implement queue using Linkedlist](/src/com/ds/queue/QueueUsingLinkedlist.java)
-  - [Implement Deque using Linkedlist](/src/com/ds/queue/DequeUsingLinkedlist.java)
-  - [Sliding Window maximum](/src/com/ds/queue/SlidingWindowMaximum.java)
-
 </details>
 
 <details>
