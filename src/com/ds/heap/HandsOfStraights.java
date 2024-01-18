@@ -26,6 +26,7 @@ public class HandsOfStraights {
     }
 
     // TODO we can do the previous type using linkedList then it will not get any memory error
+    // TODO we can also use TreeMap instead of priority queue and hashMap, check nick white youtube video
     // same as previous but here we are giving multiple persons at a time
     // so it is slight optimized from the last type
     private static void type5() {
