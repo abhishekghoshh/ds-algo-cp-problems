@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1
+ * https://www.codingninjas.com/studio/problems/connect-n-ropes-with-minimum-cost_625783
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=_k_c9nqzKN0&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=9
@@ -19,19 +20,20 @@ public class ConnectNRopesToMinimizeCost {
 		type1();
 	}
 
+	// Using Heap
 	private static void type1() {
-		long ropes[] = { 4, 3, 2, 6 };
-		long totalCost = 0;
-		PriorityQueue<Long> minHeap = new PriorityQueue<>();
-		for (long item : ropes) {
-			minHeap.offer(item);
+		int[] ropes = {4, 3, 2, 6};
+
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+		for (int item : ropes) minHeap.offer(item);
+		int cost = 0, rod1, rod2, length;
+		while (minHeap.size() >= 2) {
+			rod1 = minHeap.poll();
+			rod2 = minHeap.poll();
+			length = rod1 + rod2;
+			cost += length;
+			minHeap.offer(length);
 		}
-		while (minHeap.size() != 1) {
-			long first = minHeap.poll();
-			long second = minHeap.poll();
-			totalCost = first + second + totalCost;
-			minHeap.offer(first + second);
-		}
-		System.out.println(totalCost);
+		System.out.println(cost);
 	}
 }

@@ -1,21 +1,18 @@
 package heap;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
+
+import static com.util.ArrayUtil.print;
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/k-max-sum-combinations_975322?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/k-max-sum-combinations_975322
  * https://www.interviewbit.com/problems/maximum-sum-combinations/
  * 
  * Solution link : 
  * https://www.youtube.com/watch?v=55TeHh37Ly8
+ *
  * */
 public class MaximumSumCombination {
 
@@ -23,42 +20,88 @@ public class MaximumSumCombination {
 		type1();
 		type2();
 		type3();
-		// type3_();
+		type4();
+	}
+
+	private static void type4() {
+		int[] arr1 = {1, 4, 2, 3};
+		int[] arr2 = {2, 5, 1, 6};
+		int k = 4;
+		int n = arr1.length;
+		PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+				(p1, p2) -> (arr1[p2[0]] + arr2[p2[1]]) - (arr1[p1[0]] + arr2[p1[1]])
+		);
+		boolean[][] visited = new boolean[n][n];
+
+		reverseSorted(arr1);
+		reverseSorted(arr2);
+
+		maxHeap.offer(new int[]{0, 0});
+		visited[0][0] = true;
+
+		int[] ans = new int[k];
+		int left, right;
+		for (int i = 0; i < k; i++) {
+			int[] point = maxHeap.poll();
+			left = point[0];
+			right = point[1];
+			ans[i] = arr1[left] + arr2[right];
+			if (left + 1 < n && !visited[left + 1][right]) {
+				maxHeap.offer(new int[]{left + 1, right});
+				visited[left + 1][right] = true;
+			}
+			if (right + 1 < n && !visited[left][right + 1]) {
+				maxHeap.offer(new int[]{left, right + 1});
+				visited[left][right + 1] = true;
+			}
+		}
+		print(ans);
 	}
 
 	private static void type3() {
-		Integer[] arr1 = { 1, 4, 2, 3 };
-		Integer[] arr2 = { 2, 5, 1, 6 };
-		int c = 4;
+		int[] arr1 = {1, 4, 2, 3};
+		int[] arr2 = {2, 5, 1, 6};
+		int k = 4;
 		int n = arr1.length;
-		PriorityQueue<Point> maxHeap = new PriorityQueue<>((point1, point2) -> Integer.compare(point2.sum, point1.sum));
-		Arrays.sort(arr1, Collections.reverseOrder());
-		Arrays.sort(arr2, Collections.reverseOrder());
+		PriorityQueue<Point> maxHeap = new PriorityQueue<>(
+				(point1, point2) -> point2.sum - point1.sum
+		);
+		boolean[][] visited = new boolean[n][n];
 
-		Point point = new Point(0, 0, arr1[0] + arr2[0]);
-		List<Integer> list = new ArrayList<>(c);
-		maxHeap.offer(point);
-		Set<Point> set = new HashSet<>();
-		set.add(point);
-		while (list.size() < c) {
-			point = maxHeap.poll();
-			list.add(point.sum);
-			if (point.left + 1 < n) {
-				Point point1 = new Point(point.left + 1, point.right, arr1[point.left + 1] + arr2[point.right]);
-				if (!set.contains(point1)) {
-					set.add(point1);
-					maxHeap.offer(point1);
-				}
+		reverseSorted(arr1);
+		reverseSorted(arr2);
+
+		maxHeap.offer(new Point(0, 0, arr1[0] + arr2[0]));
+		visited[0][0] = true;
+
+		int[] ans = new int[k];
+		int left, right;
+		for (int i = 0; i < k; i++) {
+			Point point = maxHeap.poll();
+			ans[i] = point.sum;
+			left = point.left;
+			right = point.right;
+
+			if (left + 1 < n && !visited[left + 1][right]) {
+				maxHeap.offer(new Point(left + 1, right, arr1[left + 1] + arr2[right]));
+				visited[left + 1][right] = true;
 			}
-			if (point.right + 1 < n) {
-				Point point2 = new Point(point.left, point.right + 1, arr1[point.left] + arr2[point.right + 1]);
-				if (!set.contains(point2)) {
-					set.add(point2);
-					maxHeap.offer(point2);
-				}
+			if (right + 1 < n && !visited[left][right + 1]) {
+				maxHeap.offer(new Point(left, right + 1, arr1[left] + arr2[right + 1]));
+				visited[left][right + 1] = true;
 			}
 		}
-		System.out.println(list);
+		print(ans);
+	}
+
+	private static void reverseSorted(int[] arr) {
+		Arrays.sort(arr);
+		int bound = arr.length >> 1;
+		for (int i = 0; i < bound; ++i) {
+			int temp = arr[i];
+			arr[i] = arr[arr.length - i - 1];
+			arr[arr.length - i - 1] = temp;
+		}
 	}
 
 	private static class Point {
@@ -71,60 +114,23 @@ public class MaximumSumCombination {
 			this.right = right;
 			this.sum = sum;
 		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + left;
-			result = prime * result + right;
-			result = prime * result + sum;
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Point other = (Point) obj;
-			if (left != other.left)
-				return false;
-			if (right != other.right)
-				return false;
-			if (sum != other.sum)
-				return false;
-			return true;
-		}
-
 	}
 
 	// using priority queue
 	private static void type2() {
 		int[] arr1 = { 1, 4, 2, 3 };
 		int[] arr2 = { 2, 5, 1, 6 };
-		int c = 4;
-		List<Integer> list = new ArrayList<>();
-		// minheap
-		PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> Integer.compare(a, b));
+		int k = 4;
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 		for (int item1 : arr1) {
 			for (int item2 : arr2) {
-				if (minHeap.size() < c) {
-					minHeap.offer(item1 + item2);
-				} else {
-					if (minHeap.peek() < (item1 + item2)) {
-						minHeap.poll();
-						minHeap.offer(item1 + item2);
-					}
-				}
+				minHeap.offer(item1 + item2);
+				if (minHeap.size() > k) minHeap.poll();
 			}
 		}
-		while (!minHeap.isEmpty()) {
-			list.add(minHeap.poll());
-		}
+		List<Integer> list = new ArrayList<>();
+		while (!minHeap.isEmpty()) list.add(minHeap.poll());
+
 		Collections.reverse(list);
 		System.out.println(list);
 	}
@@ -137,50 +143,13 @@ public class MaximumSumCombination {
 		int[] arr2 = { 2, 5, 1, 6 };
 		int c = 4;
 		List<Integer> list = new ArrayList<>();
-		for (int item1 : arr1) {
-			for (int item2 : arr2) {
+		for (int item1 : arr1)
+			for (int item2 : arr2)
 				list.add(item1 + item2);
-			}
-		}
-		Collections.sort(list, (a, b) -> Integer.compare(b, a));
+
+		list.sort((a, b) -> b - a);
 		list = list.subList(0, c);
 		System.out.println(list);
 	}
 
-	// ignore this
-	// this is copy of type3
-	public static void type3_() {
-		List<Integer> a = new ArrayList<>(List.of(1, 4, 2, 3));
-		List<Integer> b = new ArrayList<>(List.of(2, 5, 1, 6));
-		int c = 4;
-		int n = b.size();
-		PriorityQueue<Point> maxHeap = new PriorityQueue<>((point1, point2) -> Integer.compare(point2.sum, point1.sum));
-		Collections.sort(a, Collections.reverseOrder());
-		Collections.sort(b, Collections.reverseOrder());
-
-		Point point = new Point(0, 0, a.get(0) + b.get(0));
-		ArrayList<Integer> list = new ArrayList<>(c);
-		maxHeap.offer(point);
-		Set<Point> set = new HashSet<>();
-		set.add(point);
-		while (list.size() < c) {
-			point = maxHeap.poll();
-			list.add(point.sum);
-			if (point.left + 1 < n) {
-				Point point1 = new Point(point.left + 1, point.right, a.get(point.left + 1) + b.get(point.right));
-				if (!set.contains(point1)) {
-					set.add(point1);
-					maxHeap.offer(point1);
-				}
-			}
-			if (point.right + 1 < n) {
-				Point point2 = new Point(point.left, point.right + 1, a.get(point.left) + b.get(point.right + 1));
-				if (!set.contains(point2)) {
-					set.add(point2);
-					maxHeap.offer(point2);
-				}
-			}
-		}
-		System.out.println(list);
-	}
 }

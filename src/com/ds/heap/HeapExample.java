@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import com.algo.heap.MaxHeap;
 import com.algo.heap.MinHeap;
@@ -14,9 +14,7 @@ public class HeapExample {
 	}
 
 	private static void type2() {
-
-		// Using normal array
-
+		// Using a normal array
 		int[] array = {10, 5, 7, 30, 9};
 		MaxHeap maxHeap = new MaxHeap(array);
 		maxHeap.print();

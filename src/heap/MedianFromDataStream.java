@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/running-median_625409?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/running-median_625409
  * https://leetcode.com/problems/find-median-from-data-stream/
  * 
  * Solution link : 

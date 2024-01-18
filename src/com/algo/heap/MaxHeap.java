@@ -3,9 +3,9 @@ package com.algo.heap;
 import java.util.Arrays;
 
 public class MaxHeap {
-    private int[] heap;
+    private final int[] heap;
     private int size;
-    private int maxsize;
+    private final int maxsize;
 
     public MaxHeap(int maxsize) {
         this.maxsize = maxsize;
@@ -35,10 +35,7 @@ public class MaxHeap {
     }
 
     private boolean isLeaf(int pos) {
-        if (pos > (size / 2) - 1 && pos <= size) {
-            return true;
-        }
-        return false;
+        return pos > (size / 2) - 1 && pos <= size;
     }
 
     private void swap(int fpos, int spos) {

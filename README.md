@@ -403,6 +403,7 @@
     <summary><strong>heap</strong></summary>
 
 - codes
+  - [Heap Example](/src/com/ds/heap/HeapExample.java)
   - [Implement a priority queue](/src/com/ds/heap/ImplementPriorityQueue.java)
   - [Min Heap Implementation](/src/com/ds/heap/MinHeapImplementation.java)
   - [Convert Min Heap To Max Heap](/src/com/ds/heap/ConvertMinHeapToMaxHeap.java)
