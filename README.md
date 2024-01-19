@@ -79,14 +79,6 @@
     <summary><strong>string</strong></summary>
 
 - codes
-    - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
-    - [Z-Function](/src/com/algo/string/ZFunction.java)
-    - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
-</details>
-<details>
-    <summary><strong>string</strong></summary>
-
-- codes
   - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
   - [Z-Function](/src/com/algo/string/ZFunction.java)
   - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
@@ -326,6 +318,8 @@
 <details>
     <summary><strong>linked-list</strong></summary>
 
+- resources
+  - [Linked List | Beginner to Advanced for FAANG and PBC Interview Rounds](https://www.youtube.com/playlist?list=PLgUwDviBIf0rAuz8tVcM0AymmhTRsfaLU)
 - codes
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
