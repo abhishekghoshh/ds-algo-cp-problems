@@ -42,6 +42,11 @@ public class ArrayUtil {
         System.out.println();
     }
 
+    public static void print(long[] arr) {
+        if (arr != null) for (long item : arr) System.out.print(item + " ");
+        System.out.println();
+    }
+
     public static void print(int[]... arrays) {
         for (int[] array : arrays) {
             for (int num : array) System.out.print(num + " ");

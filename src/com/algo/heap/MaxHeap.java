@@ -81,6 +81,10 @@ public class MaxHeap {
         return popped;
     }
 
+    public int peek() {
+        return heap[0];
+    }
+
     public int size() {
         return this.size;
     }

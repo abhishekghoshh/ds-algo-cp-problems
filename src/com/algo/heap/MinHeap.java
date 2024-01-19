@@ -35,10 +35,7 @@ public class MinHeap {
     }
 
     private boolean isLeaf(int pos) {
-        if (pos > (size / 2) - 1 && pos <= size) {
-            return true;
-        }
-        return false;
+        return pos > (size / 2) - 1 && pos <= size;
     }
 
     private void swap(int fpos, int spos) {
@@ -80,6 +77,10 @@ public class MinHeap {
         this.size--;
         minHeapify(0);
         return popped;
+    }
+
+    public int peek() {
+        return heap[0];
     }
 
     public int size() {
