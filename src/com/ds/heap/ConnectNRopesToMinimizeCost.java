@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.PriorityQueue;
 
@@ -21,9 +21,13 @@ public class ConnectNRopesToMinimizeCost {
 	}
 
 	// Using Heap
+	// the intuition is first connect the lower ropes
+	// this way we can minimize the cost
 	private static void type1() {
 		int[] ropes = {4, 3, 2, 6};
-
+		// we will use a min heap get the lowest two ropes,
+		// then again we will push that into the heap
+		// this process will run until there is only one rope
 		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 		for (int item : ropes) minHeap.offer(item);
 		int cost = 0, rod1, rod2, length;

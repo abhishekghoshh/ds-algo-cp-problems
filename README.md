@@ -416,6 +416,16 @@
   - [Replace elements by its rank in the array](/src/com/ds/heap/ReplaceElementsByItsRankInArray.java)
   - [Task Scheduler](/src/com/ds/heap/TaskScheduler.java)
   - [Hands of Straights](/src/com/ds/heap/HandsOfStraights.java)
+  - [Design Twitter](/src/com/ds/heap/DesignTwitter.java)
+  - [Connect n ropes with minimum cost](/src/com/ds/heap/ConnectNRopesToMinimizeCost.java)
+  - [Kth Largest Element in a Stream](/src/com/ds/heap/KthLargestElementInStream.java)
+  - [Maximum Sum Combination](/src/com/ds/heap/MaximumSumCombination.java)
+  - [Find Median from Data Stream](/src/com/ds/heap/FindMedianFromDataStream.java)
+  - [K most frequent elements](/src/com/ds/heap/KMostFrequentElements.java)
+  - [Sort Array by Increasing Frequency](/src/com/ds/heap/SortArrayByIncreasingFrequency.java)
+  - [Find K Closest Elements](/src/com/ds/heap/FindKClosestElements.java)
+  - [K Closest Points to Origin](/src/com/ds/heap/KClosestPointsToOrigin.java)
+  - [Sum of elements between k1'th and k2'th smallest elements](/src/com/ds/heap/SumBetweenK1thSmallestAndK2thSmallest.java)
 </details>
 
 <details>

@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.*;
 
@@ -23,6 +23,9 @@ public class MaximumSumCombination {
 		type4();
 	}
 
+	// same as previous
+	// just we will not store sum here
+	// the sum will be calculated in the priority queue itself
 	private static void type4() {
 		int[] arr1 = {1, 4, 2, 3};
 		int[] arr2 = {2, 5, 1, 6};
@@ -58,6 +61,16 @@ public class MaximumSumCombination {
 		print(ans);
 	}
 
+	// this will use a max heap
+	// we know that the max element from the array will form the max sum
+	// we will take that as a starting point.
+	// first we will reverse sort both of the arrays,
+	// then we will store the 0th index for both of the arrays.
+	// as well as the sum of the arr1[ith] + arr2[jth]
+	// we know that the next highest pair could be
+	// either (i+1,j) or (i,j+1)
+	// so we will also store those two indices.
+	// we will do the process until there are k largest elements stored in the answer
 	private static void type3() {
 		int[] arr1 = {1, 4, 2, 3};
 		int[] arr2 = {2, 5, 1, 6};
@@ -67,11 +80,13 @@ public class MaximumSumCombination {
 				(point1, point2) -> point2.sum - point1.sum
 		);
 		boolean[][] visited = new boolean[n][n];
-
+		// sorting both of the arrays in reverse
 		reverseSorted(arr1);
 		reverseSorted(arr2);
 
 		maxHeap.offer(new Point(0, 0, arr1[0] + arr2[0]));
+		// we will also use a visited array to check if the pair is already visited or not
+		// because there is a multiple way to go to one point to another point
 		visited[0][0] = true;
 
 		int[] ans = new int[k];
@@ -81,11 +96,12 @@ public class MaximumSumCombination {
 			ans[i] = point.sum;
 			left = point.left;
 			right = point.right;
-
+			// adding (i+1,j) pair
 			if (left + 1 < n && !visited[left + 1][right]) {
 				maxHeap.offer(new Point(left + 1, right, arr1[left + 1] + arr2[right]));
 				visited[left + 1][right] = true;
 			}
+			// adding (i,j+1) th element
 			if (right + 1 < n && !visited[left][right + 1]) {
 				maxHeap.offer(new Point(left, right + 1, arr1[left] + arr2[right + 1]));
 				visited[left][right + 1] = true;
@@ -116,7 +132,8 @@ public class MaximumSumCombination {
 		}
 	}
 
-	// using priority queue
+	// using priority queue or a min heap
+	// to store only the top k elements
 	private static void type2() {
 		int[] arr1 = { 1, 4, 2, 3 };
 		int[] arr2 = { 2, 5, 1, 6 };

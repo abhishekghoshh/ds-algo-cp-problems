@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.*;
 
@@ -7,12 +7,13 @@ import static com.util.ArrayUtil.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/top-k-frequent-elements
+ * https://www.codingninjas.com/studio/problems/k-most-frequent-elements_3167808
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6
  * 
  * */
-public class TopKFrequentNumbers {
+public class KMostFrequentElements {
 	public static void main(String[] args) {
 		type1();
 		type2();

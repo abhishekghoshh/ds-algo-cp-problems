@@ -1,7 +1,4 @@
-package heap;
-
-import com.algo.heap.MaxHeap;
-import com.algo.heap.MinHeap;
+package com.ds.heap;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +14,7 @@ import java.util.PriorityQueue;
  * Solution link :
  * https://www.youtube.com/watch?v=itmhHWaHupI
  * */
-public class MedianFromDataStream {
+public class FindMedianFromDataStream {
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -147,6 +144,7 @@ public class MedianFromDataStream {
 			list = new ArrayList<>();
 		}
 
+		// insertion method from the insertion sort
 		public void addNum(int num) {
 			int n = list.size();
 			if (n == 0 || list.get(n - 1) <= num) {

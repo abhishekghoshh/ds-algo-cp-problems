@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ import static com.util.ArrayUtil.print;
  * https://www.youtube.com/watch?v=hLR5aMzYGGk&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=7
  * 
  * */
-public class FrequencySort {
+public class SortArrayByIncreasingFrequency {
 	// Given an array of integers nums, sort the array in increasing order based on
 	// the frequency of the values. If multiple values have the same frequency, sort
 	// them in decreasing order.

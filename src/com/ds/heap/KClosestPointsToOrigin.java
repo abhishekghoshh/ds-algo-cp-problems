@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -16,7 +16,7 @@ import static com.util.ArrayUtil.print;
  * https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/
  * https://www.techiedelight.com/quick-sort-using-hoares-partitioning-scheme/
  * */
-public class KClosestPointToOrigin {
+public class KClosestPointsToOrigin {
 
 	public static void main(String[] args) {
 		type1();

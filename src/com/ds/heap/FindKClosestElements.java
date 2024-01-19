@@ -1,4 +1,4 @@
-package heap;
+package com.ds.heap;
 
 import util.Pair;
 
@@ -14,7 +14,7 @@ import static com.util.ArrayUtil.print;
  * https://www.youtube.com/watch?v=J8yLD-x7fBI&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=5
  * 
  * */
-public class KClosestNumbers {
+public class FindKClosestElements {
 	public static void main(String[] args) {
 		type1();
 		type1_();
