@@ -5,6 +5,10 @@
 <details>
     <summary><strong>Blogs</strong></summary>
 
+- resources
+  - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
+  - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
+  - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
 - interview-experiences
   - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
   
@@ -38,6 +42,8 @@
 - [Leetcode DSA sheet by Fraz](https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9sFE/edit#gid=0)
 - [Questions by Love Babbar](https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view)
 - [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
+- [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
+- [DSA Sheet Final | AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
 - Coding Ninja
   - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
   - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
