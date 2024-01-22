@@ -1,6 +1,6 @@
 package com.ds.heap;
 
-import com.algo.linkedlist.LinkedList;
+import com.algo.linkedlist.Node;
 
 import java.util.*;
 
@@ -26,32 +26,32 @@ public class MergeKSortedLists {
 
     // using the merge technique in the merge sort
     private static void type4() {
-        LinkedList[] lists = {
-                new LinkedList(1, 4, 5),
-                new LinkedList(1, 3, 4),
-                new LinkedList(2, 6),
+        Node[] lists = {
+                new Node(1, 4, 5),
+                new Node(1, 3, 4),
+                new Node(2, 6),
         };
 
-        LinkedList answer = mergeKListsHelper(lists, 0, lists.length - 1);
+        Node answer = mergeKListsHelper(lists, 0, lists.length - 1);
         print(answer);
     }
 
-    private static LinkedList mergeKListsHelper(LinkedList[] lists, int start, int end) {
+    private static Node mergeKListsHelper(Node[] lists, int start, int end) {
         if (start == end) return lists[start];
         if (start + 1 == end) return merge(lists[start], lists[end]);
 
         int mid = start + (end - start) / 2;
-        LinkedList left = mergeKListsHelper(lists, start, mid);
-        LinkedList right = mergeKListsHelper(lists, mid + 1, end);
+        Node left = mergeKListsHelper(lists, start, mid);
+        Node right = mergeKListsHelper(lists, mid + 1, end);
         return merge(left, right);
     }
 
-    private static LinkedList merge(LinkedList l1, LinkedList l2) {
-        LinkedList dummy = new LinkedList(0);
-        LinkedList curr = dummy;
+    private static Node merge(Node l1, Node l2) {
+        Node dummy = new Node(0);
+        Node curr = dummy;
 
         while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
+            if (l1.data < l2.data) {
                 curr.next = l1;
                 l1 = l1.next;
             } else {
@@ -69,23 +69,23 @@ public class MergeKSortedLists {
     // same as type 2 but
     // here I have added some optimizations
     private static void type3() {
-        LinkedList[] lists = {
-                new LinkedList(1, 4, 5),
-                new LinkedList(1, 3, 4),
-                new LinkedList(2, 6),
+        Node[] lists = {
+                new Node(1, 4, 5),
+                new Node(1, 3, 4),
+                new Node(2, 6),
         };
         // we will store all the linked list reference
         // for getting the current lowest value
-        PriorityQueue<LinkedList> minHeap = new PriorityQueue<>(
-                Comparator.comparingInt(linkedList -> linkedList.val));
+        PriorityQueue<Node> minHeap = new PriorityQueue<>(
+                Comparator.comparingInt(node -> node.data));
 
         // we will store all the reference of the linked list
         // because the linked list is stored increasingly
-        for (LinkedList linkedList : lists) minHeap.offer(linkedList);
+        for (Node node : lists) minHeap.offer(node);
 
-        LinkedList prev = minHeap.poll();
+        Node prev = minHeap.poll();
         if (prev.next != null) minHeap.offer(prev.next);
-        LinkedList answer = prev;
+        Node answer = prev;
 
         while (!minHeap.isEmpty()) {
             prev.next = minHeap.poll();
@@ -93,8 +93,8 @@ public class MergeKSortedLists {
             // we have made some optimization here
             // we are going to next until it is greater the current top heap element
             if (!minHeap.isEmpty()) {
-                LinkedList currentTop = minHeap.peek();
-                while (prev.next != null && prev.next.val <= currentTop.val)
+                Node currentTop = minHeap.peek();
+                while (prev.next != null && prev.next.data <= currentTop.data)
                     prev = prev.next;
             } else break;
             if (prev.next != null) minHeap.offer(prev.next);
@@ -106,23 +106,23 @@ public class MergeKSortedLists {
     //optimized approach
     // we will use min heap here
     private static void type2() {
-        LinkedList[] lists = {
-                new LinkedList(1, 4, 5),
-                new LinkedList(1, 3, 4),
-                new LinkedList(2, 6),
+        Node[] lists = {
+                new Node(1, 4, 5),
+                new Node(1, 3, 4),
+                new Node(2, 6),
         };
         // we will store all the linked list reference
         // for getting the current lowest value
-        PriorityQueue<LinkedList> minHeap = new PriorityQueue<>(
-                Comparator.comparingInt(linkedList -> linkedList.val));
+        PriorityQueue<Node> minHeap = new PriorityQueue<>(
+                Comparator.comparingInt(node -> node.data));
 
         // we will store all the reference of the linked list
         // because the linked list is stored increasingly
-        for (LinkedList linkedList : lists) minHeap.offer(linkedList);
+        for (Node node : lists) minHeap.offer(node);
 
-        LinkedList prev = minHeap.poll();
+        Node prev = minHeap.poll();
         if (prev.next != null) minHeap.offer(prev.next);
-        LinkedList answer = prev;
+        Node answer = prev;
 
         while (!minHeap.isEmpty()) {
             prev.next = minHeap.poll();
@@ -135,24 +135,24 @@ public class MergeKSortedLists {
 
     // brute force approach
     private static void type1() {
-        LinkedList[] lists = {
-                new LinkedList(1, 4, 5),
-                new LinkedList(1, 3, 4),
-                new LinkedList(2, 6),
+        Node[] lists = {
+                new Node(1, 4, 5),
+                new Node(1, 3, 4),
+                new Node(2, 6),
         };
 
         List<Integer> list = new ArrayList<>();
-        for (LinkedList arr : lists)
+        for (Node arr : lists)
             while (arr != null) {
-                list.add(arr.val);
+                list.add(arr.data);
                 arr = arr.next;
             }
         Collections.sort(list);
         int size = list.size();
-        LinkedList answer = new LinkedList(list.get(0));
-        LinkedList prev = answer;
+        Node answer = new Node(list.get(0));
+        Node prev = answer;
         for (int i = 1; i < size; i++) {
-            prev.next = new LinkedList(list.get(i));
+            prev.next = new Node(list.get(i));
             prev = prev.next;
         }
         print(answer);

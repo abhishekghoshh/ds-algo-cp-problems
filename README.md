@@ -327,6 +327,16 @@
 - resources
   - [Linked List | Beginner to Advanced for FAANG and PBC Interview Rounds](https://www.youtube.com/playlist?list=PLgUwDviBIf0rAuz8tVcM0AymmhTRsfaLU)
 - codes
+  - [Introduction To Linked List](/src/com/ds/linkedlist/IntroductionToLinkedList.java)
+  - [Inserting a node in LinkedList](/src/com/ds/linkedlist/InsertingNodeInLinkedList.java)
+  - [Deleting a node in LinkedList](/src/com/ds/linkedlist/DeleteNodeInALinkedList.java)
+  - [Delete Last Node of Linked List](/src/com/ds/linkedlist/DeleteLastNodeInALinkedList.java)
+  - [Find the Length of a Linked List](/src/com/ds/linkedlist/FindTheLengthOfLinkedList.java)
+  - [Search an element in a Linked List](/src/com/ds/linkedlist/SearchElementInLinkedList.java)
+  - [Introduction To Doubly Linked List](/src/com/ds/linkedlist/IntroductionToDoublyLinkedList.java)
+  - [Insert at end of Doubly Linked List](/src/com/ds/linkedlist/InsertAtEndOfDoublyLinkedList.java)
+  - [Delete Last Node of a Doubly Linked List](/src/com/ds/linkedlist/DeleteLastNodeOfDoublyLinkedList.java)
+  - [Reverse A Doubly Linked List](/src/com/ds/linkedlist/ReverseADoublyLinkedList.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
     - linked-list

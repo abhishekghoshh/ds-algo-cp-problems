@@ -1,6 +1,7 @@
 package com.util;
 
-import com.algo.linkedlist.LinkedList;
+import com.algo.linkedlist.DNode;
+import com.algo.linkedlist.Node;
 
 import java.util.List;
 
@@ -93,10 +94,18 @@ public class ArrayUtil {
         return copy;
     }
 
-    public static void print(LinkedList linkedList) {
-        while (null != linkedList) {
-            System.out.print(linkedList.val + " ");
-            linkedList = linkedList.next;
+    public static void print(Node node) {
+        while (null != node) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+        System.out.println();
+    }
+
+    public static void print(DNode node) {
+        while (null != node) {
+            System.out.print(node.data + " ");
+            node = node.next;
         }
         System.out.println();
     }
