@@ -1,24 +1,28 @@
-package linkedlist;
+package com.ds.linkedlist;
+
+import com.algo.linkedlist.Node;
+import com.util.ArrayUtil;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import util.LinkedListNode;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/628974?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/linked-list-cycle/
- * 
+ * https://www.codingninjas.com/codestudio/problems/628974
+ * https://www.codingninjas.com/studio/problems/cycle-detection-in-a-singly-linked-list_628974
+ *
+ * Solution link :
+ * https://www.youtube.com/watch?v=wiOo4DC5GGA
  * https://www.youtube.com/watch?v=354J83hX7RI&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=35
- * 
+ *
+ * https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/
  * */
-public class HasCycle {
+public class DetectLoopInLinkedList {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
-
 	}
 
 	// tortoise method
@@ -26,15 +30,21 @@ public class HasCycle {
 	// but it can go more than o(n)
 	// as it will
 	// here we have a slow node and fast node
-	// slow node goes one node at a time
+	// slow node goes one node at a time,
 	// fast node goes two nodes
 	// if there is any loop then slow and fast will travel with different speed
-	// and after some they will reach to same node
+	// and after some they will reach the same node
 	// if there is no cycle then fast will exhaust automatically
 	private static void type2() {
-		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
-		LinkedListNode<Integer> slow = head;
-		LinkedListNode<Integer> fast = head;
+		Node head = new Node(1, 2, 3, 4, 5);
+		Node node1 = new Node(6);
+		Node node2 = new Node(7, 8, 9);
+		Node.attach(head, node1, node2);
+		ArrayUtil.print(head);
+		node2.last(node1);
+
+		Node slow = head;
+		Node fast = head;
 		boolean hasCycle = false;
 		while (null != fast && null != fast.next) {
 			slow = slow.next;
@@ -51,17 +61,22 @@ public class HasCycle {
 	// time complexity o(n)
 	// space complexity o(n)
 	private static void type1() {
-		LinkedListNode<Integer> head = new LinkedListNode<>(1, 2).cycle(new LinkedListNode<>(10, 11), new LinkedListNode<>(15, 30, 45));
-		Set<LinkedListNode<Integer>> set = new HashSet<>();
+		Node head = new Node(1, 2, 3, 4, 5);
+		Node node1 = new Node(6);
+		Node node2 = new Node(7, 8, 9);
+		Node.attach(head, node1, node2);
+		ArrayUtil.print(head);
+		node2.last(node1);
+
+		Set<Node> set = new HashSet<>();
 		boolean hasCycle = false;
 		while (null != head) {
-			if (!set.contains(head)) {
-				set.add(head);
-				head = head.next;
-			} else {
+			if (set.contains(head)) {
 				hasCycle = true;
 				break;
 			}
+			set.add(head);
+			head = head.next;
 		}
 		System.out.println("cycle present : " + hasCycle);
 	}

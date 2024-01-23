@@ -41,9 +41,9 @@ public class ReverseADoublyLinkedList {
         while (current != null) {
             next = current.next;
             prev = current.prev;
+            // This step reverses the link
             // Swap the previous and next pointers
             current.prev = next;
-            // This step reverses the links
             current.next = prev;
             // Move to the next node in the original list
             current = next;

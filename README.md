@@ -32,6 +32,7 @@
     - [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete/home/welcome)
   - [Java Programming: Principles of Software Design](https://www.coursera.org/learn/java-programming-design-principles/home/welcome)
   - [Distributed Programming in Java](https://www.coursera.org/learn/distributed-programming-in-java/home/welcome)
+- [Kunal Kushwaha playlist](https://www.youtube.com/@KunalKushwaha/playlists)
 </details>
 
 <details>
@@ -337,6 +338,12 @@
   - [Insert at end of Doubly Linked List](/src/com/ds/linkedlist/InsertAtEndOfDoublyLinkedList.java)
   - [Delete Last Node of a Doubly Linked List](/src/com/ds/linkedlist/DeleteLastNodeOfDoublyLinkedList.java)
   - [Reverse A Doubly Linked List](/src/com/ds/linkedlist/ReverseADoublyLinkedList.java)
+  - [Find middle element in a Linked List](/src/com/ds/linkedlist/MiddleOfLinkedList.java)
+  - [Reverse a Linked List](/src/com/ds/linkedlist/ReverseOfLinkedList.java)
+  - [Detect a loop in Linked List](/src/com/ds/linkedlist/DetectLoopInLinkedList.java)
+  - [Find the starting point in Linked List](/src/com/ds/linkedlist/StartingNodeOfCycleInLinkedList.java)
+  - [Length of Loop in Linked List](/src/com/ds/linkedlist/LengthOfLoopInLinkedList.java)
+  - [Segregate odd and even nodes in Linked List](/src/com/ds/linkedlist/SegregateOddAndEvenNodesInLinkedList.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
     - linked-list
