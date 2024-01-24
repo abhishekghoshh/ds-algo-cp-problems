@@ -35,9 +35,12 @@ public class SegregateOddAndEvenNodesInLinkedList {
         print(head);
     }
 
+    // TODO check one more time
+    // pointer allocation is little confusing and can be fixed
     // in place link construction
     public static Node oddEvenList(Node head) {
         if (head == null || head.next == null) return head;
+        // first, we will start with two pointers, odd and even
         Node odd = head;
         Node even = head.next;
         Node enHead = even;
@@ -66,12 +69,12 @@ public class SegregateOddAndEvenNodesInLinkedList {
         int n = list.size();
         node = head;
         // now we will add data's back to the linked list
-        // first we will assign the even index nodes
+        // first we will assign the odd index nodes
         for (int i = 0; i < n && node != null; i += 2) {
             node.data = list.get(i);
             node = node.next;
         }
-        // then we will assign the odd index nodes
+        // then we will assign the even index nodes
         for (int i = 1; i < n && node != null; i += 2) {
             node.data = list.get(i);
             node = node.next;

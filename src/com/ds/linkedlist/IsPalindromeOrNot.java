@@ -1,4 +1,4 @@
-package linkedlist;
+package com.ds.linkedlist;
 
 import com.algo.linkedlist.Node;
 
