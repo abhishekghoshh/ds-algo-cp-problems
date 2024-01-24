@@ -18,7 +18,7 @@ public class IntersectionOfTwoLinkedList2 {
         type3();
     }
 
-    // note here two linked list has the common data not the common pointer
+    // note here two linked lists have the common data not the common pointer
     // time complexity O((n1+n2))+O(max((n1+n2)))
     // space complexity O(1)
     private static void type3() {

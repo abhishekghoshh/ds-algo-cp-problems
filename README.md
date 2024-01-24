@@ -351,6 +351,7 @@
   - [Sort linked list of 0s 1s 2s](/src/com/ds/linkedlist/SortLinkedListOfZeroOneTwo.java)
   - [Intersection of Two Linked Lists](/src/com/ds/linkedlist/IntersectionOfTwoLinkedList.java)
   - [Intersection of Two Linked Lists II](/src/com/ds/linkedlist/IntersectionOfTwoLinkedList2.java)
+  - [Add 1 to a number represented by Linked List](/src/com/ds/linkedlist/AddOneToNumberRepresentedByLinkedList.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
     - linked-list

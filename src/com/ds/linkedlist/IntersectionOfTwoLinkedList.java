@@ -28,7 +28,7 @@ public class IntersectionOfTwoLinkedList {
 		type4();
 	}
 
-	// best optimized approach
+	// better optimized approach
 	// two linked list having common point
 	// time complexity O(2*max(n1,n2)))
 	// space complexity O(1)
@@ -50,51 +50,75 @@ public class IntersectionOfTwoLinkedList {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
+		Node point = getIntersectionNode4(headA, headB);
+		print(point);
+	}
+
+	private static Node getIntersectionNode4(Node headA, Node headB) {
+		// let say headA = (a + h)
+		// and headB = (b + h)
 		Node h1 = headA, h2 = headB;
+		// h1 will become (h1 + h2)
+		// h2 will become (h2 + h1)
+		// so let's say if there is no common point then
+		// after (n1+n2) both h1 and h2 will go to null and loop will terminate.
+		// if there is some common point
+		// h1 will become (a + h + b + h)
+		// h2 will become (b + h + a + h)
+		//  still, the loop will terminate when it comes to last h
 		while (h1 != h2) {
 			h1 = null != h1 ? h1.next : headB;
 			h2 = null != h2 ? h2.next : headA;
 		}
-		// if there is no intersection point then it h1 will be null
-		System.out.println(null != h1 ? h1 : "[]");
+		// if there is no intersection point, then it h1 will be null
+		return null != h1 ? h1 : h2;
 	}
 
+	// TODO explain this in the interview
+	// very simple approach
 	// optimized approach
 	// two linked list having common point
-	// time complexity O(2*max(n1,n2)))
+	// time complexity O(n)
 	// space complexity O(1)
 	private static void type3() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
-
-		System.out.println(null != headA ? headA.toString() : "[]");
+		Node point = getIntersectionNode3(headA, headB);
+		print(point);
 	}
 
 	private static Node getIntersectionNode3(Node headA, Node headB) {
 		int n1 = 0, n2 = 0;
 		Node h1 = headA, h2 = headB;
-		while (null != h1 || null != h2) {
-			if (null != h1) {
-				n1++;
-				h1 = h1.next;
-			}
-			if (null != h2) {
-				n2++;
-				h2 = h2.next;
-			}
+		// first we count n1
+		while (null != h1) {
+			n1++;
+			h1 = h1.next;
 		}
-		while (null != headA && null != headB && headA != headB) {
-			if (n1 > n2) {
-				headA = headA.next;
-				n1--;
-			} else if (n1 < n2) {
-				headB = headB.next;
-				n2--;
-			} else {
-				headA = headA.next;
-				headB = headB.next;
-			}
+		// then we will count n2
+		while (null != h2) {
+			n2++;
+			h2 = h2.next;
+		}
+		// then we will move (n1-n2) for the longer linked list
+		// if n1>n2 then this while loop will execute
+		while (n1 > n2) {
+			n1--;
+			headA = headA.next;
+		}
+		// if n2>n2 then this one will execute
+		// the previous for loop will not execute
+		while (n2 > n1) {
+			n2--;
+			headB = headB.next;
+		}
+		// now we are at the starting point for the both of the linked lists
+		// at this point both linked lists have the same number of nodes
+		// we will go till nodes are same
+		while (headA != headB) {
+			headA = headA.next;
+			headB = headB.next;
 		}
 		return headA;
 	}
