@@ -20,9 +20,15 @@ public class SortLinkedList {
     public static void main(String[] args) {
         type1();
         type2();
+        type3();
     }
 
-    // optimized approach
+    // using merge sort
+    private static void type3() {
+        Node head = new Node(1, 3, 4, 7, 1, 2, 6);
+    }
+
+    // optimized approach using insertion sort
     private static void type2() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
     }
