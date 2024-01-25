@@ -1,9 +1,9 @@
-package trie;
+package com.ds.trie;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/count-distinct-substrings_985292?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_tries_videos
- * https://www.codingninjas.com/codestudio/problems/number-of-distinct-substring_1465938?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/count-distinct-substrings_985292
+ * https://www.codingninjas.com/codestudio/problems/number-of-distinct-substring_1465938
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=RV0QeTyHZxo&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=4
@@ -24,7 +24,8 @@ public class CountDistinctSubstrings {
 		String str = "abab";
 		char[] arr = str.toCharArray();
 		int n = arr.length;
-		int count = 0;
+		// 1 for the empty substring
+		int count = 1;
 		Node root = new Node();
 		for (int i = 0; i < n; i++) {
 			Node node = root;
@@ -40,24 +41,22 @@ public class CountDistinctSubstrings {
 				node = node.get(ch);
 			}
 		}
-		// +1 for the empty substring
-		count++;
 		System.out.println(count);
 	}
 
 	public static class Node {
-		Node links[] = new Node[26];
+		Node[] nodes = new Node[26];
 
 		boolean isNull(char ch) {
-			return links[ch - 'a'] == null;
+			return nodes[ch - 'a'] == null;
 		}
 
 		Node get(char ch) {
-			return links[ch - 'a'];
+			return nodes[ch - 'a'];
 		}
 
 		void put(char ch, Node node) {
-			links[ch - 'a'] = node;
+			nodes[ch - 'a'] = node;
 		}
 	};
 
@@ -66,7 +65,8 @@ public class CountDistinctSubstrings {
 	private static void type1() {
 		String str = "abab";
 		char[] arr = str.toCharArray();
-		int count = 0;
+		// 1 for the empty substring
+		int count = 1;
 		Trie trie = new Trie();
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = i; j < arr.length; j++) {
@@ -75,14 +75,12 @@ public class CountDistinctSubstrings {
 					count++;
 			}
 		}
-		// +1 for the empty substring
-		count++;
 		System.out.println(count);
 	}
 
 	public static class Trie {
 		private static final int ALPHABET_SIZE = 26;
-		private Node head;
+		private final Node head;
 
 		public Trie() {
 			head = new Node();
@@ -92,11 +90,9 @@ public class CountDistinctSubstrings {
 			Node node = head;
 			for (int i = start; i <= end; i++) {
 				char ch = arr[i];
-				if (node.isNull(ch)) {
+				if (node.isNull(ch))
 					node = node.set(ch);
-				} else {
-					node = node.get(ch);
-				}
+				else node = node.get(ch);
 			}
 			// if the end is already set that means the word is not unique
 			if (node.isEnd())
@@ -107,8 +103,8 @@ public class CountDistinctSubstrings {
 			return true;
 		}
 
-		public class Node {
-			private Node[] nodes;
+		public static class Node {
+			private final Node[] nodes;
 			private boolean isEnd;
 
 			Node() {

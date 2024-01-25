@@ -304,6 +304,7 @@
     - [Roman to Integer](/src/com/ds/string/RomanToInteger.java)
     - [Integer to Roman](/src/com/ds/string/IntegerToRoman.java)
     - [Implement Atoi](/src/com/ds/string/StringToInteger.java)
+      - recursion
     - [Count With K Different Characters](/src/com/ds/string/CountSubstringsOfLengthK.java)
         - sliding-window
     - [Longest Palindromic Substring](/src/com/ds/string/LongestPalindromicSubstring.java)
@@ -592,6 +593,11 @@
   - [Trie Series | Striver | take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
   - [L1 | Tries | Tries Master Class by Striver | CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
   - [L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
+- codes
+  - [Implement Trie (Prefix Tree)](/src/com/ds/trie/ImplementTrie.java)
+  - [Implement Trie - 2 (Prefix Tree)](/src/com/ds/trie/ImplementTrie2.java)
+  - [Longest String with All Prefixes](/src/com/ds/trie/LongestStringWithAllPrefixes.java)
+  - [Number of Distinct Substrings in a String](/src/com/ds/trie/CountDistinctSubstrings.java)
 </details>
 
 

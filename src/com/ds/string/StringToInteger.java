@@ -4,6 +4,7 @@ package com.ds.string;
  * Problem link :
  * https://leetcode.com/problems/string-to-integer-atoi/
  * https://www.codingninjas.com/codestudio/problems/981270
+ * https://www.codingninjas.com/studio/problems/implement-atoi-function_981270
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=FyTpsuWAoc8
@@ -15,8 +16,23 @@ public class StringToInteger {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
 
+	// TODO check it in the google and leetcode if it is even possible
+	private static void type3() {
+		String s = "-2147483647";
+		int num = atoi3(s);
+		System.out.println(num);
+	}
+
+	// recursive implementation of atoi function
+	private static int atoi3(String s) {
+		return 0;
+	}
+
+
+	// TODO explain this in the interview
 	private static void type2() {
 		String s = "-91283472332";
 		int num = atoi2(s);
@@ -40,7 +56,9 @@ public class StringToInteger {
 		// 3. Convert to integer and avoid overflow
 		while (i < n) {
 			int digit = arr[i++] - '0';
+			// if the char is not digit then we will break
 			if (digit < 0 || digit > 9) break;
+			// checking that if by adding this char we are exceeding INT MAX value or not
 			if (Integer.MAX_VALUE / 10 < result || (Integer.MAX_VALUE / 10 == result && Integer.MAX_VALUE % 10 < digit))
 				return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 			result = result * 10 + digit;
