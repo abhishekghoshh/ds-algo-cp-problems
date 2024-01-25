@@ -106,7 +106,8 @@
     <summary><strong>Linked List</strong></summary>
 
 - codes
-  - [Singly Linked List](/src/com/algo/linkedlist/LinkedList.java)
+  - [Singly Linked List](/src/com/algo/linkedlist/Node.java)
+  - [Doubly Linked List](/src/com/algo/linkedlist/DNode.java)
 
 </details>
 
@@ -347,6 +348,8 @@
   - [Segregate odd and even nodes in Linked List](/src/com/ds/linkedlist/SegregateOddAndEvenNodesInLinkedList.java)
   - [Remove N-th node from the end of a Linked List](/src/com/ds/linkedlist/RemoveNthNodeFromBackOfList.java)
   - [Delete the middle node of Linked List](/src/com/ds/linkedlist/DeleteTheMiddleNodeOfLinkedList.java)
+  - [Merge Two Sorted Linked Lists](/src/com/ds/linkedlist/MergeTwoSortedList.java)
+  - [Insertion Sort List Linked Lists](/src/com/ds/linkedlist/LinkedListInsertionSort.java)
   - [Sort Linked List](/src/com/ds/linkedlist/SortLinkedList.java)
   - [Sort linked list of 0s 1s 2s](/src/com/ds/linkedlist/SortLinkedListOfZeroOneTwo.java)
   - [Intersection of Two Linked Lists](/src/com/ds/linkedlist/IntersectionOfTwoLinkedList.java)
@@ -360,8 +363,6 @@
   - [Rotate a Linked List](/src/com/ds/linkedlist/RotateLinkedListToRight.java)
   - [Flattening of Linked List](/src/com/ds/linkedlist/FlattenOfALinkedList.java)
   - [Clone Linked List with Random and Next Pointer](/src/com/ds/linkedlist/CloneLinkedListWithRandomPointer.java)
-  - [Merge Two Sorted Linked Lists](/src/com/ds/linkedlist/MergeTwoSortedList.java)
-  - [Insertion Sort List Linked Lists](/src/com/ds/linkedlist/LinkedListInsertionSort.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
     - linked-list

@@ -1,11 +1,12 @@
 package com.ds.linkedlist;
 
 import com.algo.linkedlist.Node;
-import com.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static com.util.ArrayUtil.print;
 
 
 /*
@@ -33,7 +34,10 @@ public class MergeTwoSortedList {
 		Node list1 = new Node(1, 4, 5, 7);
 		Node list2 = new Node(2, 3, 6, 8, 9);
 		Node head = mergeTwoLists2(list1, list2);
-		ArrayUtil.print(head);
+		print(head);
+
+		Node head2 = mergeTwoLists2_Old(list1, list2);
+		print(head2);
 	}
 
 	public static Node mergeTwoLists2(Node list1, Node list2) {
@@ -58,7 +62,8 @@ public class MergeTwoSortedList {
 		return head.next;
 	}
 
-	public Node mergeTwoLists2_Old(Node list1, Node list2) {
+	@SuppressWarnings("deprecated")
+	public static Node mergeTwoLists2_Old(Node list1, Node list2) {
 		Node head = null;
 		if (null != list1 && null != list2) {
 			Node headCopy = null, current = null;
@@ -119,7 +124,7 @@ public class MergeTwoSortedList {
 			node.next = new Node(data);
 			node = node.next;
 		}
-		ArrayUtil.print(head);
+		print(head);
 	}
 
 }
