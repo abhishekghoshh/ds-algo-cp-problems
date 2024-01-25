@@ -97,9 +97,22 @@ public class ArrayUtil {
     public static void print(Node node) {
         while (null != node) {
             System.out.print(node.data + " ");
+            printBottom(node);
             node = node.next;
         }
         System.out.println();
+    }
+
+    private static void printBottom(Node node) {
+        if (node.bottom == null) return;
+        Node bottom = node.bottom;
+        System.out.print(" -> [");
+        while (bottom != null) {
+            System.out.print(bottom.data);
+            if (bottom.bottom != null) System.out.print(", ");
+            bottom = bottom.bottom;
+        }
+        System.out.print("]\n");
     }
 
     public static void print(DNode node) {

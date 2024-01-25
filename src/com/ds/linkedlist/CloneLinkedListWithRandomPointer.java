@@ -1,18 +1,22 @@
-package linkedlist;
+package com.ds.linkedlist;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import util.LinkedListNode;
+import com.algo.linkedlist.Node;
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/873376?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
  * https://leetcode.com/problems/copy-list-with-random-pointer/
+ * https://www.codingninjas.com/codestudio/problems/873376
+ * https://www.codingninjas.com/studio/problems/clone-a-linked-list-with-random-pointers_983604
  * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=q570bKdrnlw
  * https://www.youtube.com/watch?v=VNf6VynfpdM
- * 
+ *
+ * https://takeuforward.org/data-structure/clone-linked-list-with-random-and-next-pointer/
  * */
 public class CloneLinkedListWithRandomPointer {
 
@@ -29,14 +33,14 @@ public class CloneLinkedListWithRandomPointer {
 	// on the second loop we will assign random pointers
 	// on the third loop we will remove the duplicate nodes
 	private static void type2() {
-		LinkedListNode<Integer> head = buildLinkedListWithRandomPointer();
+		Node head = buildRandom();
 
-		LinkedListNode<Integer> start = head, copy, current;
+		Node start = head, copy, current;
 		// duplicate nodes will be made
 		while (null != start) {
 			current = start;// creating one copy for future
 			start = start.next;// goes to next element of the actual list
-			copy = new LinkedListNode<>(current.data); // creating duplicate node
+			copy = new Node(current.data); // creating duplicate node
 			copy.next = current.next;// assigning duplicates next to current next
 			current.next = copy;// assigning current next to duplicate
 			// so duplicate node successfully place in between actual list node
@@ -51,7 +55,7 @@ public class CloneLinkedListWithRandomPointer {
 		}
 		start = head;
 		// we will create a dummy node for storing the duplicate nodes
-		LinkedListNode<Integer> newHead = new LinkedListNode<>(0), previous;
+		Node newHead = new Node(0), previous;
 		previous = newHead;
 		// at this point also node size is 2n
 		// we will separate two list in this loop
@@ -77,14 +81,14 @@ public class CloneLinkedListWithRandomPointer {
 	// time complexity O(2n)
 	// space complexity O(n)
 	private static void type1() {
-		LinkedListNode<Integer> head = buildLinkedListWithRandomPointer();
+		Node head = buildRandom();
 		// creating a dummy node for head at last we will remove it
-		LinkedListNode<Integer> newHead = new LinkedListNode<>(0);
-		LinkedListNode<Integer> newHeadCopy = newHead;
-		LinkedListNode<Integer> current, start = head;
-		Map<LinkedListNode<Integer>, LinkedListNode<Integer>> mapping = new HashMap<>();
+		Node newHead = new Node(0);
+		Node newHeadCopy = newHead;
+		Node current, start = head;
+		Map<Node, Node> mapping = new HashMap<>();
 		while (null != start) {
-			current = new LinkedListNode<>(start.data);
+			current = new Node(start.data);
 			newHeadCopy.next = current;
 			newHeadCopy = current;
 			mapping.put(start, current);
@@ -105,12 +109,12 @@ public class CloneLinkedListWithRandomPointer {
 		System.out.println("Copy " + newHead);
 	}
 
-	private static LinkedListNode<Integer> buildLinkedListWithRandomPointer() {
-		LinkedListNode<Integer> node1 = new LinkedListNode<>(1);
-		LinkedListNode<Integer> node2 = new LinkedListNode<>(2);
-		LinkedListNode<Integer> node3 = new LinkedListNode<>(3);
-		LinkedListNode<Integer> node4 = new LinkedListNode<>(4);
-		LinkedListNode<Integer> node5 = new LinkedListNode<>(5);
+	private static Node buildRandom() {
+		Node node1 = new Node(1);
+		Node node2 = new Node(2);
+		Node node3 = new Node(3);
+		Node node4 = new Node(4);
+		Node node5 = new Node(5);
 
 		node1.random = node3;
 		node2.random = node1;

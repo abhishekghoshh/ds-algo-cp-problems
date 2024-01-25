@@ -3,6 +3,8 @@ package com.algo.linkedlist;
 public class Node {
     public int data;
     public Node next = null;
+    public Node bottom = null;
+    public Node random = null;
 
 
     public Node() {
@@ -36,12 +38,29 @@ public class Node {
         return this;
     }
 
+    public Node chain(Node node) {
+        Node curr = this;
+        while (curr.next != null) curr = curr.next;
+        curr.next = node;
+        return node;
+    }
+
     public Node last(Node node) {
-        Node current = this;
-        while (current.next != null) current = current.next;
-        current.next = node;
+        Node curr = this;
+        while (curr.next != null) curr = curr.next;
+        curr.next = node;
         return this;
     }
+
+    public Node bottom(int... datas) {
+        Node node = this;
+        for (int data : datas) {
+            node.bottom = new Node(data);
+            node = node.bottom;
+        }
+        return this;
+    }
+
 
     public static Node attach(Node node, Node... nodes) {
         Node head = node;

@@ -1,4 +1,4 @@
-package linkedlist;
+package com.ds.linkedlist;
 
 import com.algo.linkedlist.Node;
 
@@ -32,7 +32,7 @@ public class AddTwoNumbers {
 	private static void type2() {
 		Node l1 = new Node(9, 9, 9, 9, 9, 9, 9, 9);
 		Node l2 = new Node(9, 9, 9, 9);
-		Node head = addTwoNumbers1(l1, l2);
+		Node head = addTwoNumbers2(l1, l2);
 		print(head);
 	}
 
@@ -42,13 +42,15 @@ public class AddTwoNumbers {
 		Node head = null != l1 ? l1 : l2;
 		// made a copy of head for our computation
 		Node prev = head;
-		while (null != l1 || null != l2 || carry != 0) {
-			sum = ((null != l1) ? l1.data : 0) + ((null != l2) ? l2.data : 0) + carry;
+		while (null != l1 || null != l2) {
+			sum = carry;
+			sum += (null != l1) ? l1.data : 0;
+			sum += (null != l2) ? l2.data : 0;
 			if (null != l1) {
 				// we are assuming that we will use l1 if not null
 				l1.data = sum % 10;
 				prev = l1;
-			} else if (null == l1 && null != l2) {
+			} else {
 				// we will use l2 for computation
 				l2.data = sum % 10;
 				// l1 has exhausted then we need to point last of l1 to current node of l2
@@ -56,13 +58,14 @@ public class AddTwoNumbers {
 				// after attaching now assign l2 to prev
 				prev.next = l2;
 				prev = l2;
-			} else {
-				prev.next = new Node(carry);
 			}
 			carry = sum / 10;
-			l1 = (null != l1) ? l1.next : l1;
-			l2 = (null != l1) ? l1.next : l1;
+			l1 = (null != l1) ? l1.next : null;
+			l2 = (null != l2) ? l2.next : null;
 		}
+		// if there is any carry then we will append to the previous
+		if (carry == 1) prev.next = new Node(carry);
+
 		return head;
 	}
 
@@ -78,20 +81,22 @@ public class AddTwoNumbers {
 	public static Node addTwoNumbers1(Node l1, Node l2) {
 		int carry = 0, sum;
 		// assigning a dummy pointer
-		Node head = new Node(0);
+		Node head = new Node(-1);
 		// prev will pointing to head
-		Node prev = head, current;
+		Node prev = head, curr;
 		// loop will go until both is null or carry is 0
 		while (null != l1 || null != l2 || carry != 0) {
 			// sum and carry is calculated even if there is any null list
-			sum = ((null != l1) ? l1.data : 0) + ((null != l2) ? l2.data : 0) + carry;
+			sum = carry;
+			sum += (null != l1) ? l1.data : 0;
+			sum += (null != l2) ? l2.data : 0;
 			carry = sum / 10;
 			// temporary creating node
-			current = new Node(sum % 10);
+			curr = new Node(sum % 10);
 			// attaching current pointer to the previous pointer
 			// and then assigning current pointer to previous
-			prev.next = current;
-			prev = current;
+			prev.next = curr;
+			prev = curr;
 			// going to next node if list is not null
 			l1 = (null != l1) ? l1.next : l1;
 			l2 = (null != l1) ? l1.next : l1;
