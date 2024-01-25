@@ -107,10 +107,12 @@ public class FlattenOfALinkedList {
 			node.next = null;
 			node = next;
 		}
-		head = new Node(0);
+		head = new Node(-1);
+		Node prev = head;
 		while (!heap.isEmpty()) {
 			node = heap.poll();
-			head.bottom = node;
+			prev.bottom = node;
+			prev = prev.bottom;
 			if (node.bottom != null) heap.offer(node.bottom);
 		}
 		return head.bottom;

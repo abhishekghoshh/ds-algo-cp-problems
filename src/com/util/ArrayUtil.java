@@ -96,11 +96,18 @@ public class ArrayUtil {
 
     public static void print(Node node) {
         while (null != node) {
-            System.out.print(node.data + " ");
+            System.out.print(node.data);
+            printRandom(node);
             printBottom(node);
             node = node.next;
+            if (node != null) System.out.print(", ");
         }
         System.out.println();
+    }
+
+    private static void printRandom(Node node) {
+        if (node.random == null) return;
+        System.out.print(" -> [" + node.random.data + "]");
     }
 
     private static void printBottom(Node node) {
@@ -112,7 +119,7 @@ public class ArrayUtil {
             if (bottom.bottom != null) System.out.print(", ");
             bottom = bottom.bottom;
         }
-        System.out.print("]\n");
+        System.out.print("]");
     }
 
     public static void print(DNode node) {

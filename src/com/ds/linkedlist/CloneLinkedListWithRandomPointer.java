@@ -1,9 +1,11 @@
 package com.ds.linkedlist;
 
+import com.algo.linkedlist.Node;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import com.algo.linkedlist.Node;
+import static com.util.ArrayUtil.print;
 
 /*
  * 
@@ -34,47 +36,59 @@ public class CloneLinkedListWithRandomPointer {
 	// on the third loop we will remove the duplicate nodes
 	private static void type2() {
 		Node head = buildRandom();
+		Node copy = copyRandomList2(head);
+		print(head);
+		print(copy);
+	}
 
-		Node start = head, copy, current;
+	public static Node copyRandomList2(Node head) {
+		Node node = head;
+		Node copy, next;
 		// duplicate nodes will be made
-		while (null != start) {
-			current = start;// creating one copy for future
-			start = start.next;// goes to next element of the actual list
-			copy = new Node(current.data); // creating duplicate node
-			copy.next = current.next;// assigning duplicates next to current next
-			current.next = copy;// assigning current next to duplicate
-			// so duplicate node successfully place in between actual list node
+		// Add duplicate node in actual list node
+		while (null != node) {
+			next = node.next;
+			// creating duplicate node
+			copy = new Node(node.data);
+			// now we will place the copy node to the next of the current node
+			node.next = copy;
+			copy.next = next;
+			// // goes to next element of the actual list
+			node = next;
+
 		}
-		start = head;
-		// at this point node size is 2n
-		// so we don't have to check start.next
+		node = head;
+		// So we have created a kind of map where actualNode.next = copyNode
+		// we will use this to assign the random pointers
+		// at this point list size is 2n, so we don't have to check node.next
+		// node.next.next will give us the next pointer of the actual list
 		// random pointers will be allocated at this point
-		while (null != start) {
-			start.next.random = null != start.random ? start.random.next : null;
-			start = start.next.next;
+		while (null != node) {
+			copy = node.next;
+			if (null != node.random)
+				copy.random = node.random.next;
+			node = node.next.next;
 		}
-		start = head;
+		node = head;
 		// we will create a dummy node for storing the duplicate nodes
-		Node newHead = new Node(0), previous;
-		previous = newHead;
-		// at this point also node size is 2n
-		// we will separate two list in this loop
-		while (null != start) {
-			current = start;// creating one copy for future
-			start = start.next.next;// goes to next element of the actual list
+		Node newHead = new Node(0);
+		Node prev = newHead;
+		// at this point also node size is 2n so, we will separate two list in this loop
+		while (null != node) {
+			copy = node.next;
 			// pointing in between duplicate node to duplicate list's next
-			previous.next = current.next;
-			previous = previous.next;// previous moves to current duplicate node
-			// at this point duplicate node is pointing to next element of actual list
-			// so we will assign current's next pointer to duplicate's next
+			// previous moves to current duplicate node
+			prev.next = copy;
+			prev = prev.next;
+			// at this point duplicate node is pointing to next element of actual list,
+			// so we will assign actual list's next pointer to duplicate's next
 			// so actual list will restore again
-			current.next = previous.next;
+			node.next = copy.next;
+			// goes to next element of the actual list
+			node = node.next;
 		}
-		// as there was a dummy node at first
-		// so we will remove it
-		newHead = newHead.next;
-		System.out.println("Actual " + head);
-		System.out.println("Copy " + newHead);
+		// as there was a dummy node at first, so we will remove it
+		return newHead.next;
 	}
 
 	// brute force approach
@@ -82,31 +96,41 @@ public class CloneLinkedListWithRandomPointer {
 	// space complexity O(n)
 	private static void type1() {
 		Node head = buildRandom();
+		Node copy = copyRandomList1(head);
+		print(head);
+		print(copy);
+	}
+
+	public static Node copyRandomList1(Node head) {
 		// creating a dummy node for head at last we will remove it
 		Node newHead = new Node(0);
-		Node newHeadCopy = newHead;
-		Node current, start = head;
-		Map<Node, Node> mapping = new HashMap<>();
-		while (null != start) {
-			current = new Node(start.data);
-			newHeadCopy.next = current;
-			newHeadCopy = current;
-			mapping.put(start, current);
-			start = start.next;
+		Node curr, copy = newHead;
+		Node node = head;
+		// we will create a pointer of old list node -> new list node
+		Map<Node, Node> map = new HashMap<>();
+		while (null != node) {
+			// creating a node
+			curr = new Node(node.data);
+			// creating the mapping
+			map.put(node, curr);
+			// we are moving the copy list
+			copy.next = curr;
+			copy = copy.next;
+			// we are moving the actual list
+			node = node.next;
 		}
-		start = head;
 		// as newHead has an extra dummy pointer
-		newHeadCopy = newHead.next;
-		while (null != newHeadCopy) {
-			newHeadCopy.random = null != start.random ? mapping.get(start.random) : null;
-			start = start.next;
-			newHeadCopy = newHeadCopy.next;
+		copy = newHead.next;
+		node = head;
+		// now we will traverse the list and attach the random pointer
+		while (null != copy) {
+			if (null != node.random)
+				copy.random = map.get(node.random);
+			node = node.next;
+			copy = copy.next;
 		}
-		// as there was a dummy node at first
-		// so we will remove it
-		newHead = newHead.next;
-		System.out.println("Actual " + head);
-		System.out.println("Copy " + newHead);
+		// as there was a dummy node at first, so we will remove it
+		return newHead.next;
 	}
 
 	private static Node buildRandom() {
