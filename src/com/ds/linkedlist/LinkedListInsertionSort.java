@@ -1,6 +1,6 @@
-package linkedlist;
+package com.ds.linkedlist;
 
-import util.LinkedListNode;
+import com.algo.linkedlist.Node;
 
 /*
  * Problem link :
@@ -13,7 +13,7 @@ import util.LinkedListNode;
 public class LinkedListInsertionSort {
 
 	public static void main(String[] args) {
-		LinkedListNode<Integer> head = new LinkedListNode<>(-1, 5, 3, 4, 0, 5, 7, 2);
+		Node head = new Node(-1, 5, 3, 4, 0, 5, 7, 2);
 	}
 
 }

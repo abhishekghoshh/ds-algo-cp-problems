@@ -360,6 +360,8 @@
   - [Rotate a Linked List](/src/com/ds/linkedlist/RotateLinkedListToRight.java)
   - [Flattening of Linked List](/src/com/ds/linkedlist/FlattenOfALinkedList.java)
   - [Clone Linked List with Random and Next Pointer](/src/com/ds/linkedlist/CloneLinkedListWithRandomPointer.java)
+  - [Merge Two Sorted Linked Lists](/src/com/ds/linkedlist/MergeTwoSortedList.java)
+  - [Insertion Sort List Linked Lists](/src/com/ds/linkedlist/LinkedListInsertionSort.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
     - linked-list

@@ -1,18 +1,20 @@
-package linkedlist;
+package com.ds.linkedlist;
+
+import com.algo.linkedlist.Node;
+import com.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import util.LinkedListNode;
-
 
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/800332?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/80033
  * https://leetcode.com/problems/merge-two-sorted-lists/
- * 
+ *
+ * Solution link :
  * https://www.youtube.com/watch?v=Xb4slcp1U38&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=30
  * 
  * */
@@ -28,11 +30,38 @@ public class MergeTwoSortedList {
 	// space complexity O(1)
 	// in place merge
 	private static void type2() {
-		LinkedListNode<Integer> list1 = new LinkedListNode<>(1, 4, 5, 7);
-		LinkedListNode<Integer> list2 = new LinkedListNode<>(2, 3, 6, 8, 9);
-		LinkedListNode<Integer> head = null;
+		Node list1 = new Node(1, 4, 5, 7);
+		Node list2 = new Node(2, 3, 6, 8, 9);
+		Node head = mergeTwoLists2(list1, list2);
+		ArrayUtil.print(head);
+	}
+
+	public static Node mergeTwoLists2(Node list1, Node list2) {
+		// we are assigning a dummy node to head to prevent null pointer exception
+		Node head = new Node(-1);
+		Node prev = head;
+		// we will preform merging till both list1 and list2 is non-null
+		while (null != list1 && null != list2) {
+			if (list1.data < list2.data) {
+				prev.next = list1;
+				list1 = list1.next;
+			} else {
+				prev.next = list2;
+				list2 = list2.next;
+			}
+			prev = prev.next;
+		}
+		// at this point either list1 is null or list2 is null
+		// as the lists are in sorted order, so we can just attach
+		// the non-null list to the prev
+		prev.next = (null != list1) ? list1 : list2;
+		return head.next;
+	}
+
+	public Node mergeTwoLists2_Old(Node list1, Node list2) {
+		Node head = null;
 		if (null != list1 && null != list2) {
-			LinkedListNode<Integer> headCopy = null, current = null;
+			Node headCopy = null, current = null;
 			// assigning the head and copy of head
 			if (list1.data < list2.data) {
 				head = headCopy = list1;
@@ -61,8 +90,9 @@ public class MergeTwoSortedList {
 		} else if (null == list2) {
 			head = list1;
 		}
-		System.out.println(head);
+		return head;
 	}
+
 
 	// brute force approach
 	// putting all items in list O(n1+n2)
@@ -71,29 +101,25 @@ public class MergeTwoSortedList {
 	// time complexity O(n1+n2)+O((n1+n2)*log(n1+n2))+O(n1+n2)
 	// space complexity O(2*(n1+n2)) for list+linked list
 	private static void type1() {
-		LinkedListNode<Integer> list1 = new LinkedListNode<>(1, 4, 5, 7);
-		LinkedListNode<Integer> list2 = new LinkedListNode<>(2, 3, 6, 8, 9);
-		LinkedListNode<Integer> list1Copy = list1, list2Copy = list2, head = null, headCopy = null;
+		Node list1 = new Node(1, 4, 5, 7);
+		Node list2 = new Node(2, 3, 6, 8, 9);
 		List<Integer> list = new ArrayList<>();
-		while (null != list1Copy) {
-			list.add(list1Copy.data);
-			list1Copy = list1Copy.next;
+		while (null != list1) {
+			list.add(list1.data);
+			list1 = list1.next;
 		}
-		while (null != list2Copy) {
-			list.add(list2Copy.data);
-			list2Copy = list2Copy.next;
+		while (null != list2) {
+			list.add(list2.data);
+			list2 = list2.next;
 		}
 		Collections.sort(list);
-		for (int i = 0; i < list.size(); i++) {
-			if (null == head) {
-				headCopy = new LinkedListNode<>(list.get(i));
-				head = headCopy;
-			} else {
-				headCopy.next = new LinkedListNode<>(list.get(i));
-				headCopy = headCopy.next;
-			}
+		Node head = new Node(-1);
+		Node node = head;
+		for (int data : list) {
+			node.next = new Node(data);
+			node = node.next;
 		}
-		System.out.println(head);
+		ArrayUtil.print(head);
 	}
 
 }
