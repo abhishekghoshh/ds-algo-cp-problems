@@ -602,7 +602,7 @@
   - [Number of Distinct Substrings in a String](/src/com/ds/trie/CountDistinctSubstrings.java)
   - [Maximum XOR of Two Numbers in an Array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
     - [bit-manipulation]
-  - [Maximum XOR With an Element From Array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
+  - [Maximum XOR With an Element From Array](/src/com/ds/trie/MaximumXorWithAnElementFromArray.java)
     - [bit-manipulation]
 </details>
 

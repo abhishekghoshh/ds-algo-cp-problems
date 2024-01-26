@@ -12,7 +12,8 @@ import static com.util.ArrayUtil.print;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=Q8LhG9Pi5KM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=7
- * 
+ *
+ * https://takeuforward.org/trie/maximum-xor-queries-trie/
  */
 public class MaximumXorWithAnElementFromArray {
 
