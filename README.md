@@ -504,9 +504,11 @@
     - [Divide Two Integers](/src/com/ds/bitmanipulation/DivideTwoIntegers.java)
     - [Addition without plus(+) operator](/src/com/ds/bitmanipulation/AdditionWithoutPlusOperator.java)
     - [Minimum XOR in an array](/src/com/ds/bitmanipulation/MinimumXorInArray.java)
-    - [Maximum XOR in an array](/src/com/ds/bitmanipulation/MaximumXorInArray.java)
+    - [Maximum XOR in an array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
+      - [trie]
     - [Maximum XOR of two number](/src/com/ds/bitmanipulation/MaximumXorOfTwoNumber.java)
-    - [Maximum XOR with an element from array](/src/com/ds/bitmanipulation/MaximumXorWithAnElementFromArray.java)
+    - [Maximum XOR with an element from array](/src/com/ds/trie/MaximumXorWithAnElementFromArray.java)
+      - [trie]
     - [Maximum XOR sum of two arrays ](/src/com/ds/bitmanipulation/MinimumXorSumOfTwoArrays.java)
     - [Power of x to n](/src/com/ds/bitmanipulation/PowerOfXtoN.java)
 </details>
@@ -598,6 +600,10 @@
   - [Implement Trie - 2 (Prefix Tree)](/src/com/ds/trie/ImplementTrie2.java)
   - [Longest String with All Prefixes](/src/com/ds/trie/LongestStringWithAllPrefixes.java)
   - [Number of Distinct Substrings in a String](/src/com/ds/trie/CountDistinctSubstrings.java)
+  - [Maximum XOR of Two Numbers in an Array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
+    - [bit-manipulation]
+  - [Maximum XOR With an Element From Array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
+    - [bit-manipulation]
 </details>
 
 

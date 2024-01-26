@@ -26,19 +26,21 @@ public class CountDistinctSubstrings {
 		int n = arr.length;
 		// 1 for the empty substring
 		int count = 1;
+		// This will be trie root
 		Node root = new Node();
+		Node node;
 		for (int i = 0; i < n; i++) {
-			Node node = root;
+			node = root;
 			for (int j = i; j < n; j++) {
-				char ch = arr[j];
+				int pos = arr[j] - 'a';
 				// we are adding 1 to count every time we have encountered one new children
 				// which is null, children is null means by adding the character we can make a
 				// new substring
-				if (node.isNull(ch)) {
-					node.put(ch, new Node());
+				if (node.nodes[pos] == null) {
+					node.nodes[pos] = new Node();
 					count++;
 				}
-				node = node.get(ch);
+				node = node.nodes[pos];
 			}
 		}
 		System.out.println(count);
@@ -46,18 +48,6 @@ public class CountDistinctSubstrings {
 
 	public static class Node {
 		Node[] nodes = new Node[26];
-
-		boolean isNull(char ch) {
-			return nodes[ch - 'a'] == null;
-		}
-
-		Node get(char ch) {
-			return nodes[ch - 'a'];
-		}
-
-		void put(char ch, Node node) {
-			nodes[ch - 'a'] = node;
-		}
 	};
 
 	// using trie
@@ -71,15 +61,13 @@ public class CountDistinctSubstrings {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = i; j < arr.length; j++) {
 				// we are adding the s.substring(i,j)
-				if (trie.insert(arr, i, j))
-					count++;
+				if (trie.insert(arr, i, j)) count++;
 			}
 		}
 		System.out.println(count);
 	}
 
 	public static class Trie {
-		private static final int ALPHABET_SIZE = 26;
 		private final Node head;
 
 		public Trie() {
@@ -89,53 +77,21 @@ public class CountDistinctSubstrings {
 		public boolean insert(char[] arr, int start, int end) {
 			Node node = head;
 			for (int i = start; i <= end; i++) {
-				char ch = arr[i];
-				if (node.isNull(ch))
-					node = node.set(ch);
-				else node = node.get(ch);
+				int pos = arr[i] - 'a';
+				if (node.nodes[pos] == null)
+					node.nodes[pos] = new Node();
+				node = node.nodes[pos];
 			}
 			// if the end is already set that means the word is not unique
-			if (node.isEnd())
-				return false;
-			// word is unique so we can set the end
+			if (node.isEnd) return false;
+			// word is unique, so we can set the end
 			// and return true
-			node.setEnd();
-			return true;
+			return node.isEnd = true;
 		}
 
 		public static class Node {
-			private final Node[] nodes;
-			private boolean isEnd;
-
-			Node() {
-				this.nodes = new Node[ALPHABET_SIZE];
-			}
-
-			public boolean isEnd() {
-				return this.isEnd;
-			}
-
-			public void setEnd() {
-				this.isEnd = true;
-			}
-
-			public Node get(char ch) {
-				return nodes[index(ch)];
-			}
-
-			public boolean isNull(char ch) {
-				return null == nodes[index(ch)];
-			}
-
-			public Node set(char ch) {
-				Node node = new Node();
-				nodes[index(ch)] = node;
-				return node;
-			}
-
-			private int index(char ch) {
-				return ch - 'a';
-			}
+			public final Node[] nodes = new Node[26];
+			public boolean isEnd;
 		}
 	}
 
