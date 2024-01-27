@@ -1,10 +1,10 @@
 package com.ds.binarytree;
 
+import com.algo.binarytree.TNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import util.TreeNode;
 
 /*
  * Problem link :
@@ -27,25 +27,21 @@ public class BoundaryTraversalInBinaryTree {
 
 	// Iterative way
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withCount(21);
+		TNode root = TNode.withCount(21);
 		ArrayList<Integer> ans = new ArrayList<Integer>();
-		if (!isLeaf(root))
-			ans.add(root.val);
+		if (!isLeaf(root)) ans.add(root.data);
 		addLeftBoundary(root, ans);
 		addLeaves(root, ans);
 		addRightBoundary(root, ans);
 		System.out.println(ans);
 	}
 
-	static Boolean isLeaf(TreeNode<Integer> root) {
-		return (root.left == null) && (root.right == null);
-	}
 
-	static void addLeftBoundary(TreeNode<Integer> root, ArrayList<Integer> res) {
-		TreeNode<Integer> node = root.left;
+	static void addLeftBoundary(TNode root, ArrayList<Integer> res) {
+		TNode node = root.left;
 		while (node != null) {
 			if (!isLeaf(node))
-				res.add(node.val);
+				res.add(node.data);
 			if (node.left != null)
 				node = node.left;
 			else
@@ -53,12 +49,12 @@ public class BoundaryTraversalInBinaryTree {
 		}
 	}
 
-	static void addRightBoundary(TreeNode<Integer> root, ArrayList<Integer> res) {
-		TreeNode<Integer> node = root.right;
+	static void addRightBoundary(TNode root, ArrayList<Integer> res) {
+		TNode node = root.right;
 		ArrayList<Integer> tmp = new ArrayList<Integer>();
 		while (node != null) {
 			if (!isLeaf(node))
-				tmp.add(node.val);
+				tmp.add(node.data);
 			if (node.right != null)
 				node = node.right;
 			else
@@ -69,9 +65,9 @@ public class BoundaryTraversalInBinaryTree {
 		}
 	}
 
-	static void addLeaves(TreeNode<Integer> root, ArrayList<Integer> res) {
+	static void addLeaves(TNode root, ArrayList<Integer> res) {
 		if (isLeaf(root)) {
-			res.add(root.val);
+			res.add(root.data);
 			return;
 		}
 		if (root.left != null)
@@ -81,7 +77,7 @@ public class BoundaryTraversalInBinaryTree {
 	}
 
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(21);
+		TNode root = TNode.withCount(21);
 		List<Integer> answer = new ArrayList<>();
 		leftView(root, answer);
 		bottomView(root, answer);
@@ -89,30 +85,25 @@ public class BoundaryTraversalInBinaryTree {
 		// later we will iterate through it and add the node in the final array
 		Stack<Integer> stack = new Stack<>();
 		rightView(root, stack);
-		// as we don't need the root we will not iterate till empty
+		// as we don't need the root, we will not iterate till empty
 		// we will loop until the size is 1
-		while (stack.size() != 1)
-			answer.add(stack.pop());
+		while (stack.size() > 1) answer.add(stack.pop());
 		System.out.println(answer);
 	}
 
-	private static void rightView(TreeNode<Integer> root, Stack<Integer> stack) {
+	private static void rightView(TNode root, Stack<Integer> stack) {
 		// we are also not taking the leaf node as it will be added in the bottom view
-		if (null == root || (root.left == null && root.right == null))
-			return;
-		stack.push(root.val);
-		if (null != root.right)
-			rightView(root.right, stack);
-		else
-			rightView(root.left, stack);
+		if (null == root || isLeaf(root)) return;
+		stack.push(root.data);
+		if (null != root.right) rightView(root.right, stack);
+		else rightView(root.left, stack);
 	}
 
-	private static void bottomView(TreeNode<Integer> root, List<Integer> answer) {
-		if (null == root)
-			return;
+	private static void bottomView(TNode root, List<Integer> answer) {
+		if (null == root) return;
 		// we are only adding for the leaf node
-		if (null == root.left && null == root.right) {
-			answer.add(root.val);
+		if (isLeaf(root)) {
+			answer.add(root.data);
 			return;
 		}
 		bottomView(root.left, answer);
@@ -120,15 +111,16 @@ public class BoundaryTraversalInBinaryTree {
 
 	}
 
-	private static void leftView(TreeNode<Integer> root, List<Integer> answer) {
+	private static void leftView(TNode root, List<Integer> answer) {
 		// we are also not taking the leaf node as it will be added in the bottom view
-		if (null == root || (root.left == null && root.right == null))
-			return;
-		answer.add(root.val);
-		if (null != root.left)
-			leftView(root.left, answer);
-		else
-			leftView(root.right, answer);
+		if (null == root || isLeaf(root)) return;
+		answer.add(root.data);
+		if (null != root.left) leftView(root.left, answer);
+		else leftView(root.right, answer);
+	}
+
+	static Boolean isLeaf(TNode root) {
+		return (root.left == null) && (root.right == null);
 	}
 
 }
