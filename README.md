@@ -111,6 +111,13 @@
 
 </details>
 
+<details>
+    <summary><strong>Binary Tree</strong></summary>
+
+- codes
+  - [Binary Tree](/src/com/algo/binarytree/TNode.java)
+
+</details>
 
 ## Data-Structure
 <details>
@@ -676,3 +683,35 @@
 - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
+
+#### Scratch Pad
+
+```
+
+Recursion
+
+TowerOfHanoi.java
+HeightOfBinaryTree.java
+SortArray.java
+SortStack.java
+DeleteMiddleElementOfStack.java
+ReverseStack.java
+KthSymbolInGrammer.java
+GenrateAllBalancedParenthesis.java
+PrintAllPalindromePartitioning.java
+GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java
+JosephusProblem.java
+SudokuSolver.java
+LetterCasePermutation.java
+PermutationWithSpaces.java
+PowerSet.java
+SubsetSum.java
+CombinationSumWithRepeatedElements.java
+CombinationSumWithUniqueElements.java
+PrintAllPermutationsOfStringOrArray.java
+KthPermutationSequence.java
+NQueenProblem.java
+MColoringProblem.java
+RatInAMaze.java
+PrintAllWordBreaks.java
+```

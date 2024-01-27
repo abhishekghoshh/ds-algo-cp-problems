@@ -1,10 +1,13 @@
 package com.ds.binarytree;
 
+import com.algo.binarytree.TNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import util.TreeNode;
+import static com.util.PrintUtl.print;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
@@ -25,46 +28,52 @@ public class InOrderTraversal {
 
 	// with iteration using stack
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withCount(7);
-		Stack<TreeNode<Integer>> stack = new Stack<>();
-		List<Integer> answer = new ArrayList<>();
-		TreeNode<Integer> node = root;
+		TNode root = TNode.withCount(7);
+		List<Integer> inOrder = inOrder(root);
+		print(root);
+		print(inOrder);
+	}
+
+	private static List<Integer> inOrder(TNode root) {
+		Stack<TNode> stack = new Stack<>();
+		List<Integer> inOrder = new ArrayList<>();
+		TNode node = root;
 		while (null != node || !stack.isEmpty()) {
-			// we are going as left as possible
+			// we are going as left side as possible
 			while (null != node) {
 				stack.push(node);
 				node = node.left;
 			}
-			// at this point node is null;
+			// at this point the node is null;
 			// now we backtrack from the stack
-			// current stack.top will have the most left node
+			// current stack.top will have the leftest node
 			// so for this node null will be it's left child
-			// it will be the root and if it is having any
-			// right child then we will explore that also
+			// it will be the root, and if it is having any
+			// right child, then we will explore that also
 			node = stack.pop();
 			// we will store the left most node
-			answer.add(node.val);
+			inOrder.add(node.data);
 			// the left node may or may not have any right node
 			node = node.right;
-			// if it has any right node then in next iteration it will again go till its
+			// if it has any right node, then in the next iteration it will again go till its
 			// left furthest node
 		}
-		System.out.println(answer);
+		return inOrder;
 	}
 
 	// With recursion
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(7);
-		List<Integer> answer = inOrder(root, new ArrayList<>());
-		System.out.println(answer);
+		TNode root = TNode.withCount(7);
+		List<Integer> inOrder = new ArrayList<>();
+		inOrder(root, inOrder);
+		print(root);
+		print(inOrder);
 	}
 
-	private static List<Integer> inOrder(TreeNode<Integer> root, List<Integer> answer) {
-		if (null != root) {
-			inOrder(root.left, answer);
-			answer.add(root.val);
-			inOrder(root.right, answer);
-		}
-		return answer;
+	private static void inOrder(TNode root, List<Integer> answer) {
+		if (null == root) return;
+		inOrder(root.left, answer);
+		answer.add(root.data);
+		inOrder(root.right, answer);
 	}
 }

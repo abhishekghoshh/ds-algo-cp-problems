@@ -7,4 +7,27 @@ public class TNode {
     public TNode(int data) {
         this.data = data;
     }
+
+
+    public static TNode withCount(int n) {
+        int[] nums = new int[n];
+        for (int i = 1; i <= n; i++)
+            nums[i - 1] = i;
+        return withNodes(nums);
+    }
+
+    public static TNode withNodes(int... nums) {
+        int n = nums.length;
+        if (n == 0) return null;
+        TNode[] nodes = new TNode[n];
+        for (int i = 0; i < n; i++)
+            nodes[i] = (nums[i] != -1) ? new TNode(nums[i]) : null;
+        for (int i = 0; i < n; i++) {
+            if (null == nodes[i]) continue;
+            int left = i * 2 + 1, right = i * 2 + 2;
+            nodes[i].left = left < n ? nodes[left] : null;
+            nodes[i].right = right < n ? nodes[right] : null;
+        }
+        return nodes[0];
+    }
 }
