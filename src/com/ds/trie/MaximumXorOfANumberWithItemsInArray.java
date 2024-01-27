@@ -19,7 +19,7 @@ public class MaximumXorOfANumberWithItemsInArray {
 	private static void type2() {
 		int[] nums = { 14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70 };
 		int num = 325;
-		int xor = 0;
+		int xor;
 		Trie trie = new Trie();
 		for (int item : nums) {
 			trie.insert(item);

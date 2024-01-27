@@ -5,12 +5,6 @@ public class DNode {
     public DNode next;
     public DNode prev;
 
-    public DNode() {
-        this.data = 0;
-        this.next = null;
-        this.prev = null;
-    }
-
     public DNode(int data) {
         this.data = data;
         this.next = null;
@@ -23,11 +17,10 @@ public class DNode {
         this.prev = next;
     }
 
-    public DNode(int data, int... datas) {
-        DNode node = this;
-        DNode prev = node;
+    public DNode(int data, int... others) {
+        DNode prev = this;
         this.data = data;
-        for (int num : datas) {
+        for (int num : others) {
             DNode current = new DNode(num);
             current.prev = prev;
             prev.next = current;
