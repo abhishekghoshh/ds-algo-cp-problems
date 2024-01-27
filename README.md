@@ -600,7 +600,12 @@
   - [Implement Trie - 2 (Prefix Tree)](/src/com/ds/trie/ImplementTrie2.java)
   - [Longest String with All Prefixes](/src/com/ds/trie/LongestStringWithAllPrefixes.java)
   - [Number of Distinct Substrings in a String](/src/com/ds/trie/CountDistinctSubstrings.java)
+  - [Longest duplicate substring in a String](/src/com/ds/trie/LongestDuplicateSubstring.java)
+  - [Design Add and Search Words Data Structure](/src/com/ds/trie/WordDictionary.java)
+  - [Power Set](/src/com/ds/trie/PowerSet.java)
   - [Maximum XOR of Two Numbers in an Array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
+    - [bit-manipulation]
+  - [Maximum xor of a number with items in array](/src/com/ds/trie/MaximumXorOfANumberWithItemsInArray.java)
     - [bit-manipulation]
   - [Maximum XOR With an Element From Array](/src/com/ds/trie/MaximumXorWithAnElementFromArray.java)
     - [bit-manipulation]

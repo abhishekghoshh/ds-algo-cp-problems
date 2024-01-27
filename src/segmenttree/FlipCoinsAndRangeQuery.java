@@ -1,4 +1,4 @@
-package trie;
+package segmenttree;
 
 public class FlipCoinsAndRangeQuery {
 

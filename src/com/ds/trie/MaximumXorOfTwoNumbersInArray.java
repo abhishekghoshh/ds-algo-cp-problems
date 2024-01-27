@@ -29,13 +29,14 @@ public class MaximumXorOfTwoNumbersInArray {
 
 	// TODO check this later one more time
 	public static int findMaximumXOR4(int[] nums) {
-		int xor = 0, max = 0, maxBit = 0;
+		int max = 0, maxBit = 0;
 		for (int num : nums)
 			if (num > max) max = num;
 		while (max != 0) {
 			maxBit++;
 			max >>= 1;
 		}
+		int xor = 0;
 		int mask = 0;
 		HashSet<Integer> set = new HashSet<>();
 		for (int i = maxBit - 1; i >= 0; i--) {

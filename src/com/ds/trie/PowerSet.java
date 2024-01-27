@@ -1,8 +1,8 @@
-package trie;
+package com.ds.trie;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/1062667?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/1062667
  * https://practice.geeksforgeeks.org/problems/power-set4302/1#
  * 
  * Solution link :

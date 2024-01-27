@@ -1,7 +1,6 @@
 package com.ds.trie;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 import static com.util.ArrayUtil.print;
 
@@ -52,7 +51,99 @@ public class MaximumXorWithAnElementFromArray {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
+
+	// TODO check this solution later and add comments
+	// Purely for leetcode, inspired from previous types
+	private static void type3() {
+		int[] nums = {5, 2, 4, 6, 6, 3};
+		int[][] queries = {{12, 4}, {8, 1}, {6, 3}};
+
+		Arrays.sort(nums);
+		int[] ans = new int[queries.length];
+		Arrays.fill(ans, -1);
+		List<Query> queryList = new ArrayList<>();
+		for (int i = 0; i < queries.length; i++) {
+			int x = queries[i][0], m = queries[i][1];
+			queryList.add(new Query(x, m, i));
+		}
+		Collections.sort(queryList);
+		TrieNode root = new TrieNode();
+		int i = 0;
+		for (Query query : queryList) {
+			while (i < nums.length && nums[i] <= query.m) {
+				insert(root, nums[i]);
+				i++;
+			}
+			// root and query.x
+			ans[query.idx] = get(root, query.x);
+		}
+		print(ans);
+	}
+
+	private static class TrieNode {
+		public TrieNode left, right;
+	}
+
+	private static class Query implements Comparable<Query> {
+		public int x, m, idx;
+
+		public Query(int x, int m, int idx) {
+			this.x = x;
+			this.m = m;
+			this.idx = idx;
+		}
+
+		@Override
+		public int compareTo(Query query) {
+			return this.m - query.m;
+		}
+	}
+
+	private static int get(TrieNode root, int x) {
+		int ans = 0;
+		for (int i = 30 - 1; i >= 0; i--) {
+			if ((x & (1 << i)) != 0) {
+				if (root.left != null) {
+					root = root.left;
+					ans = ans | (1 << i);
+				} else if (root.right != null) {
+					root = root.right;
+				} else {
+					return -1;
+				}
+			} else {
+				if (root.right != null) {
+					root = root.right;
+					ans = ans | (1 << i);
+				} else if (root.left != null) {
+					root = root.left;
+				} else {
+					return -1;
+				}
+			}
+		}
+		return ans;
+	}
+
+	private static void insert(TrieNode root, int val) {
+		for (int i = 30 - 1; i >= 0; i--) {
+			if ((val & (1 << i)) != 0) {
+				if (root.right == null) {
+					root.right = new TrieNode();
+				}
+				root = root.right;
+			} else {
+				if (root.left == null) {
+					root.left = new TrieNode();
+				}
+				root = root.left;
+			}
+		}
+	}
+
+
 
 	// purely for leetcode
 	private static void type2() {
@@ -61,8 +152,6 @@ public class MaximumXorWithAnElementFromArray {
 
 		int n = queries.length;
 		int[] answer = new int[n];
-
-		Arrays.sort(nums);
 		Trie trie = new Trie();
 
 		// 3 for storing number , maximum and the index
@@ -70,6 +159,7 @@ public class MaximumXorWithAnElementFromArray {
 		for (int i = 0; i < n; i++)
 			points[i] = new int[] { queries[i][0], queries[i][1], i };
 
+		Arrays.sort(nums);
 		Arrays.sort(points, Comparator.comparingInt(p -> p[1]));
 		int i = 0;
 		for (int[] point : points) {
@@ -88,14 +178,12 @@ public class MaximumXorWithAnElementFromArray {
 
 		int n = queries.length;
 		int[] answer = new int[n];
-
-		Arrays.sort(nums);
 		Trie trie = new Trie();
-
 		Point[] points = new Point[n];
 		for (int i = 0; i < n; i++) {
 			points[i] = new Point(queries[i][0], queries[i][1], i);
 		}
+		Arrays.sort(nums);
 		Arrays.sort(points, Comparator.comparingInt(p -> p.max));
 		int i = 0;
 		for (Point point : points) {
