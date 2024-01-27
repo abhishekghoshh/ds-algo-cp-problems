@@ -1,11 +1,12 @@
 package binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
  * https://www.codingninjas.com/codestudio/problems/794950
+ * https://www.codingninjas.com/studio/problems/maximum-sum-path-of-a-binary-tree._1214968
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=WszrfSwMz58&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=18
@@ -22,78 +23,73 @@ public class MaximumPathSumBinaryTree {
 	// The path sum of a path is the sum of the node's values in the path.
 	// Given the root of a binary tree, return the maximum path sum of any non-empty
 	// path.
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
 	}
 
-	private static int maxPath;
+	private static int MAX_PATH = Integer.MIN_VALUE;
 
+	// same as previous 2
+	// we are using class variable here
 	private static void type3() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 2, 3, -2, -1);   
-		maxPath = root.val;
-		maxPath = Math.max(maxPath(root), maxPath);
-		System.out.println(maxPath);
+		TNode root = TNode.withNodes(1, 2, 3, -2, -1);
+		maxPath(root);
+		System.out.println(MAX_PATH);
 	}
 
-	private static int maxPath(TreeNode<Integer> node) {
-		if (node == null)
-			return 0;
+	private static int maxPath(TNode node) {
+		if (node == null) return 0;
 		int leftMax = Math.max(maxPath(node.left), 0);
 		int rightMax = Math.max(maxPath(node.right), 0);
-		maxPath = Math.max(leftMax + rightMax + node.val, maxPath);
-		return node.val + Math.max(leftMax, rightMax);
+		MAX_PATH = Math.max(MAX_PATH, leftMax + rightMax + node.data);
+		return node.data + Math.max(leftMax, rightMax);
 	}
 
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 2, 3, -2, -1);
-		int maxValue[] = { Integer.MIN_VALUE };
+		TNode root = TNode.withNodes(1, 2, 3, -2, -1);
+		int[] maxValue = {Integer.MIN_VALUE};
 		maxPath(root, maxValue);
 		System.out.println(maxValue[0]);
 	}
 
-	public static int maxPath(TreeNode<Integer> node, int maxValue[]) {
-		if (node == null)
-			return 0;
-		int left = Math.max(0, maxPath(node.left, maxValue));
-		int right = Math.max(0, maxPath(node.right, maxValue));
-		maxValue[0] = Math.max(maxValue[0], left + right + node.val);
-		return Math.max(left, right) + node.val;
+	public static int maxPath(TNode node, int[] data) {
+		if (node == null) return 0;
+		int left = Math.max(0, maxPath(node.left, data));
+		int right = Math.max(0, maxPath(node.right, data));
+		// calculating the max path sum
+		data[0] = Math.max(data[0], left + right + node.data);
+		return node.data + Math.max(left, right);
 	}
 
+	// explain this
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 2, 3, -2, -1);
-		MaxPathSum maxPathSum = new MaxPathSum();
-		maxPath(root, maxPathSum);
-		System.out.println(maxPathSum.value);
+		TNode root = TNode.withNodes(1, 2, 3, -2, -1);
+		Data data = new Data();
+		maxPath(root, data);
+		System.out.println(data.data);
 	}
 
-	private static int maxPath(TreeNode<Integer> root, MaxPathSum maxPathSum) {
-		if (null == root)
-			return 0;
-		// if left is negative then we will discard left as we are not considering leaf
+	private static int maxPath(TNode root, Data data) {
+		if (null == root) return 0;
+		// if left is negative, then we will discard left as we are not considering leaf
 		// node here, as we need any node to any node sum
-		// if leaf to leaf sum required then we should not discard any value
-		int left = maxPath(root.left, maxPathSum);
-		left = left > 0 ? left : 0;
-
-		// if right is negative then we will discard right
-		int right = maxPath(root.right, maxPathSum);
-		right = right > 0 ? right : 0;
-
-		// at this time left or right is either 0 or any positive value
-		// max between left path and right path
-		int maxPath = root.val + Math.max(left, right);
-
+		// if leaf to leaf sum required, then we should not discard any value
+		int left = maxPath(root.left, data);
+		if (left < 0) left = 0;
+		// if right is negative, then we will discard right
+		int right = maxPath(root.right, data);
+		if (right < 0) right = 0;
 		// max path root.value + left sum + right sum
-		maxPathSum.value = Math.max(maxPathSum.value, root.val + left + right);
-
-		return maxPath;
+		data.data = Math.max(data.data, root.data + left + right);
+		// at this time left or right is either 0 or any positive value
+		// max between a left path and right path
+		return root.data + Math.max(left, right);
 	}
 
-	static class MaxPathSum {
-		public int value = Integer.MIN_VALUE;
+	static class Data {
+		public int data = Integer.MIN_VALUE;
 	}
 
 }

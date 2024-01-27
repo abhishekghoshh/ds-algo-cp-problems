@@ -1,11 +1,22 @@
 package com.algo.binarytree;
 
 public class TNode {
+    public static int NULL = Integer.MIN_VALUE;
     public int data;
     public TNode left, right;
 
     public TNode(int data) {
         this.data = data;
+    }
+
+    public TNode left(TNode left) {
+        this.left = left;
+        return this;
+    }
+
+    public TNode right(TNode right) {
+        this.right = right;
+        return this;
     }
 
 
@@ -21,7 +32,7 @@ public class TNode {
         if (n == 0) return null;
         TNode[] nodes = new TNode[n];
         for (int i = 0; i < n; i++)
-            nodes[i] = (nums[i] != -1) ? new TNode(nums[i]) : null;
+            nodes[i] = (nums[i] != NULL) ? new TNode(nums[i]) : null;
         for (int i = 0; i < n; i++) {
             if (null == nodes[i]) continue;
             int left = i * 2 + 1, right = i * 2 + 2;

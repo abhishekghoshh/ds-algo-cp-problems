@@ -586,7 +586,10 @@
   - [Postorder Traversal](/src/com/ds/binarytree/PostOrderTraversal.java)
   - [Level wise order Traversal](/src/com/ds/binarytree/LevelWiseOrderTraversal.java)
   - [Preorder Inorder Postorder Traversals in One Traversal](/src/com/ds/binarytree/PreorderInorderAndPostorderTraversalInOneTraversal.java)
-
+  - [Height of a Binary Tree/Maximum Depth of Binary Tree](/src/com/ds/binarytree/HeightOfBinaryTree.java)
+  - [Check if the Binary Tree is Balanced Binary Tree](/src/com/ds/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
+  - [Diameter of a Binary Tree](/src/com/ds/binarytree/DiameterOfBinaryTree.java)
+  - [Maximum Sum Path in Binary Tree](/src/com/ds/binarytree/DiameterOfBinaryTree.java)
 </details>
 
 <details>
