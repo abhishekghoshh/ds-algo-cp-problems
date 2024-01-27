@@ -46,7 +46,14 @@ public class PrintUtl {
         if (arr != null) for (long item : arr) System.out.print(item + " ");
         System.out.println();
     }
-
+    @SafeVarargs
+    public static void print(List<Integer>... arrays) {
+        for (List<Integer> array : arrays) {
+            for (int num : array) System.out.print(num + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
     public static void print(int[]... arrays) {
         for (int[] array : arrays) {
             for (int num : array) System.out.print(num + " ");

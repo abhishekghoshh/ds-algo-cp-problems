@@ -1,10 +1,12 @@
 package com.ds.binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
@@ -24,32 +26,39 @@ public class PreOrderTraversal {
 
 	// using iteration
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withCount(7);
-		Stack<TreeNode<Integer>> stack = new Stack<>();
-		List<Integer> answer = new ArrayList<>();
+		TNode root = TNode.withCount(7);
+		List<Integer> preOrder = preOrder(root);
+		print(root);
+		print(preOrder);
+	}
+
+	private static List<Integer> preOrder(TNode root) {
+		List<Integer> preOrder = new ArrayList<>();
+		Stack<TNode> stack = new Stack<>();
 		stack.add(root);
 		while (!stack.isEmpty()) {
-			TreeNode<Integer> node = stack.pop();
-			answer.add(node.val);
+			TNode node = stack.pop();
+			preOrder.add(node.data);
 			// We are pushing the right first then left because
 			// on the next iteration left will be popped first
 			if (null != node.right) stack.push(node.right);
 			if (null != node.left) stack.push(node.left);
 		}
-		System.out.println(answer);
+		return preOrder;
 	}
 
 	// With recursion
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(7);
+		TNode root = TNode.withCount(7);
 		List<Integer> preOrder = new ArrayList<>();
 		preOrder(root, preOrder);
-		System.out.println(preOrder);
+		print(root);
+		print(preOrder);
 	}
 
-	private static void preOrder(TreeNode<Integer> root, List<Integer> preOrder) {
+	private static void preOrder(TNode root, List<Integer> preOrder) {
 		if (null == root) return;
-		preOrder.add(root.val);
+		preOrder.add(root.data);
 		preOrder(root.left, preOrder);
 		preOrder(root.right, preOrder);
 	}
