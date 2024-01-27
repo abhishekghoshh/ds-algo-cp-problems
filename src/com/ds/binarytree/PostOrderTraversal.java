@@ -1,11 +1,11 @@
-package binarytree;
+package com.ds.binarytree;
+
+import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
-
-import util.TreeNode;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-postorder-traversal/
@@ -13,10 +13,10 @@ import util.TreeNode;
  * Solution link :
  * https://www.youtube.com/watch?v=COQOU6klsBg&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=8
  * https://www.youtube.com/watch?v=2YBhNLodD8Q&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=12
- * https://www.youtube.com/watch?v=NzIGLLwZBS8&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=13
- * 
+ *
  * https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/
  */
+
 
 public class PostOrderTraversal {
 

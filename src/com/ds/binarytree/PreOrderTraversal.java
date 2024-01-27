@@ -1,10 +1,10 @@
-package binarytree;
+package com.ds.binarytree;
+
+import util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import util.TreeNode;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
@@ -22,7 +22,7 @@ public class PreOrderTraversal {
 		type2();
 	}
 
-	// with iteration using stack
+	// using iteration
 	private static void type2() {
 		TreeNode<Integer> root = TreeNode.withCount(7);
 		Stack<TreeNode<Integer>> stack = new Stack<>();
@@ -33,10 +33,8 @@ public class PreOrderTraversal {
 			answer.add(node.val);
 			// We are pushing the right first then left because
 			// on the next iteration left will be popped first
-			if (null != node.right)
-				stack.push(node.right);
-			if (null != node.left)
-				stack.push(node.left);
+			if (null != node.right) stack.push(node.right);
+			if (null != node.left) stack.push(node.left);
 		}
 		System.out.println(answer);
 	}
@@ -44,16 +42,15 @@ public class PreOrderTraversal {
 	// With recursion
 	private static void type1() {
 		TreeNode<Integer> root = TreeNode.withCount(7);
-		List<Integer> answer = preOrder(root, new ArrayList<>());
-		System.out.println(answer);
+		List<Integer> preOrder = new ArrayList<>();
+		preOrder(root, preOrder);
+		System.out.println(preOrder);
 	}
 
-	private static List<Integer> preOrder(TreeNode<Integer> root, List<Integer> answer) {
-		if (null != root) {
-			answer.add(root.val);
-			preOrder(root.left, answer);
-			preOrder(root.right, answer);
-		}
-		return answer;
+	private static void preOrder(TreeNode<Integer> root, List<Integer> preOrder) {
+		if (null == root) return;
+		preOrder.add(root.val);
+		preOrder(root.left, preOrder);
+		preOrder(root.right, preOrder);
 	}
 }

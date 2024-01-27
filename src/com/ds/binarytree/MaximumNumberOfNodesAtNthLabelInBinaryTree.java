@@ -2,8 +2,7 @@ package com.ds.binarytree;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/introduction-to-trees/1
- * https://practice.geeksforgeeks.org/problems/binary-tree-representation/1
+ * https://www.codingninjas.com/studio/problems/number-of-nodes_8162204
  *
  * Solution link :
  * https://www.youtube.com/watch?v=_ANrF3FJm7I&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=2

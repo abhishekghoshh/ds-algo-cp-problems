@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarytree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ import util.TreeNode;
  * 
  * https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/
  */
-
 public class InOrderTraversal {
 
 	public static void main(String[] args) {

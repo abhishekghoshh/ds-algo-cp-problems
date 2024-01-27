@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarytree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -17,7 +17,8 @@ import util.TreeNode;
  * 
  * https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/
  */
-public class LevelOrderTraversal {
+
+public class LevelWiseOrderTraversal {
 
 	public static void main(String[] args) {
 		type1();

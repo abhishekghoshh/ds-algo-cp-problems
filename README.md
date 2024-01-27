@@ -573,6 +573,11 @@
 - codes
   - [Introduction to binary tree](/src/com/ds/binarytree/IntroductionToBinaryTree.java)
   - [Maximum number Of Nodes in nth label in a binary tree](/src/com/ds/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
+  - [Inorder Traversal](/src/com/ds/binarytree/InOrderTraversal.java)
+  - [Preorder Traversal](/src/com/ds/binarytree/PreOrderTraversal.java)
+  - [Postorder Traversal](/src/com/ds/binarytree/PostOrderTraversal.java)
+  - [Level wise order Traversal](/src/com/ds/binarytree/LevelWiseOrderTraversal.java)
+
 </details>
 
 <details>
