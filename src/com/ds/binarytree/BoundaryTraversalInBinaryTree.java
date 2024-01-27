@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarytree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import util.TreeNode;
  * Problem link :
  * https://leetcode.com/problems/boundary-of-binary-tree/#
  * https://www.codingninjas.com/codestudio/problems/boundary-traversal_790725
+ * https://www.codingninjas.com/studio/problems/boundary-traversal-of-binary-tree_790725
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=0ca1nvR0be4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=21

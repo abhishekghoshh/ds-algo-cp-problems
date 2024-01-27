@@ -589,7 +589,10 @@
   - [Height of a Binary Tree/Maximum Depth of Binary Tree](/src/com/ds/binarytree/HeightOfBinaryTree.java)
   - [Check if the Binary Tree is Balanced Binary Tree](/src/com/ds/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
   - [Diameter of a Binary Tree](/src/com/ds/binarytree/DiameterOfBinaryTree.java)
-  - [Maximum Sum Path in Binary Tree](/src/com/ds/binarytree/DiameterOfBinaryTree.java)
+  - [Maximum Sum Path in Binary Tree](/src/com/ds/binarytree/MaximumPathSumBinaryTree.java)
+  - [Check if two trees are identical](/src/com/ds/binarytree/CheckTwoTreesAreIdenticalOrNot.java)
+  - [Zig Zag Traversal Of Binary Tree](/src/com/ds/binarytree/BoundaryTraversalInBinaryTree.java)
+  - [Boundary Traversal of Binary Tree]
 </details>
 
 <details>
