@@ -1,8 +1,10 @@
 package com.util;
 
+import com.algo.binarytree.TNode;
 import com.algo.linkedlist.DNode;
 import com.algo.linkedlist.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PrintUtl {
@@ -92,5 +94,53 @@ public class PrintUtl {
             node = node.next;
         }
         System.out.println();
+    }
+
+    public static void print(TNode root) {
+        if (root == null) return;
+        List<List<TNode>> level = buildLevelWiseNodes(root);
+        for (List<TNode> tNodes : level) {
+            for (TNode node : tNodes) {
+                System.out.printf("[%d : ", node.data);
+                String left = null == node.left ? "null" : node.left.data + "";
+                System.out.printf("left -> %s, ", left);
+                String right = null == node.right ? "null" : node.right.data + "";
+                System.out.printf("right -> %s", right);
+                System.out.print("]");
+                System.out.println();
+            }
+        }
+    }
+
+    public static void printWithDetail(TNode root) {
+        if (root == null) return;
+        List<List<TNode>> level = buildLevelWiseNodes(root);
+        for (int i = 0; i < level.size(); i++) {
+            for (TNode node : level.get(i)) {
+                System.out.printf("[level(%d) node(%d) hashCode(%d): ", i, node.data, node.hashCode());
+                String left = null == node.left ? "null" : "node(" + node.left.data + ") hashCode(" + node.left.hashCode() + ")";
+                System.out.printf("left -> %s, ", left);
+                String right = null == node.right ? "null" : "node(" + node.right.data + ") hashCode(" + node.right.hashCode() + ")";
+                System.out.printf("right -> %s", right);
+                System.out.print("]");
+                System.out.println();
+            }
+        }
+    }
+
+    private static List<List<TNode>> buildLevelWiseNodes(TNode root) {
+        List<List<TNode>> level = new ArrayList<>();
+        level.add(List.of(root));
+        while (true) {
+            List<TNode> nodes = level.get(level.size() - 1);
+            List<TNode> newNodes = new ArrayList<>();
+            for (TNode node : nodes) {
+                if (node.left != null) newNodes.add(node.left);
+                if (node.right != null) newNodes.add(node.right);
+            }
+            if (newNodes.isEmpty()) break;
+            level.add(newNodes);
+        }
+        return level;
     }
 }

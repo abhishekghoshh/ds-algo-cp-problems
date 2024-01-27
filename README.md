@@ -570,6 +570,9 @@
 
 - resources
   - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+- codes
+  - [Introduction to binary tree](/src/com/ds/binarytree/IntroductionToBinaryTree.java)
+  - [Maximum number Of Nodes in nth label in a binary tree](/src/com/ds/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
 </details>
 
 <details>
