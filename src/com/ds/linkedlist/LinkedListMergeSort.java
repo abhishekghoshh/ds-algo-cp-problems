@@ -2,7 +2,7 @@ package com.ds.linkedlist;
 
 import com.algo.linkedlist.Node;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * problem links :

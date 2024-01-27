@@ -1,6 +1,6 @@
 package com.ds.array;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +76,7 @@ public class PascalTriangle {
 			triangle.add(current);
 			previous = current;
 		}
-		ArrayUtil.print2D(triangle);
+		PrintUtl.print2D(triangle);
 	}
 
 }

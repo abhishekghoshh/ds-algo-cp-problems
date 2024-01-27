@@ -1,7 +1,7 @@
 package com.ds.linkedlist;
 
 import com.algo.linkedlist.Node;
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,7 +40,7 @@ public class DetectLoopInLinkedList {
 		Node node1 = new Node(6);
 		Node node2 = new Node(7, 8, 9);
 		Node.attach(head, node1, node2);
-		ArrayUtil.print(head);
+		PrintUtl.print(head);
 		node2.last(node1);
 
 		Node slow = head;
@@ -65,7 +65,7 @@ public class DetectLoopInLinkedList {
 		Node node1 = new Node(6);
 		Node node2 = new Node(7, 8, 9);
 		Node.attach(head, node1, node2);
-		ArrayUtil.print(head);
+		PrintUtl.print(head);
 		node2.last(node1);
 
 		Set<Node> set = new HashSet<>();

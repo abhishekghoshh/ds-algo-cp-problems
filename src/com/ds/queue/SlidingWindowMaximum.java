@@ -1,6 +1,6 @@
 package com.ds.queue;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -70,7 +70,7 @@ public class SlidingWindowMaximum {
             }
             res[i] = max;
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 
     // TODO check this later
@@ -101,7 +101,7 @@ public class SlidingWindowMaximum {
             if (i >= k1)
                 res[i - k1] = nums[deque[tail - 1 & mask]];
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 
     // TODO check this later
@@ -119,7 +119,7 @@ public class SlidingWindowMaximum {
                 deque.removeFirst();
             if (i >= k1) res[i - k1] = nums[deque.getFirst()];
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 
     private static final class IntDeque {
@@ -191,7 +191,7 @@ public class SlidingWindowMaximum {
                 queue.pop(nums[i - k + 1]);
             }
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 
     static class MonotonicQueue {
@@ -238,7 +238,7 @@ public class SlidingWindowMaximum {
             //check if the window is even valid (i-k>=0)
             if (i >= k - 1 && !deque.isEmpty()) res[r++] = nums[deque.peek()];
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 
     // brute force approach
@@ -255,6 +255,6 @@ public class SlidingWindowMaximum {
                 max = Math.max(max, nums[i + j]);
             res[i] = max;
         }
-        ArrayUtil.print(res);
+        PrintUtl.print(res);
     }
 }

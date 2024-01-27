@@ -1,6 +1,6 @@
 package com.ds.greedy;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,6 @@ public class InsertInterval {
         int n1 = list.size();
         int[][] mergedList = new int[n1][];
         for (i = 0; i < n1; i++) mergedList[i] = list.get(i);
-        ArrayUtil.print2D(mergedList);
+        PrintUtl.print2D(mergedList);
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

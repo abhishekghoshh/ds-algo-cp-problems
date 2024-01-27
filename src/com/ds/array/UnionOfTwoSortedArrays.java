@@ -1,6 +1,6 @@
 package com.ds.array;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class UnionOfTwoSortedArrays {
             if (answer.isEmpty() || answer.get(answer.size() - 1) != item)
                 answer.add(item);
         }
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 
     // time complexity O((m+n)log(m+n)) + (m+n))
@@ -56,6 +56,6 @@ public class UnionOfTwoSortedArrays {
         for (int item : arr2)
             set.add(item);
         List<Integer> answer = new ArrayList<>(set);
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 }

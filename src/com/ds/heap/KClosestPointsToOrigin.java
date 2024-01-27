@@ -3,7 +3,7 @@ package com.ds.heap;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

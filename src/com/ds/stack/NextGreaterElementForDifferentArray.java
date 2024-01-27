@@ -1,6 +1,6 @@
 package com.ds.stack;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,7 +53,7 @@ public class NextGreaterElementForDifferentArray {
                 nge[map[item]] = top == -1 ? -1 : stack[top];
             stack[++top] = nums2[i];
         }
-        ArrayUtil.print(nge);
+        PrintUtl.print(nge);
     }
 
     // this is the most optimal solution
@@ -80,7 +80,7 @@ public class NextGreaterElementForDifferentArray {
                 nge[map.get(item)] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(nums2[i]);
         }
-        ArrayUtil.print(nge);
+        PrintUtl.print(nge);
     }
 
     // brute force approach

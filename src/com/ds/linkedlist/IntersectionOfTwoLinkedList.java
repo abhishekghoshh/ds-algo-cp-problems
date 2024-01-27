@@ -5,7 +5,7 @@ import com.algo.linkedlist.Node;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * 

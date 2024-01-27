@@ -11,7 +11,11 @@ import java.util.List;
  * https://www.youtube.com/watch?v=_ANrF3FJm7I&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=2
  * https://www.youtube.com/watch?v=ctCpP0RFDFc&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=3
  * https://www.youtube.com/watch?v=hyLyW7rP24I&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=4
- * 
+ *
+ *
+ * https://takeuforward.org/binary-tree/introduction-to-trees/
+ * https://takeuforward.org/binary-tree/binary-tree-representation-in-c/
+ * https://takeuforward.org/binary-tree/binary-tree-representation-in-java/
  */
 
 public class IntroductionToBinaryTree {

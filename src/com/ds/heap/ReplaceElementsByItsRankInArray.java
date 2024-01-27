@@ -1,6 +1,6 @@
 package com.ds.heap;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ public class ReplaceElementsByItsRankInArray {
         }
         for (int num : arr) ans.add(map.get(num));
 
-        ArrayUtil.print(ans);
+        PrintUtl.print(ans);
     }
 
     // using min heap
@@ -68,7 +68,7 @@ public class ReplaceElementsByItsRankInArray {
         List<Integer> answer = new ArrayList<>();
         for (int data : ranks) answer.add(data);
 
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 
     // brute force approach

@@ -573,6 +573,13 @@
 </details>
 
 <details>
+    <summary><strong>binary-search-tree</strong></summary>
+
+- resources
+  - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+</details>
+
+<details>
     <summary><strong>graph</strong></summary>
 
 - resources

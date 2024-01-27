@@ -1,10 +1,10 @@
 package com.ds.stack;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.Stack;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
@@ -45,6 +45,6 @@ public class NumberOfGreaterElementsToTheRight {
                 if (nums[qe] < nums[i])
                     answer[x]++;
         }
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 }

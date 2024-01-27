@@ -1,6 +1,6 @@
 package com.ds.array;
 
-import static com.util.ArrayUtil.print2D;
+import static com.util.PrintUtl.print2D;
 
 /*
  * problem link :

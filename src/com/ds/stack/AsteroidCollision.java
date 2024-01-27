@@ -1,6 +1,6 @@
 package com.ds.stack;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.Stack;
 
@@ -50,7 +50,7 @@ public class AsteroidCollision {
         }
         int[] answer = new int[stack.size()];
         for (int i = answer.length - 1; i >= 0; i--) answer[i] = stack.pop();
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 
     // same as type2,
@@ -77,7 +77,7 @@ public class AsteroidCollision {
         }
         int[] answer = new int[top + 1];
         for (int i = answer.length - 1; i >= 0; i--) answer[i] = stack[top--];
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 
     // optimized approach
@@ -107,7 +107,7 @@ public class AsteroidCollision {
         }
         int[] answer = new int[stack.size()];
         for (int i = answer.length - 1; i >= 0; i--) answer[i] = stack.pop();
-        ArrayUtil.print(answer);
+        PrintUtl.print(answer);
     }
 
     // brute force approach

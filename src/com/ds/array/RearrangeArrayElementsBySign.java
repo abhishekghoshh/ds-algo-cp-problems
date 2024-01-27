@@ -1,6 +1,7 @@
 package com.ds.array;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
+
 /*
  *
  * problem links:
@@ -34,7 +35,7 @@ public class RearrangeArrayElementsBySign {
                 nIndex += 2;
             }
         }
-        ArrayUtil.print(result);
+        PrintUtl.print(result);
     }
 
     // time complexity O(2n)
@@ -52,6 +53,6 @@ public class RearrangeArrayElementsBySign {
             nums[2 * i] = setP[i];
             nums[2 * i + 1] = setN[i];
         }
-        ArrayUtil.print(nums);
+        PrintUtl.print(nums);
     }
 }

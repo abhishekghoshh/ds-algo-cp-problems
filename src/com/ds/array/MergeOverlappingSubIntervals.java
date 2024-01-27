@@ -1,6 +1,6 @@
 package com.ds.array;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.*;
 /*
@@ -56,7 +56,7 @@ public class MergeOverlappingSubIntervals {
 		}
 		result.add(new int[]{start + min, end + min});
 		int[][] answer = result.toArray(new int[result.size()][]);
-		ArrayUtil.print2D(answer);
+		PrintUtl.print2D(answer);
 	}
 
 	// optimized approach
@@ -81,7 +81,7 @@ public class MergeOverlappingSubIntervals {
 		for (int i = 0; i < newIntervals.size(); i++) {
 			answer[i] = newIntervals.get(i);
 		}
-		ArrayUtil.print2D(answer);
+		PrintUtl.print2D(answer);
 	}
 
 }

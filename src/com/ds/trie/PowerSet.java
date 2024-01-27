@@ -11,6 +11,7 @@ package com.ds.trie;
  */
 public class PowerSet {
 
+	// TODO complete this solution with trie data structure
 	public static void main(String[] args) {
 		type1();
 		type2();

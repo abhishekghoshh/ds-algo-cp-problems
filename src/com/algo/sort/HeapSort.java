@@ -2,7 +2,7 @@ package com.algo.sort;
 
 import com.algo.heap.MinHeap;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

@@ -1,6 +1,6 @@
 package com.ds.array;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 import static com.util.ArrayUtil.swap;
 
 /*

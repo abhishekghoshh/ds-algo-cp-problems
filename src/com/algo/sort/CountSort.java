@@ -1,5 +1,7 @@
 package com.algo.sort;
 
+import com.util.PrintUtl;
+
 import static com.util.ArrayUtil.*;
 
 /*
@@ -51,7 +53,7 @@ public class CountSort {
 			arr[freq[item] - 1] = copy[i];
 			freq[item]--;
 		}
-		print(arr);
+		PrintUtl.print(arr);
 	}
 
 	private static void type1() {
@@ -67,6 +69,6 @@ public class CountSort {
 				arr[index++] = (char) ('a' + i);
 				freq[i]--;
 			}
-		print(arr);
+		PrintUtl.print(arr);
 	}
 }

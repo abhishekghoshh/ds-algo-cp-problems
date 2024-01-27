@@ -1,8 +1,6 @@
 package com.algo.sort;
 
-import com.util.ArrayUtil;
-
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

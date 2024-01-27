@@ -10,6 +10,8 @@ package com.algo.sort;
  * 
  */
 
+import com.util.PrintUtl;
+
 import static com.util.ArrayUtil.*;
 
 public class QuickSort {
@@ -62,7 +64,7 @@ public class QuickSort {
 		int[] arr = {12, 10, 11, 13, 21, 24, 25, 20, 9};
 		int n = arr.length;
 		quicksort1(arr, 0, n - 1);
-		print(arr);
+		PrintUtl.print(arr);
 	}
 
 	private static void quicksort1(int[] arr, int low, int high) {

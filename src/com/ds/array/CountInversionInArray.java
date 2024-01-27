@@ -13,7 +13,7 @@ package com.ds.array;
  * https://takeuforward.org/data-structure/count-inversions-in-an-array/
  * */
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Description:

@@ -1,7 +1,7 @@
 package com.ds.linkedlist;
 
 import com.algo.linkedlist.DNode;
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 /*
  *
@@ -22,7 +22,7 @@ public class DeleteLastNodeOfDoublyLinkedList {
     private static void type1() {
         DNode head = new DNode(4, 10, 3, 5, 20);
         head = deleteLastNode(head);
-        ArrayUtil.print(head);
+        PrintUtl.print(head);
     }
 
     private static DNode deleteLastNode(DNode head) {

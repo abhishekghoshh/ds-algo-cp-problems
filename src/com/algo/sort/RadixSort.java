@@ -1,5 +1,7 @@
 package com.algo.sort;
 
+import com.util.PrintUtl;
+
 import static com.util.ArrayUtil.*;
 
 /*
@@ -22,7 +24,7 @@ public class RadixSort {
 		// Apply counting sort to sort elements based on place value.
 		for (int place = 1; max / place > 0; place *= 10)
 			countingSort(arr, arr.length, place, max);
-		print(arr);
+		PrintUtl.print(arr);
 	}
 
 	private static void countingSort(int[] arr, int n, int place, int max) {
@@ -44,7 +46,7 @@ public class RadixSort {
 			count[item]--;
 		}
 		copy(arr, output);
-		print(arr);
+		PrintUtl.print(arr);
 	}
 
 

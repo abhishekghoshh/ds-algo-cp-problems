@@ -1,6 +1,6 @@
 package com.algo.sort;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 /*
  * Problem link :
@@ -19,7 +19,7 @@ public class RecursiveInsertionSort {
 	private static void type1() {
 		int[] arr = { 24, 18, 38, 43, 14, 40, 1, 54 };
 		insertionSort(arr, arr.length);
-		ArrayUtil.print(arr);
+		PrintUtl.print(arr);
 	}
 
 	// insert all the elements one by one

@@ -1,11 +1,9 @@
 package com.ds.array;
 
-import com.util.ArrayUtil;
-
 import java.util.Set;
 import java.util.TreeSet;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

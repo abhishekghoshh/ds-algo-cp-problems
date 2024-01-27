@@ -3,7 +3,7 @@ package com.ds.slidingwindow;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link:

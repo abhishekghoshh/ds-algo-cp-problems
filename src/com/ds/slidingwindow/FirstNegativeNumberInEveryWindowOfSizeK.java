@@ -3,7 +3,7 @@ package com.ds.slidingwindow;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link : 

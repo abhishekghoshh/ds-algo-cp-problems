@@ -4,7 +4,7 @@ import com.algo.linkedlist.DNode;
 
 import java.util.Stack;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  *

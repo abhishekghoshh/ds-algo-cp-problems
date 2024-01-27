@@ -1,6 +1,6 @@
 package com.ds.heap;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 /*
  *
@@ -22,7 +22,7 @@ public class ConvertMinHeapToMaxHeap {
         for (int i = n / 2 - 1; i >= 0; i--) {
             maxHeapify(minHeap, i);
         }
-        ArrayUtil.print(minHeap);
+        PrintUtl.print(minHeap);
     }
 
     private static void maxHeapify(int[] minHeap, int index) {

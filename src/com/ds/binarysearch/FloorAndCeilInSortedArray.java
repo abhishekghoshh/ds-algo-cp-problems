@@ -1,6 +1,6 @@
 package com.ds.binarysearch;
 
-import static com.util.ArrayUtil.print;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :

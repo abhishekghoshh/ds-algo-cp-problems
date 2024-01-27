@@ -1,6 +1,6 @@
 package com.ds.heap;
 
-import com.util.ArrayUtil;
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,7 +48,7 @@ public class SortKSortedArray {
 		// in the heap; we will add them one by one to the answer
 		while (!minHeap.isEmpty()) answer.add(minHeap.poll());
 
-		ArrayUtil.print(answer);
+		PrintUtl.print(answer);
 	}
 
 	// Brute force approach
@@ -60,7 +60,7 @@ public class SortKSortedArray {
 			answer.add(num);
 		Collections.sort(answer);
 
-		ArrayUtil.print(answer);
+		PrintUtl.print(answer);
 	}
 
 }
