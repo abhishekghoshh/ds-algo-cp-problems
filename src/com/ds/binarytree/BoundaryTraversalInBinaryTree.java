@@ -28,60 +28,51 @@ public class BoundaryTraversalInBinaryTree {
 	// Iterative way
 	private static void type2() {
 		TNode root = TNode.withCount(21);
-		ArrayList<Integer> ans = new ArrayList<Integer>();
-		if (!isLeaf(root)) ans.add(root.data);
-		addLeftBoundary(root, ans);
-		addLeaves(root, ans);
-		addRightBoundary(root, ans);
-		System.out.println(ans);
+		List<Integer> boundary = new ArrayList<>();
+		if (!isLeaf(root)) boundary.add(root.data);
+		addLeftBoundary(root, boundary);
+		addLeaves(root, boundary);
+		addRightBoundary(root, boundary);
+		System.out.println(boundary);
 	}
 
 
-	static void addLeftBoundary(TNode root, ArrayList<Integer> res) {
+	static void addLeftBoundary(TNode root, List<Integer> boundary) {
 		TNode node = root.left;
 		while (node != null) {
-			if (!isLeaf(node))
-				res.add(node.data);
-			if (node.left != null)
-				node = node.left;
-			else
-				node = node.right;
+			if (!isLeaf(node)) boundary.add(node.data);
+			node = (node.left != null) ? node.left : node.right;
 		}
 	}
 
-	static void addRightBoundary(TNode root, ArrayList<Integer> res) {
-		TNode node = root.right;
-		ArrayList<Integer> tmp = new ArrayList<Integer>();
-		while (node != null) {
-			if (!isLeaf(node))
-				tmp.add(node.data);
-			if (node.right != null)
-				node = node.right;
-			else
-				node = node.left;
-		}
-		for (int i = tmp.size() - 1; i >= 0; --i) {
-			res.add(tmp.get(i));
-		}
-	}
-
-	static void addLeaves(TNode root, ArrayList<Integer> res) {
+	static void addLeaves(TNode root, List<Integer> boundary) {
+		if (root == null) return;
 		if (isLeaf(root)) {
-			res.add(root.data);
+			boundary.add(root.data);
 			return;
 		}
-		if (root.left != null)
-			addLeaves(root.left, res);
-		if (root.right != null)
-			addLeaves(root.right, res);
+		addLeaves(root.left, boundary);
+		addLeaves(root.right, boundary);
 	}
 
+	static void addRightBoundary(TNode root, List<Integer> boundary) {
+		TNode node = root.right;
+		Stack<Integer> stack = new Stack<>();
+		while (node != null) {
+			if (!isLeaf(node)) stack.add(node.data);
+			node = (node.right != null) ? node.right : node.left;
+		}
+		while (!stack.isEmpty()) boundary.add(stack.pop());
+	}
+
+
+	// recursive approach
 	private static void type1() {
 		TNode root = TNode.withCount(21);
 		List<Integer> answer = new ArrayList<>();
 		leftView(root, answer);
 		bottomView(root, answer);
-		// as for right view it will be reversed so we are creating a stack
+		// as for right view it will be reversed, so we are creating a stack
 		// later we will iterate through it and add the node in the final array
 		Stack<Integer> stack = new Stack<>();
 		rightView(root, stack);
@@ -91,12 +82,12 @@ public class BoundaryTraversalInBinaryTree {
 		System.out.println(answer);
 	}
 
-	private static void rightView(TNode root, Stack<Integer> stack) {
+	private static void leftView(TNode root, List<Integer> answer) {
 		// we are also not taking the leaf node as it will be added in the bottom view
 		if (null == root || isLeaf(root)) return;
-		stack.push(root.data);
-		if (null != root.right) rightView(root.right, stack);
-		else rightView(root.left, stack);
+		answer.add(root.data);
+		if (null != root.left) leftView(root.left, answer);
+		else leftView(root.right, answer);
 	}
 
 	private static void bottomView(TNode root, List<Integer> answer) {
@@ -108,16 +99,17 @@ public class BoundaryTraversalInBinaryTree {
 		}
 		bottomView(root.left, answer);
 		bottomView(root.right, answer);
-
 	}
 
-	private static void leftView(TNode root, List<Integer> answer) {
+
+	private static void rightView(TNode root, Stack<Integer> stack) {
 		// we are also not taking the leaf node as it will be added in the bottom view
 		if (null == root || isLeaf(root)) return;
-		answer.add(root.data);
-		if (null != root.left) leftView(root.left, answer);
-		else leftView(root.right, answer);
+		stack.push(root.data);
+		if (null != root.right) rightView(root.right, stack);
+		else rightView(root.left, stack);
 	}
+
 
 	static Boolean isLeaf(TNode root) {
 		return (root.left == null) && (root.right == null);

@@ -592,7 +592,14 @@
   - [Maximum Sum Path in Binary Tree](/src/com/ds/binarytree/MaximumPathSumBinaryTree.java)
   - [Check if two trees are identical](/src/com/ds/binarytree/CheckTwoTreesAreIdenticalOrNot.java)
   - [Zig Zag Traversal Of Binary Tree](/src/com/ds/binarytree/ZigzagLevelOrderTraversal.java)
+  - [Vertical Order Traversal of Binary Tree](/src/com/ds/binarytree/VerticalOrderTraversal.java)
+  - [Top view of a Binary Tree](/src/com/ds/binarytree/TopViewOfBinaryTree.java)
+  - [Bottom view of a Binary Tree](/src/com/ds/binarytree/BottomViewOfBinaryTree.java)
+  - [Left view of Binary Tree](/src/com/ds/binarytree/LeftViewOfBinaryTree.java)
+  - [Right view of Binary Tree](/src/com/ds/binarytree/RightViewOfBinaryTree.java)
   - [Boundary Traversal of Binary Tree](/src/com/ds/binarytree/BoundaryTraversalInBinaryTree.java)
+  - [Symmetric Binary Tree](/src/com/ds/binarytree/CheckForSymmetricalBinaryTree.java)
+  - [Print Root to Node Path in a Binary Tree](/src/com/ds/binarytree/PrintRootToNodePath.java)
 </details>
 
 <details>

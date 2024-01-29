@@ -1,18 +1,14 @@
-package binarytree;
+package com.ds.binarytree;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeMap;
+import com.algo.binarytree.TNode;
 
-import util.TreeNode;
+import java.util.*;
 
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
  * https://www.codingninjas.com/codestudio/problems/893110
+ * https://www.codingninjas.com/studio/problems/bottom-view-of-binary-tree_893110
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=0FtVY6I4pB8&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=24
@@ -28,20 +24,18 @@ public class BottomViewOfBinaryTree {
 
 	// using BFS or level wise traversal
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withCount(15);
+		TNode root = TNode.withCount(15);
 		ArrayList<Integer> ans = new ArrayList<>();
-		if (root == null)
-			return;
 		Map<Integer, Integer> map = new TreeMap<>();
-		Queue<Pair> queue = new LinkedList<Pair>();
+		Queue<Pair> queue = new LinkedList<>();
 		queue.add(new Pair(root, 0));
 		while (!queue.isEmpty()) {
 			Pair pair = queue.poll();
 			int axis = pair.axis;
-			TreeNode<Integer> node = pair.node;
+			TNode node = pair.node;
 			// if there is any value for that axis then that will be replaced by the later
 			// level
-			map.put(axis, node.val);
+			map.put(axis, node.data);
 			if (node.left != null)
 				queue.add(new Pair(node.left, axis - 1));
 			if (node.right != null)
@@ -55,18 +49,18 @@ public class BottomViewOfBinaryTree {
 
 	public static class Pair {
 		public int axis;
-		public TreeNode<Integer> node;
+		public TNode node;
 
-		public Pair(TreeNode<Integer> node, int axis) {
+		public Pair(TNode node, int axis) {
 			this.axis = axis;
 			this.node = node;
 		}
 	}
 
 	// using DFS
-	// almost same as top view
+	//  almost the same as top view
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(15);
+		TNode root = TNode.withCount(15);
 		Map<Integer, Pair2> map = new HashMap<>();
 		traverse(root, map, 0, 0);
 		int minKey = Integer.MAX_VALUE;
@@ -79,13 +73,11 @@ public class BottomViewOfBinaryTree {
 		System.out.println(answer);
 	}
 
-	private static void traverse(TreeNode<Integer> root, Map<Integer, Pair2> map, int axis, int level) {
-		if (null == root)
-			return;
-//		map.put(axis, new Pair2(root.val, level));
-		// just the opposite condition of topview
+	private static void traverse(TNode root, Map<Integer, Pair2> map, int axis, int level) {
+		if (null == root) return;
+		// just the opposite condition of top view
 		if (!map.containsKey(axis) || (map.containsKey(axis) && map.get(axis).level <= level))
-			map.put(axis, new Pair2(root.val, level));
+			map.put(axis, new Pair2(root.data, level));
 		traverse(root.left, map, axis - 1, level + 1);
 		traverse(root.right, map, axis + 1, level + 1);
 	}
