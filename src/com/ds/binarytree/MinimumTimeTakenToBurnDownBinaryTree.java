@@ -1,14 +1,15 @@
-package binarytree;
-
-import java.util.Stack;
+package com.ds.binarytree;
 
 import util.TreeNode;
+
+import java.util.Stack;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
  * https://www.codingninjas.com/codestudio/problems/time-to-burn-tree_630563
  * https://practice.geeksforgeeks.org/problems/burning-tree/1
+ * https://www.codingninjas.com/studio/problems/time-to-burn-tree_1469067
  * 
  * 
  * Solution link :
@@ -17,21 +18,22 @@ import util.TreeNode;
  * 
  * 
  */
-public class MinimunTimeTakenToBurnDownBinaryTree {
+public class MinimumTimeTakenToBurnDownBinaryTree {
 	// Given a binary tree and a node data called target. Find the minimum time
 	// required to burn the complete binary tree if the target is set on fire. It is
-	// known that in 1 second all nodes connected to a given node get burned. That
+	// known that in 1 second, all nodes connected to a given node get burned. That
 	// is its left child, right child, and parent.
 	// Note: The tree contains unique values.
-	// These is a problem of least common ancester
+	// There is a problem of the least common ancestor
 	// same as PrintAllNodesInBinaryTreeAtDistanceKFromTargetNode problem
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
 
-		// NOTE solution of Striver is very complex and time consuming. better follow
-		// this 3 approach
+		// NOTE the solution of Striver is very complex and time-consuming.
+		// better follow
+		// this approach 3
 	}
 
 	private static int minDistance = 0;
@@ -123,24 +125,20 @@ public class MinimunTimeTakenToBurnDownBinaryTree {
 	}
 
 	private static int height(TreeNode<Integer> node) {
-		if (null == node)
-			return 0;
+		if (null == node) return 0;
 		return 1 + Math.max(height(node.left), height(node.right));
 	}
 
 	private static boolean findPath(TreeNode<Integer> root, int target, Stack<Object[]> stack) {
-		if (null == root)
-			return false;
+		if (null == root) return false;
 		if (root.val == target) {
 			stack.push(new Object[] { root, 0 });
 			return true;
 		}
 		boolean leftFind = findPath(root.left, target, stack);
 		boolean rightFind = findPath(root.right, target, stack);
-		if (leftFind)
-			stack.push(new Object[] { root, -1 });
-		if (rightFind)
-			stack.push(new Object[] { root, 1 });
+		if (leftFind) stack.push(new Object[] { root, -1 });
+		if (rightFind) stack.push(new Object[] { root, 1 });
 		return leftFind || rightFind;
 	}
 
