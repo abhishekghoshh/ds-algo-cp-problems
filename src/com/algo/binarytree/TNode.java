@@ -19,6 +19,17 @@ public class TNode {
         return this;
     }
 
+    public TNode search(int val) {
+        if (val == this.data) return this;
+        if (null != this.left) {
+            TNode left = this.left.search(val);
+            if (null != left) return left;
+        }
+        if (null != this.right) {
+            return this.right.search(val);
+        }
+        return null;
+    }
 
     public static TNode withCount(int n) {
         int[] nums = new int[n];

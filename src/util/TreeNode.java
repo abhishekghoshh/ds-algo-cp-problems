@@ -94,10 +94,8 @@ public class TreeNode<T extends Comparable<T>> {
 			return leftSearch;
 		if (null != this.right)
 			rightSearch = this.right.search(val);
-		if (null != rightSearch)
-			return rightSearch;
-		return null;
-	}
+        return rightSearch;
+    }
 
 	public static TreeNode<Integer> withCount(int count) {
 		Integer[] array = new Integer[count];
