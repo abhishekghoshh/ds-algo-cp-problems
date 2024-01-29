@@ -603,7 +603,7 @@
   - [Lowest Common Ancestor of a Binary Tree](/src/com/ds/binarytree/LowestCommonAncestorOfBinaryTree.java)
   - [Maximum Width of Binary Tree](/src/com/ds/binarytree/MaximumWidthOfBinaryTree.java)
   - [Children Sum Property in a Binary Tree](/src/com/ds/binarytree/ChildrenSumProperty.java)
-  - [Nodes at Distance K in a Binary Tree](/src/com/ds/binarytree/NodesAtDistanceKFromTargetNodeInBinaryTree.java)
+  - [Nodes at Distance K in a Binary Tree](/src/com/ds/binarytree/NodesAtDistanceKFromTargetNodeInABinaryTree.java)
   - [Minimum time taken to BURN the Binary Tree from a Node](/src/com/ds/binarytree/MinimumTimeTakenToBurnDownBinaryTree.java)
 </details>
 
