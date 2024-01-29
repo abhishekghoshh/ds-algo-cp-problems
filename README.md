@@ -602,7 +602,8 @@
   - [Print Root to Node Path in a Binary Tree](/src/com/ds/binarytree/PrintRootToNodePath.java)
   - [Lowest Common Ancestor of a Binary Tree](/src/com/ds/binarytree/LowestCommonAncestorOfBinaryTree.java)
   - [Maximum Width of Binary Tree](/src/com/ds/binarytree/MaximumWidthOfBinaryTree.java)
-  - [Children Sum Property in a Binary Tree]
+  - [Children Sum Property in a Binary Tree](/src/com/ds/binarytree/ChildrenSumProperty.java)
+  - [Nodes at Distance K in a Binary Tree](/src/com/ds/binarytree/NodesAtDistanceKFromTargetNodeInBinaryTree.java)
 </details>
 
 <details>

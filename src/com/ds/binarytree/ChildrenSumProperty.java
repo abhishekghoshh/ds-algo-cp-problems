@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarytree;
 
 import com.algo.binarytree.TNode;
 import com.util.PrintUtl;
