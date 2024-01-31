@@ -9,6 +9,12 @@ public class TNode {
         this.data = data;
     }
 
+    public TNode(int val, TNode left, TNode right) {
+        this.data = val;
+        this.left = left;
+        this.right = right;
+    }
+
     public TNode left(TNode left) {
         this.left = left;
         return this;

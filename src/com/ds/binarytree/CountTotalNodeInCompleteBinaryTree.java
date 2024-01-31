@@ -1,6 +1,6 @@
-package binarytree;
+package com.ds.binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 /*
  * Problem link :
@@ -22,6 +22,19 @@ public class CountTotalNodeInCompleteBinaryTree {
 	// Design an algorithm that runs in less than O(n) time complexity.
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// TODO study this approach later
+	private static void type2() {
+		TNode root = TNode.withCount(16);
+		int countNodes = countNodes2(root);
+		System.out.println(countNodes);
+	}
+
+	public static int countNodes2(TNode root) {
+		if (root == null) return 0;
+		return countNodes2(root.left) + countNodes2(root.right) + 1;
 	}
 
 	// out problem is to find the number of nodes in tree,
@@ -37,25 +50,25 @@ public class CountTotalNodeInCompleteBinaryTree {
 	// but as per the problem statement as the tree is complete binary tree so we
 	// don't have to go too much to the left and right nodes to get the count
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(16);
-		int countNodes = countNodes(root);
+		TNode root = TNode.withCount(16);
+		int countNodes = countNodes1(root);
 		System.out.println(countNodes);
 	}
 
-	public static int countNodes(TreeNode<Integer> root) {
+	public static int countNodes1(TNode root) {
 		if (null == root) return 0;
 		int lh = leftHeight(root);
 		int rh = rightHeight(root);
 		if (lh == rh) return (1 << lh) - 1;
-		return 1 + countNodes(root.left) + countNodes(root.right);
+		return 1 + countNodes1(root.left) + countNodes1(root.right);
 	}
 
-	private static int rightHeight(TreeNode<Integer> root) {
+	private static int rightHeight(TNode root) {
 		if (null == root) return 0;
 		return 1 + rightHeight(root.right);
 	}
 
-	private static int leftHeight(TreeNode<Integer> root) {
+	private static int leftHeight(TNode root) {
 		if (null == root) return 0;
 		return 1 + leftHeight(root.left);
 	}

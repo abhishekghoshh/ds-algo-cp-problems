@@ -605,6 +605,10 @@
   - [Children Sum Property in a Binary Tree](/src/com/ds/binarytree/ChildrenSumProperty.java)
   - [Nodes at Distance K in a Binary Tree](/src/com/ds/binarytree/NodesAtDistanceKFromTargetNodeInABinaryTree.java)
   - [Minimum time taken to BURN the Binary Tree from a Node](/src/com/ds/binarytree/MinimumTimeTakenToBurnDownBinaryTree.java)
+  - [Count Complete Tree Nodes in a Binary Tree](/src/com/ds/binarytree/CountTotalNodeInCompleteBinaryTree.java)
+  - [Requirements needed to construct a Unique Binary Tree | Theory](/src/com/ds/binarytree/RequirementsNeededToConstructUniqueBinaryTree.java)
+  - [Construct A Binary Tree from Inorder and Preorder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPreorder.java)
+  - [Construct Binary Tree from Inorder and PostOrder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPostorder.java)
 </details>
 
 <details>

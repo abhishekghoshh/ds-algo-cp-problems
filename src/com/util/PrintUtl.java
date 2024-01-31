@@ -5,7 +5,9 @@ import com.algo.linkedlist.DNode;
 import com.algo.linkedlist.Node;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class PrintUtl {
     public static void printException(Runnable runnable) {
@@ -149,5 +151,64 @@ public class PrintUtl {
             level.add(newNodes);
         }
         return level;
+    }
+
+
+    public static void inOrder(TNode root) {
+        System.out.println(inOrder(root, new ArrayList<>()));
+    }
+
+
+    public static List<Integer> inOrder(TNode root, List<Integer> list) {
+        if (root != null) {
+            inOrder(root.left, list);
+            list.add(root.data);
+            inOrder(root.right, list);
+        }
+        return list;
+    }
+
+    public static void preOrder(TNode root) {
+        System.out.println(preOrder(root, new ArrayList<>()));
+    }
+
+    public static List<Integer> preOrder(TNode root, List<Integer> list) {
+        if (root != null) {
+            list.add(root.data);
+            preOrder(root.left, list);
+            preOrder(root.right, list);
+        }
+        return list;
+    }
+
+    public static void postOrder(TNode root) {
+        System.out.println(postOrder(root, new ArrayList<>()));
+    }
+
+    public static List<Integer> postOrder(TNode root, List<Integer> list) {
+        if (root != null) {
+            postOrder(root.left, list);
+            postOrder(root.right, list);
+            list.add(root.data);
+        }
+        return list;
+    }
+
+    public static void levelOrder(TNode root) {
+        if (null == root) return;
+        Queue<TNode> queue = new LinkedList<>();
+        int l = 0;
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            List<Integer> level = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TNode parent = queue.poll();
+                level.add(parent.data);
+                if (parent.left != null) queue.offer(parent.left);
+                if (parent.right != null) queue.offer(parent.right);
+            }
+            System.out.println("level -> " + (l++) + " -> " + level);
+        }
     }
 }

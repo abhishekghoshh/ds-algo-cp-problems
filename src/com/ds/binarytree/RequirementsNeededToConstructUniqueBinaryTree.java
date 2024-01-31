@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarytree;
 
 /*
  * Problem link :
@@ -6,10 +6,14 @@ package binarytree;
  * Solution link :
  * https://www.youtube.com/watch?v=9GMECGQgWrQ&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=34
  */
+
+
 public class RequirementsNeededToConstructUniqueBinaryTree {
 
+
+	// Other than inorder traversal given we cannot make a unique binary tree
 	public static void main(String[] args) {
-		// Other than inorder traversal given we can not make a unique binary tree
+
 	}
 
 }

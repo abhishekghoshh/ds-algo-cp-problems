@@ -218,7 +218,7 @@ public class TreeNode<T extends Comparable<T>> {
 
 	public static <T extends Comparable<T>> List<List<T>> levelOrder(TreeNode<T> root) {
 		Queue<TreeNode<T>> queue = new LinkedList<>();
-		List<List<T>> wrapList = new LinkedList<List<T>>();
+		List<List<T>> wrapList = new LinkedList<>();
 		if (root == null)
 			return wrapList;
 		queue.offer(root);

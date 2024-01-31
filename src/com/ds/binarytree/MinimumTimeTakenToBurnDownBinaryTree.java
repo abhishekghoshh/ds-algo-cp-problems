@@ -1,8 +1,12 @@
 package com.ds.binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
+
+import static com.algo.binarytree.TNode.NULL;
 
 /*
  * Problem link :
@@ -27,20 +31,18 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 	// There is a problem of the least common ancestor
 	// same as PrintAllNodesInBinaryTreeAtDistanceKFromTargetNode problem
 	public static void main(String[] args) {
+		// NOTE the solution of Striver is very complex and time-consuming.
 		type1();
 		type2();
 		type3();
-
-		// NOTE the solution of Striver is very complex and time-consuming.
-		// better follow
-		// this approach 3
+		type4();
 	}
 
 	private static int minDistance = 0;
 
 	// This is the best solution possible
-	private static void type3() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 5, 3, null, 4, 10, 6, null, null, 9, 2);
+	private static void type4() {
+		TNode root = TNode.withNodes(1, 5, 3, NULL, 4, 10, 6, NULL, NULL, 9, 2);
 		int start = 3;
 		traverse(root, start);
 		System.out.println(minDistance);
@@ -50,9 +52,8 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 	// once we find the target we are returning the -1
 	// here minus distance is regarded as distance from root to target
 	// positive distance means the height
-	private static int traverse(TreeNode<Integer> node, int start) {
-		if (node == null)
-			return 0;
+	private static int traverse(TNode node, int start) {
+		if (node == null) return 0;
 		int left = traverse(node.left, start);
 		int right = traverse(node.right, start);
 		if (left < 0) {
@@ -61,7 +62,7 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 		} else if (right < 0) {
 			minDistance = Math.max(minDistance, left - right);
 			return right - 1;
-		} else if (node.val == start) {
+		} else if (node.data == start) {
 			minDistance = Math.max(left, right);
 			return -1;
 		} else {
@@ -69,8 +70,10 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 		}
 	}
 
-	private static void type2() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 5, 3, null, 4, 10, 6, null, null, 9, 2);
+	// this is a very optimized approach
+	// here we are
+	private static void type3() {
+		TNode root = TNode.withNodes(1, 5, 3, NULL, 4, 10, 6, NULL, NULL, 9, 2);
 //		System.out.println(root.levelOrder());
 		int target = 3;
 		int[] minDistance = { Integer.MIN_VALUE };
@@ -78,30 +81,69 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 		System.out.println(minDistance[0]);
 	}
 
-	private static int findTarget(TreeNode<Integer> root, int target, int[] minDistance) {
-		if (null == root)
-			return -1;
-		if (root.val == target) {
+	private static int findTarget(TNode root, int target, int[] minDistance) {
+		if (null == root) return -1;
+		if (root.data == target) {
 			minDistance[0] = Math.max(minDistance[0], height(root.left));
 			minDistance[0] = Math.max(minDistance[0], height(root.right));
 			return 1;
 		}
 		int leftDistance = findTarget(root.left, target, minDistance);
-		int rightDistance = findTarget(root.right, target, minDistance);
-		if (leftDistance == -1 && rightDistance == -1) {
-			return -1;
-		} else if (leftDistance != -1) {
+		if (leftDistance != -1) {
 			minDistance[0] = Math.max(minDistance[0], leftDistance + height(root.right));
 			return leftDistance + 1;
-		} else {
+		}
+		int rightDistance = findTarget(root.right, target, minDistance);
+		if (rightDistance != -1) {
 			minDistance[0] = Math.max(minDistance[0], rightDistance + height(root.left));
 			return rightDistance + 1;
 		}
+		return -1;
 	}
 
+	// same as previous
+	// here we will simplify some things
+	// we will use a normal list to store the node in reverse.
+	// we are adding the nodes into the list from target node then
+	// the parent node and likewise the root node.
+	// so with the normal list also we will get the nodes in reverse
+	// also we do not need to store the direction of target node if it is left or right.
+	// we can check parents to get are they left or right
+	private static void type2() {
+		TNode root = TNode.withCount(31);
+		int target = 5;
+		List<TNode> traversal = new ArrayList<>();
+		traverseUntilTarget(root, target, traversal);
+		TNode child = traversal.get(0);
+		TNode parent;
+		int maxLevel = Math.max(height(child.left), height(child.right));
+		for (int i = 1; i < traversal.size(); i++) {
+			parent = traversal.get(i);
+			if (parent.left == child)
+				maxLevel = Math.max(height(parent.right) + i, maxLevel);
+			else
+				maxLevel = Math.max(height(parent.left) + i, maxLevel);
+			child = parent;
+		}
+		System.out.println(maxLevel);
+	}
+
+	private static boolean traverseUntilTarget(TNode root, int target, List<TNode> traversal) {
+		if (root == null) return false;
+		// either root is the target or target is found either its left side or right side
+		if ((root.data == target)
+				|| traverseUntilTarget(root.left, target, traversal)
+				|| traverseUntilTarget(root.right, target, traversal)) {
+			traversal.add(root);
+			return true;
+		}
+		return false;
+	}
+
+	// this is also optimized approach
 	// store all the parents in stack
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(31);
+		TNode root = TNode.withCount(31);
 		int target = 5;
 		Stack<Object[]> stack = new Stack<>();
 		findPath(root, target, stack);
@@ -109,7 +151,7 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 		int size = stack.size();
 		while (!stack.isEmpty()) {
 			Object[] pair = stack.pop();
-			TreeNode<Integer> node = (TreeNode<Integer>) pair[0];
+			TNode node = (TNode) pair[0];
 			int flag = (int) pair[1];
 			if (flag == 0) {
 				minDistance = Math.max(height(node.left), minDistance);
@@ -124,14 +166,14 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 		System.out.println(minDistance);
 	}
 
-	private static int height(TreeNode<Integer> node) {
+	private static int height(TNode node) {
 		if (null == node) return 0;
 		return 1 + Math.max(height(node.left), height(node.right));
 	}
 
-	private static boolean findPath(TreeNode<Integer> root, int target, Stack<Object[]> stack) {
+	private static boolean findPath(TNode root, int target, Stack<Object[]> stack) {
 		if (null == root) return false;
-		if (root.val == target) {
+		if (root.data == target) {
 			stack.push(new Object[] { root, 0 });
 			return true;
 		}
