@@ -1,6 +1,6 @@
 package binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 /*
  * Problem link :
@@ -19,15 +19,16 @@ public class SearchInBinarySearchTree {
 	}
 
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.makeBST(15);
-		TreeNode<Integer> node = searchBST(root, 2);
+		TNode root = TNode.makeBST(15);
+		TNode node = searchBST(root, 2);
 		System.out.println(node);
 		System.out.println(root.searchBST(2));
 	}
 
-	public static TreeNode<Integer> searchBST(TreeNode<Integer> root, int val) {
-		if (null == root || root.val == val)
-			return root;
-		return val < root.val ? searchBST(root.left, val) : searchBST(root.right, val);
+	public static TNode searchBST(TNode root, int val) {
+		if (null == root || root.data == val) return root;
+		return val < root.data ?
+				searchBST(root.left, val) :
+				searchBST(root.right, val);
 	}
 }

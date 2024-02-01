@@ -1,5 +1,7 @@
 package com.algo.binarytree;
 
+import java.util.Arrays;
+
 public class TNode {
     public static int NULL = Integer.MIN_VALUE;
     public int data;
@@ -57,5 +59,36 @@ public class TNode {
             nodes[i].right = right < n ? nodes[right] : null;
         }
         return nodes[0];
+    }
+
+    public static TNode makeBST(int n) {
+        int[] nums = new int[n];
+        for (int i = 1; i <= n; i++) nums[i - 1] = i;
+        return makeBST(nums, 0, n - 1);
+    }
+
+    public static TNode makeBST(int[] nums) {
+        Arrays.sort(nums);
+        return makeBST(nums, 0, nums.length - 1);
+    }
+
+    private static TNode makeBST(int[] nums, int l, int r) {
+        if (l > r) return null;
+        if (l == r) return new TNode(nums[l]);
+        int mid = (l + r) / 2;
+        TNode left = makeBST(nums, l, mid - 1);
+        TNode right = makeBST(nums, mid + 1, r);
+        return new TNode(nums[mid], left, right);
+    }
+
+    public TNode searchBST(int root) {
+        return searchBST(this, root);
+    }
+
+    public static TNode searchBST(TNode root, int data) {
+        if (null == root || root.data == data) return root;
+        return data < root.data ?
+                searchBST(root.left, data) :
+                searchBST(root.right, data);
     }
 }

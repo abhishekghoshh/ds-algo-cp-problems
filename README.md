@@ -609,6 +609,10 @@
   - [Requirements needed to construct a Unique Binary Tree | Theory](/src/com/ds/binarytree/RequirementsNeededToConstructUniqueBinaryTree.java)
   - [Construct A Binary Tree from Inorder and Preorder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPreorder.java)
   - [Construct Binary Tree from Inorder and PostOrder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPostorder.java)
+  - [Serialize and deserialize Binary Tree](/src/com/ds/binarytree/SerializerAndDeserializeBinaryTree.java)
+  - [Morris Inorder Traversal of a Binary Tree](/src/com/ds/binarytree/MorrisInorderTraversal.java)
+  - [Morris Preorder Traversal of a Binary Tree](/src/com/ds/binarytree/MorrisPreorderTraversal.java)
+  - [Flatten Binary Tree to LinkedList](/src/com/ds/binarytree/FlattenBinaryTreeToLinkedList.java)
 </details>
 
 <details>
@@ -616,6 +620,8 @@
 
 - resources
   - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+- codes
+  - [Introduction to Binary Search Trees](/src/com/ds/binarysearchtree/IntroductionToBinarySearchTree.java)
 </details>
 
 <details>

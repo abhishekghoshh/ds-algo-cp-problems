@@ -1,13 +1,15 @@
-package binarytree;
+package com.ds.binarytree;
+
+import com.algo.binarytree.TNode;
+import com.util.PrintUtl;
 
 import java.util.Stack;
-
-import util.TreeNode;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
  * https://practice.geeksforgeeks.org/problems/flatten-binary-tree-to-linked-list/1
+ * https://www.codingninjas.com/studio/problems/flatten-binary-tree-to-linked-list_1112615
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=sWf7k1x9XR4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=39
@@ -16,20 +18,19 @@ import util.TreeNode;
  */
 public class FlattenBinaryTreeToLinkedList {
 	public static void main(String[] args) {
-		type00_();
-		type0_();
-		type1_();
-		type2_();
-		type3_();
+		type1();
+		type2();
+		type3();
+		type4();
+		type5();
 	}
 
-	private static void type3_() {
-		TreeNode<Integer> root = util.TreeNode.withCount(15);
+	private static void type5() {
+		TNode root = TNode.withCount(15);
 		flat(root);
-		System.out.println(root.preOrder());
+		PrintUtl.preOrder(root);
 	}
 
-	@SuppressWarnings("unchecked")
 	// every function call will flat the tree and give me the start node and last
 	// node of that list
 	// so currently I have root then start node of the left side list and last node
@@ -40,12 +41,12 @@ public class FlattenBinaryTreeToLinkedList {
 	// left side list end -> right side list start
 	// now I have
 	// root ---> right side list end
-	public static TreeNode<Integer>[] flat(TreeNode<Integer> root) {
+	public static TNode[] flat(TNode root) {
 		if (null == root)
 			return null;
-		TreeNode<Integer> last = root;
-		TreeNode<Integer>[] leftSideList = flat(root.left);
-		TreeNode<Integer>[] rightSideList = flat(root.right);
+		TNode last = root;
+		TNode[] leftSideList = flat(root.left);
+		TNode[] rightSideList = flat(root.right);
 		if (null != leftSideList) {
 			root.left = null;
 			root.right = leftSideList[0];
@@ -55,22 +56,22 @@ public class FlattenBinaryTreeToLinkedList {
 			last.right = rightSideList[0];
 			last = rightSideList[1];
 		}
-		return new TreeNode[] { root, last };
+		return new TNode[]{root, last};
 	}
 
-	private static void type2_() {
-		TreeNode<Integer> root = util.TreeNode.withCount(15);
+	private static void type4() {
+		TNode root = TNode.withCount(15);
 		flatten(root);
-		System.out.println(root.preOrder());
+		PrintUtl.preOrder(root);
 	}
 
-	public static void flatten(TreeNode<Integer> root) {
+	public static void flatten(TNode root) {
 		if (root == null) {
 			return;
 		}
 		flatten(root.right);
 		flatten(root.left);
-		TreeNode<Integer> last = root.right;
+		TNode last = root.right;
 		root.right = root.left;
 		root.left = null;
 		while (root.right != null)
@@ -80,12 +81,12 @@ public class FlattenBinaryTreeToLinkedList {
 
 	// morris traversal
 	// check striver solution
-	private static void type1_() {
-		TreeNode<Integer> root = util.TreeNode.withCount(15);
-		TreeNode<Integer> curr = root;
+	private static void type3() {
+		TNode root = TNode.withCount(15);
+		TNode curr = root;
 		while (curr != null) {
 			if (curr.left != null) {
-				TreeNode<Integer> prev = curr.left;
+				TNode prev = curr.left;
 				while (prev.right != null) {
 					prev = prev.right;
 				}
@@ -95,20 +96,19 @@ public class FlattenBinaryTreeToLinkedList {
 			}
 			curr = curr.right;
 		}
-		System.out.println(root.preOrder());
+		PrintUtl.preOrder(root);
 	}
 
-	// same as previous
+	// same as a previous
 	// iterative preorder
 	// check striver solution
-	private static void type0_() {
-		TreeNode<Integer> root = util.TreeNode.withCount(15);
-		if (root == null)
-			return;
-		Stack<TreeNode<Integer>> stack = new Stack<>();
+	private static void type2() {
+		TNode root = TNode.withCount(15);
+		if (root == null) return;
+		Stack<TNode> stack = new Stack<>();
 		stack.push(root);
 		while (!stack.isEmpty()) {
-			TreeNode<Integer> current = stack.pop();
+			TNode current = stack.pop();
 			if (current.right != null)
 				stack.push(current.right);
 			if (current.left != null)
@@ -117,24 +117,22 @@ public class FlattenBinaryTreeToLinkedList {
 				current.right = stack.peek();
 			current.left = null;
 		}
-		System.out.println(root.preOrder());
+		PrintUtl.preOrder(root);
 	}
 
-	// check striver solution
-	// using reverse pre order
-	private static void type00_() {
-		TreeNode<Integer> root = util.TreeNode.withCount(15);
-		if (root == null)
-			return;
+	// check a striver solution
+	// using reverse pre-order
+	private static void type1() {
+		TNode root = TNode.withCount(15);
+		if (root == null) return;
 		reversePostOrder(root);
-		System.out.println(root.preOrder());
+		PrintUtl.preOrder(root);
 	}
 
-	private static TreeNode<Integer> prev = null;
+	private static TNode prev = null;
 
-	private static void reversePostOrder(TreeNode<Integer> root) {
-		if (root == null)
-			return;
+	private static void reversePostOrder(TNode root) {
+		if (root == null) return;
 		reversePostOrder(root.right);
 		reversePostOrder(root.left);
 		root.right = prev;
