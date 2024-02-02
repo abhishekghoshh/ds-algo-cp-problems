@@ -17,72 +17,61 @@ public class LowestCommonAncestorInBinarySearchTree {
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
 	}
+
 
 	// we will use the bst property left<root<right
-	// recursive ways
-	private static void type3() {
-		TNode root = TNode.makeBST(15);
-		TNode p = new TNode(7);
-		TNode q = new TNode(15);
-		System.out.println(lowestCommonAncestor(root, p, q));
-	}
-
-	public static TNode lowestCommonAncestor(TNode root, TNode p, TNode q) {
-		if (null == root) return null;
-		if (root.data == p.data) return p;
-		if (root.data == q.data) return q;
-		if (!rootDirection(root, p, q)) return root;
-		if (p.data > root.data && q.data > root.data)
-			return lowestCommonAncestor(root.right, p, q);
-		else
-			return lowestCommonAncestor(root.left, p, q);
-	}
-
-	public static boolean rootDirection(TNode root, TNode p, TNode q) {
-		return (p.data > root.data && q.data > root.data)
-				|| (p.data < root.data && q.data < root.data);
-	}
-
-	// we will use the bst property left<root<right
+	// same like iterative one
+	// we will go left if root data is greater than both p and q.
+	// we will go right if both p and q are bigger
+	// while traversing anywhere if we find that p and q are in opposite side
+	// that node will be the common ancestor
 	// recursive ways
 	private static void type2() {
 		TNode root = TNode.makeBST(15);
 		TNode p = new TNode(7);
 		TNode q = new TNode(15);
-		System.out.println(lca(root, p, q));
+		TNode node = lca1(root, p, q);
+		System.out.println(node);
 	}
 
-	private static TNode lca(TNode root, TNode p, TNode q) {
-		if (null == root)
-			return null;
-		if (root.data > p.data && root.data > q.data) {
-			return lca(root.left, p, q);
-		} else if (root.data < p.data && root.data < q.data) {
-			return lca(root.right, p, q);
-		} else {
+	private static TNode lca1(TNode root, TNode p, TNode q) {
+		if (null == root) return null;
+		if (root.data > p.data && root.data > q.data)
+			// node is greater than both of them
+			return lca1(root.left, p, q);
+		else if (root.data < p.data && root.data < q.data)
+			// node data is lesser than both of them
+			return lca1(root.right, p, q);
+		else
+			// both p and q are in opposite side
 			return root;
-		}
 	}
 
 	// we will use the bst property left<root<right
+	// we will go left if root data is greater than both p and q.
+	// we will go right if both p and q are bigger
+	// while traversing anywhere if we find that p and q is in opposite side
+	// that node will be the common ancestor
 	// iterative ways
 	private static void type1() {
 		TNode root = TNode.makeBST(15);
 		TNode p = new TNode(7);
 		TNode q = new TNode(15);
-		TNode curr = root;
-		while (null != curr) {
-			if (curr.data > p.data && curr.data > q.data) {
-				curr = curr.left;
-			} else if (curr.data < p.data && curr.data < q.data) {
-				curr = curr.right;
-			} else {
+		TNode node = root;
+		while (null != node) {
+			// node is greater than both of them
+			if (node.data > p.data && node.data > q.data)
+				node = node.left;
+				// node data is lesser than both of them
+			else if (node.data < p.data && node.data < q.data)
+				node = node.right;
+			else
+				// both p and q are in opposite side
 				break;
-			}
+
 		}
-		System.out.println(curr);
+		System.out.println(node);
 	}
 
 }
