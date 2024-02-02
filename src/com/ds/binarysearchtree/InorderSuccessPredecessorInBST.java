@@ -1,11 +1,12 @@
-package binarytree;
+package com.ds.binarysearchtree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/inorder-successor-in-bst/
  * https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1
+ * https://www.codingninjas.com/studio/problems/predecessor-and-successor-in-bst_893049
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=SXKAD2svfmI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=50
@@ -21,14 +22,14 @@ public class InorderSuccessPredecessorInBST {
 
 	// inorder predecessor
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.makeBST(31);
+		TNode root = TNode.makeBST(31);
 		int key = 7;
 
-		TreeNode<Integer> curr = root, ans = null;
+		TNode curr = root, ans = null;
 		while (curr != null) {
 			// if key is lesser than node so we need to go to the left subtree
 			// if key is the equal to node then also we need to go to the left subtree
-			if (key <= curr.val) {
+			if (key <= curr.data) {
 				curr = curr.left;
 			} else {
 				// key > node
@@ -42,14 +43,14 @@ public class InorderSuccessPredecessorInBST {
 
 	// inorder successor
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.makeBST(31);
+		TNode root = TNode.makeBST(31);
 		int key = 7;
 
-		TreeNode<Integer> curr = root, ans = null;
+		TNode curr = root, ans = null;
 		while (curr != null) {
 			// if key is greater than node so we need to go to the right subtree
 			// if key is equal to node then also we need to go to the right subtree
-			if (key >= curr.val) {
+			if (key >= curr.data) {
 				curr = curr.right;
 			} else {
 				// key < node

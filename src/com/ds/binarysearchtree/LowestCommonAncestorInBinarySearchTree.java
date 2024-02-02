@@ -10,7 +10,7 @@ import com.algo.binarytree.TNode;
  * Solution link :
  * https://www.youtube.com/watch?v=cX_kPV_foZc&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=48
  * 
- * 
+ * https://takeuforward.org/binary-search-tree/lca-in-binary-search-tree/
  */
 public class LowestCommonAncestorInBinarySearchTree {
 

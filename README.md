@@ -632,6 +632,8 @@
   - [Kth largest/smallest element in Binary Search Tree](/src/com/ds/binarysearchtree/KthSmallestLargestElementInBinaryTree.java)
   - [Validate Binary Search Tree](/src/com/ds/binarysearchtree/CheckIfTreeIsBinarySearchTree.java)
   - [Lowest Common Ancestor of a Binary Search Tree](/src/com/ds/binarysearchtree/LowestCommonAncestorInBinarySearchTree.java)
+  - [Construct Binary Search Tree from Preorder Traversal](/src/com/ds/binarysearchtree/ConstructBinarySearchTreeFromPreorderTraversal.java)
+  - [Inorder Successor/Predecessor in Binary Search Tre](/src/com/ds/binarysearchtree/InorderSuccessPredecessorInBST.java)
 </details>
 
 <details>
