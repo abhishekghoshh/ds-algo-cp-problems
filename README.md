@@ -629,6 +629,9 @@
   - [Floor in a Binary Search Tree](/src/com/ds/binarysearchtree/FloorInBinarySearchTree.java)
   - [Insert a Given Node in Binary Search Tree](/src/com/ds/binarysearchtree/InsertNodeInBinarySearchTree.java)
   - [Delete a Node in Binary Search Tree](/src/com/ds/binarysearchtree/DeleteNodeInBinarySearchTree.java)
+  - [Kth largest/smallest element in Binary Search Tree](/src/com/ds/binarysearchtree/KthSmallestLargestElementInBinaryTree.java)
+  - [Validate Binary Search Tree](/src/com/ds/binarysearchtree/CheckIfTreeIsBinarySearchTree.java)
+  - [Lowest Common Ancestor of a Binary Search Tree](/src/com/ds/binarysearchtree/LowestCommonAncestorInBinarySearchTree.java)
 </details>
 
 <details>

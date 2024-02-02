@@ -1,6 +1,7 @@
 package com.ds.binarysearchtree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
+import com.util.PrintUtl;
 
 /*
  * Problem link :
@@ -17,61 +18,89 @@ public class DeleteNodeInBinarySearchTree {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
 	}
 
-	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(5, 3, 6, 2, 4, null, 7);
-		root = deleteNode(root, 3);
-		System.out.println(root.levelOrder());
-	}
 
 	// iterative way
 	// first we are searching the node which is to be deleted
-	public static TreeNode<Integer> deleteNode(TreeNode<Integer> root, int key) {
-		if (null == root)
-			return null;
-		if (root.val == key) {
-			return deleteCurrentNode(root);
-		}
-		// we are also keep tracking of the parent node
-		TreeNode<Integer> curr = root, prev = null;
+	private static void type2() {
+		TNode root = TNode.withNodes(5, 3, 6, 2, 4, TNode.NULL, 7);
+		root = deleteNode2(root, 3);
+		PrintUtl.levelOrder(root);
+	}
+
+
+	public static TNode deleteNode2(TNode root, int target) {
+		// if the root is null, then we do not have to do anything
+		if (null == root) return null;
+		// if the current root is the target, then we will delete the node
+		if (root.data == target) return deleteNode(root);
+		// we are also keeping track of the parent node
+		TNode curr = root, prev = null;
+		// we need the previous node because
+		// we need to know that current node is in which side
+		// because we need to assign a node after deleting the target node
 		while (null != curr) {
-			if (key > curr.val) {
-				prev = curr;
-				curr = curr.right;
-			} else if (key < curr.val) {
+			if (target == curr.data) {
+				if (prev.left == curr) prev.left = deleteNode(curr);
+				else prev.right = deleteNode(curr);
+				return root;
+			} else if (target < curr.data) {
 				prev = curr;
 				curr = curr.left;
 			} else {
-				if (prev.left == curr) {
-					prev.left = deleteCurrentNode(curr);
-				} else {
-					prev.right = deleteCurrentNode(curr);
-				}
-				return root;
+				prev = curr;
+				curr = curr.right;
 			}
 		}
 		return root;
 	}
 
+	private static void type1() {
+		TNode root = TNode.withNodes(5, 3, 6, 2, 4, TNode.NULL, 7);
+		root = deleteNode1(root, 3);
+		PrintUtl.levelOrder(root);
+	}
+
+	// recursive way
+	private static TNode deleteNode1(TNode root, int target) {
+		// if the current node is null, then will return null,
+		// this case will come only when there is no target
+		if (null == root) return null;
+		// if the current node is target, then we will delete the current node
+		// and return the new node
+		if (target == root.data) return deleteNode(root);
+		// if the target is lesser than the root, then we will go to the left else right
+		if (target < root.data) root.left = deleteNode1(root.left, target);
+		else root.right = deleteNode1(root.right, target);
+		return root;
+	}
+
+
+	// TODO In short we are going to the in order successor of the current node
 	// we are passing the node which is to be deleted
-	// if any of it's child node is null then we are returning other one
-	// if both of the children node is non empty
-	// then we know that all the left nodes is lesser than right node
+	// if any of its child node is null then we are returning other one
+	// if both of the children node is non-empty
+	// then we know that all the left nodes is lesser than right node,
 	// so we can do one of 2 ways
 	// either we can attach the right subtree to the right of the highest node left
 	// subtree, or we can attach the left subtree to the left of the lowest of right
 	// subtree, here we have used the 2nd approach
-	private static TreeNode<Integer> deleteCurrentNode(TreeNode<Integer> root) {
-		if (null != root.left && null != root.right) {
-			TreeNode<Integer> curr = root.right;
-			while (curr.left != null) {
-				curr = curr.left;
-			}
-			curr.left = root.left;
-			return root.right;
-		}
-		return null != root.left ? root.left : root.right;
+	private static TNode deleteNode(TNode root) {
+		// if one of the branches of the current node is empty, then we will return the other one
+		// it will also handle the case where both of the branches are null
+		if (null == root.left || null == root.right)
+			return (null != root.left) ? root.left : root.right;
+		// we are going to right, which will be greater than the node
+		TNode node = root.right;
+		// now we go to as left as possible to get the least element
+		while (node.left != null) node = node.left;
+		// the node is the in order successor of the root
+		// we will assign root left child to node left child, this will preserve the root left child
+		node.left = root.left;
+		// root right child will be the new root
+		return root.right;
 	}
 
 }
