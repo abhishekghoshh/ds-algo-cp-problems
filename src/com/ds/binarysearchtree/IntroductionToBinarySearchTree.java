@@ -47,17 +47,18 @@ public class IntroductionToBinarySearchTree {
 	// for a valid BST the inorder of the BST will be in sorted order
 	private static void type1() {
 		int[] order = {2, 3, 5, 8, 9, 10};
+		boolean isValidBST = isValidBST(order);
+		System.out.println(isValidBST);
+	}
+
+	private static boolean isValidBST(int[] order) {
 		int prev = Integer.MIN_VALUE;
-		boolean isValidBST = true;
 		for (int num : order) {
 			// if prev is greater than the current number, then that means it is not a valid BST
-			if (prev >= num) {
-				isValidBST = false;
-				break;
-			}
+			if (prev >= num) return false;
 			prev = num;
 		}
-		System.out.println(isValidBST);
+		return true;
 	}
 
 }

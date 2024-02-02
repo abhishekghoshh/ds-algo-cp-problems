@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarysearchtree;
 
 import util.TreeNode;
 
@@ -6,11 +6,12 @@ import util.TreeNode;
  * Problem link :
  * https://leetcode.com/problems/delete-node-in-a-bst/
  * https://practice.geeksforgeeks.org/problems/delete-a-node-from-bst/1
+ * https://www.codingninjas.com/studio/problems/delete-node-in-bst_920381
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=kouxiP_H5WE&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=45
- * 
- * 
+ *
+ * https://takeuforward.org/binary-search-tree/delete-a-node-in-binary-search-tree/
  */
 public class DeleteNodeInBinarySearchTree {
 

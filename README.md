@@ -622,6 +622,13 @@
   - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
 - codes
   - [Introduction to Binary Search Trees](/src/com/ds/binarysearchtree/IntroductionToBinarySearchTree.java)
+  - [Search in a Binary Search Tree](/src/com/ds/binarysearchtree/SearchInBinarySearchTree.java)
+  - [Minimum element in BST](/src/com/ds/binarysearchtree/MinimumElementInBinarySearchTree.java)
+  - [Maximum element in BST](/src/com/ds/binarysearchtree/MaximumElementInBinarySearchTree.java)
+  - [Ceil in a Binary Search Tree](/src/com/ds/binarysearchtree/CeilInBinarySearchTree.java)
+  - [Floor in a Binary Search Tree](/src/com/ds/binarysearchtree/FloorInBinarySearchTree.java)
+  - [Insert a Given Node in Binary Search Tree](/src/com/ds/binarysearchtree/InsertNodeInBinarySearchTree.java)
+  - [Delete a Node in Binary Search Tree](/src/com/ds/binarysearchtree/DeleteNodeInBinarySearchTree.java)
 </details>
 
 <details>

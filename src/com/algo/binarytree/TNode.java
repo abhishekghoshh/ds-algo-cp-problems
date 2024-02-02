@@ -67,7 +67,7 @@ public class TNode {
         return makeBST(nums, 0, n - 1);
     }
 
-    public static TNode makeBST(int[] nums) {
+    public static TNode makeBST(int... nums) {
         Arrays.sort(nums);
         return makeBST(nums, 0, nums.length - 1);
     }
