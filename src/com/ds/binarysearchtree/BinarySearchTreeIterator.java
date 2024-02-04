@@ -1,10 +1,10 @@
-package binarytree;
+package com.ds.binarysearchtree;
+
+import com.algo.binarytree.TNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import util.TreeNode;
 
 /*
  * Problem link :
@@ -24,7 +24,7 @@ public class BinarySearchTreeIterator {
 	}
 
 	private static void type3() {
-		TreeNode<Integer> root = TreeNode.makeBST(31);
+		TNode root = TNode.makeBST(31);
 		BstIterator3 bstIterator = new BstIterator3(root);
 		while (bstIterator.hasNext()) {
 			System.out.print(bstIterator.next() + " ");
@@ -33,16 +33,16 @@ public class BinarySearchTreeIterator {
 	}
 
 	private static class BstIterator3 {
-		TreeNode<Integer>[] stack;
+		TNode[] stack;
 		int top = -1;
 		int n = 1000000;
 
-		public BstIterator3(TreeNode<Integer> root) {
-			stack = (TreeNode<Integer>[]) new TreeNode[n];
+		public BstIterator3(TNode root) {
+			stack = new TNode[n];
 			pushAllLeft(root, stack);
 		}
 
-		private void pushAllLeft(TreeNode<Integer> root, TreeNode<Integer>[] stack2) {
+		private void pushAllLeft(TNode root, TNode[] stack2) {
 			while (null != root) {
 				stack[++top] = root;
 				root = root.left;
@@ -50,9 +50,9 @@ public class BinarySearchTreeIterator {
 		}
 
 		public int next() {
-			TreeNode<Integer> node = stack[top--];
+			TNode node = stack[top--];
 			pushAllLeft(node.right, stack);
-			return node.val;
+			return node.data;
 		}
 
 		public boolean hasNext() {
@@ -65,11 +65,11 @@ public class BinarySearchTreeIterator {
 	// here we are not storing the whole inorder traversal
 	// we are just storing the left most child
 	// in a sense we are storing only one full recursion depth into the stack
-	// on every next call we just returning the stack top element because it is the
-	// most left element and in inorder we have to return the left mode element
+	// on every next call we're just returning the stack top element because it is the
+	// most left element and in inorder we have to return the left mode element,
 	// and also we are checking if the node has any right node
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.makeBST(31);
+		TNode root = TNode.makeBST(31);
 		BstIterator2 bstIterator = new BstIterator2(root);
 		while (bstIterator.hasNext()) {
 			System.out.print(bstIterator.next() + " ");
@@ -78,14 +78,14 @@ public class BinarySearchTreeIterator {
 	}
 
 	public static class BstIterator2 {
-		Stack<TreeNode<Integer>> stack;
+		Stack<TNode> stack;
 
-		public BstIterator2(TreeNode<Integer> root) {
+		public BstIterator2(TNode root) {
 			stack = new Stack<>();
 			pushAllLeft(root, stack);
 		}
 
-		private void pushAllLeft(TreeNode<Integer> root, Stack<TreeNode<Integer>> stack) {
+		private void pushAllLeft(TNode root, Stack<TNode> stack) {
 			while (null != root) {
 				stack.push(root);
 				root = root.left;
@@ -93,9 +93,9 @@ public class BinarySearchTreeIterator {
 		}
 
 		public int next() {
-			TreeNode<Integer> node = stack.pop();
+			TNode node = stack.pop();
 			pushAllLeft(node.right, stack);
-			return node.val;
+			return node.data;
 		}
 
 		public boolean hasNext() {
@@ -106,7 +106,7 @@ public class BinarySearchTreeIterator {
 	// time complexity of next function in O(1)
 	// space complexity O(n)
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.makeBST(31);
+		TNode root = TNode.makeBST(31);
 		BstIterator1 bstIterator = new BstIterator1(root);
 		while (bstIterator.hasNext()) {
 			System.out.print(bstIterator.next() + " ");
@@ -118,17 +118,17 @@ public class BinarySearchTreeIterator {
 		private List<Integer> inorder;
 		private int index;
 
-		public BstIterator1(TreeNode<Integer> root) {
+		public BstIterator1(TNode root) {
 			inorder = new ArrayList<>();
 			index = 0;
 			build(root);
 		}
 
-		private void build(TreeNode<Integer> node) {
+		private void build(TNode node) {
 			if (node == null)
 				return;
 			build(node.left);
-			inorder.add(node.val);
+			inorder.add(node.data);
 			build(node.right);
 		}
 

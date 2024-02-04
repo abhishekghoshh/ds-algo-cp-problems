@@ -1,35 +1,35 @@
-package binarytree;
+package com.ds.binarysearchtree;
+
+import com.algo.binarytree.TNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-import util.TreeNode;
-
 /*
  * Problem link :
  * https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
  * https://practice.geeksforgeeks.org/problems/find-a-pair-with-given-target-in-bst/1
- * 
+ * https://www.codingninjas.com/studio/problems/pair-sum-in-bst._920493
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=ssL3sHwPeb4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=52
  * 
  * 
  */
-public class TwoSumInBST {
+public class TwoSumInBinarySearchTree {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
-	// so rather than storing the whole list we can iterate once from front and once
-	// from back and meanwhile we can calculate
-	// we know how to iterate a BST, so we can similarly derive how can we iterate
-	// list from back
+	// so rather than storing the whole list, we can iterate once from front and once
+	// from back, and meanwhile we can calculate.
+	// we know how to iterate a BST, so we can similarly derive how can iterate the list from back
 	private static void type2() {
-		TreeNode<Integer> root = TreeNode.makeBST(15);
+		TNode root = TNode.makeBST(15);
 		int k = 25;
 		BSTIterator forwardIterator = new BSTIterator(root, true);
 		BSTIterator backwardIterator = new BSTIterator(root, false);
@@ -49,25 +49,25 @@ public class TwoSumInBST {
 	}
 
 	private static class BSTIterator {
-		private Deque<TreeNode<Integer>> stack = new ArrayDeque<>();
+		private Deque<TNode> stack = new ArrayDeque<>();
 		private boolean isForward;
 
-		public BSTIterator(TreeNode<Integer> root, boolean isForward) {
+		public BSTIterator(TNode root, boolean isForward) {
 			this.isForward = isForward;
 			push(root);
 		}
 
 		public int next() {
-			TreeNode<Integer> root = stack.pop();
+			TNode root = stack.pop();
 			push(isForward ? root.right : root.left);
-			return root.val;
+			return root.data;
 		}
 
 		public boolean hasNext() {
 			return !stack.isEmpty();
 		}
 
-		private void push(TreeNode<Integer> root) {
+		private void push(TNode root) {
 			while (root != null) {
 				stack.push(root);
 				root = isForward ? root.left : root.right;
@@ -80,7 +80,7 @@ public class TwoSumInBST {
 	// which will be sorted
 	// and then we can apply same two sum problem in the inorder list
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.makeBST(15);
+		TNode root = TNode.makeBST(15);
 		int k = 25;
 		List<Integer> inorder = new ArrayList<>();
 		inorder(root, inorder);
@@ -100,11 +100,10 @@ public class TwoSumInBST {
 		System.out.println(hasTwoSum);
 	}
 
-	private static void inorder(TreeNode<Integer> root, List<Integer> inorder) {
-		if (null == root)
-			return;
+	private static void inorder(TNode root, List<Integer> inorder) {
+		if (null == root) return;
 		inorder(root.left, inorder);
-		inorder.add(root.val);
+		inorder.add(root.data);
 		inorder(root.right, inorder);
 	}
 

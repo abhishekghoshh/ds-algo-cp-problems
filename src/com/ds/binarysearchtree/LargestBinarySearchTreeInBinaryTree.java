@@ -1,4 +1,4 @@
-package binarytree;
+package com.ds.binarysearchtree;
 
 import util.TreeNode;
 
@@ -12,7 +12,7 @@ import util.TreeNode;
  * 
  * 
  */
-public class LargestBSTinBinaryTree {
+public class LargestBinarySearchTreeInBinaryTree {
 
 	public static void main(String[] args) {
 		type1();

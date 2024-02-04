@@ -27,7 +27,7 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
 
 	private static void type4() {
 		int[] preorder = { 8, 5, 1, 7, 10, 12 };
-		TNode root = bstFromPreorder3(preorder, Integer.MAX_VALUE, new int[]{0});
+		TNode root = bstFromPreorder3(preorder, Integer.MAX_VALUE, new Data());
 		preOrder(root);
 	}
 
@@ -35,13 +35,17 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
 	// using the parent node value and upper bound.
 	// if the value is more than the root, that means this is the right subtree
 	// TODO check striver solution
-	private static TNode bstFromPreorder3(int[] preorder, int bound, int[] index) {
-		if (index[0] == preorder.length || preorder[index[0]] > bound)
+	private static TNode bstFromPreorder3(int[] preorder, int bound, Data data) {
+		if (data.index == preorder.length || preorder[data.index] > bound)
 			return null;
-		TNode root = new TNode(preorder[index[0]++]);
-		root.left = bstFromPreorder3(preorder, root.data, index);
-		root.right = bstFromPreorder3(preorder, bound, index);
+		TNode root = new TNode(preorder[data.index++]);
+		root.left = bstFromPreorder3(preorder, root.data, data);
+		root.right = bstFromPreorder3(preorder, bound, data);
 		return root;
+	}
+
+	static class Data {
+		public int index = 0;
 	}
 
 	// same as a previous type,

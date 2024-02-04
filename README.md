@@ -633,7 +633,12 @@
   - [Validate Binary Search Tree](/src/com/ds/binarysearchtree/CheckIfTreeIsBinarySearchTree.java)
   - [Lowest Common Ancestor of a Binary Search Tree](/src/com/ds/binarysearchtree/LowestCommonAncestorInBinarySearchTree.java)
   - [Construct Binary Search Tree from Preorder Traversal](/src/com/ds/binarysearchtree/ConstructBinarySearchTreeFromPreorderTraversal.java)
-  - [Inorder Successor/Predecessor in Binary Search Tre](/src/com/ds/binarysearchtree/InorderSuccessPredecessorInBST.java)
+  - [Inorder Successor/Predecessor in Binary Search Tre](/src/com/ds/binarysearchtree/InorderSuccessorPredecessorInBST.java)
+  - [Merge Two Binary Search Tree](/src/com/ds/binarysearchtree/MergeTwoBinarySearchTree.java)
+  - [Binary Search Tree Iterator](/src/com/ds/binarysearchtree/BinarySearchTreeIterator.java)
+  - [Two Sum In Binary Search Tree](/src/com/ds/binarysearchtree/TwoSumInBinarySearchTree.java)
+  - [Recover Binary Search Tree | Correct Binary Search Tree with two nodes swapped](/src/com/ds/binarysearchtree/RecoverBinarySearchTree.java)
+  - [Largest Binary Search Tree in Binary Tree](/src/com/ds/binarysearchtree/LargestBinarySearchTreeInBinaryTree.java)
 </details>
 
 <details>

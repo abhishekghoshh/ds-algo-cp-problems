@@ -1,6 +1,6 @@
 package binarytree;
 
-import util.TreeNode;
+import com.algo.binarytree.TNode;
 
 /*
  * Problem link :
@@ -15,9 +15,14 @@ import util.TreeNode;
  * */
 public class MaximumPathSumNodesBinaryTreeFromLeafNodes {
 
-	public static void main(String args[]) {
-//		TreeNode<Integer> root = TreeNode.withAllNodesGiven(1, 2, 3, -2, -1);
-		TreeNode<Integer> root = TreeNode.withAllNodesGiven(6, -9, -10);
+	public static void main(String[] args) {
+		type1();
+		type2();
+	}
+
+
+	private static void type2() {
+		TNode root = TNode.withNodes(6, -9, -10);
 		MaxPathSum maxPathSum = new MaxPathSum();
 		maxPath(root, maxPathSum);
 		System.out.println(maxPathSum.get());
@@ -25,22 +30,22 @@ public class MaximumPathSumNodesBinaryTreeFromLeafNodes {
 
 	// as we are taking from the leaf
 	// so we can not discard any value
-	private static int maxPath(TreeNode<Integer> root, MaxPathSum maxPathSum) {
+	private static int maxPath(TNode root, MaxPathSum maxPathSum) {
 		// if this is null then it will return 0
 		if (null == root)
 			return 0;
 		// if this is a leaf node then it will return the node value
 		if (null == root.left && null == root.right) {
-			return root.val;
+			return root.data;
 		}
 		int left = maxPath(root.left, maxPathSum);
 		int right = maxPath(root.right, maxPathSum);
 
 		if (null != root.left && null != root.right) {
-			maxPathSum.value = Math.max(maxPathSum.value, root.val + left + right);
-			return root.val + Math.max(left, right);
+			maxPathSum.value = Math.max(maxPathSum.value, root.data + left + right);
+			return root.data + Math.max(left, right);
 		} else {
-			return root.val + (null != root.left ? left : right);
+			return root.data + (null != root.left ? left : right);
 		}
 	}
 
@@ -51,4 +56,8 @@ public class MaximumPathSumNodesBinaryTreeFromLeafNodes {
 			return value != Integer.MIN_VALUE ? value : -1;
 		}
 	}
+
+	private static void type1() {
+	}
+ 
 }
