@@ -21,16 +21,143 @@ public class SortLinkedList {
         type1();
         type2();
         type3();
+        type4();
     }
+
+    // TODO study this quick sort one more time
+    // using quick sort
+    private static void type4() {
+        Node head = new Node(1, 3, 4, 7, 1, 2, 6);
+        head = quickSort(head, null);
+        print(head);
+    }
+
+    public static Node quickSort(Node head, Node tail) {
+        if (head == null || head.next == null || head == tail)
+            return head;
+        boolean sorted = true;
+        Node pivot = head;
+        Node right = pivot;
+        Node curr = pivot.next;
+        while (curr != null && curr != tail) {
+            Node front = curr.next;
+            if (curr.data < pivot.data) {
+                sorted = false;
+                right.next = front;
+                curr.next = head;
+                head = curr;
+            } else {
+                //if it is greater that pivot but less than right(greater or equal to pivot)
+                if (curr.data < right.data) sorted = false;
+                right = curr;
+            }
+            curr = front;
+        }
+        if (sorted) return head;
+        pivot.next = quickSort(pivot.next, tail);
+        return quickSort(head, pivot);
+    }
+
 
     // using merge sort
     private static void type3() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
+        head = partition(head);
+        print(head);
+    }
+
+    public static Node partition(Node head) {
+        // using a merge sort idea
+        if (head == null || head.next == null) return head;
+        // as this is not an array, so we have to find out the
+        // middle pointer by traversing the entire array.
+        // but we could do one thing
+        // we could use the tortoise approach of finding the middle node
+        Node mid = findMid(head);
+        Node head2 = mid.next;
+        // detaching the middle pointer
+        mid.next = null;
+        // at this point, we have two lists
+        // one is head to mid
+        // another is mid.next ... last
+        head = partition(head);
+        head2 = partition(head2);
+        return merge(head, head2);
+    }
+
+    public static Node findMid(Node head) {
+        Node slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public static Node merge(Node list1, Node list2) {
+        Node head = new Node(-1);
+        Node prev = head;
+        while (null != list1 && null != list2) {
+            if (list1.data < list2.data) {
+                prev.next = list1;
+                list1 = list1.next;
+            } else {
+                prev.next = list2;
+                list2 = list2.next;
+            }
+            prev = prev.next;
+        }
+        prev.next = (null != list1) ? list1 : list2;
+        return head.next;
     }
 
     // optimized approach using insertion sort
     private static void type2() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
+        head = insertionSortList(head);
+        print(head);
+    }
+
+    private static Node insertionSortList(Node head) {
+        Node newHead = new Node(Integer.MIN_VALUE);
+        // here we will also store the last value of the sorted list.
+        // if the current node value is greater than the last node of the sorted list,
+        // then we can directly append to the last node and update the last node
+        Node last = newHead;
+        Node node = head, next;
+        while (null != node) {
+            next = node.next;
+            // if the current node data value is greater than previous,
+            // then we don't need to do anything
+            // we will just attach it to the previous
+            if (last.data <= node.data) {
+                last.next = node;
+                last = node;
+            } else {
+                // else we have to insert the node
+                insert(node, newHead);
+            }
+            node = next;
+        }
+        last.next = null;
+        return newHead.next;
+    }
+
+    private static void insert(Node node, Node head) {
+        // head is the dummy node with Integer.MIN_VALUE
+        // so any node whatever is the value will be added after this;
+        // we will try to find the node after which the current node
+        // should be added
+        Node prev = head;
+        // we all always check with the nxt value data
+        // if next value data is also lesser than current node data
+        // then we go to the next again, continue
+        while (null != prev.next && prev.next.data < node.data)
+            prev = prev.next;
+        // so we have find out the position
+        // node will be placed inside prev and prev.next
+        node.next = prev.next;
+        prev.next = node;
     }
 
     // brute force approach

@@ -24,7 +24,7 @@ public class LinkedListMergeSort {
     }
 
     public static Node partition(Node head) {
-        //using merge sort idea
+        // using a merge sort idea
         if (head == null || head.next == null) return head;
         // as this is not an array, so we have to find out the
         // middle pointer by traversing the entire array.
@@ -34,7 +34,7 @@ public class LinkedListMergeSort {
         Node head2 = mid.next;
         // detaching the middle pointer
         mid.next = null;
-        // at this point we have two lists
+        // at this point, we have two lists
         // one is head to mid
         // another is mid.next ... last
         head = partition(head);

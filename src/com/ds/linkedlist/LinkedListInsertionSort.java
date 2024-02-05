@@ -32,14 +32,14 @@ public class LinkedListInsertionSort {
 
 	private static Node insertionSortList2(Node head) {
 		Node newHead = new Node(Integer.MIN_VALUE);
-		// here we will also store the last value of the sorted list
-		// if the current node value is greater than last node pf the sorted list
+		// here we will also store the last value of the sorted list.
+		// if the current node value is greater than the last node of the sorted list,
 		// then we can directly append to the last node and update the last node
 		Node last = newHead;
 		Node node = head, next;
 		while (null != node) {
 			next = node.next;
-			// if the current node data value is greater than previous
+			// if the current node data value is greater than previous,
 			// then we don't need to do anything
 			// we will just attach it to the previous
 			if (last.data <= node.data) {
@@ -63,8 +63,8 @@ public class LinkedListInsertionSort {
 	}
 
 	private static Node insertionSortList1(Node head) {
-		// first we will create a dummy node with Integer.MIN_VALUE
-		// we know all our nodes will be bigger than this
+		// first, we will create a dummy node with Integer.MIN_VALUE.
+		// we know all our nodes will be bigger than this,
 		// so this new head will become the sorted list.
 		//  we will traverse the list, and then we will add the node into
 		// the sorted list to its proper position
