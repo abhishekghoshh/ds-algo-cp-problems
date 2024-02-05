@@ -45,7 +45,7 @@ public class RemoveDuplicatesFromSortedDoublyLinkedList2 {
     }
 
     // brute force approach
-    // store the frequencies in a map
+    // stores the frequencies in a map
     // add those nodes which have only one occurrence
     private static void type1() {
 

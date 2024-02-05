@@ -375,10 +375,8 @@
   - [Clone Linked List with Random and Next Pointer](/src/com/ds/linkedlist/CloneLinkedListWithRandomPointer.java)
   - [Design Linked List](/src/com/ds/linkedlist/DesignLinkedList.java)
   - [LRU Cache](/src/com/ds/linkedlist/LRUCache.java)
-    - linked-list
     - hashing
   - [LFU Cache](/src/com/ds/linkedlist/LFUCache.java)
-    - linked-list
     - hashing
 </details>
 
