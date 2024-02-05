@@ -30,6 +30,10 @@ public class PrintUtl {
         for (int item : arr) System.out.print(item + " ");
         System.out.println();
     }
+    public static void print(String... arr) {
+        for (String item : arr) System.out.print(item + " ");
+        System.out.println();
+    }
 
     public static void print2D(List<List<Integer>> matrix) {
         for (List<Integer> row : matrix) {
