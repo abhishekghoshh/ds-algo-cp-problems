@@ -26,8 +26,8 @@ public class BinaryTreeTraversal {
 
 	// Level order traversal
 	private static void type4() {
-		TNode treeNode = TNode.withCount(10);
-		List<List<Integer>> answer = levelOrder(treeNode);
+		TNode root = TNode.withCount(10);
+		List<List<Integer>> answer = levelOrder(root);
 		System.out.println(answer);
 	}
 

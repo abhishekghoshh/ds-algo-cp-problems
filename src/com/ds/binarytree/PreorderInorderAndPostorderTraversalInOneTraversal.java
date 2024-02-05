@@ -1,10 +1,10 @@
 package com.ds.binarytree;
 
+import com.algo.binarytree.TNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import util.TreeNode;
 
 /*
  * Problem link :
@@ -23,10 +23,10 @@ public class PreorderInorderAndPostorderTraversalInOneTraversal {
 	}
 
 	public static class Pair {
-		TreeNode<Integer> node;
+		TNode node;
 		int num;
 
-		Pair(TreeNode<Integer> node, int num) {
+		Pair(TNode node, int num) {
 			this.num = num;
 			this.node = node;
 		}
@@ -34,7 +34,7 @@ public class PreorderInorderAndPostorderTraversalInOneTraversal {
 
 	// TODO check it later
 	private static void type1() {
-		TreeNode<Integer> root = TreeNode.withCount(19);
+		TNode root = TNode.withCount(19);
 		List<Integer> pre = new ArrayList<>();
 		List<Integer> in = new ArrayList<>();
 		List<Integer> post = new ArrayList<>();
@@ -50,7 +50,7 @@ public class PreorderInorderAndPostorderTraversalInOneTraversal {
 			// increment 1 to 2
 			// push the left side of the tree
 			if (pair.num == 1) {
-				pre.add(pair.node.val);
+				pre.add(pair.node.data);
 				pair.num++;
 				stack.push(pair);
 				if (pair.node.left != null) {
@@ -61,7 +61,7 @@ public class PreorderInorderAndPostorderTraversalInOneTraversal {
 			// increment 2 to 3
 			// push right
 			else if (pair.num == 2) {
-				in.add(pair.node.val);
+				in.add(pair.node.data);
 				pair.num++;
 				stack.push(pair);
 				if (pair.node.right != null) {
@@ -70,7 +70,7 @@ public class PreorderInorderAndPostorderTraversalInOneTraversal {
 			}
 			// don't push it back again
 			else {
-				post.add(pair.node.val);
+				post.add(pair.node.data);
 			}
 		}
 		System.out.println(pre);
