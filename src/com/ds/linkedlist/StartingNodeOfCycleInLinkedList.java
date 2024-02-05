@@ -38,6 +38,11 @@ public class StartingNodeOfCycleInLinkedList {
         print(head);
         node2.last(node1);
 
+        head = detectCycle3(head);
+        System.out.println("starting node : " + head.data);
+    }
+
+    public static Node detectCycle3(Node head) {
         Node start = head;
         Node slow = head;
         Node fast = head;
@@ -55,10 +60,10 @@ public class StartingNodeOfCycleInLinkedList {
                     start = start.next;
                     slow = slow.next;
                 }
-                break;
+                return slow;
             }
         }
-        System.out.println("starting node : " + start.data);
+        return null;
     }
 
     // enhanced tortoise method for finding linked list cycle approach
@@ -87,6 +92,11 @@ public class StartingNodeOfCycleInLinkedList {
         print(head);
         node2.last(node1);
 
+        head = detectCycle2(head);
+        System.out.println("starting node : " + head.data);
+    }
+
+    public static Node detectCycle2(Node head) {
         Node slow = head;
         Node fast = head;
         while (null != fast && null != fast.next) {
@@ -105,7 +115,7 @@ public class StartingNodeOfCycleInLinkedList {
             start = start.next;
             slow = slow.next;
         }
-        System.out.println("starting node : " + start.data);
+        return start;
     }
 
     // brute force approach
@@ -119,13 +129,18 @@ public class StartingNodeOfCycleInLinkedList {
         print(head);
         node2.last(node1);
 
+        head = detectCycle1(head);
+        System.out.println("starting node : " + head.data);
+    }
+
+    public static Node detectCycle1(Node head) {
         Set<Node> set = new HashSet<>();
         while (null != head) {
             if (set.contains(head)) break;
             set.add(head);
             head = head.next;
         }
-        System.out.println("starting node : " + head.data);
+        return head;
     }
 
 }
