@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 /*
  * Problem link :
+ * https://www.codingninjas.com/studio/problems/counting-graphs_8357237
+ * https://www.codingninjas.com/studio/problems/creating-and-printing_1214551
  * https://practice.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1
  *
  * Solution link :
@@ -16,6 +18,7 @@ import java.util.Scanner;
  * https://www.youtube.com/watch?v=OsNklbh9gYI&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=3
  * 
  * https://takeuforward.org/graph/introduction-to-graph/
+ * https://takeuforward.org/graph/graph-representation-in-c/
  */
 public class GraphRepresentation {
 
