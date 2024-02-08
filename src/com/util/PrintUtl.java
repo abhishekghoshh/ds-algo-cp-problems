@@ -263,7 +263,7 @@ public class PrintUtl {
         for (int i = 0; i < count; i++) System.out.print(" ");
     }
 
-    private static <T extends Comparable<?>> int maxLevel(TNode node) {
+    private static int maxLevel(TNode node) {
         if (node == null) return 0;
         return Math.max(maxLevel(node.left), maxLevel(node.right)) + 1;
     }
