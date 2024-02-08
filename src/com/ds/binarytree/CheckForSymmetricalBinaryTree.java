@@ -35,7 +35,7 @@ public class CheckForSymmetricalBinaryTree {
         if (null == root1 && null == root2) return true;
         // if either is null, then it is not symmetric
         if (null == root1 || null == root2) return false;
-        // if both is non-null, then first we will check the values of node
+        // if both is non-null, then first we will check the values of the node
         // as we are checking the symmetric, so we will now check cris-cross
         return root1.data == root2.data
                 && isSymmetric(root1.left, root2.right)

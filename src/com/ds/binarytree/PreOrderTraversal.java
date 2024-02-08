@@ -10,6 +10,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
+ * https://www.codingninjas.com/studio/problems/preorder-binary-tree_5948
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=RlUu72JrOCQ&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=6
@@ -24,6 +25,8 @@ public class PreOrderTraversal {
 		type2();
 	}
 
+	// it is quite simple
+	// because we have to print root -> left -> right
 	// using iteration
 	private static void type2() {
 		TNode root = TNode.withCount(7);
@@ -38,6 +41,7 @@ public class PreOrderTraversal {
 		stack.add(root);
 		while (!stack.isEmpty()) {
 			TNode node = stack.pop();
+			// we will add the root here, then traverse its left and right
 			preOrder.add(node.data);
 			// We are pushing the right first then left because
 			// on the next iteration left will be popped first

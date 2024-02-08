@@ -3,7 +3,9 @@ package com.ds.binarytree;
 import com.algo.binarytree.TNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /*
  * Problem link :
@@ -23,7 +25,7 @@ public class RightViewOfBinaryTree {
     }
 
     // iterative way
-    // TODO complete it later
+    // we will go level wise
     private static void type2() {
         TNode root = TNode.withCount(15);
         List<Integer> rightView = rightViewTraversal(root);
@@ -32,8 +34,25 @@ public class RightViewOfBinaryTree {
 
     static List<Integer> rightViewTraversal(TNode root) {
         List<Integer> rightView = new ArrayList<>();
-        TNode node = root;
-
+        if (root == null) return rightView;
+        Queue<TNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int level = 0;
+        while (!queue.isEmpty()) {
+            // current size of the level
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TNode node = queue.poll();
+                // if the level is equal to the rightView size, then we will add the node data into the rightView
+                // and we know this will be the right most child by default
+                if (rightView.size() == level) rightView.add(node.data);
+                // first we will add the right child then left child
+                if (node.right != null) queue.offer(node.right);
+                if (node.left != null) queue.offer(node.left);
+            }
+            // we will add one level
+            level++;
+        }
         return rightView;
     }
 
@@ -45,9 +64,14 @@ public class RightViewOfBinaryTree {
         System.out.println(rightView);
     }
 
-    // it will go to most right, and if there is one level found then it will add that to list
+    // it will go to most right, and if there is one level found, then it will add that to the list.
+    // we don't need to store the right axis length
+    // as the recursion is going to leftmost side
+    // automatically the right will be added first
     private static void rightViewTraversal(TNode root, List<Integer> rightView, int level) {
         if (null == root) return;
+        // if the level exceed the rightView list size, that means we have found another bottom level,
+        // and by default, it is the left most child
         if (rightView.size() == level) rightView.add(root.data);
         rightViewTraversal(root.right, rightView, level + 1);
         rightViewTraversal(root.left, rightView, level + 1);

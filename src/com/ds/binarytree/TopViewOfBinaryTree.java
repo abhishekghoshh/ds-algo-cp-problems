@@ -20,32 +20,74 @@ public class TopViewOfBinaryTree {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
 
+	// Same as type2 just we are using the level wise separation of the traversal.
+	// Using iteration
 	// using bfs or level wise traversal
-	// as we are doing the level wise, so we are sure that the top most level is
-	// traversed first
-	private static void type2() {
+	// as we are doing the level wise, so we are sure that the top most level is traversed first
+	private static void type3() {
 		TNode root = TNode.withCount(15);
-		ArrayList<Integer> ans = new ArrayList<>();
+		List<Integer> answer = new ArrayList<>();
 		Map<Integer, Integer> map = new TreeMap<>();
 		Queue<Pair> queue = new LinkedList<>();
 		queue.add(new Pair(root, 0));
 		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				Pair pair = queue.poll();
+				int axis = pair.axis;
+				TNode node = pair.node;
+				// if the axis is not present, then only we will add that
+				// as we are going, level wise
+				// top nodes will come before the bottom nodes.
+				// so if the axis is already present in the map, then we do not need to add the node again
+				if (!map.containsKey(axis)) map.put(axis, node.data);
+				if (node.left != null) queue.add(new Pair(node.left, axis - 1));
+				if (node.right != null) queue.add(new Pair(node.right, axis + 1));
+			}
+		}
+		// find the min axis and add the answer from the axis
+		int minAxis = Integer.MAX_VALUE;
+		for (int axis : map.keySet())
+			if (minAxis > axis) minAxis = axis;
+
+		while (map.containsKey(minAxis))
+			answer.add(map.get(minAxis++));
+		System.out.println(answer);
+	}
+
+	// Using iteration
+	// using bfs or level wise traversal
+	// as we are doing the level wise, so we are sure that the top most level is traversed first
+	private static void type2() {
+		TNode root = TNode.withCount(15);
+		List<Integer> answer = new ArrayList<>();
+		Map<Integer, Integer> map = new TreeMap<>();
+		Queue<Pair> queue = new LinkedList<>();
+		queue.add(new Pair(root, 0));
+		// we will go level wise
+		while (!queue.isEmpty()) {
 			Pair pair = queue.poll();
 			int axis = pair.axis;
 			TNode node = pair.node;
-			if (!map.containsKey(axis))
-				map.put(axis, node.data);
-			if (node.left != null)
-				queue.add(new Pair(node.left, axis - 1));
-			if (node.right != null)
-				queue.add(new Pair(node.right, axis + 1));
+			// if the axis is not present, then only we will add that
+			// as we are going, level wise
+			// top nodes will come before the bottom nodes.
+			// so if the axis is already present in the map, then we do not need to add the node again
+			if (!map.containsKey(axis)) map.put(axis, node.data);
+			if (node.left != null) queue.add(new Pair(node.left, axis - 1));
+			if (node.right != null) queue.add(new Pair(node.right, axis + 1));
 		}
-		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-			ans.add(entry.getValue());
-		}
-		System.out.println(ans);
+		// find the min axis and add the answer from the axis
+		int minAxis = Integer.MAX_VALUE;
+		for (int axis : map.keySet())
+			if (minAxis > axis) minAxis = axis;
+
+		while (map.containsKey(minAxis))
+			answer.add(map.get(minAxis++));
+		System.out.println(answer);
 	}
 
 	public static class Pair {
@@ -58,6 +100,7 @@ public class TopViewOfBinaryTree {
 		}
 	}
 
+	// Using recursion
 	// Using DFS traversal
 	private static void type1() {
 		TNode root = TNode.withCount(15);
@@ -65,11 +108,12 @@ public class TopViewOfBinaryTree {
 		traverse(root, map, 0, 0);
 		List<Integer> answer = new ArrayList<>();
 
-		int minKey = Integer.MAX_VALUE;
-		for (int key : map.keySet())
-			if (minKey > key) minKey = key;
-		while (map.containsKey(minKey))
-			answer.add(map.get(minKey++).val);
+		// find the min axis and add the answer from the axis
+		int minAxis = Integer.MAX_VALUE;
+		for (int axis : map.keySet())
+			if (minAxis > axis) minAxis = axis;
+		while (map.containsKey(minAxis))
+			answer.add(map.get(minAxis++).val);
 		System.out.println(answer);
 
 	}
@@ -89,7 +133,6 @@ public class TopViewOfBinaryTree {
 		public int val;
 
 		public Pair2(int val, int level) {
-			super();
 			this.level = level;
 			this.val = val;
 		}

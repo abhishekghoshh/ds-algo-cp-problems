@@ -11,7 +11,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
- * 
+ * https://www.codingninjas.com/studio/problems/inorder-traversal_3839605
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=Z_NEgBgbRVI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=7
@@ -26,6 +26,7 @@ public class InOrderTraversal {
 		type2();
 	}
 
+	// here the first we need to go left, then we need to print root then the right subtree
 	// with iteration using stack
 	private static void type2() {
 		TNode root = TNode.withCount(7);
@@ -40,16 +41,14 @@ public class InOrderTraversal {
 		TNode node = root;
 		while (null != node || !stack.isEmpty()) {
 			// we are going as left side as possible
+			// because in the recursion also we went as left side as possible
 			while (null != node) {
 				stack.push(node);
 				node = node.left;
 			}
-			// at this point the node is null;
-			// now we backtrack from the stack
-			// current stack.top will have the leftest node
-			// so for this node null will be it's left child
-			// it will be the root, and if it is having any
-			// right child, then we will explore that also
+			// at this point, the node is null; now we backtrack from the stack.
+			// current stack[top] will have the left node, so for this node null will be it's left child
+			// it will be the root, and if it is having any right child, then we will explore that also
 			node = stack.pop();
 			// we will store the left most node
 			inOrder.add(node.data);
@@ -70,6 +69,7 @@ public class InOrderTraversal {
 		print(inOrder);
 	}
 
+	// first left subtree then root, then right subtree
 	private static void inOrder(TNode root, List<Integer> answer) {
 		if (null == root) return;
 		inOrder(root.left, answer);
