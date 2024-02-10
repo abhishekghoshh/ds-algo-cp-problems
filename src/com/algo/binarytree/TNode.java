@@ -17,6 +17,11 @@ public class TNode {
         this.right = right;
     }
 
+    public TNode data(int data) {
+        this.data = data;
+        return this;
+    }
+
 
     public TNode left(TNode left) {
         this.left = left;

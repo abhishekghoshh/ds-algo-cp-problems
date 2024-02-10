@@ -74,7 +74,6 @@ public class MinimumTimeTakenToBurnDownBinaryTree {
 	// here we are
 	private static void type3() {
 		TNode root = TNode.withNodes(1, 5, 3, NULL, 4, 10, 6, NULL, NULL, 9, 2);
-//		System.out.println(root.levelOrder());
 		int target = 3;
 		int[] minDistance = { Integer.MIN_VALUE };
 		findTarget(root, target, minDistance);
