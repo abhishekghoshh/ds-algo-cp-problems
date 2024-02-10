@@ -17,6 +17,7 @@ public class TNode {
         this.right = right;
     }
 
+
     public TNode left(TNode left) {
         this.left = left;
         return this;
@@ -59,6 +60,30 @@ public class TNode {
             nodes[i].right = right < n ? nodes[right] : null;
         }
         return nodes[0];
+    }
+
+    public static TNode imbalancedBST(int n) {
+        int[] nums = new int[n];
+        for (int i = 1; i <= n; i++) nums[i - 1] = i;
+        return imbalancedBST(nums, 0, n - 1);
+    }
+
+    public static TNode imbalancedBST(int... nums) {
+        Arrays.sort(nums);
+        return imbalancedBST(nums, 0, nums.length - 1);
+    }
+
+    private static TNode imbalancedBST(int[] nums, int l, int r) {
+        if (l > r) return null;
+        if (l == r) return new TNode(nums[l]);
+        int mid = rand(l, r);
+        TNode left = imbalancedBST(nums, l, mid - 1);
+        TNode right = imbalancedBST(nums, mid + 1, r);
+        return new TNode(nums[mid], left, right);
+    }
+
+    public static int rand(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 
     public static TNode makeBST(int n) {

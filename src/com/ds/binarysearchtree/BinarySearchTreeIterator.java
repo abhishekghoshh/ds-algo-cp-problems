@@ -20,46 +20,11 @@ public class BinarySearchTreeIterator {
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
 	}
 
-	private static void type3() {
-		TNode root = TNode.makeBST(31);
-		BstIterator3 bstIterator = new BstIterator3(root);
-		while (bstIterator.hasNext()) {
-			System.out.print(bstIterator.next() + " ");
-		}
-		System.out.println();
-	}
-
-	private static class BstIterator3 {
-		TNode[] stack;
-		int top = -1;
-		int n = 1000000;
-
-		public BstIterator3(TNode root) {
-			stack = new TNode[n];
-			pushAllLeft(root, stack);
-		}
-
-		private void pushAllLeft(TNode root, TNode[] stack2) {
-			while (null != root) {
-				stack[++top] = root;
-				root = root.left;
-			}
-		}
-
-		public int next() {
-			TNode node = stack[top--];
-			pushAllLeft(node.right, stack);
-			return node.data;
-		}
-
-		public boolean hasNext() {
-			return top != -1;
-		}
-	}
-
+	// TODO this is also very optimized approach
+	//  this takes advantage of the iterative inorder traversal of a binary search tree.
+	//  unlike the previous approach we we will explore the nodes while calling next
 	// time complexity of next function in O(1)
 	// space complexity O(log(n))
 	// here we are not storing the whole inorder traversal
@@ -82,19 +47,25 @@ public class BinarySearchTreeIterator {
 
 		public BstIterator2(TNode root) {
 			stack = new Stack<>();
-			pushAllLeft(root, stack);
+			pushAllLeft(root);
 		}
 
-		private void pushAllLeft(TNode root, Stack<TNode> stack) {
+		// this approach goes to the left most node or the smallest node
+		private void pushAllLeft(TNode root) {
 			while (null != root) {
 				stack.push(root);
 				root = root.left;
 			}
 		}
 
+
 		public int next() {
 			TNode node = stack.pop();
-			pushAllLeft(node.right, stack);
+			// if you remember in the iterative inorder we stored the node in the answer list.
+			// then we explored the nodes right
+			// we assumed that left and root is explored
+			// here also we are doing the same, going to the left most node
+			pushAllLeft(node.right);
 			return node.data;
 		}
 
@@ -103,6 +74,9 @@ public class BinarySearchTreeIterator {
 		}
 	}
 
+	// TODO this is the simplest approach, explain this in the interview
+	// first save the inorder traversal of the tree in list
+	// then iterate over the list
 	// time complexity of next function in O(1)
 	// space complexity O(n)
 	private static void type1() {
@@ -115,33 +89,28 @@ public class BinarySearchTreeIterator {
 	}
 
 	public static class BstIterator1 {
-		private List<Integer> inorder;
-		private int index;
+		private final List<Integer> inorder = new ArrayList<>();
+		private int i = 0;
+		private final int n;
 
 		public BstIterator1(TNode root) {
-			inorder = new ArrayList<>();
-			index = 0;
-			build(root);
+			inorder(root);
+			n = inorder.size();
 		}
 
-		private void build(TNode node) {
-			if (node == null)
-				return;
-			build(node.left);
+		private void inorder(TNode node) {
+			if (node == null) return;
+			inorder(node.left);
 			inorder.add(node.data);
-			build(node.right);
+			inorder(node.right);
 		}
 
 		public int next() {
-			if (hasNext()) {
-				return inorder.get(index++);
-			} else {
-				return -1;
-			}
+			return hasNext() ? inorder.get(i++) : -1;
 		}
 
 		public boolean hasNext() {
-			return index < inorder.size();
+			return i < n;
 		}
 	}
 }
