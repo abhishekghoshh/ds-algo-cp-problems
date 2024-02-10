@@ -45,6 +45,7 @@ public class DepthFirstSearchOfGraph {
 		// we will set the visited true when operating on it
 		visited[start] = true;
 		for (int end : adjList.get(start)) {
+			// we will add it to stack only if start is not the end and the node is not visited
 			if (start == end || visited[end]) continue;
 			dfs(end, dfsOfGraph, visited, adjList);
 		}
@@ -78,6 +79,7 @@ public class DepthFirstSearchOfGraph {
 			// the idea is we will go as deep as possible
 			for (int i = adjacentVertices.size() - 1; i >= 0; i--) {
 				int end = adjacentVertices.get(i);
+				// we will add it to stack only if start is not the end and the node is not visited
 				if (start == end || visited[end]) continue;
 				stack.add(end);
 			}
@@ -110,6 +112,9 @@ public class DepthFirstSearchOfGraph {
 			dfsOfGraph.add(start);
 
 			for (int end = v - 1; end >= 0; end--) {
+				// we will only add it the node to the stack if
+				// the node is not the start node, there is an edge in between start and end,
+				// and the end node is not yet visited
 				if (start == end || graph[start][end] == 0 || visited[end]) continue;
 				stack.add(end);
 			}

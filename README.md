@@ -648,9 +648,9 @@
   - [Graph Series by Striver | C++ | Java | Interview Centric | Algorithms | Problems](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
 - codes
   - [Introduction to Graph](/src/com/ds/graph/GraphRepresentation.java)
-  - [Connected Components in Graphs](/src/com/ds/graph/GraphRepresentation.java)
   - [Breadth First Search (BFS): Level Order Traversal](/src/com/ds/graph/BreadthFirstSearchOfGraph.java)
   - [Depth First Search](/src/com/ds/graph/DepthFirstSearchOfGraph.java)
+  - [Number of Provinces](/src/com/ds/graph/ConnectedComponents.java)
 </details>
 
 <details>
