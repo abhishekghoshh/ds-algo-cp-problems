@@ -22,6 +22,7 @@ import static com.algo.graph.Graph.adjacencyList;
  */
 public class CycleDetectionInUndirectedGraph {
 
+	// TODO check the solution one more time
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -41,7 +42,7 @@ public class CycleDetectionInUndirectedGraph {
 	private static boolean detectCycle3(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		for (int i = 0; i < v; i++)
-			if (!visited[i] && hasCycle(new int[]{i, -1}, adjacencyList, visited))
+			if (!visited[i] && hasCycle3(i, -1, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -50,19 +51,17 @@ public class CycleDetectionInUndirectedGraph {
 	// as we traverse all adjacent nodes. In the case of connected components of a
 	// graph, it will take another O(N) time.
 	// Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array.
-	private static boolean hasCycle(int[] point, List<List<Integer>> adjacencyList, boolean[] visited) {
-		int start = point[0];
-		int parent = point[1];
+	private static boolean hasCycle3(int start, int parent, List<List<Integer>> adjacencyList, boolean[] visited) {
 		visited[start] = true;
-		for (int vt : adjacencyList.get(start)) {
-			if (!visited[vt])
-				return hasCycle(new int[] { vt, start }, adjacencyList, visited);
-			else if (vt != parent)
-				// It means vertex is visited.
-				// However, it is not the parent, and we are going in depth wise,
-				// so there can be only one possibility that we encountered one previously
-				// visited node is same that means it makes a loop
-				return true;
+		for (int end : adjacencyList.get(start)) {
+			// It means the vertex is visited.
+			// However, it's not the parent of the current node.
+			// [the parent node was visited in the previous recursion],
+			// so it means it is visited by some other node,
+			// but again we are trying to visit this node that makes this a loop
+			if (visited[end] && end != parent) return true;
+			// if the adjacent point is not visited, then we will start dfs from this node
+			if (!visited[end]) return hasCycle3(end, start, adjacencyList, visited);
 		}
 		return false;
 	}
@@ -80,7 +79,7 @@ public class CycleDetectionInUndirectedGraph {
 	private static boolean detectCycle2(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		for (int i = 0; i < v; i++)
-			if (!visited[i] && hasCycleUsingDfs(i, adjacencyList, visited))
+			if (!visited[i] && hasCycle2(i, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -89,9 +88,9 @@ public class CycleDetectionInUndirectedGraph {
 	// as we traverse all adjacent nodes. In the case of connected components of a
 	// graph, it will take another O(N) time.
 	// Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array.
-	private static boolean hasCycleUsingDfs(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
+	private static boolean hasCycle2(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Stack<int[]> stack = new Stack<>();
-
+		// we will store the pair of current node and its parent node
 		stack.add(new int[] { i, -1 });
 
 		while (!stack.isEmpty()) {
@@ -102,17 +101,16 @@ public class CycleDetectionInUndirectedGraph {
 
 			List<Integer> vertices = adjacencyList.get(start);
 			// as we are using dfs, we will be adding the vertices in the reverse order
-			for (int id = vertices.size() - 1; id >= 0; id--) {
-				int vt = vertices.get(id);
-				if (!visited[vt]) {
-					stack.push(new int[] { vt, start });
-				} else if (vt != parent) {
-					// It means vertex is visited.
-					// However, it is not the parent, and we are going in depth wise,
-					// so there can be only one possibility that we encountered one previously
-					// visited node is same that means it makes a loop
-					return true;
-				}
+			for (int pos = vertices.size() - 1; pos >= 0; pos--) {
+				int end = vertices.get(pos);
+				// It means the vertex is visited.
+				// However, it's not the parent of the current node.
+				// [the parent node was visited in the previous loop],
+				// so it means it is visited by some other node,
+				// but again we are trying to visit this node that makes this a loop
+				if (visited[end] && end != parent) return true;
+				// if the adjacent point is not visited, then we are push it the stack, and setting visited to true
+				if (!visited[end]) stack.push(new int[]{end, start});
 			}
 		}
 		return false;
@@ -129,10 +127,9 @@ public class CycleDetectionInUndirectedGraph {
 	}
 
 	static boolean detectCycle1(int v, List<List<Integer>> adjacencyList) {
-		// Write your code here.
 		boolean[] visited = new boolean[v];
 		for (int start = 0; start < v; start++)
-			if (!visited[start] && hasCycleUsingBfs(start, adjacencyList, visited))
+			if (!visited[start] && hasCycle1(start, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -141,29 +138,28 @@ public class CycleDetectionInUndirectedGraph {
 	// as we traverse all adjacent nodes.
 	// In the case of connected components of a graph, it will take another O(N) time.
 	// Space Complexity: O(N) + O(N) ~ O(N), Space for queue data structure and visit the array.
-	private static boolean hasCycleUsingBfs(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
+	private static boolean hasCycle1(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Queue<int[]> queue = new LinkedList<>();
-
+		// we will store the pair of current node and its parent node
 		queue.add(new int[] { i, -1 });
 		visited[i] = true;
-
+		// we will start BFS traversal
 		while (!queue.isEmpty()) {
 			int[] pair = queue.poll();
 			int start = pair[0];
 			int parent = pair[1];
 			for (int end : adjacencyList.get(start)) {
-				// for bfs
-				// if the adjacent point is not visited, then we are adding it the queue, and also
-				// we are setting that vertex to visit
+				// It means the vertex is visited.
+				// However, it's not the parent of the current node.
+				// [the parent node was visited in the previous loop],
+				// so it means it is visited by some other node,
+				// but again we are trying to visit this node that makes this a loop
+				if (visited[end] && end != parent) return true;
+				// if the adjacent point is not visited, then we are adding it the queue, and setting visited to true
 				if (!visited[end]) {
-					queue.offer(new int[]{end, start});
 					visited[end] = true;
-				} else if (end != parent)
-					// it means vertex is visited, but it is not the parent,
-					// and we are spreading evenly,
-					// so there can be only one possibility for more than one vertex the next vertex
-					// is same that means it makes a loop
-					return true;
+					queue.offer(new int[]{end, start});
+				}
 			}
 		}
 		return false;
