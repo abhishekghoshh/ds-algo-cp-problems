@@ -95,7 +95,7 @@ public class MaxHeap {
 
     public void print() {
         for (int i = 0; i < size / 2; i++) {
-            System.out.print("Parent LinkedListNode : " + heap[i]);
+            System.out.print("Parent : " + heap[i]);
             if (leftChild(i) < size) {
                 System.out.print(" Left Child : " + heap[leftChild(i)]);
             }

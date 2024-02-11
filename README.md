@@ -651,6 +651,9 @@
   - [Breadth First Search (BFS): Level Order Traversal](/src/com/ds/graph/BreadthFirstSearchOfGraph.java)
   - [Depth First Search](/src/com/ds/graph/DepthFirstSearchOfGraph.java)
   - [Number of Provinces](/src/com/ds/graph/ConnectedComponents.java)
+  - [Rotting Oranges](/src/com/ds/graph/RottenOranges.java)
+  - [Flood Fill](/src/com/ds/graph/FloodFill.java)
+  - [Detect Cycle in an Undirected Graph](/src/com/ds/graph/CycleDetectionInUndirectedGraph.java)
 </details>
 
 <details>

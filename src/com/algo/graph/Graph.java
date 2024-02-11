@@ -1,4 +1,4 @@
-package util;
+package com.algo.graph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,12 +85,11 @@ public class Graph {
 		return graph;
 	}
 
-	public static ArrayList<ArrayList<Integer>> adjacencyList(int[][] list) {
-		ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>();
-		for (int[] row : list) {
+	public static List<List<Integer>> adjacencyList(int[][] graph) {
+		List<List<Integer>> adjacencyList = new ArrayList<>();
+		for (int[] row : graph) {
 			ArrayList<Integer> vertices = new ArrayList<>();
-			for (int vertex : row)
-				vertices.add(vertex);
+			for (int end : row) vertices.add(end);
 			adjacencyList.add(vertices);
 		}
 		return adjacencyList;
