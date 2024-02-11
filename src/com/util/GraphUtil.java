@@ -1,10 +1,10 @@
-package com.algo.graph;
+package com.util;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Graph {
+public class GraphUtil {
 
 	public static int[][] undirectedGraphWithMatrix(Scanner scanner) {
 		int n = scanner.nextInt();

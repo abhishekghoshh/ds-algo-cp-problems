@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-import static com.algo.graph.Graph.adjacencyList;
+import static com.util.GraphUtil.adjacencyList;
 
 /*
  * Problem link :
