@@ -39,36 +39,35 @@ public class ReversePairs {
 	private static void type2() {
 		int[] nums = { 1, 3, 2, 3, 1 };
 		int n = nums.length;
-		int[] numsCopy = new int[n];
-		Value value = new Value();
-		mergeSortAndCompute(nums, 0, n - 1, numsCopy, value);
-		System.out.println("count is " + value.data);
+		int[] copy = new int[n];
+		Data data = new Data();
+		partition(nums, 0, n - 1, copy, data);
+		System.out.println("count is " + data.data);
 	}
 
-	private static void mergeSortAndCompute(int[] nums, int i, int j, int[] numsCopy, Value value) {
-		if (i < j) {
-			int mid = (i + j) / 2;
-			mergeSortAndCompute(nums, i, mid, numsCopy, value);
-			mergeSortAndCompute(nums, mid + 1, j, numsCopy, value);
-			mergeAndCompute(nums, i, mid, j, numsCopy, value);
-		}
+	private static void partition(int[] nums, int i, int j, int[] copy, Data data) {
+		if (i >= j) return;
+		int mid = (i + j) / 2;
+		partition(nums, i, mid, copy, data);
+		partition(nums, mid + 1, j, copy, data);
+		merge(nums, i, mid, j, copy, data);
 	}
 
-	private static void mergeAndCompute(int[] nums, int i, int mid, int j, int[] numsCopy, Value value) {
+	private static void merge(int[] nums, int i, int mid, int j, int[] copy, Data data) {
 		int left = i, right = mid + 1;
-		long holderValue;
-		// first pointer on right side array
+		long val;
+		// the first pointer on a right side array
 		// total complexity of this loops will go O(leftSize+rightSize) => O(n)
 		while (right <= j) {
 			// holding to long in case it overflows while multiplying by 2
-			holderValue = nums[right];
-			holderValue = 2 * holderValue;
+			val = nums[right];
+			val = 2 * val;
 			// incrementing left until we find nums[left] > 2 * nums[right].
-			while (left <= mid && nums[left] <= holderValue) {
+			while (left <= mid && nums[left] <= val) {
 				left++;
 			}
 			if (left <= mid) {
-				value.data = value.data + (mid - left + 1);
+				data.data = data.data + (mid - left + 1);
 				right++;
 			} else {
 				break;
@@ -80,23 +79,23 @@ public class ReversePairs {
 		int index = 0;
 		while (left <= mid && right <= j) {
 			if (nums[left] <= nums[right]) {
-				numsCopy[index++] = nums[left++];
+				copy[index++] = nums[left++];
 			} else {
-				numsCopy[index++] = nums[right++];
+				copy[index++] = nums[right++];
 			}
 		}
 		while (left <= mid) {
-			numsCopy[index++] = nums[left++];
+			copy[index++] = nums[left++];
 		}
 		while (right <= j) {
-			numsCopy[index++] = nums[right++];
+			copy[index++] = nums[right++];
 		}
 		for (index = 0; index < length; index++) {
-			nums[index + i] = numsCopy[index];
+			nums[index + i] = copy[index];
 		}
 	}
 
-	private static class Value {
+	private static class Data {
 		int data = 0;
 	}
 
@@ -107,16 +106,10 @@ public class ReversePairs {
 		int[] nums = { 1, 3, 2, 3, 1 };
 		int n = nums.length;
 		int count = 0;
-		long value;
-		for (int i = 0; i < n - 1; i++) {
-			for (int j = i + 1; j < n; j++) {
-				value = nums[j];
-				value = 2 * value;
-				if (nums[i] > value) {
-					count++;
-				}
-			}
-		}
+		for (int i = 0; i < n - 1; i++)
+			for (int j = i + 1; j < n; j++)
+				if (nums[i] > 2 * (long) nums[j]) count++;
+
 		System.out.println("count is " + count);
 	}
 

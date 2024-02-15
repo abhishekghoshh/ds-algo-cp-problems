@@ -15,7 +15,9 @@ import static com.util.ArrayUtil.swap;
  * https://www.codingninjas.com/codestudio/problems/kth-smallest-and-largest-element-of-array_1115488
  *
  * Solution link :
- * https://www.youtube.com/watch?v=edXdVwkYHF8
+ * https://www.youtube.com/watch?v=XEmy13g1Qxc
+ * https://www.youtube.com/watch?v=yAs3tONaf3s
+ * https://www.youtube.com/watch?v=aXJ-p3Qa4TY
  * 
  * https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/
  * */

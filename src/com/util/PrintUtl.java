@@ -64,6 +64,23 @@ public class PrintUtl {
         }
         System.out.println();
     }
+    public static void print(char[][] board) {
+        for (char[] row : board) {
+            for (char item : row) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void print(boolean[][] board) {
+        for (boolean[] row : board) {
+            for (boolean item : row) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
+        }
+    }
 
     public static void print(char[] arr) {
         for (char item : arr) System.out.print(item + " ");

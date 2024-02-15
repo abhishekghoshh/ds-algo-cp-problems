@@ -99,6 +99,7 @@
 - codes
   - [Min Heap](/src/com/algo/heap/MinHeap.java)
   - [Max heap](/src/com/algo/heap/MaxHeap.java)
+  - [Heap](/src/com/algo/heap/Heap.java)
 
 </details>
 
@@ -108,15 +109,18 @@
 - codes
   - [Singly Linked List](/src/com/algo/linkedlist/Node.java)
   - [Doubly Linked List](/src/com/algo/linkedlist/DNode.java)
-
+  - [Linked List](/src/com/algo/linkedlist/LinkedList.java)
 </details>
 
 <details>
     <summary><strong>Binary Tree</strong></summary>
 
 - codes
-  - [Binary Tree](/src/com/algo/binarytree/TNode.java)
-
+  - [Tree Node](/src/com/algo/binarytree/TNode.java)
+  - [Binary Tree](/src/com/algo/binarytree/BinaryTree.java)
+  - [Binary Search Tree](/src/com/algo/binarytree/BinarySearchTree.java)
+  - [AVL Tree](/src/com/algo/binarytree/AVLTree.java)
+  - [Red Black Tree](/src/com/algo/binarytree/RedBlackTree.java)
 </details>
 
 ## Data-Structure
@@ -654,6 +658,9 @@
   - [Rotting Oranges](/src/com/ds/graph/RottenOranges.java)
   - [Flood Fill](/src/com/ds/graph/FloodFill.java)
   - [Detect Cycle in an Undirected Graph](/src/com/ds/graph/CycleDetectionInUndirectedGraph.java)
+  - [0/1 Matrix (Bfs Problem)](/src/com/ds/graph/NearestCellHavingZero.java)
+  - [Surrounded Regions (dfs)](/src/com/ds/graph/SurroundedRegions.java)
+  - [Number of Enclaves | flood fill implementation — multisource](/src/com/ds/graph/NumberOfEnclave.java)
 </details>
 
 <details>
