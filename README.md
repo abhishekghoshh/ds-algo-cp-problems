@@ -206,6 +206,7 @@
     - [Merge two Sorted Arrays Without Extra Space](/src/com/ds/array/MergeTwoSortedArraysWithoutExtraSpace.java)
     - [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
     - [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
+      - merge-technique-from-merge-sort
     - [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
     - [Car Fleet](/src/com/ds/array/CarFleet.java) **TBD**
     - [Remove Element](/src/com/ds/array/RemoveElement.java) **TBD**
@@ -743,6 +744,7 @@
     <summary><strong>Youtube Channels</strong></summary>
 
 - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
+- [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
 
