@@ -26,42 +26,45 @@ public class MorrisInorderTraversal {
 
     // inorder traversal without using any extra space
     // in order we know that after all the left node is completed then root node
-    // will be traversed, the last node of left side will be the rightest node of
-    // the left side, so we will create a link between righest node and the root
-    // and if there is no left then we will directly add to list and go to right
+    // will be traversed, the last node of the left side will be the rightest node of
+    // the left side, so we will create a link between the rightest node and the root
+    // and if there is no left, then we will directly add to list and go to right
     private static void type1() {
         TNode root = TNode.withCount(15);
         PrintUtl.inOrder(root);
 
-        TNode curr = root;
+        List<Integer> answer = inorderTraversal(root);
+        System.out.println(answer);
+    }
 
+    private static List<Integer> inorderTraversal(TNode root) {
+        TNode node = root;
         List<Integer> answer = new ArrayList<>();
-        while (null != curr) {
+        while (null != node) {
             // left is null
-            if (null == curr.left) {
-                answer.add(curr.data);
-                curr = curr.right;
+            if (null == node.left) {
+                answer.add(node.data);
+                node = node.right;
             } else {
-                TNode temp = curr.left;
-                // we will go to righest node
-                while (null != temp.right && temp.right != curr)
+                TNode temp = node.left;
+                // we will go to the rightest node
+                while (null != temp.right && temp.right != node)
                     temp = temp.right;
-                // setting the link
-                // then we will go to the left
+                // setting the link then, we will go to the left
                 if (temp.right == null) {
-                    temp.right = curr;
-                    curr = curr.left;
+                    temp.right = node;
+                    node = node.left;
                 } else {
                     // there was already a link
                     // that means this is the second time we are in the root
                     // so left part is traversed completely
                     // we will now delete the link and add the root to list
                     temp.right = null;
-                    answer.add(curr.data);
-                    curr = curr.right;
+                    answer.add(node.data);
+                    node = node.right;
                 }
             }
         }
-        System.out.println(answer);
+        return answer;
     }
 }

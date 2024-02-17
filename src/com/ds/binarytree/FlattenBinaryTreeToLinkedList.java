@@ -27,7 +27,7 @@ public class FlattenBinaryTreeToLinkedList {
 
 	private static void type5() {
 		TNode root = TNode.withCount(15);
-		flat(root);
+		flatten5(root);
 		PrintUtl.preOrder(root);
 	}
 
@@ -41,12 +41,11 @@ public class FlattenBinaryTreeToLinkedList {
 	// left side list end -> right side list start
 	// now I have
 	// root ---> right side list end
-	public static TNode[] flat(TNode root) {
-		if (null == root)
-			return null;
+	public static TNode[] flatten5(TNode root) {
+		if (null == root) return null;
 		TNode last = root;
-		TNode[] leftSideList = flat(root.left);
-		TNode[] rightSideList = flat(root.right);
+		TNode[] leftSideList = flatten5(root.left);
+		TNode[] rightSideList = flatten5(root.right);
 		if (null != leftSideList) {
 			root.left = null;
 			root.right = leftSideList[0];
@@ -61,16 +60,16 @@ public class FlattenBinaryTreeToLinkedList {
 
 	private static void type4() {
 		TNode root = TNode.withCount(15);
-		flatten(root);
+		flatten4(root);
 		PrintUtl.preOrder(root);
 	}
 
-	public static void flatten(TNode root) {
+	public static void flatten4(TNode root) {
 		if (root == null) {
 			return;
 		}
-		flatten(root.right);
-		flatten(root.left);
+		flatten4(root.right);
+		flatten4(root.left);
 		TNode last = root.right;
 		root.right = root.left;
 		root.left = null;
@@ -83,6 +82,11 @@ public class FlattenBinaryTreeToLinkedList {
 	// check striver solution
 	private static void type3() {
 		TNode root = TNode.withCount(15);
+		flatten3(root);
+		PrintUtl.preOrder(root);
+	}
+
+	private static void flatten3(TNode root) {
 		TNode curr = root;
 		while (curr != null) {
 			if (curr.left != null) {
@@ -96,7 +100,6 @@ public class FlattenBinaryTreeToLinkedList {
 			}
 			curr = curr.right;
 		}
-		PrintUtl.preOrder(root);
 	}
 
 	// same as a previous
@@ -104,29 +107,34 @@ public class FlattenBinaryTreeToLinkedList {
 	// check striver solution
 	private static void type2() {
 		TNode root = TNode.withCount(15);
+		flatten2(root);
+		PrintUtl.preOrder(root);
+	}
+
+	private static void flatten2(TNode root) {
 		if (root == null) return;
 		Stack<TNode> stack = new Stack<>();
 		stack.push(root);
 		while (!stack.isEmpty()) {
 			TNode current = stack.pop();
-			if (current.right != null)
-				stack.push(current.right);
-			if (current.left != null)
-				stack.push(current.left);
-			if (!stack.isEmpty())
-				current.right = stack.peek();
+			if (current.right != null) stack.push(current.right);
+			if (current.left != null) stack.push(current.left);
+			if (!stack.isEmpty()) current.right = stack.peek();
 			current.left = null;
 		}
-		PrintUtl.preOrder(root);
 	}
 
 	// check a striver solution
 	// using reverse pre-order
 	private static void type1() {
 		TNode root = TNode.withCount(15);
+		flatten1(root);
+		PrintUtl.preOrder(root);
+	}
+
+	public static void flatten1(TNode root) {
 		if (root == null) return;
 		reversePostOrder(root);
-		PrintUtl.preOrder(root);
 	}
 
 	private static TNode prev = null;

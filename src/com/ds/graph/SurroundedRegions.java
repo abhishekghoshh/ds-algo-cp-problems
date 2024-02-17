@@ -18,6 +18,54 @@ public class SurroundedRegions {
 
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// for the previous approach, we have used the visited array
+	// but, we can easily mark with the board that it is visited
+	private static void type2() {
+		char[][] board = {
+				{'X', 'X', 'X', 'X'},
+				{'X', 'O', 'O', 'X'},
+				{'X', 'X', 'O', 'X'},
+				{'X', 'O', 'X', 'X'}
+		};
+		int m = board.length;
+		int n = board[0].length;
+		// first, we will mark all the regions which has a boundary
+		// it will visit all the region from boundary
+		for (int i = 0; i < m; i++) {
+			dfs(i, 0, board);
+			dfs(i, n - 1, board);
+		}
+		for (int j = 0; j < n; j++) {
+			dfs(0, j, board);
+			dfs(m - 1, j, board);
+		}
+		// visit from all the cells, if it still 'O' then replace that with 'X'
+		// that means it is in the inner region and not touched by any outer region 'O'.
+		// if the cell is 'V,' that means it is in the outer region and the 'O' is changed with 'V'
+		// so we have to change it back to its original 'O'
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (board[i][j] == 'O') board[i][j] = 'X';
+				else if (board[i][j] == 'V') board[i][j] = 'O';
+			}
+		}
+		print(board);
+	}
+
+	private static void dfs(int i, int j, char[][] board) {
+		if (isNotInBoundary(i, j, board) || board[i][j] != 'O') return;
+		board[i][j] = 'V';
+		dfs(i + 1, j, board);
+		dfs(i - 1, j, board);
+		dfs(i, j + 1, board);
+		dfs(i, j - 1, board);
+	}
+
+	private static boolean isNotInBoundary(int i, int j, char[][] board) {
+		return i < 0 || i >= board.length || j < 0 || j >= board[0].length;
 	}
 
 	// the intuition is
@@ -33,7 +81,7 @@ public class SurroundedRegions {
 		int m = board.length;
 		int n = board[0].length;
 		boolean[][] visited = new boolean[m][n];
-
+		// first, we will mark all the regions which has a boundary
 		// it will visit all the region from boundary
 		for (int i = 0; i < m; i++) {
 			dfs(i, 0, visited, board);

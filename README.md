@@ -662,6 +662,9 @@
   - [0/1 Matrix (Bfs Problem)](/src/com/ds/graph/NearestCellHavingZero.java)
   - [Surrounded Regions (dfs)](/src/com/ds/graph/SurroundedRegions.java)
   - [Number of Enclaves | flood fill implementation — multisource](/src/com/ds/graph/NumberOfEnclave.java)
+  - [Word Ladder 1](/src/com/ds/graph/WordLadder1.java)
+  - [Word Ladder 2](/src/com/ds/graph/WordLadder2.java)
+  - [Number of Distinct Islands | dfs multisource](/src/com/ds/graph/NumberOfIslands.java)
 </details>
 
 <details>

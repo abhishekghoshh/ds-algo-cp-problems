@@ -29,29 +29,32 @@ public class MorrisPreorderTraversal {
     private static void type1() {
         TNode root = TNode.withCount(15);
         PrintUtl.preOrder(root);
+        List<Integer> answer = preorderTraversal(root);
+        System.out.println(answer);
+    }
 
-        TNode curr = root;
-
+    private static List<Integer> preorderTraversal(TNode root) {
+        TNode node = root;
         List<Integer> answer = new ArrayList<>();
-        while (null != curr) {
-            if (null == curr.left) {
-                answer.add(curr.data);
-                curr = curr.right;
+        while (null != node) {
+            if (null == node.left) {
+                answer.add(node.data);
+                node = node.right;
             } else {
-                TNode temp = curr.left;
-                while (null != temp.right && temp.right != curr)
+                TNode temp = node.left;
+                while (null != temp.right && temp.right != node)
                     temp = temp.right;
                 if (temp.right == null) {
-                    temp.right = curr;
-                    answer.add(curr.data);
-                    curr = curr.left;
+                    temp.right = node;
+                    answer.add(node.data);
+                    node = node.left;
                 } else {
                     temp.right = null;
-                    curr = curr.right;
+                    node = node.right;
                 }
             }
         }
-        System.out.println(answer);
+        return answer;
     }
 
 }

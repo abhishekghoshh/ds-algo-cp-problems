@@ -6,8 +6,6 @@ import com.util.PrintUtl;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static com.algo.binarytree.TNode.NULL;
-
 /*
  * Problem link :
  * https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
@@ -26,42 +24,49 @@ public class SerializerAndDeserializeBinaryTree {
 		type2();
 	}
 
+	// Using DFS traversal,
 	// this is done using preorder
-	// TODO study it one more time
 	private static void type2() {
-		TNode root = TNode.withNodes(1, 2, -13, NULL, NULL, 4, 5);
-		StringBuilder sb = new StringBuilder();
-		serialize(root, sb);
-		String data = sb.toString();
+		TNode root = TNode.withNodes(1, 2, -13, TNode.NULL, TNode.NULL, 4, 5);
+		String data = serialize2(root);
 		System.out.println(data);
-		TNode outputNode = deserialize(data.toCharArray(), new int[1]);
+		TNode outputNode = deserialize2(data);
 		PrintUtl.inOrder(root);
 		PrintUtl.inOrder(outputNode);
 	}
 
-	public static void serialize(TNode root, StringBuilder curr) {
+	private static int index = 0;
+
+	public static String serialize2(TNode root) {
+		StringBuilder sb = new StringBuilder();
+		preOrder(root, sb);
+		return sb.toString();
+	}
+
+	public static void preOrder(TNode root, StringBuilder curr) {
 		if (root == null) {
 			curr.append('n');
 			return;
 		}
 		curr.append(root.data).append(" ");
-		serialize(root.left, curr);
+		preOrder(root.left, curr);
 		curr.append(" ");
-		serialize(root.right, curr);
+		preOrder(root.right, curr);
 	}
 
-	public static TNode deserialize(char[] data, int[] index) {
-		if (index[0] == data.length)
-			return null;
-		if (data[index[0]] == 'n')
-			return null;
-		int start = index[0];
-		while (data[index[0]] != ' ')
-			index[0]++;
-		TNode root = new TNode(valueOf(data, start, index[0]++));
-		root.left = deserialize(data, index);
-		index[0] += 2;
-		root.right = deserialize(data, index);
+	private static TNode deserialize2(String data) {
+		index = 0;
+		return deserialize(data.toCharArray());
+	}
+
+	public static TNode deserialize(char[] data) {
+		if (index == data.length || data[index] == 'n') return null;
+		int start = index;
+		while (data[index] != ' ') index++;
+		TNode root = new TNode(valueOf(data, start, index++));
+		root.left = deserialize(data);
+		index += 2;
+		root.right = deserialize(data);
 		return root;
 	}
 
@@ -77,52 +82,56 @@ public class SerializerAndDeserializeBinaryTree {
 		return !isNegative ? num : -num;
 	}
 
+	// Using BFS,
 	// this is done using level order
 	private static void type1() {
-		TNode root = TNode.withNodes(1, 2, 3, NULL, NULL, 4, 5);
-		String data = serialize(root);
+		TNode root = TNode.withNodes(1, 2, 3, TNode.NULL, TNode.NULL, 4, 5);
+		String data = serialize1(root);
 		System.out.println(data);
-		TNode outputNode = deserialize(data);
+		TNode outputNode = deserialize1(data);
 		PrintUtl.inOrder(root);
 		PrintUtl.inOrder(outputNode);
 	}
 
-	public static String serialize(TNode root) {
+	public static final String NULL = "N";
+
+	public static String serialize1(TNode root) {
 		StringBuilder sb = new StringBuilder();
-		if (null == root)
-			return sb.toString();
+		if (null == root) return sb.toString();
 		Queue<TNode> queue = new LinkedList<>();
 		queue.offer(root);
 		while (!queue.isEmpty()) {
 			TNode node = queue.poll();
 			if (null == node) {
-				sb.append("null ");
-				continue;
+				sb.append(NULL).append(" ");
+			} else {
+				sb.append(node.data).append(" ");
+				queue.offer(node.left);
+				queue.offer(node.right);
 			}
-			sb.append(node.data + " ");
-			queue.offer(node.left);
-			queue.offer(node.right);
 		}
 		return sb.toString();
 	}
 
 	// Decodes your encoded data to tree.
-	public static TNode deserialize(String data) {
-		if (null == data || data.trim().isEmpty())
-			return null;
-		String[] datas = data.split(" ");
-		TNode root = new TNode(Integer.parseInt(datas[0]));
+	public static TNode deserialize1(String data) {
+		if (null == data || data.isEmpty()) return null;
+		String[] nodes = data.split(" ");
+		TNode root = new TNode(Integer.parseInt(nodes[0]));
 		Queue<TNode> queue = new LinkedList<>();
 		queue.offer(root);
-		int i = 0, n = datas.length;
+		int i = 0;
+		int n = nodes.length;
 		while (i < n && !queue.isEmpty()) {
 			TNode node = queue.poll();
-			if (i + 1 < n && !"null".equals(datas[++i])) {
-				node.left = new TNode(Integer.parseInt(datas[i]));
+			int left = ++i;
+			if (left < n && !NULL.equals(nodes[left])) {
+				node.left = new TNode(Integer.parseInt(nodes[left]));
 				queue.offer(node.left);
 			}
-			if (i + 1 < n && !"null".equals(datas[++i])) {
-				node.right = new TNode(Integer.parseInt(datas[i]));
+			int right = ++i;
+			if (right < n && !NULL.equals(nodes[right])) {
+				node.right = new TNode(Integer.parseInt(nodes[right]));
 				queue.offer(node.right);
 			}
 		}

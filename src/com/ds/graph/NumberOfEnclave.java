@@ -18,12 +18,18 @@ public class NumberOfEnclave {
 		type2();
 	}
 
-	// changing the input data
+	// same as the previous type just here we will change the input data,
+	// changing the input is not a good practice though
 	private static void type2() {
-		int[][] grid = { { 0, 0, 0, 0 }, { 1, 0, 1, 0 }, { 0, 1, 1, 0 }, { 0, 0, 0, 0 } };
+		int[][] grid = {
+				{0, 0, 0, 0},
+				{1, 0, 1, 0},
+				{0, 1, 1, 0},
+				{0, 0, 0, 0}
+		};
 		int m = grid.length, n = grid[0].length;
 
-		// visit the boundaries and
+		// visit the boundaries and change the cell value with 0
 		for (int i = 0; i < m; i++) {
 			dfs(grid, i, 0);
 			dfs(grid, i, n - 1);
@@ -33,36 +39,51 @@ public class NumberOfEnclave {
 			dfs(grid, m - 1, j);
 		}
 
+		// essentially, the inner regions have the cell value with 1,
+		// so we just have to count how many cells have the 1 value
 		int count = 0;
 		for (int[] row : grid)
-			for (int cell : row) count += cell;
+			for (int cell : row)
+				count += cell;
 
 		System.out.println(count);
 	}
 
 	// once any cell is visited, we are changing the cell to 1
 	private static void dfs(int[][] grid, int i, int j) {
-		if (isInBounds(grid, i, j) && grid[i][j] == 1) {
-			grid[i][j] = 0;
-			dfs(grid, i + 1, j);
-			dfs(grid, i - 1, j);
-			dfs(grid, i, j + 1);
-			dfs(grid, i, j - 1);
-		}
+		if (isNotInBoundary(i, j, grid) || grid[i][j] == 0) return;
+		// mark that is visited
+		grid[i][j] = 0;
+		dfs(grid, i + 1, j);
+		dfs(grid, i - 1, j);
+		dfs(grid, i, j + 1);
+		dfs(grid, i, j - 1);
+	}
+
+	private static boolean isNotInBoundary(int i, int j, int[][] grid) {
+		return i < 0 || i >= grid.length || j < 0 || j >= grid[0].length;
 	}
 
 	// one intuition we have found that if in boundary, then we can escape,
 	// so boundary can never be our answer.
 	// any cell touched with boundary cell with value 1
 	// cannot be the answer as well without changing the input data
+	// TODO essentially we have to find all the inner regions which is not touched by any
+	//  outer cell with 1 value, so first we will mark all the cells of the outer region with value 1
+	//  and any cell touched by that cell
 	private static void type1() {
-		int[][] grid = { { 0, 0, 0, 0 }, { 1, 0, 1, 0 }, { 0, 1, 1, 0 }, { 0, 0, 0, 0 } };
+		int[][] grid = {
+				{0, 0, 0, 0},
+				{1, 0, 1, 0},
+				{0, 1, 1, 0},
+				{0, 0, 0, 0}
+		};
 		int m = grid.length;
 		int n = grid[0].length;
 
 		boolean[][] visited = new boolean[m][n];
 
-		// visit the boundaries
+		// visit the boundaries and mark the cells
 		for (int i = 0; i < m; i++) {
 			dfs(i, 0, visited, grid);
 			dfs(i, n - 1, visited, grid);
