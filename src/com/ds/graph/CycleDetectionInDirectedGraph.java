@@ -1,13 +1,12 @@
-package graph;
+package com.ds.graph;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/course-schedule-ii/description/
- * https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
  * https://leetcode.com/problems/course-schedule-ii/solutions/293048/detecting-cycle-in-directed-graph-problem/
+ * https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
  * https://www.codingninjas.com/studio/problems/detect-cycle-in-a-directed-graph-_920545
  * 
  * Solution link :
@@ -23,58 +22,61 @@ public class CycleDetectionInDirectedGraph {
 		type2();
 	}
 
-	// single visited array instead of two arrays
+	// TODO It will use DFS and single visited array instead of two arrays
+	//  we will use 0 as not visited, 1 as visited and 2 as the path visited
 	private static void type2() {
 		int v = 10;
-		ArrayList<ArrayList<Integer>> adjacencyList = adjacencyList();
+		List<List<Integer>> adjacencyList = adjacencyList();
 		boolean hasCycle = isCyclic2(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
 
-	private static boolean isCyclic2(int v, ArrayList<ArrayList<Integer>> adjacencyList) {
-		// we will use 0 as not visited, 1 as visited and 2 as path visited
+	private static boolean isCyclic2(int v, List<List<Integer>> adjacencyList) {
+		// we will use 0 as not visited, 1 as visited and 2 as the path visited
 		int[] visited = new int[v];
 		for (int i = 0; i < v; i++) {
-			// check for all the component
+			// check for all the component which is not visited yet
 			if (visited[i] == 0 && hasCycle(i, visited, adjacencyList))
 				return true;
 		}
 		return false;
 	}
 
-	private static boolean hasCycle(int start, int[] visited, ArrayList<ArrayList<Integer>> adjacencyList) {
+	private static boolean hasCycle(int start, int[] visited, List<List<Integer>> adjacencyList) {
 		// visited and path visited
 		visited[start] = 2;
 		for (int end : adjacencyList.get(start)) {
-			if (visited[end] == 0 && hasCycle(end, visited, adjacencyList)) {
+			// if the node has been previously visited, but it has to be visited on the same path
+			if (visited[end] == 2) return true;
+			// when the node is not visited, then we call dfs from that node
+			if (visited[end] == 0 && hasCycle(end, visited, adjacencyList))
 				return true;
-			} else if (visited[end] == 2) {
-				return true;
-			}
 		}
 		// resetting the path visited setting only visited
 		visited[start] = 1;
 		return false;
 	}
 
+	// TODO It will use DFS and two boolean array mark visited and path visited
+	//  Check one more time if it still confuses you
 	private static void type1() {
 		int v = 10;
-		ArrayList<ArrayList<Integer>> adjacencyList = adjacencyList();
+		List<List<Integer>> adjacencyList = adjacencyList();
 		boolean hasCycle = isCyclic1(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
 
-	private static boolean isCyclic1(int v, ArrayList<ArrayList<Integer>> adjacencyList) {
+	private static boolean isCyclic1(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		// path visited is to track the nodes in a single path
 		// because visited array will not be sufficed
 		// if 1 points to 2 and 3 , 2 and 3 both points to 4
-		// so 1 to 4 will from a cycle if we consider the visited array only
+		// so 1 to 4 will from a cycle if we consider the visited array only,
 		// and we will choose dfs here because we want to as deep as possible and in
 		// this path if we come to any of the previous visited point then that will form a cycle,
 		boolean[] pathVisited = new boolean[v];
 		for (int i = 0; i < v; i++) {
-			// check for all the component
+			// check for all the component which is not visited yet
 			if (!visited[i] && hasCycle(i, visited, pathVisited, adjacencyList))
 				return true;
 		}
@@ -82,9 +84,10 @@ public class CycleDetectionInDirectedGraph {
 	}
 
 	private static boolean hasCycle(int start, boolean[] visited, boolean[] pathVisited,
-									ArrayList<ArrayList<Integer>> adjacencyList) {
+									List<List<Integer>> adjacencyList) {
 		// at the start, we set visited and path visited to true
 		visited[start] = true;
+		// path visited to true because we are keeping the track which path our dfs is following
 		pathVisited[start] = true;
 		// traverse for adjacent nodes
 		for (int end : adjacencyList.get(start)) {
@@ -100,19 +103,19 @@ public class CycleDetectionInDirectedGraph {
 		return false;
 	}
 
-	private static ArrayList<ArrayList<Integer>> adjacencyList() {
-		ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>();
-		adjacencyList.add(new ArrayList<>(List.of(1)));
-		adjacencyList.add(new ArrayList<>(List.of(2)));
-		adjacencyList.add(new ArrayList<>(List.of(3, 6)));
-		adjacencyList.add(new ArrayList<>(List.of(4)));
-		adjacencyList.add(new ArrayList<>(List.of(5)));
-		adjacencyList.add(new ArrayList<>(List.of()));
-		adjacencyList.add(new ArrayList<>(List.of(4)));
-		adjacencyList.add(new ArrayList<>(List.of(8)));
-		adjacencyList.add(new ArrayList<>(List.of(9)));
-		adjacencyList.add(new ArrayList<>(List.of(7)));
-		return adjacencyList;
+	private static List<List<Integer>> adjacencyList() {
+		return List.of(
+				List.of(1),
+				List.of(2),
+				List.of(3, 6),
+				List.of(4),
+				List.of(5),
+				List.of(),
+				List.of(4),
+				List.of(8),
+				List.of(9),
+				List.of(7)
+		);
 	}
 
 

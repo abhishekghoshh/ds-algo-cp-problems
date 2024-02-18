@@ -1,4 +1,6 @@
-package graph;
+package com.ds.graph;
+
+import com.util.PrintUtl;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -35,12 +37,37 @@ public class BipartiteGraph {
 	 *
 	 * Return true if and only if it is bipartite.
 	 * */
+	// TODO To check if the graph is bipartite or not, we will color the adjacent nodes with +1 and -1
+	//  if we can successfully then that means the graph can be divided into two group such that,
+	//  one node of any group will always go to the any node of the second group
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
 	}
 
 	// using DFS
+	// TODO complete this question using cycle detection of a directed graph [If possible]
+	private static void type3() {
+		int numCourses = 4;
+		int[][] prerequisites = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+		int[] order = findOrder3(numCourses, prerequisites);
+		PrintUtl.print(order);
+	}
+
+	// TODO complete this question using cycle detection of a directed graph
+	public static int[] findOrder3(int numCourses, int[][] prerequisites) {
+		int[][] graph = new int[numCourses][numCourses];
+		return null;
+	}
+
+	// using DFS
+	// TODO Our work is to color the nodes with two colors +1 and -1
+	//  such that if one node is having + color then the adjacent node will not have the + color.
+	// 	we will start DFS from every uncolored node, and mark that node to + color then,
+	//  we will traverse the adjacent nodes and mark them with exactly opposite color
+	//  if any point of time we see the adjacent node is already visited and have the same color,
+	//  then we can say that we can not color the graph
 	private static void type2() {
 		int[][] adjacencyList = {
 				{1, 2, 3},
@@ -57,26 +84,38 @@ public class BipartiteGraph {
 		int[] colors = new int[v];
 		// start from all components
 		for (int i = 0; i < v; i++)
-			if (colors[i] == 0 && !canColor2(adjacencyList, colors, i, 1))
+			// we will check if the ith node is already colored or not
+			// if not then we will start DFS from that node
+			if (colors[i] == 0 && !canColor2(i, 1, colors, adjacencyList))
 				return false;
+		// lastly, we are return true which means graph can be colored
 		return true;
 	}
 
-	private static boolean canColor2(int[][] adjacencyList, int[] colors, int node, int color) {
-		colors[node] = color;
-		// adjacent node
-		for (int end : adjacencyList[node]) {
+	private static boolean canColor2(int start, int color, int[] colors, int[][] adjacencyList) {
+		colors[start] = color;
+		// finding all the adjacent node
+		for (int end : adjacencyList[start]) {
 			// adjacent node color is opposite, so we don't have to do anything
 			if (colors[end] == -color) continue;
 			// if the adjacent color is the same, then we will directly return false
-			// else we will start dfs from the adjacent node with the opposite color
-			if (colors[end] == color || !canColor2(adjacencyList, colors, end, -color))
+			// else we will start dfs from the adjacent node with the opposite color.
+			// if that DFS call returns false, then also we will return false
+			if (colors[end] == color || !canColor2(end, -color, colors, adjacencyList))
 				return false;
 		}
+		// lastly, we are returning true as no DFS call returned false
+		// and the graph can be colored with two colors
 		return true;
 	}
 
 	// using BFS
+	// TODO Our work is to color the nodes with two colors +1 and -1
+	//  such that if one node is having + color then the adjacent node will not have the + color.
+	// 	we will start BFS from every uncolored node, and mark that node to + color then,
+	//  we will traverse the adjacent nodes and mark them with exactly opposite color
+	//  if any point of time we see the adjacent node is already visited and have the same color,
+	//  then we can say that we can not color the graph
 	private static void type1() {
 		int[][] adjacencyList = {
 				{1, 2, 3},
@@ -93,8 +132,11 @@ public class BipartiteGraph {
 		int[] colors = new int[v];
 		// start from all components
 		for (int i = 0; i < v; i++)
+			// we will check if the ith node is already colored or not
+			// if not then we will start BFS from that node
 			if (colors[i] == 0 && !canColor1(i, adjacencyList, colors))
 				return false;
+		// lastly, we are return true which means graph can be colored
 		return true;
 	}
 
@@ -107,17 +149,16 @@ public class BipartiteGraph {
 		// we will start bfs from the node
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
-			//
 			int color = colors[start];
 			for (int end : adjacencyList[start]) {
+				// adjacent node color is opposite, so we don't have to do anything
+				if (colors[end] == -color) continue;
 				// if the color is same in adjacent node, then we will return false
 				if (colors[end] == color) return false;
-				// if the adjacent node is not colored, then we will add
+				// so the adjacent node is not yet colored, so we will add
 				// opposite color to the adjacent node and add that to queue
-				if (colors[end] == 0) {
-					queue.offer(end);
-					colors[end] = -color;
-				}
+				queue.offer(end);
+				colors[end] = -color;
 			}
 		}
 		return true;

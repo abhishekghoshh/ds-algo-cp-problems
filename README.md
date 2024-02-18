@@ -665,6 +665,10 @@
   - [Word Ladder 1](/src/com/ds/graph/WordLadder1.java)
   - [Word Ladder 2](/src/com/ds/graph/WordLadder2.java)
   - [Number of Distinct Islands | dfs multisource](/src/com/ds/graph/NumberOfIslands.java)
+  - [Bipartite Graph](/src/com/ds/graph/BipartiteGraph.java)
+  - [Detect cycle in a directed graph (using DFS)](/src/com/ds/graph/CycleDetectionInDirectedGraph.java)
+  - [Topological Sort Algorithm](/src/com/ds/graph/TopologicalSort.java)
+  - [Kahn’s Algorithm | Topological Sort Algorithm](/src/com/ds/graph/TopologicalSort.java)
 </details>
 
 <details>

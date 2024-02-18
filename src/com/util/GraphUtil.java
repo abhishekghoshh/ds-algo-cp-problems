@@ -103,6 +103,14 @@ public class GraphUtil {
 		}
 	}
 
+	public static void print(List<List<Integer>> adjacencyList) {
+		int n = adjacencyList.size();
+		System.out.println("Undirected graph using adjacency list");
+		for (int i = 0; i < n; i++) {
+			System.out.println(i + " -> " + adjacencyList.get(i));
+		}
+	}
+
 	public static void print(int[][] graph) {
 		int n = graph.length - 1;
 		System.out.println("Undirected graph with matrix");
@@ -119,6 +127,61 @@ public class GraphUtil {
 		System.out.println("Undirected graph using adjacency list");
 		for (int i = 1; i <= n; i++) {
 			System.out.println(i + " -> " + graph[i]);
+		}
+	}
+
+	public static AdjacencyListBuilder graphBuilder() {
+		return new AdjacencyListBuilder();
+	}
+
+	public static class AdjacencyListBuilder {
+		private int nodes;
+		private final List<AdjacentNode> adjacentNodes = new ArrayList<>();
+
+		public AdjacencyListBuilder nodes(int nodes) {
+			this.nodes = nodes;
+			return this;
+		}
+
+		public AdjacentNode start(int start) {
+			AdjacentNode adjacentNode = new AdjacentNode(start, this);
+			this.adjacentNodes.add(adjacentNode);
+			return adjacentNode;
+		}
+
+		public List<List<Integer>> buildList() {
+			List<List<Integer>> adjacencyList = new ArrayList<>();
+			for (int i = 0; i < nodes; i++)
+				adjacencyList.add(new ArrayList<>());
+			for (AdjacentNode adjacentNode : adjacentNodes)
+				for (int end : adjacentNode.ends)
+					adjacencyList.get(adjacentNode.start).add(end);
+			return adjacencyList;
+		}
+
+		public int[][] buildGraph() {
+			int[][] graph = new int[nodes][nodes];
+			for (AdjacentNode adjacentNode : adjacentNodes)
+				for (int end : adjacentNode.ends)
+					graph[adjacentNode.start][end] = 1;
+			return graph;
+		}
+
+
+		public static class AdjacentNode {
+			int start;
+			int[] ends;
+			private final AdjacencyListBuilder adjacencyListBuilder;
+
+			public AdjacentNode(int start, AdjacencyListBuilder adjacencyListBuilder) {
+				this.start = start;
+				this.adjacencyListBuilder = adjacencyListBuilder;
+			}
+
+			public AdjacencyListBuilder end(int... ends) {
+				this.ends = ends;
+				return adjacencyListBuilder;
+			}
 		}
 	}
 }
