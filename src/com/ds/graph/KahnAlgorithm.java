@@ -39,32 +39,31 @@ public class KahnAlgorithm {
 				.buildList();
 		GraphUtil.print(adjacencyList);
 
-		// first, we will calculate indegree of all the nodes
-		// if any node has no indegree then it is the starting nodes,
-		// and we can assume that from these nodes there are edges to other nodes
+		// first, we will calculate indegree of all the nodes, if any node has no indegree
+		// then it is the starting nodes, and we can assume that from these nodes there are edges to other nodes
 		int[] indegree = new int[v];
 		for (List<Integer> nodes : adjacencyList)
-			for (int node : nodes)
-				indegree[node]++;
+			for (int node : nodes) indegree[node]++;
 
 		int[] answer = new int[v];
-		int j = 0;
+		int index = 0;
+
 		Queue<Integer> queue = new LinkedList<>();
+		// if the in degree of a node is 0, that means that is the starting node
+		// so, we will add it to the queue, as our starting point of the BFS
 		for (int i = 0; i < v; i++)
-			if (indegree[i] == 0)
-				queue.offer(i);
-		// everytime we will decrease the indegree of the adjacent node,
-		// let's say node 5 has edge from 2 and 4, so indegree[5] = 2
-		// indegree[5] will 0 when we have discovered 2 and 4 successfully
+			if (indegree[i] == 0) queue.offer(i);
+
+		// everytime we will decrease the indegree of the adjacent node,let's say node 5 has edge from 2 and 4,
+		// so indegree[5] = 2 indegree[5] will 0 when we have discovered 2 and 4 successfully
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
-			answer[j++] = start;
+			answer[index++] = start;
 			for (int node : adjacencyList.get(start)) {
 				indegree[node]--;
 				// we will add them in queue when the indegree of the specific node become 0
 				// that means we have already discovered all is previous nodes
-				if (indegree[node] == 0)
-					queue.offer(node);
+				if (indegree[node] == 0) queue.offer(node);
 			}
 		}
 		print(answer);

@@ -19,6 +19,9 @@ import static com.util.PrintUtl.print;
  * https://takeuforward.org/data-structure/topological-sort-algorithm-dfs-g-21/
  */
 public class TopologicalSort {
+	// TODO topological sorting does not make sense on the undirected graph because
+	//  by definition a -> b means a is coming before b, but in  undirected graph the edge will be
+	//  like this a - b which have no direction
 	// Given a Directed Acyclic Graph (DAG) with V vertices and E edges,
 	// Find any Topological Sorting of that Graph.
 	// In a graph if there is any edge from 1 to 2 and from 2 to 3
@@ -63,6 +66,8 @@ public class TopologicalSort {
 		print(answer);
 	}
 
+	// TODO intuition is if are doing dfs for a node n1 then all its adjacent
+	//  nodes will be traversed first, then it will come to n1
 	private static void dfs(int start, boolean[] visited,
 							List<List<Integer>> adjacencyList, Stack<Integer> stack) {
 		visited[start] = true;

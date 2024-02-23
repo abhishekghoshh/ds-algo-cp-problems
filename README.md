@@ -3,6 +3,18 @@
 ## Resources
 
 <details>
+    <summary><strong>Youtube channels</strong></summary>
+
+- resources
+  - [take U forward](https://www.youtube.com/@takeUforward/playlists)
+  - [NeetCode](https://www.youtube.com/@NeetCode/playlists)
+  - [NeetCodeIO](https://www.youtube.com/@NeetCodeIO/playlists)
+  - [CodeBeyond](https://www.youtube.com/@CodeBeyond/playlists)
+  - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
+
+</details>
+
+<details>
     <summary><strong>Blogs</strong></summary>
 
 - resources
@@ -50,6 +62,14 @@
   - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
   - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
 - [Leetcode](https://leetcode.com/studyplan/)
+  - [Binary search](https://leetcode.com/studyplan/binary-search/)
+  - [Graph theory](https://leetcode.com/studyplan/graph-theory/)
+  - [Dynamic programming problems](https://leetcode.com/studyplan/dynamic-programming/)
+  - [Top interview problems](https://leetcode.com/explore/featured/card/top-interview-questions-easy/)
+  - [Top 150 interview problems](https://leetcode.com/studyplan/top-interview-150/)
+  - [Top 75 interview problems](https://leetcode.com/studyplan/leetcode-75/)
+  - [Top 100 Liked problems](https://leetcode.com/studyplan/top-100-liked/)
+  - [Programming skills](https://leetcode.com/studyplan/programming-skills/)
 - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
 - GeekForGeeks
   - [Microsoft SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/mts-1?tab=Chapters)
