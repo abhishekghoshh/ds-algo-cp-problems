@@ -59,11 +59,15 @@ public class KahnAlgorithm {
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
 			answer[index++] = start;
-			for (int node : adjacencyList.get(start)) {
-				indegree[node]--;
+			for (int end : adjacencyList.get(start)) {
+				// indegree denotes there is an edge between start -> end, and
+				// as we are traversing it we will decrease it
+				indegree[end]--;
 				// we will add them in queue when the indegree of the specific node become 0
-				// that means we have already discovered all is previous nodes
-				if (indegree[node] == 0) queue.offer(node);
+				// that means we have already discovered all is previous nodes.
+				// and it was that last edge to end node, so now we will add it to the queue
+				// so the queue will eventually have the nodes in sorted manner
+				if (indegree[end] == 0) queue.offer(end);
 			}
 		}
 		print(answer);

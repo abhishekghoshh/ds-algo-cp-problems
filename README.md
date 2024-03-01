@@ -415,6 +415,7 @@
   - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 - codes
     - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
+    - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
 </details>
 
 <details>
