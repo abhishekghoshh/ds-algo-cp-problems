@@ -689,7 +689,11 @@
   - [Bipartite Graph](/src/com/ds/graph/BipartiteGraph.java)
   - [Detect cycle in a directed graph (using DFS)](/src/com/ds/graph/CycleDetectionInDirectedGraph.java)
   - [Topological Sort Algorithm](/src/com/ds/graph/TopologicalSort.java)
-  - [Kahn’s Algorithm | Topological Sort Algorithm](/src/com/ds/graph/TopologicalSort.java)
+  - [Kahn’s Algorithm | Topological Sort Algorithm](/src/com/ds/graph/KahnAlgorithm.java)
+  - [Cycle Detection in Directed Graph (BFS)](/src/com/ds/graph/CycleDetectionUsingKahnAlgorithm.java)
+  - [Course Schedule I & II](/src/com/ds/graph/CourseSchedule.java)
+  - [Find Eventual Safe States](/src/com/ds/graph/FindEventualSafeStates.java)
+  - [Alien dictionary](/src/com/ds/graph/AlienDictionary.java)
 </details>
 
 <details>

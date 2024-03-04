@@ -138,9 +138,14 @@ public class GraphUtil {
 		private int nodes;
 		private final List<AdjacentNode> adjacentNodes = new ArrayList<>();
 
+
 		public AdjacencyListBuilder nodes(int nodes) {
 			this.nodes = nodes;
 			return this;
+		}
+
+		public Edges edges(int edges) {
+			return new Edges(nodes, edges);
 		}
 
 		public AdjacentNode start(int start) {
@@ -167,6 +172,33 @@ public class GraphUtil {
 			return graph;
 		}
 
+		public static class Edges {
+			int[][] edges;
+			int currentIndex = 0;
+			int nodes;
+
+			public Edges(int nodes, int edges) {
+				this.edges = new int[edges][edges];
+				this.nodes = nodes;
+			}
+
+			public Edges edge(int start, int end) {
+				if (currentIndex == edges.length) throw new RuntimeException("can not hold any more edges");
+				edges[currentIndex][0] = start;
+				edges[currentIndex][1] = end;
+				currentIndex++;
+				return this;
+			}
+
+			public List<List<Integer>> buildList() {
+				List<List<Integer>> adjacencyList = new ArrayList<>();
+				for (int i = 0; i < nodes; i++)
+					adjacencyList.add(new ArrayList<>());
+				for (int i = 0; i < currentIndex; i++)
+					adjacencyList.get(edges[i][0]).add(edges[i][1]);
+				return adjacencyList;
+			}
+		}
 
 		public static class AdjacentNode {
 			int start;

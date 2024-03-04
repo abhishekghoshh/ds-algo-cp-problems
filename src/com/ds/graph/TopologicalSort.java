@@ -22,11 +22,11 @@ public class TopologicalSort {
 	// TODO topological sorting does not make sense on the undirected graph because
 	//  by definition a -> b means a is coming before b, but in  undirected graph the edge will be
 	//  like this a - b which have no direction
-	// Given a Directed Acyclic Graph (DAG) with V vertices and E edges,
-	// Find any Topological Sorting of that Graph.
-	// In a graph if there is any edge from 1 to 2 and from 2 to 3
-	/// then in topological sort, the answer will be 1 -> 2 -> 3,
-	// and it will always be acyclic graph
+	// 	Given a Directed Acyclic Graph (DAG) with V vertices and E edges,
+	// 	Find any Topological Sorting of that Graph.
+	// 	In a graph if there is any edge from 1 to 2 and from 2 to 3
+	//  then in topological sort, the answer will be 1 -> 2 -> 3,
+	// 	and it will always be acyclic graph
 	public static void main(String[] args) {
 		type1();
 	}

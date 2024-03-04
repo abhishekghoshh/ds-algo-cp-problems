@@ -61,7 +61,7 @@ public class KahnAlgorithm {
 			answer[index++] = start;
 			for (int end : adjacencyList.get(start)) {
 				// indegree denotes there is an edge between start -> end, and
-				// as we are traversing it we will decrease it
+				// as we are traversing it, we will decrease it
 				indegree[end]--;
 				// we will add them in queue when the indegree of the specific node become 0
 				// that means we have already discovered all is previous nodes.
