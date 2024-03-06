@@ -19,18 +19,44 @@ public class StringToInteger {
 		type3();
 	}
 
-	// TODO check it in the google and leetcode if it is even possible
+
+	// using recursion
 	private static void type3() {
-		String s = "-2147483647";
+		String s = "   -91283472332 with words";
 		int num = atoi3(s);
 		System.out.println(num);
 	}
 
-	// recursive implementation of atoi function
+	// exactly the same as previous, here we have converted the inner loop into recursion
+	static int integerExceeds = 0;
 	private static int atoi3(String s) {
-		return 0;
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		if (n == 0) return 0;
+		int i = 0;
+		boolean isPositive = true;
+		// 1. Read in and ignore any leading whitespace
+		while (i < n && arr[i] == ' ') i++;
+		// 2. Check the sign
+		if (i < n && (arr[i] == '-' || arr[i] == '+')) isPositive = arr[i++] == '+';
+		int result = atoi3(i, 0, arr, isPositive);
+		// we are checking if it is returning the exceeding integer or not
+		if (integerExceeds != 0) return integerExceeds;
+		// else we will apply sign and return
+		return isPositive ? result : -result;
 	}
 
+	private static int atoi3(int i, int result, char[] arr, boolean isPositive) {
+		if (i == arr.length) return result;
+		int digit = arr[i] - '0';
+		// if the char is not digit, then we will break
+		if (digit < 0 || digit > 9) return result;
+		// checking that if by adding this char we are exceeding INT MAX value or not
+		if (Integer.MAX_VALUE / 10 < result || (Integer.MAX_VALUE / 10 == result && Integer.MAX_VALUE % 10 < digit))
+			// also setting the integerExceed variable
+			return integerExceeds = isPositive ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+		return atoi3(i + 1, (result * 10 + digit), arr, isPositive);
+	}
 
 	// TODO explain this in the interview
 	private static void type2() {
@@ -56,7 +82,7 @@ public class StringToInteger {
 		// 3. Convert to integer and avoid overflow
 		while (i < n) {
 			int digit = arr[i++] - '0';
-			// if the char is not digit then we will break
+			// if the char is not digit, then we will break
 			if (digit < 0 || digit > 9) break;
 			// checking that if by adding this char we are exceeding INT MAX value or not
 			if (Integer.MAX_VALUE / 10 < result || (Integer.MAX_VALUE / 10 == result && Integer.MAX_VALUE % 10 < digit))
@@ -86,10 +112,8 @@ public class StringToInteger {
 			int digit = arr[i++] - '0';
 			if (digit < 0 || digit > 9) break;
 			sum = sum * 10 + digit;
-			if (sign == 1 && sum > Integer.MAX_VALUE)
-				return Integer.MAX_VALUE;
-			if (sign == -1 && (-1) * sum < Integer.MIN_VALUE)
-				return Integer.MIN_VALUE;
+			if (sign == 1 && sum > Integer.MAX_VALUE) return Integer.MAX_VALUE;
+			if (sign == -1 && (-1) * sum < Integer.MIN_VALUE) return Integer.MIN_VALUE;
 		}
 		return (int) sum * sign;
 	}

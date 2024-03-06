@@ -1,5 +1,7 @@
 package com.util;
 
+import java.util.Stack;
+
 public class ArrayUtil {
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
@@ -46,4 +48,9 @@ public class ArrayUtil {
         return copy;
     }
 
+    public static Stack<Integer> stack(int... arr) {
+        Stack<Integer> stack = new Stack<>();
+        for (int item : arr) stack.push(item);
+        return stack;
+    }
 }

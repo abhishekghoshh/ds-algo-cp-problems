@@ -32,6 +32,11 @@ public class PrintUtl {
         System.out.println();
     }
 
+    public static void print(Stack<Integer> stack) {
+        while (!stack.isEmpty()) System.out.print(stack.pop() + " ");
+        System.out.println();
+    }
+
     public static void print2D(List<List<Integer>> matrix) {
         for (List<Integer> row : matrix) {
             for (Integer item : row) System.out.print(item + " ");

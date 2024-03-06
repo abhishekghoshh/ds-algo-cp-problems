@@ -9,6 +9,7 @@
   - [take U forward](https://www.youtube.com/@takeUforward/playlists)
   - [NeetCode](https://www.youtube.com/@NeetCode/playlists)
   - [NeetCodeIO](https://www.youtube.com/@NeetCodeIO/playlists)
+  - [Fraz](https://www.youtube.com/@mohammadfraz/playlists)
   - [CodeBeyond](https://www.youtube.com/@CodeBeyond/playlists)
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 
@@ -414,8 +415,13 @@
   - [Recursion Playlist | Coding | Interview Questions | Algorithm | Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
   - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 - codes
-    - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
-    - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
+  - [Recursive Implementation of atoi()](/src/com/ds/string/StringToInteger.java)
+  - [Pow(x, n)](/src/com/ds/binarysearch/PowerOfXtoN.java)
+  - [Count Good Numbers](/src/com/ds/recursion/CountGoodNumbers.java)
+  - [Sort a stack using recursion](/src/com/ds/recursion/SortStack.java)
+  - [Reverse a stack using recursion](/src/com/ds/recursion/ReverseStack.java)
+  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
+  - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
 </details>
 
 <details>
