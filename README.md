@@ -420,6 +420,8 @@
   - [Count Good Numbers](/src/com/ds/recursion/CountGoodNumbers.java)
   - [Sort a stack using recursion](/src/com/ds/recursion/SortStack.java)
   - [Reverse a stack using recursion](/src/com/ds/recursion/ReverseStack.java)
+  - [Generate all binary strings with no consecutive 1s](/src/com/ds/recursion/GenerateAllBinaryStringsWithNoConsecutiveOnes.java)
+  - [Generate Parentheses](/src/com/ds/recursion/GenerateAllBalancedParenthesis.java)
   - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
   - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
 </details>
