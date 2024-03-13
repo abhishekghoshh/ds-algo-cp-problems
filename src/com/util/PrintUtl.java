@@ -22,6 +22,13 @@ public class PrintUtl {
         }
         System.out.println();
     }
+    public static void print2D(String[][] matrix) {
+        for (String[] row : matrix) {
+            for (String item : row) System.out.print(item + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
 
     public static void print(List<Integer> arr) {
         for (int item : arr) System.out.print(item + " ");

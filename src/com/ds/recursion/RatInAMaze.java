@@ -1,14 +1,15 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 
 /*
- * Problem link : 
- * https://www.codingninjas.com/codestudio/problems/758966?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/758966
+ * https://www.codingninjas.com/studio/problems/rat-in-a-maze-_8842357
  * https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1
  * 
  * Solution link:
- * https://www.youtube.com/watch?v=bLGZhJlt4y0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=61
+ * https://www.youtube.com/watch?v=bLGZhJlt4y0
  * 
  * https://takeuforward.org/data-structure/rat-in-a-maze/
  * */
@@ -143,15 +144,15 @@ public class RatInAMaze {
 		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
 		int x = matrix.length;
 		int y = matrix[0].length;
-		boolean visited[][] = new boolean[x][y];
+		boolean[][] visited = new boolean[x][y];
 		ArrayList<String> answer = new ArrayList<>();
 		if (matrix[0][0] == 1)
 			solve(0, 0, matrix, answer, new StringBuilder(), visited);
 		System.out.println(answer);
 	}
 
-	private static void solve(int i, int j, int matrix[][], ArrayList<String> ans, StringBuilder bucket,
-			boolean visited[][]) {
+	private static void solve(int i, int j, int[][] matrix, ArrayList<String> ans, StringBuilder bucket,
+                              boolean[][] visited) {
 		int x = matrix.length;
 		int y = matrix[0].length;
 		if (i == x - 1 && j == y - 1) {
@@ -175,7 +176,6 @@ public class RatInAMaze {
 	// same as previous with little refactoring
 	private static void type2() {
 		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		// m = new int[][] { { 1, 1 }, { 1, 1 } };
 		if (matrix[0][0] == 0) {
 			return;
 		}
@@ -193,7 +193,7 @@ public class RatInAMaze {
 			answer.add(bucket.toString());
 			return;
 		}
-		// if out of bounds or there is not path or the point is already visited
+		// if out of bounds or there is no path or the point is already visited
 		if (i == x || i == -1 || j == y || j == -1 || matrix[i][j] == 0 || visited[i][j])
 			return;
 		visited[i][j] = true;
@@ -216,8 +216,12 @@ public class RatInAMaze {
 
 	// using visited matrix
 	private static void type1() {
-		int[][] m = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		// m = new int[][] { { 1, 1 }, { 1, 1 } };
+		int[][] m = {
+				{1, 0, 0, 0},
+				{1, 1, 0, 1},
+				{1, 1, 0, 0},
+				{0, 1, 1, 1}
+		};
 		int n = m.length;
 		if (m[0][0] != 0) {
 			ArrayList<String> answer = new ArrayList<>();

@@ -422,8 +422,24 @@
   - [Reverse a stack using recursion](/src/com/ds/recursion/ReverseStack.java)
   - [Generate all binary strings with no consecutive 1s](/src/com/ds/recursion/GenerateAllBinaryStringsWithNoConsecutiveOnes.java)
   - [Generate Parentheses](/src/com/ds/recursion/GenerateAllBalancedParenthesis.java)
-  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java) **TBD**
+  - [Print all subsequences/Power Set with unique elements](/src/com/ds/recursion/PowerSet1.java)
+  - [Print all subsequences/Power Set with duplicate elements](/src/com/ds/recursion/PowerSet2.java)
+  - [Combination sum 1](/src/com/ds/recursion/CombinationSum1.java)
+  - [Combination sum 2](/src/com/ds/recursion/CombinationSum2.java)
+  - [Combination sum 2](/src/com/ds/recursion/CombinationSum3.java)
+  - [Count of Subset sum equal to k](/src/com/ds/recursion/CountOfSubsetSumEqualToK.java)
+  - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java)
+  - [Palindrome Partitioning](/src/com/ds/recursion/PalindromePartitioning.java)
+  - [Word Search 1](/src/com/ds/recursion/WordSearch1.java)
+  - [Word Search 2](/src/com/ds/recursion/WordSearch2.java)
+  - [N Queen problem](/src/com/ds/recursion/NQueenProblem.java)
+  - [Rat In a Maze](/src/com/ds/recursion/RatInAMaze.java)
+  - [Word Break](/src/com/ds/recursion/WordBreak.java)
+  - [M Coloring Problem](/src/com/ds/recursion/MColoringProblem.java)
+  - [Sudoku Solver](/src/com/ds/recursion/SudokuSolver.java)
+  - [K-th Symbol in Grammar](/src/com/ds/recursion/KthSymbolInAGrammar.java)
   - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
+  - [Expression Add Operators](/src/com/ds/recursion/ExpressionAddOperators.java)
 </details>
 
 <details>

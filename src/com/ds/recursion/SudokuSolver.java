@@ -1,14 +1,16 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.HashSet;
 import java.util.Set;
 /*
- * Problem link : 
- * codingninjas.com/codestudio/problems/758961?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
  * https://leetcode.com/problems/sudoku-solver/
- * 
+ * https://codingninjas.com/codestudio/problems/758961
+ * https://www.codingninjas.com/studio/problems/sudoku-solver_8416969
+ *
  * Solution link:
- * https://www.youtube.com/watch?v=FWAIf_EVUKE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=59
+ * https://www.youtube.com/watch?v=FWAIf_EVUKE
+ *
  * https://takeuforward.org/data-structure/sudoku-solver/
  * */
 public class SudokuSolver {
@@ -22,8 +24,6 @@ public class SudokuSolver {
 	}
 
 	private static void type3() {
-		// TODO study https://leetcode.com/submissions/detail/811257299/
-		// top answers
 	}
 
 	private static void type2() {

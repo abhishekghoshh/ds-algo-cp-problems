@@ -1,17 +1,17 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.Arrays;
 
 /*
- * Problem link : 
- * https://www.codingninjas.com/codestudio/problems/981273?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
+ * https://www.codingninjas.com/codestudio/problems/981273
+ * https://www.codingninjas.com/studio/problems/m-coloring-problem_981273
  * https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1#
  * 
  * Solution link:
- * https://www.youtube.com/watch?v=wuVwUK25Rfc&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=60
+ * https://www.youtube.com/watch?v=wuVwUK25Rfc
+ *
  * https://takeuforward.org/data-structure/m-coloring-problem/
- * 
- * 
  * */
 public class MColoringProblem {
 
@@ -21,12 +21,16 @@ public class MColoringProblem {
 	}
 
 	// using backtracking
-	// for every point we are checking if all color is possible or not
-	// if one color is possible then we are going to next point
+	// for every point, we are checking if all colors are possible, or not
+	// if one color is possible, then we are going to the next point
 	private static void type2() {
 		int m = 3;
-		boolean[][] graph = { { false, true, true, true }, { true, false, true, false }, { true, true, false, true },
-				{ true, false, true, false } };
+		boolean[][] graph = {
+				{false, true, true, true},
+				{true, false, true, false},
+				{true, true, false, true},
+				{true, false, true, false}
+		};
 		int n = graph.length;
 		int[] points = new int[n];
 		boolean isPossible = isColoringPossible(graph, 0, points, m, n);
@@ -69,13 +73,17 @@ public class MColoringProblem {
 	private static void type1() {
 		// number of colors
 		int m = 3;
-		boolean[][] graph = { { false, true, true, true }, { true, false, true, false }, { true, true, false, true },
-				{ true, false, true, false } };
+		boolean[][] graph = {
+				{false, true, true, true},
+				{true, false, true, false},
+				{true, true, false, true},
+				{true, false, true, false}
+		};
 		int n = graph.length;
 		int[] points = new int[n];
 		for (int i = 0; i < n; i++) {
 			// we are checking on each index that it is colored or not
-			// if its not colored yet then we are starting dfs from that index
+			// if it's not colored, yet then we are starting dfs from that index
 			if (points[i] == 0) {
 				points[i] = 1;
 				traverse(i, points, graph, n);
@@ -89,10 +97,10 @@ public class MColoringProblem {
 	private static void traverse(int point, int[] points, boolean[][] graph, int n) {
 		// we are looping through all the indexes
 		for (int i = 0; i < n; i++) {
-			// if there is an edge to other point and that point is not yet colored
+			// if there is an edge to another point and that point is not yet colored
 			if (graph[point][i] && points[i] == 0) {
 				points[i] = 1;
-				// so out of all its neighours we are checking which color can be alloted
+				// so out of all its neighbors, we are checking which color can be allowed
 				for (int j = 0; j < n; j++) {
 					if (graph[i][j] && points[i] == points[j]) {
 						points[i]++;

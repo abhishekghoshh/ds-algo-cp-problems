@@ -1,4 +1,4 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,12 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /*
- * Problem link : 
- * https://www.codingninjas.com/codestudio/problems/759332?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * Problem link :
  * https://leetcode.com/problems/n-queens/
- * 
+ * https://www.codingninjas.com/codestudio/problems/759332
+ * https://www.codingninjas.com/studio/problems/n-queens_696453
+ *
  * Solution link:
- * https://www.youtube.com/watch?v=i05Ju7AftcM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=58
+ * https://www.youtube.com/watch?v=i05Ju7AftcM
  * 
  * https://takeuforward.org/data-structure/n-queen-problem-return-all-distinct-solutions-to-the-n-queens-puzzle/
  * */
@@ -66,9 +67,11 @@ public class NQueenProblem {
 
 	// O(1) time to check if there is any queen in the same row or left upper
 	// diagonal and left lower diagonal
-	private static boolean isSafeToPlace(int col, int[] left_row, int[] lower_diagonal, int[] upper_diagonal, int n,
-			int row) {
-		return (left_row[row] == 0) && (lower_diagonal[row + col] == 0) && (upper_diagonal[n - 1 + col - row] == 0);
+	private static boolean isSafeToPlace(int col, int[] left_row, int[] lower_diagonal,
+										 int[] upper_diagonal, int n, int row) {
+		return (left_row[row] == 0)
+				&& (lower_diagonal[row + col] == 0)
+				&& (upper_diagonal[n - 1 + col - row] == 0);
 	}
 
 	// normal solution
