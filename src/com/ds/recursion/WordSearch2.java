@@ -26,6 +26,8 @@ public class WordSearch2 {
     //  we have gradually built the approach
     //  WordSearch(type1) -> WordSearch(type2) -> WordSearch2(type1) -> WordSearch2(type2) -> WordSearch3(type3)
     // check the comments of the type2
+    // here we will also use word counter along with isEnd flag
+    // to mark how many words are there with this path
     private static void type3() {
         char[][] board = {
                 {'o', 'a', 'b', 'n'},
@@ -55,8 +57,10 @@ public class WordSearch2 {
                 if (node.nodes[pos] == null)
                     node.nodes[pos] = new TrieNode2();
                 node = node.nodes[pos];
+                // we will also increment the word counter
                 node.count++;
             }
+            // we will also mark that the word ends here
             node.isEnd = true;
         }
 
@@ -65,6 +69,8 @@ public class WordSearch2 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 int pos = board[i][j] - 'a';
+                // not null means there might be a word in the trie starting with the cell character
+                // additionally we will also check if the word count is greater than 0 or not
                 if (trieNode.nodes[pos] != null && trieNode.nodes[pos].count > 0)
                     findWord3(board, i, j, trieNode, new StringBuilder(), answer);
             }
@@ -74,6 +80,8 @@ public class WordSearch2 {
 
     private static boolean findWord3(char[][] board, int i, int j,
                                      TrieNode2 node, StringBuilder word, List<String> answer) {
+        // if the cell out of boundary or the cell is already visited or character is not found in the trie
+        // additionally, we will check the word count is greater than 0 or not
         if (isOutOfBound(i, j, board)
                 || board[i][j] == '-'
                 || node.nodes[board[i][j] - 'a'] == null
@@ -83,18 +91,30 @@ public class WordSearch2 {
         char ch = board[i][j];
         board[i][j] = '-';
 
+        // we will maintain one flag, if on this node or any future node
+        // there is a word, then we will decrement the count variable
         boolean hasWordEnding = false;
 
+        // we will append the letter to the string
         word.append(ch);
+        // we will go to the node, and we know it is not null
         node = node.nodes[ch - 'a'];
 
+        // if isEnd flag is true then there is one word ending here obviously,
+        // so we will add the word into the answer, but we will not stop here.
+        // here we will additionally do some other things
+        // we will set the flag to true, decrement the count and also unset the variable.
+        // else the word might get added in some other word like
+        // if the current word is abc, and there is another word abcd
         if (node.isEnd) {
+            answer.add(word.toString());
             hasWordEnding = true;
             node.count--;
             node.isEnd = false;
-            answer.add(word.toString());
         }
 
+        // we will traverse all four sides, and if there is any word found, then
+        // we will set the flag value to true, and also we will decrement the count value
         if (findWord3(board, i + 1, j, node, word, answer)) {
             hasWordEnding = true;
             node.count--;
@@ -111,12 +131,11 @@ public class WordSearch2 {
             hasWordEnding = true;
             node.count--;
         }
-
-
+        // after all the computation, we will delete the character
         word.deleteCharAt(word.length() - 1);
-
+        // also we will mark the cell unvisited
         board[i][j] = ch;
-
+        // now we will return the flag
         return hasWordEnding;
     }
 
@@ -144,7 +163,7 @@ public class WordSearch2 {
     public static List<String> findWords2(char[][] board, String[] words) {
         List<String> answer = new ArrayList<>();
         TrieNode trieNode = new TrieNode();
-        // it will build the trie
+        // it will build the trie with all the words given in it or not
         for (String word : words) {
             TrieNode node = trieNode;
             for (char ch : word.toCharArray()) {
@@ -153,44 +172,65 @@ public class WordSearch2 {
                     node.nodes[pos] = new TrieNode();
                 node = node.nodes[pos];
             }
+            // we will also mark that the word ends here
             node.isEnd = true;
         }
 
         int m = board.length, n = board[0].length;
-
+        // now for every cell, we will search that if that character is there in the root node or not
+        // if it is present, then we will start traversing
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 int pos = board[i][j] - 'a';
+                // not null means there might be a word in the trie starting with the cell character
                 if (trieNode.nodes[pos] != null)
                     findWord2(board, i, j, trieNode, new StringBuilder(), answer);
             }
         }
+        // the answer might have some duplicate results.
+        // as there might be a set of adjacent cells having the save value.
+        // like if in the 1st row, there is [o a]
+        // and in the third row there is [a o]
+        // trie will start from both o then add the word "ao" into the answer.
+        // that is why we will use a hashset to add remove duplicate words
         return new ArrayList<>(new HashSet<>(answer));
     }
 
 
     private static void findWord2(char[][] board, int i, int j,
                                   TrieNode node, StringBuilder word, List<String> answer) {
-        if (isOutOfBound(i, j, board) || board[i][j] == '-' || node.nodes[board[i][j] - 'a'] == null) return;
+        // if the cell out of boundary or the cell is already visited or character is not found in the trie
+        if (isOutOfBound(i, j, board)
+                || board[i][j] == '-'
+                || node.nodes[board[i][j] - 'a'] == null
+        ) return;
         // we will change the cell value to an arbitrary character to mark it as visited
         char ch = board[i][j];
         board[i][j] = '-';
 
+        // we will append the letter to the string
         word.append(ch);
+        // we will go to the node, and we know it is not null
         node = node.nodes[ch - 'a'];
 
-
+        // if isEnd flag is true then there is one word ending here obviously,
+        // so we will add the word into the answer, but we will not stop here.
+        // we will continue traversing as there might be some words like "aab" and "aabb"
         if (node.isEnd) answer.add(word.toString());
 
+        // now will traverse all four sides
         findWord2(board, i + 1, j, node, word, answer);
         findWord2(board, i - 1, j, node, word, answer);
         findWord2(board, i, j + 1, node, word, answer);
         findWord2(board, i, j - 1, node, word, answer);
 
+        // after all the computation, we will delete the character
         word.deleteCharAt(word.length() - 1);
 
+        // also we will mark the cell unvisited
         board[i][j] = ch;
     }
+
 
     static class TrieNode {
         boolean isEnd = false;
@@ -201,7 +241,7 @@ public class WordSearch2 {
     // this solution is very efficient, but this will not work for this problem.
     // if there are some words like aaaaax, aaaaaab
     // we are not using the fact that they have the same prefix,
-    // we can easily save some computation
+    // we can easily save some computation using trie
     private static void type1() {
         char[][] board = {
                 {'o', 'a', 'a', 'n'},
@@ -218,6 +258,8 @@ public class WordSearch2 {
         List<String> answer = new ArrayList<>();
         int m = board.length, n = board[0].length;
         for (String word : words) {
+            // for every word, we will start searching into the board
+            // that it is there or not
             if (findWord1(board, word)) answer.add(word);
         }
         return answer;
