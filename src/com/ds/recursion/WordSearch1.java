@@ -102,8 +102,10 @@ public class WordSearch1 {
         if (hasWord2(board, i + 1, j, idx + 1, arr)
                 || hasWord2(board, i - 1, j, idx + 1, arr)
                 || hasWord2(board, i, j + 1, idx + 1, arr)
-                || hasWord2(board, i, j - 1, idx + 1, arr))
+                || hasWord2(board, i, j - 1, idx + 1, arr)) {
+            board[i][j] = ch;
             return true;
+        }
 
         // at last, we will again set the cell value to its original char
         board[i][j] = ch;
