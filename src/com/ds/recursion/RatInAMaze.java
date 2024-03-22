@@ -23,149 +23,101 @@ public class RatInAMaze {
 	// travel through it.
 	// Note: In a path, no cell can be visited more than one time. If the source
 	// cell is 0, the rat cannot move to any other cell.
-	// print is sorted order
+	// Print is sorted order
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
 		type4();
-		type5();
 	}
 
-	// same as type4
-	// without visited matrix
-	// if one point is already visited then we remove the set bit from that
-	private static void type5() {
-		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		// m = new int[][] { { 1, 1 }, { 1, 1 } };
-		if (matrix[0][0] == 0) {
-			return;
-		}
-		ArrayList<String> answer = new ArrayList<>();
-		traverse_(matrix, 0, 0, answer, new StringBuilder());
-		System.out.println(answer);
-	}
-
-	private static void traverse_(int[][] matrix, int i, int j, ArrayList<String> answer, StringBuilder bucket) {
-		int x = matrix.length;
-		int y = matrix[0].length;
-		if (i == x - 1 && j == y - 1) {
-			answer.add(bucket.toString());
-			return;
-		}
-		// if out of bounds or there is not path or the point is already visited
-		if (i == x || i == -1 || j == y || j == -1 || matrix[i][j] == 0)
-			return;
-		// turning off the point
-		matrix[i][j] = 0;
-		// all directions are L R U D
-		// if we sort alphabetically then D L R U
-		// go down
-		traverse_(matrix, i + 1, j, answer, bucket.append("D"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go left
-		traverse_(matrix, i, j - 1, answer, bucket.append("L"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go right
-		traverse_(matrix, i, j + 1, answer, bucket.append("R"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go up
-		traverse_(matrix, i - 1, j, answer, bucket.append("U"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// turning on the point
-		matrix[i][j] = 1;
-	}
-
-	// without visited matrix
-	// if one point is already visited then we remove the set bit from that
+	// we will use slight optimization
+	// first we will not use any boolean visited matrix.
+	// we will set the bit as 0 once we start visiting it, and once the recursion call is complete,
+	// we will again set the bit to 1.
+	// also we will not the string builder rather we will char array
 	private static void type4() {
-		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		// m = new int[][] { { 1, 1 }, { 1, 1 } };
-		if (matrix[0][0] == 0) {
-			return;
-		}
-		ArrayList<String> answer = new ArrayList<>();
-		matrix[0][0] = 0;
-		traverse(matrix, 0, 0, answer, new StringBuilder());
-		matrix[0][0] = 1;
+		int[][] mat = {
+				{1, 0, 0, 0},
+				{1, 1, 0, 1},
+				{1, 1, 0, 0},
+				{0, 1, 1, 1}
+		};
+		int n = mat.length;
+		ArrayList<String> answer = findPath4(mat, n);
 		System.out.println(answer);
 	}
 
-	private static void traverse(int[][] matrix, int i, int j, ArrayList<String> answer, StringBuilder bucket) {
-		int x = matrix.length;
-		int y = matrix[0].length;
-		if (i == x - 1 && j == y - 1) {
-			answer.add(bucket.toString());
-			return;
+	private static ArrayList<String> findPath4(int[][] mat, int n) {
+		ArrayList<String> answer = new ArrayList<>();
+		char[] bucket = new char[2 * n - 2];
+		if (mat[0][0] != 0) {
+			traverse4(0, 0, 0, mat, answer, bucket);
 		}
-		if (i >= x || j >= y)
-			return;
-		// all directions are L R U D
-		// if we sort alphabetically then D L R U
-
-		// go down
-		if (i + 1 < x && matrix[i + 1][j] == 1) {
-			matrix[i + 1][j] = 0;
-			traverse(matrix, i + 1, j, answer, bucket.append("D"));
-			matrix[i + 1][j] = 1;
-			bucket.deleteCharAt(bucket.length() - 1);
-		}
-		// go left
-		if (j > 0 && matrix[i][j - 1] == 1) {
-			matrix[i][j - 1] = 0;
-			traverse(matrix, i, j - 1, answer, bucket.append("L"));
-			matrix[i][j - 1] = 1;
-			bucket.deleteCharAt(bucket.length() - 1);
-		}
-		// go right
-		if (j + 1 < y && matrix[i][j + 1] == 1) {
-			matrix[i][j + 1] = 0;
-			traverse(matrix, i, j + 1, answer, bucket.append("R"));
-			matrix[i][j + 1] = 1;
-			bucket.deleteCharAt(bucket.length() - 1);
-		}
-		// go up
-		if (i > 0 && matrix[i - 1][j] == 1) {
-			matrix[i - 1][j] = 0;
-			traverse(matrix, i - 1, j, answer, bucket.append("U"));
-			matrix[i - 1][j] = 1;
-			bucket.deleteCharAt(bucket.length() - 1);
-		}
-
+		return answer;
 	}
 
-	// same as type1 just we are creating di and dj array to go to different
-	// direction
-	private static char[] direction = { 'D', 'L', 'R', 'U' };
-	private static int di[] = { +1, 0, 0, -1 };
-	private static int dj[] = { 0, -1, 1, 0 };
+	private static void traverse4(int i, int j, int steps, int[][] matrix, ArrayList<String> answer, char[] bucket) {
+		int n = matrix.length;
+		if (i == n - 1 && j == n - 1) {
+			answer.add(new String(bucket));
+			return;
+		}
+		for (int k = 0; k < 4; k++) {
+			int x = i + di[k];
+			int y = j + dj[k];
+			char di = dir[k];
+			if (!isOutOfBounds(x, y, matrix) && matrix[x][y] == 1) {
+				bucket[steps] = di;
+				matrix[x][y] = 0;
+				traverse4(x, y, steps + 1, matrix, answer, bucket);
+				matrix[x][y] = 1;
+			}
+		}
+	}
+
+
+	// same as type1 just we are creating di and dj array to go to a different direction
+	private static final char[] dir = {'D', 'L', 'R', 'U'};
+	private static final int[] di = {+1, 0, 0, -1};
+	private static final int[] dj = {0, -1, 1, 0};
 
 	private static void type3() {
-		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		int x = matrix.length;
-		int y = matrix[0].length;
-		boolean[][] visited = new boolean[x][y];
-		ArrayList<String> answer = new ArrayList<>();
-		if (matrix[0][0] == 1)
-			solve(0, 0, matrix, answer, new StringBuilder(), visited);
+		int[][] mat = {
+				{1, 0, 0, 0},
+				{1, 1, 0, 1},
+				{1, 1, 0, 0},
+				{0, 1, 1, 1}
+		};
+		int n = mat.length;
+		ArrayList<String> answer = findPath3(mat, n);
 		System.out.println(answer);
 	}
 
-	private static void solve(int i, int j, int[][] matrix, ArrayList<String> ans, StringBuilder bucket,
-                              boolean[][] visited) {
-		int x = matrix.length;
-		int y = matrix[0].length;
-		if (i == x - 1 && j == y - 1) {
+	public static ArrayList<String> findPath3(int[][] mat, int n) {
+		ArrayList<String> answer = new ArrayList<>();
+		if (mat[0][0] != 0) {
+			boolean[][] visited = new boolean[n][n];
+			visited[0][0] = true;
+			traverse3(0, 0, mat, answer, new StringBuilder(), visited);
+		}
+		return answer;
+	}
+
+	private static void traverse3(int i, int j, int[][] matrix, ArrayList<String> ans, StringBuilder bucket, boolean[][] visited) {
+		int n = matrix.length;
+		if (i == n - 1 && j == n - 1) {
 			ans.add(bucket.toString());
 			return;
 		}
-		for (int ind = 0; ind < direction.length; ind++) {
-			int nexti = i + di[ind];
-			int nextj = j + dj[ind];
-			if (nexti >= 0 && nextj >= 0 && nexti < x && nextj < y && !visited[nexti][nextj]
-					&& matrix[nexti][nextj] == 1) {
+		for (int k = 0; k < 4; k++) {
+			int x = i + di[k];
+			int y = j + dj[k];
+			char di = dir[k];
+			if (!isOutOfBounds(x, y, matrix) && !visited[x][y] && matrix[x][y] == 1) {
 				visited[i][j] = true;
-				solve(nexti, nextj, matrix, ans, bucket.append(direction[ind]), visited);
+				bucket.append(di);
+				traverse3(x, y, matrix, ans, bucket, visited);
 				bucket.deleteCharAt(bucket.length() - 1);
 				visited[i][j] = false;
 			}
@@ -175,101 +127,118 @@ public class RatInAMaze {
 	// using visited matrix
 	// same as previous with little refactoring
 	private static void type2() {
-		int[][] matrix = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-		if (matrix[0][0] == 0) {
-			return;
-		}
-		ArrayList<String> answer = new ArrayList<>();
-		boolean[][] visited = new boolean[matrix.length][matrix[0].length];
-		traverse_(matrix, 0, 0, answer, visited, new StringBuilder());
-		System.out.println(answer);
-	}
-
-	private static void traverse_(int[][] matrix, int i, int j, ArrayList<String> answer, boolean[][] visited,
-			StringBuilder bucket) {
-		int x = matrix.length;
-		int y = matrix[0].length;
-		if (i == x - 1 && j == y - 1) {
-			answer.add(bucket.toString());
-			return;
-		}
-		// if out of bounds or there is no path or the point is already visited
-		if (i == x || i == -1 || j == y || j == -1 || matrix[i][j] == 0 || visited[i][j])
-			return;
-		visited[i][j] = true;
-		// all directions are L R U D
-		// if we sort alphabetically then D L R U
-		// go down
-		traverse_(matrix, i + 1, j, answer, visited, bucket.append("D"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go left
-		traverse_(matrix, i, j - 1, answer, visited, bucket.append("L"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go right
-		traverse_(matrix, i, j + 1, answer, visited, bucket.append("R"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		// go up
-		traverse_(matrix, i - 1, j, answer, visited, bucket.append("U"));
-		bucket.deleteCharAt(bucket.length() - 1);
-		visited[i][j] = false;
-	}
-
-	// using visited matrix
-	private static void type1() {
-		int[][] m = {
+		int[][] mat = {
 				{1, 0, 0, 0},
 				{1, 1, 0, 1},
 				{1, 1, 0, 0},
 				{0, 1, 1, 1}
 		};
-		int n = m.length;
-		if (m[0][0] != 0) {
-			ArrayList<String> answer = new ArrayList<>();
-			boolean[][] visited = new boolean[n][n];
-			visited[0][0] = true;
-			traverse(m, 0, 0, answer, visited, new StringBuilder(), n);
-			System.out.println(answer);
-
-		}
+		int n = mat.length;
+		ArrayList<String> answer = findPath2(mat, n);
+		System.out.println(answer);
 	}
 
-	private static void traverse(int[][] matrix, int i, int j, ArrayList<String> answer, boolean[][] visited,
-			StringBuilder bucket, int n) {
+	public static ArrayList<String> findPath2(int[][] mat, int n) {
+		ArrayList<String> answer = new ArrayList<>();
+		if (mat[0][0] != 0) {
+			boolean[][] visited = new boolean[n][n];
+			traverse2(mat, 0, 0, answer, visited, new StringBuilder());
+		}
+		return answer;
+	}
+
+	private static void traverse2(int[][] mat, int i, int j, ArrayList<String> answer, boolean[][] visited, StringBuilder bucket) {
+		int n = mat.length;
 		if (i == n - 1 && j == n - 1) {
 			answer.add(bucket.toString());
 			return;
 		}
-		if (i >= n || j >= n)
-			return;
+		// if out of bounds or there is no path or the point is already visited
+		if (isOutOfBounds(i, j, mat) || mat[i][j] == 0 || visited[i][j]) return;
+
+		visited[i][j] = true;
 		// all directions are L R U D
 		// if we sort alphabetically then D L R U
 
 		// go down
-		if (i + 1 < n && matrix[i + 1][j] == 1 && !visited[i + 1][j]) {
+		traverse2(mat, i + 1, j, answer, visited, bucket.append("D"));
+		bucket.deleteCharAt(bucket.length() - 1);
+		// go left
+		traverse2(mat, i, j - 1, answer, visited, bucket.append("L"));
+		bucket.deleteCharAt(bucket.length() - 1);
+		// go right
+		traverse2(mat, i, j + 1, answer, visited, bucket.append("R"));
+		bucket.deleteCharAt(bucket.length() - 1);
+		// go up
+		traverse2(mat, i - 1, j, answer, visited, bucket.append("U"));
+		bucket.deleteCharAt(bucket.length() - 1);
+		visited[i][j] = false;
+	}
+
+	private static boolean isOutOfBounds(int i, int j, int[][] matrix) {
+		return i >= matrix.length || i < 0 || j >= matrix[0].length || j < 0;
+	}
+
+	// using visited matrix
+	private static void type1() {
+		int[][] mat = {
+				{1, 0, 0, 0},
+				{1, 1, 0, 1},
+				{1, 1, 0, 0},
+				{0, 1, 1, 1}
+		};
+		int n = mat.length;
+		ArrayList<String> answer = findPath1(mat, n);
+		System.out.println(answer);
+	}
+
+	public static ArrayList<String> findPath1(int[][] mat, int n) {
+		ArrayList<String> answer = new ArrayList<>();
+		if (mat[0][0] != 0) {
+			boolean[][] visited = new boolean[n][n];
+			visited[0][0] = true;
+			traverse1(0, 0, n, mat, visited, new StringBuilder(), answer);
+		}
+		return answer;
+	}
+
+	private static void traverse1(int i, int j, int n, int[][] mat, boolean[][] visited, StringBuilder bucket, ArrayList<String> answer) {
+		// we have reached the destination
+		if (i == n - 1 && j == n - 1) {
+			answer.add(bucket.toString());
+			return;
+		}
+		// this is out of bound
+		if (i >= n || j >= n) return;
+		// all directions are L R U D
+		// if we sort alphabetically then D L R U
+
+		// go down if it is having a cell and not visited
+		if (i + 1 < n && mat[i + 1][j] == 1 && !visited[i + 1][j]) {
 			visited[i + 1][j] = true;
-			traverse(matrix, i + 1, j, answer, visited, bucket.append("D"), n);
+			traverse1(i + 1, j, n, mat, visited, bucket.append("D"), answer);
 			visited[i + 1][j] = false;
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
-		// go left
-		if (j > 0 && matrix[i][j - 1] == 1 && !visited[i][j - 1]) {
+		// go left if it is having a cell and not visited
+		if (j > 0 && mat[i][j - 1] == 1 && !visited[i][j - 1]) {
 			visited[i][j - 1] = true;
-			traverse(matrix, i, j - 1, answer, visited, bucket.append("L"), n);
+			traverse1(i, j - 1, n, mat, visited, bucket.append("L"), answer);
 			visited[i][j - 1] = false;
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
-		// go right
-		if (j + 1 < n && matrix[i][j + 1] == 1 && !visited[i][j + 1]) {
+		// go right if it is having a cell and not visited
+		if (j + 1 < n && mat[i][j + 1] == 1 && !visited[i][j + 1]) {
 			visited[i][j + 1] = true;
-			traverse(matrix, i, j + 1, answer, visited, bucket.append("R"), n);
+			traverse1(i, j + 1, n, mat, visited, bucket.append("R"), answer);
 			visited[i][j + 1] = false;
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
 
-		// go up
-		if (i > 0 && matrix[i - 1][j] == 1 && !visited[i - 1][j]) {
+		// go up if it is having a cell and not visited
+		if (i > 0 && mat[i - 1][j] == 1 && !visited[i - 1][j]) {
 			visited[i - 1][j] = true;
-			traverse(matrix, i - 1, j, answer, visited, bucket.append("U"), n);
+			traverse1(i - 1, j, n, mat, visited, bucket.append("U"), answer);
 			visited[i - 1][j] = false;
 			bucket.deleteCharAt(bucket.length() - 1);
 		}

@@ -223,20 +223,20 @@
     - [ ] [Spiral Traversal of Matrix](/src/com/ds/array/SpiralTraversalOfMatrix.java)
     - [ ] [Program to generate Pascal’s Triangle](/src/com/ds/array/PascalTriangle.java)
     - [ ] [Merge Overlapping Sub-intervals](/src/com/ds/array/MergeOverlappingSubIntervals.java)
-      - [ ] greedy
+      - greedy
     - [ ] [Merge two Sorted Arrays Without Extra Space](/src/com/ds/array/MergeTwoSortedArraysWithoutExtraSpace.java)
     - [ ] [Count inversions in an array](/src/com/ds/array/CountInversionInArray.java)
     - [ ] [Count Reverse Pairs](/src/com/ds/array/ReversePairs.java)
-      - [ ] merge-technique-from-merge-sort
+      - merge-technique-from-merge-sort
     - [ ] [Maximum Product Subarray in an Array](/src/com/ds/array/MaximumProductSubarrayInAnArray.java)
     - [ ] [Car Fleet](/src/com/ds/array/CarFleet.java) **TBD**
     - [ ] [Remove Element](/src/com/ds/array/RemoveElement.java) **TBD**
     - [ ] [Reverse Integer](/src/com/ds/array/ReverseInteger.java)
     - [ ] [3Sum Closest](/src/com/ds/array/ThreeSumClosest.java)
     - [ ] [Trapping Rain Water](/src/com/ds/array/TrappingRainWater.java)
-      - [ ] two-pointer
-      - [ ] stack
-      - [ ] dynamic-programming
+      - two-pointer
+      - stack
+      - dynamic-programming
 </details>
 
 <details>
@@ -247,7 +247,7 @@
     - [ ] [First Negative Number in every Window of Size K](/src/com/ds/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
     - [ ] [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
     - [ ] [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
-      - [ ] queue
+      - queue
     - [ ] [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
     - [ ] [Longest Substring With Without Repeating Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
     - [ ] [Fruit Into Baskets | Pick Toys | An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
@@ -337,7 +337,7 @@
     - [ ] [Roman to Integer](/src/com/ds/string/RomanToInteger.java)
     - [ ] [Integer to Roman](/src/com/ds/string/IntegerToRoman.java)
     - [ ] [Implement Atoi](/src/com/ds/string/StringToInteger.java)
-      - [ ] recursion
+      - recursion
     - [ ] [Count With K Different Characters](/src/com/ds/string/CountSubstringsOfLengthK.java)
         - sliding-window
     - [ ] [Longest Palindromic Substring](/src/com/ds/string/LongestPalindromicSubstring.java)
@@ -432,10 +432,9 @@
   - [ ] [Palindrome Partitioning](/src/com/ds/recursion/PalindromePartitioning.java)
   - [ ] [Word Search 1](/src/com/ds/recursion/WordSearch1.java)
   - [ ] [Word Search 2](/src/com/ds/recursion/WordSearch2.java)
-    - [ ] trie
+    - trie
   - [ ] [N Queen problem](/src/com/ds/recursion/NQueenProblem.java)
   - [ ] [Rat In a Maze](/src/com/ds/recursion/RatInAMaze.java)
-  - [ ] [Word Break](/src/com/ds/recursion/WordBreak.java)
   - [ ] [M Coloring Problem](/src/com/ds/recursion/MColoringProblem.java)
   - [ ] [Sudoku Solver](/src/com/ds/recursion/SudokuSolver.java)
   - [ ] [K-th Symbol in Grammar](/src/com/ds/recursion/KthSymbolInAGrammar.java)
@@ -562,10 +561,10 @@
     - [ ] [Addition without plus(+) operator](/src/com/ds/bitmanipulation/AdditionWithoutPlusOperator.java)
     - [ ] [Minimum XOR in an array](/src/com/ds/bitmanipulation/MinimumXorInArray.java)
     - [ ] [Maximum XOR in an array](/src/com/ds/trie/MaximumXorOfTwoNumbersInArray.java)
-      - [ ] [trie]
+      - [trie]
     - [ ] [Maximum XOR of two number](/src/com/ds/bitmanipulation/MaximumXorOfTwoNumber.java)
     - [ ] [Maximum XOR with an element from array](/src/com/ds/trie/MaximumXorWithAnElementFromArray.java)
-      - [ ] [trie]
+      - [trie]
     - [ ] [Maximum XOR sum of two arrays ](/src/com/ds/bitmanipulation/MinimumXorSumOfTwoArrays.java)
     - [ ] [Power of x to n](/src/com/ds/bitmanipulation/PowerOfXtoN.java)
 </details>
@@ -620,6 +619,8 @@
   - [ ] [Dynamic Programming - [ ] Level 1](https://www.youtube.com/playlist?list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy)
   - [ ] [Dynamic Programming - [ ] Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
   - [ ] [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
+- [ ] codes
+  - [ ] [Word Break](/src/com/ds/dp/WordBreak.java)**TBD**
 </details>
 
 <details>
