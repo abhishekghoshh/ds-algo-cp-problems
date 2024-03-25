@@ -17,18 +17,18 @@ public class CountOfSubsetSum {
 	}
 
 	// similar to equal sum partition
-	// using top down approach
+	// using top-down approach
 	private static void type2() {
-		int nums[] = { 1, 3, 4, 5, 9, 12 };
+		int[] nums = { 1, 3, 4, 5, 9, 12 };
 		int target = 25;
 		int n = nums.length;
 		int[][] memo = new int[n + 1][target + 1];
-		// with n equal to 0 we can not make any target sum
+		// with n equal to 0, we cannot make any target sum
 		for (int i = 0; i <= target; i++) {
 			memo[0][i] = 0;
 		}
-		// but to make taget sum equal to 0 we have always one option
-		// that is empty set
+		// but to make target sum equal to 0, we have always one option
+		// that is an empty set
 		for (int i = 0; i <= n; i++) {
 			memo[i][0] = 1;
 		}

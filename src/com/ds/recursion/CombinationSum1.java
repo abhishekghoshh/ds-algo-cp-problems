@@ -38,7 +38,7 @@ public class CombinationSum1 {
     // So in the previous type we were going to the next element,
     // as we were not sure that the next element will be bigger or smaller.
     // So we will sort the input array in the first place, so that we will know
-    // that if we cannot accommodate the current item then the next item also
+    // that if we cannot accommodate the current item, then the next item also
     // cannot be accommodated
     private static void type2() {
         int[] nums = {3, 1, 4, 2};
@@ -46,27 +46,26 @@ public class CombinationSum1 {
         List<List<Integer>> answer = new ArrayList<>();
         List<Integer> bucket = new ArrayList<>();
         Arrays.sort(nums);
-        traverse2(nums, 0, target, bucket, answer);
+        combinationSum2(nums, 0, target, bucket, answer);
         System.out.println(answer);
     }
 
     // we can also use a linked list in place of an array list
-    private static void traverse2(int[] nums, int n, int remaining, List<Integer> bucket, List<List<Integer>> answer) {
+    private static void combinationSum2(int[] nums, int n, int remaining, List<Integer> bucket, List<List<Integer>> answer) {
         if (n == nums.length) return;
         if (remaining == 0) {
             answer.add(new ArrayList<>(bucket));
             return;
         }
-        // if we can accommodate the element, then we have two option either to include
-        // it or not
+        // if we can accommodate the element, then we have two options either to include it or not
         if (nums[n] <= remaining) {
             // we will not include the element to be a part of the answer
-            traverse2(nums, n + 1, remaining, bucket, answer);
+            combinationSum2(nums, n + 1, remaining, bucket, answer);
 
             // we will accommodate the element,
             // but as we can use the same element, so we will start again from index
             bucket.add(nums[n]);
-            traverse2(nums, n, remaining - nums[n], bucket, answer);
+            combinationSum2(nums, n, remaining - nums[n], bucket, answer);
             bucket.remove(bucket.size() - 1);
         }
     }
@@ -82,11 +81,11 @@ public class CombinationSum1 {
         int target = 7;
         List<List<Integer>> answer = new ArrayList<>();
         List<Integer> bucket = new ArrayList<>();
-        traverse(nums, 0, target, bucket, answer);
+        combinationSum1(nums, 0, target, bucket, answer);
         System.out.println(answer);
     }
 
-    private static void traverse(int[] nums, int n, int remaining, List<Integer> bucket, List<List<Integer>> answer) {
+    private static void combinationSum1(int[] nums, int n, int remaining, List<Integer> bucket, List<List<Integer>> answer) {
         if (n == nums.length) {
             if (remaining == 0) answer.add(new ArrayList<>(bucket));
             return;
@@ -94,16 +93,16 @@ public class CombinationSum1 {
         // if we can accommodate the element, then we have two options either to include it or not
         if (nums[n] <= remaining) {
             // we will not include the element to be a part of the answer
-            traverse(nums, n + 1, remaining, bucket, answer);
+            combinationSum1(nums, n + 1, remaining, bucket, answer);
 
             // we will accommodate the element,
             // but as we can use the same element, so we will start again from index
             bucket.add(nums[n]);
-            traverse(nums, n, remaining - nums[n], bucket, answer);
+            combinationSum1(nums, n, remaining - nums[n], bucket, answer);
             bucket.remove(bucket.size() - 1);
         } else {
             // we cannot accommodate that element we will just go to the next element
-            traverse(nums, n + 1, remaining, bucket, answer);
+            combinationSum1(nums, n + 1, remaining, bucket, answer);
         }
     }
 

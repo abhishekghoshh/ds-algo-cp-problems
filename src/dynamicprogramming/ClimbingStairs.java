@@ -30,10 +30,8 @@ public class ClimbingStairs {
 	}
 
 	public static int climbStairs(int[] dp, int n) {
-		if (n < 0)
-			return 0;
-		if (dp[n] != 0)
-			return dp[n];
+		if (n < 0) return 0;
+		if (dp[n] != 0) return dp[n];
 		return dp[n] = climbStairs(dp, n - 1) + climbStairs(dp, n - 2);
 	}
 

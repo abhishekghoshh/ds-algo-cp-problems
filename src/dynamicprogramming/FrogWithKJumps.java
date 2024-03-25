@@ -26,7 +26,7 @@ public class FrogWithKJumps {
 		int k = 4;
 		int[] height = { 40, 10, 20, 70, 80, 10, 20, 70, 80, 60 };
 		
-		int dp[] = new int[n];
+		int[] dp = new int[n];
 		Arrays.fill(dp, -1);
 
 		dp[0] = 0;
@@ -49,17 +49,15 @@ public class FrogWithKJumps {
 		int k = 4;
 		int[] heights = { 40, 10, 20, 70, 80, 10, 20, 70, 80, 60 };
 
-		int dp[] = new int[n];
+		int[] dp = new int[n];
 		Arrays.fill(dp, -1);
 
 		System.out.println(frogJump(n - 1, heights, dp, k));
 	}
 
 	private static int frogJump(int i, int[] height, int[] dp, int k) {
-		if (i == 0)
-			return 0;
-		if (dp[i] != -1)
-			return dp[i];
+		if (i == 0) return 0;
+		if (dp[i] != -1) return dp[i];
 		int mmSteps = Integer.MAX_VALUE;
 		for (int j = 1; j <= k && (i >= j); j++) {
 			int jump = frogJump(i - j, height, dp, k) + Math.abs(height[i] - height[i - j]);

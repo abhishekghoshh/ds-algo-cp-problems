@@ -1,7 +1,5 @@
 package com.ds.recursion;
 
-import java.util.HashSet;
-import java.util.Set;
 /*
  * Problem link :
  * https://leetcode.com/problems/sudoku-solver/
@@ -15,190 +13,157 @@ import java.util.Set;
  * */
 public class SudokuSolver {
 
-	private static final int GRID_SIZE = 9;
+	private static final int GRIDS = 9;
 
+	// rematch the solution
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
 	}
 
-	private static void type3() {
-	}
+	private static final boolean[][] rowSet = new boolean[GRIDS][GRIDS + 1];
+	private static final boolean[][] colSet = new boolean[GRIDS][GRIDS + 1];
+	private static final boolean[][] boxSet = new boolean[GRIDS][GRIDS + 1];
 
+	// this approach is efficient, but it is taking some constant memory
+	// to find if the number existed in that specific row or column or that box
 	private static void type2() {
-		int[][] board = { { 7, 0, 2, 0, 5, 0, 6, 0, 0 }, { 0, 0, 0, 0, 0, 3, 0, 0, 0 }, { 1, 0, 0, 0, 0, 9, 5, 0, 0 },
-				{ 8, 0, 0, 0, 0, 0, 0, 9, 0 }, { 0, 4, 3, 0, 0, 0, 7, 5, 0 }, { 0, 9, 0, 0, 0, 0, 0, 0, 8 },
-				{ 0, 0, 9, 7, 0, 0, 0, 0, 5 }, { 0, 0, 0, 2, 0, 0, 0, 0, 0 }, { 0, 0, 7, 0, 4, 0, 2, 0, 3 } };
+		char[][] board = {
+				{'9', '5', '7', '.', '1', '3', '.', '8', '4'},
+				{'4', '8', '3', '.', '5', '7', '1', '.', '6'},
+				{'.', '1', '2', '.', '4', '9', '5', '3', '7'},
+				{'1', '7', '.', '3', '.', '4', '9', '.', '2'},
+				{'5', '.', '4', '9', '7', '.', '3', '6', '.'},
+				{'3', '.', '9', '5', '.', '8', '7', '.', '1'},
+				{'8', '4', '5', '7', '9', '.', '6', '1', '3'},
+				{'.', '9', '1', '.', '3', '6', '.', '7', '5'},
+				{'7', '.', '6', '1', '8', '5', '4', '.', '9'}
+		};
 		printBoard(board);
-		SudokuCache sudokuCache = new SudokuCache(board);
-		if (solveBoard(board, sudokuCache)) {
-			System.out.println("Solved successfully!");
-		} else {
-			System.out.println("Unsolvable board :(");
-		}
+		initialize(board);
+		boolean isPossible = solveSudoku2(board);
+		System.out.println(isPossible);
 		printBoard(board);
 	}
 
-	private static boolean solveBoard(int[][] board, SudokuCache sudokuCache) {
-		for (int row = 0; row < GRID_SIZE; row++) {
-			for (int column = 0; column < GRID_SIZE; column++) {
-				if (board[row][column] == 0) {
-					for (int numberToTry = 1; numberToTry <= GRID_SIZE; numberToTry++) {
-						if (sudokuCache.isValidPlacement(numberToTry, row, column)) {
-							board[row][column] = numberToTry;
-							sudokuCache.update(numberToTry, row, column);
-							if (solveBoard(board, sudokuCache)) {
-								return true;
-							} else {
-								sudokuCache.remove(numberToTry, row, column);
-								board[row][column] = 0;
-							}
-						}
-					}
-					return false;
+	private static boolean solveSudoku2(char[][] board) {
+		for (int row = 0; row < 9; row++) {
+			for (int col = 0; col < 9; col++) {
+				// if it already placed then we will skip it
+				if (board[row][col] != '.') continue;
+				for (char num = '1'; num <= '9'; num++) {
+					// if the placement is not valid, then we will skip and go to the next num
+					if (!isValid2(row, col, num)) continue;
+					board[row][col] = num;
+					insert(num, row, col);
+					if (solveSudoku2(board)) return true;
+					remove(num, row, col);
+					board[row][col] = '.';
 				}
+				return false;
 			}
 		}
 		return true;
 	}
 
+	private static void initialize(char[][] board) {
+		for (int row = 0; row < 9; row++) {
+			for (int col = 0; col < 9; col++) {
+				if (board[row][col] == '.') continue;
+				int num = board[row][col] - '0';
+				rowSet[row][num] = true;
+				colSet[col][num] = true;
+				int boxNum = boxNumber(row, col);
+				boxSet[boxNum][num] = true;
+			}
+		}
+	}
+
+	private static int boxNumber(int row, int col) {
+		return 3 * (row / 3) + col / 3;
+	}
+
+	public static boolean isValid2(int row, int col, char ch) {
+		int num = ch - '0';
+		return !rowSet[row][num]
+				&& !colSet[col][num]
+				&& !boxSet[boxNumber(row, col)][num];
+	}
+
+	public static void insert(char ch, int row, int col) {
+		int num = ch - '0';
+		rowSet[row][num] = true;
+		colSet[col][num] = true;
+		boxSet[boxNumber(row, col)][num] = true;
+	}
+
+	public static void remove(char ch, int row, int col) {
+		int num = ch - '0';
+		rowSet[row][num] = false;
+		colSet[col][num] = false;
+		boxSet[boxNumber(row, col)][num] = false;
+	}
+
+	// this is a very simple naive approach using recursion and backtracking
 	private static void type1() {
-		int[][] board = { { 7, 0, 2, 0, 5, 0, 6, 0, 0 }, { 0, 0, 0, 0, 0, 3, 0, 0, 0 }, { 1, 0, 0, 0, 0, 9, 5, 0, 0 },
-				{ 8, 0, 0, 0, 0, 0, 0, 9, 0 }, { 0, 4, 3, 0, 0, 0, 7, 5, 0 }, { 0, 9, 0, 0, 0, 0, 0, 0, 8 },
-				{ 0, 0, 9, 7, 0, 0, 0, 0, 5 }, { 0, 0, 0, 2, 0, 0, 0, 0, 0 }, { 0, 0, 7, 0, 4, 0, 2, 0, 3 } };
+		char[][] board = {
+				{'9', '5', '7', '.', '1', '3', '.', '8', '4'},
+				{'4', '8', '3', '.', '5', '7', '1', '.', '6'},
+				{'.', '1', '2', '.', '4', '9', '5', '3', '7'},
+				{'1', '7', '.', '3', '.', '4', '9', '.', '2'},
+				{'5', '.', '4', '9', '7', '.', '3', '6', '.'},
+				{'3', '.', '9', '5', '.', '8', '7', '.', '1'},
+				{'8', '4', '5', '7', '9', '.', '6', '1', '3'},
+				{'.', '9', '1', '.', '3', '6', '.', '7', '5'},
+				{'7', '.', '6', '1', '8', '5', '4', '.', '9'}
+		};
 		printBoard(board);
-		if (solveBoard(board)) {
-			System.out.println("Solved successfully!");
-		} else {
-			System.out.println("Unsolvable board :(");
-		}
+		boolean isPossible = solveSudoku1(board);
+		System.out.println(isPossible);
 		printBoard(board);
 	}
 
-	private static boolean solveBoard(int[][] board) {
-		for (int row = 0; row < GRID_SIZE; row++) {
-			for (int column = 0; column < GRID_SIZE; column++) {
-				if (board[row][column] == 0) {
-					for (int numberToTry = 1; numberToTry <= GRID_SIZE; numberToTry++) {
-						if (isValidPlacement(board, numberToTry, row, column)) {
-							board[row][column] = numberToTry;
-							if (solveBoard(board)) {
-								return true;
-							} else {
-								board[row][column] = 0;
-							}
-						}
-					}
-					return false;
+	private static boolean solveSudoku1(char[][] board) {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				// if it already placed then we will skip it
+				if (board[i][j] != '.') continue;
+				for (char c = '1'; c <= '9'; c++) {
+					// if the placement is not valid then we will skip and go to the next num
+					if (!isValid(board, i, j, c)) continue;
+					board[i][j] = c;
+					if (solveSudoku1(board)) return true;
+					board[i][j] = '.';
 				}
+				return false;
 			}
 		}
 		return true;
 	}
 
-	private static boolean isValidPlacement(int[][] board, int number, int row, int column) {
-		return !isNumberInRow(board, number, row) && !isNumberInColumn(board, number, column)
-				&& !isNumberInBox(board, number, row, column);
-	}
-
-	private static boolean isNumberInRow(int[][] board, int number, int row) {
-		for (int i = 0; i < GRID_SIZE; i++) {
-			if (board[row][i] == number) {
-				return true;
-			}
+	private static boolean isValid(char[][] board, int row, int col, char num) {
+		for (int i = 0; i < 9; i++) {
+			// check the row wise
+			if (board[i][col] == num) return false;
+			// check the column wise
+			if (board[row][i] == num) return false;
+			// check in the box
+			if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == num)
+				return false;
 		}
-		return false;
+		return true;
 	}
 
-	private static boolean isNumberInColumn(int[][] board, int number, int column) {
-		for (int i = 0; i < GRID_SIZE; i++) {
-			if (board[i][column] == number) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private static boolean isNumberInBox(int[][] board, int number, int row, int column) {
-		int localBoxRow = row - row % 3;
-		int localBoxColumn = column - column % 3;
-
-		for (int i = localBoxRow; i < localBoxRow + 3; i++) {
-			for (int j = localBoxColumn; j < localBoxColumn + 3; j++) {
-				if (board[i][j] == number) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private static void printBoard(int[][] board) {
-		for (int row = 0; row < GRID_SIZE; row++) {
-			if (row % 3 == 0 && row != 0) {
-				System.out.println("-------------------");
-			}
-			for (int column = 0; column < GRID_SIZE; column++) {
-				if (column % 3 == 0 && column != 0) {
-					System.out.print("|");
-				}
-				System.out.print(board[row][column] + " ");
+	private static void printBoard(char[][] board) {
+		System.out.println("Board starting -------------------");
+		for (int row = 0; row < GRIDS; row++) {
+			if (row % 3 == 0 && row != 0) System.out.println("-------------------");
+			for (int col = 0; col < GRIDS; col++) {
+				if (col % 3 == 0 && col != 0) System.out.print("|");
+				System.out.print(board[row][col] + " ");
 			}
 			System.out.println();
 		}
-	}
-
-}
-
-@SuppressWarnings("rawtypes")
-class SudokuCache {
-	private static final int GRID_SIZE = 9;
-	private Set[] allRowSet = new HashSet[GRID_SIZE];
-	private Set[] allColumnSet = new HashSet[GRID_SIZE];
-	private Set[] allBoxSet = new HashSet[GRID_SIZE];
-
-	@SuppressWarnings("unchecked")
-	public SudokuCache(int[][] board) {
-		fill(allRowSet);
-		fill(allColumnSet);
-		fill(allBoxSet);
-		for (int row = 0; row < GRID_SIZE; row++) {
-			for (int column = 0; column < GRID_SIZE; column++) {
-				if (board[row][column] != 0) {
-					allRowSet[row].add(board[row][column]);
-					allColumnSet[column].add(board[row][column]);
-					allBoxSet[boxNumber(row, column)].add(board[row][column]);
-				}
-			}
-		}
-	}
-
-	private void fill(Set[] set) {
-		for (int i = 0; i < GRID_SIZE; i++) {
-			set[i] = new HashSet<>();
-		}
-	}
-
-	private int boxNumber(int row, int column) {
-		return 3 * ((int) row / 3) + column / 3;
-	}
-
-	public boolean isValidPlacement(int number, int row, int column) {
-		return !allRowSet[row].contains(number) && !allColumnSet[column].contains(number)
-				&& !allBoxSet[boxNumber(row, column)].contains(number);
-	}
-
-	@SuppressWarnings("unchecked")
-	public void update(int number, int row, int column) {
-		allRowSet[row].add(number);
-		allColumnSet[column].add(number);
-		allBoxSet[boxNumber(row, column)].add(number);
-	}
-
-	public void remove(int number, int row, int column) {
-		allRowSet[row].remove(number);
-		allColumnSet[column].remove(number);
-		allBoxSet[boxNumber(row, column)].remove(number);
+		System.out.println("Board ending -------------------");
 	}
 }

@@ -21,9 +21,9 @@ public class FrogJump {
 	}
 
 	// Iterative way
-	// tabultaion with two variable
+	// tabulation with two variables
 	private static void type3() {
-		int height[] = { 7, 4, 4, 2, 6, 6, 3, 4 };
+		int[] height = {7, 4, 4, 2, 6, 6, 3, 4};
 		int n = height.length;
 
 		int prev = 0;
@@ -31,8 +31,7 @@ public class FrogJump {
 		for (int i = 1; i < n; i++) {
 			int jumpTwo = Integer.MAX_VALUE;
 			int jumpOne = prev + Math.abs(height[i] - height[i - 1]);
-			if (i > 1)
-				jumpTwo = prev2 + Math.abs(height[i] - height[i - 2]);
+			if (i > 1) jumpTwo = prev2 + Math.abs(height[i] - height[i - 2]);
 
 			int cur_i = Math.min(jumpOne, jumpTwo);
 			prev2 = prev;
@@ -43,19 +42,18 @@ public class FrogJump {
 	}
 
 	// Iterative way
-	// tabultaion with array
+	// tabulation with an array
 	private static void type2() {
-		int height[] = { 7, 4, 4, 2, 6, 6, 3, 4 };
+		int[] height = {7, 4, 4, 2, 6, 6, 3, 4};
 		int n = height.length;
 
-		int dp[] = new int[n];
+		int[] dp = new int[n];
 		Arrays.fill(dp, -1);
 		dp[0] = 0;
 		for (int ind = 1; ind < n; ind++) {
 			int jumpOne = dp[ind - 1] + Math.abs(height[ind] - height[ind - 1]);
 			int jumpTwo = Integer.MAX_VALUE;
-			if (ind > 1)
-				jumpTwo = dp[ind - 2] + Math.abs(height[ind] - height[ind - 2]);
+			if (ind > 1) jumpTwo = dp[ind - 2] + Math.abs(height[ind] - height[ind - 2]);
 
 			dp[ind] = Math.min(jumpOne, jumpTwo);
 		}
@@ -73,15 +71,12 @@ public class FrogJump {
 	}
 
 	public static int frogJump(int[] dp, int n, int heights[]) {
-		if (n == 1)
-			return 0;
-		if (dp[n] != 0)
-			return dp[n];
+		if (n == 1) return 0;
+		if (dp[n] != 0) return dp[n];
 		int second = Integer.MAX_VALUE;
 		int first = Math.abs(heights[n - 1] - heights[n - 2]) + frogJump(dp, n - 1, heights);
-		if (n > 2)
-			second = Math.abs(heights[n - 1] - heights[n - 3]) + frogJump(dp, n - 2, heights);
-		return dp[n] = first < second ? first : second;
+		if (n > 2) second = Math.abs(heights[n - 1] - heights[n - 3]) + frogJump(dp, n - 2, heights);
+		return dp[n] = Math.min(first, second);
 	}
 
 }

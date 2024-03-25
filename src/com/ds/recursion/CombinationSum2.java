@@ -32,13 +32,13 @@ public class CombinationSum2 {
 	// As there are some repeat elements in given an array we have to follow this subsequence approach,
 	// we will only pick unique elements in a loop
 	private static void type2() {
-		int[] candidates = { 10, 1, 2, 7, 6, 1, 5 };
+		int[] nums = { 10, 1, 2, 7, 6, 1, 5 };
 		int target = 8;
 		// we will sort the array then all the duplicate elements will come one after another
-		Arrays.sort(candidates);
+		Arrays.sort(nums);
 		List<List<Integer>> answer = new ArrayList<>();
 		List<Integer> bucket = new ArrayList<>();
-		combinationSum2(candidates, 0, target, bucket, answer);
+		combinationSum2(nums, 0, target, bucket, answer);
 		System.out.println(answer);
 	}
 
