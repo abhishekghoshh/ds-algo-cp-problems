@@ -41,6 +41,7 @@ public class SubsetSum {
 	}
 
 	// this is the same as the previous type, but here we will use memoization
+	// TODO complete it
 	private static void type2() {
 	}
 

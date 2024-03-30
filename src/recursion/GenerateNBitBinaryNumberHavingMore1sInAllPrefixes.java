@@ -1,6 +1,7 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -32,11 +33,9 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 		int n = 3;
 		List<String> answer = new ArrayList<>();
 		// we will create a bucket of 1
-		// so for 5 digit we will make 11111
+		// so for digit 5 we will make 11111
 		char[] bucket = new char[n];
-		for (int i = 0; i < n; i++) {
-			bucket[i] = '1';
-		}
+        Arrays.fill(bucket, '1');
 		traverse(0, 0, n, bucket, answer);
 		System.out.println(answer);
 	}
@@ -50,7 +49,7 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 		// externally again, we will just increase the one's counter
 		traverse(numberOfOne + 1, numberOfZero, n, bucket, answer);
 		if (numberOfOne > numberOfZero) {
-			// as we are considering 0 here so we are changing that position to 1
+			// as we are considering 0 here, so we are changing that position to 1
 			bucket[numberOfOne + numberOfZero] = '0';
 			traverse(numberOfOne, numberOfZero + 1, n, bucket, answer);
 			// again after computation we are changing it back to 1
@@ -70,13 +69,13 @@ public class GenerateNBitBinaryNumberHavingMore1sInAllPrefixes {
 			answer.add(bucket.toString());
 			return;
 		}
-		// as we can add 1 anytime
-		// so we are adding to be a part of answer
+		// as we can add 1 anytime,
+		// so we are adding to be a part of the answer
 		bucket.append("1");
 		traverse(numberOfOne + 1, numberOfZero, n, bucket, answer);
 		bucket.deleteCharAt(bucket.length() - 1);
 
-		// if number of one greater than number of zeros then only we will be adding 0
+		// if number of ones greater than number of zeros, then only we will be adding 0
 		if (numberOfOne > numberOfZero) {
 			bucket.append("0");
 			traverse(numberOfOne, numberOfZero + 1, n, bucket, answer);

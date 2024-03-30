@@ -16,7 +16,7 @@ public class PermutationWithSpaces {
 		type1();
 	}
 
-	// we have two option either to add space after any character or not
+	// we have two options either to add space after any character or not
 	// at the last index we don't have to add anything
 	// we can just return from that
 	// that is our base condition

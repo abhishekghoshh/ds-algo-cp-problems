@@ -19,14 +19,14 @@ public class LetterCasePermutation {
 	}
 
 	// If it is a letter
-	// Here we have two choice either to use lower case or upper
+	// Here, we have two choices either to use a lower case or upper
 	// here we are directly changing the character case
 	private static void type2() {
 		String s = "a1b2";
 		List<String> answer = new ArrayList<>();
 		// we are just making the string to char array
 		// so the char array will have all the elements
-		// we dont have to add anything later
+		// we don't have to add anything later
 		traverse(s, 0, s.toCharArray(), answer);
 		System.out.println(answer);
 	}
@@ -37,7 +37,7 @@ public class LetterCasePermutation {
 			return;
 		}
 		if (Character.isLetter(bucket[index])) {
-			// first we will consider the lower case
+			// first, we will consider the lower case
 			// so changing the case to lower
 			// whatever the case was previously
 			bucket[index] = Character.toLowerCase(bucket[index]);
@@ -52,7 +52,7 @@ public class LetterCasePermutation {
 	}
 
 	// If it is a letter
-	// Here we have two choice either to use lower case or upper
+	// Here, we have two choices either to use a lower case or upper
 	// we are using a bucket to store the previous results
 	private static void type1() {
 		String s = "a1b2";
@@ -68,22 +68,22 @@ public class LetterCasePermutation {
 			return;
 		}
 		char ch = s.charAt(index);
-		// if the character is a letter then only we can change it's case
+		// if the character is a letter, then only we can change its case
 		if (Character.isLetter(ch)) {
-			// first we will consider the lower case
+			// first, we will consider the lower case
 			bucket.append(Character.toLowerCase(ch));
 			traverse(s, index + 1, bucket, answer);
-			// after the computation we will remove it
+			// after the computation, we will remove it
 			bucket.deleteCharAt(bucket.length() - 1);
 
 			// now will use the upper case
 			bucket.append(Character.toUpperCase(ch));
 			traverse(s, index + 1, bucket, answer);
-			// after the computation we will remove it
+			// after the computation, we will remove it
 			bucket.deleteCharAt(bucket.length() - 1);
 
 		} else {
-			// if its a index then we have dont have anything to do
+			// if its index then we don't have anything to do
 			// just add it and increase the index
 			bucket.append(ch);
 			traverse(s, index + 1, bucket, answer);

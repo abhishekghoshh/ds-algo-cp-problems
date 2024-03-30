@@ -3,17 +3,15 @@ package recursion;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 /*
- * Problem link : 
-https://www.codingninjas.com/codestudio/problems/1112626?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
-https://leetcode.com/problems/permutation-sequence/
-
- * 
- * Solution link:
+ * Problem link :
+ * https://leetcode.com/problems/permutation-sequence/
+ * https://www.codingninjas.com/codestudio/problems/1112626
+ * Solution link :
  * https://www.youtube.com/watch?v=wT7gcXLYoao&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=56
+ *
  * https://takeuforward.org/data-structure/find-k-th-permutation-sequence/
- * */
+ */
 public class KthPermutationSequence {
 	public static int n = 4;
 	public static int k = 21;
@@ -129,30 +127,28 @@ public class KthPermutationSequence {
 			factorial = factorial * i;
 		}
 		StringBuilder answer = new StringBuilder();
-		// as group will be formed in 0 indexing format
-		// like 0 to n-1 so substracting k to 1
-		computeKthPermuation(numbers, factorial, answer, k - 1);
+		// as the group will be formed in 0 indexing formats
+		// like 0 to n-1 so subtracting k to 1
+		computeKthPermutation(numbers, factorial, answer, k - 1);
 		System.out.println(answer);
 	}
 
-	private static void computeKthPermuation(List<Integer> numbers, int factorial, StringBuilder answer, int k) {
-		if (numbers.isEmpty())
-			return;
+	private static void computeKthPermutation(List<Integer> numbers, int factorial, StringBuilder answer, int k) {
+		if (numbers.isEmpty()) return;
 		// currently factorial is n! where n is the size of numbers
 		// so there will be n groups of (n-1)! numbers
 		// if we divide it by numbers.size() then we will find (n-1)!
 		factorial = factorial / numbers.size();
 		// now we will find in which group it will fall
-		int postion = k / factorial;
-		// System.out.println(numbers.get(postion));
-		answer.append(numbers.get(postion));
-		// once we get that number we will remove that from numbers
-		// let our number is 1234 and the position is 2 so we will take 3 and remove it
+		int position = k / factorial;
+		answer.append(numbers.get(position));
+		// once we get that number, we will remove that from numbers
+		// let our number is 1234 and the position is 2, so we will take 3 and remove it,
 		// so we will have 124
-		numbers.remove(postion);
+		numbers.remove(position);
 		// now we will find our next group
 		k = k % factorial;
-		computeKthPermuation(numbers, factorial, answer, k);
+		computeKthPermutation(numbers, factorial, answer, k);
 	}
 
 	// brute force will be to find all the permutation and then store it in list

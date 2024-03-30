@@ -8,7 +8,7 @@ import java.util.Set;
 /*
  * Problem links:
  * https://leetcode.com/problems/permutations/
- * https://www.codingninjas.com/codestudio/problems/758958?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+ * https://www.codingninjas.com/codestudio/problems/758958
  * 
  * Solution link
  * https://www.youtube.com/watch?v=YK78FU5Ffjw&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=51
@@ -24,10 +24,9 @@ public class PrintAllPermutationsOfStringOrArray {
 		type5();
 	}
 
-	// assuming there are some duplicates
-	// we will be creating boolean map to so that don't encounter any duplicate
-	// element
-	// similar to type1 solution
+	// assuming there are some duplicates,
+	// we will be creating a boolean map to so that don't encounter any duplicate
+	// element similar to a type1 solution
 	private static void type5() {
 		String string = "abac";
 		List<String> permutations = new ArrayList<>();
@@ -46,7 +45,7 @@ public class PrintAllPermutationsOfStringOrArray {
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
 			// we will only consider one element at a label if it is not used previously
-			// that's why we are using set to keep track of the characters which we have
+			// that's why we are using a set to keep track of the characters which we have
 			// already used in this label
 			if (!set.contains(ch)) {
 				String remainingString = string.substring(0, i) + string.substring(i + 1);
@@ -59,7 +58,7 @@ public class PrintAllPermutationsOfStringOrArray {
 	}
 
 	// same as type previous type3
-	// in place of char array here it is int array
+	// in place of a char array here it is an int array
 	private static void type4() {
 		int[] nums = { 1, 2, 3 };
 		List<List<Integer>> answer = new ArrayList<>();
@@ -89,11 +88,11 @@ public class PrintAllPermutationsOfStringOrArray {
 		array[right] = object;
 	}
 
-	// assuming all characters are distinct
+	// assuming all characters are distinct,
 	// choosing one character or element to be the first
 	// compatible with both string and array
-	// string array needs to convert in to array
-	// if its a int array then we can take List of Integer for bucket
+	// string array needs to convert in to array.
+	// if its a int array then we can take the List of Integers for bucket
 	private static void type3() {
 		String string = "abc";
 		List<String> answer = new ArrayList<>();
@@ -106,7 +105,8 @@ public class PrintAllPermutationsOfStringOrArray {
 			answer.add(new String(array));
 			return;
 		}
-		// let say the string is abcd, and index is 0
+		// Let say the string is abcd.
+		// Index is 0
 		// now we are choosing c to be the first
 		// so we swap it with index so string will be cbad
 		// now again we will start recursion from index+1
@@ -168,7 +168,7 @@ public class PrintAllPermutationsOfStringOrArray {
 		if (null == string || string.isEmpty()) {
 			answer.add(previous.toString());
 		}
-		// suppose string is abcd and previous is empty
+		// suppose the string is abcd and previous is empty.
 		// so we will first consider a, bcd then b,acd then c,abd then
 		// now for a,bcd , previous is a and current string is bcd
 		// we will follow the same ab,cd then ac,bd then ad,bc

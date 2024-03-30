@@ -1,4 +1,4 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.Stack;
 /*
@@ -20,59 +20,53 @@ public class DeleteMiddleElementOfStack {
 	// recursive type2
 	private static void type3() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
-		// we will pass three parameter
+		// we will pass three-parameter
 		// stack, current index,stack size
 		deleteMiddle2(stack, 1, stack.size());
 		System.out.println(stack);
 	}
 
 	private static void deleteMiddle2(Stack<Integer> stack, int current, int size) {
-		if (stack.isEmpty()) {
-			return;
-		}
+		if (stack.isEmpty()) return;
 		int item = stack.pop();
 		deleteMiddle2(stack, current + 1, size);
-		if (current != (size / 2) + 1) {
-			stack.push(item);
-		}
+		if (current != (size / 2) + 1) stack.push(item);
 	}
 
 	// Iteratively
 	private static void type2() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
-		int size = stack.size();
-		Stack<Integer> tempStack = new Stack<>();
-		while (stack.size() > (size / 2) + 1) {
-			tempStack.push(stack.pop());
-		}
+		int n = stack.size();
+		Stack<Integer> temp = new Stack<>();
+		// we will add the top n/2 elements to the temporary stack
+		while (stack.size() > (n / 2) + 1)
+			temp.push(stack.pop());
+		// popping the middle element
 		stack.pop();
-		while (!tempStack.isEmpty()) {
-			stack.push(tempStack.pop());
-		}
+		// again adding the elements from the temp stack to the original stack
+		while (!temp.isEmpty()) stack.push(temp.pop());
 		System.out.println(stack);
 	}
 
-	// recursive type1
+	// recursive
+	// recursively reach to the n/2 +1 th element and pop it
 	private static void type1() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
-		// we will pass three parameter
-		// stack, current index,stack size
-		deleteMiddle(stack, stack.size(), stack.size());
+		// we will pass three-parameter stack, current index,stack size
+		deleteMiddle1(stack, stack.size(), stack.size());
 		System.out.println(stack);
 	}
 
-	private static void deleteMiddle(Stack<Integer> stack, int current, int size) {
-		// if current index == size/2 +1
-		// so it is the element that we have to pop
-		if (current == (size / 2) + 1) {
+	private static void deleteMiddle1(Stack<Integer> stack, int i, int n) {
+		// if current index == size/2 +1, so it is the element that we have to pop
+		if (i == (n / 2) + 1) {
 			stack.pop();
 			return;
 		}
-		// we will first pop the last
-		// and we will assume the function will delete the middle element
-		// then we will again add the element
+		// we will first pop the last, and we will assume
+		// the function will delete the middle element then we will again add the element
 		int item = stack.pop();
-		deleteMiddle(stack, current - 1, size);
+		deleteMiddle1(stack, i - 1, n);
 		stack.push(item);
 	}
 

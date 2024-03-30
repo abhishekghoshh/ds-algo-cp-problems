@@ -47,6 +47,7 @@ public class EditDistance {
                 }
             }
         }
+        return dp[n1][n2];
     }
 
     // memoization approach

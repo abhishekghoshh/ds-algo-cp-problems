@@ -9,6 +9,7 @@ import java.util.List;
  * 
  * Solution link
  * https://www.youtube.com/watch?v=ULUNeD0N9yI&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=19
+ * https://www.youtube.com/watch?v=dzYq5VEMZIg
  * 
  * https://www.geeksforgeeks.org/josephus-problem-set-1-a-on-solution/
  * https://leetcode.com/problems/find-the-winner-of-the-circular-game/discuss/1152474/Josephus-Problem
@@ -24,7 +25,7 @@ public class JosephusProblem {
 	 * next person is executed. The elimination proceeds around the circle (which is
 	 * becoming smaller and smaller as the executed people are removed), until only
 	 * the last person remains, who is given freedom. Given the total number of
-	 * person n and a number k which indicates that k-1 persons are skipped and the
+	 * persons n and a number k which indicates that k-1 persons are skipped and the
 	 * kth person is killed in a circle. The task is to choose the place in the
 	 * initial circle so that you are the last one remaining and so survive. For
 	 * example, if n = 5 and k = 2, then the safe position is 3. Firstly, the person
@@ -45,15 +46,14 @@ public class JosephusProblem {
 	 * 
 	 * josephus(n, k) = (josephus(n - 1, k) + k-1) % n + 1 josephus(1, k) = 1 After
 	 * the first person (kth from the beginning) is killed, n-1 persons are left. So
-	 * we call Josephus(n – 1, k) to get the position with n-1 persons. But the
-	 * position returned by Josephus(n – 1, k) will consider the position starting
+	 * we call Josephus(n ï¿½ 1, k) to get the position with n-1 persons. But the
+	 * position returned by Josephus(n ï¿½ 1, k) will consider the position starting
 	 * from k%n + 1. So, we must make adjustments to the position returned by
-	 * Josephus(n – 1, k).
+	 * Josephus(n ï¿½ 1, k).
 	 */
 	// time complexity O(n)
 	// space complexity O(1)
 	// TODO study it later
-	// https://www.youtube.com/watch?v=dzYq5VEMZIg
 	private static void type2() {
 		int n = 7;
 		int k = 3;
@@ -68,7 +68,7 @@ public class JosephusProblem {
 			 * The position returned by josephus(n - 1, k) is adjusted because the recursive
 			 * call josephus(n - 1, k) considers the original position k%n + 1 as position 1
 			 */
-			return (findWinner(n - 1, k) + k - 1) % n + 1;
+			return (findWinner(n - 1, k) + k - 1) % (n + 1);
 		}
 	}
 
@@ -78,23 +78,20 @@ public class JosephusProblem {
 		int n = 7;
 		int k = 3;
 		List<Integer> alivePersons = new ArrayList<>();
-		for (int i = 1; i <= n; i++) {
-			alivePersons.add(i);
-		}
+		for (int i = 1; i <= n; i++) alivePersons.add(i);
+
 		int index = findWinner(alivePersons, k, 0);
 		System.out.println(index);
 	}
 
 	private static int findWinner(List<Integer> alivePersons, int k, int start) {
-		// if there is only one person alive then return the person
-		if (alivePersons.size() == 1) {
-			return alivePersons.get(0);
-		}
+		// if there is only one person alive, then return the person
+		if (alivePersons.size() == 1) return alivePersons.get(0);
 		// find the person who is to be killed
 		start = (start + k - 1) % alivePersons.size();
 		// kill the person
 		alivePersons.remove(start);
-		// as the person is killed now so the next person will take his place
+		// as the person is killed now so the next person will take their place,
 		// we can again start counting from that index
 		return findWinner(alivePersons, k, start);
 
