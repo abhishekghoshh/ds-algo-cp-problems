@@ -45,7 +45,7 @@
     - [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete/home/welcome)
   - [Java Programming: Principles of Software Design](https://www.coursera.org/learn/java-programming-design-principles/home/welcome)
   - [Distributed Programming in Java](https://www.coursera.org/learn/distributed-programming-in-java/home/welcome)
-- [Kunal Kushwaha playlist](https://www.youtube.com/@KunalKushwaha/playlists)
+- [Tech Dev Guide](https://techdevguide.withgoogle.com/paths/data-structures-and-algorithms)
 </details>
 
 <details>
@@ -62,15 +62,8 @@
   - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
   - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
   - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
-- [Leetcode](https://leetcode.com/studyplan/)
-  - [Binary search](https://leetcode.com/studyplan/binary-search/)
-  - [Graph theory](https://leetcode.com/studyplan/graph-theory/)
-  - [Dynamic programming problems](https://leetcode.com/studyplan/dynamic-programming/)
-  - [Top interview problems](https://leetcode.com/explore/featured/card/top-interview-questions-easy/)
-  - [Top 150 interview problems](https://leetcode.com/studyplan/top-interview-150/)
-  - [Top 75 interview problems](https://leetcode.com/studyplan/leetcode-75/)
-  - [Top 100 Liked problems](https://leetcode.com/studyplan/top-100-liked/)
-  - [Programming skills](https://leetcode.com/studyplan/programming-skills/)
+- [Leetcode study plan](https://leetcode.com/studyplan/)
+- [Leetcode explore](https://leetcode.com/explore/)
 - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
 - GeekForGeeks
   - [Microsoft SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/mts-1?tab=Chapters)
@@ -431,12 +424,14 @@
   - [Delete the middle element of the stack](/src/com/ds/recursion/DeleteMiddleElementOfStack.java)
   - [Generate all binary strings with no consecutive 1s](/src/com/ds/recursion/GenerateAllBinaryStringsWithNoConsecutiveOnes.java)
   - [Generate Parentheses](/src/com/ds/recursion/GenerateAllBalancedParenthesis.java)
+  - [Print N-bit binary numbers having more 1s than 0s](/src/com/ds/recursion/GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java)
   - [Subarrays with Sum k](/src/com/ds/recursion/SubarraysWithSumK.java)
   - [Print all subsequences/Power Set with unique elements](/src/com/ds/recursion/PowerSet1.java)
   - [Print all subsequences/Power Set with duplicate elements](/src/com/ds/recursion/PowerSet2.java)
   - [Combination sum 1](/src/com/ds/recursion/CombinationSum1.java)
   - [Combination sum 2](/src/com/ds/recursion/CombinationSum2.java)
   - [Combination sum 2](/src/com/ds/recursion/CombinationSum3.java)
+  - [Subset sum](/src/com/ds/recursion/SubsetSum.java)
   - [More subsequence](/src/com/ds/recursion/MoreSubsequence.java)
     - dynamic-programming
   - [Count of Subset sum equal to k](/src/com/ds/recursion/CountOfSubsetSumEqualToK.java)
@@ -817,35 +812,3 @@
 - [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
 - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
 </details>
-
-#### Scratch Pad
-
-```
-
-Recursion
-
-TowerOfHanoi.java
-HeightOfBinaryTree.java
-SortArray.java
-SortStack.java
-DeleteMiddleElementOfStack.java
-ReverseStack.java
-KthSymbolInGrammer.java
-GenrateAllBalancedParenthesis.java
-PrintAllPalindromePartitioning.java
-GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java
-JosephusProblem.java
-SudokuSolver.java
-LetterCasePermutation.java
-PermutationWithSpaces.java
-PowerSet.java
-SubsetSum.java
-CombinationSumWithRepeatedElements.java
-CombinationSumWithUniqueElements.java
-PrintAllPermutationsOfStringOrArray.java
-KthPermutationSequence.java
-NQueenProblem.java
-MColoringProblem.java
-RatInAMaze.java
-PrintAllWordBreaks.java
-```
