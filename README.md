@@ -51,7 +51,7 @@
   - [Questions by Love Babbar](https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view)
   - [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
   - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
-  - [DSA Sheet Final | AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
+  - [DSA Sheet Final / AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
   - Coding Ninja
     - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
     - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
@@ -169,7 +169,7 @@
   - [3 Sum : Find triplets that add up to a zero](/src/com/ds/array/ThreeSum.java)
     - two-pointer
     - hashing
-  - [4 Sum | Find Quads that add up to a target value](/src/com/ds/array/FourSum.java)
+  - [4 Sum / Find Quads that add up to a target value](/src/com/ds/array/FourSum.java)
     - two-pointer
     - hashing
   - [Sort an array of 0's 1's and 2's](/src/com/ds/array/SortZeroOneTwo.java)
@@ -178,11 +178,11 @@
   - [Find the Majority Element that occurs more than N/2 times](/src/com/ds/array/MajorityElementsNby2.java)
     - Boyer Moore's voting algorithm
     - hashing
-  - [Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
+  - [Majority Elements(>N/3 times) / Find the elements that appears more than N/3 times in the array](/src/com/ds/array/MajorityElementsNby3.java)
     - Moore's voting algorithm
     - hashing
   - [Insert Delete GetRandom O(1)](/src/com/ds/array/RandomizedSetProblem.java)
-  - [Grid Unique Paths | Count paths from left-top to the right bottom of a matrix](/src/com/ds/array/GridUniquePaths.java)
+  - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/ds/array/GridUniquePaths.java)
     - dynamic-programming
     - combination-approach
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/ds/array/MaxSumForConsecutiveElements.java)
@@ -220,10 +220,10 @@
   - [Count Occurrences Of Anagrams](/src/com/ds/slidingwindow/CountOfAnagrams.java)
   - [Maximum of all subarrays of size k](/src/com/ds/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
     - queue
-  - [Longest Substring With K Unique Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
-  - [Longest Substring With Without Repeating Characters | Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
-  - [Fruit Into Baskets | Pick Toys | An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
-  - [Minimum Window Substring | Variable Size Sliding Window](/src/com/ds/slidingwindow/MinimumWindowSubstring.java)
+  - [Longest Substring With K Unique Characters / Variable Size Sliding Window](/src/com/ds/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
+  - [Longest Substring With Without Repeating Characters / Variable Size Sliding Window](/src/com/ds/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
+  - [Fruit Into Baskets / Pick Toys / An Interesting Sliding Window Problem](/src/com/ds/slidingwindow/FruitIntoBaskets.java)
+  - [Minimum Window Substring / Variable Size Sliding Window](/src/com/ds/slidingwindow/MinimumWindowSubstring.java)
   - [Minimum Window Subsequence](/src/com/ds/slidingwindow/MinimumWindowSubsequence.java)
   - [Maximum Sum of Distinct Subarrays With Length K](/src/com/ds/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
   - [Subarrays with at most K Different Integers](/src/com/ds/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)
@@ -315,7 +315,7 @@
   - [Minimum Add to Make Parentheses Valid](/src/com/ds/string/MinimumAddToMakeParenthesesValid.java)
   - [Count and Say](/src/com/ds/string/CountAndSay.java)
   - [Valid palindrome](/src/com/ds/string/ValidPalindrome.java)
-  - [Shortest Palindrome | Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
+  - [Shortest Palindrome / Minimum Characters For Palindrome](/src/com/ds/string/MinimumCharactersForPalindrome.java)
   - [Longest palindromic substring](/src/com/ds/string/LongestPalindrome.java)
   - [Count Palindromic Subsequences](/src/com/ds/string/CountPalindromicSubsequences.java)
   - [Repeated String Match](/src/com/ds/string/RepeatedStringMatch.java)
@@ -326,7 +326,7 @@
 
 ### linked-list
 - resources
-  - [Linked List | Beginner to Advanced for FAANG and PBC Interview Rounds](https://www.youtube.com/playlist?list=PLgUwDviBIf0rAuz8tVcM0AymmhTRsfaLU)
+  - [Linked List / Beginner to Advanced for FAANG and PBC Interview Rounds](https://www.youtube.com/playlist?list=PLgUwDviBIf0rAuz8tVcM0AymmhTRsfaLU)
 - codes
   - [Introduction To Linked List](/src/com/ds/linkedlist/IntroductionToLinkedList.java)
   - [Inserting a node in LinkedList](/src/com/ds/linkedlist/InsertingNodeInLinkedList.java)
@@ -374,8 +374,8 @@
 ### recursion  
 - resources
   - [Recursion (Basics to Advanced) and Backtracking Series](https://www.youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
-  - [Recursion Masterclass | Learn in Just 3 days | Raj (Striver)](https://www.youtube.com/playlist?list=PLN4aKSfpk8TR-A59O9qR2VL0wqt3LrrnK)
-  - [Recursion Playlist | Coding | Interview Questions | Algorithm | Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
+  - [Recursion Masterclass / Learn in Just 3 days / Raj (Striver)](https://www.youtube.com/playlist?list=PLN4aKSfpk8TR-A59O9qR2VL0wqt3LrrnK)
+  - [Recursion Playlist / Coding / Interview Questions / Algorithm / Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
   - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 - codes
   - [Factorial](/src/com/ds/recursion/Factorial.java)
@@ -493,8 +493,8 @@
 
 ### bit-manipulation
 - resources
-  - [L1 | Bit Manipulations | Raj (Striver) | Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
-  - [L2 | Bit Manipulations | Raj (Striver) | Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
+  - [L1 / Bit Manipulations / Raj (Striver) / Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
+  - [L2 / Bit Manipulations / Raj (Striver) / Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
   - [Bit Manipulation by Scaler (2nd Half only)](https://www.youtube.com/watch?v=VRePcT7lmCs)
 
 - codes
@@ -538,7 +538,7 @@
 
 ### prime
 - resources
-  - [Prime numbers by striver | CodeBeyond](https://www.youtube.com/watch?v=FcsUvBywY1U&list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i )
+  - [Prime numbers by striver / CodeBeyond](https://www.youtube.com/watch?v=FcsUvBywY1U&list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i )
 
 - codes
   - [Check if the number is prime or not](/src/com/ds/prime/isPrime.java)
@@ -572,8 +572,8 @@
 ### dynamic-programming
 - resources
   - [Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges](https://www.youtube.com/watch?v=oBt53YbR9Kk)
-  - [Dynamic Programming Playlist | Coding | Interview Questions | Tutorials | Algorithm](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
-  - [Dynamic Programming Playlist | Interview Questions | Recursion | Tabulation | Striver | C++ | Java | DSA | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
+  - [Dynamic Programming Playlist / Coding / Interview Questions / Tutorials / Algorithm](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
+  - [Dynamic Programming Playlist / Interview Questions / Recursion / Tabulation / Striver / C++ / Java / DSA / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
   - [Dynamic Programming](https://www.youtube.com/playlist?list=PLot-Xpze53lcvx_tjrr_m2lgD2NsRHlNO)
   - [Dynamic programming](https://www.youtube.com/playlist?list=PLpO3gASfJEIJRnNG4q6QoHAYAATo466a_)
   - [Dynamic Programming](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsAsbafOroUBnNV8fhZa7P4u)
@@ -586,7 +586,7 @@
 
 ### binary-tree
 - resources
-  - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+  - [Binary Trees / Binary Search Trees / C++ / Java / Data Structures and Algorithms / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
 - codes
   - [Introduction to binary tree](/src/com/ds/binarytree/IntroductionToBinaryTree.java)
   - [Maximum number Of Nodes in nth label in a binary tree](/src/com/ds/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
@@ -616,7 +616,7 @@
   - [Nodes at Distance K in a Binary Tree](/src/com/ds/binarytree/NodesAtDistanceKFromTargetNodeInABinaryTree.java)
   - [Minimum time taken to BURN the Binary Tree from a Node](/src/com/ds/binarytree/MinimumTimeTakenToBurnDownBinaryTree.java)
   - [Count Complete Tree Nodes in a Binary Tree](/src/com/ds/binarytree/CountTotalNodeInCompleteBinaryTree.java)
-  - [Requirements needed to construct a Unique Binary Tree | Theory](/src/com/ds/binarytree/RequirementsNeededToConstructUniqueBinaryTree.java)
+  - [Requirements needed to construct a Unique Binary Tree / Theory](/src/com/ds/binarytree/RequirementsNeededToConstructUniqueBinaryTree.java)
   - [Construct A Binary Tree from Inorder and Preorder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPreorder.java)
   - [Construct Binary Tree from Inorder and PostOrder Traversal](/src/com/ds/binarytree/ConstructBinaryTreeFromInorderAndPostorder.java)
   - [Serialize and deserialize Binary Tree](/src/com/ds/binarytree/SerializerAndDeserializeBinaryTree.java)
@@ -627,7 +627,7 @@
 
 ### binary-search-tree
 - resources
-  - [Binary Trees | Binary Search Trees | C++ | Java | Data Structures and Algorithms | Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
+  - [Binary Trees / Binary Search Trees / C++ / Java / Data Structures and Algorithms / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
 - codes
   - [Introduction to Binary Search Trees](/src/com/ds/binarysearchtree/IntroductionToBinarySearchTree.java)
   - [Search in a Binary Search Tree](/src/com/ds/binarysearchtree/SearchInBinarySearchTree.java)
@@ -646,13 +646,13 @@
   - [Merge Two Binary Search Tree](/src/com/ds/binarysearchtree/MergeTwoBinarySearchTree.java)
   - [Binary Search Tree Iterator](/src/com/ds/binarysearchtree/BinarySearchTreeIterator.java)
   - [Two Sum In Binary Search Tree](/src/com/ds/binarysearchtree/TwoSumInBinarySearchTree.java)
-  - [Recover Binary Search Tree | Correct Binary Search Tree with two nodes swapped](/src/com/ds/binarysearchtree/RecoverBinarySearchTree.java)
+  - [Recover Binary Search Tree / Correct Binary Search Tree with two nodes swapped](/src/com/ds/binarysearchtree/RecoverBinarySearchTree.java)
   - [Largest Binary Search Tree in Binary Tree](/src/com/ds/binarysearchtree/LargestBinarySearchTreeInBinaryTree.java)
 
 
 ### graph
 - resources
-  - [Graph Series by Striver | C++ | Java | Interview Centric | Algorithms | Problems](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
+  - [Graph Series by Striver / C++ / Java / Interview Centric / Algorithms / Problems](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
 - codes
   - [Introduction to Graph](/src/com/ds/graph/GraphRepresentation.java)
   - [Breadth First Search (BFS): Level Order Traversal](/src/com/ds/graph/BreadthFirstSearchOfGraph.java)
@@ -663,14 +663,14 @@
   - [Detect Cycle in an Undirected Graph](/src/com/ds/graph/CycleDetectionInUndirectedGraph.java)
   - [0/1 Matrix (Bfs Problem)](/src/com/ds/graph/NearestCellHavingZero.java)
   - [Surrounded Regions (dfs)](/src/com/ds/graph/SurroundedRegions.java)
-  - [Number of Enclaves | flood fill implementation — multisource](/src/com/ds/graph/NumberOfEnclave.java)
+  - [Number of Enclaves / flood fill implementation — multisource](/src/com/ds/graph/NumberOfEnclave.java)
   - [Word Ladder 1](/src/com/ds/graph/WordLadder1.java)
   - [Word Ladder 2](/src/com/ds/graph/WordLadder2.java)
-  - [Number of Distinct Islands | dfs multisource](/src/com/ds/graph/NumberOfIslands.java)
+  - [Number of Distinct Islands / dfs multisource](/src/com/ds/graph/NumberOfIslands.java)
   - [Bipartite Graph](/src/com/ds/graph/BipartiteGraph.java)
   - [Detect cycle in a directed graph (using DFS)](/src/com/ds/graph/CycleDetectionInDirectedGraph.java)
   - [Topological Sort Algorithm](/src/com/ds/graph/TopologicalSort.java)
-  - [Kahn’s Algorithm | Topological Sort Algorithm](/src/com/ds/graph/KahnAlgorithm.java)
+  - [Kahn’s Algorithm / Topological Sort Algorithm](/src/com/ds/graph/KahnAlgorithm.java)
   - [Cycle Detection in Directed Graph (BFS)](/src/com/ds/graph/CycleDetectionUsingKahnAlgorithm.java)
   - [Course Schedule I & II](/src/com/ds/graph/CourseSchedule.java)
   - [Find Eventual Safe States](/src/com/ds/graph/FindEventualSafeStates.java)
@@ -679,16 +679,16 @@
 
 ### segment-tree  
 - resources
-  - [Masterclass: Range Query DS | Segment Trees | Fenwick Trees | Masterclasses By Striver | CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
-  - [Marathon Class on Range Query DS - 2 | Segment Trees | Fenwick Trees | Masterclasses By Striver) | CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
+  - [Masterclass: Range Query DS / Segment Trees / Fenwick Trees / Masterclasses By Striver / CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
+  - [Marathon Class on Range Query DS - 2 / Segment Trees / Fenwick Trees / Masterclasses By Striver) / CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
 
 
 ### tries
 - resources
-  - [Trie Series | Striver | take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
-  - [L1 | Tries | Tries Master Class by Striver | CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
-  - [L2 | Tries - FAANG Problems | Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
+  - [Trie Series / Striver / take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
+  - [L1 / Tries / Tries Master Class by Striver / CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
+  - [L2 / Tries - FAANG Problems / Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
 - codes
   - [Implement Trie (Prefix Tree)](/src/com/ds/trie/ImplementTrie.java)
   - [Implement Trie - 2 (Prefix Tree)](/src/com/ds/trie/ImplementTrie2.java)
@@ -709,7 +709,7 @@
 
 ### jump-Game
 - resources
-  - [Jump Game Problems | Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
+  - [Jump Game Problems / Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
 - codes
   - [Jump Game 1](src/com/ds/special/jumpgame/JumpGame1.java)
   - [Jump Game 2](src/com/ds/special/jumpgame/JumpGame2.java)
@@ -724,7 +724,7 @@
 
 ### meet-in-the-middle
 - resources
-  - [Meet in the Middle | Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
+  - [Meet in the Middle / Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
   - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
   - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
 - codes
