@@ -6,6 +6,8 @@ import com.util.PrintUtl;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import static java.lang.Integer.parseInt;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
@@ -19,11 +21,13 @@ import java.util.Queue;
  */
 public class SerializerAndDeserializeBinaryTree {
 
+	// TODO check it one more time
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
+	// TODO check the code one more time
 	// Using DFS traversal,
 	// this is done using preorder
 	private static void type2() {
@@ -95,6 +99,11 @@ public class SerializerAndDeserializeBinaryTree {
 
 	public static final String NULL = "N";
 
+	// we are traversing the nodes in BFS
+	// and store the node left and right, but we will also save even if they are null.
+	// and in the next iteration when we get the null node from the BFS queue, then
+	// we will save N char to the answer
+	// because is will be used while deserializing
 	public static String serialize1(TNode root) {
 		StringBuilder sb = new StringBuilder();
 		if (null == root) return sb.toString();
@@ -102,10 +111,12 @@ public class SerializerAndDeserializeBinaryTree {
 		queue.offer(root);
 		while (!queue.isEmpty()) {
 			TNode node = queue.poll();
+			// if the node is null, then we will add N into the answer
 			if (null == node) {
 				sb.append(NULL).append(" ");
 			} else {
 				sb.append(node.data).append(" ");
+				// we will add the nodes into the queue
 				queue.offer(node.left);
 				queue.offer(node.right);
 			}
@@ -114,26 +125,35 @@ public class SerializerAndDeserializeBinaryTree {
 	}
 
 	// Decodes your encoded data to tree.
+	// TODO check it one more time, only the explanation of the video
 	public static TNode deserialize1(String data) {
 		if (null == data || data.isEmpty()) return null;
+		// now we have all the nodes as a string array
+		// we can construct a tree from the node array in many ways.
+		// but here we will use a queue
+		// we could also create an array to calculate the index of the nodes and then build a tree
 		String[] nodes = data.split(" ");
-		TNode root = new TNode(Integer.parseInt(nodes[0]));
+		TNode root = new TNode(parseInt(nodes[0]));
 		Queue<TNode> queue = new LinkedList<>();
 		queue.offer(root);
 		int i = 0;
 		int n = nodes.length;
+		// i will specify which node we are currently specifying
+		// the front of the queue will be root node
+		// everytime we are incrementing by 2, one for left node another for right
 		while (i < n && !queue.isEmpty()) {
 			TNode node = queue.poll();
-			int left = ++i;
+			int left = i + 1;
 			if (left < n && !NULL.equals(nodes[left])) {
-				node.left = new TNode(Integer.parseInt(nodes[left]));
+				node.left = new TNode(parseInt(nodes[left]));
 				queue.offer(node.left);
 			}
-			int right = ++i;
+			int right = i + 2;
 			if (right < n && !NULL.equals(nodes[right])) {
-				node.right = new TNode(Integer.parseInt(nodes[right]));
+				node.right = new TNode(parseInt(nodes[right]));
 				queue.offer(node.right);
 			}
+			i += 2;
 		}
 		return root;
 	}

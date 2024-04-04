@@ -19,13 +19,14 @@ import java.util.List;
  */
 public class MorrisPreorderTraversal {
 
+    // TODO check the explanation from Morris inorder traversal
     public static void main(String[] args) {
         type1();
     }
 
     // preorder traversal without using any extra space
-    // same as inorder but here we are adding the root at the first time when we are
-    // seeing this, that means no link is not set yet
+    // same as inorder, but here we are adding the root at the first time when we are seeing this
+    // that means no link is set yet
     private static void type1() {
         TNode root = TNode.withCount(15);
         PrintUtl.preOrder(root);
@@ -34,24 +35,28 @@ public class MorrisPreorderTraversal {
     }
 
     private static List<Integer> preorderTraversal(TNode root) {
-        TNode node = root;
         List<Integer> answer = new ArrayList<>();
-        while (null != node) {
-            if (null == node.left) {
-                answer.add(node.data);
-                node = node.right;
-            } else {
-                TNode temp = node.left;
-                while (null != temp.right && temp.right != node)
-                    temp = temp.right;
-                if (temp.right == null) {
-                    temp.right = node;
-                    answer.add(node.data);
-                    node = node.left;
+        while (null != root) {
+            if (null != root.left) {
+                TNode last = root.left;
+                // like the inorder we are going as a left as possible
+                while (null != last.right && last.right != root)
+                    last = last.right;
+                // we will establish the link from the left subtree to the root
+                if (last.right == null) {
+                    // this is the first time we are visiting the node
+                    last.right = root;
+                    // as this is the preorder traversal, we will add the node when we first visit the node
+                    answer.add(root.data);
+                    root = root.left;
                 } else {
-                    temp.right = null;
-                    node = node.right;
+                    // this is the second time we are visiting the node
+                    last.right = null;
+                    root = root.right;
                 }
+            } else {
+                answer.add(root.data);
+                root = root.right;
             }
         }
         return answer;

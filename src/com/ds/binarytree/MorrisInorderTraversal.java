@@ -20,6 +20,15 @@ import java.util.List;
 
 public class MorrisInorderTraversal {
 
+    // TODO normal inorder traversal using recursion uses a recursion stack
+    //  and using iteration uses a normal stack to traverse
+    //  in both cases it will take O(n) memory
+    //  we can do better, for a inoder traversal the node sequence is left <- root <- right
+    //  the recursion stack or the normal stack was used like a pointer that after left the it will come back to the
+    //  the root and after root it will go to the right
+    //  if some how we could attach the last of of left subtree to root, then our work is done
+    //  we can do this with a simple trick, the rightest node of the left subtree is the last node of the left subtree
+    //  if we could set that-node.right=root, then our work is done
     public static void main(String[] args) {
         type1();
     }
@@ -38,33 +47,44 @@ public class MorrisInorderTraversal {
     }
 
     private static List<Integer> inorderTraversal(TNode root) {
-        TNode node = root;
-        List<Integer> answer = new ArrayList<>();
-        while (null != node) {
-            // left is null
-            if (null == node.left) {
-                answer.add(node.data);
-                node = node.right;
-            } else {
-                TNode temp = node.left;
+        List<Integer> list = new ArrayList<>();
+        while (null != root) {
+            // if it has the left node, then we will manipulate the pointers
+            if (null != root.left) {
+                TNode last = root.left;
                 // we will go to the rightest node
-                while (null != temp.right && temp.right != node)
-                    temp = temp.right;
-                // setting the link then, we will go to the left
-                if (temp.right == null) {
-                    temp.right = node;
-                    node = node.left;
+                // we have added another extra condition here,
+                // let's say we have already established left-last to root.
+                // and now we are visiting the root, but again by the code logic, it will again to
+                // establish the connection to root-left-last to root
+                // so we have to check that if the connection is already there or not
+                while (null != last.right && last.right != root)
+                    last = last.right;
+                // setting the link then, we will go to the left, we know that root will be visited at some point
+                if (last.right == null) {
+                    // this is the first time we are visiting the node
+                    last.right = root;
+                    root = root.left;
                 } else {
-                    // there was already a link
-                    // that means this is the second time we are in the root
-                    // so left part is traversed completely
-                    // we will now delete the link and add the root to list
-                    temp.right = null;
-                    answer.add(node.data);
-                    node = node.right;
+                    // this is the second time we are visiting the node
+                    // there was already a link,
+                    // that means this is the second time we are in the root.
+                    // so the left part is traversed completely,
+                    // and we will now delete the link and add the root to list
+                    last.right = null;
+                    // as this is the inorder traversal, we will add the node when we second time visit the node
+                    // that means we have visited the entire left subtree
+                    list.add(root.data);
+                    root = root.right;
                 }
+            } else {
+                // if there is no left subtree, then it will go directly to the right
+                // TODO for the last node of left subtree, there was a link attached from the last-node.right=root
+                //  this is the time when we will finally visit the root node
+                list.add(root.data);
+                root = root.right;
             }
         }
-        return answer;
+        return list;
     }
 }
