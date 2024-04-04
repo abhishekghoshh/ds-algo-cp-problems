@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My GitHub Pages</title>
+</head>
+<body>
+<div id="readme-content"></div>
+
+<script>
+    // Load README.md content
+    fetch('README.md')
+        .then(response => response.text())
+        .then(data => {
+            // Insert README.md content into the container
+            const readmeContainer = document.getElementById('readme-content');
+            readmeContainer.innerHTML = marked(data);
+        })
+        .catch(error => {
+            console.error('Error loading README.md:', error);
+        });
+</script>
+</body>
+</html>
