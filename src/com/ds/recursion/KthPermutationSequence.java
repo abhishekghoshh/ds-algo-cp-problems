@@ -19,72 +19,18 @@ public class KthPermutationSequence {
 		type1();
 		type2();
 		type3();
-		type4();
-		type5();
-	}
-
-	// TODO study later
-	private static void type5() {
-		int n = 4;
-		int k = 21;
-		char[] res = new char[n];
-		// We want the permutation sequence to be zero-indexed
-		k = k - 1;
-		// The set bits indicate the available digits
-		int a = (1 << n) - 1;
-		int m = 1;
-		for (int i = 2; i < n; i++) {
-			// m = (n - 1)!
-			m *= i;
-		}
-		for (int i = 0; i < n; i++) {
-			int b = a;
-			for (int j = 0; j < k / m; j++) {
-				b &= b - 1;
-			}
-			// b is the bit corresponding to the digit we want
-			b &= ~b + 1;
-			res[i] = (char) ('1' + Integer.bitCount(b - 1));
-			// Remove b from the set of available digits
-			a &= ~b;
-			k %= m;
-			m /= Math.max(1, n - i - 1);
-		}
-		System.out.println(String.valueOf(res));
-	}
-
-	// iterative way
-	private static void type4() {
-		int n = 4;
-		int k = 1;
-		List<Integer> number = new ArrayList<>();
-		int fact = 1;
-		for (int i = 1; i < n; i++) {
-			fact = fact * i;
-			number.add(i);
-		}
-		number.add(n);
-		StringBuilder ans = new StringBuilder();
-		k = k - 1;
-		while (true) {
-			ans.append(number.get(k / fact));
-			number.remove(k / fact);
-			if (number.size() == 0) {
-				break;
-			}
-			k = k % fact;
-			fact = fact / number.size();
-		}
-		System.out.println(ans);
 	}
 
 	// iterative way
 	private static void type3() {
 		int n = 4;
 		int k = 1;
+
+		// 0 to n - 1 factorial
+
 		ArrayList<Integer> nums = new ArrayList<>();
 		nums.add(1);
-		// 0 to n - 1 factorial
+
 		int[] factorial = new int[n];
 		factorial[0] = 1;
 
@@ -94,12 +40,12 @@ public class KthPermutationSequence {
 		}
 
 		StringBuilder result = new StringBuilder();
-		int selectedIndex;
+		int pos;
 		for (int i = n - 1; i >= 0; i--) {
-			selectedIndex = (k - 1) / factorial[i];
-			result.append(nums.get(selectedIndex));
-			k = k - (selectedIndex * factorial[i]);
-			nums.remove(selectedIndex);
+			pos = (k - 1) / factorial[i];
+			result.append(nums.get(pos));
+			k = k - (pos * factorial[i]);
+			nums.remove(pos);
 		}
 		System.out.println(result);
 	}
