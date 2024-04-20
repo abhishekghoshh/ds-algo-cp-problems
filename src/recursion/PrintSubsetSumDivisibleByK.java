@@ -27,8 +27,7 @@ public class PrintSubsetSumDivisibleByK {
 
 	private static int traverse(int i, int sum, int[] nums, int k) {
 		if (i == nums.length) return sum % k == 0 ? 1 : 0;
-		return traverse(i + 1, sum + nums[i], nums, k)
-				+ traverse(i + 1, sum, nums, k);
+		return traverse(i + 1, sum + nums[i], nums, k) + traverse(i + 1, sum, nums, k);
 	}
 
 	private static void type1() {
@@ -41,8 +40,7 @@ public class PrintSubsetSumDivisibleByK {
 		System.out.println(answer.size());
 	}
 
-	private static void traverse(int i, int sum, List<Integer> bucket, int[] nums,
-								 List<List<Integer>> answer, int k) {
+	private static void traverse(int i, int sum, List<Integer> bucket, int[] nums, List<List<Integer>> answer, int k) {
 		if (i == nums.length) {
 			// empty subset not considered
 			if (sum % k == 0 && !bucket.isEmpty()) answer.add(new ArrayList<>(bucket));

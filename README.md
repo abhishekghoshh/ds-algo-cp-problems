@@ -417,6 +417,12 @@
   - [K-th Symbol in Grammar](/src/com/ds/recursion/KthSymbolInAGrammar.java)
   - [Find Kth Bit in Nth Binary String](/src/com/ds/recursion/FindKthBitInNthBinaryString.java)
   - [Expression Add Operators](/src/com/ds/recursion/ExpressionAddOperators.java)
+  - [Permutation with spaces](/src/com/ds/recursion/PermutationWithSpaces.java)
+  - [Letter case permutation](/src/com/ds/recursion/LetterCasePermutation.java)
+  - [Print all permutations of string or array](/src/com/ds/recursion/PrintAllPermutationsOfStringOrArray.java)
+  - [Kth permutation sequence](/src/com/ds/recursion/KthPermutationSequence.java)
+  - [Largest number in K swaps](/src/com/ds/recursion/LargestNumberAfterKSwaps.java)
+  - [N Digit numbers with digits in increasing order](/src/com/ds/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
 
 
 ### stack

@@ -1,4 +1,4 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,8 +13,7 @@ import java.util.List;
  * https://takeuforward.org/data-structure/find-k-th-permutation-sequence/
  */
 public class KthPermutationSequence {
-	public static int n = 4;
-	public static int k = 21;
+
 
 	public static void main(String[] args) {
 		type1();
@@ -105,18 +104,12 @@ public class KthPermutationSequence {
 		System.out.println(result);
 	}
 
-	// suppose we have a number 1234
-	// this number will have 24 permutations
-	// out of which 1st 6 numbers will be starting with 1, second 6 numbers will be
-	// starting from 2 and so on
-	// so if we take 10 th number
-	// we know one thing that it will start from 2
+	// suppose we have a number 1234, this number will have 24 permutations
+	// out of which 1st 6 numbers will be starting with 1, second 6 numbers will be starting from 2 and so on
+	// so if we take 10 th number, we know one thing that it will start from 2
 	// so first item 2 is fixed remaining number is 134
 	// now we know we have 6 numbers and out of which 1st 2 numbers starts with 1,
-	// second 2 numbers starts with 3 and last 2 numbers starts with 4
-	// and out of 6 our word rank is 4 so we know it will fall in 2nd 2 numbers
-	// so the first number is 3
-	// this we can find the remaining
+	// second 2 numbers starts with, this we can find the remaining
 	private static void type2() {
 		int n = 4;
 		int k = 1;
@@ -151,34 +144,34 @@ public class KthPermutationSequence {
 		computeKthPermutation(numbers, factorial, answer, k);
 	}
 
-	// brute force will be to find all the permutation and then store it in list
-	// then then return n-1
+	// TODO first explain this approach
+	// brute force will be to find all the permutation and then store it in list then, then return n-1
 	private static void type1() {
 		int n = 4;
 		int k = 19;
-		// create the array
-		char[] arr = new char[n];
-		for (int i = 1; i <= n; i++) {
-			arr[i - 1] = (char) ('0' + i);
-		}
+
 		// find all the permutations
+		char[] arr = new char[n];
+		for (int i = 1; i <= n; i++)
+			arr[i - 1] = (char) ('0' + i);
 		List<String> answer = new ArrayList<>();
-		computePermutations(arr, 0, answer);
-		// get the kth permutation
+		computePermutation1(arr, 0, answer);
 		Collections.sort(answer);
-		System.out.println(answer);
+
+		// get the kth permutation
 		System.out.println(answer.get(k - 1));
 	}
 
-	private static void computePermutations(char[] array, int index, List<String> answer) {
-		if (index == array.length) {
+	private static void computePermutation1(char[] array, int start, List<String> answer) {
+		int n = array.length;
+		if (start == n) {
 			answer.add(new String(array));
 			return;
 		}
-		for (int i = index; i < array.length; i++) {
-			swap(array, i, index);
-			computePermutations(array, index + 1, answer);
-			swap(array, i, index);
+		for (int i = start; i < n; i++) {
+			swap(array, i, start);
+			computePermutation1(array, start + 1, answer);
+			swap(array, i, start);
 		}
 	}
 

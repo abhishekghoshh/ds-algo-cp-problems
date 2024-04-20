@@ -1,4 +1,4 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class LetterCasePermutation {
 		type2();
 	}
 
-	// If it is a letter
+	// If it is a letter, in place changes
 	// Here, we have two choices either to use a lower case or upper
 	// here we are directly changing the character case
 	private static void type2() {
@@ -27,27 +27,27 @@ public class LetterCasePermutation {
 		// we are just making the string to char array
 		// so the char array will have all the elements
 		// we don't have to add anything later
-		traverse(s, 0, s.toCharArray(), answer);
+		permutation2(0, s.toCharArray(), answer);
 		System.out.println(answer);
 	}
 
-	private static void traverse(String s, int index, char[] bucket, List<String> answer) {
-		if (index == s.length()) {
+	private static void permutation2(int i, char[] bucket, List<String> answer) {
+		if (i == bucket.length) {
 			answer.add(new String(bucket));
 			return;
 		}
-		if (Character.isLetter(bucket[index])) {
+		if (Character.isLetter(bucket[i])) {
 			// first, we will consider the lower case
 			// so changing the case to lower
 			// whatever the case was previously
-			bucket[index] = Character.toLowerCase(bucket[index]);
-			traverse(s, index + 1, bucket, answer);
+			bucket[i] = Character.toLowerCase(bucket[i]);
+			permutation2(i + 1, bucket, answer);
 			// now will change the case to upper
-			bucket[index] = Character.toUpperCase(bucket[index]);
-			traverse(s, index + 1, bucket, answer);
+			bucket[i] = Character.toUpperCase(bucket[i]);
+			permutation2(i + 1, bucket, answer);
 		} else {
-			// as this is a digit so we dont have to add anything
-			traverse(s, index + 1, bucket, answer);
+			// as this is a digit, so we don't have to add anything
+			permutation2(i + 1, bucket, answer);
 		}
 	}
 
@@ -58,35 +58,32 @@ public class LetterCasePermutation {
 		String s = "a1b2";
 		List<String> answer = new ArrayList<>();
 		StringBuilder bucket = new StringBuilder();
-		traverse(s, 0, bucket, answer);
+		permutation1(s, 0, bucket, answer);
 		System.out.println(answer);
 	}
 
-	private static void traverse(String s, int index, StringBuilder bucket, List<String> answer) {
-		if (index == s.length()) {
+	private static void permutation1(String s, int i, StringBuilder bucket, List<String> answer) {
+		if (i == s.length()) {
 			answer.add(bucket.toString());
 			return;
 		}
-		char ch = s.charAt(index);
+		char ch = s.charAt(i);
 		// if the character is a letter, then only we can change its case
 		if (Character.isLetter(ch)) {
-			// first, we will consider the lower case
+			// first, we will consider the lower case, and after the computation, we will remove it
 			bucket.append(Character.toLowerCase(ch));
-			traverse(s, index + 1, bucket, answer);
-			// after the computation, we will remove it
+			permutation1(s, i + 1, bucket, answer);
 			bucket.deleteCharAt(bucket.length() - 1);
 
-			// now will use the upper case
+			// now will use the upper case, and after the computation, we will remove it
 			bucket.append(Character.toUpperCase(ch));
-			traverse(s, index + 1, bucket, answer);
-			// after the computation, we will remove it
+			permutation1(s, i + 1, bucket, answer);
 			bucket.deleteCharAt(bucket.length() - 1);
 
 		} else {
-			// if its index then we don't have anything to do
-			// just add it and increase the index
+			// if its index then we don't have anything to do, just add it and increase the index
 			bucket.append(ch);
-			traverse(s, index + 1, bucket, answer);
+			permutation1(s, i + 1, bucket, answer);
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
 	}

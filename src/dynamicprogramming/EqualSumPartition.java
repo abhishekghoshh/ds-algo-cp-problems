@@ -1,6 +1,5 @@
 package dynamicprogramming;
 
-import java.util.Arrays;
 
 /*
  * Problem link :

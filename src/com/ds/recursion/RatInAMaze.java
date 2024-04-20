@@ -10,7 +10,10 @@ import java.util.ArrayList;
  * 
  * Solution link:
  * https://www.youtube.com/watch?v=bLGZhJlt4y0
- * 
+ *
+ * https://www.youtube.com/watch?v=7AYJLrDxbBU&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=12
+ * https://www.youtube.com/watch?v=4Wc_QCxr_WQ&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=14
+ *
  * https://takeuforward.org/data-structure/rat-in-a-maze/
  * */
 public class RatInAMaze {
@@ -51,9 +54,8 @@ public class RatInAMaze {
 	private static ArrayList<String> findPath4(int[][] mat, int n) {
 		ArrayList<String> answer = new ArrayList<>();
 		char[] bucket = new char[2 * n - 2];
-		if (mat[0][0] != 0) {
+		if (mat[0][0] != 0)
 			traverse4(0, 0, 0, mat, answer, bucket);
-		}
 		return answer;
 	}
 
