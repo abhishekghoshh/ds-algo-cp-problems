@@ -1,4 +1,4 @@
-package recursion;
+package com.ds.recursion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,8 @@ public class PrintSubsetSumDivisibleByK {
 		System.out.println(answer.size());
 	}
 
-	private static void traverse(int i, int sum, List<Integer> bucket, int[] nums, List<List<Integer>> answer, int k) {
+	private static void traverse(int i, int sum, List<Integer> bucket, int[] nums,
+								 List<List<Integer>> answer, int k) {
 		if (i == nums.length) {
 			// empty subset not considered
 			if (sum % k == 0 && !bucket.isEmpty()) answer.add(new ArrayList<>(bucket));

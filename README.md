@@ -405,6 +405,7 @@
   - [More subsequence](/src/com/ds/recursion/MoreSubsequence.java)
     - dynamic-programming
   - [Count of Subset sum equal to k](/src/com/ds/recursion/CountOfSubsetSumEqualToK.java)
+  - [Print subset sum divisible by K](/src/com/ds/recursion/PrintSubsetSumDivisibleByK.java)
   - [Letter Combinations of a Phone Number](/src/com/ds/recursion/LetterCombinationsOfAPhoneNumber.java)
   - [Palindrome Partitioning](/src/com/ds/recursion/PalindromePartitioning.java)
   - [Word Search 1](/src/com/ds/recursion/WordSearch1.java)
@@ -423,6 +424,8 @@
   - [Kth permutation sequence](/src/com/ds/recursion/KthPermutationSequence.java)
   - [Largest number in K swaps](/src/com/ds/recursion/LargestNumberAfterKSwaps.java)
   - [N Digit numbers with digits in increasing order](/src/com/ds/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
+  - [Print all word breaks](/src/com/ds/recursion/PrintAllWordBreaks.java)
+  - [Josephus problem](/src/com/ds/recursion/JosephusProblem.java)
 
 
 ### stack
