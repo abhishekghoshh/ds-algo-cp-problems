@@ -14,6 +14,8 @@ import java.util.Set;
  * */
 public class PrintAllWordBreaks {
 
+	// easy problem of recursion and back tracking
+	// check one more time if you find it difficult
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -25,22 +27,22 @@ public class PrintAllWordBreaks {
 	private static void type3() {
 		String s = "godisnowherenowhere";
 		List<String> dictionary = List.of("god", "is", "now", "no", "where", "here");
-		Set<String> dictionarySet = new HashSet<>(dictionary);
+		Set<String> set = new HashSet<>(dictionary);
 		List<String> answer = new ArrayList<>();
-		compute(s, 0, dictionarySet, answer, new StringBuilder());
+		wordBreak3(s, 0, set, answer, new StringBuilder());
 		System.out.println(answer);
 	}
 
-	private static void compute(String s, int start, Set<String> dictionarySet, List<String> answer, StringBuilder prev) {
+	private static void wordBreak3(String s, int start, Set<String> set, List<String> answer, StringBuilder prev) {
 		int right = start + 1;
 		while (right <= s.length()) {
 			String word = s.substring(start, right);
-			if (dictionarySet.contains(word)) {
+			if (set.contains(word)) {
 				if (right == s.length()) {
 					answer.add(prev.append(word).toString());
 					prev.delete(prev.length() - word.length(), prev.length());
 				} else {
-					compute(s, right, dictionarySet, answer, prev.append(word).append(" "));
+					wordBreak3(s, right, set, answer, prev.append(word).append(" "));
 					prev.deleteCharAt(prev.length() - 1);
 					prev.delete(prev.length() - word.length(), prev.length());
 				}
@@ -54,11 +56,11 @@ public class PrintAllWordBreaks {
 		List<String> dictionary = List.of("god", "is", "now", "no", "where", "here");
 		Set<String> dictionarySet = new HashSet<>(dictionary);
 		List<String> answer = new ArrayList<>();
-		compute(s, 0, dictionarySet, answer, "");
+		wordBreak3(s, 0, dictionarySet, answer, "");
 		System.out.println(answer);
 	}
 
-	private static void compute(String s, int start, Set<String> dictionarySet, List<String> answer, String prev) {
+	private static void wordBreak3(String s, int start, Set<String> set, List<String> answer, String prev) {
 		// we are using two pointers
 		int right = start + 1;
 		while (right <= s.length()) {
@@ -66,57 +68,49 @@ public class PrintAllWordBreaks {
 			// if the word is in the dictionary, then we have two options
 			// either to include that word and check words in remaining part else we can
 			// wait for a bigger word
-			if (dictionarySet.contains(word)) {
+			if (set.contains(word)) {
 				if (right == s.length()) {
 					answer.add(prev + word);
 				} else {
-					compute(s, right, dictionarySet, answer, prev + word + " ");
+					wordBreak3(s, right, set, answer, prev + word + " ");
 				}
 			}
 			right++;
 		}
 	}
 
-	// TODO study later
 	private static void type1() {
 		String s = "godisnowherenowhere";
 		List<String> dictionary = List.of("god", "is", "now", "no", "where", "here");
 		Set<String> dictSet = new HashSet<>(dictionary);
-		List<String> answer = wordBreakHelper(s, 0, dictSet, s.length());
+		List<String> answer = wordBreak1(s, 0, dictSet, s.length());
 		System.out.println(answer);
 	}
 
-	public static ArrayList<String> wordBreakHelper(String s, int idx, Set<String> dictSet, int size) {
+	public static List<String> wordBreak1(String s, int start, Set<String> set, int n) {
 		// Base Condition
-		if (idx == size) {
-			ArrayList<String> temp = new ArrayList<>();
-			temp.add("");
-			return temp;
-		}
-		ArrayList<String> subPart;
-		ArrayList<String> completePart = new ArrayList<>();
+		if (start == n) return List.of("");
+
+		List<String> sentences = new ArrayList<>();
 		String word = "";
 		// Start exploring the sentence from the index until we wouldn't find 'j' such
 		// that substring [index,j] exists in the dictionary as a word
-		for (int j = idx; j < size; j++) {
+		for (int j = start; j < n; j++) {
 			word += s.charAt(j);
-			if (!dictSet.contains(word)) continue;
+			// if word is not in the dictionary then we will skip
+			if (!set.contains(word)) continue;
 			// Get the answer for rest of sentence from 'j' to s.size()
-			subPart = wordBreakHelper(s, j + 1, dictSet, size);
+			List<String> sentencesWithRemaining = wordBreak1(s, j + 1, set, n);
 			// Append "word" with all the answer that we got
-			for (int i = 0; i < subPart.size(); i++) {
-				if (!subPart.get(i).isEmpty()) {
-					String temp = word;
-					temp += " ";
-					temp += subPart.get(i);
-					subPart.set(i, temp);
+			for (String sentence : sentencesWithRemaining) {
+				if (!sentence.isEmpty()) {
+					sentences.add(word + " " + sentence);
 				} else {
-					subPart.set(i, word);
+					sentences.add(word);
 				}
 			}
-			completePart.addAll(subPart);
 		}
-		return completePart;
+		return sentences;
 	}
 
 }
