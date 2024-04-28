@@ -1,6 +1,6 @@
 package binarytree;
 
-import com.algo.binarytree.TNode;
+import com.ds.binarytree.TNode;
 
 /*
  * Problem link :

@@ -1,8 +1,8 @@
 package com.util;
 
-import com.algo.binarytree.TNode;
-import com.algo.linkedlist.DNode;
-import com.algo.linkedlist.Node;
+import com.ds.binarytree.TNode;
+import com.ds.linkedlist.DNode;
+import com.ds.linkedlist.Node;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
 package com.algo.sort;
 
-import com.algo.heap.MinHeap;
+import com.ds.heap.MinHeap;
 
 import static com.util.PrintUtl.print;
 
