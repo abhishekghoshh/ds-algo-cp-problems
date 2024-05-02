@@ -26,11 +26,11 @@
 - resources
   - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
 
-  - william-fiset
+  - **william-fiset**
     - [Data structures playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
     - [Graph Theory Playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
 
-  - Coursera
+  - **Coursera**
     - [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome)
     - [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2/home/welcome)
     - [Algorithms Specialization](https://www.coursera.org/specializations/algorithms#courses)
@@ -73,6 +73,11 @@
 
 ## Algorithm & Data Structures
 
+### array
+- codes
+  - [static array](/src/com/ds/array/StaticArray.java)
+  - [dynamic array](/src/com/ds/array/DynamicArray.java)
+
 ### sorting
 - codes
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
@@ -87,6 +92,7 @@
   - [Radix sort](/src/com/algo/sort/RadixSort.java)
   - [Heap sort](/src/com/algo/sort/HeapSort.java)
 
+
 ### string
 - codes
   - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
@@ -95,27 +101,55 @@
   - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
 
-### heap
-- codes
-  - [Min Heap](/src/com/algo/heap/MinHeap.java)
-  - [Max heap](/src/com/algo/heap/MaxHeap.java)
-  - [Heap](/src/com/algo/heap/Heap.java)
-
-
 ### linked-list
 - codes
-  - [Singly Linked List](./src/com/algo/linkedlist/Node.java)
-  - [Doubly Linked List](/src/com/algo/linkedlist/DNode.java)
-  - [Linked List](/src/com/algo/linkedlist/LinkedList.java)
+  - [Singly Int Node](./src/com/ds/linkedlist/Node.java)
+  - [Doubly Int Node](/src/com/ds/linkedlist/DNode.java)
+  - [Linked List](/src/com/ds/linkedlist/LinkedList.java)
+  - [Doubly Linked List](/src/com/ds/linkedlist/DLinkedList.java)
+
+
+### Stack
+- **resources**
+  - [Stack](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsC0FVi9Rshi-5fFU1QwcFQ1)
+
+
+### Queue
+- **resources**
+  - [Queue](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsAWrxWRTHJrsgBrbwqGzt-z)
+
+
+
+### heap
+- codes
+  - [Min Heap](/src/com/ds/heap/MinHeap.java)
+  - [Max heap](/src/com/ds/heap/MaxHeap.java)
+
+
+### Priority Queue
+- **resources**
+  - [Priority Queue](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCLFSHm1nYb9daYf60lCcag)
+- **codes**
+
+
+
+### Union find algorithm
+- **resources**
+  - [Union Find / Disjoint Set](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsBI1C-mR6ZhHTyfoEJWlxvq)
+- **codes**
+  - [Union find](/src/com/algo/unionfind/UnionFind.java)
+
 
 
 ### binary-tree
-- codes
-  - [Tree Node](/src/com/algo/binarytree/TNode.java)
-  - [Binary Tree](/src/com/algo/binarytree/BinaryTree.java)
-  - [Binary Search Tree](/src/com/algo/binarytree/BinarySearchTree.java)
-  - [AVL Tree](/src/com/algo/binarytree/AVLTree.java)
-  - [Red Black Tree](/src/com/algo/binarytree/RedBlackTree.java)
+- **resources**
+  - [Binary Search Tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCYY48kOkeLQ-cg9-eqInzs)
+- **codes**
+  - [Tree Node](/src/com/ds/binarytree/TNode.java)
+  - [Binary Tree](/src/com/ds/binarytree/BinaryTree.java)
+  - [Binary Search Tree](/src/com/ds/binarytree/BinarySearchTree.java)
+  - [AVL Tree](/src/com/ds/binarytree/AVLTree.java)
+  - [Red Black Tree](/src/com/ds/binarytree/RedBlackTree.java)
 
 
 

@@ -7,5 +7,5 @@ package com.ds.linkedlist;
  *
  *
  */
-public class LinkedList<T> {
+public class DLinkedList<T> {
 }

@@ -1,4 +1,4 @@
 package com.ds.heap;
 
-public class Heap {
+public class KAryHeap {
 }
