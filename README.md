@@ -624,7 +624,14 @@
   - [Dynamic Programming - Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
   - [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
 - codes
-  - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
+  - **0/1 Knapsack problems**
+    - [Knapsack](/src/com/problems/dp/Knapsack.java)
+    - [Subset sum](/src/com/problems/dp/SubsetSum.java)
+    - [Equal sum partition](/src/com/problems/dp/EqualSumPartition.java)
+    - [Count of Subset sum](/src/com/problems/dp/CountOfSubsetSum.java)
+    - [Minimum Subset sum difference](/src/com/problems/dp/MinimumSubsetSumDifference.java)
+  - **others**
+    - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 
 
 ### binary-tree

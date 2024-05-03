@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 /*
  * Problem link :
@@ -43,6 +43,9 @@ public class SubsetSum {
 	// this is the same as the previous type, but here we will use memoization
 	// TODO complete it
 	private static void type2() {
+		int[] nums = {1, 3, 4, 5, 9, 12};
+		int n = nums.length;
+		int k = 25;
 	}
 
 	// this is a simple recursion
