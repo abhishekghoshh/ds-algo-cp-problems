@@ -17,7 +17,7 @@ public class UnionFind {
     private final int size;
 
     // Used to track the size of each of the component
-    private final int[] sz;
+    private final int[] count;
 
     // id[i] points to the parent of i, if id[i] = i then i is a root node
     private final int[] parent;
@@ -25,16 +25,16 @@ public class UnionFind {
     // Tracks the number of components in the union find
     private int components;
 
-    public UnionFind(int size) {
+public UnionFind(int size) {
         if (size <= 0) throw new IllegalArgumentException("Size <= 0 is not allowed");
 
         this.size = components = size;
-        sz = new int[size];
+        count = new int[size];
         parent = new int[size];
 
         for (int i = 0; i < size; i++) {
             parent[i] = i; // Link to itself (self root)
-            sz[i] = 1; // Each component is originally of size one
+            count[i] = 1; // Each component is originally of size one
         }
     }
 
@@ -65,7 +65,7 @@ public class UnionFind {
 
     // Return the size of the components/set 'p' belongs to
     public int componentSize(int p) {
-        return sz[find(p)];
+        return count[find(p)];
     }
 
     // Return the number of elements in this UnionFind/Disjoint set
@@ -88,14 +88,14 @@ public class UnionFind {
         int root2 = find(q);
 
         // Merge smaller component/set into the larger one.
-        if (sz[root1] > sz[root2]) {
-            sz[root1] += sz[root2];
+        if (count[root1] > count[root2]) {
+            count[root1] += count[root2];
             parent[root2] = root1;
-            sz[root2] = 0;
+            count[root2] = 0;
         } else {
-            sz[root2] += sz[root1];
+            count[root2] += count[root1];
             parent[root1] = root2;
-            sz[root1] = 0;
+            count[root1] = 0;
         }
         // Since the roots found are different, we know that the number of components/sets has decreased by one
         components--;

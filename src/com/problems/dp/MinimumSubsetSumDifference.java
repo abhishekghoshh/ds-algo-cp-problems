@@ -10,14 +10,15 @@ package com.problems.dp;
 public class MinimumSubsetSumDifference {
 
 	public static void main(String[] args) {
+		type1();
 		type2();
+		type3();
 	}
 
-	
 
 	// only works with positive integer
 	// We need a better solution
-	private static void type2() {
+	private static void type3() {
 		int[] nums = {2, 2, 2, 2, 2};
 		int n = nums.length;
 		int sum = 0;
@@ -37,12 +38,21 @@ public class MinimumSubsetSumDifference {
 					memo[i][j] = memo[i - 1][j];
 
 
-		int minDiff = sum;
-		int mid = sum / 2;
-		for (int j = 1; j <= mid; j++) {
-			//
-			if (memo[n][j]) minDiff = Math.min(minDiff, sum - 2 * j);
+		int diff = sum;
+		for (int s1 = 1; s1 <= (sum / 2); s1++) {
+			// there will be two sets s1 and s2, then difference will be abs(s2-s1)
+			// s2 can be represented by (sum-s1), so abs(s2-s1) => abs(sum-2*s1)
+			if (memo[n][s1])
+				diff = Math.min(diff, sum - 2 * s1);
 		}
-		System.out.println(minDiff);
+		System.out.println(diff);
+	}
+
+	// with memoization
+	private static void type2() {
+	}
+
+	// with normal recursion
+	private static void type1() {
 	}
 }

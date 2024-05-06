@@ -630,6 +630,10 @@
     - [Equal sum partition](/src/com/problems/dp/EqualSumPartition.java)
     - [Count of Subset sum](/src/com/problems/dp/CountOfSubsetSum.java)
     - [Minimum Subset sum difference](/src/com/problems/dp/MinimumSubsetSumDifference.java)
+    - [Count the number of subset with a given difference](/src/com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
+    - [Target sum](/src/com/problems/dp/TargetSum.java)
+  - **Unbounded Knapsack**
+    - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 
