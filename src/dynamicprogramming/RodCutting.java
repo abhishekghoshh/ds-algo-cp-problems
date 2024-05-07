@@ -10,14 +10,14 @@ package dynamicprogramming;
  */
 
 public class RodCutting {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
 	private static void type2() {
 //		int prices[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
-		int prices[] = { 3, 5, 8, 9, 10, 17, 17, 20 };
+		int[] prices = { 3, 5, 8, 9, 10, 17, 17, 20 };
 		int n = prices.length;
 		
 		int[] lengths = new int[n];
@@ -46,9 +46,9 @@ public class RodCutting {
 	}
 
 	private static void type1() {
-		int prices[] = { 3, 5, 7, 8, 15, 20 };
+		int[] prices = { 3, 5, 7, 8, 15, 20 };
 		int n = prices.length;
-		int lengths[] = { 2, 3, 4, 5, 9, 12 };
+		int[] lengths = { 2, 3, 4, 5, 9, 12 };
 		int length = 14;
 
 		int[][] memo = new int[n + 1][length + 1];

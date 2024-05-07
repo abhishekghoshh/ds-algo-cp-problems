@@ -634,6 +634,7 @@
     - [Target sum](/src/com/problems/dp/TargetSum.java)
   - **Unbounded Knapsack**
     - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)
+    - [Rod Cutting](/src/com/problems/dp/UnboundedKnapsack.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 
