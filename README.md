@@ -144,6 +144,7 @@
 ### binary-tree
 - **resources**
   - [Binary Search Tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCYY48kOkeLQ-cg9-eqInzs)
+  - [AVL tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsD06x59fxczdWLhDDszUHKt)
 - **codes**
   - [Tree Node](/src/com/ds/binarytree/TNode.java)
   - [Binary Tree](/src/com/ds/binarytree/BinaryTree.java)
@@ -151,7 +152,12 @@
   - [AVL Tree](/src/com/ds/binarytree/AVLTree.java)
   - [Red Black Tree](/src/com/ds/binarytree/RedBlackTree.java)
 
+### hash-table
 
+- **resources**
+  - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
+- **codes**
+  - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
 
 ## Problems
 
@@ -634,7 +640,9 @@
     - [Target sum](/src/com/problems/dp/TargetSum.java)
   - **Unbounded Knapsack**
     - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)
-    - [Rod Cutting](/src/com/problems/dp/UnboundedKnapsack.java)
+    - [Rod Cutting](/src/com/problems/dp/RodCutting.java)
+    - [Maximum number of choice for a coin change](/src/com/problems/dp/MaximumNoOfWaysForCoinChange.java)
+    - [Minimum number of coins for a coin change](/src/com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 

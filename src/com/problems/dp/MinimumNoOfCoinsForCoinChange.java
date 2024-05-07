@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 import java.util.Arrays;
 
@@ -13,13 +13,15 @@ import java.util.Arrays;
 public class MinimumNoOfCoinsForCoinChange {
 
 	public static void main(String[] args) {
+		type1();
+		type2();
 		type3();
 		type4();
 	}
 
 	// TODO study later
 	private static void type4() {
-		int coins[] = { 1, 2, 3, 4, 5, 9, 11 };
+		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int[] dp = new int[amount + 1];
 		// assigning all values to max possibility
@@ -66,4 +68,12 @@ public class MinimumNoOfCoinsForCoinChange {
 		int minCount = memo[n][amount];
 		System.out.println(minCount);
 	}
+
+
+	private static void type2() {
+	}
+
+	private static void type1() {
+	}
+
 }
