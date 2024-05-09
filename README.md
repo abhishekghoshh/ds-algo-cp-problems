@@ -133,6 +133,18 @@
 
 
 
+### hash-table
+
+- **resources**
+  - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
+- **codes**
+  - [doc](/src/com/ds/hashtable/README)
+  - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
+  - [Open addressing](/src/com/ds/hashtable/HashTableOpenAddressingBase.java)
+  - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
+
+
+
 ### Union find algorithm
 - **resources**
   - [Union Find / Disjoint Set](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsBI1C-mR6ZhHTyfoEJWlxvq)
@@ -152,12 +164,13 @@
   - [AVL Tree](/src/com/ds/binarytree/AVLTree.java)
   - [Red Black Tree](/src/com/ds/binarytree/RedBlackTree.java)
 
-### hash-table
 
+
+### [Fenwick Tree]
 - **resources**
-  - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
-- **codes**
-  - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
+  - []
+
+
 
 ## Problems
 
@@ -643,6 +656,8 @@
     - [Rod Cutting](/src/com/problems/dp/RodCutting.java)
     - [Maximum number of choice for a coin change](/src/com/problems/dp/MaximumNoOfWaysForCoinChange.java)
     - [Minimum number of coins for a coin change](/src/com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
+  - **Longest common subsequence**
+    - 
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 
@@ -745,6 +760,7 @@
   - [Masterclass: Range Query DS / Segment Trees / Fenwick Trees / Masterclasses By Striver / CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
   - [Marathon Class on Range Query DS - 2 / Segment Trees / Fenwick Trees / Masterclasses By Striver) / CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
+- codes
 
 
 ### tries
