@@ -75,8 +75,7 @@
 
 ### array
 - codes
-  - [static array](/src/com/ds/array/StaticArray.java)
-  - [dynamic array](/src/com/ds/array/DynamicArray.java)
+  - [Dynamic array](/src/com/ds/array/Array.java)
 
 ### sorting
 - codes
@@ -106,12 +105,16 @@
   - [Singly Int Node](./src/com/ds/linkedlist/Node.java)
   - [Doubly Int Node](/src/com/ds/linkedlist/DNode.java)
   - [Linked List](/src/com/ds/linkedlist/LinkedList.java)
-  - [Doubly Linked List](/src/com/ds/linkedlist/DLinkedList.java)
+  - [Doubly Linked List](/src/com/ds/linkedlist/DoublyLinkedList.java)
 
 
 ### Stack
 - **resources**
   - [Stack](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsC0FVi9Rshi-5fFU1QwcFQ1)
+- **codes**
+  - [Stack](/src/com/ds/stack/Stack.java)
+  - [Array Stack](/src/com/ds/stack/ArrayStack.java)
+  - [Linked list Stack](/src/com/ds/stack/LinkedListStack.java)
 
 
 ### Queue
@@ -134,7 +137,6 @@
 
 
 ### hash-table
-
 - **resources**
   - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
 - **codes**
@@ -164,12 +166,17 @@
   - [AVL Tree](/src/com/ds/binarytree/AVLTree.java)
   - [Red Black Tree](/src/com/ds/binarytree/RedBlackTree.java)
 
-
+### b-tree
+- **resources**
+  - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
+- **codes**
 
 ### [Fenwick Tree]
 - **resources**
-  - []
-
+  - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
+  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
+- **codes**
+  - 
 
 
 ## Problems
