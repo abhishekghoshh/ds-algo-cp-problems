@@ -112,7 +112,6 @@
 - **resources**
   - [Stack](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsC0FVi9Rshi-5fFU1QwcFQ1)
 - **codes**
-  - [Stack](/src/com/ds/stack/Stack.java)
   - [Array Stack](/src/com/ds/stack/ArrayStack.java)
   - [Linked list Stack](/src/com/ds/stack/LinkedListStack.java)
 
@@ -120,8 +119,10 @@
 ### Queue
 - **resources**
   - [Queue](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsAWrxWRTHJrsgBrbwqGzt-z)
-
-
+- **codes**
+  - [Array Queue](src/com/ds/queue/ArrayQueue.java)
+  - [Linked list queue](src/com/ds/queue/LinkedListQueue.java)
+  - [Double Ended Queue](src/com/ds/queue/Deque.java)
 
 ### heap
 - codes
