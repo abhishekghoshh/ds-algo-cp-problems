@@ -1,7 +1,7 @@
 package com.ds.queue;
 
 public class ArrayQueue<T> implements Queue<T> {
-    private Object[] data;
+    private final Object[] data;
     private int front;
     private int rear;
 
@@ -32,11 +32,8 @@ public class ArrayQueue<T> implements Queue<T> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public T peek() {
-        if (isEmpty()) {
-            throw new RuntimeException("Queue is empty");
-        }
+        if (isEmpty()) throw new RuntimeException("Queue is empty");
         front = adjustIndex(front, data.length);
         return (T) data[front];
     }

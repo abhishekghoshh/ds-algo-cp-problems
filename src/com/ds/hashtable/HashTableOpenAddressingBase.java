@@ -1,17 +1,18 @@
 package com.ds.hashtable;
 
-/**
- * Base class for hashtables with an open addressing collision resolution method such as linear
- * probing, quadratic probing and double hashing.
- *
- * @author William Fiset, william.alexandre.fiset@gmail.com
- */
-
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 
+/*
+ * Problem link:
+ *
+ *
+ * Solution link:
+ * https://www.youtube.com/watch?v=xIejolxzZS8&list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu&index=32
+ *
+ */
 @SuppressWarnings("unchecked")
 public abstract class HashTableOpenAddressingBase<K, V> implements Iterable<K> {
 

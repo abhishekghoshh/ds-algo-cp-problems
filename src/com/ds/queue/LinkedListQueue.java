@@ -1,8 +1,10 @@
 package com.ds.queue;
 
+import com.ds.linkedlist.LinkedList;
+
 public class LinkedListQueue<T> implements Iterable<T>, Queue<T> {
 
-    private final java.util.LinkedList<T> list = new java.util.LinkedList<T>();
+    private final LinkedList<T> list = new LinkedList<T>();
 
     public LinkedListQueue() {
     }
@@ -16,7 +18,7 @@ public class LinkedListQueue<T> implements Iterable<T>, Queue<T> {
         return list.size();
     }
 
-    // Returns whether or not the queue is empty
+    // Returns whether the queue is empty
     public boolean isEmpty() {
         return size() == 0;
     }

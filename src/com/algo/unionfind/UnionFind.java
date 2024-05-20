@@ -25,7 +25,7 @@ public class UnionFind {
     // Tracks the number of components in the union find
     private int components;
 
-public UnionFind(int size) {
+    public UnionFind(int size) {
         if (size <= 0) throw new IllegalArgumentException("Size <= 0 is not allowed");
 
         this.size = components = size;
@@ -81,7 +81,7 @@ public UnionFind(int size) {
     // Unify the components/sets containing elements 'p' and 'q'
     public void unify(int p, int q) {
 
-        // These elements are already in the same group!
+        // These elements are already in the same group. If we add this edge, it will form a loop
         if (connected(p, q)) return;
 
         int root1 = find(p);

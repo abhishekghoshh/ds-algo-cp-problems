@@ -1,45 +1,47 @@
 package com.ds.hashtable;
 
-/**
- * An implementation of a hash-table using separate chaining with a linked list.
- *
- * @author William Fiset, william.alexandre.fiset@gmail.com
- */
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/*
+ * Problem link:
+ *
+ *
+ * Solution link:
+ * https://www.youtube.com/watch?v=2E54GqF0H4s&list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu&index=29
+ * https://www.youtube.com/watch?v=T9gct6Dx-jo&list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu&index=30
+ * https://www.youtube.com/watch?v=Av9kwXkuQFw&list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu&index=31
+ * */
+class Entry<K, V> {
+    int hash;
+    K key;
+    V value;
 
-public class HashTableSeparateChaining<K, V> implements Iterable<K> {
-
-    static class Entry<K, V> {
-
-        int hash;
-        K key;
-        V value;
-
-        public Entry(K key, V value) {
-            this.key = key;
-            this.value = value;
-            this.hash = key.hashCode();
-        }
-
-        // We are not overriding the Object equals method
-        // No casting is required with this method.
-        public boolean equals(Entry<K, V> other) {
-            if (hash != other.hash) return false;
-            return key.equals(other.key);
-        }
-
-        @Override
-        public String toString() {
-            return key + " => " + value;
-        }
+    public Entry(K key, V value) {
+        this.key = key;
+        this.value = value;
+        this.hash = key.hashCode();
     }
 
-    private static final int DEFAULT_CAPACITY = 3;
+    // We are not overriding the Object equals method
+    // No casting is required with this method.
+    public boolean equals(Entry<K, V> other) {
+        if (hash != other.hash) return false;
+        return key.equals(other.key);
+    }
+
+    @Override
+    public String toString() {
+        return key + " => " + value;
+    }
+}
+public class HashTableSeparateChaining<K, V> implements Iterable<K> {
+
+    private static final int DEFAULT_CAPACITY = 1 << 3;
     private static final double DEFAULT_LOAD_FACTOR = 0.75;
 
     private final double maxLoadFactor;
@@ -107,18 +109,15 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
     }
 
     public V insert(K key, V value) {
-
         if (key == null) throw new IllegalArgumentException("Null key");
         Entry<K, V> newEntry = new Entry<>(key, value);
         int bucketIndex = normalizeIndex(newEntry.hash);
         return bucketInsertEntry(bucketIndex, newEntry);
     }
-
     // Gets a key's values from the map and returns the value.
     // NOTE: returns null if the value is null AND also returns
-    // null if the key does not exists, so watch out..
+    // null if the key does not exist, so watch out.
     public V get(K key) {
-
         if (key == null) return null;
         int bucketIndex = normalizeIndex(key.hashCode());
         Entry<K, V> entry = bucketSeekEntry(bucketIndex, key);
@@ -128,9 +127,8 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
     // Removes a key from the map and returns the value.
     // NOTE: returns null if the value is null AND also returns
-    // null if the key does not exists.
+    // null if the key does not exist.
     public V remove(K key) {
-
         if (key == null) return null;
         int bucketIndex = normalizeIndex(key.hashCode());
         return bucketRemoveEntry(bucketIndex, key);
@@ -138,7 +136,6 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
     // Removes an entry from a given bucket if it exists
     private V bucketRemoveEntry(int bucketIndex, K key) {
-
         Entry<K, V> entry = bucketSeekEntry(bucketIndex, key);
         if (entry != null) {
             LinkedList<Entry<K, V>> links = table[bucketIndex];
@@ -151,7 +148,6 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
     // Inserts an entry in a given bucket only if the entry does not already
     // exist in the given bucket, but if it does then update the entry value
     private V bucketInsertEntry(int bucketIndex, Entry<K, V> entry) {
-
         LinkedList<Entry<K, V>> bucket = table[bucketIndex];
         if (bucket == null) table[bucketIndex] = bucket = new LinkedList<>();
 
@@ -169,7 +165,6 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
     // Finds and returns a particular entry in a given bucket if it exists, returns null otherwise
     private Entry<K, V> bucketSeekEntry(int bucketIndex, K key) {
-
         if (key == null) return null;
         LinkedList<Entry<K, V>> bucket = table[bucketIndex];
         if (bucket == null) return null;
@@ -179,34 +174,28 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
     // Resizes the internal table holding buckets of entries
     private void resizeTable() {
-
         capacity *= 2;
         threshold = (int) (capacity * maxLoadFactor);
 
         LinkedList<Entry<K, V>>[] newTable = new LinkedList[capacity];
-
         for (int i = 0; i < table.length; i++) {
             if (table[i] != null) {
-
                 for (Entry<K, V> entry : table[i]) {
                     int bucketIndex = normalizeIndex(entry.hash);
                     LinkedList<Entry<K, V>> bucket = newTable[bucketIndex];
                     if (bucket == null) newTable[bucketIndex] = bucket = new LinkedList<>();
                     bucket.add(entry);
                 }
-
                 // Avoid memory leak. Help the GC
                 table[i].clear();
                 table[i] = null;
             }
         }
-
         table = newTable;
     }
 
     // Returns the list of keys found within the hash table
     public List<K> keys() {
-
         List<K> keys = new ArrayList<>(size());
         for (LinkedList<Entry<K, V>> bucket : table)
             if (bucket != null) for (Entry<K, V> entry : bucket) keys.add(entry.key);
@@ -215,7 +204,6 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
 
     // Returns the list of values found within the hash table
     public List<V> values() {
-
         List<V> values = new ArrayList<>(size());
         for (LinkedList<Entry<K, V>> bucket : table)
             if (bucket != null) for (Entry<K, V> entry : bucket) values.add(entry.value);
@@ -227,23 +215,18 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
     public java.util.Iterator<K> iterator() {
         final int elementCount = size();
         return new java.util.Iterator<K>() {
-
             int bucketIndex = 0;
             java.util.Iterator<Entry<K, V>> bucketIter = (table[0] == null) ? null : table[0].iterator();
 
             @Override
             public boolean hasNext() {
-
                 // An item was added or removed while iterating
                 if (elementCount != size) throw new java.util.ConcurrentModificationException();
-
                 // No iterator or the current iterator is empty
                 if (bucketIter == null || !bucketIter.hasNext()) {
-
                     // Search next buckets until a valid iterator is found
                     while (++bucketIndex < capacity) {
                         if (table[bucketIndex] != null) {
-
                             // Make sure this iterator actually has elements -_-
                             java.util.Iterator<Entry<K, V>> nextIter = table[bucketIndex].iterator();
                             if (nextIter.hasNext()) {
@@ -271,7 +254,6 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
     // Returns a string representation of this hash table
     @Override
     public String toString() {
-
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         for (int i = 0; i < capacity; i++) {

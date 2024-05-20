@@ -17,11 +17,11 @@ public class Knapsack {
 
 	/*
 	 * Identifying Dynamic programming
-	 * 1. Recursive problems where max, min, largest, minimum or total count is asked
+	 * 1. Recursive problems where max, min, largest, minimum or total count are asked
 	 * 2. Choices are given
 	 * 3. Overlapping sub-problems
-	 * 4. more than one function is called from a function
-	 * 5. same function with same arguments is called more than one times
+	 * 4. More than one function is called from a function
+	 * 5. Same function with same arguments is called more than one times
 	 * */
 	public static void main(String[] args) {
 		type1();
@@ -42,11 +42,12 @@ public class Knapsack {
 		// here weight is 0, for weight 0 there will be no item to take, so our profit will be zero
 		for (int i = 0; i <= n; i++) memo[i][0] = 0;
 
-		// same like previous one
-		// here item count is 0, so we have nothing to take and our profit is 0
+		// same like the previous one
+		// here item count is 0, so we have nothing to take, and our profit is 0
 		for (int j = 0; j <= w; j++) memo[0][j] = 0;
 
-		// top down operation
+		// top-down operation
+		// we will do this for all n and all w
 		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= w; j++)
 				if (wt[i - 1] <= j)
@@ -69,22 +70,25 @@ public class Knapsack {
 		int w = 20;
 		int[][] memo = new int[n + 1][w + 1];
 		// initializing with negative value
+		// marking all the cells unvisited
 		for (int i = 0; i <= n; i++)
-			for (int j = 0; j <= w; j++) memo[i][j] = -1;
+			for (int j = 0; j <= w; j++)
+				memo[i][j] = -1;
 
 
 		int profit = knapsack(val, wt, w, n, memo);
 		System.out.println(profit);
 	}
 
-	// same as before,  but if in any point we see the recursion is already computed
+	// same as before, but if in any point we see, the recursion is already computed,
 	// then we will not call recursion again, rather we will directly return from our memo
 	public static int knapsack(int[] val, int[] wt, int w, int n, int[][] memo) {
-		//
+		/// this is the base case when no weight and item is remaining
 		if (w == 0 || n == 0) return 0;
-
+		// if the function is already called, then the cell will have a value
 		if (memo[n][w] != -1) return memo[n][w];
 
+		// now if the weight is lesser than the item, then we will have two choices else one
 		if (wt[n - 1] <= w)
 			memo[n][w] = Math.max(
 					val[n - 1] + knapsack(val, wt, w - wt[n - 1], n - 1, memo),
@@ -107,10 +111,11 @@ public class Knapsack {
 	}
 
 	public static int knapsack(int[] val, int[] wt, int w, int n) {
+		// this is the base case when no weight and item is remaining
 		if (w == 0 || n == 0) return 0;
-		// if the nth item weight is less than our current capacity then we have
+		// if the nth item weight is less than our current capacity, then we have
 		// two options, either to choose it or not
-		// if it is greater than our current capacity then we will not include it
+		// if it is greater than our current capacity, then we will not include it
 		if (wt[n - 1] <= w)
 			return Math.max(
 					val[n - 1] + knapsack(val, wt, w - wt[n - 1], n - 1),

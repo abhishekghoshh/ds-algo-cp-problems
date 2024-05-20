@@ -3,7 +3,8 @@
 ## Online Resources
 
 ### Youtube channels
-- resources
+
+- **resources**
   - [take U forward](https://www.youtube.com/@takeUforward/playlists)
   - [NeetCode](https://www.youtube.com/@NeetCode/playlists)
   - [NeetCodeIO](https://www.youtube.com/@NeetCodeIO/playlists)
@@ -12,18 +13,17 @@
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
 
 ### Blogs
-- resources
+
+- **resources**
   - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
   - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
   - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
 - interview-experiences
   - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
 
+### Youtube single videos
 
-### Videos
-
-### youtube-single-videos
-- resources
+- **resources**
   - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
 
   - **william-fiset**
@@ -44,7 +44,8 @@
 
 
 ### A-Z DSA sheets
-- resources
+
+- **resources**
   - [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
   - [neetcode.io](https://neetcode.io/practice)
   - [Leetcode DSA sheet by Fraz](https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9sFE/edit#gid=0)
@@ -71,14 +72,18 @@
     - [Top 50 Graph Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=405e9db0f353691ad3b2d546b19145e9&sortBy=submissions&sprint_name=Top%2050%20Graph%20Problems)
     - [Top 50 Tree Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=5f24de84b65bf7c4f4399c8111e26b81&sortBy=submissions&sprint_name=Top%2050%20Tree%20Problems)
 
+
 ## Algorithm & Data Structures
 
+
 ### array
-- codes
+
+- **codes**
   - [Dynamic array](/src/com/ds/array/Array.java)
 
 ### sorting
-- codes
+
+- **codes**
   - [Swap sort](/src/com/algo/sort/SwapSort.java)
   - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
   - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
@@ -93,15 +98,16 @@
 
 
 ### string
-- codes
+
+- **codes**
   - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
   - [Z-Function](/src/com/algo/string/ZFunction.java)
   - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
   - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
+### Linked List
 
-### linked-list
-- codes
+- **codes**
   - [Singly Int Node](./src/com/ds/linkedlist/Node.java)
   - [Doubly Int Node](/src/com/ds/linkedlist/DNode.java)
   - [Linked List](/src/com/ds/linkedlist/LinkedList.java)
@@ -125,27 +131,38 @@
   - [Double Ended Queue](src/com/ds/queue/Deque.java)
 
 ### heap
-- codes
-  - [Min Heap](/src/com/ds/heap/MinHeap.java)
-  - [Max heap](/src/com/ds/heap/MaxHeap.java)
-
-
-### Priority Queue
 - **resources**
   - [Priority Queue](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCLFSHm1nYb9daYf60lCcag)
+  - [HeapSort Analysis and Partitioning](https://www.cs.umd.edu/~meesh/351/mount/lectures/lect14-heapsort-analysis-part.pdf)
 - **codes**
-
+  - [Min Heap](/src/com/ds/heap/MinHeap.java)
+  - [Max heap](/src/com/ds/heap/MaxHeap.java)
+  - [Heap](/src/com/ds/heap/Heap.java)
 
 
 ### hash-table
 - **resources**
   - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
 - **codes**
-  - [doc](/src/com/ds/hashtable/README)
+  - [doc](/src/com/ds/hashtable/README.md)
   - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
   - [Open addressing](/src/com/ds/hashtable/HashTableOpenAddressingBase.java)
-  - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
+    - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
 
+### Segment tree
+
+- **resources**
+- **codes**
+
+### Fenwick tree/Binary Indexed Tree
+
+- **resources**
+  - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
+  - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
+  - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
+  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
+- **codes**
+  - [Fenwick tree](/src/com/ds/fenwicktree/FenwickTree.java)
 
 
 ### Union find algorithm
@@ -159,31 +176,31 @@
 ### binary-tree
 - **resources**
   - [Binary Search Tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCYY48kOkeLQ-cg9-eqInzs)
-  - [AVL tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsD06x59fxczdWLhDDszUHKt)
 - **codes**
   - [Tree Node](/src/com/ds/binarytree/TNode.java)
   - [Binary Tree](/src/com/ds/binarytree/BinaryTree.java)
   - [Binary Search Tree](/src/com/ds/binarytree/BinarySearchTree.java)
-  - [AVL Tree](/src/com/ds/binarytree/AVLTree.java)
-  - [Red Black Tree](/src/com/ds/binarytree/RedBlackTree.java)
+  - [Splay Tree](/src/com/ds/binarytree/SplayTree.java)
+
+### balanced binary tree
+
+- **resources**
+  - [AVL tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsD06x59fxczdWLhDDszUHKt)
+- **codes**
+  - [AVL Tree](/src/com/ds/balancedbinarytree/AVLTree.java)
+  - [Red-Black Tree](/src/com/ds/balancedbinarytree/RedBlackTree.java)
 
 ### b-tree
 - **resources**
   - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
 - **codes**
 
-### [Fenwick Tree]
-- **resources**
-  - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
-  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
-- **codes**
-  - 
-
 
 ## Problems
 
 ### array
-- codes
+
+- **codes**
   - [Largest Element in an Array](/src/com/problems/array/LargestElementInArray.java)
   - [Longest Continuous Increasing Subsequence](/src/com/problems/array/LongestContinuousIncreasingSubsequence.java)
   - [Best Time to Buy and Sell Stock](/src/com/problems/array/MaxProfit.java)
@@ -275,7 +292,8 @@
 
 
 ### sliding-window
-- codes
+
+- **codes**
   - [Maximum Sum Subarray of size K](/src/com/problems/slidingwindow/MaximumSumSubarrayOfSizeK.java)
   - [First Negative Number in every Window of Size K](/src/com/problems/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
   - [Count Occurrences Of Anagrams](/src/com/problems/slidingwindow/CountOfAnagrams.java)
@@ -302,7 +320,8 @@
 
 
 ### binary-search
-- codes
+
+- **codes**
   - [Binary Search](/src/com/problems/binarysearch/BinarySearch.java)
   - [Binary Search in reverse sorted array](/src/com/problems/binarysearch/BinarySearchInReverseSortedArray.java)
   - [Order not known binary search](/src/com/problems/binarysearch/OrderNotKnownBinarySearch.java)
@@ -350,7 +369,8 @@
 
 
 ### string
-- codes
+
+- **codes**
   - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)
   - [Remove Outermost Parentheses](/src/com/problems/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/problems/string/ReverseWordsInString.java)
@@ -386,9 +406,10 @@
 
 
 ### linked-list
-- resources
+
+- **resources**
   - [Linked List / Beginner to Advanced for FAANG and PBC Interview Rounds](https://www.youtube.com/playlist?list=PLgUwDviBIf0rAuz8tVcM0AymmhTRsfaLU)
-- codes
+- **codes**
   - [Introduction To Linked List](/src/com/problems/linkedlist/IntroductionToLinkedList.java)
   - [Inserting a node in LinkedList](/src/com/problems/linkedlist/InsertingNodeInLinkedList.java)
   - [Deleting a node in LinkedList](/src/com/problems/linkedlist/DeleteNodeInALinkedList.java)
@@ -433,12 +454,13 @@
 
 
 ### recursion  
-- resources
+
+- **resources**
   - [Recursion (Basics to Advanced) and Backtracking Series](https://www.youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
   - [Recursion Masterclass / Learn in Just 3 days / Raj (Striver)](https://www.youtube.com/playlist?list=PLN4aKSfpk8TR-A59O9qR2VL0wqt3LrrnK)
   - [Recursion Playlist / Coding / Interview Questions / Algorithm / Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
   - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
-- codes
+- **codes**
   - [Factorial](/src/com/problems/recursion/Factorial.java)
   - [Fibonacci](/src/com/problems/recursion/FibonacciNumber.java)
   - [Tower of hanoi](/src/com/problems/recursion/TowerOfHanoi.java)
@@ -490,7 +512,8 @@
 
 
 ### stack
-- codes
+
+- **codes**
   - [Implement Stack using Arrays](/src/com/problems/stack/Stack.java)
   - [Implement Stack using Queue](/src/com/problems/stack/StackUsingQueue.java)
   - [Implement stack using Linkedlist](/src/com/problems/stack/StackUsingLinkedlist.java)
@@ -526,7 +549,8 @@
 
 
 ### queue
-- codes
+
+- **codes**
   - [Implement Queue using Arrays](/src/com/problems/queue/Queue.java)
   - [Implement Queue using Stack](/src/com/problems/queue/QueueUsingStack.java)
   - [Implement queue using Linkedlist](/src/com/problems/queue/QueueUsingLinkedlist.java)
@@ -535,7 +559,8 @@
 
 
 ### heap
-- codes
+
+- **codes**
   - [Heap Example](/src/com/problems/heap/HeapExample.java)
   - [Implement a priority queue](/src/com/problems/heap/ImplementPriorityQueue.java)
   - [Min Heap Implementation](/src/com/problems/heap/MinHeapImplementation.java)
@@ -562,12 +587,13 @@
 
 
 ### bit-manipulation
-- resources
+
+- **resources**
   - [L1 / Bit Manipulations / Raj (Striver) / Introduction to Bit Manipulations](https://www.youtube.com/watch?v=5rtVTYAk9KQ)
   - [L2 / Bit Manipulations / Raj (Striver) / Problem Solving on Bit Manipulations](https://www.youtube.com/watch?v=ZwU6wSkepBI)
   - [Bit Manipulation by Scaler (2nd Half only)](https://www.youtube.com/watch?v=VRePcT7lmCs)
 
-- codes
+- **codes**
   - [Introduction to Bit Manipulation](/src/com/problems/bitmanipulation/BitManipulation.java)
   - [Negative of a Number](/src/com/problems/bitmanipulation/NegativeOfNumber.java)
   - [How many Bits are required to represent a number](/src/com/problems/bitmanipulation/HowManyBitsRequiredToRepresentOneNumber.java)
@@ -607,10 +633,11 @@
 
 
 ### prime
-- resources
+
+- **resources**
   - [Prime numbers by striver / CodeBeyond](https://www.youtube.com/watch?v=FcsUvBywY1U&list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i )
 
-- codes
+- **codes**
   - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)
   - [All divisors of a number](/src/com/problems/prime/AllDivisorsOfANumber.java)
   - [Find three distinct numbers whose multiplication equals to n](/src/com/problems/prime/FindThreeDistinctNumbersWhoseMultiplicationEqualToN.java)
@@ -623,7 +650,8 @@
 
 
 ### greedy  
-- codes
+
+- **codes**
   - [Assign Cookies](/src/com/problems/greedy/AssignCookies.java)
   - [Fractional Knapsack](/src/com/problems/greedy/FractionalKnapsack.java)
   - [Find Minimum Number Of Coins](/src/com/problems/greedy/MinimumNumberOfCoins.java)
@@ -640,7 +668,8 @@
 
   
 ### dynamic-programming
-- resources
+
+- **resources**
   - [Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges](https://www.youtube.com/watch?v=oBt53YbR9Kk)
   - [Dynamic Programming Playlist / Coding / Interview Questions / Tutorials / Algorithm](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
   - [Dynamic Programming Playlist / Interview Questions / Recursion / Tabulation / Striver / C++ / Java / DSA / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
@@ -650,7 +679,7 @@
   - [Dynamic Programming - Level 1](https://www.youtube.com/playlist?list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy)
   - [Dynamic Programming - Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
   - [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
-- codes
+- **codes**
   - **0/1 Knapsack problems**
     - [Knapsack](/src/com/problems/dp/Knapsack.java)
     - [Subset sum](/src/com/problems/dp/SubsetSum.java)
@@ -662,7 +691,7 @@
   - **Unbounded Knapsack**
     - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)
     - [Rod Cutting](/src/com/problems/dp/RodCutting.java)
-    - [Maximum number of choice for a coin change](/src/com/problems/dp/MaximumNoOfWaysForCoinChange.java)
+    - [Maximum number of choices for a coin change](/src/com/problems/dp/MaximumNoOfWaysForCoinChange.java)
     - [Minimum number of coins for a coin change](/src/com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
   - **Longest common subsequence**
     - 
@@ -671,9 +700,10 @@
 
 
 ### binary-tree
-- resources
+
+- **resources**
   - [Binary Trees / Binary Search Trees / C++ / Java / Data Structures and Algorithms / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
-- codes
+- **codes**
   - [Introduction to binary tree](/src/com/problems/binarytree/IntroductionToBinaryTree.java)
   - [Maximum number Of Nodes in nth label in a binary tree](/src/com/problems/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
   - [Binary tree Traversal](/src/com/problems/binarytree/BinaryTreeTraversal.java)
@@ -712,9 +742,10 @@
 
 
 ### binary-search-tree
-- resources
+
+- **resources**
   - [Binary Trees / Binary Search Trees / C++ / Java / Data Structures and Algorithms / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
-- codes
+- **codes**
   - [Introduction to Binary Search Trees](/src/com/problems/binarysearchtree/IntroductionToBinarySearchTree.java)
   - [Search in a Binary Search Tree](/src/com/problems/binarysearchtree/SearchInBinarySearchTree.java)
   - [Minimum element in BST](/src/com/problems/binarysearchtree/MinimumElementInBinarySearchTree.java)
@@ -737,9 +768,10 @@
 
 
 ### graph
-- resources
+
+- **resources**
   - [Graph Series by Striver / C++ / Java / Interview Centric / Algorithms / Problems](https://www.youtube.com/playlist?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
-- codes
+- **codes**
   - [Introduction to Graph](/src/com/problems/graph/GraphRepresentation.java)
   - [Breadth First Search (BFS): Level Order Traversal](/src/com/problems/graph/BreadthFirstSearchOfGraph.java)
   - [Depth First Search](/src/com/problems/graph/DepthFirstSearchOfGraph.java)
@@ -762,21 +794,26 @@
   - [Find Eventual Safe States](/src/com/problems/graph/FindEventualSafeStates.java)
   - [Alien dictionary](/src/com/problems/graph/AlienDictionary.java)
 
-
 ### segment-tree  
-- resources
+
+- **resources**
   - [Masterclass: Range Query DS / Segment Trees / Fenwick Trees / Masterclasses By Striver / CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
   - [Marathon Class on Range Query DS - 2 / Segment Trees / Fenwick Trees / Masterclasses By Striver) / CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
-- codes
+- **codes**
 
+### Fenwick Tree
+
+- **resources**
+- **codes**
 
 ### tries
-- resources
+
+- **resources**
   - [Trie Series / Striver / take U forward](https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=1)
   - [L1 / Tries / Tries Master Class by Striver / CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
   - [L2 / Tries - FAANG Problems / Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
-- codes
+- **codes**
   - [Implement Trie (Prefix Tree)](/src/com/problems/trie/ImplementTrie.java)
   - [Implement Trie - 2 (Prefix Tree)](/src/com/problems/trie/ImplementTrie2.java)
   - [Longest String with All Prefixes](/src/com/problems/trie/LongestStringWithAllPrefixes.java)
@@ -795,9 +832,10 @@
 ## Special problem
 
 ### jump-Game
-- resources
+
+- **resources**
   - [Jump Game Problems / Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
-- codes
+- **codes**
   - [Jump Game 1](src/com/problems/special/jumpgame/JumpGame1.java)
   - [Jump Game 2](src/com/problems/special/jumpgame/JumpGame2.java)
   - [Jump Game 3](src/com/problems/special/jumpgame/JumpGame3.java)
@@ -810,18 +848,20 @@
 
 
 ### meet-in-the-middle
-- resources
+
+- **resources**
   - [Meet in the Middle / Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
   - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
   - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
-- codes
+- **codes**
   - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
-  - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoArraysToMinimizeSumDifference.java)
+  - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
 
 ## Playlists for hard problems
 
 ### youtube-playlists
-- resources
+
+- **resources**
   - [Range Queries - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO)
   - [Text Processing - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEoZSwjEZT3TvpKG16FntFL)
 
@@ -829,7 +869,8 @@
 ## Channels for hard problems
 
 ### youtube-channels
-- resources
+
+- **resources**
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
   - [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
   - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)

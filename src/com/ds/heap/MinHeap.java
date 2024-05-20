@@ -45,16 +45,11 @@ public class MinHeap {
     }
 
     private void minHeapify(int pos) {
-        if (isLeaf(pos)) {
-            return;
-        }
+        if (isLeaf(pos)) return;
         int lowest = pos;
-        if (leftChild(pos) < this.size && heap[lowest] > heap[leftChild(pos)]) {
-            lowest = leftChild(pos);
-        }
-        if (rightChild(pos) < this.size && heap[lowest] > heap[rightChild(pos)]) {
-            lowest = rightChild(pos);
-        }
+        if (leftChild(pos) < this.size && heap[lowest] > heap[leftChild(pos)]) lowest = leftChild(pos);
+        if (rightChild(pos) < this.size && heap[lowest] > heap[rightChild(pos)]) lowest = rightChild(pos);
+
         if (lowest != pos) {
             swap(pos, lowest);
             minHeapify(lowest);

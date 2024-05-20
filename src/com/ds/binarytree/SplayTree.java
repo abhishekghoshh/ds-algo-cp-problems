@@ -1,4 +1,4 @@
 package com.ds.binarytree;
 
-public class RedBlackTree {
+public class SplayTree {
 }
