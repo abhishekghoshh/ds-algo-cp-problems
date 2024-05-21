@@ -22,7 +22,7 @@ public class MaximumNoOfWaysForCoinChange {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int[] dp = new int[amount + 1];
-		// to make zero amount we always have one option which is to consider the zero subset
+		// to make zero amounts, we always have one option which is to consider the zero subset
 		dp[0] = 1;
 		for (int coin : coins)
 			for (int i = coin; i < amount + 1; i++)
@@ -37,7 +37,7 @@ public class MaximumNoOfWaysForCoinChange {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int n = coins.length;
-		while (n != 1 & coins[n - 1] > amount) n--;
+		while (n != 1 && coins[n - 1] > amount) n--;
 
 		int[][] memo = new int[n + 1][amount + 1];
 		// for amount 0 there is always one way which is to take no coins

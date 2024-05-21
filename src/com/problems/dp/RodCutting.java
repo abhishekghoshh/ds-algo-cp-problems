@@ -23,7 +23,7 @@ public class RodCutting {
 		int length = 14;
 		int n = prices.length;
 
-		// if the length is not given then we will create an array of size n and put there 1..N
+		// if the length is not given, then we will create an array of size n and put there 1..N
 
 		int[][] memo = new int[n + 1][length + 1];
 		for (int i = 1; i <= n; i++) memo[i][0] = 0;
@@ -43,12 +43,12 @@ public class RodCutting {
 		System.out.println(profit);
 	}
 
-	// bottom up approach with recursive memoization
+	// recursion with memoization
 	private static void type2() {
 
 	}
 
-	// plain old recursion
+	// with recursion
 	private static void type1() {
 
 	}
