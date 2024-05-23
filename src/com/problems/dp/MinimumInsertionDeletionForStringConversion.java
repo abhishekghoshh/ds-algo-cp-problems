@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 /*
  * Problem link :
@@ -11,7 +11,7 @@ package dynamicprogramming;
  * https://www.youtube.com/watch?v=-fx6aDxcWyg&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=25
  * 
  */
-public class MinimumIntertionDeletionForStringConversion {
+public class MinimumInsertionDeletionForStringConversion {
 	public static void main(String[] args) {
 		type3();
 	}
@@ -24,18 +24,21 @@ public class MinimumIntertionDeletionForStringConversion {
 		int n1 = arr1.length;
 		int n2 = arr2.length;
 		int[][] dp = new int[n1 + 1][n2 + 1];
+		// first, we will fill up all the cells
 		for (int i = 1; i <= n1; i++) {
-			for (int j = 1; j <= n2; j++) {
-				if (arr1[i - 1] == arr2[j - 1]) {
+			for (int j = 1; j <= n2; j++)
+				if (arr1[i - 1] == arr2[j - 1])
 					dp[i][j] = 1 + dp[i - 1][j - 1];
-				} else {
+				else
 					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-				}
-			}
 		}
-		int delCount = n1 - dp[n1][n2];
-		int insertCount = n2 - dp[n1][n2];
-		int n = delCount + insertCount;
+		// dp[n1][n2] is the common part from the two strings,
+		// so now our work is to delete the uncommon characters from the first string
+		// and add the uncommon part of the second string to the final string
+		int needToBeDeleted = n1 - dp[n1][n2];
+		int needToBeAdded = n2 - dp[n1][n2];
+		// this is the total work
+		int n = needToBeDeleted + needToBeAdded;
 		System.out.println(n);
 	}
 }

@@ -389,15 +389,13 @@
     - recursion
   - [Count With K Different Characters](/src/com/problems/string/CountSubstringsOfLengthK.java)
     - sliding-window
-  - [Longest Palindromic Substring](/src/com/problems/string/LongestPalindromicSubstring.java)
-    - dynamic-programming
-    - array
   - [Sum of Beauty of All Substrings](/src/com/problems/string/SumOfBeautyOfAllSubstrings.java)
   - [Minimum Add to Make Parentheses Valid](/src/com/problems/string/MinimumAddToMakeParenthesesValid.java)
   - [Count and Say](/src/com/problems/string/CountAndSay.java)
   - [Valid palindrome](/src/com/problems/string/ValidPalindrome.java)
+  - [Longest Palindrome](/src/com/problems/string/LongestPalindrome.java)
   - [Shortest Palindrome / Minimum Characters For Palindrome](/src/com/problems/string/MinimumCharactersForPalindrome.java)
-  - [Longest palindromic substring](/src/com/problems/string/LongestPalindrome.java)
+  - [Longest palindromic substring](/src/com/problems/string/LongestPalindromicSubstring.java)
   - [Count Palindromic Subsequences](/src/com/problems/string/CountPalindromicSubsequences.java)
   - [Repeated String Match](/src/com/problems/string/RepeatedStringMatch.java)
   - [Longest happy prefix](/src/com/problems/string/LongestHappyPrefix.java)
@@ -694,7 +692,17 @@
     - [Maximum number of choices for a coin change](/src/com/problems/dp/MaximumNoOfWaysForCoinChange.java)
     - [Minimum number of coins for a coin change](/src/com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
   - **Longest common subsequence**
-    - 
+    - [Longest common subsequence](/src/com/problems/dp/LongestCommonSubsequence.java)
+    - [Longest common substring](/src/com/problems/dp/LongestCommonSubstring.java)
+    - [Print Longest common subsequence](/src/com/problems/dp/PrintLongestCommonSubsequence.java)
+    - [Shortest common super sequence](/src/com/problems/dp/ShortestCommonSuperSequence.java)
+    - [Minimum Number of Insertions and Deletion to convert String a to String b](/src/com/problems/dp/MinimumInsertionDeletionForStringConversion.java)
+    - [Longest Palindromic Subsequence](/src/com/problems/dp/LongestPalindromicSubsequence.java)
+    - [Longest Palindromic Substring](/src/com/problems/string/LongestPalindromicSubstring.java)
+    - [Minimum number of deletions in a string to make it a palindrome](/src/com/problems/dp/MinimumNoOfDeletionForPalindrome.java)
+    - [Minimum number of insertions in a string to make it a palindrome](/src/com/problems/dp/MinimumNoOfInsertionForPalindrome.java)
+    - [Longest repeating subsequence](/src/com/problems/dp/LongestRepeatingSubsequence.java)
+    - [Sequence Pattern Matching](/src/com/problems/dp/SequencePatternMatching.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 

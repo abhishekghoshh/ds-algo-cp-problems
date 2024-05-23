@@ -1,153 +1,208 @@
 package com.problems.string;
 
+import java.util.Arrays;
+
 /*
- * Problem link :
+ * Problem link:
  * https://leetcode.com/problems/longest-palindromic-substring/
+ * https://www.codingninjas.com/codestudio/problems/longest-palindromic-substring_758900
  *
- * Solution link :
+ * Solution link:
+ * https://www.youtube.com/watch?v=XYQecbcd6_c -> two pointers
+ * https://www.youtube.com/watch?v=ZJUGtWObroc -> two pointers
+ * https://www.youtube.com/watch?v=UflHuQj6MVA -> Dynamic Programming
  *
  *
+ * https://www.youtube.com/watch?v=06QIlUBLTz4 -> Manachers algorithm
+ *
+ * https://www.geeksforgeeks.org/longest-palindromic-substring/
  */
 public class LongestPalindromicSubstring {
 	public static void main(String[] args) {
-		type1();
 		type2();
 		type3();
 		type4();
+		type5();
 	}
 
-	// TODO complete it
-	// same as previous approach
-	// we will do some early optimization
-	// like if we already see that the max is 8 then we don't need to go the end
-	// because if we go to the indices like n-1 or n-2
-	// from that indices the max palindromic string can be constructed either 2 or 3
-	// not mor than that
+	// optimized manacher algorithm
+	// time complexity O(2n)
+	private static void type5() {
+		String s = "babab";
+		int n = 2 * s.length() + 3;
+		// we will add # in between
+		// in the start, we will add @, and in the end we will add &
+		// initializing the transformed array
+		char[] arr = new char[n];
+		arr[0] = '@';
+		arr[n - 1] = '&';
+		arr[n - 2] = '#';
+		for (int i = 0; i < s.length(); i++) {
+			arr[2 * i + 1] = '#';
+			arr[2 * i + 2] = s.charAt(i);
+		}
+		// actual array is "babad"
+		// transformed array is "@#b#a#b#a#d#&"
+		int[] lps = new int[n];
+
+		// center mean the index of the mirror
+		// right means the boundary
+		int center = 0, right = 0;
+		// for every point we will think it is in the center,
+		// and we will start calculating the longest palindrome string from that point
+		// for very point there are two options to calculate palindrome
+		// 1. to take the mirror on point
+		// 2. to take the mirror next to the point
+		// aba -> if we are at point b
+		// then mirror can be at two places -> a|a or ab|a
+		// we don't need to calculate for the first two and last two characters
+		for (int i = 2; i < n - 2; i++) {
+			// giving kickstart by checking it's mirror value
+			int reflectionIndex = center - (i - center);
+			if (i < right)
+				lps[i] = Math.min(lps[reflectionIndex], right - i);
+			// brute force approach to expand beyond the kickstart
+			while (arr[i + 1 + lps[i]] == arr[i - 1 - lps[i]]) {
+				lps[i]++;
+			}
+			if (i + lps[i] > right) {
+				center = i;
+				right = i + lps[i];
+			}
+		}
+		int index = -1, count = -1;
+		for (int i = 0; i < n; i++) {
+			if (lps[i] > count) {
+				count = lps[i];
+				index = i;
+			}
+		}
+		int start = (index - count - 1) / 2;
+		System.out.println(count);
+		System.out.println(s.substring(start, start + count));
+	}
+
+	// brute force of manacher algorithm
 	private static void type4() {
-
-	}
-
-	// optimal approach
-	// time complexity O(n^2)
-	// space complexity O(1)
-	private static void type3() {
 		String s = "babad";
-		char[] arr = s.toCharArray();
-		int n = s.length();
-		int max = 0, start = 0, end = 0;
-		int left, right;
-		// if you are using java
-		// don't directly operate on string
-		// rather create one array of character
-		// otherwise it will long time
-		for (int i = 0; i < n - 1; i++) {
-			// i and i+1 will be the center
-			if (arr[i] == arr[i + 1]) {
-				left = i;
-				right = i + 1;
-				while (left >= 0 && right < n && arr[left] == arr[right]) {
-					left--;
-					right++;
-				}
-				left++;
-				right--;
-				if (right - left + 1 > max) {
-					max = right - left + 1;
-					start = left;
-					end = right;
-				}
-			}
-			// i will be the center
-			left = i;
-			right = i;
-			while (left >= 0 && right < n && arr[left] == arr[right]) {
-				left--;
-				right++;
-			}
-			left++;
-			right--;
-			if (right - left + 1 > max) {
-				max = right - left + 1;
-				start = left;
-				end = right;
-			}
+		int n = 2 * s.length() + 3;
+		// we will add # in between
+		// in the start, we will add @, and in the end we will add &
+		// initializing the transformed array
+		char[] arr = new char[n];
+		arr[0] = '@';
+		arr[n - 1] = '&';
+		arr[n - 2] = '#';
+		for (int i = 0; i < s.length(); i++) {
+			arr[2 * i + 1] = '#';
+			arr[2 * i + 2] = s.charAt(i);
 		}
-		s = s.substring(start, end + 1);
-		System.out.println(s);
+		// actual array is "babad"
+		// transformed array is "@#b#a#b#a#d#&"
+		int[] lps = new int[n];
+		// for every point we will think it is in the center,
+		// and we will start calculating the longest palindrome string from that point
+		// for very point there are two options to calculate palindrome
+		// 1. to take the mirror on point
+		// 2. to take the mirror next to the point
+		// aba -> if we are at point b
+		// then mirror can be at two places -> a|a or ab|a,
+		// we don't need to calculate for the first two and last two characters
+		for (int i = 2; i < n - 2; i++) {
+			while (arr[i + 1 + lps[i]] == arr[i - 1 - lps[i]])
+				lps[i]++;
+		}
+		int count = Arrays.stream(lps).max().getAsInt();
+		System.out.println(count);
 	}
 
-
-	// This is also done by dp
-	// TODO check it later
-	public static void type2() {
-		String s = "acaabkaaca";
-		final int n = s.length();
-		int[][] dp = new int[n][n];
-		char[] chs = s.toCharArray();
-
-		for (int i = 0; i < n; i++) {
-			dp[i][i] = 1;
-		}
-
-		for (int c = 1; c < n; c++) {
-			for (int y = c; y < n; y++) {
-				int x = y - c;
-				if (c == 1 && chs[x] == chs[y]) {
-					dp[x][y] = 2;
-				} else if (chs[x] == chs[y] && x + 1 < n && dp[x + 1][y - 1] != 0) {
-					dp[x][y] = y - x + 1;
-				}
-			}
-		}
-
-		int max = 0;
-		int x = 0;
-		int y = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = i; j < n; j++) {
-				if (dp[i][j] > max) {
-					max = dp[i][j];
-					x = i;
-					y = j;
-				}
-			}
-		}
-
-		String palindrome = s.substring(x, y + 1);
-		System.out.println(palindrome);
-	}
-
-	// TODO it is failing for the following input
-	//  do it in a different approach
-	public static void type1() {
-		String s = "acaabkaaca";
+	// Using dynamic programming
+	// TODO Also the approach of longest palindromic subsequence will not work here
+	// we will have to think it like a fresh new problem
+	// let's say we have a sub string bcbb inside the string 'abbcbba'
+	// to check check bcbb is a palindrome we need to check that first char == last char
+	// if it false then no matter what is the inner string, it will not be palindrome.
+	// or we can say dp[i][j] = if arr[i]==arr[j] then 2 + dp[i+1][j-1] else 0
+	// it will handle all the string but 1 and 2 length string
+	// we need to manually do that.
+	// in recursion that will be essentially our base cases
+	private static void type3() {
+		String s = "aacabdkacaa";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
-		char[] reversed = new char[n];
-		for (int i = 0; i < n; i++) reversed[i] = arr[n - 1 - i];
+		int[][] dp = new int[n][n];
+		int max = 1, start = 0;
 
-		int max = 0;
-		int end = -1;
-		int[][] memo = new int[n + 1][n + 1];
-
-		// 0th column and 0th row will be 0
-		// so, we don't have to initialize
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= n; j++) {
-				if (arr[i - 1] == reversed[j - 1]) {
-					// memo[i][j] is length of string matching
-					// arr[i - memo[i][j]] == arr[i - 1] means starting and ending character is same
-					memo[i][j] = 1 + memo[i - 1][j - 1];
-					if (memo[i][j] > max && arr[i - memo[i][j]] == arr[i - 1]) {
-						max = memo[i][j];
-						end = i - 1;
-					}
-				} else {
-					memo[i][j] = 0;
+		// this is to handle all single digit characters; they are by default palindrome
+		for (int i = 0; i < n; i++) dp[i][i] = 1;
+		// now we will handle 2-length substring
+		for (int i = 0; i < n - 1; i++) {
+			dp[i][i + 1] = (arr[i] == arr[i + 1]) ? 2 : 0;
+			// checking for the max simultaneously
+			if (dp[i][i + 1] > max) {
+				max = dp[i][i + 1];
+				start = i;
+			}
+		}
+		// now we will do generalization,
+		// we will start from j and j+2.
+		// we will check for all j and j+i
+		for (int d = 2; d < n; d++) {
+			for (int i = 0; i < n - d; i++) {
+				int end = i + d;
+				// we will check 2 conditions, i.e., last letters are the same or not and inner substring is palindrome
+				dp[i][end] = (arr[i] == arr[end] && dp[i + 1][end - 1] != 0) ?
+						2 + dp[i + 1][end - 1] :
+						0;
+				// checking for the max simultaneously
+				if (dp[i][end] > max) {
+					max = dp[i][end];
+					start = i;
 				}
 			}
 		}
-		String palindrome = s.substring(end - max + 1, end + 1);
-		System.out.println(palindrome);
+		String answer = s.substring(start, start + max);
+		System.out.println(answer);
+	}
+
+
+	// optimal approach using 2 pointer
+	// time complexity O(n^2)
+	// space complexity O(1)
+	// if you are using java don't directly operate on string
+	// rather create one array of character otherwise it will long time
+	private static void type2() {
+		String s = "babad";
+		char[] arr = s.toCharArray();
+		int start = 0, max = 0, len;
+		for (int i = 0; i < arr.length; i++) {
+			// when we are considering the odd length palindrome, and the center is (i,i)
+			int len1 = expand(i, i, arr);
+			// when we are considering the even length palindrome, and the center is (i,i+1)
+			int len2 = expand(i, i + 1, arr);
+			len = Math.max(len1, len2);
+			// checking the total string length
+			if (len > max) {
+				max = len;
+				start = i - (len - 1) / 2;
+			}
+		}
+		String answer = s.substring(start, start + max);
+		System.out.println(answer);
+	}
+
+	static int expand(int l, int r, char[] arr) {
+		while (l >= 0 && r < arr.length && arr[l] == arr[r]) {
+			l--;
+			r++;
+		}
+		return r - l - 1;
+	}
+
+	// brute force approach
+	// uses a n^2 loop, and for every (i,j) we will check if the substring is palindrome or not
+	// and that palindrome is the largest palindrome or not
+	private static void type1() {
+
 	}
 }
