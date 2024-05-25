@@ -680,6 +680,7 @@
 - **codes**
   - **0/1 Knapsack problems**
     - [Knapsack](/src/com/problems/dp/Knapsack.java)
+    - [Print knapsack items](/src/com/problems/dp/PrintingKnapsack.java)
     - [Subset sum](/src/com/problems/dp/SubsetSum.java)
     - [Equal sum partition](/src/com/problems/dp/EqualSumPartition.java)
     - [Count of Subset sum](/src/com/problems/dp/CountOfSubsetSum.java)
@@ -703,6 +704,7 @@
     - [Minimum number of insertions in a string to make it a palindrome](/src/com/problems/dp/MinimumNoOfInsertionForPalindrome.java)
     - [Longest repeating subsequence](/src/com/problems/dp/LongestRepeatingSubsequence.java)
     - [Sequence Pattern Matching](/src/com/problems/dp/SequencePatternMatching.java)
+    - [Edit Distance](/src/com/problems/dp/EditDistance.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 

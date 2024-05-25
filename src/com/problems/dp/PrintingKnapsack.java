@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,13 +12,18 @@ import java.util.List;
  * 
  * 
  */
-public class PrintingKnapSack {
-	public static void main(String args[]) {
+public class PrintingKnapsack {
+	public static void main(String[] args) {
 		type2();
 	}
 
 	public static void type2() {
-		int[][] items = { { 1, 2 }, { 4, 3 }, { 5, 6 }, { 6, 7 } };
+		int[][] items = {
+				{1, 2},
+				{4, 3},
+				{5, 6},
+				{6, 7}
+		};
 		int capacity = 10;
 		int n = items.length;
 		int[] val = new int[n];
@@ -29,13 +34,14 @@ public class PrintingKnapSack {
 		}
 		int[][] memo = new int[n + 1][capacity + 1];
 		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= capacity; j++) {
-				if (wt[i - 1] <= j) {
-					memo[i][j] = Math.max(val[i - 1] + memo[i - 1][j - wt[i - 1]], memo[i - 1][j]);
-				} else {
+			for (int j = 1; j <= capacity; j++)
+				if (wt[i - 1] <= j)
+					memo[i][j] = Math.max(
+							val[i - 1] + memo[i - 1][j - wt[i - 1]],
+							memo[i - 1][j]
+					);
+				else
 					memo[i][j] = memo[i - 1][j];
-				}
-			}
 		}
 		int profit = memo[n][capacity];
 		int maxProfit = memo[n][capacity];
@@ -55,7 +61,7 @@ public class PrintingKnapSack {
 			indices.set(l, temp);
 			l++;r--;
 		}
-		List<List<Integer>> answer = Arrays.asList(Arrays.asList(profit), indices);
+		List<List<Integer>> answer = Arrays.asList(List.of(profit), indices);
 		System.out.println(answer);
 
 	}

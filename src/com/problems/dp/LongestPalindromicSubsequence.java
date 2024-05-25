@@ -1,5 +1,7 @@
 package com.problems.dp;
 
+import java.util.Arrays;
+
 /*
  * Problem link :
  * https://leetcode.com/problems/longest-palindromic-subsequence/
@@ -7,8 +9,7 @@ package com.problems.dp;
  * Solution link :
  * https://www.youtube.com/watch?v=wuOOOATz_IA&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=26
  * https://www.youtube.com/watch?v=6i_T5kkfv4A
- *
- * https://www.youtube.com/watch?v=bUr8cNWI09Q ->different and effective approach
+ * https://www.youtube.com/watch?v=bUr8cNWI09Q
  *
  * https://takeuforward.org/data-structure/longest-palindromic-subsequence-dp-28/
  */
@@ -19,12 +20,123 @@ public class LongestPalindromicSubsequence {
 		type4();
 		type5();
 		type6();
+		type7();
+		type8();
 	}
 
+	// TODO if we could change the for loop in previous type in such a way that
+	//  it works in a previous and current dp layer instead of touching all layer in one loop
+	//  we could directly space optimize the solution
+	//  we have added 2 solution for that
+	private static void type8() {
+		String s = "ynabcdbxmn";
+		char[] arr = s.toCharArray();
+		int n = s.length();
+		// similar to the previous type, but here we are doing layer wise
+		{
+			int[][] dp = new int[n][n];
+			for (int i = 1; i < n; i++) {
+				dp[i][i] = 1;
+				for (int j = i - 1; j >= 0; j--) {
+					if (arr[i] == arr[j]) dp[j][i] = 2 + dp[j + 1][i - 1];
+					else dp[j][i] = Math.max(dp[j + 1][i], dp[j][i - 1]);
+				}
+			}
+			System.out.println(dp[0][n - 1]);
+		}
+		// space optimized version of the previous block
+		{
+			int[] dp = new int[n];
+			dp[0] = 1;
+			for (int i = 1; i < n; i++) {
+				dp[i] = 1;
+				int max = 0;
+				for (int j = i - 1; j >= 0; j--) {
+					int next = dp[j];
+					if (arr[i] == arr[j]) dp[j] = 2 + max;
+					max = Math.max(max, next);
+				}
+			}
+			int max = 0;
+			for (int i : dp) max = Math.max(i, max);
+			System.out.println(max);
+		}
+	}
+
+
+	// TODO this a separate approach
+	// lets say the string is aXb then to find the longest palindrome
+	// there would be two case if a==b then it would be func(aXb) => 2 + func(x)
+	// else func(aXb) = max ( func(aX), func(Xb) )
+	// we will do it for all length of strings
+	// let's directly implement in top down approach
+	private static void type7() {
+		String s = "ynabcdbxmn";
+		char[] arr = s.toCharArray();
+		int n = s.length();
+		int[][] dp = new int[n][n];
+
+		// this is to handle all single digit characters; they are by default palindrome
+		for (int i = 0; i < n; i++) dp[i][i] = 1;
+		// now we will do generalization,
+		// we will start from j and j+1, and we will check for all j and j+i
+		for (int d = 1; d < n; d++) {
+			for (int i = 0; i < n - d; i++) {
+				int end = i + d;
+				if (arr[i] == arr[end]) dp[i][end] = 2 + dp[i + 1][end - 1];
+				else dp[i][end] = Math.max(dp[i + 1][end], dp[i][end - 1]);
+			}
+		}
+
+		int count = dp[0][n - 1];
+		System.out.println(count);
+	}
+
+	// TODO there is another approach of solving this problem, though it might not be that much efficient
+	//  but we should also that one as well
+	// we try to expand from all indices, two times,
+	// 1. keeping that index as the center, making the odd length string
+	// 2. keeping that index as the first left cell and index+1 as the first right cell, making the even length string
 	private static void type6() {
-
+		String s = "ynabcdbxmn";
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		int[][] dp = new int[n][n];
+		for (int[] row : dp) Arrays.fill(row, -1);
+		int max = 0;
+		for (int i = 0; i < n; i++) {
+			int currentMax = Math.max(
+					longestPalindromicSubsequence(i, i, arr, dp),
+					longestPalindromicSubsequence(i, i + 1, arr, dp)
+			);
+			max = Math.max(max, currentMax);
+		}
+		System.out.println(max);
 	}
 
+	private static int longestPalindromicSubsequence(int left, int right, char[] arr, int[][] dp) {
+		// this is the base case or when the left and right are out of boundary
+		if (left < 0 || right >= arr.length) return 0;
+		// we are directly returning from the stored values
+		if (dp[left][right] != -1) return dp[left][right];
+		// if left and right values are the same, then we will check for left-1 and right+1
+		// if not then we have two options, left,right+1 and left-1,right
+		if (arr[left] == arr[right])
+			// for then first time when are checking for (i,i) at that time left and right are same
+			// for that time the string length will be 1
+			return dp[left][right] = ((left == right) ? 1 : 2) +
+					longestPalindromicSubsequence(left - 1, right + 1, arr, dp);
+		else
+			return dp[left][right] = Math.max(
+					longestPalindromicSubsequence(left - 1, right, arr, dp),
+					longestPalindromicSubsequence(left, right + 1, arr, dp)
+			);
+	}
+
+
+	// TODO from type2() to type5() all have the same approach, just everytime we have done some optimization
+	// it is even more optimized than the previous as we are using the same char array for comparing
+	// and the same arrays for current and previous dp value
 	private static void type5() {
 		String s = "ynabcdbxmn";
 
@@ -37,6 +149,7 @@ public class LongestPalindromicSubsequence {
 		// Base Case: Initialized to 0, as no characters matched yet.
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++)
+				// i-1 and n-j is same as (n-1)-(j-1)
 				if (arr[i - 1] == arr[n - j])
 					cur[j] = 1 + prev[j - 1];
 				else

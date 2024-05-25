@@ -11,7 +11,7 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=XYQecbcd6_c -> two pointers
  * https://www.youtube.com/watch?v=ZJUGtWObroc -> two pointers
  * https://www.youtube.com/watch?v=UflHuQj6MVA -> Dynamic Programming
- *
+ * https://youtube.com/watch?v=fxwvVnBMN6I -> Dynamic Programming
  *
  * https://www.youtube.com/watch?v=06QIlUBLTz4 -> Manachers algorithm
  *
@@ -25,49 +25,56 @@ public class LongestPalindromicSubstring {
 		type5();
 	}
 
-	// optimized manacher algorithm
+	// TODO check the previous type and this type one more
+	// TODO optimized manacher algorithm, check the previous type first
 	// time complexity O(2n)
+	// the intuition is, along with the brute force if if can give lps some initial value
+	// then we have less work while expanding
+	// lets say the string is pqpqpqp so it will be transformed into
+	// @ # p # q # p # q # p # q # p # &
+	// 0 0 1 0 3 0 5 0 7 ........
+	// we have only calculated till that middle q, and its value is 7
+	// that mean left 7 of q is same as right 7
+	// now we are at the first p after q, can we use the left p value to give kickstart to the right p pf q
+	// it is possible.
 	private static void type5() {
 		String s = "babab";
 		int n = 2 * s.length() + 3;
-		// we will add # in between
-		// in the start, we will add @, and in the end we will add &
-		// initializing the transformed array
+		// in the start, we will add @, and in the end we will add &, we will add # in between
+		// initializing the transformed array, if the actual array is "babad"
+		// then the transformed array is "@#b#a#b#a#d#&"
 		char[] arr = new char[n];
 		arr[0] = '@';
-		arr[n - 1] = '&';
-		arr[n - 2] = '#';
 		for (int i = 0; i < s.length(); i++) {
 			arr[2 * i + 1] = '#';
 			arr[2 * i + 2] = s.charAt(i);
 		}
-		// actual array is "babad"
-		// transformed array is "@#b#a#b#a#d#&"
+		arr[n - 2] = '#';
+		arr[n - 1] = '&';
+
 		int[] lps = new int[n];
 
-		// center mean the index of the mirror
-		// right means the boundary
-		int center = 0, right = 0;
-		// for every point we will think it is in the center,
-		// and we will start calculating the longest palindrome string from that point
-		// for very point there are two options to calculate palindrome
-		// 1. to take the mirror on point
-		// 2. to take the mirror next to the point
-		// aba -> if we are at point b
-		// then mirror can be at two places -> a|a or ab|a
-		// we don't need to calculate for the first two and last two characters
+		// the center mean the index of the mirror and the right means the boundary
+		int center = 0, rightRange = 0;
+
+		// every time we will try to update the center and range
+		// or check if the current index is within the current center and its right range or not
 		for (int i = 2; i < n - 2; i++) {
-			// giving kickstart by checking it's mirror value
-			int reflectionIndex = center - (i - center);
-			if (i < right)
-				lps[i] = Math.min(lps[reflectionIndex], right - i);
+			// the left side reflection point of the current index based on the center
+			int reflectionOnLeft = center - (i - center);
+			// if the current index is still in the range, then only we will consider for giving the kickstart.
+			// if the lps value is greater than the distance from current index to previous center's right side range,
+			// then we will cap the lps value of the current index to the distance remaining to the right range
+			if (i < rightRange) lps[i] = Math.min(lps[reflectionOnLeft], rightRange - i);
 			// brute force approach to expand beyond the kickstart
-			while (arr[i + 1 + lps[i]] == arr[i - 1 - lps[i]]) {
+			while (arr[i + 1 + lps[i]] == arr[i - 1 - lps[i]])
 				lps[i]++;
-			}
-			if (i + lps[i] > right) {
+			// now we will check if we can update the center and the right range or not
+			// if the current index's expansion is greater the previous center's right range,
+			// then we will make the current index as the new center
+			if (i + lps[i] > rightRange) {
 				center = i;
-				right = i + lps[i];
+				rightRange = i + lps[i];
 			}
 		}
 		int index = -1, count = -1;
@@ -78,45 +85,62 @@ public class LongestPalindromicSubstring {
 			}
 		}
 		int start = (index - count - 1) / 2;
+		String answer = s.substring(start, start + count);
+
 		System.out.println(count);
-		System.out.println(s.substring(start, start + count));
+		System.out.println(answer);
 	}
 
-	// brute force of manacher algorithm
+	// TODO this is brute force of manacher algorithm
+	//  this is similar to our brute force algorithm, on every point we are
+	// intuition is for every point in string we will place a mirror and try to expand
+	// we will place it on the characters as well as we will place it on the empty spaces.
+	// it is possible theoretically, but in programming we need something to place the mirror.
+	// so we will transform the string and place # in between every character, and we will use @
+	// as string character and & as ending character.
+	// for every point we will think it is in the center,
+	// and we will start calculating the longest palindrome string from that point
+	// for very point there are two options to calculate palindrome
+	// 1. to take the mirror on point
+	// 2. to take the mirror next to the point
+	// aba -> if we are at point b
+	// then mirror can be at two places -> a|a or ab|a,
 	private static void type4() {
 		String s = "babad";
 		int n = 2 * s.length() + 3;
-		// we will add # in between
-		// in the start, we will add @, and in the end we will add &
-		// initializing the transformed array
+		// in the start, we will add @, and in the end we will add &, we will add # in between
+		// initializing the transformed array, if the actual array is "babad"
+		// then the transformed array is "@#b#a#b#a#d#&"
 		char[] arr = new char[n];
 		arr[0] = '@';
-		arr[n - 1] = '&';
-		arr[n - 2] = '#';
 		for (int i = 0; i < s.length(); i++) {
 			arr[2 * i + 1] = '#';
 			arr[2 * i + 2] = s.charAt(i);
 		}
-		// actual array is "babad"
-		// transformed array is "@#b#a#b#a#d#&"
+		arr[n - 2] = '#';
+		arr[n - 1] = '&';
+
 		int[] lps = new int[n];
-		// for every point we will think it is in the center,
-		// and we will start calculating the longest palindrome string from that point
-		// for very point there are two options to calculate palindrome
-		// 1. to take the mirror on point
-		// 2. to take the mirror next to the point
-		// aba -> if we are at point b
-		// then mirror can be at two places -> a|a or ab|a,
 		// we don't need to calculate for the first two and last two characters
 		for (int i = 2; i < n - 2; i++) {
+			// lps[i] is initially 0, and if the char matches then we will increment the ith position
+			// for this type, we can simply use a variable instead of lps array, and it will work the same.
+			// for the next type it will make sense
+			// #x#p#x# for this substring it will expand till #p# or lps[i] will be 1
+			// this 1 is because it is starting from p which is single digit character.
+			// if string #a#p#a# then lps[i] will be 3 for apa substring.
+			// this might be confusing to understand that we are adding p on both sides, but we are only adding +1
+			// it is because we have already added +1 for the #
 			while (arr[i + 1 + lps[i]] == arr[i - 1 - lps[i]])
 				lps[i]++;
 		}
+		// now we will find the max count in lps array
 		int count = Arrays.stream(lps).max().getAsInt();
 		System.out.println(count);
 	}
 
-	// Using dynamic programming
+	// TODO Using dynamic programming, check type7 from longest palindromic subsequence
+	//  We could also use it same say we have done in type7, we could also use 1D array for space optimization
 	// TODO Also the approach of longest palindromic subsequence will not work here
 	// we will have to think it like a fresh new problem
 	// let's say we have a sub string bcbb inside the string 'abbcbba'
@@ -126,6 +150,7 @@ public class LongestPalindromicSubstring {
 	// it will handle all the string but 1 and 2 length string
 	// we need to manually do that.
 	// in recursion that will be essentially our base cases
+	//
 	private static void type3() {
 		String s = "aacabdkacaa";
 		char[] arr = s.toCharArray();
