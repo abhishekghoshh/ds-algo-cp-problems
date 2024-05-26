@@ -705,6 +705,12 @@
     - [Longest repeating subsequence](/src/com/problems/dp/LongestRepeatingSubsequence.java)
     - [Sequence Pattern Matching](/src/com/problems/dp/SequencePatternMatching.java)
     - [Edit Distance](/src/com/problems/dp/EditDistance.java)
+  - **Matrix chain multiplication**
+    - [Matrix chain multiplication](/src/com/problems/dp/MatrixChainMultiplication.java)
+    - [Palindrome partitioning](/src/com/problems/dp/PalindromePartitioning.java)
+    - [Evaluate expression to True](/src/com/problems/dp/EvaluateExpressionToTrue.java)
+    - [Scrambled String](/src/com/problems/dp/ScrambledString.java)
+    - [Egg dropping](/src/com/problems/dp/ScrambledString.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 

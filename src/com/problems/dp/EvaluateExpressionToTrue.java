@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 import java.util.Arrays;
 
@@ -26,11 +26,11 @@ public class EvaluateExpressionToTrue {
 		type3();
 	}
 
-	// O(N ^ 3), where ‘N’ is the length of the given string.
+	// O(N ^ 3), where ï¿½Nï¿½ is the length of the given string.
 	// In the worst-case scenario, after performing N ^ 3 calls, all of the states
-	// will be investigated, and we will be able to use the ‘MEMO’ result to find
+	// will be investigated, and we will be able to use the ï¿½MEMOï¿½ result to find
 	// our final answer.
-	// O(N^2), where ‘N’ is the length of the given string.
+	// O(N^2), where ï¿½Nï¿½ is the length of the given string.
 	// As a 3-D array of size N * N * 2 is being used.
 	private static void type3() {
 		String s = "T|T&F^T";
@@ -214,10 +214,10 @@ public class EvaluateExpressionToTrue {
 		}
 	}
 
-	// O(4 ^ N), Where ‘N’ is the length of the string.
+	// O(4 ^ N), Where ï¿½Nï¿½ is the length of the string.
 	// At each step, we are making 4 calls and at that particular call, we are
 	// making 4 calls again thus, bringing the time complexity to O(4^N).
-	// O(4^ N), Where ‘N’ is the length of the string.
+	// O(4^ N), Where ï¿½Nï¿½ is the length of the string.
 	// As this is the amount of space that the recursion stack will utilize to store
 	// 4 ^ N calls.
 	private static void type1() {

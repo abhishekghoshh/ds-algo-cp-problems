@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package com.problems.dp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Map;
 /*
  * Given a string A, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
 
-Below is one possible representation of A = “great”:
+Below is one possible representation of A = ï¿½greatï¿½:
 
 
     great
@@ -29,7 +29,7 @@ g   r  e   at
  
 To scramble the string, we may choose any non-leaf node and swap its two children.
 
-For example, if we choose the node “gr” and swap its two children, it produces a scrambled string “rgeat”.
+For example, if we choose the node ï¿½grï¿½ and swap its two children, it produces a scrambled string ï¿½rgeatï¿½.
 
     rgeat
    /    \
@@ -38,9 +38,9 @@ For example, if we choose the node “gr” and swap its two children, it produces a
 r   g  e   at
            / \
           a   t
-We say that “rgeat” is a scrambled string of “great”.
+We say that ï¿½rgeatï¿½ is a scrambled string of ï¿½greatï¿½.
 
-Similarly, if we continue to swap the children of nodes “eat” and “at”, it produces a scrambled string “rgtae”.
+Similarly, if we continue to swap the children of nodes ï¿½eatï¿½ and ï¿½atï¿½, it produces a scrambled string ï¿½rgtaeï¿½.
 
     rgtae
    /    \
@@ -49,7 +49,7 @@ Similarly, if we continue to swap the children of nodes “eat” and “at”, it produ
 r   g  ta  e
        / \
       t   a
-We say that “rgtae” is a scrambled string of “great”.
+We say that ï¿½rgtaeï¿½ is a scrambled string of ï¿½greatï¿½.
 
 
 
