@@ -157,9 +157,12 @@
 ### Fenwick tree/Binary Indexed Tree
 
 - **resources**
+  - [sdnr1's blog](https://codeforces.com/blog/entry/61364)
   - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
-  - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
-  - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
+  - **luv**
+    - [Subset Generation using Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
+    - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
+    - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
   - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
 - **codes**
   - [Fenwick tree](/src/com/ds/fenwicktree/FenwickTree.java)
@@ -195,6 +198,12 @@
   - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
 - **codes**
 
+### Huffman encoding
+
+- **resources**
+  - [Data Compression](https://www.youtube.com/playlist?list=PLpXOY-RxVRTOR1PAtQUwoZN2tSs1ICSk7)
+- **codes**
+  - 
 
 ## Problems
 
@@ -678,6 +687,9 @@
   - [Dynamic Programming - Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
   - [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
 - **codes**
+  - **introduction**
+    - [Fibonacci series](/src/com/problems/dp/FibonacciSeries.java)
+    - [Climbing stairs](/src/com/problems/dp/ClimbingStairs.java)
   - **0/1 Knapsack problems**
     - [Knapsack](/src/com/problems/dp/Knapsack.java)
     - [Print knapsack items](/src/com/problems/dp/PrintingKnapsack.java)
@@ -710,7 +722,7 @@
     - [Palindrome partitioning](/src/com/problems/dp/PalindromePartitioning.java)
     - [Evaluate expression to True](/src/com/problems/dp/EvaluateExpressionToTrue.java)
     - [Scrambled String](/src/com/problems/dp/ScrambledString.java)
-    - [Egg dropping](/src/com/problems/dp/ScrambledString.java)
+    - [Egg dropping](/src/com/problems/dp/EggDropping.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
 
@@ -821,6 +833,7 @@
 ### Fenwick Tree
 
 - **resources**
+  - 
 - **codes**
 
 ### tries

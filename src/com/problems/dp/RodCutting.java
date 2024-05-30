@@ -9,7 +9,15 @@ package com.problems.dp;
  * 
  */
 
+import com.util.PrintUtl;
+
 public class RodCutting {
+	// TODO similar to the unbounded knapsack problem
+	/*
+	 * Given a rod of length N inches and an array of prices, price[].
+	 * price[i] denotes the value of a piece of length i.
+	 * Determine the maximum value obtainable by cutting up the rod and selling the pieces.
+	 * */
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -32,6 +40,7 @@ public class RodCutting {
 		memo[0][0] = 0;
 		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= length; j++)
+				// if we can accommodate the current length
 				if (lengths[i - 1] <= j)
 					memo[i][j] = Math.max(
 							prices[i - 1] + memo[i][j - lengths[i - 1]],
@@ -40,6 +49,7 @@ public class RodCutting {
 				else memo[i][j] = memo[i - 1][j];
 
 		int profit = memo[n][length];
+		PrintUtl.print2D(memo);
 		System.out.println(profit);
 	}
 

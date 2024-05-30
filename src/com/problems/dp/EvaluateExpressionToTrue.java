@@ -17,52 +17,58 @@ import java.util.Arrays;
  */
 public class EvaluateExpressionToTrue {
 
-	// TODO check later all the solution and geekforgeeks solution and problem link
-	// it is failing in geeksforgeeks
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type2_();
 		type3();
 	}
 
-	// O(N ^ 3), where �N� is the length of the given string.
-	// In the worst-case scenario, after performing N ^ 3 calls, all of the states
+	// TODO top-down approach
+	// O(N ^ 3), where N is the length of the given string.
+	// In the worst-case scenario, after performing N ^ 3 calls, all the states
 	// will be investigated, and we will be able to use the �MEMO� result to find
 	// our final answer.
-	// O(N^2), where �N� is the length of the given string.
+	// O(N^2), where N is the length of the given string.
 	// As a 3-D array of size N * N * 2 is being used.
 	private static void type3() {
 		String s = "T|T&F^T";
 		int n = s.length();
 		char[] arr = s.toCharArray();
+		// last dimension for storing both true and false to result
 		int[][][] dp = new int[n][n][2];
 		// Initialization
+		// initializing for the single length characters
 		for (int i = 0; i < n; i++) {
-			if (arr[i] == 'T') {
-				dp[i][i][1] = 1;
-			} else if (arr[i] == 'F') {
-				dp[i][i][0] = 1;
-			}
+			// if the char is T then we will keep the 1th cell as 1 or we will keep oth cell as 1
+			if (arr[i] == 'T') dp[i][i][1] = 1;
+			else if (arr[i] == 'F') dp[i][i][0] = 1;
+
 		}
-		// Filling the dp array.
-		for (int gap = 2; gap < n; gap += 2) {
-			for (int j = 0; j + gap < n; j += 2) {
-				for (int k = j; k < j + gap; k += 2) {
+		// Filling the dp array for all length strings
+		for (int d = 2; d < n; d += 2) {
+			for (int start = 0; start + d < n; start += 2) {
+				int end = start + d;
+				for (int k = start; k < end; k += 2) {
 					if (arr[k + 1] == '|') {
 						// T | T = T, T | F = T, F | T = T, F | F = F.
-						dp[j][j + gap][1] += dp[j][k][0] * dp[k + 2][j + gap][1] + dp[j][k][1] * dp[k + 2][j + gap][0]
-								+ dp[j][k][1] * dp[k + 2][j + gap][1];
-						dp[j][j + gap][0] += dp[j][k][0] * dp[k + 2][j + gap][0];
+						// this is for evaluating the true
+						dp[start][end][1] += dp[start][k][0] * dp[k + 2][end][1]
+								+ dp[start][k][1] * dp[k + 2][end][0]
+								+ dp[start][k][1] * dp[k + 2][end][1];
+						// this is for evaluating the false
+						dp[start][end][0] += dp[start][k][0] * dp[k + 2][end][0];
 					} else if (arr[k + 1] == '&') {
 						// T & T = T, T & F = F, F & T = F , F | F = F.
-						dp[j][j + gap][1] += dp[j][k][1] * dp[k + 2][j + gap][1];
-						dp[j][j + gap][0] += dp[j][k][0] * dp[k + 2][j + gap][1] + dp[j][k][1] * dp[k + 2][j + gap][0]
-								+ dp[j][k][0] * dp[k + 2][j + gap][0];
+						dp[start][end][1] += dp[start][k][1] * dp[k + 2][end][1];
+						dp[start][end][0] += dp[start][k][0] * dp[k + 2][end][1]
+								+ dp[start][k][1] * dp[k + 2][end][0]
+								+ dp[start][k][0] * dp[k + 2][end][0];
 					} else if (arr[k + 1] == '^') {
 						// T ^ T = F, T ^ F = T, F ^ T = T, F ^ F = F
-						dp[j][j + gap][1] += dp[j][k][1] * dp[k + 2][j + gap][0] + dp[j][k][0] * dp[k + 2][j + gap][1];
-						dp[j][j + gap][0] += dp[j][k][0] * dp[k + 2][j + gap][0] + dp[j][k][1] * dp[k + 2][j + gap][1];
+						dp[start][end][1] += dp[start][k][1] * dp[k + 2][end][0]
+								+ dp[start][k][0] * dp[k + 2][end][1];
+						dp[start][end][0] += dp[start][k][0] * dp[k + 2][end][0]
+								+ dp[start][k][1] * dp[k + 2][end][1];
 					}
 				}
 			}
@@ -71,155 +77,88 @@ public class EvaluateExpressionToTrue {
 		System.out.println(countWays);
 	}
 
-	// memoization
-	private static void type2_() {
-//		String s = "T|T&F^T";
-		String s = "T^F|F";
-		int n = s.length();
-		char[] arr = s.toCharArray();
-		int[][][] memo = new int[n][n][2];
-		// Initialization
-		for (int[][] matrix : memo) {
-			for (int[] row : matrix) {
-				Arrays.fill(row, -1);
-			}
-		}
-		int countWays = countWays_(arr, 0, n - 1, 1, memo);
-		System.out.println(countWays);
-	}
 
-	private static int countWays_(char[] arr, int i, int j, int flag, int[][][] memo) {
-		if (i > j) {
-			return 0;
-		} else if (j - i == 2) {
-			boolean first = arr[i] == 'T';
-			boolean second = arr[j] == 'T';
-			boolean val;
-			if (arr[i + 1] == '|') {
-				val = first | second;
-			} else if (arr[i + 1] == '&') {
-				val = first & second;
-			} else {
-				val = first ^ second;
-			}
-			if (flag == 1) {
-				return val ? 1 : 0;
-			} else {
-				return !val ? 1 : 0;
-			}
-		} else if (memo[i][j][flag] != -1) {
-			return memo[i][j][flag];
-		} else {
-			int ans = 0;
-			for (int k = i + 1; k <= j - 1; k += 2) {
-				// The number of ways expression left to 'K' will be true.
-				int leftTrue = countWays_(arr, i, k - 1, 1, memo);
-				// The number of ways expression left to 'K' will be false.
-				int leftFalse = countWays_(arr, i, k - 1, 0, memo);
-				// The number of ways expression right to 'K' will be true.
-				int rightTrue = countWays_(arr, k + 1, j, 1, memo);
-				// The number of ways expression right to 'K' will be false.
-				int rightFalse = countWays_(arr, k + 1, j, 0, memo);
-				if (arr[k] == '|') {
-					// T | T = T, T | F = T, F | T = T , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue + leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftFalse * rightFalse;
-					}
-				} else if (arr[k] == '&') {
-					// T & T = T, T & F = F, F & T = F , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue;
-					} else {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue + leftFalse * rightFalse;
-					}
-				} else {
-					// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftTrue * rightTrue + leftFalse * rightFalse;
-					}
-				}
-			}
-			memo[i][j][flag] = ans;
-			return ans;
-		}
-	}
 
 	// memoization
 	private static void type2() {
 		String s = "T|T&F^T";
 		int n = s.length();
 		char[] arr = s.toCharArray();
-		int[][][] memo = new int[n][n][2];
+		// we will require a 3-dimensional array now because other than i and j
+		// we will also require to hold answer for true and false
+		int[][][] dp = new int[n][n][2];
 		// Initialization
-		for (int[][] matrix : memo) {
-			for (int[] row : matrix) {
-				Arrays.fill(row, -1);
-			}
-		}
-		int countWays = countWays(arr, 0, n - 1, 1, memo);
+		for (int[][] matrix : dp)
+			for (int[] row : matrix) Arrays.fill(row, -1);
+
+
+		int countWays = countWays(arr, 0, n - 1, 1, dp);
 		System.out.println(countWays);
 	}
 
-	private static int countWays(char[] arr, int i, int j, int flag, int[][][] memo) {
-		if (i > j) {
-			return 0;
-		} else if (i == j) {
-			if (flag == 1) {
-				return arr[i] == 'T' ? 1 : 0;
-			} else {
-				return arr[i] == 'F' ? 1 : 0;
-			}
-		} else if (memo[i][j][flag] != -1) {
-			return memo[i][j][flag];
-		} else {
-			int ans = 0;
-			for (int k = i + 1; k <= j - 1; k += 2) {
-				// The number of ways expression left to 'K' will be true.
-				int leftTrue = countWays(arr, i, k - 1, 1, memo);
-				// The number of ways expression left to 'K' will be false.
-				int leftFalse = countWays(arr, i, k - 1, 0, memo);
-				// The number of ways expression right to 'K' will be true.
-				int rightTrue = countWays(arr, k + 1, j, 1, memo);
-				// The number of ways expression right to 'K' will be false.
-				int rightFalse = countWays(arr, k + 1, j, 0, memo);
-				if (arr[k] == '|') {
-					// T | T = T, T | F = T, F | T = T , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue + leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftFalse * rightFalse;
-					}
-				} else if (arr[k] == '&') {
-					// T & T = T, T & F = F, F & T = F , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue;
-					} else {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue + leftFalse * rightFalse;
-					}
-				} else {
-					// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftTrue * rightTrue + leftFalse * rightFalse;
-					}
-				}
-			}
-			memo[i][j][flag] = ans;
-			return ans;
+	private static int countWays(char[] arr, int start, int end, int trueNeeded, int[][][] dp) {
+		// if start is greater than the end, which means it is out of bounds
+		if (start > end) return 0;
+		// start equal to end means it is a single character
+		// now we will think what we need, a true or a false
+		if (start == end) {
+			if (trueNeeded == 1) return (arr[start] == 'T') ? 1 : 0;
+			else return (arr[start] == 'F') ? 1 : 0;
 		}
+		// checking the dp table if it already has the value
+		if (dp[start][end][trueNeeded] != -1) return dp[start][end][trueNeeded];
+		int ans = 0;
+		// we will divide the array into 2 parts
+		// and will check how many ways both parts make true and false
+		// as to generate true or false we might require both true and false on both sides
+		for (int k = start + 1; k <= end - 1; k += 2) {
+			// The number of ways expression left to 'K' will be true.
+			int leftTrue = countWays(arr, start, k - 1, 1, dp);
+			// The number of ways expression left to 'K' will be false.
+			int leftFalse = countWays(arr, start, k - 1, 0, dp);
+			// The number of ways expression right to 'K' will be true.
+			int rightTrue = countWays(arr, k + 1, end, 1, dp);
+			// The number of ways expression right to 'K' will be false.
+			int rightFalse = countWays(arr, k + 1, end, 0, dp);
+			// if the operator between left and right side is 'OR'
+			if (arr[k] == '|') {
+				// T | T = T, T | F = T, F | T = T , F | F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightTrue +
+							leftTrue * rightFalse +
+							leftFalse * rightTrue;
+				else
+					ans += leftFalse * rightFalse;
+
+			} else if (arr[k] == '&') {
+				// if the operator between left and right side is 'AND'
+				// T & T = T, T & F = F, F & T = F , F | F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightTrue;
+				else
+					ans += leftTrue * rightFalse +
+							leftFalse * rightTrue +
+							leftFalse * rightFalse;
+			} else {
+				// if the operator between left and right side is 'XOR'
+				// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightFalse +
+							leftFalse * rightTrue;
+				else
+					ans += leftTrue * rightTrue +
+							leftFalse * rightFalse;
+			}
+		}
+		// also setting up dp cell value
+		return dp[start][end][trueNeeded] = ans;
 	}
 
-	// O(4 ^ N), Where �N� is the length of the string.
+	// O(4 ^ N), Where N is the length of the string.
 	// At each step, we are making 4 calls and at that particular call, we are
 	// making 4 calls again thus, bringing the time complexity to O(4^N).
-	// O(4^ N), Where �N� is the length of the string.
-	// As this is the amount of space that the recursion stack will utilize to store
-	// 4 ^ N calls.
+	// O(4^ N), Where N is the length of the string.
+	// As this is the amount of space that the recursion stack will use to store 4 ^ N calls.
 	private static void type1() {
 		String s = "T|T&F^T";
 		int n = s.length();
@@ -230,51 +169,59 @@ public class EvaluateExpressionToTrue {
 
 	}
 
-	private static int countWays(char[] arr, int i, int j, int flag) {
-		if (i > j) {
-			return 0;
-		} else if (i == j) {
-			if (flag == 1) {
-				return arr[i] == 'T' ? 1 : 0;
-			} else {
-				return arr[i] == 'F' ? 1 : 0;
-			}
-		} else {
-			int ans = 0;
-			for (int k = i + 1; k <= j - 1; k += 2) {
-				// The number of ways expression left to 'K' will be true.
-				int leftTrue = countWays(arr, i, k - 1, 1);
-				// The number of ways expression left to 'K' will be false.
-				int leftFalse = countWays(arr, i, k - 1, 0);
-				// The number of ways expression right to 'K' will be true.
-				int rightTrue = countWays(arr, k + 1, j, 1);
-				// The number of ways expression right to 'K' will be false.
-				int rightFalse = countWays(arr, k + 1, j, 0);
-				if (arr[k] == '|') {
-					// T | T = T, T | F = T, F | T = T , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue + leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftFalse * rightFalse;
-					}
-				} else if (arr[k] == '&') {
-					// T & T = T, T & F = F, F & T = F , F | F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightTrue;
-					} else {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue + leftFalse * rightFalse;
-					}
-				} else {
-					// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
-					if (flag == 1) {
-						ans += leftTrue * rightFalse + leftFalse * rightTrue;
-					} else {
-						ans += leftTrue * rightTrue + leftFalse * rightFalse;
-					}
-				}
-			}
-			return ans;
+	private static int countWays(char[] arr, int start, int end, int trueNeeded) {
+		// if start is greater than the end, which means it is out of bounds
+		if (start > end) return 0;
+		// start equal to end means it is a single character
+		// now we will think what we need, a true or a false
+		if (start == end) {
+			if (trueNeeded == 1) return (arr[start] == 'T') ? 1 : 0;
+			else return (arr[start] == 'F') ? 1 : 0;
 		}
+		int ans = 0;
+		// we will divide the array into 2 parts
+		// and will check how many ways both parts make true and false
+		// as to generate true or false we might require both true and false on both sides
+		for (int k = start + 1; k <= end - 1; k += 2) {
+			// The number of ways expression left to 'K' will be true.
+			int leftTrue = countWays(arr, start, k - 1, 1);
+			// The number of ways expression left to 'K' will be false.
+			int leftFalse = countWays(arr, start, k - 1, 0);
+			// The number of ways expression right to 'K' will be true.
+			int rightTrue = countWays(arr, k + 1, end, 1);
+			// The number of ways expression right to 'K' will be false.
+			int rightFalse = countWays(arr, k + 1, end, 0);
+			// if the operator between left and right side is 'OR'
+			if (arr[k] == '|') {
+				// T | T = T, T | F = T, F | T = T , F | F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightTrue +
+							leftTrue * rightFalse +
+							leftFalse * rightTrue;
+				else
+					ans += leftFalse * rightFalse;
+
+			} else if (arr[k] == '&') {
+				// if the operator between left and right side is 'AND'
+				// T & T = T, T & F = F, F & T = F , F | F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightTrue;
+				else
+					ans += leftTrue * rightFalse +
+							leftFalse * rightTrue +
+							leftFalse * rightFalse;
+			} else {
+				// if the operator between left and right side is 'XOR'
+				// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
+				if (trueNeeded == 1)
+					ans += leftTrue * rightFalse +
+							leftFalse * rightTrue;
+				else
+					ans += leftTrue * rightTrue +
+							leftFalse * rightFalse;
+			}
+		}
+		return ans;
 	}
 
 }
