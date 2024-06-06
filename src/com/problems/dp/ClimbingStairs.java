@@ -9,7 +9,7 @@ import java.util.Arrays;
  * https://www.codingninjas.com/studio/problems/count-ways-to-reach-the-n-th-stairs_798650
  *
  * Solution link :
- * https://www.youtube.com/watch?v=tyB0ztf0DNY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=2
+ * https://www.youtube.com/watch?v=mLfjzJsN8us&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=3
  *
  * https://takeuforward.org/data-structure/dynamic-programming-climbing-stairs/
  * */

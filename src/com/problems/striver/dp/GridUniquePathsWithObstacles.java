@@ -3,14 +3,14 @@ package com.problems.striver.dp;
 import java.util.Arrays;
 
 /*
- *
  * problem links :
- *
+ * https://leetcode.com/problems/unique-paths-ii/description/
+ * https://www.naukri.com/code360/problems/maze-obstacles_977241
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=TmhpgXScLyY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=10
  *
- *
- *
+ * https://takeuforward.org/data-structure/grid-unique-paths-2-dp-9/
  * */
 public class GridUniquePathsWithObstacles {
     public static void main(String[] args) {
@@ -20,7 +20,11 @@ public class GridUniquePathsWithObstacles {
     }
 
     private static void type3() {
-        int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        int[][] obstacleGrid = {
+                {0, 0, 0},
+                {0, 1, 0},
+                {0, 0, 0}
+        };
         int n = obstacleGrid.length;
         int m = obstacleGrid[0].length;
         int[][] memo = new int[n][m];
@@ -44,8 +48,7 @@ public class GridUniquePathsWithObstacles {
         int n = obstacleGrid.length;
         int m = obstacleGrid[0].length;
         int[][] memo = new int[n][m];
-        for (int[] row : memo)
-            Arrays.fill(row, -1);
+        for (int[] row : memo) Arrays.fill(row, -1);
         int answer = uniquePathsWithObstacles(obstacleGrid, n - 1, m - 1, memo);
         System.out.println(answer);
     }
@@ -57,7 +60,8 @@ public class GridUniquePathsWithObstacles {
             return 0;
         if (memo[n][m] != -1)
             return memo[n][m];
-        return memo[n][m] = uniquePathsWithObstacles(obstacleGrid, n - 1, m, memo) + uniquePathsWithObstacles(obstacleGrid, n, m - 1, memo);
+        return memo[n][m] = uniquePathsWithObstacles(obstacleGrid, n - 1, m, memo)
+                + uniquePathsWithObstacles(obstacleGrid, n, m - 1, memo);
     }
 
     private static void type1() {
@@ -73,6 +77,7 @@ public class GridUniquePathsWithObstacles {
             return 1;
         if (n < 0 || m < 0 || obstacleGrid[n][m] == 1)
             return 0;
-        return uniquePathsWithObstacles(obstacleGrid, n - 1, m) + uniquePathsWithObstacles(obstacleGrid, n, m - 1);
+        return uniquePathsWithObstacles(obstacleGrid, n - 1, m)
+                + uniquePathsWithObstacles(obstacleGrid, n, m - 1);
     }
 }

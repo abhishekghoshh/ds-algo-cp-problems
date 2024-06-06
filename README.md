@@ -690,6 +690,18 @@
   - **introduction**
     - [Fibonacci series](/src/com/problems/dp/FibonacciSeries.java)
     - [Climbing stairs](/src/com/problems/dp/ClimbingStairs.java)
+    - [Frog Jump](/src/com/problems/dp/FrogJump.java)
+    - [Frog jump with K distances](/src/com/problems/dp/FrogJumpWithKDistances.java)
+    - [Maximum Sum of Non-Adjacent Elements / House Robber 1](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
+    - [House robber 2](/src/com/problems/dp/HouseRobber2.java)
+    - [Ninja's Training](/src/com/problems/dp/NinjaTraining.java)
+    - [Grid Unique paths]
+    - [Grid Unique paths 2]
+    - [Minimum path Sum]
+    - [Minimum path sum in a triangle](/src/com/problems/dp/MinimumPathSumInATriangle.java)
+    - [Minimum/Maximum Falling Path Sum | Variable Starting and Ending Points](/src/com/problems/dp/MinimumFallingPathSum.java)
+    - [Cherry Pickup 1](/src/com/problems/dp/CherryPickup1.java)
+    - [Cherry Pickup 2](/src/com/problems/dp/CherryPickup2.java)
   - **0/1 Knapsack problems**
     - [Knapsack](/src/com/problems/dp/Knapsack.java)
     - [Print knapsack items](/src/com/problems/dp/PrintingKnapsack.java)

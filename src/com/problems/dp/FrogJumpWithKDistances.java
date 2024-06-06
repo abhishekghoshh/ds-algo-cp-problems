@@ -1,4 +1,4 @@
-package com.problems.striver.dp;
+package com.problems.dp;
 
 import java.util.Arrays;
 
@@ -6,6 +6,7 @@ import java.util.Arrays;
  *
  * problem links :
  * https://www.codingninjas.com/studio/problems/minimal-cost_8180930
+ * https://atcoder.jp/contests/dp/tasks/dp_b
  *
  * Solution link :
  * https://www.youtube.com/watch?v=Kmh3rhyEtB8&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=5
@@ -39,14 +40,14 @@ public class FrogJumpWithKDistances {
         Arrays.fill(memo, -1);
         memo[0] = 0;
         for (int i = 1; i < n; i++) {
-            int minJumpEnergy = Integer.MAX_VALUE;
-            for (int j = 1; j <= k; j++) {
-                if (i - j >= 0) {
-                    int jumpEnergy = Math.abs(height[i] - height[i - j]) + memo[i - j];
-                    minJumpEnergy = Math.min(minJumpEnergy, jumpEnergy);
-                }
+            int min = Integer.MAX_VALUE;
+            // we will start distance 1 and move till k distance stones,
+            // but here is a catch, j should be less than i otherwise i-j will be negative
+            for (int j = 1; j <= k && j <= i; j++) {
+                int energy = Math.abs(height[i] - height[i - j]) + memo[i - j];
+                min = Math.min(min, energy);
             }
-            memo[i] = minJumpEnergy;
+            memo[i] = min;
         }
         System.out.println(memo[n - 1]);
     }
@@ -64,19 +65,17 @@ public class FrogJumpWithKDistances {
         System.out.println(answer);
     }
 
-    private static int frogJumpK(int i, int k, int[] height, int[] memo) {
-        if (i == 0)
-            return 0;
-        if (memo[i] != -1)
-            return memo[i];
-        int minJumpEnergy = Integer.MAX_VALUE;
-        for (int j = 1; j <= k; j++) {
-            if (i - j >= 0) {
-                int jumpEnergy = Math.abs(height[i] - height[i - j]) + frogJumpK(i - j, k, height, memo);
-                minJumpEnergy = Math.min(minJumpEnergy, jumpEnergy);
-            }
+    private static int frogJumpK(int n, int k, int[] height, int[] memo) {
+        if (n == 0) return 0;
+        if (memo[n] != -1) return memo[n];
+        int min = Integer.MAX_VALUE;
+        // we will start distance 1 and move till k distance stones,
+        // but here is a catch, i should be less than n otherwise n-i will be negative
+        for (int i = 1; i <= k && i <= n; i++) {
+            int energy = Math.abs(height[n] - height[n - i]) + frogJumpK(n - i, k, height, memo);
+            min = Math.min(min, energy);
         }
-        return memo[i] = minJumpEnergy;
+        return memo[n] = min;
     }
 
     // using Recursion
@@ -90,17 +89,16 @@ public class FrogJumpWithKDistances {
         System.out.println(answer);
     }
 
-    //Same as the normal frog jump just here we are checking previous k positions
-    private static int frogJumpK(int i, int k, int[] height) {
-        if (i == 0)
-            return 0;
-        int minJumpEnergy = Integer.MAX_VALUE;
-        for (int j = 1; j <= k; j++) {
-            if (i - j >= 0) {
-                int jumpEnergy = Math.abs(height[i] - height[i - j]) + frogJumpK(i - j, k, height);
-                minJumpEnergy = Math.min(minJumpEnergy, jumpEnergy);
-            }
+    // Same as the normal frog jump just here we are checking previous k positions
+    private static int frogJumpK(int n, int k, int[] height) {
+        if (n == 0) return 0;
+        int min = Integer.MAX_VALUE;
+        // we will start distance 1 and move till k distance stones,
+        // but here is a catch, i should be less than n otherwise n-i will be negative
+        for (int i = 1; i <= k && i <= n; i++) {
+            int energy = Math.abs(height[n] - height[n - i]) + frogJumpK(n - i, k, height);
+            min = Math.min(min, energy);
         }
-        return minJumpEnergy;
+        return min;
     }
 }

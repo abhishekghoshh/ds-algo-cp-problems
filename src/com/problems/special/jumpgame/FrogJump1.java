@@ -132,7 +132,8 @@ public class FrogJump1 {
         if (memo.containsKey(pair))
             return memo.get(pair);
         for (int d : delta) {
-            if (last + d > 0 && canCross(currentHeight + last + d, last + d, set, finalHeight, delta, memo)) {
+            if (last + d > 0
+                    && canCross(currentHeight + last + d, last + d, set, finalHeight, delta, memo)) {
                 memo.put(pair, true);
                 return true;
             }
@@ -157,7 +158,8 @@ public class FrogJump1 {
         if (!set.contains(currentHeight))
             return false;
         for (int d : delta)
-            if (last + d > 0 && canCross(currentHeight + last + d, last + d, set, finalHeight, delta))
+            if (last + d > 0
+                    && canCross(currentHeight + last + d, last + d, set, finalHeight, delta))
                 return true;
         return false;
     }

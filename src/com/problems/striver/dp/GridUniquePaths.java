@@ -1,5 +1,7 @@
 package com.problems.striver.dp;
 
+import com.util.PrintUtl;
+
 /*
  * Problem link :
  * https://www.codingninjas.com/studio/problems/1081470
@@ -9,6 +11,7 @@ package com.problems.striver.dp;
  * https://www.youtube.com/watch?v=t_f0nwwdg5o
  * https://www.youtube.com/watch?v=sdE0A2Oxofw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=9
  *
+ * https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/
  * https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/
  *
  * */
@@ -56,12 +59,11 @@ public class GridUniquePaths {
 		memo[1][1] = 1;
 		for (int i = 1; i <= m; i++) {
 			for (int j = 1; j <= n; j++) {
-				if (i == 1 && j == 1) {
-					continue;
-				}
+				if (i == 1 && j == 1) continue;
 				memo[i][j] = memo[i - 1][j] + memo[i][j - 1];
 			}
 		}
+		PrintUtl.print2D(memo);
 		System.out.println("count is " + memo[m][n]);
 	}
 
