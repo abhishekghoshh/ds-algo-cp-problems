@@ -1,7 +1,5 @@
 package com.problems.dp;
 
-import com.util.PrintUtl;
-
 import java.util.Arrays;
 
 /*
@@ -13,6 +11,8 @@ import java.util.Arrays;
  *
  * */
 public class CherryPickup1 {
+
+    // TODO
     public static void main(String[] args) {
         type1();
         type2();
@@ -24,10 +24,36 @@ public class CherryPickup1 {
                 {1, 0, -1},
                 {1, 1, 1}
         };
-
+        int count = cherryPickup2(grid);
+        System.out.println(count);
     }
 
+    private static int cherryPickup2(int[][] grid) {
+        int n = grid.length;
+        if (n == 1) return grid[0][0];
+        int[][][][] dp = new int[n][n][n][n];
+        for (int[][][] dp1 : dp)
+            for (int[][] dp2 : dp1)
+                for (int[] dp3 : dp2) Arrays.fill(dp3, -1);
+        return Math.max(cherryPickup2(0, 0, 0, 0, n, grid, dp), 0);
+    }
 
+    private static int cherryPickup2(int i1, int j1, int i2, int j2, int n, int[][] grid, int[][][][] dp) {
+        if (i1 >= n || j1 >= n || i2 >= n || j2 >= n
+                || grid[i1][j1] == -1 || grid[i2][j2] == -1)
+            return Integer.MIN_VALUE;
+        if (dp[i1][j1][i2][j2] != -1) return dp[i1][j1][i2][j2];
+        int cherry = (i1 == i2) && (j1 == j2) ?
+                grid[i1][j1] :
+                (grid[i1][j1] + grid[i2][j2]);
+        if (i1 == n - 1 && j1 == n - 1 && j2 == n - 1) return cherry;
+        // we have four choices
+        int choice1 = cherryPickup2(i1 + 1, j1, i2 + 1, j2, n, grid, dp);
+        int choice2 = cherryPickup2(i1 + 1, j1, i2, j2 + 1, n, grid, dp);
+        int choice3 = cherryPickup2(i1, j1 + 1, i2 + 1, j2, n, grid, dp);
+        int choice4 = cherryPickup2(i1, j1 + 1, i2, j2 + 1, n, grid, dp);
+        return dp[i1][j1][i2][j2] = cherry + max(choice1, choice2, choice3, choice4);
+    }
 
     private static void type1() {
         int[][] grid = {
@@ -39,53 +65,31 @@ public class CherryPickup1 {
         System.out.println(count);
     }
 
-    public static int cherryPickup(int[][] grid) {
+    private static int cherryPickup(int[][] grid) {
         int n = grid.length;
-        int[][] dp = new int[n][n];
-        dp[0][0] = grid[0][0];
-        for (int i = 1; i < n; i++)
-            if (dp[0][i - 1] == Integer.MIN_VALUE || grid[0][i] == -1)
-                dp[0][i] = Integer.MIN_VALUE;
-            else dp[0][i] = dp[0][i - 1] + grid[0][i];
-        for (int i = 1; i < n; i++)
-            if (dp[i - 1][0] == Integer.MIN_VALUE || grid[i][0] == -1)
-                dp[i][0] = Integer.MIN_VALUE;
-            else dp[i][0] = dp[i - 1][0] + grid[i][0];
-        for (int i = 1; i < n; i++) {
-            for (int j = 1; j < n; j++) {
-                if (grid[i][j] == -1) {
-                    dp[i][j] = Integer.MIN_VALUE;
-                    continue;
-                }
-                dp[i][j] = grid[i][j] + Math.max(dp[i - 1][j], dp[i][j - 1]);
-            }
-        }
-        if (dp[n - 1][n - 1] < 0) return 0;
-        int cherryCount = dp[n - 1][n - 1];
-
-        int x = n - 1, y = n - 1;
-        while (x >= 0 && y >= 0) {
-            if (grid[x][y] == 1) grid[x][y] = 0;
-            int top = (x > 0) ? dp[x - 1][y] : Integer.MIN_VALUE;
-            int left = (y > 0) ? dp[x][y - 1] : Integer.MIN_VALUE;
-            if (top == left && top == Integer.MIN_VALUE) break;
-            if (top > left) x--;
-            else y--;
-        }
-        dp = new int[n][n];
-        for (int[] row : dp) Arrays.fill(row, -1);
-        return cherryCount + cherryPickup(0, 0, n, grid, dp);
+        if (n == 1) return grid[0][0];
+        return Math.max(cherryPickup(0, 0, 0, 0, n, grid), 0);
     }
 
-    private static int cherryPickup(int i, int j, int n, int[][] grid, int[][] dp) {
-        if (i >= n || j >= n || grid[i][j] == -1) return Integer.MIN_VALUE;
-        if (dp[i][j] != -1) return dp[i][j];
-        if (i == n - 1 && j == n - 1) return grid[i][j];
-        return dp[i][j] = grid[i][j] + Math.max(
-                cherryPickup(i + 1, j, n, grid, dp),
-                cherryPickup(i, j + 1, n, grid, dp)
-        );
+    private static int cherryPickup(int i1, int j1, int i2, int j2, int n, int[][] grid) {
+        if (i1 >= n || j1 >= n || i2 >= n || j2 >= n
+                || grid[i1][j1] == -1 || grid[i2][j2] == -1)
+            return Integer.MIN_VALUE;
+        int cherry = (i1 == i2) && (j1 == j2) ?
+                grid[i1][j1] :
+                (grid[i1][j1] + grid[i2][j2]);
+        if (i1 == n - 1 && j1 == n - 1 && j2 == n - 1) return cherry;
+        // we have four choices
+        int choice1 = cherryPickup(i1 + 1, j1, i2 + 1, j2, n, grid);
+        int choice2 = cherryPickup(i1 + 1, j1, i2, j2 + 1, n, grid);
+        int choice3 = cherryPickup(i1, j1 + 1, i2 + 1, j2, n, grid);
+        int choice4 = cherryPickup(i1, j1 + 1, i2, j2 + 1, n, grid);
+        return cherry + max(choice1, choice2, choice3, choice4);
     }
 
-
+    private static int max(int... vals) {
+        int max = Integer.MIN_VALUE;
+        for (int val : vals) if (max < val) max = val;
+        return max;
+    }
 }
