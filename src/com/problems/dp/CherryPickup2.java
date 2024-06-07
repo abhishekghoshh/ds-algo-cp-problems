@@ -11,6 +11,7 @@ import java.util.Arrays;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=QGfn7JeXK54&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=14
+ * https://www.youtube.com/watch?v=c1stwk2TbNk
  *
  * https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/
  * */
@@ -25,6 +26,7 @@ public class CherryPickup2 {
     }
 
     // TODO do not go for more optimization, waste of effort and time
+    //  see leetcode submission for better solutions
     private static void type4() {
     }
 
@@ -39,7 +41,7 @@ public class CherryPickup2 {
 
         int[][][] dp = new int[r][c][c];
 
-        // it will be convenient to start loop from the last row, then we can use the same relation as recursion
+
 
         // Initialize the dp array with values from the last row of the grid
         for (int j1 = 0; j1 < c; j1++) {
@@ -50,6 +52,8 @@ public class CherryPickup2 {
             }
         }
 
+        // it will be convenient to start loop from the last row,
+        // then we can use the same relation as recursion
         // Outer nested loops to traverse the DP array from the second last row to the first row
         for (int i = r - 2; i >= 0; i--) {
             for (int j1 = 0; j1 < c; j1++) {
@@ -88,6 +92,8 @@ public class CherryPickup2 {
         // but as bot bots are going in the same pace in row wise,
         // so we can just keep one (i) and j1 and j2
 
+        // we could also use Integer[] in place of int[], then we do not need to initialize -1
+        // we could just check if it is null or not
         // we will use 3D array for storing results, as we are using i,j1,j2
         int[][][] dp = new int[r][c][c];
         for (int[][] dp1 : dp) for (int[] row : dp1) Arrays.fill(row, -1);

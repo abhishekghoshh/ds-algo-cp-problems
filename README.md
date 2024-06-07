@@ -212,7 +212,7 @@
 - **codes**
   - [Largest Element in an Array](/src/com/problems/array/LargestElementInArray.java)
   - [Longest Continuous Increasing Subsequence](/src/com/problems/array/LongestContinuousIncreasingSubsequence.java)
-  - [Best Time to Buy and Sell Stock](/src/com/problems/array/MaxProfit.java)
+  - [Best Time to Buy and Sell Stock](/src/com/problems/array/BuyAndSellStock.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/problems/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
   - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/FindDuplicateNumber.java)
@@ -269,13 +269,12 @@
     - Moore's voting algorithm
     - hashing
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
-  - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/array/GridUniquePaths.java)
+  - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
     - dynamic-programming
     - combination-approach
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/PrintMaxSumForConsecutiveElements.java)
   - [Maximum Subarray Sum in an Array for non-consecutive elements](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
-  - [Stock Buy And Sell](/src/com/problems/array/BuyAndSellStock.java)
   - [Rearrange Array Elements by Sign](/src/com/problems/array/RearrangeArrayElementsBySign.java)
   - [next_permutation : find next lexicographically greater permutation](/src/com/problems/array/NextPermutation.java)
   - [Leaders in an Array](/src/com/problems/array/LeadersInAnArray.java)
@@ -695,9 +694,9 @@
     - [Maximum Sum of Non-Adjacent Elements / House Robber 1](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
     - [House robber 2](/src/com/problems/dp/HouseRobber2.java)
     - [Ninja's Training](/src/com/problems/dp/NinjaTraining.java)
-    - [Grid Unique paths]
-    - [Grid Unique paths 2]
-    - [Minimum path Sum]
+    - [Grid Unique paths](/src/com/problems/dp/GridUniquePaths.java)
+    - [Grid Unique paths 2](/src/com/problems/dp/GridUniquePathsWithObstacles.java)
+    - [Minimum path Sum](/src/com/problems/dp/MinimumPathSum.java)
     - [Minimum path sum in a triangle](/src/com/problems/dp/MinimumPathSumInATriangle.java)
     - [Minimum/Maximum Falling Path Sum | Variable Starting and Ending Points](/src/com/problems/dp/MinimumFallingPathSum.java)
     - [Cherry Pickup 1](/src/com/problems/dp/CherryPickup1.java)
@@ -736,7 +735,10 @@
     - [Scrambled String](/src/com/problems/dp/ScrambledString.java)
     - [Egg dropping](/src/com/problems/dp/EggDropping.java)
   - **others**
-    - [Word Break](/src/com/problems/dp/WordBreak.java)**TBD**
+    - [Word Break](/src/com/problems/dp/WordBreak.java)
+    - [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
+    - [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
+    - [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
 
 
 ### binary-tree

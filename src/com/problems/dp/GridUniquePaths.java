@@ -1,19 +1,22 @@
-package com.problems.array;
+package com.problems.dp;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/unique-paths/
- * https://www.codingninjas.com/codestudio/problems/1081470
- * 
+ * https://www.codingninjas.com/studio/problems/1081470
+ *
  * Solution link
  * https://www.youtube.com/watch?v=t_f0nwwdg5o
- * 
+ * https://www.youtube.com/watch?v=sdE0A2Oxofw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=9
+ *
+ * https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/
  * https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/
- * 
+ *
  * */
 public class GridUniquePaths {
 
 	public static void main(String[] args) {
+		type0();
 		type1();
 		type2();
 		type3();
@@ -35,13 +38,18 @@ public class GridUniquePaths {
 	// take either float or double or long
 	private static void type4() {
 		int m = 19, n = 13;
+		int count = uniquePaths5(m, n);
+		System.out.println("count is " + count);
+	}
+
+	public static int uniquePaths5(int m, int n) {
 		long N = m + n - 2;
 		long R = m < n ? m - 1 : n - 1;
 		long count = 1;
 		for (int i = 1; i <= R; i++) {
 			count = count * (N - i + 1) / i;
 		}
-		System.out.println("count is " + count);
+		return (int) count;
 	}
 
 	// dynamic programming approach
@@ -50,14 +58,16 @@ public class GridUniquePaths {
 	// space complexity O(m*n) + O(max(m,n))
 	private static void type3() {
 		int m = 3, n = 2;
-		int[][] memo = new int[m + 1][n + 1];
+		int[][] memo = new int[m][n];
+		// initializing the starting cell and first row and the first column
 		memo[1][1] = 1;
-		for (int i = 1; i <= m; i++) {
-			for (int j = 1; j <= n; j++) {
-				if (i == 1 && j == 1) continue;
+		for (int i = 1; i < m; i++) memo[i][0] = 1;
+		for (int j = 1; j < n; j++) memo[0][j] = 1;
+		// filling up the remaining cell
+		for (int i = 1; i < m; i++)
+			for (int j = 1; j < n; j++)
 				memo[i][j] = memo[i - 1][j] + memo[i][j - 1];
-			}
-		}
+
 		System.out.println("count is " + memo[m][n]);
 	}
 
@@ -67,31 +77,59 @@ public class GridUniquePaths {
 	// space complexity O(m*n) + O(max(m,n))
 	private static void type2() {
 		int m = 3, n = 2;
-		int[][] memo = new int[m + 1][n + 1];
-		memo[m][n] = 1;
-		int count = findPaths(1, 1, m, n, memo);
+		int[][] memo = new int[m][n];
+		int count = findPaths(0, 0, m, n, memo);
 		System.out.println("count is " + count);
 	}
 
 	private static int findPaths(int i, int j, int m, int n, int[][] memo) {
-		if (i > m || j > n) return 0;
-		else if (memo[i][j] != 0) return memo[i][j];
-		else return memo[i][j] = findPaths(i + 1, j, m, n, memo) + findPaths(i, j + 1, m, n, memo);
+		// out of bounds
+		if (i >= m || j >= n) return 0;
+		// we have reached the destination
+		if (i == m - 1 && j == n - 1) return 1;
+		// if it is already calculated, then we will directly return the answer
+		if (memo[i][j] != 0) return memo[i][j];
+		// we will traverse and also store the result
+		return memo[i][j] = findPaths(i + 1, j, m, n, memo)
+				+ findPaths(i, j + 1, m, n, memo);
 	}
 
 	// brute force approach
 	// time complexity
 	// space complexity
+	// same as previous just here the starting and ending are different
 	private static void type1() {
 		int m = 3, n = 2;
-		int count = findPaths(1, 1, m, n);
+		int count = findPaths(0, 0, m, n);
 		System.out.println("count is " + count);
 	}
 
 	private static int findPaths(int i, int j, int m, int n) {
-		if (i > m || j > n) return 0;
-		else if (i == m && j == n) return 1;
-		else return findPaths(i + 1, j, m, n) + findPaths(i, j + 1, m, n);
+		// out of bounds
+		if (i >= m || j >= n) return 0;
+		// we have reached the destination
+		if (i == m - 1 && j == n - 1) return 1;
+		// else we have 2 choices
+		return findPaths(i + 1, j, m, n) + findPaths(i, j + 1, m, n);
+	}
+
+	// brute force approach
+	// time complexity
+	// space complexity
+	private static void type0() {
+		int n = 3;
+		int m = 2;
+		int count = findPaths(n - 1, m - 1);
+		System.out.println("count is " + count);
+	}
+
+	private static int findPaths(int n, int m) {
+		// out of bounds
+		if (n < 0 || m < 0) return 0;
+		// we have reached the destination
+		if (n == 0 && m == 0) return 1;
+		// else we have 2 choices
+		return findPaths(n - 1, m) + findPaths(n, m - 1);
 	}
 
 }
