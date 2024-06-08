@@ -212,7 +212,7 @@
 - **codes**
   - [Largest Element in an Array](/src/com/problems/array/LargestElementInArray.java)
   - [Longest Continuous Increasing Subsequence](/src/com/problems/array/LongestContinuousIncreasingSubsequence.java)
-  - [Best Time to Buy and Sell Stock](/src/com/problems/array/BuyAndSellStock.java)
+  - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/problems/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
   - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/FindDuplicateNumber.java)
@@ -728,6 +728,11 @@
     - [Longest repeating subsequence](/src/com/problems/dp/LongestRepeatingSubsequence.java)
     - [Sequence Pattern Matching](/src/com/problems/dp/SequencePatternMatching.java)
     - [Edit Distance](/src/com/problems/dp/EditDistance.java)
+  - **DP on stocks**
+    - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
+    - [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
+    - [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
+    - [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
   - **Matrix chain multiplication**
     - [Matrix chain multiplication](/src/com/problems/dp/MatrixChainMultiplication.java)
     - [Palindrome partitioning](/src/com/problems/dp/PalindromePartitioning.java)
@@ -736,10 +741,6 @@
     - [Egg dropping](/src/com/problems/dp/EggDropping.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
-    - [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
-    - [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
-    - [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
-
 
 ### binary-tree
 
