@@ -1,5 +1,6 @@
 package com.problems.dp;
 
+
 /*
  * Problem link :
  * https://www.naukri.com/code360/problems/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum_842494
@@ -9,9 +10,12 @@ package com.problems.dp;
  * https://www.youtube.com/watch?v=GS_OqZb2CWc
  *
  * https://takeuforward.org/data-structure/partition-set-into-2-subsets-with-min-absolute-sum-diff-dp-16/
+ *
  */
 public class MinimumSubsetSumDifference {
 
+	// TODO if we consider only positive number then it is just a problem of DP target sum
+	//  but if we have negative numbers to consider then we will need man in the middle algorithm
 	// You are given an integer array nums of 2 * n integers.
 	// You must partition nums into two arrays of length n to minimize the absolute difference of the sum of the arrays.
 	// To partition nums, put each element of nums into one of the two arrays.
@@ -23,6 +27,7 @@ public class MinimumSubsetSumDifference {
 		type4();
 	}
 
+	// TODO similar to previous type, only works with positive integer
 	// same as the previous type but with space and time optimization
 	private static void type4() {
 		int[] nums = {76, 8, 45, 20, 74, 84, 28, 1};
@@ -47,6 +52,8 @@ public class MinimumSubsetSumDifference {
 			prev = curr;
 		}
 
+		// there will be two sets s1 and s2, then difference will be abs(s2-s1)
+		// s2 can be represented by (sum-s1), so abs(s2-s1) => abs(sum-2*s1)
 		int diff = sum;
 		for (int s1 = 1; s1 <= half; s1++)
 			if (prev[s1])

@@ -11,6 +11,7 @@
   - [Fraz](https://www.youtube.com/@mohammadfraz/playlists)
   - [CodeBeyond](https://www.youtube.com/@CodeBeyond/playlists)
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
+  - [Aryan Mittal](https://www.youtube.com/@ARYANMITTAL/playlists)
 
 ### Blogs
 

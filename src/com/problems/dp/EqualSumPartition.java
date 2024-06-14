@@ -4,20 +4,24 @@ package com.problems.dp;
 /*
  * Problem link :
  * https://leetcode.com/problems/partition-equal-subset-sum/
+ * https://www.naukri.com/code360/problems/partition-equal-subset-sum_892980
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=UmMh7xp07kY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=8
- * 
+ * https://www.youtube.com/watch?v=7win3dcgo3k&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=16
+ *
+ * https://takeuforward.org/data-structure/partition-equal-subset-sum-dp-15/
  */
 public class EqualSumPartition {
 
+	// TODO it is an extension of the target sum/ subset sum problem
 	// Given a non-empty array nums containing only positive integers, find if the
 	// array can be partitioned into two subsets such that the sum of elements in
 	// both subsets is equal.
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type2();
+		type3();
 	}
 
 
@@ -41,22 +45,22 @@ public class EqualSumPartition {
 		// to sum equally
 		if (sum % 2 != 0) return false;
 		int target = sum / 2;
-		boolean[][] memo = new boolean[n + 1][target + 1];
-		for (int j = 0; j <= target; j++) memo[0][j] = false;
+		boolean[][] dp = new boolean[n + 1][target + 1];
+		for (int j = 0; j <= target; j++) dp[0][j] = false;
 		// if our target sum is zero, it is possible to create that
 		// as we can anytime consider the empty set
 		// so even with zero elements, we can create target sum 0
-		for (int i = 0; i <= n; i++) memo[i][0] = true;
+		for (int i = 0; i <= n; i++) dp[i][0] = true;
 		// now we fill all the cells one by one
 		for (int i = 1; i <= n; i++) {
 			for (int j = 0; j <= target; j++) {
 				if (nums[i - 1] <= j)
-					memo[i][j] = memo[i - 1][j - nums[i - 1]] || memo[i - 1][j];
+					dp[i][j] = dp[i - 1][j - nums[i - 1]] || dp[i - 1][j];
 				else
-					memo[i][j] = memo[i - 1][j];
+					dp[i][j] = dp[i - 1][j];
 			}
 		}
-		return memo[n][target];
+		return dp[n][target];
 	}
 
 	// same a previous
@@ -113,6 +117,7 @@ public class EqualSumPartition {
 	}
 
 	private static boolean targetSum1(int[] nums, int n, int target, int[][] memo) {
+		// if at any point, the target is zero then we will return true
 		if (target == 0) return true;
 		if (n == 0) return false;
 		if (memo[n][target] != 0) return (memo[n][target] == 1);

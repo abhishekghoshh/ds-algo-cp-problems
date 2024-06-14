@@ -1,5 +1,7 @@
 package com.problems.recursion;
 
+import com.util.PrintUtl;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,8 +36,29 @@ public class PowerSet1 {
 		type1();
 		type2();
 		type3();
+		type4();
 	}
 
+	// TODO this will generate all the sum using bit manipulation technique
+	//  check out this solution later
+	private static void type4() {
+		int[] nums = {7, -9, 15, -2};
+		int n = nums.length;
+		int[] allSum = powerSet(nums, 0, n - 1);
+		PrintUtl.print(allSum);
+	}
+
+	// check this solution later
+	private static int[] powerSet(int[] nums, int start, int end) {
+		int[] array = new int[1 << (end - start + 1)];
+		for (int i = start; i <= end; i++) {
+			int offset = 1 << (i - start);
+			for (int j = 0; j < offset; j++) {
+				array[j + offset] = array[j] + nums[i];
+			}
+		}
+		return array;
+	}
 	// let's say our array is 1,2,3, n=3,
 	// so we will run a loop from 0 to 2^n -1
 	// find the binary of the number i
