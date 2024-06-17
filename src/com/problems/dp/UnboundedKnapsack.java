@@ -2,10 +2,13 @@ package com.problems.dp;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1
- * 
+ * https://www.naukri.com/code360/problems/unbounded-knapsack_1215029
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=aycn9KO8_Ls&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13
- * 
+ *
+ * https://www.youtube.com/watch?v=OgvOZ6OrJoY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=24
+ * https://takeuforward.org/data-structure/unbounded-knapsack-dp-23/
  */
 public class UnboundedKnapsack {
 

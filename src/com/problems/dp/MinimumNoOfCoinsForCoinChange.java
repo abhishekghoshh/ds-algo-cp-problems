@@ -5,11 +5,14 @@ import java.util.Arrays;
 /*
  * Problem link :
  * https://leetcode.com/problems/coin-change
+ * https://www.naukri.com/code360/problems/minimum-elements_3843091
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16
  * https://www.youtube.com/watch?v=rMfOgY07TFs&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=17
- * 
+ *
+ * https://www.youtube.com/watch?v=myPeWb3Y68A&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=21
+ * https://takeuforward.org/data-structure/minimum-coins-dp-20/
  */
 public class MinimumNoOfCoinsForCoinChange {
 

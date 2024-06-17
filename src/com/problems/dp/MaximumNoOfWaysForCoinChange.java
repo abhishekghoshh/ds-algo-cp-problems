@@ -2,11 +2,13 @@ package com.problems.dp;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/coin-change-ii/submissions/
+ * https://leetcode.com/problems/coin-change-ii
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=15
- * 
+ *
+ * https://www.youtube.com/watch?v=HgyouUi11zk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=23
+ * https://takeuforward.org/data-structure/coin-change-2-dp-22/
  */
 public class MaximumNoOfWaysForCoinChange {
 

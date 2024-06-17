@@ -11,11 +11,16 @@ import java.util.Arrays;
  *
  * https://www.youtube.com/watch?v=g0npyaQtAQM
  *
+ * https://www.youtube.com/watch?v=b3GD8263-PQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=22
+ * https://takeuforward.org/data-structure/target-sum-dp-21/
  */
 public class TargetSum {
 
     // TODO it draw inspiration for CountNumberOfSubsetWithGivenSumDifference problem
     //  Please check one more time
+    //  count of subset sum different will be applied directly if there is no zero element
+    //  else we have to go via this path
+
     // You are given an integer array nums and an integer target.
     // You want to build an expression out of nums by adding one of the symbols '+'
     // and '-' before each integer in nums and then concatenate all the integers.

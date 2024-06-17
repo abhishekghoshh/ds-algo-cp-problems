@@ -160,7 +160,7 @@ public class ClosestSubsequenceSum {
     public static int minAbsDifference2(int[] nums, int goal) {
         int n = nums.length;
         // if there is only 1 number, then we have 2 options either to choose that number or not.
-        // if we don't, then the total sum will be 0 and if we do then the total sum will be nums[0]
+        // if we don't, then the total sum will be 0 and if we do then the total sum will be nums[0],
         // so we will be taking the minimum of them
         if (n == 1) return Math.min(Math.abs(goal), Math.abs(goal - nums[0]));
         // some early optimization to return if the input is not valid

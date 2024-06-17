@@ -273,6 +273,7 @@
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
     - dynamic-programming
     - combination-approach
+  - [Count Pairs That Form a Complete Day II](/src/com/problems/array/CountPairsThatFormCompleteDay2.java)
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/PrintMaxSumForConsecutiveElements.java)
   - [Maximum Subarray Sum in an Array for non-consecutive elements](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
@@ -709,7 +710,7 @@
     - [Equal sum partition](/src/com/problems/dp/EqualSumPartition.java)
     - [Count of Subset sum](/src/com/problems/dp/CountOfSubsetSum.java)
     - [Minimum Subset sum difference](/src/com/problems/dp/MinimumSubsetSumDifference.java)
-    - [Count the number of subset with a given difference](/src/com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
+    - [Count the number of subset with a given difference / Count partitions with Given Difference](/src/com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
     - [Target sum](/src/com/problems/dp/TargetSum.java)
   - **Unbounded Knapsack**
     - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)
