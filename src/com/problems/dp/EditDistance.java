@@ -2,9 +2,10 @@ package com.problems.dp;
 /*
  * Problem link :
  * https://leetcode.com/problems/edit-distance/
+ * https://www.naukri.com/code360/problems/edit-distance_630420
  *
  * Solution link :
- * https://www.youtube.com/watch?v=fJaKO8FbDdo
+ * https://www.youtube.com/watch?v=fJaKO8FbDdo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=35
  *
  * https://takeuforward.org/data-structure/edit-distance-dp-33/
  */
@@ -18,7 +19,9 @@ public class EditDistance {
         type4();
     }
 
-    // same as previous with some space optimization
+    // tabulation with space optimization.
+    // same as previous with some space optimization.
+    // we will only use two arrays for storing current and previous row
     private static void type4() {
         String word1 = "abc";
         String word2 = "efg";
@@ -37,12 +40,12 @@ public class EditDistance {
 
         // initialization
         int[] prev = new int[n2 + 1];
-        int[] curr = new int[n2 + 1];
         // Initialize the first row with their respective indices
         // here the first string length is 0, so edit distance will be the length of the second string
         for (int j = 1; j <= n2; j++) prev[j] = j;
         // top-down calculation
         for (int i = 1; i <= n1; i++) {
+            int[] curr = new int[n2 + 1];
             curr[0] = i;
             for (int j = 1; j <= n2; j++) {
                 // if both characters are same, then edit distance will be same as (i-1,j-1)
@@ -60,12 +63,13 @@ public class EditDistance {
                     );
                 }
             }
-            // copying the curr array to prev
-            System.arraycopy(curr, 0, prev, 0, n2 + 1);
+            // assigning the curr array to prev
+            prev = curr;
         }
         return prev[n2];
     }
 
+    // iterative approach with tabulation
     // Bottom-up approach
     private static void type3() {
         String word1 = "abc";
@@ -121,6 +125,8 @@ public class EditDistance {
         System.out.println(editDistance);
     }
 
+    // recursion with memoization
+    // bottom-up approach
     private static int editDistance2(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
@@ -141,27 +147,28 @@ public class EditDistance {
                 else dp[i][j] = -1;
             }
         }
-        return minDistance(w1, n1, w2, n2, dp);
+        return minDistance(n1, n2, w2, w1, dp);
     }
 
-    private static int minDistance(char[] word1, int n1, char[] word2, int n2, int[][] dp) {
+    private static int minDistance(int n1, int n2, char[] word2, char[] word1, int[][] dp) {
         if (dp[n1][n2] != -1) return dp[n1][n2];
         // if the current last characters are same, then we don't have to consider that character
         if (word1[n1 - 1] == word2[n2 - 1])
-            return dp[n1][n2] = minDistance(word1, n1 - 1, word2, n2 - 1, dp);
+            return dp[n1][n2] = minDistance(n1 - 1, n2 - 1, word2, word1, dp);
 
         // if that is different, then we have 3 options
         // to replace the last character and search again; that cost 1 operation
-        int changeBothLastChar = minDistance(word1, n1 - 1, word2, n2 - 1, dp);
+        int ch1 = minDistance(n1 - 1, n2 - 1, word2, word1, dp);
         // to remove the last character from the first string and search again, that cost 1
-        int deleteLastCharFromString1 = minDistance(word1, n1 - 1, word2, n2, dp);
+        int ch2 = minDistance(n1 - 1, n2, word2, word1, dp);
         // to remove the last character from the second string and search again, that cost 1
-        int deleteLastCharFromString2 = minDistance(word1, n1, word2, n2 - 1, dp);
+        int ch3 = minDistance(n1, n2 - 1, word2, word1, dp);
 
         // and would be minimum from these 3 choices
-        return dp[n1][n2] = 1 + min(changeBothLastChar, deleteLastCharFromString2, deleteLastCharFromString1);
+        return dp[n1][n2] = 1 + min(ch1, ch3, ch2);
     }
 
+    // recursion and brute force approach
     private static void type1() {
         String word1 = "abc";
         String word2 = "efg";
@@ -171,23 +178,23 @@ public class EditDistance {
     }
 
     private static int editDistance1(String word1, String word2) {
-        return minDistance(word1.toCharArray(), word1.length(), word2.toCharArray(), word2.length());
+        return minDistance(word1.length(), word2.length(), word2.toCharArray(), word1.toCharArray());
     }
 
-    private static int minDistance(char[] word1, int n1, char[] word2, int n2) {
+    private static int minDistance(int n1, int n2, char[] word2, char[] word1) {
         // if n1 or n2 is at 0, means one of the strings is exhausted completely,
         // then we will return the remaining length of the other string
         if (n1 == 0 || n2 == 0) return n1 == 0 ? n2 : n1;
         // if the character is same then we will directly check for the 1-character small string
-        if (word1[n1 - 1] == word2[n2 - 1]) return minDistance(word1, n1 - 1, word2, n2 - 1);
+        if (word1[n1 - 1] == word2[n2 - 1]) return minDistance(n1 - 1, n2 - 1, word2, word1);
         // else we have three cases, 1. replace last character for both of the strings
-        int changeBothLastChar = minDistance(word1, n1 - 1, word2, n2 - 1);
+        int ch1 = minDistance(n1 - 1, n2 - 1, word2, word1);
         // remove the last character from the first word
-        int deleteLastCharFromString1 = minDistance(word1, n1 - 1, word2, n2);
+        int ch2 = minDistance(n1 - 1, n2, word2, word1);
         // remove the last character from the second word
-        int deleteLastCharFromString2 = minDistance(word1, n1, word2, n2 - 1);
+        int ch3 = minDistance(n1, n2 - 1, word2, word1);
         // we will return the min of them and plus 1 for the one operation we did here
-        return 1 + min(changeBothLastChar, deleteLastCharFromString2, deleteLastCharFromString1);
+        return 1 + min(ch1, ch3, ch2);
     }
 
     private static int min(int num, int... nums) {

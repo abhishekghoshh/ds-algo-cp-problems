@@ -216,7 +216,9 @@
   - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
   - [Find Second Smallest and Second-Largest Element in an array](/src/com/problems/array/SecondLargestElementInArray.java)
   - [Check if the array is sorted](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
-  - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/FindDuplicateNumber.java)
+  - [Minimum Average of Smallest and Largest Elements](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
+  - [Find the Minimum Area to Cover All Ones I](/src/com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java)
+  - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
     - hashing
     - swap-sort
     - Cycle-Detection-Using-Tortoise-Method
@@ -719,8 +721,8 @@
     - [Minimum number of coins for a coin change](/src/com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
   - **Longest common subsequence**
     - [Longest common subsequence](/src/com/problems/dp/LongestCommonSubsequence.java)
-    - [Longest common substring](/src/com/problems/dp/LongestCommonSubstring.java)
     - [Print Longest common subsequence](/src/com/problems/dp/PrintLongestCommonSubsequence.java)
+    - [Longest common substring](/src/com/problems/dp/LongestCommonSubstring.java)
     - [Shortest common super sequence](/src/com/problems/dp/ShortestCommonSuperSequence.java)
     - [Minimum Number of Insertions and Deletion to convert String a to String b](/src/com/problems/dp/MinimumInsertionDeletionForStringConversion.java)
     - [Longest Palindromic Subsequence](/src/com/problems/dp/LongestPalindromicSubsequence.java)
@@ -729,12 +731,21 @@
     - [Minimum number of insertions in a string to make it a palindrome](/src/com/problems/dp/MinimumNoOfInsertionForPalindrome.java)
     - [Longest repeating subsequence](/src/com/problems/dp/LongestRepeatingSubsequence.java)
     - [Sequence Pattern Matching](/src/com/problems/dp/SequencePatternMatching.java)
+    - [Distinct Subsequences](/src/com/problems/dp/DistinctSubsequences.java)
     - [Edit Distance](/src/com/problems/dp/EditDistance.java)
+    - [Wildcard Matching](/src/com/problems/dp/WildcardMatching.java)
+  - **Longest increasing subsequence**
+    - [Longest Increasing Subsequence](/src/com/problems/dp/LongestIncreasingSubsequence.java)
+    - [Printing Longest Increasing Subsequence](/src/com/problems/dp/PrintingLongestIncreasingSubsequence.java)
+    - [Largest Divisible Subset](/src/com/problems/dp/LargestDivisibleSubset.java)
+    - [Maximum Total Damage With Spell Casting](/src/com/problems/dp/MaximumTotalDamageWithSpellCasting.java)
   - **DP on stocks**
     - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
     - [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
     - [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
     - [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
+    - [Best Time to Buy and Sell Stock with Cooldown](/src/com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
+    - [Best Time to Buy and Sell Stock with Transaction Fee](/src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
   - **Matrix chain multiplication**
     - [Matrix chain multiplication](/src/com/problems/dp/MatrixChainMultiplication.java)
     - [Palindrome partitioning](/src/com/problems/dp/PalindromePartitioning.java)
@@ -743,6 +754,7 @@
     - [Egg dropping](/src/com/problems/dp/EggDropping.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
+    - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
 
 ### binary-tree
 

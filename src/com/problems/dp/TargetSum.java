@@ -16,11 +16,6 @@ import java.util.Arrays;
  */
 public class TargetSum {
 
-    // TODO it draw inspiration for CountNumberOfSubsetWithGivenSumDifference problem
-    //  Please check one more time
-    //  count of subset sum different will be applied directly if there is no zero element
-    //  else we have to go via this path
-
     // You are given an integer array nums and an integer target.
     // You want to build an expression out of nums by adding one of the symbols '+'
     // and '-' before each integer in nums and then concatenate all the integers.
@@ -29,10 +24,20 @@ public class TargetSum {
     // Return the number of different expressions that you can build, which
     // evaluates to target.
     public static void main(String[] args) {
+        // the intuition is different
         type1();
         type2();
         type3();
         type4();
+        // intuition from the count number of subset with given sum difference
+        type5();
+    }
+
+    // intuition from the count number of subset with given sum difference
+    private static void type5() {
+        // todo check the type2 from the count number of subset with given sum difference
+        //  we can apply the same logic here
+        //  add + or - to num means there will be some numbers which will have positive sign and some will have negative
     }
 
     // If we look closely at the last solution, we can observe that to evaluate the
@@ -143,11 +148,11 @@ public class TargetSum {
         int n = nums.length;
         int sum = 0;
         for (int num : nums) sum += num;
-
         // if sum + target is odd, then we cannot make subsets
-        if ((sum + target) % 2 != 0) return 0;
-        // if the target is greater than the sum then we cannot make the target
-        if (sum < Math.abs(target)) return 0;
+        // if the sum is lesser than the target, then we cannot make the target by
+        // subtracting one partition to another
+        if ((sum + target) % 2 != 0
+                || sum < Math.abs(target)) return 0;
 
         int[][] memo = new int[n][2 * sum + 1];
         // we are using -1 set the cell value as unvisited
@@ -156,21 +161,19 @@ public class TargetSum {
         return findTargetSumWays2(nums, 0, 0, target, memo, sum);
     }
 
-    public static int findTargetSumWays2(int[] nums, int i, int sum, int target, int[][] memo, int offset) {
+    public static int findTargetSumWays2(int[] nums, int i, int sum, int target, int[][] dp, int offset) {
         // if index reaches nums length that means we have consumed the entire array
         if (i == nums.length) return sum == target ? 1 : 0;
 
         // we are checking in the dp table if it consists the value,
         // we are adding offset because the sum can be negative
-        if (memo[i][sum + offset] != -1) return memo[i][sum + offset];
+        if (dp[i][sum + offset] != -1) return dp[i][sum + offset];
 
-        // else we have 2 possible choices, either add + to this number or add - to this number
-        int totalWaysPossible = findTargetSumWays2(nums, i + 1, sum + nums[i], target, memo, offset)
-                + findTargetSumWays2(nums, i + 1, sum - nums[i], target, memo, offset);
-
+        // else we have 2 possible choices, either add + to this number or add (-)to this number,
         // but before return, we will set the dp cell value
-        memo[i][sum + offset] = totalWaysPossible;
-        return totalWaysPossible;
+        return dp[i][sum + offset] =
+                findTargetSumWays2(nums, i + 1, sum + nums[i], target, dp, offset)
+                        + findTargetSumWays2(nums, i + 1, sum - nums[i], target, dp, offset);
     }
 
 

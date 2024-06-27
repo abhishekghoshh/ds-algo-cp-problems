@@ -7,7 +7,9 @@ package com.problems.dp;
  * Solution link :
  * https://www.youtube.com/watch?v=823Grn4_dCQ&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=24
  * https://www.youtube.com/watch?v=VDhRg-ZJTuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=28
- * 
+ *
+ * https://www.youtube.com/watch?v=xElxAuBcvsU&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=32
+ * https://takeuforward.org/data-structure/shortest-common-supersequence-dp-31/
  */
 public class ShortestCommonSuperSequence {
 	public static void main(String[] args) {

@@ -32,6 +32,30 @@ public class Knapsack {
 		type3();
 		type4();
 		type5();
+		type6();
+	}
+
+	// some more space optimized than the previous
+	private static void type6() {
+		int[] wt = {1, 3, 4, 5, 9, 12};
+		int[] val = {1, 4, 5, 7, 12, 16};
+		int n = val.length;
+		int W = 13;
+		// we will store all the profits in memo
+		int[] dp = new int[W + 1];
+
+		// initialization isn't needed as the default value is 0 in an int array
+
+		for (int i = 0; i < n; i++) {
+			int cw = wt[i]; // current weight
+			int cv = val[i]; // current value
+			// starting from last, we will go till the current weight,
+			// then we will no longer need to use it in the if else
+			for (int w = W; w >= cw; w--)
+				dp[w] = Math.max(cv + dp[w - cw], dp[w]);
+		}
+		int profit = dp[W];
+		System.out.println(profit);
 	}
 
 	// further space optimization

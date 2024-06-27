@@ -85,8 +85,8 @@ public class PrintUtl {
         }
     }
 
-    public static void print(boolean[][] board) {
-        for (boolean[] row : board) {
+    public static void print(boolean[][] grid) {
+        for (boolean[] row : grid) {
             for (boolean item : row) {
                 System.out.print(item + " ");
             }

@@ -1,12 +1,11 @@
 package com.problems.dp;
 
-import com.util.PrintUtl;
-
 import java.util.Arrays;
 
 /*
  * Problem link :
  * https://leetcode.com/problems/longest-common-subsequence/
+ * https://www.naukri.com/code360/problems/longest-common-subsequence_624879
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=4dMlCZTONj8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=18
@@ -15,6 +14,9 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=hR3s9rGlMTU&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=21
  *
  * https://www.youtube.com/watch?v=Ua0GhsJSlWM
+ *
+ * https://www.youtube.com/watch?v=NPZn9jBrX8U&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=26
+ * https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/
  */
 public class LongestCommonSubsequence {
 
@@ -25,7 +27,8 @@ public class LongestCommonSubsequence {
 		type4();
 	}
 
-	// 1D array
+	// Tabulation with a memory optimization
+	// two 1D array for storing the current row and previous row
 	private static void type4() {
 		String text1 = "abacab";
 		String text2 = "cab";
@@ -40,16 +43,22 @@ public class LongestCommonSubsequence {
 		char[] s1 = text1.toCharArray();
 		char[] s2 = text2.toCharArray();
 
+		int n1 = s1.length, n2 = s2.length;
 		// prev is dp[i-1] and curr is dp[i]
-		int[] prev = new int[s2.length + 1];
+		int[] prev = new int[n2 + 1];
 
 		// it is exactly similar to the last type just here we are creating an array everytime
 		// for processing the current row
-		for (int i = 1; i <= s1.length; i++) {
-			int[] curr = new int[prev.length];
-			for (int j = 1; j <= s2.length; j++) {
-				if (s1[i - 1] == s2[j - 1]) curr[j] = 1 + prev[j - 1];
-				else curr[j] = Math.max(prev[j], curr[j - 1]);
+		for (int i = 1; i <= n1; i++) {
+			int[] curr = new int[n2];
+			for (int j = 1; j <= n2; j++) {
+				if (s1[i - 1] == s2[j - 1])
+					curr[j] = 1 + prev[j - 1];
+				else
+					curr[j] = Math.max(
+							prev[j],
+							curr[j - 1]
+					);
 			}
 			// assigning the dp array
 			prev = curr;
@@ -75,7 +84,10 @@ public class LongestCommonSubsequence {
 					dp[i][j] = 1 + dp[i - 1][j - 1];
 				else
 					// else we take the max from the 2 choices
-					dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+					dp[i][j] = Math.max(
+							dp[i - 1][j],
+							dp[i][j - 1]
+					);
 
 		int count = dp[n1][n2];
 		System.out.println(count);
@@ -93,29 +105,32 @@ public class LongestCommonSubsequence {
 		int n2 = text2.length();
 		int[][] memo = new int[n1 + 1][n2 + 1];
 		for (int[] row : memo) Arrays.fill(row, -1);
-		return longestCommonSubsequence2(text1, text2, n1, n2, memo);
+		return lcs2(text1, text2, n1, n2, memo);
 	}
 
-	private static int longestCommonSubsequence2(String s1, String s2, int n1, int n2, int[][] memo) {
+	private static int lcs2(String s1, String s2, int n1, int n2, int[][] dp) {
 		// if one of the string len is 0, then we will return 0
 		if (n1 == 0 || n2 == 0) return 0;
 		// if the cell has the value, then we will return the value
-		if (memo[n1][n2] != -1) return memo[n1][n2];
+		if (dp[n1][n2] != -1) return dp[n1][n2];
 
 		// if the last character is the same, then we will call the recursion with n1-1 and n2-1
 		if (s1.charAt(n1 - 1) == s2.charAt(n2 - 1))
-			memo[n1][n2] = 1 + longestCommonSubsequence2(s1, s2, n1 - 1, n2 - 1, memo);
-		else
-			// else we have two choices, first consider the last char of the first string and then consider
-			// the second string and take max among them
-			memo[n1][n2] = Math.max(
-					longestCommonSubsequence2(s1, s2, n1, n2 - 1, memo),
-					longestCommonSubsequence2(s1, s2, n1 - 1, n2, memo)
+			return dp[n1][n2] = 1 + lcs2(s1, s2, n1 - 1, n2 - 1, dp);
+		// else we have two choices, first consider the last char of the first string and then consider
+		// the second string and take max among them
+		return dp[n1][n2] = Math.max(
+				lcs2(s1, s2, n1, n2 - 1, dp),
+				lcs2(s1, s2, n1 - 1, n2, dp)
 			);
-		return memo[n1][n2];
 	}
 
 
+	// We will use simple recursion
+	// with an intuition that, if the last char is same, then we will add 1 and check for 1 less character string
+	// for both of the strings.
+	// If the last character does not match, then we will have 2 choices.
+	// 1. s1-1 and s2 and 2. s1 and s2-1 string.
 	private static void type1() {
 		String s1 = "xabcma";
 		String s2 = "abcda";
@@ -124,22 +139,20 @@ public class LongestCommonSubsequence {
 	}
 
 	public static int longestCommonSubsequence1(String text1, String text2) {
-		return longestCommonSubsequence1(text1, text2, text1.length(), text2.length());
+		return lcs1(text1, text2, text1.length(), text2.length());
 	}
 
-	private static int longestCommonSubsequence1(String s1, String s2, int n1, int n2) {
+	private static int lcs1(String s1, String s2, int n1, int n2) {
 		// if one of the string len is 0, then we will return 0
 		if (n1 == 0 || n2 == 0) return 0;
-
 		// if the last character is the same, then we will call the recursion with n1-1 and n2-1
 		if (s1.charAt(n1 - 1) == s2.charAt(n2 - 1))
-			return 1 + longestCommonSubsequence1(s1, s2, n1 - 1, n2 - 1);
-		else
-			// else we have two choices, first consider the last char of the first string and then consider
-			// the second string and take max among them
-			return Math.max(
-					longestCommonSubsequence1(s1, s2, n1, n2 - 1),
-					longestCommonSubsequence1(s1, s2, n1 - 1, n2)
+			return 1 + lcs1(s1, s2, n1 - 1, n2 - 1);
+		// else we have two choices, first consider the last char of the first string and then consider
+		// the second string and take max among them
+		return Math.max(
+				lcs1(s1, s2, n1, n2 - 1),
+				lcs1(s1, s2, n1 - 1, n2)
 			);
 
 	}
