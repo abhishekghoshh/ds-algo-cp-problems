@@ -770,6 +770,7 @@
   - [Level wise order Traversal](/src/com/problems/binarytree/LevelWiseOrderTraversal.java)
   - [Preorder Inorder Postorder Traversals in One Traversal](/src/com/problems/binarytree/PreorderInorderAndPostorderTraversalInOneTraversal.java)
   - [Height of a Binary Tree/Maximum Depth of Binary Tree](/src/com/problems/binarytree/HeightOfBinaryTree.java)
+  - [Second minimum value in the binary tree](/src/com/problems/binarytree/SecondMinimumValueInBinaryTree.java)
   - [Check if the Binary Tree is Balanced Binary Tree](/src/com/problems/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
   - [Diameter of a Binary Tree](/src/com/problems/binarytree/DiameterOfBinaryTree.java)
   - [Maximum Sum Path in Binary Tree](/src/com/problems/binarytree/MaximumPathSumBinaryTree.java)
