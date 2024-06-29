@@ -787,7 +787,7 @@
   - [Lowest Common Ancestor of a Binary Tree](/src/com/problems/binarytree/LowestCommonAncestorOfBinaryTree.java)
   - [Maximum Width of Binary Tree](/src/com/problems/binarytree/MaximumWidthOfBinaryTree.java)
   - [Children Sum Property in a Binary Tree](/src/com/problems/binarytree/ChildrenSumProperty.java)
-  - [Nodes at Distance K in a Binary Tree](/src/com/problems/binarytree/NodesAtDistanceKFromTargetNodeInABinaryTree.java)
+  - [Nodes at Distance K in a Binary Tree](/src/com/problems/binarytree/NodesAtDistanceK.java)
   - [Minimum time taken to BURN the Binary Tree from a Node](/src/com/problems/binarytree/MinimumTimeTakenToBurnDownBinaryTree.java)
   - [Count Complete Tree Nodes in a Binary Tree](/src/com/problems/binarytree/CountTotalNodeInCompleteBinaryTree.java)
   - [Requirements needed to construct a Unique Binary Tree / Theory](/src/com/problems/binarytree/RequirementsNeededToConstructUniqueBinaryTree.java)
