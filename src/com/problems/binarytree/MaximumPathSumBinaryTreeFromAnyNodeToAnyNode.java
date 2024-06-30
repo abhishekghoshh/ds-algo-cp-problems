@@ -14,7 +14,7 @@ import com.ds.binarytree.TNode;
  * 
  * https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/
  * */
-public class MaximumPathSumBinaryTree {
+public class MaximumPathSumBinaryTreeFromAnyNodeToAnyNode {
 
 	// A path in a binary tree is a sequence of nodes where each pair of adjacent
 	// nodes in the sequence has an edge connecting them. A node can only appear in
