@@ -519,6 +519,7 @@
   - [N Digit numbers with digits in increasing order](/src/com/problems/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
   - [Print all word breaks](/src/com/problems/recursion/PrintAllWordBreaks.java)
   - [Josephus problem](/src/com/problems/recursion/JosephusProblem.java)
+  - [Parsing A Boolean Expression](/src/com/problems/recursion/ParsingABooleanExpression.java)
 
 
 ### stack
@@ -738,6 +739,9 @@
     - [Longest Increasing Subsequence](/src/com/problems/dp/LongestIncreasingSubsequence.java)
     - [Printing Longest Increasing Subsequence](/src/com/problems/dp/PrintingLongestIncreasingSubsequence.java)
     - [Largest Divisible Subset](/src/com/problems/dp/LargestDivisibleSubset.java)
+    - [Longest String Chain](/src/com/problems/dp/LongestStringChain.java)
+    - [Longest Bitonic Subsequence](/src/com/problems/dp/LongestBitonicSubsequence.java)
+    - [Number of Longest Increasing Subsequences](/src/com/problems/dp/NumberOfLongestIncreasingSubsequence.java)
     - [Maximum Total Damage With Spell Casting](/src/com/problems/dp/MaximumTotalDamageWithSpellCasting.java)
   - **DP on stocks**
     - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
@@ -748,10 +752,16 @@
     - [Best Time to Buy and Sell Stock with Transaction Fee](/src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
   - **Matrix chain multiplication**
     - [Matrix chain multiplication](/src/com/problems/dp/MatrixChainMultiplication.java)
+    - [Minimum cost to Cut the Stick](/src/com/problems/dp/MinimumCostToCutTheStick.java)
+    - [Bust Balloons](/src/com/problems/dp/BustBalloons.java)
     - [Palindrome partitioning](/src/com/problems/dp/PalindromePartitioning.java)
+    - [Partition Array for Maximum Sum](/src/com/problems/dp/PartitionArrayForMaximumSum.java)
     - [Evaluate expression to True](/src/com/problems/dp/EvaluateExpressionToTrue.java)
     - [Scrambled String](/src/com/problems/dp/ScrambledString.java)
     - [Egg dropping](/src/com/problems/dp/EggDropping.java)
+  - **DP on squares**
+    - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
+    - [Count Square Sub matrices with All Ones](/src/com/problems/dp/CountSquareSubmatricesWithAllOnes.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)

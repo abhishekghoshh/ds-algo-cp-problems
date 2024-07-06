@@ -6,12 +6,18 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/maximal-rectangle
- * https://www.codingninjas.com/studio/problems/maximum-size-rectangle-sub-matrix-with-all-1's_893017
+ * https://www.naukri.com/code360/problems/maximum-size-rectangle-sub-matrix-with-all-1's_893017
  * 
  * Solution link :
+ * Aditya Verma
  * https://www.youtube.com/watch?v=St0Jf_VmG_g&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=8
- * 
+ *
+ * Striver
+ * https://www.youtube.com/watch?v=tOylVCugy9k&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=56
+ * https://takeuforward.org/data-structure/maximum-rectangle-area-with-all-1s-dp-on-rectangles-dp-55/
  * */
+
+// Topics: Stack, Dynamic Programming
 public class MaxRectangularAreaOfBinaryMatrix {
 	public static void main(String[] args) {
 		type1();

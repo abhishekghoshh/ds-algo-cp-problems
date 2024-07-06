@@ -5,12 +5,16 @@ import java.util.Arrays;
 /*
  * Problem link :
  * https://leetcode.com/problems/palindrome-partitioning-ii/
+ * https://www.naukri.com/code360/problems/palindrome-partitioning_873266
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=35
  * https://www.youtube.com/watch?v=fOUlNlawdAU&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=36
  * https://www.youtube.com/watch?v=9h10fqkI7Nk&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=37
- * 
+ *
+ * Striver:
+ * https://www.youtube.com/watch?v=_H8V5hJUGd0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=54
+ * https://takeuforward.org/data-structure/palindrome-partitioning-ii-front-partition-dp-53/
  */
 public class PalindromePartitioning {
 	public static void main(String[] args) {
@@ -93,6 +97,7 @@ public class PalindromePartitioning {
 	}
 
 	// TODO check it one more time
+	// it is called front partition
 	// We know that in the worst case, total cuts=(n-1) i.e., size -1,
 	// checking only if the 1st part is Palindrome (then it gives zero cuts, else gives k-1 cuts at that
 	// particular point), then check for the other part by calling solve function
@@ -112,24 +117,23 @@ public class PalindromePartitioning {
 		return minCostOptimized(arr, 0, n - 1, memo);
 	}
 
-	private static int minCostOptimized(char[] arr, int i, int j, int[][] memo) {
+	private static int minCostOptimized(char[] arr, int i, int j, int[][] dp) {
 		// if it is a single character, then it is always a palindrome
 		if (i >= j) return 0;
 		// return if the recursion call is already memoized
-		if (memo[i][j] != -1) return memo[i][j];
+		if (dp[i][j] != -1) return dp[i][j];
 		// if it is already a palindrome, then we do not need to partition it
 		// we will also save if it is a palindrome in the memo
-		if (isPalindrome(arr, i, j)) return memo[i][j] = 0;
+		if (isPalindrome(arr, i, j)) return dp[i][j] = 0;
 
 		int min = Integer.MAX_VALUE;
 		for (int k = i; k < j; k++) {
 			if (isPalindrome(arr, i, k)) {
-				int cost = 1 + minCostOptimized(arr, k + 1, j, memo);
+				int cost = 1 + minCostOptimized(arr, k + 1, j, dp);
 				min = Math.min(min, cost);
 			}
 		}
-		memo[i][j] = min;
-		return min;
+		return dp[i][j] = min;
 	}
 
 	// memoized recursion code
@@ -144,28 +148,28 @@ public class PalindromePartitioning {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
 		if (isPalindrome(arr, 0, n - 1)) return 0;
-		int[][] memo = new int[n + 1][n + 1];
-		for (int[] row : memo) Arrays.fill(row, -1);
-		return minCost(arr, 0, n - 1, memo);
+		int[][] dp = new int[n + 1][n + 1];
+		for (int[] row : dp) Arrays.fill(row, -1);
+		return minCost(arr, 0, n - 1, dp);
 	}
 
-	private static int minCost(char[] str, int i, int j, int[][] memo) {
+	private static int minCost(char[] str, int i, int j, int[][] dp) {
 		// if it is a single character, then it is always a palindrome
 		if (i >= j) return 0;
 		// return if the recursion call is already memoized
-		if (memo[i][j] != -1) return memo[i][j];
+		if (dp[i][j] != -1) return dp[i][j];
 		// if it is already a palindrome, then we do not need to partition it
-		if (isPalindrome(str, i, j)) return memo[i][j] = 0;
+		if (isPalindrome(str, i, j)) return dp[i][j] = 0;
 
 		int min = Integer.MAX_VALUE;
 		for (int k = i; k < j; k++) {
 			// on every character we will try to break the string and find the cost
-			int cost = 1 + minCost(str, i, k, memo) + minCost(str, k + 1, j, memo);
+			int cost = 1 + minCost(str, i, k, dp) + minCost(str, k + 1, j, dp);
 			// we will update the min
 			if (min > cost) min = cost;
 		}
 		// before returning the answer, we will also save it
-		return memo[i][j] = min;
+		return dp[i][j] = min;
 	}
 
 	private static void type1() {
@@ -197,7 +201,9 @@ public class PalindromePartitioning {
 	}
 
 	private static boolean isPalindrome(char[] str, int i, int j) {
-		while (i < j) if (str[i++] != str[j--]) return false;
+		while (i < j)
+			if (str[i++] != str[j--])
+				return false;
 		return true;
 	}
 }
