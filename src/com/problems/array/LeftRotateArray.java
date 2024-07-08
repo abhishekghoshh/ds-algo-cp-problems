@@ -5,6 +5,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link : 
  * https://leetcode.com/problems/rotate-array/
+ * https://leetcode.com/contest/weekly-contest-405/problems/find-the-encrypted-string/
  * https://www.codingninjas.com/studio/problems/rotate-array_1230543
  *
  * Solution is :
@@ -18,6 +19,36 @@ public class LeftRotateArray {
 		type1();
 		type2();
 		type3();
+		type4();
+	}
+
+	// for rotating to the right, change the index of the reverse method
+	private static void type4() {
+		String s = "dart";
+		int k = 3;
+		String ans = getEncryptedString(s, k);
+		System.out.println(ans);
+	}
+
+	public static String getEncryptedString(String s, int k) {
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		if (n == 1) return s;
+		k = k % n;
+		reverse(arr, 0, n - 1);
+		reverse(arr, 0, n - k - 1);
+		reverse(arr, n - k, n - 1);
+		return new String(arr);
+	}
+
+	static void reverse(char[] arr, int start, int end) {
+		while (start < end) {
+			char temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
 	}
 
 	// time complexity O(2n)

@@ -762,6 +762,7 @@
   - **DP on squares**
     - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
     - [Count Square Sub matrices with All Ones](/src/com/problems/dp/CountSquareSubmatricesWithAllOnes.java)
+    - [Count Submatrices With Equal Frequency of X and Y](/src/com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)

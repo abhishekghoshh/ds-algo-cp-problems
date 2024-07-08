@@ -44,13 +44,15 @@ public class MatrixChainMultiplication {
 
 		// If we want to follow the recursion, then we have to do it from the last
 		// so that all the smaller dp[i][j] will be completed before the bigger one
+
+		// to follow the same recurrence relation, we will start the i from n-1 to 1
+		// the j value will be starting just after i, so j will be from i+1 to n-1
+		//
 		for (int i = n - 1; i >= 1; i--) {
 			for (int j = i + 1; j < n; j++) {
-				System.out.println("-----");
 				int min = Integer.MAX_VALUE;
-				// Partitioning loop to find the optimal split point
+				// then we will follow the same recurrence of the recursion code
 				for (int k = i; k <= j - 1; k++) {
-					System.out.println("i,k,j:" + i + "," + k + "," + j);
 					int operations = arr[i - 1] * arr[k] * arr[j]
 							+ dp[i][k]
 							+ dp[k + 1][j];
