@@ -94,7 +94,10 @@ public class PartitionArrayForMaximumSum {
         for (int j = i; j < Math.min(i + k, n); j++) {
             len++;
             maxNum = Math.max(maxNum, num[j]);
-            max = Math.max(max, len * maxNum + maxSumAfterPartitioning1(j + 1, num, k));
+            max = Math.max(
+                    max,
+                    len * maxNum + maxSumAfterPartitioning1(j + 1, num, k)
+            );
         }
         return max;
     }

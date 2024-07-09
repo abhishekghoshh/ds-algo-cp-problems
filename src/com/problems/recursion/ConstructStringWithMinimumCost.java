@@ -12,11 +12,16 @@ import java.util.List;
  *
  */
 public class ConstructStringWithMinimumCost {
+
+    // todo solve the problem later
     public static void main(String[] args) {
         type1();
     }
 
-    // this approach is right but getting TLE for this approach
+    // this approach is right, but getting TLE for this approach
+    // here, we are creating one list of same length words and then store it length wise map
+    //also we will sort the lists.
+    // then we will use an index to track and match the current string and target
     private static void type1() {
         String target = "rrhrzfmk";
         String[] words = {"r", "rz", "k", "rhrzfmk"};
