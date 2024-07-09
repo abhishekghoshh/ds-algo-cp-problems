@@ -2,7 +2,7 @@ package com.problems.dp;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/construct-string-with-minimum-cost
+ * https://leetcode.com/problems/count-submatrices-with-equal-frequency-of-x-and-y/description/
  *
  * Solution link :
  *

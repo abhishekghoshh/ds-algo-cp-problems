@@ -25,6 +25,7 @@ public class EvaluateExpressionToTrue {
 		type1();
 		type2();
 		type3();
+		type4();
 	}
 
 	// TODO top-down approach
@@ -34,7 +35,7 @@ public class EvaluateExpressionToTrue {
 	// our final answer.
 	// O(N^2), where N is the length of the given string.
 	// As a 3-D array of size N * N * 2 is being used.
-	private static void type3() {
+	private static void type4() {
 		String expr = "T|T&F^T";
 		int n = expr.length();
 		char[] arr = expr.toCharArray();
@@ -82,7 +83,58 @@ public class EvaluateExpressionToTrue {
 		System.out.println(countWays);
 	}
 
+	// we can translate the previous recursion into iteration
+	private static void type3() {
+		String expr = "T|T&F^T";
+		int n = expr.length();
+		char[] arr = expr.toCharArray();
+		// last dimension for storing both true and false to result
+		// 1 for true and 0 for false
+		long[][][] dp = new long[n][n][2];
+		// Initialization
+		// initializing for the single length characters
+		for (int i = 0; i < n; i++) {
+			// if the char is T, then we will keep the 1st cell as 1, or we will keep oth cell as 1
+			if (arr[i] == 'T') dp[i][i][1] = 1;
+			else if (arr[i] == 'F') dp[i][i][0] = 1;
 
+		}
+
+		for (int start = n - 1; start >= 0; start--) {
+			for (int end = start + 1; end <= n - 1; end++) {
+				for (int k = start + 1; k <= end - 1; k += 2) {
+					long leftTrue = dp[start][k - 1][1];
+					long leftFalse = dp[start][k - 1][0];
+					long rightTrue = dp[k + 1][end][1];
+					long rightFalse = dp[k + 1][end][0];
+					if (arr[k] == '|') {
+						// T | T = T, T | F = T, F | T = T , F | F = F.
+						dp[start][end][1] += leftTrue * rightTrue +
+								leftTrue * rightFalse +
+								leftFalse * rightTrue;
+						dp[start][end][0] += leftFalse * rightFalse;
+
+					} else if (arr[k] == '&') {
+						// if the operator between left and right side is 'AND'
+						// T & T = T, T & F = F, F & T = F , F | F = F.
+						dp[start][end][1] += leftTrue * rightTrue;
+						dp[start][end][0] += leftTrue * rightFalse +
+								leftFalse * rightTrue +
+								leftFalse * rightFalse;
+					} else {
+						// if the operator between left and right side is 'XOR'
+						// T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
+						dp[start][end][1] += leftTrue * rightFalse +
+								leftFalse * rightTrue;
+						dp[start][end][0] += leftTrue * rightTrue +
+								leftFalse * rightFalse;
+					}
+				}
+			}
+		}
+		long countWays = dp[0][n - 1][1];
+		System.out.println(countWays);
+	}
 
 	// memoization
 	private static void type2() {

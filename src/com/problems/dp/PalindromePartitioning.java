@@ -1,7 +1,5 @@
 package com.problems.dp;
 
-import java.util.Arrays;
-
 /*
  * Problem link :
  * https://leetcode.com/problems/palindrome-partitioning-ii/
@@ -20,87 +18,103 @@ public class PalindromePartitioning {
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
-		type4();
-		type5();
 	}
 
-	// same as previous with some modification
-	// todo check it later one more time
+	// similar to the previous type, but here we will precompute
+	// all the palindrome possible beforehand.
+	// we will use simple trick to calculate that
+	// string(i,j) will be palindrome when arr[i] == arr[j] and
+	// string(i+1,j-1) will be palindrome
 	private static void type5() {
 		String str = "xnitinjk";
 		int minCost = minCut5(str);
 		System.out.println(minCost);
 	}
 
-	private static int minCut5(String s) {
-		char[] c = s.toCharArray();
-		int n = c.length;
-		int[] cut = new int[n];
+	public static int minCut5(String s) {
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		// we will pre-calculate all the palindrome before the actual computation
 		boolean[][] pal = new boolean[n][n];
 
-		for (int i = 0; i < n; i++) {
-			int min = i;
-			for (int j = 0; j <= i; j++) {
-				if (c[j] == c[i] && (j + 1 > i - 1 || pal[j + 1][i - 1])) {
-					pal[j][i] = true;
-					min = j == 0 ? 0 : Math.min(min, cut[j - 1] + 1);
+		// Fill the palindrome table
+		// first all single characters
+		for (int i = 0; i < n; i++) pal[i][i] = true;
+
+		// then two length characters
+		for (int i = 0; i < n - 1; i++)
+			pal[i][i + 1] = arr[i] == arr[i + 1];
+
+		// then we will check for all length characters strings from 3
+		for (int d = 3; d <= n; d++) {
+			for (int start = 0; start <= n - d; start++) {
+				// finding the last character index
+				int end = start + d - 1;
+				//  string(i,j) will be palindrome when arr[i] == arr[j] and string(i+1,j-1) will be palindrome
+				pal[start][end] = (arr[start] == arr[end])
+						&& pal[start + 1][end - 1];
+			}
+		}
+		// now this portion is exactly same as the previous
+		// Calculate minimum cuts
+		// now with O(n^2) loop we will try to find all the cuts possible
+		int[] dp = new int[n + 1];
+		dp[n] = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			// checking if i to n-1 is palindrome or not
+			if (pal[i][n - 1]) {
+				dp[i] = 0;
+				continue;
+			}
+			// if not then we will break it
+			int minCost = Integer.MAX_VALUE;
+			for (int j = i; j < n; j++) {
+				if (pal[i][j]) {
+					int cost = 1 + dp[j + 1];
+					minCost = Math.min(minCost, cost);
 				}
 			}
-			cut[i] = min;
+			dp[i] = minCost;
 		}
-		return cut[n - 1];
+		return dp[0];
 	}
 
-	// let's do it in a different way, but using dp only
-	// first we will calculate all the palindromic substring
-	// then only we will try to find the cuts needed
+
+	// optimizing from the previous type
+	// same as the recursive code
 	private static void type4() {
 		String str = "xnitinjk";
 		int minCost = minCut4(str);
 		System.out.println(minCost);
 	}
 
-	public static int minCut4(String s) {
-		int n = s.length();
-		boolean[][] palindrome = new boolean[n][n];
-
-		// Fill the palindrome table
-		// first all single characters
-		for (int i = 0; i < n; i++) palindrome[i][i] = true;
-
-		// then two length characters
-		for (int i = 0; i < n - 1; i++)
-			palindrome[i][i + 1] = (s.charAt(i) == s.charAt(i + 1));
-
-		// then we will check for all length characters strings from 3
-		for (int length = 3; length <= n; length++) {
-			for (int i = 0; i <= n - length; i++) {
-				int j = i + length - 1;
-				palindrome[i][j] = (s.charAt(i) == s.charAt(j)) && palindrome[i + 1][j - 1];
+	// converting the recursive code into iterative
+	private static int minCut4(String str) {
+		char[] arr = str.toCharArray();
+		int n = arr.length;
+		int[] dp = new int[n + 1];
+		dp[n] = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			// checking if i to n-1 is palindrome or not
+			if (isPalindrome(arr, i, n - 1)) {
+				dp[i] = 0;
+				continue;
 			}
-		}
-
-		// Calculate minimum cuts
-		// now with O(n^2) loop we will try to find all the cuts possible
-		int[] cuts = new int[n];
-		for (int i = 0; i < n; i++) {
-			int minCut = i;
-			for (int j = 0; j <= i; j++) {
-				if (palindrome[j][i])
-					minCut = (j == 0) ? 0 : Math.min(minCut, cuts[j - 1] + 1);
+			// if not then we will break it
+			int minCost = Integer.MAX_VALUE;
+			for (int j = i; j < n; j++) {
+				if (isPalindrome(arr, i, j)) {
+					int cost = 1 + dp[j + 1];
+					minCost = Math.min(minCost, cost);
+				}
 			}
-			cuts[i] = minCut;
+			dp[i] = minCost;
 		}
-
-		return cuts[n - 1];
+		return dp[0];
 	}
 
-	// TODO check it one more time
-	// it is called front partition
-	// We know that in the worst case, total cuts=(n-1) i.e., size -1,
-	// checking only if the 1st part is Palindrome (then it gives zero cuts, else gives k-1 cuts at that
-	// particular point), then check for the other part by calling solve function
+
+	// recursion with memoization
 	private static void type3() {
 		String str = "xnitinjk";
 		int minCost = minCut3(str);
@@ -110,34 +124,36 @@ public class PalindromePartitioning {
 	public static int minCut3(String str) {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
-		// early optimization
-		if (isPalindrome(arr, 0, n - 1)) return 0;
-		int[][] memo = new int[n + 1][n + 1];
-		for (int[] row : memo) Arrays.fill(row, -1);
-		return minCostOptimized(arr, 0, n - 1, memo);
+		int[] dp = new int[n];
+		return minCost3(arr, 0, n, dp);
 	}
 
-	private static int minCostOptimized(char[] arr, int i, int j, int[][] dp) {
-		// if it is a single character, then it is always a palindrome
-		if (i >= j) return 0;
-		// return if the recursion call is already memoized
-		if (dp[i][j] != -1) return dp[i][j];
+	private static int minCost3(char[] arr, int i, int n, int[] dp) {
+		if (i == n) return 0;
 		// if it is already a palindrome, then we do not need to partition it
 		// we will also save if it is a palindrome in the memo
-		if (isPalindrome(arr, i, j)) return dp[i][j] = 0;
+		if (isPalindrome(arr, i, n - 1)) return dp[i] = 0;
 
+		if (dp[i] != 0) return dp[i];
+		// otherwise we will split the string
 		int min = Integer.MAX_VALUE;
-		for (int k = i; k < j; k++) {
-			if (isPalindrome(arr, i, k)) {
-				int cost = 1 + minCostOptimized(arr, k + 1, j, dp);
+		for (int j = i; j < n; j++) {
+			// from the start we will check if it is a palindrome or not
+			// if yes, then only we will check for the remaining string
+			// which is valid because why should we waste recursion calls
+			if (isPalindrome(arr, i, j)) {
+				int cost = 1 + minCost3(arr, j + 1, n, dp);
 				min = Math.min(min, cost);
 			}
 		}
-		return dp[i][j] = min;
+		return dp[i] = min;
 	}
 
-	// memoized recursion code
-	// it will throw TLE in leetcode
+
+	// it is called front partition
+	// We know that in the worst case, total cuts=(n-1) i.e., size -1.
+	// checking only if the 1st part is Palindrome (then it gives zero cuts, else gives k-1 cuts at that
+	// particular point), then check for the other part by calling solve function
 	private static void type2() {
 		String str = "xnitinjk";
 		int minCost = minCut2(str);
@@ -147,44 +163,42 @@ public class PalindromePartitioning {
 	public static int minCut2(String str) {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
-		if (isPalindrome(arr, 0, n - 1)) return 0;
-		int[][] dp = new int[n + 1][n + 1];
-		for (int[] row : dp) Arrays.fill(row, -1);
-		return minCost(arr, 0, n - 1, dp);
+		return minCost2(arr, 0, n);
 	}
 
-	private static int minCost(char[] str, int i, int j, int[][] dp) {
-		// if it is a single character, then it is always a palindrome
-		if (i >= j) return 0;
-		// return if the recursion call is already memoized
-		if (dp[i][j] != -1) return dp[i][j];
+	private static int minCost2(char[] arr, int i, int n) {
+		if (i == n) return 0;
 		// if it is already a palindrome, then we do not need to partition it
-		if (isPalindrome(str, i, j)) return dp[i][j] = 0;
-
+		// we will also save if it is a palindrome in the memo
+		if (isPalindrome(arr, i, n - 1)) return 0;
+		// otherwise we will split the string
 		int min = Integer.MAX_VALUE;
-		for (int k = i; k < j; k++) {
-			// on every character we will try to break the string and find the cost
-			int cost = 1 + minCost(str, i, k, dp) + minCost(str, k + 1, j, dp);
-			// we will update the min
-			if (min > cost) min = cost;
+		for (int j = i; j < n; j++) {
+			// from the start we will check if it is a palindrome or not
+			// if yes, then only we will check for the remaining string
+			// which is valid because why should we waste recursion calls
+			if (isPalindrome(arr, i, j)) {
+				int cost = 1 + minCost2(arr, j + 1, n);
+				min = Math.min(min, cost);
+			}
 		}
-		// before returning the answer, we will also save it
-		return dp[i][j] = min;
+		return min;
 	}
 
+
+	// using recursion
+	// brute force approach
 	private static void type1() {
 		String str = "xnitinjk";
-		int minCost = minCut1(str);
+		char[] arr = str.toCharArray();
+		int n = arr.length;
+		int minCost = minCost1(arr, 0, n - 1);
 		System.out.println(minCost);
 	}
 
-	public static int minCut1(String s) {
-		char[] arr = s.toCharArray();
-		int n = arr.length;
-		return minCost(arr, 0, n - 1);
-	}
-
-	private static int minCost(char[] str, int i, int j) {
+	// we will try to split the string by every index
+	// but before that we will check if the current
+	private static int minCost1(char[] str, int i, int j) {
 		// if it is a single character, then it is always a palindrome
 		if (i >= j) return 0;
 		// if it is already a palindrome, then we do not need to partition it
@@ -193,13 +207,14 @@ public class PalindromePartitioning {
 		int min = Integer.MAX_VALUE;
 		for (int k = i; k < j; k++) {
 			// on every character we will try to break the string and find the cost
-			int cost = 1 + minCost(str, i, k) + minCost(str, k + 1, j);
+			int cost = 1 + minCost1(str, i, k) + minCost1(str, k + 1, j);
 			// we will update the min
-			if (min > cost) min = cost;
+			min = Math.min(min, cost);
 		}
 		return min;
 	}
 
+	// checking that the current string is palindrome or not
 	private static boolean isPalindrome(char[] str, int i, int j) {
 		while (i < j)
 			if (str[i++] != str[j--])
