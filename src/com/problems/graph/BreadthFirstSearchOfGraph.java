@@ -33,13 +33,17 @@ public class BreadthFirstSearchOfGraph {
 		int v = 5;
 
 		ArrayList<Integer> bfsOfGraph = new ArrayList<>();
+		// using a visited array to mark the current node is visited or not
 		boolean[] visited = new boolean[v];
 		Queue<Integer> queue = new LinkedList<>();
 
+		// setting the 0th node as the first node
 		visited[0] = true;
 		queue.offer(0);
 		bfsOfGraph.add(0);
 
+		// we will go to all connected nodes and store it to the queue.
+		// and the queue will make sure that the current level is exhausted first
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
 			for (int end : adjList.get(start)) {
@@ -64,13 +68,17 @@ public class BreadthFirstSearchOfGraph {
 				{0, 0, 1, 0, 0}
 		};
 		ArrayList<Integer> bfsOfGraph = new ArrayList<>();
+		// using a visited array to mark the current node is visited or not
 		boolean[] visited = new boolean[v];
 		Queue<Integer> queue = new LinkedList<>();
 
+		// setting the 0th node as the first node
 		visited[0] = true;
 		queue.offer(0);
 		bfsOfGraph.add(0);
 
+		// we will go to all connected nodes and store it to the queue.
+		// and the queue will make sure that the current level is exhausted first
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
 			for (int end = 0; end < v; end++) {

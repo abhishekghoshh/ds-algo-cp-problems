@@ -646,7 +646,7 @@
 ### prime
 
 - **resources**
-  - [Prime numbers by striver / CodeBeyond](https://www.youtube.com/watch?v=FcsUvBywY1U&list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i )
+  - [Prime numbers by striver / CodeBeyond](https://www.youtube.com/watch?v=FcsUvBywY1U&list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i)
 
 - **codes**
   - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)

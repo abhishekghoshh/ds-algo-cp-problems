@@ -49,7 +49,8 @@ public class ConnectedComponents {
 		System.out.println(component);
 	}
 
-	private static void dfs(int start, boolean[] visited, ArrayList<ArrayList<Integer>> adjList) {
+	private static void dfs(int start, boolean[] visited,
+							ArrayList<ArrayList<Integer>> adjList) {
 		// we will set the visited true when operating on it
 		visited[start] = true;
 		for (int end : adjList.get(start))
@@ -82,7 +83,9 @@ public class ConnectedComponents {
 		System.out.println(component);
 	}
 
-	private static void dfs(int start, boolean[] visited, int v, int[][] isConnected) {
+	// recursive function for dfs
+	private static void dfs(int start, boolean[] visited,
+							int v, int[][] isConnected) {
 		visited[start] = true;
 		for (int end = 0; end < v; end++)
 			if (start != end && isConnected[start][end] == 1 && !visited[end])

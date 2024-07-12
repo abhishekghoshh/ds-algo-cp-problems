@@ -23,6 +23,7 @@ public class DepthFirstSearchOfGraph {
 		type3();
 	}
 
+	// for adjacency list but
 	// using recursion stack
 	private static void type3() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
@@ -35,6 +36,7 @@ public class DepthFirstSearchOfGraph {
 
 		ArrayList<Integer> dfsOfGraph = new ArrayList<>();
 		boolean[] visited = new boolean[v];
+		// the recursion stack will make sure that we will go as deep as possible
 		dfs(0, dfsOfGraph, visited, adjList);
 		System.out.println(dfsOfGraph);
 	}
@@ -51,6 +53,7 @@ public class DepthFirstSearchOfGraph {
 		}
 	}
 
+	// for adjacency list
 	// using stack data structure
 	private static void type2() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
@@ -62,13 +65,16 @@ public class DepthFirstSearchOfGraph {
 		int v = 5;
 
 		ArrayList<Integer> dfsOfGraph = new ArrayList<>();
+		// unlike bfs, in bfs we will store the nodes in stack so that the last node added
+		// will be popped first, so rather going to level wise, it will go as deep as possible
 		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[v];
-
+		// adding 0 to the stack
 		stack.add(0);
 
 		while (!stack.isEmpty()) {
 			int start = stack.pop();
+			// at the time of visiting only we will make it visited and add it to the answer
 			// we will set the visited true when operating on it
 			visited[start] = true;
 			dfsOfGraph.add(start);
@@ -100,13 +106,17 @@ public class DepthFirstSearchOfGraph {
 		};
 
 		ArrayList<Integer> dfsOfGraph = new ArrayList<>();
+
+		// unlike bfs, in bfs we will store the nodes in stack so that the last node added
+		// will be popped first, so rather going to level wise, it will go as deep as possible
 		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[v];
-
+		// adding 0 to the stack
 		stack.add(0);
 
 		while (!stack.isEmpty()) {
 			int start = stack.pop();
+			// at the time of visiting only we will make it visited and add it to the answer
 			// we will set the visited true when operating on it
 			visited[start] = true;
 			dfsOfGraph.add(start);
