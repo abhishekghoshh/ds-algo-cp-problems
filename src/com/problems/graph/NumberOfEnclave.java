@@ -30,11 +30,16 @@ public class NumberOfEnclave {
 		int m = grid.length, n = grid[0].length;
 
 		// visit the boundaries and change the cell value with 0
+
+		// first column and last column
 		for (int i = 0; i < m; i++) {
+			// we will start for all the cells but in the dfs call it will only go deep if the cell is 1
 			dfs(grid, i, 0);
 			dfs(grid, i, n - 1);
 		}
+		// first row and last row
 		for (int j = 0; j < n; j++) {
+			// we will start for all the cells but in the dfs call it will only go deep if the cell is 1
 			dfs(grid, 0, j);
 			dfs(grid, m - 1, j);
 		}
@@ -51,13 +56,15 @@ public class NumberOfEnclave {
 
 	// once any cell is visited, we are changing the cell to 1
 	private static void dfs(int[][] grid, int i, int j) {
-		if (isNotInBoundary(i, j, grid) || grid[i][j] == 0) return;
-		// mark that is visited
-		grid[i][j] = 0;
-		dfs(grid, i + 1, j);
-		dfs(grid, i - 1, j);
-		dfs(grid, i, j + 1);
-		dfs(grid, i, j - 1);
+		// if the cell is not visited and the cell is having 1, then we can start dfs again
+		if (isInBounds(grid, i, j) && grid[i][j] == 1) {
+			// mark that is visited by making it 0 from 1
+			grid[i][j] = 0;
+			dfs(grid, i + 1, j);
+			dfs(grid, i - 1, j);
+			dfs(grid, i, j + 1);
+			dfs(grid, i, j - 1);
+		}
 	}
 
 	private static boolean isNotInBoundary(int i, int j, int[][] grid) {
@@ -84,25 +91,34 @@ public class NumberOfEnclave {
 		boolean[][] visited = new boolean[m][n];
 
 		// visit the boundaries and mark the cells
+
+		// first column and last column
 		for (int i = 0; i < m; i++) {
+			// we will start for all the cells but in the dfs call it will only go deep if the cell is 1
 			dfs(i, 0, visited, grid);
 			dfs(i, n - 1, visited, grid);
 		}
+		// first row and last row
 		for (int j = 0; j < n; j++) {
+			// we will start for all the cells but in the dfs call it will only go deep if the cell is 1
 			dfs(0, j, visited, grid);
 			dfs(m - 1, j, visited, grid);
 		}
 
 		// if the cell is not visited and having one, then we cannot go outside from that cell
 		int count = 0;
+		// we will only check for the cell which are not in boundary
 		for (int i = 1; i < m - 1; i++)
 			for (int j = 1; j < n - 1; j++)
-				if (grid[i][j] == 1 && !visited[i][j]) count++;
+				// not visited and having cell
+				if (!visited[i][j] && grid[i][j] == 1)
+					count++;
 
 		System.out.println(count);
 	}
 
 	private static void dfs(int i, int j, boolean[][] visited, int[][] grid) {
+		// if the cell is not visited and the cell is having 1, then we can start bfs again
 		if (isInBounds(grid, i, j) && grid[i][j] == 1 && !visited[i][j]) {
 			visited[i][j] = true;
 			dfs(i + 1, j, visited, grid);

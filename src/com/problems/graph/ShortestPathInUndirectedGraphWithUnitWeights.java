@@ -1,4 +1,6 @@
-package graph;
+package com.problems.graph;
+
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -37,8 +39,18 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 	// from this we will visit all it's adjacent nodes and will update other nodes
 	// distance value
 	private static void type1() {
-		int[][] edges = { { 0, 1 }, { 0, 3 }, { 3, 4 }, { 4, 5 }, { 5, 6 }, { 1, 2 }, { 2, 6 }, { 6, 7 }, { 7, 8 },
-				{ 6, 8 } };
+		int[][] edges = {
+				{0, 1},
+				{0, 3},
+				{3, 4},
+				{4, 5},
+				{5, 6},
+				{1, 2},
+				{2, 6},
+				{6, 7},
+				{7, 8},
+				{6, 8}
+		};
 		int n = 9;
 		int m = 10;
 		int src = 0;
@@ -55,7 +67,7 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 //		}
 //		src = scanner.nextInt();
 
-		// transform the edges to corresponding undirected adjlist
+		// transform the edges to corresponding undirected adj list
 		List<List<Integer>> adjList = new ArrayList<>();
 		for (int i = 0; i < n; i++)
 			adjList.add(new ArrayList<>());
@@ -63,8 +75,6 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 			adjList.get(edge[0]).add(edge[1]);
 			adjList.get(edge[1]).add(edge[0]);
 		}
-
-//		System.out.println(adjList);
 
 		// initializing the distance array to infinity
 		int[] distance = new int[n];
@@ -98,13 +108,7 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 		for (int i = 0; i < n; i++)
 			if (distance[i] == Integer.MAX_VALUE)
 				distance[i] = -1;
-		print(distance);
-	}
-
-	private static void print(int[] distance) {
-		for (int item : distance)
-			System.out.print(item + " ");
-		System.out.println();
+		PrintUtl.print(distance);
 	}
 
 }

@@ -26,7 +26,18 @@ public class CycleDetectionInDirectedGraph {
 	//  we will use 0 as not visited, 1 as visited and 2 as the path visited
 	private static void type2() {
 		int v = 10;
-		List<List<Integer>> adjacencyList = adjacencyList();
+		List<List<Integer>> adjacencyList = List.of(
+				List.of(1),
+				List.of(2),
+				List.of(3, 6),
+				List.of(4),
+				List.of(5),
+				List.of(),
+				List.of(4),
+				List.of(8),
+				List.of(9),
+				List.of(7)
+		);
 		boolean hasCycle = isCyclic2(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
@@ -61,7 +72,18 @@ public class CycleDetectionInDirectedGraph {
 	//  Check one more time if it still confuses you
 	private static void type1() {
 		int v = 10;
-		List<List<Integer>> adjacencyList = adjacencyList();
+		List<List<Integer>> adjacencyList = List.of(
+				List.of(1),
+				List.of(2),
+				List.of(3, 6),
+				List.of(4),
+				List.of(5),
+				List.of(),
+				List.of(4),
+				List.of(8),
+				List.of(9),
+				List.of(7)
+		);
 		boolean hasCycle = isCyclic1(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
@@ -101,21 +123,6 @@ public class CycleDetectionInDirectedGraph {
 		// completed so the path from this node is traversed and no cycle found
 		pathVisited[start] = false;
 		return false;
-	}
-
-	private static List<List<Integer>> adjacencyList() {
-		return List.of(
-				List.of(1),
-				List.of(2),
-				List.of(3, 6),
-				List.of(4),
-				List.of(5),
-				List.of(),
-				List.of(4),
-				List.of(8),
-				List.of(9),
-				List.of(7)
-		);
 	}
 
 

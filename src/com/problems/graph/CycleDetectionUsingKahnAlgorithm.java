@@ -8,7 +8,8 @@ import static com.util.GraphUtil.graphBuilder;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/studio/problems/detect-cycle-in-a-directed-graph_1062626
+ * https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
+ * https://www.naukri.com/code360/problems/detect-cycle-in-a-directed-graph_1062626
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23
@@ -53,6 +54,7 @@ public class CycleDetectionUsingKahnAlgorithm {
 
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
+			// we will increase the current node size everytime we poll node from queue
 			size++;
 			for (int node : adjacencyList.get(start)) {
 				inDegree[node]--;
@@ -61,6 +63,8 @@ public class CycleDetectionUsingKahnAlgorithm {
 				if (inDegree[node] == 0) queue.offer(node);
 			}
 		}
+		// if node size is not v, then that means for some nodes it never went to in degree 0
+		// so we can say that the graph has a cycle
 		boolean hasCycle = size != v;
 		System.out.println("hasCycle " + hasCycle);
 	}

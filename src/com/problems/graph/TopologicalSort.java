@@ -58,9 +58,11 @@ public class TopologicalSort {
 		Stack<Integer> stack = new Stack<>();
 		int[] answer = new int[v];
 
+		// if the node is not visited, yet then we will start the dfs from the node
 		for (int i = 0; i < v; i++)
-			// if the node is not visited, yet then we will start the dfs from the node
 			if (!visited[i]) dfs(i, visited, adjacencyList, stack);
+
+		// at this point the starting nodes are in the top fo the stack
 		int i = 0;
 		while (!stack.isEmpty()) answer[i++] = stack.pop();
 		print(answer);
@@ -68,11 +70,13 @@ public class TopologicalSort {
 
 	// TODO intuition is if are doing dfs for a node n1 then all its adjacent
 	//  nodes will be traversed first, then it will come to n1
+	//  the dfs call will go to the deepest node, it will only add node to the stack when there is no
+	//  adjacent unvisited nodes
 	private static void dfs(int start, boolean[] visited,
 							List<List<Integer>> adjacencyList, Stack<Integer> stack) {
 		visited[start] = true;
+		// calling the dfs if the adjacent node is not visited
 		for (int node : adjacencyList.get(start))
-			// calling the dfs if the adjacent node is not visited
 			if (!visited[node]) dfs(node, visited, adjacencyList, stack);
 		// for start node either there is not any unvisited adjacent node or simply
 		// there is no adjacent node, so we can add it to the stack

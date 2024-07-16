@@ -27,25 +27,34 @@ public class FloodFill {
 	// recursively traverse all the cell and change all the cell
 	// which has the same color as the source cell previous color
 	private static void type2() {
-		int[][] image = { { 1, 1, 1 }, { 1, 1, 0 }, { 1, 0, 1 } };
+		int[][] image = {
+				{1, 1, 1},
+				{1, 1, 0},
+				{1, 0, 1}
+		};
 		int sr = 1, sc = 1, color = 2;
 		image = floodFill2(image, sr, sc, color);
 		print(image);
 	}
 
 	private static int[][] floodFill2(int[][] image, int sr, int sc, int color) {
+		// if the given color is same as the source node color then we do not need to change
 		if (color == image[sr][sc]) return image;
+		// we will start the dfs for this node
 		traverse(image, sr, sc, image[sr][sc], color);
 		return image;
 	}
 
-	public static void traverse(int[][] image, int x, int y, int prevColor, int color) {
-		if (isInBounds(x, y, image) && image[x][y] == prevColor) {
+	public static void traverse(int[][] image, int x, int y, int srcColor, int color) {
+		// checking that the new coordinates are in bounds and that coordinate has the source color
+		// then we will add that in the queue
+		if (isInBounds(x, y, image) && image[x][y] == srcColor) {
+			// changing the cell color
 			image[x][y] = color;
-			traverse(image, x - 1, y, prevColor, color); // top call
-			traverse(image, x, y + 1, prevColor, color); // right call
-			traverse(image, x + 1, y, prevColor, color); // down call
-			traverse(image, x, y - 1, prevColor, color); // left call
+			traverse(image, x - 1, y, srcColor, color); // top cell
+			traverse(image, x, y + 1, srcColor, color); // right cell
+			traverse(image, x + 1, y, srcColor, color); // down cell
+			traverse(image, x, y - 1, srcColor, color); // left cell
 		}
 	}
 
@@ -54,29 +63,39 @@ public class FloodFill {
 	// we store the indices to one queue and poll one by one
 	// we could simply use any data structure
 	private static void type1() {
-		int[][] image = { { 1, 1, 1 }, { 1, 1, 0 }, { 1, 0, 1 } };
+		int[][] image = {
+				{1, 1, 1},
+				{1, 1, 0},
+				{1, 0, 1}
+		};
 		int sr = 1, sc = 1, color = 2;
 		image = floodFill1(image, sr, sc, color);
 		print(image);
 	}
 
+
+	// We will use BFS
 	public static int[][] floodFill1(int[][] image, int sr, int sc, int color) {
 		if (color == image[sr][sc]) return image;
 		int[] dx = {-1, 1, 0, 0};
 		int[] dy = {0, 0, -1, 1};
-
-		int prevColor = image[sr][sc];
+		// color of the source node
+		int srcColor = image[sr][sc];
+		// we will use the queue for bfs traversal
 		Queue<int[]> queue = new LinkedList<>();
-
+		// we will add the source position into the queue
 		queue.offer(new int[]{sr, sc});
 		image[sr][sc] = color;
 
+		// we will do this until the queue is not empty
 		while (!queue.isEmpty()) {
 			int[] point = queue.poll();
 			for (int i = 0; i < 4; i++) {
 				int x = point[0] + dx[i];
 				int y = point[1] + dy[i];
-				if (isInBounds(x, y, image) && image[x][y] == prevColor) {
+				// checking that the new coordinates are in bounds and that coordinate has the source color
+				// then we will add that in the queue
+				if (isInBounds(x, y, image) && image[x][y] == srcColor) {
 					queue.offer(new int[]{x, y});
 					image[x][y] = color;
 				}
@@ -86,7 +105,9 @@ public class FloodFill {
 	}
 
 	private static boolean isInBounds(int x, int y, int[][] image) {
-		return x >= 0 && y >= 0 && x < image.length && y < image[0].length;
+		return x >= 0 && y >= 0
+				&& x < image.length
+				&& y < image[0].length;
 	}
 
 

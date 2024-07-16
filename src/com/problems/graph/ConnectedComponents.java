@@ -8,11 +8,11 @@ import java.util.List;
  * https://leetcode.com/problems/number-of-provinces/
  * https://practice.geeksforgeeks.org/problems/number-of-provinces/1
  * https://www.codingninjas.com/studio/problems/find-the-number-of-states_1377943
- * 
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=lea-Wl_uWXY
  * https://www.youtube.com/watch?v=ACzkVtewUYA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=7
- * 
+ *
  * https://takeuforward.org/graph/connected-components-in-graphs/
  * https://takeuforward.org/data-structure/number-of-provinces/
  * 

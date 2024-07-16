@@ -1,4 +1,6 @@
-package graph;
+package com.problems.graph;
+
+import com.util.PrintUtl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class ShortestPathInDirectedAcyclicGraph {
 
 	// we are given edges and nodes
 	// first we have to transform it to adjacency list
-	// we will find shortest path in a directed acyclic graph
+	// we will find the shortest path in a directed acyclic graph,
 	// so we will use topo sort using dfs
 	// so in stack the ordered vertex will be stored
 	// now our task is simple
@@ -39,13 +41,21 @@ public class ShortestPathInDirectedAcyclicGraph {
 	// and src node value to 0
 	// pop from the stack until we find the source
 	// so once we find the source node in stack then we will start popping one by
-	// one go to it's adjacent nodes update the distance value
+	// one go to its adjacent nodes update the distance value
 	private static void type1() {
 		int n = 6;
 		int m = 7;
-		int[][] edges = { { 0, 1, 2 }, { 0, 4, 1 }, { 4, 5, 4 }, { 4, 2, 2 }, { 1, 2, 3 }, { 2, 3, 6 }, { 5, 3, 1 } };
+		int[][] edges = {
+				{0, 1, 2},
+				{0, 4, 1},
+				{4, 5, 4},
+				{4, 2, 2},
+				{1, 2, 3},
+				{2, 3, 6},
+				{5, 3, 1}
+		};
 
-		// transforming the edges to adjaceny list
+		// transforming the edges to adjacent list
 		List<List<int[]>> adjList = new ArrayList<>();
 		for (int i = 0; i < n; i++)
 			adjList.add(new ArrayList<>());
@@ -54,14 +64,14 @@ public class ShortestPathInDirectedAcyclicGraph {
 
 		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[n];
-		// doing the topo sort
+
+		// doing the topo sort and after this loop the stack will be prepared
 		for (int i = 0; i < n; i++)
 			if (!visited[i])
 				dfs(i, visited, stack, adjList);
-		// at this point stack is prepared
 
-		// while we find the source node which is 0
-		// we will pop
+
+		// while we find the source node which is 0, we will pop
 		while (stack.peek() != 0)
 			stack.pop();
 
@@ -80,7 +90,7 @@ public class ShortestPathInDirectedAcyclicGraph {
 			for (int[] nodeAndWight : adjList.get(point)) {
 				int node = nodeAndWight[0];
 				int wt = nodeAndWight[1];
-				// it means distance[node] is greater than current point distance + edge weight
+				// it means distance[node] is greater than current point distance + edge weight,
 				// so we will update the distance value and add it to queue
 				if (distance[node] > prevDistance + wt) {
 					distance[node] = prevDistance + wt;
@@ -93,7 +103,7 @@ public class ShortestPathInDirectedAcyclicGraph {
 			if (distance[i] == Integer.MAX_VALUE)
 				distance[i] = -1;
 
-		print(distance);
+		PrintUtl.print(distance);
 	}
 
 	private static void dfs(int start, boolean[] visited, Stack<Integer> stack, List<List<int[]>> adjList) {
@@ -102,11 +112,5 @@ public class ShortestPathInDirectedAcyclicGraph {
 			if (!visited[node[0]])
 				dfs(node[0], visited, stack, adjList);
 		stack.push(start);
-	}
-
-	private static void print(int[] distance) {
-		for (int item : distance)
-			System.out.print(item + " ");
-		System.out.println();
 	}
 }

@@ -5,8 +5,8 @@ import java.util.*;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/alien-dictionary/1
- * https://www.codingninjas.com/studio/problems/alien-dictionary_630423
- * https://leetcode.com/problems/alien-dictionary/solutions/562919/official-solution/
+ * https://www.naukri.com/code360/problems/alien-dictionary_630423
+ * https://leetcode.com/problems/alien-dictionary
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=U3N_je7tWAs&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=26

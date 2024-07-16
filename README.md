@@ -26,6 +26,13 @@
 
 - **resources**
   - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
+  - [The hidden beauty of the A* algorithm](https://www.youtube.com/watch?v=A60q6dcoCjw)
+  - [How Do You Calculate a Minimum Spanning Tree?](https://www.youtube.com/watch?v=Yldkh0aOEcg)
+  - [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU)
+  - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
+  - [Fibonacci Heaps or "How to invent an extremely clever data structure"](https://www.youtube.com/watch?v=6JxvKfSV9Ns)
+  - [Faster than Rust and C++: the PERFECT hash table](https://www.youtube.com/watch?v=DMQ_HcNSOAI)
+  - [Data Compression](https://www.youtube.com/playlist?list=PLpXOY-RxVRTOR1PAtQUwoZN2tSs1ICSk7)
 
   - **william-fiset**
     - [Data structures playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
@@ -194,17 +201,6 @@
   - [AVL Tree](/src/com/ds/balancedbinarytree/AVLTree.java)
   - [Red-Black Tree](/src/com/ds/balancedbinarytree/RedBlackTree.java)
 
-### b-tree
-- **resources**
-  - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
-- **codes**
-
-### Huffman encoding
-
-- **resources**
-  - [Data Compression](https://www.youtube.com/playlist?list=PLpXOY-RxVRTOR1PAtQUwoZN2tSs1ICSk7)
-- **codes**
-  - 
 
 ## Problems
 
@@ -766,6 +762,7 @@
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
+    - [Minimum Cost for Cutting Cake I](/src/com/problems/dp/MinimumCostForCuttingCakeI.java)
 
 ### binary-tree
 
@@ -846,23 +843,24 @@
   - [Breadth First Search (BFS): Level Order Traversal](/src/com/problems/graph/BreadthFirstSearchOfGraph.java)
   - [Depth First Search](/src/com/problems/graph/DepthFirstSearchOfGraph.java)
   - [Number of Provinces](/src/com/problems/graph/ConnectedComponents.java)
-  - [Rotting Oranges](/src/com/problems/graph/RottenOranges.java)
+  - [Number of Islands](/src/com/problems/graph/NumberOfIslands.java)
   - [Flood Fill](/src/com/problems/graph/FloodFill.java)
+  - [Rotting Oranges](/src/com/problems/graph/RottenOranges.java)
   - [Detect Cycle in an Undirected Graph](/src/com/problems/graph/CycleDetectionInUndirectedGraph.java)
   - [0/1 Matrix (Bfs Problem)](/src/com/problems/graph/NearestCellHavingZero.java)
   - [Surrounded Regions (dfs)](/src/com/problems/graph/SurroundedRegions.java)
   - [Number of Enclaves / flood fill implementation — multisource](/src/com/problems/graph/NumberOfEnclave.java)
-  - [Word Ladder 1](/src/com/problems/graph/WordLadder1.java)
-  - [Word Ladder 2](/src/com/problems/graph/WordLadder2.java)
-  - [Number of Distinct Islands / dfs multisource](/src/com/problems/graph/NumberOfIslands.java)
+  - [Number of Distinct Islands / dfs multisource](/src/com/problems/graph/NumberOfDistinctIsland.java)
   - [Bipartite Graph](/src/com/problems/graph/BipartiteGraph.java)
   - [Detect cycle in a directed graph (using DFS)](/src/com/problems/graph/CycleDetectionInDirectedGraph.java)
+  - [Find Eventual Safe States](/src/com/problems/graph/FindEventualSafeStates.java)
   - [Topological Sort Algorithm](/src/com/problems/graph/TopologicalSort.java)
   - [Kahn’s Algorithm / Topological Sort Algorithm](/src/com/problems/graph/KahnAlgorithm.java)
   - [Cycle Detection in Directed Graph (BFS)](/src/com/problems/graph/CycleDetectionUsingKahnAlgorithm.java)
   - [Course Schedule I & II](/src/com/problems/graph/CourseSchedule.java)
-  - [Find Eventual Safe States](/src/com/problems/graph/FindEventualSafeStates.java)
   - [Alien dictionary](/src/com/problems/graph/AlienDictionary.java)
+  - [Word Ladder 1](/src/com/problems/graph/WordLadder1.java)
+  - [Word Ladder 2](/src/com/problems/graph/WordLadder2.java)
 
 ### segment-tree  
 

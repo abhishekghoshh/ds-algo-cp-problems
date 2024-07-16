@@ -10,7 +10,8 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/01-matrix/
- * https://www.codingninjas.com/studio/problems/distance-of-nearest-cell-having-1-in-a-binary-matrix_1169913
+ * https://www.naukri.com/code360/problems/distance-of-nearest-cell-having-1-in-a-binary-matrix_1169913
+ * https://www.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1
  * 
  * Solution link : 
  * https://www.youtube.com/watch?v=edXdVwkYHF8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=14
@@ -50,7 +51,7 @@ public class NearestCellHavingZero {
 					distance[i][j] = 0;
 					continue;
 				}
-				// if the cell is not 0, then we are trying to minimize the cell value will previous two diagonal cells.
+				// if the cell is not 0, then we are trying to minimize the cell value will its top and left cells.
 				// we will compare with (i-1,j) and (i,j-1)
 				// as we are doing +1 with the previous cell value, that is why we have initialized with INT_MAX - 1
 				// otherwise it would cause an integer overflow and make the distance negative
@@ -74,8 +75,8 @@ public class NearestCellHavingZero {
 
 	// TODO explain this in the interview
 	// using BFS,
-	// we will store all the nodes having 0,
-	// and then we will do a level wise traversal
+	// rather searching nearest 0 from all cells have 1, we will start from all the 0 cells
+	// we will store all the nodes having 0, and then we will do a level wise traversal
 	private static void type1() {
 		int[][] mat = {
 				{0, 1, 0, 0},
@@ -101,7 +102,8 @@ public class NearestCellHavingZero {
 		int[] dx = { 1, -1, 0, 0 };
 		int[] dy = { 0, 0, -1, 1 };
 
-		int dis = 0;
+		// we will initiate the distance value with 0 and one each level we will increase it
+		int d = 0;
 		// currently queue only holds the points with cell value equal to 1.
 		// for that point, the nearest cell having 1 distance is 0
 		// so initialize a variable d with 0
@@ -111,9 +113,10 @@ public class NearestCellHavingZero {
 			// first, it will check the size of the queue
 			// we will apply BFS from those many points and add to the queue
 			int size = queue.size();
+			// we will poll all the current level elements from the queue and add for next level
 			for (int s = 0; s < size; s++) {
 				int[] point = queue.poll();
-				distance[point[0]][point[1]] = dis;
+				distance[point[0]][point[1]] = d; // assigning the distance level wise
 				for (int i = 0; i < 4; i++) {
 					int x = point[0] + dx[i];
 					int y = point[1] + dy[i];
@@ -123,7 +126,7 @@ public class NearestCellHavingZero {
 					}
 				}
 			}
-			dis++;
+			d++;
 		}
 		print(distance);
 	}

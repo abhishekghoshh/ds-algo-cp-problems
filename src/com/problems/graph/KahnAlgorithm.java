@@ -45,15 +45,14 @@ public class KahnAlgorithm {
 		for (List<Integer> nodes : adjacencyList)
 			for (int node : nodes) indegree[node]++;
 
-		int[] answer = new int[v];
-		int index = 0;
-
-		Queue<Integer> queue = new LinkedList<>();
 		// if the in degree of a node is 0, that means that is the starting node
 		// so, we will add it to the queue, as our starting point of the BFS
+		Queue<Integer> queue = new LinkedList<>();
 		for (int i = 0; i < v; i++)
 			if (indegree[i] == 0) queue.offer(i);
 
+		int[] answer = new int[v];
+		int index = 0;
 		// everytime we will decrease the indegree of the adjacent node,let's say node 5 has edge from 2 and 4,
 		// so indegree[5] = 2 indegree[5] will 0 when we have discovered 2 and 4 successfully
 		while (!queue.isEmpty()) {

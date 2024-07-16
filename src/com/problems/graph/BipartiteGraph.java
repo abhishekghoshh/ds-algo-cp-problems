@@ -12,16 +12,26 @@ import java.util.Queue;
  * https://www.codingninjas.com/studio/problems/check-bipartite-graph-_920551
  * 
  * Solution link :
+ * BFS:
  * https://www.youtube.com/watch?v=-vu34sct1g8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=17
- * https://www.youtube.com/watch?v=KG5YFfR0j8A&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=18
- * 
- * https://takeuforward.org/graph/bipartite-graph-dfs-implementation/
  * https://takeuforward.org/graph/bipartite-graph-bfs-implementation/
+ *
+ * DFS:
+ * https://www.youtube.com/watch?v=KG5YFfR0j8A&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=18
+ * https://takeuforward.org/graph/bipartite-graph-dfs-implementation/
+ *
  */
 
 public class BipartiteGraph {
 
 	/*
+	 * A bipartite graph is a graph where we can assign 2 different color to all the nodes such that
+	 * no 2 adjacent node has the same color.
+	 * Simple linear graph is always a bipartite graph.
+	 * Problem arises when there is a loop exists, but if there is then depend on the node count in that loop
+	 * we can say if it is bipartite or not
+	 *
+	 *
 	 * There is an undirected graph with n nodes, where each node is numbered between 0 and n - 1.
 	 * You are given a 2D array graph, where graph[u] is an array of nodes that node u is adjacent to.
 	 * More formally, for each v in graph[u], there is an undirected edge between node u and node v.
@@ -50,7 +60,12 @@ public class BipartiteGraph {
 	// TODO complete this question using cycle detection of a directed graph [If possible]
 	private static void type3() {
 		int numCourses = 4;
-		int[][] prerequisites = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+		int[][] prerequisites = {
+				{1, 0},
+				{2, 0},
+				{3, 1},
+				{3, 2}
+		};
 		int[] order = findOrder3(numCourses, prerequisites);
 		PrintUtl.print(order);
 	}
@@ -96,13 +111,14 @@ public class BipartiteGraph {
 		colors[start] = color;
 		// finding all the adjacent node
 		for (int end : adjacencyList[start]) {
+			// anything other than 0 means the node is already colored
 			// adjacent node color is opposite, so we don't have to do anything
 			if (colors[end] == -color) continue;
 			// if the adjacent color is the same, then we will directly return false
+			if (colors[end] == color) return false;
 			// else we will start dfs from the adjacent node with the opposite color.
 			// if that DFS call returns false, then also we will return false
-			if (colors[end] == color || !canColor2(end, -color, colors, adjacencyList))
-				return false;
+			if (!canColor2(end, -color, colors, adjacencyList)) return false;
 		}
 		// lastly, we are returning true as no DFS call returned false
 		// and the graph can be colored with two colors
@@ -151,6 +167,7 @@ public class BipartiteGraph {
 			int start = queue.poll();
 			int color = colors[start];
 			for (int end : adjacencyList[start]) {
+				// anything other than 0 means the node is already colored
 				// adjacent node color is opposite, so we don't have to do anything
 				if (colors[end] == -color) continue;
 				// if the color is same in adjacent node, then we will return false

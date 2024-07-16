@@ -10,19 +10,26 @@ import static com.util.GraphUtil.adjacencyList;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
- * https://www.codingninjas.com/studio/problems/detect-cycle-in-an-undirected-graph-_758967
- * 
+ * https://www.naukri.com/code360/problems/detect-cycle-in-an-undirected-graph-_758967
+ * https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
+ *
+ * Course Schedule:
+ * https://leetcode.com/problems/course-schedule/
+ *
  * Solution link :
+ * Using BFS
  * https://www.youtube.com/watch?v=BPlrALf1LDU&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=11
- * https://www.youtube.com/watch?v=zQ3zgFypzX4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=12
- * 
  * https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/
+ *
+ * Using DFS
+ * https://www.youtube.com/watch?v=zQ3zgFypzX4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=12
  * https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/
- * 
  */
 public class CycleDetectionInUndirectedGraph {
 
-	// TODO check the solution one more time
+	// todo course schedule problem can also also be done with this approach
+	// 	we just have to make a graph of courses before hand
+	//  then we can use this hasCycle on that graph
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -32,7 +39,13 @@ public class CycleDetectionInUndirectedGraph {
 	// using dfs but recursion stack
 	private static void type3() {
 		List<List<Integer>> adjacencyList = adjacencyList(
-				new int[][]{{1}, {0, 2, 4}, {1, 3}, {2, 4}, {1, 3}}
+				new int[][]{
+						{1},
+						{0, 2, 4},
+						{1, 3},
+						{2, 4},
+						{1, 3}
+				}
 		);
 		int v = 5;
 		boolean hasCycle = detectCycle3(v, adjacencyList);
@@ -41,8 +54,10 @@ public class CycleDetectionInUndirectedGraph {
 
 	private static boolean detectCycle3(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
-		for (int i = 0; i < v; i++)
-			if (!visited[i] && hasCycle3(i, -1, adjacencyList, visited))
+		// for every node we will start the hasCycle method if it is not visited
+		// if hasCycle is true then we will return true
+		for (int node = 0; node < v; node++)
+			if (!visited[node] && hasCycle3(node, -1, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -59,7 +74,7 @@ public class CycleDetectionInUndirectedGraph {
 			// [the parent node was visited in the previous recursion],
 			// so it means it is visited by some other node,
 			// but again we are trying to visit this node that makes this a loop
-			if (visited[end] && end != parent) return true;
+			if (end != parent && visited[end]) return true;
 			// if the adjacent point is not visited, then we will start dfs from this node
 			if (!visited[end]) return hasCycle3(end, start, adjacencyList, visited);
 		}
@@ -69,7 +84,13 @@ public class CycleDetectionInUndirectedGraph {
 	// using DFS
 	private static void type2() {
 		List<List<Integer>> adjacencyList = adjacencyList(
-				new int[][]{{1}, {0, 2, 4}, {1, 3}, {2, 4}, {1, 3}}
+				new int[][]{
+						{1},
+						{0, 2, 4},
+						{1, 3},
+						{2, 4},
+						{1, 3}
+				}
 		);
 		int v = 5;
 		boolean hasCycle = detectCycle2(v, adjacencyList);
@@ -78,8 +99,10 @@ public class CycleDetectionInUndirectedGraph {
 
 	private static boolean detectCycle2(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
-		for (int i = 0; i < v; i++)
-			if (!visited[i] && hasCycle2(i, adjacencyList, visited))
+		// for every node we will start the hasCycle method if it is not visited
+		// if hasCycle is true then we will return true
+		for (int node = 0; node < v; node++)
+			if (!visited[node] && hasCycle2(node, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -88,10 +111,10 @@ public class CycleDetectionInUndirectedGraph {
 	// as we traverse all adjacent nodes. In the case of connected components of a
 	// graph, it will take another O(N) time.
 	// Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array.
-	private static boolean hasCycle2(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
+	private static boolean hasCycle2(int node, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Stack<int[]> stack = new Stack<>();
 		// we will store the pair of current node and its parent node
-		stack.add(new int[] { i, -1 });
+		stack.add(new int[]{node, -1});
 
 		while (!stack.isEmpty()) {
 			int[] pair = stack.pop();
@@ -101,14 +124,14 @@ public class CycleDetectionInUndirectedGraph {
 
 			List<Integer> vertices = adjacencyList.get(start);
 			// as we are using dfs, we will be adding the vertices in the reverse order
-			for (int pos = vertices.size() - 1; pos >= 0; pos--) {
-				int end = vertices.get(pos);
+			for (int i = vertices.size() - 1; i >= 0; i--) {
+				int end = vertices.get(i);
 				// It means the vertex is visited.
 				// However, it's not the parent of the current node.
 				// [the parent node was visited in the previous loop],
 				// so it means it is visited by some other node,
 				// but again we are trying to visit this node that makes this a loop
-				if (visited[end] && end != parent) return true;
+				if (end != parent && visited[end]) return true;
 				// if the adjacent point is not visited, then we are push it the stack, and setting visited to true
 				if (!visited[end]) stack.push(new int[]{end, start});
 			}
@@ -116,10 +139,16 @@ public class CycleDetectionInUndirectedGraph {
 		return false;
 	}
 
-	// using BFS
+	// todo using BFS
 	private static void type1() {
 		List<List<Integer>> adjacencyList = adjacencyList(
-				new int[][]{{1}, {0, 2, 4}, {1, 3}, {2, 4}, {1, 3}}
+				new int[][]{
+						{1},
+						{0, 2, 4},
+						{1, 3},
+						{2, 4},
+						{1, 3}
+				}
 		);
 		int v = 5;
 		boolean hasCycle = detectCycle1(v, adjacencyList);
@@ -128,8 +157,10 @@ public class CycleDetectionInUndirectedGraph {
 
 	static boolean detectCycle1(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
-		for (int start = 0; start < v; start++)
-			if (!visited[start] && hasCycle1(start, adjacencyList, visited))
+		// for every node we will start the hasCycle method if it is not visited
+		// if hasCycle is true then we will return true
+		for (int node = 0; node < v; node++)
+			if (!visited[node] && hasCycle1(node, adjacencyList, visited))
 				return true;
 		return false;
 	}
@@ -138,11 +169,11 @@ public class CycleDetectionInUndirectedGraph {
 	// as we traverse all adjacent nodes.
 	// In the case of connected components of a graph, it will take another O(N) time.
 	// Space Complexity: O(N) + O(N) ~ O(N), Space for queue data structure and visit the array.
-	private static boolean hasCycle1(int i, List<List<Integer>> adjacencyList, boolean[] visited) {
+	private static boolean hasCycle1(int node, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Queue<int[]> queue = new LinkedList<>();
 		// we will store the pair of current node and its parent node
-		queue.add(new int[] { i, -1 });
-		visited[i] = true;
+		queue.add(new int[]{node, -1});
+		visited[node] = true;
 		// we will start BFS traversal
 		while (!queue.isEmpty()) {
 			int[] pair = queue.poll();
@@ -154,7 +185,7 @@ public class CycleDetectionInUndirectedGraph {
 				// [the parent node was visited in the previous loop],
 				// so it means it is visited by some other node,
 				// but again we are trying to visit this node that makes this a loop
-				if (visited[end] && end != parent) return true;
+				if (end != parent && visited[end]) return true;
 				// if the adjacent point is not visited, then we are adding it the queue, and setting visited to true
 				if (!visited[end]) {
 					visited[end] = true;

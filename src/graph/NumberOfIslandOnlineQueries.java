@@ -6,12 +6,10 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/number-of-islands-ii/
- * https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
- * 
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=Rn6B-Q4SNyA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
  * 
- * https://www.youtube.com/watch?v=Rn6B-Q4SNyA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
  */
 public class NumberOfIslandOnlineQueries {
 
@@ -19,13 +17,25 @@ public class NumberOfIslandOnlineQueries {
 		type1();
 	}
 
-	// so this is a n x m size matrix
+	// so this is a n x m size matrix,
 	// and we will be adding one point at time
-	// our ans will be number of island present on that specific time
+	// our answer will be number of island present on that specific time
 	private static void type1() {
 		int n = 4, m = 5;
-		int[][] queries = { { 0, 0 }, { 0, 0 }, { 1, 1 }, { 1, 0 }, { 0, 1 }, { 0, 3 }, { 1, 3 }, { 0, 4 }, { 3, 2 },
-				{ 2, 2 }, { 1, 2 }, { 0, 2 } };
+		int[][] queries = {
+				{0, 0},
+				{0, 0},
+				{1, 1},
+				{1, 0},
+				{0, 1},
+				{0, 3},
+				{1, 3},
+				{0, 4},
+				{3, 2},
+				{2, 2},
+				{1, 2},
+				{0, 2}
+		};
 
 		int[][] matrix = new int[n][m];
 		int N = m * n;

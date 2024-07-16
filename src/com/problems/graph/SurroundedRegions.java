@@ -3,7 +3,7 @@ package com.problems.graph;
  * Problem link :
  * https://leetcode.com/problems/surrounded-regions/
  * https://practice.geeksforgeeks.org/problems/replace-os-with-xs0052/1
- * https://www.codingninjas.com/studio/problems/replace-%E2%80%98o%E2%80%99-with-%E2%80%98x%E2%80%99_630517
+ * https://www.naukri.com/code360/problems/replace-%E2%80%98o%E2%80%99-with-%E2%80%98x%E2%80%99_630517
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=BtdgAys4yMk&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=14
@@ -48,6 +48,8 @@ public class SurroundedRegions {
 		// so we have to change it back to its original 'O'
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
+				// if the cell is O means it is not touched by boundary,
+				// V means it is touched but we need to revert it back to its original value
 				if (board[i][j] == 'O') board[i][j] = 'X';
 				else if (board[i][j] == 'V') board[i][j] = 'O';
 			}
@@ -57,7 +59,9 @@ public class SurroundedRegions {
 
 	private static void dfs(int i, int j, char[][] board) {
 		if (isNotInBoundary(i, j, board) || board[i][j] != 'O') return;
+		// we will make the cell value as V to make the cell visited
 		board[i][j] = 'V';
+		// we will visit all 4 sides
 		dfs(i + 1, j, board);
 		dfs(i - 1, j, board);
 		dfs(i, j + 1, board);
@@ -68,6 +72,7 @@ public class SurroundedRegions {
 		return i < 0 || i >= board.length || j < 0 || j >= board[0].length;
 	}
 
+	// Using DFS
 	// the intuition is
 	// if the 'O' is in boundary then it can never be surrounded,
 	// so first we will mark all the regions which has any boundary cell
@@ -106,6 +111,7 @@ public class SurroundedRegions {
 	private static void dfs(int i, int j, boolean[][] visited, char[][] board) {
 		if (isInBoundary(i, j, board) && board[i][j] == 'O' && !visited[i][j]) {
 			visited[i][j] = true;
+			// we will visit 4 sides
 			dfs(i + 1, j, visited, board);
 			dfs(i - 1, j, visited, board);
 			dfs(i, j + 1, visited, board);
