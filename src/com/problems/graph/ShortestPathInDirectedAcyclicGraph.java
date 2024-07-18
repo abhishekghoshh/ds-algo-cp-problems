@@ -3,6 +3,7 @@ package com.problems.graph;
 import com.util.PrintUtl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -54,6 +55,7 @@ public class ShortestPathInDirectedAcyclicGraph {
 				{2, 3, 6},
 				{5, 3, 1}
 		};
+		int src = 0;
 
 		// transforming the edges to adjacent list
 		List<List<int[]>> adjList = new ArrayList<>();
@@ -70,38 +72,37 @@ public class ShortestPathInDirectedAcyclicGraph {
 			if (!visited[i])
 				dfs(i, visited, stack, adjList);
 
-
-		// while we find the source node which is 0, we will pop
-		while (stack.peek() != 0)
-			stack.pop();
+		// while we find the source node, we will pop
+		// just in case if node 0 is not the starting node of the graph
+		while (stack.peek() != src) stack.pop();
 
 		// initializing the distance array to infinity
 		int[] distance = new int[n];
-		for (int i = 1; i < n; i++)
-			distance[i] = Integer.MAX_VALUE;
+		Arrays.fill(distance, Integer.MAX_VALUE);
+		distance[src] = 0;
 
 		// now we will pop from the stack one by one
 		while (!stack.isEmpty()) {
-			int point = stack.pop();
+			int start = stack.pop();
 			// prevDistance is the minimum distance from src
-			int prevDistance = distance[point];
+			int prevDis = distance[start];
 
 			// now we will check all its adjacent node
-			for (int[] nodeAndWight : adjList.get(point)) {
-				int node = nodeAndWight[0];
-				int wt = nodeAndWight[1];
-				// it means distance[node] is greater than current point distance + edge weight,
+			for (int[] endNode : adjList.get(start)) {
+				int end = endNode[0];
+				int dis = endNode[1];
+				// it means distance[end] is greater than start distance + edge weight,
+				// which means if we go to end node via the start node, that will be shorter in distance
 				// so we will update the distance value and add it to queue
-				if (distance[node] > prevDistance + wt) {
-					distance[node] = prevDistance + wt;
-					stack.push(node);
+				if (distance[end] > prevDis + dis) {
+					distance[end] = prevDis + dis;
+					stack.push(end);
 				}
 			}
 		}
 		// replacing the infinity value to -1
 		for (int i = 0; i < n; i++)
-			if (distance[i] == Integer.MAX_VALUE)
-				distance[i] = -1;
+			if (distance[i] == Integer.MAX_VALUE) distance[i] = -1;
 
 		PrintUtl.print(distance);
 	}

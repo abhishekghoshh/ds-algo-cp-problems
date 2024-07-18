@@ -24,9 +24,15 @@ public class AlienDictionary {
 		type2();
 	}
 
-	// using dfs and topological sort
+	// todo using dfs and topological sort
 	private static void type2() {
-		String[] dict = { "baa", "abcd", "abca", "cab", "cad" };
+		String[] dict = {
+				"baa",
+				"abcd",
+				"abca",
+				"cab",
+				"cad"
+		};
 		int n = 5;
 		int k = 4;
 
@@ -40,32 +46,50 @@ public class AlienDictionary {
 			char[] first = dict[i].toCharArray();
 			char[] second = dict[i + 1].toCharArray();
 			int j = 0, n2 = second.length, n1 = first.length;
-			// we will increment the j till there is a different character to draw edge between first[j] to second[j]
+			// we will increment the j till there is a different character
 			while (j < n1 && j < n2 && first[j] == second[j]) j++;
 			// we will convert the character to a zero-index integer
-			if (j < n1 && j < n2) adjList.get(first[j] - 'a').add(second[j] - 'a');
+			if (j < n1 && j < n2) {
+				// as the words are in lexicographical order,
+				// so character in the first word will be lesser than the second word,
+				// and we will draw edge from first[j] to second[j]
+				int start = first[j] - 'a';
+				int end = second[j] - 'a';
+				adjList.get(start).add(end);
+			}
 		}
+
+		// we will start the dfs for all unvisited nodes and after this the stack will be prepared
 		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[k];
 		for (int i = 0; i < k; i++)
 			if (!visited[i])
 				dfs(i, visited, adjList, stack);
-		StringBuilder sb = new StringBuilder();
-		while (!stack.isEmpty())
-			sb.append(((char) (stack.pop() + 'a')));
 
-		System.out.println(sb);
+		// we will loop through the stack and add the letters into the ans
+		StringBuilder dictionary = new StringBuilder();
+		while (!stack.isEmpty()) {
+			int start = stack.pop();
+			// we need to translate the node value to character again
+			char letter = (char) (start + 'a');
+			dictionary.append(letter);
+		}
+
+		System.out.println(dictionary);
 	}
 
+	// simple topological sort using dfs
 	private static void dfs(int start, boolean[] visited, List<List<Integer>> adjList, Stack<Integer> stack) {
 		visited[start] = true;
+		// we will loop through all its unvisited adjacent nodes
 		for (int node : adjList.get(start))
 			if (!visited[node])
 				dfs(node, visited, adjList, stack);
+		// and after that we will add that to the stack
 		stack.push(start);
 	}
 
-	// using bfs and kahn algorithm
+	// todo using bfs and kahn algorithm
 	private static void type1() {
 		String[] dict = {
 				"baa",
@@ -87,28 +111,42 @@ public class AlienDictionary {
 			char[] first = dict[i].toCharArray();
 			char[] second = dict[i + 1].toCharArray();
 			int j = 0, n2 = second.length, n1 = first.length;
-			// we will increment the j till there is a different character to draw edge between first[j] to second[j]
+			// we will increment the j till there is a different character
 			while (j < n1 && j < n2 && first[j] == second[j]) j++;
 			// we will convert the character to a zero-index integer
-			if (j < n1 && j < n2) adjList.get(first[j] - 'a').add(second[j] - 'a');
+			if (j < n1 && j < n2) {
+				// as the words are in lexicographical order,
+				// so character in the first word will be lesser than the second word,
+				// and we will draw edge from first[j] to second[j]
+				int start = first[j] - 'a';
+				int end = second[j] - 'a';
+				adjList.get(start).add(end);
+			}
 		}
 
+		// we will calculate all the indegree from the adjacency list
+		// and add starting nodes to the queue
 		int[] indegree = new int[k];
+		for (List<Integer> nodes : adjList)
+			for (int node : nodes) indegree[node]++;
 		Queue<Integer> queue = new LinkedList<>();
-		StringBuilder sb = new StringBuilder();
-		for (List<Integer> nodes : adjList) for (int node : nodes) indegree[node]++;
 		for (int i = 0; i < k; i++)
 			if (indegree[i] == 0) queue.offer(i);
 
+		// we will poll from the queue and store it to the string builder
+		StringBuilder dictionary = new StringBuilder();
 		while (!queue.isEmpty()) {
 			int start = queue.poll();
-			sb.append(((char) (start + 'a')));
+			// we need to translate the node value to character again
+			char letter = (char) (start + 'a');
+			dictionary.append(letter);
+			// we will loop through all its adjacent nodes
 			for (int end : adjList.get(start)) {
 				indegree[end]--;
 				if (indegree[end] == 0) queue.offer(end);
 			}
 		}
-		System.out.println(sb);
+		System.out.println(dictionary);
 	}
 
 }

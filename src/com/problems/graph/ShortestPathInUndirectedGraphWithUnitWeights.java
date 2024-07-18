@@ -2,10 +2,7 @@ package com.problems.graph;
 
 import com.util.PrintUtl;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 //import static util.OnlineJudgeInit.scanner;
 //import static util.OnlineJudgeInit.set;
@@ -25,11 +22,10 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 	// from src(0) to all the vertex and if it is unreachable to reach any vertex,
 	// then return -1 for that vertex.
 	public static void main(String[] args) {
-//		set();
 		type1();
 	}
 
-	// we will simple bfs
+	// we will dimple bfs
 	// first we have to transform the edges to corresponding undirected adjlist
 	// we will start from the src node and visit all it's adjacent nodes
 	// use a distance array and set all the node value to infinity
@@ -55,18 +51,6 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 		int m = 10;
 		int src = 0;
 
-		// this part will only be used when we need to test different test cases from
-		// input file
-//		int n, m, src;
-//		n = scanner.nextInt();
-//		m = scanner.nextInt();
-//		int[][] edges = new int[m][2];
-//		for (int i = 0; i < m; i++) {
-//			edges[i][0] = scanner.nextInt();
-//			edges[i][1] = scanner.nextInt();
-//		}
-//		src = scanner.nextInt();
-
 		// transform the edges to corresponding undirected adj list
 		List<List<Integer>> adjList = new ArrayList<>();
 		for (int i = 0; i < n; i++)
@@ -78,36 +62,34 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 
 		// initializing the distance array to infinity
 		int[] distance = new int[n];
+		Arrays.fill(distance, Integer.MAX_VALUE);
 		distance[src] = 0;
-		for (int i = 0; i < n; i++)
-			if (i != src)
-				distance[i] = Integer.MAX_VALUE;
 
 		// initializing the queue to (src,0)
 		Queue<int[]> queue = new LinkedList<>();
 		queue.add(new int[] { src, 0 });
 
 		while (!queue.isEmpty()) {
-			int[] pair = queue.poll();
-			int start = pair[0];
+			int[] startNode = queue.poll();
+			int start = startNode[0];
 			// prevDistance is the minimum distance from src
-			int prevDistance = pair[1];
+			int prevDis = startNode[1];
 
 			// now we will check all its adjacent node
-			for (int node : adjList.get(start)) {
-				// it means distance[node] is greater than current point distance + edge weight
+			for (int end : adjList.get(start)) {
+				// it means distance[node] is greater than current point distance + edge weight,
 				// so we will update the distance value and add it to queue
 				// for an unweighted graph edge weight is 1
-				if (distance[node] > prevDistance + 1) {
-					distance[node] = prevDistance + 1;
-					queue.offer(new int[] { node, prevDistance + 1 });
+				if (distance[end] > prevDis + 1) {
+					distance[end] = prevDis + 1;
+					// we will only add to the queue when we get a shorter distance path
+					queue.offer(new int[]{end, prevDis + 1});
 				}
 			}
 		}
 		// replacing the infinity value to -1
 		for (int i = 0; i < n; i++)
-			if (distance[i] == Integer.MAX_VALUE)
-				distance[i] = -1;
+			if (distance[i] == Integer.MAX_VALUE) distance[i] = -1;
 		PrintUtl.print(distance);
 	}
 

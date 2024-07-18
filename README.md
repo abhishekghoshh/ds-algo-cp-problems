@@ -853,14 +853,19 @@
   - [Number of Distinct Islands / dfs multisource](/src/com/problems/graph/NumberOfDistinctIsland.java)
   - [Bipartite Graph](/src/com/problems/graph/BipartiteGraph.java)
   - [Detect cycle in a directed graph (using DFS)](/src/com/problems/graph/CycleDetectionInDirectedGraph.java)
+  
   - [Find Eventual Safe States](/src/com/problems/graph/FindEventualSafeStates.java)
   - [Topological Sort Algorithm](/src/com/problems/graph/TopologicalSort.java)
   - [Kahn’s Algorithm / Topological Sort Algorithm](/src/com/problems/graph/KahnAlgorithm.java)
   - [Cycle Detection in Directed Graph (BFS)](/src/com/problems/graph/CycleDetectionUsingKahnAlgorithm.java)
   - [Course Schedule I & II](/src/com/problems/graph/CourseSchedule.java)
   - [Alien dictionary](/src/com/problems/graph/AlienDictionary.java)
+
+  - [Shortest Path in Directed Acyclic Graph](/src/com/problems/graph/ShortestPathInDirectedAcyclicGraph.java)
+  - [Shortest Path in Undirected Graph with Unit Weights](/src/com/problems/graph/ShortestPathInUndirectedGraphWithUnitWeights.java)
   - [Word Ladder 1](/src/com/problems/graph/WordLadder1.java)
   - [Word Ladder 2](/src/com/problems/graph/WordLadder2.java)
+  - [Dijkstra's Algorithm](/src/com/problems/graph/DijkstraAlgorithm.java)
 
 ### segment-tree  
 

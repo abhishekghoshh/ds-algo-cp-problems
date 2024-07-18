@@ -6,7 +6,7 @@ import java.util.*;
  * Problem link :
  * https://leetcode.com/problems/word-ladder/
  * https://practice.geeksforgeeks.org/problems/word-ladder/1
- * https://www.codingninjas.com/studio/problems/word-ladder_1102319
+ * https://www.naukri.com/code360/problems/word-ladder_1102319
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=tRPda0rcf8E&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=29

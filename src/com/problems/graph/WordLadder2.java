@@ -6,14 +6,13 @@ import java.util.*;
  * Problem link :
  * https://leetcode.com/problems/word-ladder-ii/
  * https://practice.geeksforgeeks.org/problems/word-ladder-ii/1
- * https://www.codingninjas.com/studio/problems/shortest-transition-paths_8391015
+ * https://www.naukri.com/code360/problems/shortest-transition-paths_8391015
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=DREutrv2XD0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=30
- * https://www.youtube.com/watch?v=AD4SFl7tu7I&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=31
- * 
- * 
  * https://takeuforward.org/graph/g-30-word-ladder-ii/
+ *
+ * https://www.youtube.com/watch?v=AD4SFl7tu7I&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=31
  * https://takeuforward.org/graph/word-ladder-ii-optimised-approach-g-31/
  */
 public class WordLadder2 {
@@ -30,7 +29,6 @@ public class WordLadder2 {
 		String beginWord = "hit";
 		String endWord = "cog";
 		List<String> wordList = new ArrayList<>(List.of("hot", "dot", "dog", "lot", "log", "cog"));
-
 	}
 
 
