@@ -1,11 +1,8 @@
 package com.problems.graph;
 
-import com.util.PrintUtl;
+import java.util.*;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
@@ -21,11 +18,11 @@ import java.util.Queue;
  * 
  */
 public class DijkstraAlgorithm {
-	// Given a weighted, undirected and connected graph of V vertices and an
-	// adjacency list adj where adj[i] is a list of lists containing two integers
-	// where the first integer of each list j denotes there is edge between i and j
-	// , second integers corresponds to the weight of that edge . You are given the
-	// source vertex S and You to Find the shortest distance of all the vertex's
+	// Given a weighted, undirected and connected graph of V vertices and an adjacency list adj.
+	// In that the adj[i] is a list of lists containing two integers where the first integer
+	// of each list j denotes there is edge between 'i' and 'j'
+	// and second integers corresponds to the weight of that edge.
+	// You are given the source vertex S and You to Find the shortest distance of all the vertex's
 	// from the source vertex S. You have to return a list of integers denoting
 	// the shortest distance between each node and Source vertex S.
 	// Note: The Graph doesn't contain any negative weight cycle.
@@ -34,6 +31,8 @@ public class DijkstraAlgorithm {
 		type2();
 	}
 
+	// similar to the previous type, but here we will use a priority queue or a min heap.
+	// queue will introduce multiple unnecessary edges, so we can use priority queue
 	private static void type2() {
 		int v = 3;
 		int s = 2;
@@ -51,37 +50,35 @@ public class DijkstraAlgorithm {
 						List.of(0, 6)
 				)
 		);
-		int[] dis = new int[v];
+		int[] distance = new int[v];
 		// setting all the values to infinity
-		for (int i = 0; i < v; i++)
-			dis[i] = Integer.MAX_VALUE;
+		Arrays.fill(distance, Integer.MAX_VALUE);
 		// distance from source to source is 0
-		dis[s] = 0;
+		distance[s] = 0;
 
-		// in queue, we will store the next point and distance to source
-		PriorityQueue<int[]> minHeap = new PriorityQueue<>((pair1, pair2) -> Integer.compare(pair1[1], pair2[1]));
+		// in the heap, we will store the next point and distance to source.
+		// the only difference from the previous is that we will use a priority queue
+		PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(pair -> pair[1]));
 		minHeap.offer(new int[] { s, 0 });
 
 		while (!minHeap.isEmpty()) {
 			int[] pair = minHeap.poll();
-			int source = pair[0];
-			int prevDistance = pair[1];
-			for (List<Integer> node : adj.get(source)) {
-				Integer edgeDistance = node.get(1);
-				Integer adjacentNode = node.get(0);
-				if (prevDistance + edgeDistance < dis[adjacentNode]) {
-					dis[adjacentNode] = prevDistance + edgeDistance;
-					minHeap.offer(new int[] { adjacentNode, prevDistance + edgeDistance });
+			int start = pair[0];
+			int prevDis = pair[1];
+			for (List<Integer> node : adj.get(start)) {
+				int end = node.get(0), dis = node.get(1);
+				if (prevDis + dis < distance[end]) {
+					distance[end] = prevDis + dis;
+					minHeap.offer(new int[]{end, prevDis + dis});
 				}
 			}
 		}
 
-		PrintUtl.print(dis);
+		print(distance);
 	}
 
-	// queue will also work,
-	// but it will introduce multiple unnecessary edges
-	// so we can use priority queue
+	// We will use a queue for storing the edges and current distance from the source,
+	// and we will relax the edges everytime
 	private static void type1() {
 		int v = 3;
 		int s = 2;
@@ -99,36 +96,32 @@ public class DijkstraAlgorithm {
 						List.of(0, 6)
 				)
 		);
-		int[] dis = new int[v];
+		int[] distance = new int[v];
 		// setting all the values to infinity
-		for (int i = 0; i < v; i++)
-			dis[i] = Integer.MAX_VALUE;
+		Arrays.fill(distance, Integer.MAX_VALUE);
 		// distance from source to source is 0
-		dis[s] = 0;
+		distance[s] = 0;
 
-		// in queue, we will store the next point and distance to source
+		// in the queue, we will store the next point and distance to source
 		Queue<int[]> minHeap = new LinkedList<>();
 		minHeap.offer(new int[] { s, 0 });
 
-		// we will start from the source node and explore all it's neighbour nodes
-		// and try to relax the edges
-		// and as we are using the priorityQueue or the min heap,
-		// so we will get the least distance node at the top
+		// we will start from the source node and explore all it's neighbor nodes and try to relax the edges.
 		while (!minHeap.isEmpty()) {
 			int[] pair = minHeap.poll();
-			int source = pair[0];
-			int prevDistance = pair[1];
-			for (List<Integer> node : adj.get(source)) {
-				Integer distance = node.get(1);
-				Integer adjacentNode = node.get(0);
-				if (prevDistance + distance < dis[adjacentNode]) {
-					dis[adjacentNode] = prevDistance + distance;
-					minHeap.offer(new int[] { adjacentNode, prevDistance + distance });
+			int start = pair[0];
+			int prevDis = pair[1];
+			for (List<Integer> node : adj.get(start)) {
+				int dis = node.get(1);
+				int end = node.get(0);
+				if (prevDis + dis < distance[end]) {
+					distance[end] = prevDis + dis;
+					minHeap.offer(new int[]{end, prevDis + dis});
 				}
 			}
 		}
 
-		PrintUtl.print(dis);
+		print(distance);
 	}
 
 

@@ -61,6 +61,7 @@
   - [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
   - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
   - [DSA Sheet Final / AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
+  - [zerotrac.github.io](https://zerotrac.github.io/leetcode_problem_rating/#/)
   - Coding Ninja
     - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
     - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
@@ -224,6 +225,7 @@
   - [Move Zeros to end](/src/com/problems/array/MovesZeroToEnd.java)
   - [Linear Search](/src/com/problems/array/LinearSearch.java)
   - [Union of Two Sorted Arrays](/src/com/problems/array/UnionOfTwoSortedArrays.java)
+  - [Vowels Game in a String](/src/com/problems/array/VowelsGameInAString.java)
   - [Find missing number in an array](/src/com/problems/array/FindMissingNumberInAnArray.java)
     - bit-manipulation
     - hashing
@@ -618,6 +620,7 @@
   - [Count the number of set bits](/src/com/problems/bitmanipulation/CountSetBits.java)
   - [Check if a number is power of 2 or not](/src/com/problems/bitmanipulation/NumberIsPowerOfTwo.java)
   - [Good Number](/src/com/problems/bitmanipulation/GoodNumber.java)
+  - [Number of Bit Changes to Make Two Integers Equal](/src/com/problems/bitmanipulation/NumberOfBitChangesToMakeTwoIntegersEqual.java)
   - [Extract the right most set bit](/src/com/problems/bitmanipulation/ExtractTheRightMostSetBit.java)
   - [Extract the left most set bit](/src/com/problems/bitmanipulation/ExtractTheLeftMostSetBit.java)
   - [Find total set bit for range 0 to 2^n](/src/com/problems/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java)
@@ -672,6 +675,8 @@
   - [Insert Interval](/src/com/problems/greedy/InsertInterval.java)
   - [Non-overlapping Intervals](/src/com/problems/greedy/NonOverlappingIntervals.java)
   - [Increasing Triplet Subsequence](/src/com/problems/greedy/IncreasingTripletSubsequence.java)
+  - [Minimum Number of Pushes to Type Word I](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord1.java)
+  - [Minimum Number of Pushes to Type Word II](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord2.java)
 
   
 ### dynamic-programming
@@ -806,6 +811,8 @@
   - [Morris Inorder Traversal of a Binary Tree](/src/com/problems/binarytree/MorrisInorderTraversal.java)
   - [Morris Preorder Traversal of a Binary Tree](/src/com/problems/binarytree/MorrisPreorderTraversal.java)
   - [Flatten Binary Tree to LinkedList](/src/com/problems/binarytree/FlattenBinaryTreeToLinkedList.java)
+  - **others**
+    - [Most Profitable Path in a Tree](/src/com/problems/binarytree/MostProfitablePathAnATree.java)
 
 
 ### binary-search-tree
@@ -866,6 +873,10 @@
   - [Word Ladder 1](/src/com/problems/graph/WordLadder1.java)
   - [Word Ladder 2](/src/com/problems/graph/WordLadder2.java)
   - [Dijkstra's Algorithm](/src/com/problems/graph/DijkstraAlgorithm.java)
+  - [Shortest Path in Weighted undirected graph using Dijkstra](/src/com/problems/graph/ShortestPathWithDijkstraAlgorithm.java)
+
+  - **others**
+    - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
 
 ### segment-tree  
 

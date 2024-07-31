@@ -26,7 +26,7 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
 	}
 
 	// we will dimple bfs
-	// first we have to transform the edges to corresponding undirected adjlist
+	// first we have to transform the edges to corresponding undirected adj list
 	// we will start from the src node and visit all it's adjacent nodes
 	// use a distance array and set all the node value to infinity
 	// and src node value to 0

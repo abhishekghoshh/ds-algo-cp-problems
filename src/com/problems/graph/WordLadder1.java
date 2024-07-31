@@ -22,7 +22,8 @@ public class WordLadder1 {
 		type4();
 	}
 
-	// here also we will use bfs, 
+	// todo tell this in the interview
+	// here also we will use bfs,
 	// but here we use some sort of caching
 	// we will one letter different word in the same group
 	private static void type4() {
@@ -54,17 +55,21 @@ public class WordLadder1 {
 				char[] copy = word.toCharArray();
 				for (int j = 0; j < copy.length; j++) {
 					char oldChar = copy[j];
+					// assigning the wild card character
 					copy[j] = '#';
+					// checking how many words can be possible with this
 					List<String> wordMapPair = wordMap.get(new String(copy));
+					// again changing it back to the original character
 					copy[j] = oldChar;
 					if (null == wordMapPair) continue;
+					// checking all the words
 					for (String newWord : wordMapPair) {
 						// if it is visited, then we are skipping the loop
 						if (visited.contains(newWord)) continue;
 						// if is the target word, then we can return the level directly
 						// we are not waiting for the next level, that is why we are returning (level + 1)
 						if (newWord.equals(endWord)) return level + 1;
-						// then we are adding the new word to the queue and also set it to visited.
+						// then we are adding the new word to the queue and also set it to visit.
 						queue.add(newWord);
 						visited.add(newWord);
 					}
@@ -75,6 +80,9 @@ public class WordLadder1 {
 		return 0;
 	}
 
+	// this method will build mapping for any word
+	// like for hot it will create 3 mappings
+	// #ot -> hot, h#t -> hot, ho# -> hot
 	public static void groupWords(String word, Map<String, List<String>> wordMap) {
 		char[] copy = word.toCharArray();
 		for (int i = 0; i < copy.length; i++) {
@@ -222,8 +230,8 @@ public class WordLadder1 {
 	}
 
 	private static int ladderLength1(String beginWord, String endWord, List<String> wordList) {
-		// if the end word is not in the set, then we cannot construct the word
 		Set<String> wordSet = new HashSet<>(wordList);
+		// if the end word is not in the set, then we cannot construct the word
 		if (!wordSet.contains(endWord)) return 0;
 		// we will maintain a set of visited words, and for O(1) retrieval we have converted the list to set
 		Set<String> visited = new HashSet<>();

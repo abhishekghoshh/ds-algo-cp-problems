@@ -32,6 +32,7 @@ public class ShortestPathInDirectedAcyclicGraph {
 		type1();
 	}
 
+	// todo we will use the topo sort to arrange the nodes
 	// we are given edges and nodes
 	// first we have to transform it to adjacency list
 	// we will find the shortest path in a directed acyclic graph,
@@ -92,8 +93,8 @@ public class ShortestPathInDirectedAcyclicGraph {
 				int end = endNode[0];
 				int dis = endNode[1];
 				// it means distance[end] is greater than start distance + edge weight,
-				// which means if we go to end node via the start node, that will be shorter in distance
-				// so we will update the distance value and add it to queue
+				// which means if we go to end node via the start node, that will be shorter in distance,
+				// so we will update the distance value and add it to stack again
 				if (distance[end] > prevDis + dis) {
 					distance[end] = prevDis + dis;
 					stack.push(end);
