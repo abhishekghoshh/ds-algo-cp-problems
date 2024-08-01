@@ -1,6 +1,7 @@
-package graph;
+package com.problems.graph;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /*
@@ -33,33 +34,41 @@ public class PathWithMinimumEffort {
 		type2();
 	}
 
+	// check out other solutions
 	private static void type2() {
-		// check out other solutions
+
 	}
 
-	// study it one more time
+	// todo study it one more time
 	private static void type1() {
-		int[][] heights = { { 1, 2, 2 }, { 3, 8, 2 }, { 5, 3, 5 } };
+		int[][] heights = {
+				{1, 2, 2},
+				{3, 8, 2},
+				{5, 3, 5}
+		};
+		int ans = minimumEffortPath1(heights);
+		System.out.println(ans);
+
+	}
+
+	public static int minimumEffortPath1(int[][] heights) {
 		int row = heights.length;
 		int column = heights[0].length;
 
 		// Create a distance matrix with initially all the cells marked as
 		// unvisited and the dist for source cell (0,0) as 0.
 		int[][] dist = new int[row][column];
-		for (int i = 0; i < dist.length; i++) {
-			Arrays.fill(dist[i], Integer.MAX_VALUE);
-		}
+		for (int[] rows : dist) Arrays.fill(rows, Integer.MAX_VALUE);
 		dist[0][0] = 0;
 
-		// The following delta rows and delts columns array are created such that
+		// The following delta rows and delta columns array are created such that
 		// each index represents each adjacent node that a cell may have
 		// in a direction.
-		int[][] dir = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+		int[][] dir = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
-		PriorityQueue<int[]> minHeap = new PriorityQueue<>((p1, p2) -> Integer.compare(p1[0], p2[0]));
-		minHeap.offer(new int[] { 0, 0, 0 });
+		PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(p -> p[0]));
+		minHeap.offer(new int[]{0, 0, 0});
 
-		int diff = 0;
 		// Iterate through the matrix by popping the elements out of the queue
 		// and pushing whenever a shorter distance to a cell is found.
 		while (!minHeap.isEmpty()) {
@@ -67,10 +76,7 @@ public class PathWithMinimumEffort {
 			int d = pair[0];
 			int x = pair[1];
 			int y = pair[2];
-			if (x == row - 1 && y == column - 1) {
-				diff = d;
-				break;
-			}
+			if (x == row - 1 && y == column - 1) return d;
 			for (int i = 0; i < 4; i++) {
 				int r = x + dir[i][0];
 				int c = y + dir[i][1];
@@ -82,13 +88,12 @@ public class PathWithMinimumEffort {
 					// we update as we need the min effort.
 					if (newEffort < dist[r][c]) {
 						dist[r][c] = newEffort;
-						minHeap.add(new int[] { newEffort, r, c });
+						minHeap.add(new int[]{newEffort, r, c});
 					}
 				}
 			}
 		}
-		System.out.println(diff);
-
+		return 0;
 	}
 
 }

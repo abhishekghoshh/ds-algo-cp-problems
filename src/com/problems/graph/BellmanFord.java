@@ -1,5 +1,6 @@
-package graph;
+package com.problems.graph;
 
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -23,13 +24,17 @@ public class BellmanFord {
 
 	private static void type1() {
 		int v = 3;
-		List<List<Integer>> edges = List.of(List.of(0, 1, 5), List.of(1, 0, 3), List.of(1, 2, -1), List.of(2, 0, 1));
+		List<List<Integer>> edges = List.of(
+				List.of(0, 1, 5),
+				List.of(1, 0, 3),
+				List.of(1, 2, -1),
+				List.of(2, 0, 1)
+		);
 		int s = 2;
 		
 		int inf = (int) (1e8);
 		int[] dis = new int[v];
-		for (int i = 0; i < v; i++)
-			dis[i] = inf;
+		Arrays.fill(dis, inf);
 		dis[s] = 0;
 
 		// we will relax all the edges n-1 times

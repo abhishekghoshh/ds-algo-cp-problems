@@ -1,4 +1,4 @@
-package graph;
+package com.problems.graph;
 
 /*
  * Problem link :
@@ -29,13 +29,10 @@ public class FloydWarshall {
 		int n = matrix.length;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (i == j)
-					continue;
+				if (i == j) continue;
 				for (int k = 0; k < n; k++) {
-					if (j == k)
-						continue;
-					if (i == j)
-						continue;
+					if (j == k) continue;
+					if (i == j) continue;
 					if (matrix[j][i] != -1 && matrix[i][k] != -1
 							&& (matrix[j][k] == -1 || matrix[j][i] + matrix[i][k] < matrix[j][k])) {
 						matrix[j][k] = matrix[j][i] + matrix[i][k];
@@ -57,10 +54,8 @@ public class FloydWarshall {
 		// we will replace it with infinity
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (matrix[i][j] == -1)
-					matrix[i][j] = Integer.MAX_VALUE;
-				if (i == j)
-					matrix[i][j] = 0;
+				if (matrix[i][j] == -1) matrix[i][j] = Integer.MAX_VALUE;
+				if (i == j) matrix[i][j] = 0;
 			}
 		}
 
@@ -70,13 +65,10 @@ public class FloydWarshall {
 		// where k will go from 0 to n-1
 		for (int k = 0; k < n; k++) {
 			for (int i = 0; i < n; i++) {
-				if (i == k)
-					continue;
+				if (i == k) continue;
 				for (int j = 0; j < n; j++) {
-					if (j == k)
-						continue;
-					if (i == j)
-						continue;
+					if (j == k) continue;
+					if (i == j) continue;
 					matrix[i][j] = (int) Math.min(matrix[i][j], (long) matrix[i][k] + (long) matrix[k][j]);
 				}
 			}

@@ -874,6 +874,12 @@
   - [Word Ladder 2](/src/com/problems/graph/WordLadder2.java)
   - [Dijkstra's Algorithm](/src/com/problems/graph/DijkstraAlgorithm.java)
   - [Shortest Path in Weighted undirected graph using Dijkstra](/src/com/problems/graph/ShortestPathWithDijkstraAlgorithm.java)
+  - [Shortest Distance in a Binary Maze](/src/com/problems/graph/ShortestDistanceInBinaryMaze.java)
+  - [Path With Minimum Effort](/src/com/problems/graph/PathWithMinimumEffort.java)
+  - [Cheapest Flights Within K Stops](/src/com/problems/graph/CheapestFlightsWithinKStops.java)
+  - [Minimum Multiplications to Reach End](/src/com/problems/graph/MinimumMultiplicationsToReachEnd.java)
+  - [Bellman Ford](/src/com/problems/graph/BellmanFord.java)
+  - [Floyd Warshall](/src/com/problems/graph/FloydWarshall.java)
 
   - **others**
     - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
