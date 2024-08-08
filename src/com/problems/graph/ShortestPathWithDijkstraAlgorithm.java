@@ -41,28 +41,27 @@ public class ShortestPathWithDijkstraAlgorithm {
 	}
 
 	public static List<Integer> shortestPath(int n, int m, int edges[][]) {
+		int src = 1, dest = n;
 		// edges are 1 based index
 		// transforming from edges to adjacency list
 		List<List<int[]>> adj = new ArrayList<>();
 		for (int i = 0; i <= n; i++) adj.add(new ArrayList<>());
 		for (int[] edge : edges) {
-			int start = edge[0];
-			int end = edge[1];
-			int dis = edge[2];
+			int start = edge[0], end = edge[1], dis = edge[2];
 			adj.get(start).add(new int[]{end, dis});
 			adj.get(end).add(new int[]{start, dis});
 		}
-
 		// initializing the distance array
 		int[] distance = new int[n + 1];
 		Arrays.fill(distance, Integer.MAX_VALUE);
-		int src = 1;
+
 		distance[src] = 0;
 
 		// initializing the parent array
 		int[] parent = new int[n + 1];
 		Arrays.fill(parent, -1);
-		// we will directly use the priority queue here as min heap
+		// we will directly use the priority queue here as min heap, where pair[1] is the distance,
+		// so we will get the edge with minimum distance
 		PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(pair -> pair[1]));
 		minHeap.offer(new int[]{src, 0});
 
@@ -70,11 +69,13 @@ public class ShortestPathWithDijkstraAlgorithm {
 			int[] pair = minHeap.poll();
 			int start = pair[0];
 			int prevDis = pair[1];
-
+			// we will check all its neighbours
 			for (int[] node : adj.get(start)) {
 				int end = node[0];
 				int dis = node[1];
 				int newDis = prevDis + dis;
+				// if any edge can be relaxed then we will add that node into the queue
+				// also update the distance and the parent array
 				if (newDis < distance[end]) {
 					distance[end] = newDis;
 					parent[end] = start;
@@ -85,10 +86,12 @@ public class ShortestPathWithDijkstraAlgorithm {
 		// as this point distance array and parent array are calculated
 		print(distance);
 		print(parent);
-		if (parent[n] == -1) return List.of(-1);
+		// if parent of destination is -1 that means we can not go to src to destination node
+		if (parent[dest] == -1) return List.of(-1);
 
+		// from destination node we will backtrack to src
 		List<Integer> answer = new ArrayList<>();
-		int start = n;
+		int start = dest;
 		while (start != -1) {
 			answer.add(start);
 			start = parent[start];

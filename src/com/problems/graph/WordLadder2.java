@@ -21,122 +21,105 @@ public class WordLadder2 {
 		type1();
 		type2();
 		type3();
-		type4();
 	}
 
-	private static void type4() {
-	}
-
-	// TODO check the leetcode solution section to fin the best solution
 	private static void type3() {
-		String beginWord = "a";
-		String endWord = "c";
-		List<String> wordList = new ArrayList<>(List.of("a", "b", "c"));
+		String beginWord = "hit";
+		String endWord = "cog";
+		List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
 
 		List<List<String>> answer = findLadders3(wordList, beginWord, endWord);
 		System.out.println(answer);
-
 	}
 
 	private static List<List<String>> findLadders3(List<String> wordList, String beginWord, String endWord) {
-		Map<String, Boolean> visited = new HashMap<>();
+		// Push all values of wordList into a set
+		// to make deletion from it easier and in less time complexity.
+		Set<String> set = new HashSet<>(wordList);
+		// if set does not contain the end word then we can directly return
+		if (!set.contains(endWord)) return new ArrayList<>();
 
-		for (String word : wordList) visited.put(word, false);
-		if (!visited.containsKey(endWord)) return new ArrayList<>();
-
-		Map<String, List<String>> neighbors = new HashMap<>();
-
-		int len = beginWord.length(), size = wordList.size();
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				if (i == j) continue;
-				addNeighbors(len, wordList.get(i), wordList.get(j), neighbors);
-			}
-		}
-		if (!visited.containsKey(beginWord))
-			for (String word : wordList)
-				addNeighbors(len, beginWord, word, neighbors);
-
-		Map<String, Integer> levels = new HashMap<>();
-
-		visited.put(beginWord, true);
+		// Perform BFS traversal and push the string in the queue
+		// as soon as they’re found in the wordList.
 		Queue<String> queue = new LinkedList<>();
-		queue.offer(beginWord);
-		Set<String> currentLevelVisitedWords = new HashSet<>();
+		queue.add(beginWord);
 
-		int level = 1;
-		levels.put(beginWord, level);
+		// Create a map of type word->level to get the idea
+		// on which level the word comes after the transformations.
+		Map<String, Integer> levels = new HashMap<>();
+		// beginWord initialised with level 1.
+		levels.put(beginWord, 1);
+		set.remove(beginWord);
+		int wordLen = beginWord.length();
 
 		while (!queue.isEmpty()) {
-			int levelSize = queue.size();
-			int i = 0;
-			while (i < levelSize) {
-				i++;
-				String word = queue.poll();
-				if (!neighbors.containsKey(word)) continue;
-				for (String next : neighbors.get(word)) {
-					if (visited.get(next)) continue;
-					currentLevelVisitedWords.add(next);
-					levels.put(next, level + 1);
+			String word = queue.poll();
+			int steps = levels.get(word);
+			// Break out if the word matches the endWord
+			if (word.equals(endWord)) break;
+			// Replace each character of the word with letters from a-z
+			// and check whether the transformed word is present in the
+			// wordList or not, if yes then push to queue
+			for (int i = 0; i < wordLen; i++) {
+				char[] arr = word.toCharArray();
+				char prevCh = arr[i];
+				for (char ch = 'a'; ch <= 'z'; ch++) {
+					if (ch == prevCh) continue;
+					arr[i] = ch;
+					String newWord = new String(arr);
+					if (set.contains(newWord)) {
+						queue.add(newWord);
+						set.remove(newWord);
+						// push the word along with its level in the map data structure.
+						levels.put(newWord, steps + 1);
+					}
 				}
+				arr[i] = prevCh;
 			}
-			for (String word : currentLevelVisitedWords) {
-				queue.offer(word);
-				visited.put(word, true);
-			}
-			currentLevelVisitedWords.clear();
-			level++;
-			if (levels.containsKey(endWord)) break;
 		}
-		System.out.println(neighbors);
-		System.out.println(levels);
-		List<List<String>> answer = new ArrayList<>();
-		addToAnswer(beginWord, endWord, 1, levels, neighbors, new LinkedList<>(), answer);
-		return answer;
+		// A list for storing the final answer.
+		List<List<String>> ans = new ArrayList<>();
+		// If we reach the endWord, we stop and move to step-2,that is to perform reverse dfs traversal.
+		if (levels.containsKey(endWord)) {
+			// initializing arraylist with some default length
+			List<String> seq = new ArrayList<>(levels.get(endWord));
+			seq.add(endWord);
+			dfs(beginWord, endWord, seq, ans, levels);
+		}
+		return ans;
 	}
 
-	private static void addToAnswer(String word, String endWord, int level, Map<String, Integer> levels,
-									Map<String, List<String>> neighbors, LinkedList<String> bucket, List<List<String>> answer) {
-		bucket.addLast(word);
-		if (word.equals(endWord)) {
-			answer.add(new ArrayList<>(bucket));
-		} else {
-			if (neighbors.containsKey(word))
-				for (String next : neighbors.get(word))
-					if (levels.containsKey(next) && levels.get(next) == (level + 1))
-						addToAnswer(next, endWord, level + 1, levels, neighbors, bucket, answer);
+	private static void dfs(String beginWord, String word, List<String> seq, List<List<String>> ans, Map<String, Integer> map) {
+		// Function for implementing backtracking using the created map
+		// in reverse order to find the transformation sequence in less time.
+		// If word equals beginWord, we’ve found one of the sequences to reverse the sequence and return.
+		if (word.equals(beginWord)) {
+			// before adding to the answer, we are reversing it
+			List<String> bucket = new ArrayList<>(seq);
+			Collections.reverse(bucket);
+			ans.add(bucket);
+			return;
 		}
-		bucket.removeLast();
-	}
-
-	private static void addNeighbors(int len, String w1, String w2, Map<String, List<String>> neighbors) {
-		int c1 = 0, c2 = 0;
-		for (int k = 0; k < len; k++) {
-			char ch1 = w1.charAt(k), ch2 = w2.charAt(k);
-			if (ch1 != ch2) c1++;
-			if (ch1 == ch2) c2++;
-		}
-		if (c1 == 1 && c2 == len - 1) {
-			if (!neighbors.containsKey(w1)) neighbors.put(w1, new ArrayList<>());
-			neighbors.get(w1).add(w2);
-		}
-	}
-
-	private static void findNeighbors(String word, Map<String, Boolean> visited, Map<String, List<String>> neighbors) {
-		char[] arr = word.toCharArray();
-		int n = arr.length;
-		for (int i = 0; i < n; i++) {
-			char prev = arr[i];
+		int steps = map.get(word);
+		// Replace each character of the word with letters from a-z
+		// and check whether the transformed word is present in the map
+		// and at the previous level or not.
+		int len = word.length();
+		for (int i = 0; i < len; i++) {
+			char[] arr = word.toCharArray();
+			char prevCh = arr[i];
 			for (char ch = 'a'; ch <= 'z'; ch++) {
-				if (ch == prev) continue;
+				if (ch == prevCh) continue;
 				arr[i] = ch;
 				String newWord = new String(arr);
-				if (visited.containsKey(newWord)) {
-					if (!neighbors.containsKey(word)) neighbors.put(word, new ArrayList<>());
-					neighbors.get(word).add(newWord);
+				if (map.containsKey(newWord) && map.get(newWord) + 1 == steps) {
+					seq.add(newWord);
+					dfs(beginWord, newWord, seq, ans, map);
+					// pop the current word from the back of the list, to traverse other possibilities.
+					seq.remove(seq.size() - 1);
 				}
 			}
-			arr[i] = prev;
+			arr[i] = prevCh;
 		}
 	}
 

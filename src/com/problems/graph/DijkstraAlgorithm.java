@@ -31,11 +31,21 @@ public class DijkstraAlgorithm {
 		type2();
 	}
 
+	// todo Dijkstra is always solved using Priority Queue, but it can be solved using Queue also
+	//  we can use TreeSet but that will be a over kill
 	// similar to the previous type, but here we will use a priority queue or a min heap.
 	// queue will introduce multiple unnecessary edges, so we can use priority queue
+	// time complexity of Dijkstra algorithm using Priority Queue will be 2e*log(v)
+	// where e is the number of edges and v is the number of nodes
+	// for a dense graph one node we can go to all v-1 nodes total edges will be v*(v-1)
+	// so e is almost equals to v^2
+	// At max there will be all edges in the priority queue
+	// and we have to relax all that edges
+	// so the inner while loop can go e times and for max polling time of Priority queue will be log(e)
+	// so total time will be e*log(e) which is e*log(v^2) => 2e*log(v)
 	private static void type2() {
 		int v = 3;
-		int s = 2;
+		int s = 0;
 		List<List<List<Integer>>> adj = List.of(
 				List.of(
 						List.of(1, 1),
@@ -67,13 +77,13 @@ public class DijkstraAlgorithm {
 			int prevDis = pair[1];
 			for (List<Integer> node : adj.get(start)) {
 				int end = node.get(0), dis = node.get(1);
+				// we will relax the edge and update new distance for the end node
 				if (prevDis + dis < distance[end]) {
 					distance[end] = prevDis + dis;
 					minHeap.offer(new int[]{end, prevDis + dis});
 				}
 			}
 		}
-
 		print(distance);
 	}
 
@@ -81,7 +91,7 @@ public class DijkstraAlgorithm {
 	// and we will relax the edges everytime
 	private static void type1() {
 		int v = 3;
-		int s = 2;
+		int s = 0;
 		List<List<List<Integer>>> adj = List.of(
 				List.of(
 						List.of(1, 1),

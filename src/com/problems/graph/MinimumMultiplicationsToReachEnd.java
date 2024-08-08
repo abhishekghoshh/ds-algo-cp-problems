@@ -26,7 +26,7 @@ public class MinimumMultiplicationsToReachEnd {
 		type2();
 	}
 
-	// using bfs
+	// using bfs,
 	// we don't have to store the level
 	// as we are increasing the level by 1 only
 	private static void type2() {
@@ -69,32 +69,31 @@ public class MinimumMultiplicationsToReachEnd {
 		int[] arr = { 2, 5, 7 };
 		int start = 3;
 		int end = 30;
+		int ans = minimumMultiplications1(arr, start, end);
+		System.out.println(ans);
 
+	}
+
+	static int minimumMultiplications1(int[] arr, int start, int end) {
 		int PIVOT = 100000;
-
-		// as we know that all the item will range from 0 to pivot
-		// so we can just use an array
+		// as we know that all the item will range from 0 to pivot, so we can just use an array
 		boolean[] set = new boolean[PIVOT + 1];
 		set[start] = true;
 		Queue<int[]> queue = new LinkedList<>();
-		queue.add(new int[] { start, 0 });
-
+		queue.add(new int[]{start, 0});
 		while (!queue.isEmpty()) {
 			int[] pair = queue.poll();
 			int node = pair[0];
 			int lvl = pair[1];
-			if (node == end) {
-				System.out.println(lvl);
-				return;
-			}
+			if (node == end) return lvl;
 			for (int item : arr) {
 				int sum = (node * item) % PIVOT;
 				if (!set[sum]) {
 					set[sum] = true;
-					queue.offer(new int[] { sum, lvl + 1 });
+					queue.offer(new int[]{sum, lvl + 1});
 				}
 			}
 		}
-		System.out.println(-1);
+		return -1;
 	}
 }

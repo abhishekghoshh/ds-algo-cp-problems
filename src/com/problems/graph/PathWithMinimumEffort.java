@@ -18,28 +18,22 @@ import java.util.PriorityQueue;
 public class PathWithMinimumEffort {
 
 	// You are a hiker preparing for an upcoming hike. You are given heights, a 2D
-	// array of size rows x columns, where heights[row][col] represents the height
-	// of cell (row, col). You are situated in the top-left cell, (0, 0), and you
-	// hope to travel to the bottom-right cell, (rows-1, columns-1) (i.e.,
-	// 0-indexed). You can move up, down, left, or right, and you wish to find a
-	// route that requires the minimum effort.
+	// array of size rows x columns, where heights[row][col] represents the height of cell (row, col).
+	// You are situated in the top-left cell, (0, 0),
+	// and you hope to travel to the bottom-right cell, (rows-1, columns-1) (i.e.,0-indexed).
+	// You can move up, down, left, or right, and you wish to find a route that requires the minimum effort.
 
-	// A route's effort is the maximum absolute difference in heights between two
-	// consecutive cells of the route.
+	// A route's effort is the maximum absolute difference in heights between two consecutive cells of the route.
 
-	// Return the minimum effort required to travel from the top-left cell to the
-	// bottom-right cell.
+	// Return the minimum effort required to travel from the top-left cell to the bottom-right cell.
 	public static void main(String[] args) {
 		type1();
-		type2();
 	}
 
-	// check out other solutions
-	private static void type2() {
 
-	}
-
-	// todo study it one more time
+	// We will use a priority queue and apply Dijkstra algorithm here
+	// on every iteration we will store the new Min Effort into the queue for a particular node
+	// once we reach the final node we will return the  answer as we know it will have the minimum effort value
 	private static void type1() {
 		int[][] heights = {
 				{1, 2, 2},
@@ -65,7 +59,7 @@ public class PathWithMinimumEffort {
 		// each index represents each adjacent node that a cell may have
 		// in a direction.
 		int[][] dir = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-
+		// p[0] is for distance
 		PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(p -> p[0]));
 		minHeap.offer(new int[]{0, 0, 0});
 
@@ -73,27 +67,35 @@ public class PathWithMinimumEffort {
 		// and pushing whenever a shorter distance to a cell is found.
 		while (!minHeap.isEmpty()) {
 			int[] pair = minHeap.poll();
-			int d = pair[0];
+			int diff = pair[0];
 			int x = pair[1];
 			int y = pair[2];
-			if (x == row - 1 && y == column - 1) return d;
+			// if we reach the destination then we will return the answer
+			if (x == row - 1 && y == column - 1) return diff;
+			// we will traverse all its 4 neighbours
 			for (int i = 0; i < 4; i++) {
 				int r = x + dir[i][0];
 				int c = y + dir[i][1];
-				if (r >= 0 && r < row && c >= 0 && c < column) {
+				// we will check if it is in bounds
+				if (isInBounds(r, c, row, column)) {
 					// Effort can be calculated as the max value of differences
 					// between the heights of the node and its adjacent nodes.
-					int newEffort = Math.max(Math.abs(heights[x][y] - heights[r][c]), d);
-					// If the calculated effort is less than the prev value
-					// we update as we need the min effort.
-					if (newEffort < dist[r][c]) {
-						dist[r][c] = newEffort;
-						minHeap.add(new int[]{newEffort, r, c});
+					int absDiff = Math.abs(heights[x][y] - heights[r][c]);
+					// we will take the max difference on that path
+					int newDiff = Math.max(absDiff, diff);
+					// If the new diff is less than the prev diff we update as we need the min effort
+					if (newDiff < dist[r][c]) {
+						dist[r][c] = newDiff;
+						minHeap.add(new int[]{newDiff, r, c});
 					}
 				}
 			}
 		}
 		return 0;
+	}
+
+	private static boolean isInBounds(int r, int c, int row, int column) {
+		return r >= 0 && r < row && c >= 0 && c < column;
 	}
 
 }
