@@ -1,4 +1,4 @@
-package graph;
+package com.problems.graph;
 
 /*
  * Problem link :

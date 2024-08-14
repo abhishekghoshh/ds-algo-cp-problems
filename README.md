@@ -299,6 +299,8 @@
     - two-pointer
     - stack
     - dynamic-programming
+  - **others**
+    - [Find the Count of Monotonic Pairs I](/src/com/problems/array/FindTheCountOfMonotonicPairs.java)
 
 
 ### sliding-window
@@ -769,6 +771,16 @@
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
     - [Minimum Cost for Cutting Cake I](/src/com/problems/dp/MinimumCostForCuttingCakeI.java)
 
+### meet-in-the-middle
+
+- **resources**
+  - [Meet in the Middle / Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
+  - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
+  - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
+- **codes**
+  - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
+  - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
+
 ### binary-tree
 
 - **resources**
@@ -878,10 +890,26 @@
     - [Shortest Distance in a Binary Maze](/src/com/problems/graph/ShortestDistanceInBinaryMaze.java)
     - [Path With Minimum Effort](/src/com/problems/graph/PathWithMinimumEffort.java)
     - [Cheapest Flights Within K Stops](/src/com/problems/graph/CheapestFlightsWithinKStops.java)
+    - [Network Delay Time](/src/com/problems/graph/NetworkDelayTime.java)
     - [Minimum Multiplications to Reach End](/src/com/problems/graph/MinimumMultiplicationsToReachEnd.java)
     - [Number of Ways to Arrive at Destination](/src/com/problems/graph/NumberOfWaysToArriveAtDestination.java)
     - [Bellman Ford](/src/com/problems/graph/BellmanFord.java)
     - [Floyd Warshall](/src/com/problems/graph/FloydWarshall.java)
+    - [Find the City With the Smallest Number of Neighbors at a Threshold Distance](/src/com/problems/graph/FindTheCityWithTheSmallestNumberOfNeighbors.java)
+  - **Minimum Spanning Tree**
+    - [Minimum Spanning Tree - Theory](/src/com/problems/graph/MinimumSpanningTree.java)
+    - [Prim's Algorithm - Minimum Spanning Tree](/src/com/problems/graph/PrimsAlgorithm.java)
+    - [Disjoint Set | Union by Rank | Union by Size | Path Compression](/src/com/problems/graph/DisjointSetImplementation.java)
+    - [Kruskal's Algorithm - Minimum Spanning Tree](/src/com/problems/graph/KruskalAlgorithm.java)
+    - [Number of Provinces - Disjoint Set](/src/com/problems/graph/NumberOfProvincesUsingDisjointSet.java)
+    - [Number of Operations to Make Network Connected - Using Disjoint Set](/src/com/problems/graph/NumberOfOperationsToMakeANetworkConnected.java)
+    - [Number of Islands - II - Online Queries - Using Disjoint Set](/src/com/problems/graph/NumberOfIslandOnlineQueries.java)
+    - [Making a Large Island - Disjoint Set](/src/com/problems/graph/MakeALargeIsland.java)
+    - [Most Stones Removed with Same Row or Column](/src/com/problems/graph/MostStonesRemovedWithSameRowOrColumn.java)
+  - **Other Algorithm**
+    - [Strongly Connected Components - Kosaraju's Algorithm](/src/com/problems/graph/KosarajusAlgorithm.java)
+    - [Bridges in Graph - Using Tarjan's Algorithm of time in and low time](/src/com/problems/graph/BridgesInGraph.java)
+    - [Articulation Point in Graph](/src/com/problems/graph/ArticulationPointInGraph.java)
   - **others**
     - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
 
@@ -938,16 +966,6 @@
   - [Frog Jump 1](src/com/problems/special/jumpgame/FrogJump1.java)
   - [Frog Jump 2](src/com/problems/special/jumpgame/FrogJump2.java)
 
-
-### meet-in-the-middle
-
-- **resources**
-  - [Meet in the Middle / Tutorial & Problems](https://www.youtube.com/watch?v=18sJ3mK173s)
-  - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
-  - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
-- **codes**
-  - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
-  - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
 
 ## Playlists for hard problems
 

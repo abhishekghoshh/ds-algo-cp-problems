@@ -16,7 +16,6 @@ parent of dest 4 2
 -------------------------
 parent of src 4 2
 parent of dest 5 5
-parent of src 4 2
 parent of dest 5 2
 -------------------------
 parent of src 3 0

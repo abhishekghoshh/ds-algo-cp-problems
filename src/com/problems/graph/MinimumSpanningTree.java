@@ -1,4 +1,4 @@
-package graph;
+package com.problems.graph;
 
 /*
  * Problem link :
@@ -18,6 +18,12 @@ public class MinimumSpanningTree {
 
 	// only theory
 	private static void type1() {
+		// The minimum Spanning tree is a tree representation of a graph where we have n nodes and n-1 edges.
+		// Which means the minimum number of edges to connect all the nodes in a graph.
+		// Minimum spanning tree will also have the fewest distance edges for connecting all the nodes.
+		// A graph can have multiple spanning trees
+
+		// There are a couple of algorithms for transforming a graph to the minimum spanning tree
 		// 1.Prim's Algorithm
 		// 2.Kruskal Algorithm
 	}

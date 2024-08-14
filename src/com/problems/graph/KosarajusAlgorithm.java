@@ -1,4 +1,4 @@
-package graph;
+package com.problems.graph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +24,7 @@ public class KosarajusAlgorithm {
 	private static void type2() {
 		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 		int v = 5;
-		for (int i = 0; i < v; i++)
-			adj.add(new ArrayList<>());
+		for (int i = 0; i < v; i++) adj.add(new ArrayList<>());
 		adj.get(0).addAll(List.of(2, 3));
 		adj.get(1).addAll(List.of(0));
 		adj.get(2).addAll(List.of(1));
@@ -36,22 +35,19 @@ public class KosarajusAlgorithm {
 		boolean[] visited = new boolean[v];
 
 		for (int i = 0; i < v; i++) {
-			if (!visited[i])
-				dfs(i, adj, stack, visited);
+			if (!visited[i]) dfs(i, adj, stack, visited);
 		}
 
 		ArrayList<ArrayList<Integer>> revAdj = new ArrayList<>();
-		for (int i = 0; i < v; i++)
-			revAdj.add(new ArrayList<>());
+		for (int i = 0; i < v; i++) revAdj.add(new ArrayList<>());
 		for (int i = 0; i < v; i++)
 			for (int node : adj.get(i))
 				revAdj.get(node).add(i);
-		// unsetting the visited array otherwise we have to create another array
-		for (int i = 0; i < v; i++)
-			visited[i] = false;
+		// unsetting the visited array, otherwise we have to create another array
+		for (int i = 0; i < v; i++) visited[i] = false;
 
 		List<List<Integer>> ans = new ArrayList<>();
-		// if we also want the components then we can just pass one arraylist to store
+		// if we also want the components, then we can just pass one arraylist to store
 		// all the components
 		while (!stack.isEmpty()) {
 			int node = stack.pop();
@@ -104,12 +100,12 @@ public class KosarajusAlgorithm {
 		for (int i = 0; i < v; i++)
 			for (int node : adj.get(i))
 				revAdj.get(node).add(i);
-		// unsetting the visited array otherwise we have to create another array
+		// unsetting the visited array, otherwise we have to create another array
 		for (int i = 0; i < v; i++)
 			visited[i] = false;
 
 		int count = 0;
-		// if we also want the components then we can just pass one arraylist to store
+		// if we also want the components, then we can just pass one arraylist to store
 		// all the components
 		while (!stack.isEmpty()) {
 			int node = stack.pop();

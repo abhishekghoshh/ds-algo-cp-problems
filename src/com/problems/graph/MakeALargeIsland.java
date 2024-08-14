@@ -1,10 +1,10 @@
-package graph;
-
-import static util.OnlineJudgeInit.scanner;
-import static util.OnlineJudgeInit.set;
+package com.problems.graph;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static util.OnlineJudgeInit.scanner;
+import static util.OnlineJudgeInit.set;
 
 /*
  * Problem link :
@@ -25,9 +25,9 @@ public class MakeALargeIsland {
 	}
 
 	// we will use union by size this time
-	// in previous type we have used set
-	// but we know the size
-	// so we can use visited array
+	// in previous type we have used a set
+	// but we know the size,
+	// so we can use a visited array
 	// and one stack to remove the visited position
 	private static void type2() {
 		int n = scanner.nextInt();
@@ -35,7 +35,12 @@ public class MakeALargeIsland {
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
 				grid[i][j] = scanner.nextInt();
+		int ans = largestIsland2(grid);
+		System.out.println(ans);
+	}
 
+	public static int largestIsland2(int[][] grid) {
+		int n = grid.length;
 		int N = n * n;
 		int[] parent = new int[N];
 		int[] size = new int[N];
@@ -43,19 +48,23 @@ public class MakeALargeIsland {
 			size[i] = 1;
 			parent[i] = i;
 		}
-		int[][] dirs = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
-		// by this union find we have gathered size of the individual components
+		int[][] dirs = {
+				{0, 1},
+				{0, -1},
+				{1, 0},
+				{-1, 0}
+		};
+		// by this union find we have gathered the size of the individual components
 		int noOfOnes = 0;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (grid[i][j] == 0)
-					continue;
+				if (grid[i][j] == 0) continue;
 				noOfOnes++;
 				int nodeId = i * n + j;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
-					if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
+					if (isInBounds(x, y, n) && grid[x][y] == 1) {
 						int adjacentNodeId = x * n + y;
 						if (find(parent, nodeId) != find(parent, adjacentNodeId)) {
 							union(parent, size, nodeId, adjacentNodeId);
@@ -64,12 +73,9 @@ public class MakeALargeIsland {
 				}
 			}
 		}
-		// if noOfOnes == n*n that means there is no 0
-		// we can not place any 1 in place of 0
-		if (noOfOnes == N) {
-			System.out.println(noOfOnes);
-			return;
-		}
+		// if noOfOnes == n*n that means there is no zero,
+		// we cannot place any 1 in place of 0
+		if (noOfOnes == N) return noOfOnes;
 
 		int[] stack = new int[N];
 		int top = -1;
@@ -82,8 +88,7 @@ public class MakeALargeIsland {
 		// we have used the set to
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (grid[i][j] == 1)
-					continue;
+				if (grid[i][j] == 1) continue;
 				int localIsland = 1;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
@@ -94,22 +99,21 @@ public class MakeALargeIsland {
 						if (!set[adjacentNodeParent]) {
 							set[adjacentNodeParent] = true;
 							// adding node to stack so that we don't have to
-							// create visited array all time
-							// which will save some memory
+							// create a visited array all the time which will save some memory
 							stack[++top] = adjacentNodeParent;
 							localIsland += size[adjacentNodeParent];
 						}
 					}
 				}
 				// clearing the visited array
-				while (top != -1)
-					set[stack[top--]] = false;
+				while (top != -1) set[stack[top--]] = false;
 				largestIsland = Math.max(largestIsland, localIsland);
 			}
 		}
-		System.out.println(largestIsland);
+		return largestIsland;
 	}
 
+	// We will use a Disjoint set here
 	// we will use union by size this time
 	private static void type1() {
 		int n = scanner.nextInt();
@@ -118,6 +122,12 @@ public class MakeALargeIsland {
 			for (int j = 0; j < n; j++)
 				grid[i][j] = scanner.nextInt();
 
+		int ans = largestIsland1(grid);
+		System.out.println(ans);
+	}
+
+	public static int largestIsland1(int[][] grid) {
+		int n = grid.length;
 		int N = n * n;
 		int[] parent = new int[N];
 		int[] size = new int[N];
@@ -125,33 +135,33 @@ public class MakeALargeIsland {
 			size[i] = 1;
 			parent[i] = i;
 		}
-		int[][] dirs = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+		int[][] dirs = {
+				{0, 1},
+				{0, -1},
+				{1, 0},
+				{-1, 0}
+		};
 		// by this union find we have gathered size of the individual components
 		int noOfOnes = 0;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (grid[i][j] == 0)
-					continue;
+				if (grid[i][j] == 0) continue;
 				noOfOnes++;
 				int nodeId = i * n + j;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
-					if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
-						int adjacentNodeId = x * n + y;
-						if (find(parent, nodeId) != find(parent, adjacentNodeId)) {
+					if (isInBounds(x, y, n) && grid[x][y] == 1) {
+						int adjacentNodeId = (x * n) + y;
+						if (find(parent, nodeId) != find(parent, adjacentNodeId))
 							union(parent, size, nodeId, adjacentNodeId);
-						}
 					}
 				}
 			}
 		}
-		// if noOfOnes == n*n that means there is no 0
-		// we can not place any 1 in place of 0
-		if (noOfOnes == N) {
-			System.out.println(noOfOnes);
-			return;
-		}
+		// if noOfOnes == n*n that means there is no zero,
+		// we cannot place any 1 in place of 0
+		if (noOfOnes == N) return noOfOnes;
 		int largestIsland = 0;
 		// now we will loop through the grid and find 0
 		// and check if we can find unique surrounding component or not
@@ -159,14 +169,13 @@ public class MakeALargeIsland {
 		// we have used the set to
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (grid[i][j] == 1)
-					continue;
+				if (grid[i][j] == 1) continue;
 				Set<Integer> set = new HashSet<>();
 				int localIsland = 1;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
-					if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
+					if (isInBounds(x, y, n) && grid[x][y] == 1) {
 						int adjacentNodeId = x * n + y;
 						int adjacentNodeParent = find(parent, adjacentNodeId);
 						if (!set.contains(adjacentNodeParent)) {
@@ -178,7 +187,11 @@ public class MakeALargeIsland {
 				largestIsland = Math.max(largestIsland, localIsland);
 			}
 		}
-		System.out.println(largestIsland);
+		return largestIsland;
+	}
+
+	private static boolean isInBounds(int x, int y, int n) {
+		return x >= 0 && x < n && y >= 0 && y < n;
 	}
 
 	public static void union(int[] parent, int[] size, int u, int v) {
@@ -195,8 +208,7 @@ public class MakeALargeIsland {
 
 	public static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
-		if (node == parent[node])
-			return node;
+		if (node == parent[node]) return node;
 		int baseParent = find(parent, parent[node]);
 		parent[node] = baseParent;
 		return baseParent;

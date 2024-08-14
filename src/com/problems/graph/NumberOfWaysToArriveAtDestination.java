@@ -23,6 +23,8 @@ public class NumberOfWaysToArriveAtDestination {
 		// check out other solutions
 	}
 
+	// using Dijkstra algorithm
+	// but here along with a distance array we will also create another array for storing the ways
 	private static void type1() {
 		int n = 7;
 		int[][] roads = {
@@ -43,10 +45,10 @@ public class NumberOfWaysToArriveAtDestination {
 
 	public static int countPaths1(int n, int[][] roads) {
 		int pivot = (int) 1e9 + 7;
-
+		// let's create an adjacency list first
 		List<List<int[]>> adj = new ArrayList<>();
 		for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
-
+		// we will also add the edges
 		for (int[] road : roads) {
 			adj.get(road[0]).add(new int[]{road[1], road[2]});
 			adj.get(road[1]).add(new int[]{road[0], road[2]});
@@ -58,7 +60,7 @@ public class NumberOfWaysToArriveAtDestination {
 		dist[0] = 0;
 
 		int[] ways = new int[n];
-		// we are in 0 so there is only 1 way to go to 0
+		// we are in source 0 so there is only 1 way to go to 0
 		ways[0] = 1;
 
 		// we will apply a simple dijkstra algorithm
@@ -68,22 +70,22 @@ public class NumberOfWaysToArriveAtDestination {
 		while (!minHeap.isEmpty()) {
 			long[] pair = minHeap.poll();
 			int src = (int) pair[0];
-			long prevDistance = pair[1];
+			long prevDis = pair[1];
 			for (int[] edge : adj.get(src)) {
-				int destination = edge[0];
-				long distance = edge[1];
+				int end = edge[0];
+				long dis = edge[1];
 				// if prevDistance + distance < dist[destination] that means the edge will be now relaxed.
 				// let's say by x ways src of the node can be visited and there is one path from src to destination
 				// so destination will also be visited by x ways
-				if (prevDistance + distance < dist[destination]) {
-					dist[destination] = prevDistance + distance;
-					ways[destination] = ways[src];
-					minHeap.offer(new long[]{destination, prevDistance + distance});
-				} else if (prevDistance + distance == dist[destination]) {
+				if (prevDis + dis < dist[end]) {
+					dist[end] = prevDis + dis;
+					ways[end] = ways[src]; // assigning the ways of src to the end
+					minHeap.offer(new long[]{end, prevDis + dis}); // also adding to the heap
+				} else if (prevDis + dis == dist[end]) {
 					// prevDistance + distance == dist[destination] means the edge will not be relaxed.
-					// there was some path already discovered to this node which has the same distance overall,
-					// so we will add the ways of the current source of the destination node
-					ways[destination] = (ways[destination] + ways[src]) % pivot;
+					// there was some path already discovered to this node which has the same current distance
+					// then we will add that source ways to end ways
+					ways[end] = (ways[end] + ways[src]) % pivot;
 				}
 			}
 		}

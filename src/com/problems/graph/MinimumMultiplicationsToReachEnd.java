@@ -33,38 +33,44 @@ public class MinimumMultiplicationsToReachEnd {
 		int[] arr = { 2, 5, 7 };
 		int start = 3;
 		int end = 30;
+		int ans = minimumMultiplications2(arr, start, end);
+		System.out.println(ans);
 
+	}
+
+	static int minimumMultiplications2(int[] arr, int start, int end) {
 		int PIVOT = 100000;
 		int level = 0;
 
-		// as we know that all the item will range from 0 to pivot
+		// as we know that all the item will range from 0 to pivot,
 		// so we can just use an array
 		boolean[] set = new boolean[PIVOT + 1];
 		set[start] = true;
+		// here we will not store the level in the queue,
+		// we will check the current level of the queue then add a new level
 		Queue<Integer> queue = new LinkedList<>();
 		queue.add(start);
 
 		while (!queue.isEmpty()) {
 			int size = queue.size();
-			for (int i = 0; i < size; i++) {
+			while (size-- > 0) {
 				int node = queue.poll();
-				if (node == end) {
-					System.out.println(level);
-					return;
-				}
+				if (node == end) return level;
 				for (int item : arr) {
-					int sum = (node * item) % PIVOT;
-					if (!set[sum]) {
-						set[sum] = true;
-						queue.offer(sum);
+					int mul = (node * item) % PIVOT;
+					if (!set[mul]) {
+						set[mul] = true;
+						queue.offer(mul);
 					}
 				}
 			}
 			level++;
 		}
-		System.out.println(-1);
+		return -1;
 	}
 
+	// we will apply Dijkstra here,
+	// but we will use queue in place of Priority Queue, as we are going via level wise
 	private static void type1() {
 		int[] arr = { 2, 5, 7 };
 		int start = 3;
@@ -80,6 +86,8 @@ public class MinimumMultiplicationsToReachEnd {
 		boolean[] set = new boolean[PIVOT + 1];
 		set[start] = true;
 		Queue<int[]> queue = new LinkedList<>();
+		// we will store the multiplication and the level in the queue
+		// and everytime we will add new output and level+1
 		queue.add(new int[]{start, 0});
 		while (!queue.isEmpty()) {
 			int[] pair = queue.poll();
@@ -87,10 +95,11 @@ public class MinimumMultiplicationsToReachEnd {
 			int lvl = pair[1];
 			if (node == end) return lvl;
 			for (int item : arr) {
-				int sum = (node * item) % PIVOT;
-				if (!set[sum]) {
-					set[sum] = true;
-					queue.offer(new int[]{sum, lvl + 1});
+				int mul = (node * item) % PIVOT;
+				// if the new output is not yet considered, then only we will store it in the queue
+				if (!set[mul]) {
+					set[mul] = true;
+					queue.offer(new int[]{mul, lvl + 1});
 				}
 			}
 		}

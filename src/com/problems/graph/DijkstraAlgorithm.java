@@ -29,6 +29,55 @@ public class DijkstraAlgorithm {
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	// this is a little update from the previous one
+	// we will not store index and distance in the queue
+	// we will only store the index
+	// because we can derive the distance from the distance array
+	private static void type3() {
+		int v = 3;
+		int s = 0;
+		List<List<List<Integer>>> adj = List.of(
+				List.of(
+						List.of(1, 1),
+						List.of(2, 6)
+				),
+				List.of(
+						List.of(2, 3),
+						List.of(0, 1)
+				),
+				List.of(
+						List.of(1, 3),
+						List.of(0, 6)
+				)
+		);
+		int[] distance = new int[v];
+		// setting all the values to infinity
+		Arrays.fill(distance, Integer.MAX_VALUE);
+		// distance from source to source is 0
+		distance[s] = 0;
+
+		// in the heap, we will store the next point only,
+		// but we will use the distance array for minHeap property
+		// we can use Queue and use the distance array similarly
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.comparingInt(p -> distance[p]));
+		minHeap.offer(s);
+
+		while (!minHeap.isEmpty()) {
+			int start = minHeap.poll();
+			int prevDis = distance[start]; // taking prevDis from the distance array
+			for (List<Integer> node : adj.get(start)) {
+				int end = node.get(0), dis = node.get(1);
+				// we will relax the edge and update new distance for the end node
+				if (prevDis + dis < distance[end]) {
+					distance[end] = prevDis + dis;
+					minHeap.offer(end);
+				}
+			}
+		}
+		print(distance);
 	}
 
 	// todo Dijkstra is always solved using Priority Queue, but it can be solved using Queue also
