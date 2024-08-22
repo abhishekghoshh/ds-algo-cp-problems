@@ -893,6 +893,7 @@
     - [Network Delay Time](/src/com/problems/graph/NetworkDelayTime.java)
     - [Minimum Multiplications to Reach End](/src/com/problems/graph/MinimumMultiplicationsToReachEnd.java)
     - [Number of Ways to Arrive at Destination](/src/com/problems/graph/NumberOfWaysToArriveAtDestination.java)
+    - [Swim in Rising Water](/src/com/problems/graph/SwimInRisingWater.java)
     - [Bellman Ford](/src/com/problems/graph/BellmanFord.java)
     - [Floyd Warshall](/src/com/problems/graph/FloydWarshall.java)
     - [Find the City With the Smallest Number of Neighbors at a Threshold Distance](/src/com/problems/graph/FindTheCityWithTheSmallestNumberOfNeighbors.java)
@@ -903,6 +904,7 @@
     - [Kruskal's Algorithm - Minimum Spanning Tree](/src/com/problems/graph/KruskalAlgorithm.java)
     - [Number of Provinces - Disjoint Set](/src/com/problems/graph/NumberOfProvincesUsingDisjointSet.java)
     - [Number of Operations to Make Network Connected - Using Disjoint Set](/src/com/problems/graph/NumberOfOperationsToMakeANetworkConnected.java)
+    - [Accounts Merge - Using Disjoint Set](/src/com/problems/graph/AccountsMerge.java)
     - [Number of Islands - II - Online Queries - Using Disjoint Set](/src/com/problems/graph/NumberOfIslandOnlineQueries.java)
     - [Making a Large Island - Disjoint Set](/src/com/problems/graph/MakeALargeIsland.java)
     - [Most Stones Removed with Same Row or Column](/src/com/problems/graph/MostStonesRemovedWithSameRowOrColumn.java)
@@ -912,6 +914,7 @@
     - [Articulation Point in Graph](/src/com/problems/graph/ArticulationPointInGraph.java)
   - **others**
     - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
+    - [Frog Position After T Seconds](/src/com/problems/graph/FrogPositionAfterTSeconds.java)
 
 ### segment-tree  
 
@@ -967,6 +970,10 @@
   - [Frog Jump 2](src/com/problems/special/jumpgame/FrogJump2.java)
 
 
+### DSA Pumbai
+- **codes**
+  - [Find the K-Beauty of a Number](src/com/problems/special/dsapumbai/Week51KBeauty.java)
+
 ## Playlists for hard problems
 
 ### youtube-playlists
@@ -984,3 +991,5 @@
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
   - [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
   - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
+
+

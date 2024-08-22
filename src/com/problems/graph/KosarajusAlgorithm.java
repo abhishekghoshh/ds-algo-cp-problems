@@ -1,6 +1,7 @@
 package com.problems.graph;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -14,41 +15,48 @@ import java.util.Stack;
  * https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/
  */
 public class KosarajusAlgorithm {
+	// todo A directed graph is strongly connected if there is a path between any two pair of vertices.
 	// Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges,
 	// Find the number of strongly connected components in the graph.
+	// todo check the video again
 	public static void main(String[] args) {
 		type1();
 		type2();
 	}
 
+	// todo exactly like the previous but here we will also store the strongly connected component
 	private static void type2() {
-		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 		int v = 5;
-		for (int i = 0; i < v; i++) adj.add(new ArrayList<>());
-		adj.get(0).addAll(List.of(2, 3));
-		adj.get(1).addAll(List.of(0));
-		adj.get(2).addAll(List.of(1));
-		adj.get(3).addAll(List.of(4));
-		adj.get(4).addAll(List.of());
+		List<List<Integer>> adj = List.of(
+				List.of(2, 3),
+				List.of(0),
+				List.of(1),
+				List.of(4),
+				List.of()
+		);
 
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[v];
 
 		for (int i = 0; i < v; i++) {
-			if (!visited[i]) dfs(i, adj, stack, visited);
+			if (!visited[i])
+				dfs(i, adj, visited, stack);
 		}
 
-		ArrayList<ArrayList<Integer>> revAdj = new ArrayList<>();
+		// now we will reverse the entire graph
+		List<List<Integer>> revAdj = new ArrayList<>();
 		for (int i = 0; i < v; i++) revAdj.add(new ArrayList<>());
-		for (int i = 0; i < v; i++)
-			for (int node : adj.get(i))
-				revAdj.get(node).add(i);
+		for (int start = 0; start < v; start++)
+			for (int end : adj.get(start))
+				revAdj.get(end).add(start);
+
 		// unsetting the visited array, otherwise we have to create another array
-		for (int i = 0; i < v; i++) visited[i] = false;
+		Arrays.fill(visited, false);
 
 		List<List<Integer>> ans = new ArrayList<>();
-		// if we also want the components, then we can just pass one arraylist to store
-		// all the components
+		// if we also want the components, then we can just pass one arraylist to store all the components.
+		// now from the stack we will pop elements and start the dfs as the graph is reversed,
+		// so it will only roam around in its strongly connected component, it cannot go outside
 		while (!stack.isEmpty()) {
 			int node = stack.pop();
 			if (!visited[node]) {
@@ -59,54 +67,53 @@ public class KosarajusAlgorithm {
 		System.out.println(ans);
 	}
 
-	private static void dfs(int i, boolean[] visited, ArrayList<ArrayList<Integer>> revAdj, List<List<Integer>> ans) {
-		visited[i] = true;
-		ans.get(ans.size() - 1).add(i);
-		for (int node : revAdj.get(i))
-			if (!visited[node])
-				dfs(node, visited, revAdj, ans);
-
+	private static void dfs(int start, boolean[] visited, List<List<Integer>> adj, List<List<Integer>> ans) {
+		visited[start] = true;
+		ans.get(ans.size() - 1).add(start);
+		for (int end : adj.get(start))
+			if (!visited[end])
+				dfs(end, visited, adj, ans);
 	}
 
-	// in a strongly connected component from one node all other nodes can be
-	// reached, suppose in a graph there is 4 strongly connected component and
-	// sc1 -> sc2 -> sc3 -> sc4
+	// in a strongly connected component from one node all other nodes can be reached,
+	// suppose in a graph there is 4 strongly connected component i.e. sc1 -> sc2 -> sc3 -> sc4
 	// if we reverse all the edges then in one sc it will not change anything
 	// sc1 <- sc2 <- sc3 <- sc4
 	// so by somehow if we store the dfs traversal for the first graph it will store
 	// the node time when it was visited
-	// again on the second time we will apply same dfs but with some simple tweak
+	// again on the second time we will apply the same dfs but with some simple tweak
 	private static void type1() {
-		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 		int v = 5;
-		for (int i = 0; i < v; i++)
-			adj.add(new ArrayList<>());
-		adj.get(0).addAll(List.of(2, 3));
-		adj.get(1).addAll(List.of(0));
-		adj.get(2).addAll(List.of(1));
-		adj.get(3).addAll(List.of(4));
-		adj.get(4).addAll(List.of());
+		List<List<Integer>> adj = List.of(
+				List.of(2, 3),
+				List.of(0),
+				List.of(1),
+				List.of(4),
+				List.of()
+		);
 
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[v];
 
 		for (int i = 0; i < v; i++) {
 			if (!visited[i])
-				dfs(i, adj, stack, visited);
+				dfs(i, adj, visited, stack);
 		}
-		ArrayList<ArrayList<Integer>> revAdj = new ArrayList<>();
-		for (int i = 0; i < v; i++)
-			revAdj.add(new ArrayList<>());
-		for (int i = 0; i < v; i++)
-			for (int node : adj.get(i))
-				revAdj.get(node).add(i);
+
+		// now we will reverse the entire graph
+		List<List<Integer>> revAdj = new ArrayList<>();
+		for (int i = 0; i < v; i++) revAdj.add(new ArrayList<>());
+		for (int start = 0; start < v; start++)
+			for (int end : adj.get(start))
+				revAdj.get(end).add(start);
+
 		// unsetting the visited array, otherwise we have to create another array
-		for (int i = 0; i < v; i++)
-			visited[i] = false;
+		Arrays.fill(visited, false);
 
 		int count = 0;
-		// if we also want the components, then we can just pass one arraylist to store
-		// all the components
+		// if we also want the components, then we can just pass one arraylist to store all the components.
+		// now from the stack we will pop elements and start the dfs as the graph is reversed,
+		// so it will only roam around in its strongly connected component, it cannot go outside
 		while (!stack.isEmpty()) {
 			int node = stack.pop();
 			if (!visited[node]) {
@@ -117,19 +124,23 @@ public class KosarajusAlgorithm {
 		System.out.println(count);
 	}
 
-	private static void dfs(int i, boolean[] visited, ArrayList<ArrayList<Integer>> revAdj) {
-		visited[i] = true;
-		for (int node : revAdj.get(i))
-			if (!visited[node])
-				dfs(node, visited, revAdj);
-	}
-
-	private static void dfs(int i, ArrayList<ArrayList<Integer>> adj, Stack<Integer> stack, boolean[] visited) {
+	// this is exactly the same dfs as other just here we are storing the nodes in the stack
+	// starting nodes comes at the top and deepest nodes come at the bottom
+	private static void dfs(int i, List<List<Integer>> adj, boolean[] visited, Stack<Integer> stack) {
 		visited[i] = true;
 		for (int node : adj.get(i))
 			if (!visited[node])
-				dfs(node, adj, stack, visited);
+				dfs(node, adj, visited, stack);
 		stack.add(i);
 	}
+
+	// a normal dfs function
+	private static void dfs(int i, boolean[] visited, List<List<Integer>> adj) {
+		visited[i] = true;
+		for (int node : adj.get(i))
+			if (!visited[node])
+				dfs(node, visited, adj);
+	}
+
 
 }

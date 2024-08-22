@@ -16,74 +16,78 @@ import java.util.List;
 public class ArticulationPointInGraph {
 
 	// Given an undirected connected graph with V vertices and adjacency list adj.
-	// You are required to find all the vertices removing which (and edges through
-	// it) disconnects the graph into 2 or more components.
-	// Note: Indexing is zero-based i.e nodes numbering from (0 to V-1). There might
-	// be loops present in the graph.
+	// You are required to find all the vertices removing which (and edges through it)
+	// disconnects the graph into 2 or more components.
+	// Note: Indexing is zero-based i.e., nodes numbering from (0 to V-1).
+	// There might be loops present in the graph.
 	public static void main(String[] args) {
 		type1();
 	}
 
-	// TODO study one more
+	// todo check the video once again
+	// todo this draws intuition from the bridges in graph problem
+	// we will 3 arrays here
 	private static void type1() {
-		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+		List<List<Integer>> adj = List.of(
+				List.of(1),
+				List.of(0, 4),
+				List.of(3, 4),
+				List.of(2, 4),
+				List.of(1, 2, 3)
+		);
 		int n = 5;
-		for (int i = 0; i < n; i++)
-			adj.add(new ArrayList<>());
-		adj.get(0).addAll(List.of(1));
-		adj.get(1).addAll(List.of(0, 4));
-		adj.get(2).addAll(List.of(3, 4));
-		adj.get(3).addAll(List.of(2, 4));
-		adj.get(4).addAll(List.of(1, 2, 3));
-
-		boolean[] visited = new boolean[n];
-		int[] timeIn = new int[n];
-		int[] low = new int[n];
-		int[] mark = new int[n];
-		for (int i = 0; i < n; i++) {
-			if (!visited[i]) {
-				dfs(i, -1, visited, timeIn, low, mark, adj, new Step());
-			}
-		}
-		ArrayList<Integer> ans = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			if (mark[i] == 1) {
-				ans.add(i);
-			}
-		}
-		if (ans.size() == 0) {
-			ans.add(-1);
-		}
+		List<Integer> ans = articulationPoints(n, adj);
 		System.out.println(ans);
 	}
 
-	private static class Step {
-		private int step = 1;
+	public static List<Integer> articulationPoints(int n, List<List<Integer>> adj) {
+		boolean[] visited = new boolean[n];
+		// we will use time of insertion, low and mark array
+		// timeOfInsertion array is the first time when then we come to any node
+		// low is the lowest time of insertion apart from the parent
+		int[] timeOfInsertion = new int[n], low = new int[n];
+		int[] mark = new int[n];
+		// we will start the dfs from all the unvisited nodes
+		for (int i = 0; i < n; i++)
+			if (!visited[i])
+				dfs(i, -1, visited, timeOfInsertion, low, mark, adj);
+
+		List<Integer> ans = new ArrayList<>();
+		// if mark is 1 then
+		for (int i = 0; i < n; i++)
+			if (mark[i] == 1) ans.add(i);
+		return (!ans.isEmpty()) ? ans : List.of(-1);
 	}
 
-	private static void dfs(int source, int parent, boolean[] visited, int timeIn[], int low[], int[] mark,
-			ArrayList<ArrayList<Integer>> adj, Step step) {
-		visited[source] = true;
-		timeIn[source] = low[source] = step.step;
-		step.step++;
+	static int timer = 1;
+
+	// todo read the comments again and change it accordingly
+	private static void dfs(int start, int parent, boolean[] visited, int[] timeOfInsertion,
+							int[] low, int[] mark, List<List<Integer>> adj) {
+		visited[start] = true;
+		timeOfInsertion[start] = low[start] = timer;
+		timer++;
 		int child = 0;
-		for (Integer adjacent : adj.get(source)) {
-			if (adjacent == parent)
-				continue;
-			if (!visited[adjacent]) {
-				dfs(adjacent, source, visited, timeIn, low, mark, adj, step);
-				low[source] = Math.min(low[source], low[adjacent]);
-				// node --- it
-				if (low[adjacent] >= timeIn[source] && parent != -1) {
-					mark[source] = 1;
-				}
+		for (int end : adj.get(start)) {
+			if (end == parent) continue;
+			if (!visited[end]) {
+				dfs(end, start, visited, timeOfInsertion, low, mark, adj);
+				low[start] = Math.min(low[start], low[end]);
+				// we are marking the start as an articulation point here
+				// we are not adding it to the answer here directly, as start can be articulation point,
+				// for multiple components, so we are just marking it here
+				if (timeOfInsertion[start] <= low[end] && parent != -1) mark[start] = 1;
 				child++;
 			} else {
-				low[source] = Math.min(low[source], timeIn[adjacent]);
+				// this part is different from the bridges of graph
+				// if the end is already visited, then we will be taking from timeOfInsertion[end].
+				// because we are removing the start node hypothetically, if we remove the start node,
+				// then we cannot take its low time, so we will take timeOfInsertion
+				low[start] = Math.min(low[start], timeOfInsertion[end]);
 			}
 		}
-		if (child > 1 && parent == -1) {
-			mark[source] = 1;
-		}
+		// if it is a starting point, and it has multiple children,
+		// then also starting point can be articulation point
+		if (child > 1 && parent == -1) mark[start] = 1;
 	}
 }

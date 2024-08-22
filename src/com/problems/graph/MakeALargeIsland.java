@@ -3,9 +3,6 @@ package com.problems.graph;
 import java.util.HashSet;
 import java.util.Set;
 
-import static util.OnlineJudgeInit.scanner;
-import static util.OnlineJudgeInit.set;
-
 /*
  * Problem link :
  * https://leetcode.com/problems/making-a-large-island/
@@ -19,22 +16,23 @@ import static util.OnlineJudgeInit.set;
 public class MakeALargeIsland {
 
 	public static void main(String[] args) {
-		set();
 		type1();
 		type2();
 	}
 
-	// we will use union by size this time
-	// in previous type we have used a set
-	// but we know the size,
-	// so we can use a visited array
-	// and one stack to remove the visited position
+	// todo exactly like the previous one but here we have used an array as set and stack for clearing the set array
+	// we will use union by size this time in previous type we have used a set,
+	// but we know the size, so we can use a visited array and one stack to remove the visited position.
+	// we will not use a set here
 	private static void type2() {
-		int n = scanner.nextInt();
-		int[][] grid = new int[n][n];
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < n; j++)
-				grid[i][j] = scanner.nextInt();
+		int[][] grid = {
+				{1, 1, 0, 1, 1, 0},
+				{1, 1, 0, 1, 1, 0},
+				{1, 1, 0, 1, 1, 0},
+				{0, 0, 1, 0, 0, 0},
+				{0, 0, 1, 1, 1, 0},
+				{0, 0, 1, 1, 1, 0},
+		};
 		int ans = largestIsland2(grid);
 		System.out.println(ans);
 	}
@@ -85,7 +83,6 @@ public class MakeALargeIsland {
 		// now we will loop through the grid and find 0
 		// and check if we can find unique surrounding component or not
 		// then the size will be 1+all surrounding unique component
-		// we have used the set to
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == 1) continue;
@@ -93,10 +90,11 @@ public class MakeALargeIsland {
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
-					if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 1) {
+					if (isInBounds(x, y, n) && grid[x][y] == 1) {
 						int adjacentNodeId = x * n + y;
 						int adjacentNodeParent = find(parent, adjacentNodeId);
 						if (!set[adjacentNodeParent]) {
+							// adding the node to the set
 							set[adjacentNodeParent] = true;
 							// adding node to stack so that we don't have to
 							// create a visited array all the time which will save some memory
@@ -105,7 +103,7 @@ public class MakeALargeIsland {
 						}
 					}
 				}
-				// clearing the visited array
+				// clearing the set array using the stack
 				while (top != -1) set[stack[top--]] = false;
 				largestIsland = Math.max(largestIsland, localIsland);
 			}
@@ -116,12 +114,14 @@ public class MakeALargeIsland {
 	// We will use a Disjoint set here
 	// we will use union by size this time
 	private static void type1() {
-		int n = scanner.nextInt();
-		int[][] grid = new int[n][n];
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < n; j++)
-				grid[i][j] = scanner.nextInt();
-
+		int[][] grid = {
+				{1, 1, 0, 1, 1, 0},
+				{1, 1, 0, 1, 1, 0},
+				{1, 1, 0, 1, 1, 0},
+				{0, 0, 1, 0, 0, 0},
+				{0, 0, 1, 1, 1, 0},
+				{0, 0, 1, 1, 1, 0},
+		};
 		int ans = largestIsland1(grid);
 		System.out.println(ans);
 	}
@@ -129,28 +129,34 @@ public class MakeALargeIsland {
 	public static int largestIsland1(int[][] grid) {
 		int n = grid.length;
 		int N = n * n;
+		// first, we will create an initialize parent and size arrays
 		int[] parent = new int[N];
 		int[] size = new int[N];
 		for (int i = 0; i < N; i++) {
 			size[i] = 1;
 			parent[i] = i;
 		}
+		// this is the direction array
 		int[][] dirs = {
 				{0, 1},
 				{0, -1},
 				{1, 0},
 				{-1, 0}
 		};
-		// by this union find we have gathered size of the individual components
+		// by this union find we have gathered the size of the individual components
 		int noOfOnes = 0;
+		// we will traverse all the nodes and create components
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
+				// if this is 0, then we can skip
 				if (grid[i][j] == 0) continue;
 				noOfOnes++;
-				int nodeId = i * n + j;
+				// we will create a unique node id for all the cells
+				int nodeId = (i * n) + j;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
+					// if there are adjacent cells with value 1, then we will unify the components
 					if (isInBounds(x, y, n) && grid[x][y] == 1) {
 						int adjacentNodeId = (x * n) + y;
 						if (find(parent, nodeId) != find(parent, adjacentNodeId))
@@ -163,21 +169,24 @@ public class MakeALargeIsland {
 		// we cannot place any 1 in place of 0
 		if (noOfOnes == N) return noOfOnes;
 		int largestIsland = 0;
-		// now we will loop through the grid and find 0
-		// and check if we can find unique surrounding component or not
-		// then the size will be 1+all surrounding unique component
-		// we have used the set to
+		// now we will loop through the grid and find 0, and check if we can find unique surrounding component
+		// or not, then the size will be 1+all surrounding unique part.
+		// we have used the set to check all the unique components which are neighbors to the current cell
+		// we will store the parent nodes of the components in the set
+		Set<Integer> set = new HashSet<>();
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == 1) continue;
-				Set<Integer> set = new HashSet<>();
+				set.clear();
 				int localIsland = 1;
 				for (int[] dir : dirs) {
 					int x = i + dir[0];
 					int y = j + dir[1];
 					if (isInBounds(x, y, n) && grid[x][y] == 1) {
-						int adjacentNodeId = x * n + y;
+						int adjacentNodeId = (x * n) + y;
 						int adjacentNodeParent = find(parent, adjacentNodeId);
+						// checking if the component is in the set or not if then, we will add that into the set,
+						// and also we will add size and at last we will check the total size
 						if (!set.contains(adjacentNodeParent)) {
 							set.add(adjacentNodeParent);
 							localIsland += size[adjacentNodeParent];

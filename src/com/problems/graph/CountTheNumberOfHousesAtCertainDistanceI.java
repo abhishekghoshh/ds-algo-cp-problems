@@ -6,7 +6,7 @@ import java.util.*;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/description/
+ * https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i
  *
  * Solution link :
  *
