@@ -19,6 +19,8 @@
   - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
   - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
   - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
+  - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
+  - [**Resources I used to clear Amazon, Google and Microsoft Interviews**](https://blog.algomaster.io/p/368a3274-10b7-451b-bd9e-91c45a2164d7)
 - interview-experiences
   - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
 
@@ -50,6 +52,11 @@
     - [Distributed Programming in Java](https://www.coursera.org/learn/distributed-programming-in-java/home/welcome)
   - [Tech Dev Guide](https://techdevguide.withgoogle.com/paths/data-structures-and-algorithms)
 
+### PDF
+
+- [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy_in_Java.pdf)
+- [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
+- [Introduction to Algorithms fourth edition by Cormen](./pdf/Introduction_to_Algorithms_4th_edition_by_Cormen.pdf)
 
 ### A-Z DSA sheets
 
@@ -62,14 +69,14 @@
   - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
   - [DSA Sheet Final / AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
   - [zerotrac.github.io](https://zerotrac.github.io/leetcode_problem_rating/#/)
-  - Coding Ninja
+  - **Coding Ninja**
     - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
     - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
     - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
   - [Leetcode study plan](https://leetcode.com/studyplan/)
   - [Leetcode explore](https://leetcode.com/explore/)
   - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
-  - GeekForGeeks
+  - **GeekForGeeks**
     - [Microsoft SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/mts-1?tab=Chapters)
     - [Amazon SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/Amazon-Test-Series?tab=Chapters)
     - [SDE Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=a663236c31453b969852f9ea22507634&sortBy=submissions&sprint_name=SDE%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
