@@ -1,5 +1,10 @@
 # Data structure and Algorithm problems and solutions
 
+## My programming profiles
+- [github](https://github.com/abhishekghoshh)
+- [leetcode](https://leetcode.com/u/abhishekghoshh/)
+
+
 ## Online Resources
 
 ### Youtube channels
@@ -16,19 +21,23 @@
 ### Blogs
 
 - **resources**
+  - [LeetCode was HARD until I Learned these 15 Patterns](https://www.youtube.com/watch?v=DjYZk8nrXVY)
+    - [Resources I used to clear Amazon, Google and Microsoft Interviews](https://blog.algomaster.io/p/368a3274-10b7-451b-bd9e-91c45a2164d7)
+    - [LeetCode was HARD until I Learned these 15 Patterns](https://blog.algomaster.io/p/15-leetcode-patterns)
+    - [20 Patterns to Master Dynamic Programming](https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming)
+  - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
   - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
   - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
   - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
-  - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
-  - [**Resources I used to clear Amazon, Google and Microsoft Interviews**](https://blog.algomaster.io/p/368a3274-10b7-451b-bd9e-91c45a2164d7)
-- interview-experiences
+- **interview-experiences**
   - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
 
 ### Youtube single videos
 
 - **resources**
+  
   - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
-  - [The hidden beauty of the A* algorithm](https://www.youtube.com/watch?v=A60q6dcoCjw)
+  - [The hidden beauty of the "A*" algorithm](https://www.youtube.com/watch?v=A60q6dcoCjw)
   - [How Do You Calculate a Minimum Spanning Tree?](https://www.youtube.com/watch?v=Yldkh0aOEcg)
   - [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU)
   - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
@@ -176,7 +185,7 @@
   - [sdnr1's blog](https://codeforces.com/blog/entry/61364)
   - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
   - **luv**
-    - [Subset Generation using Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
+    - [Subset Generation using the Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
     - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
     - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
   - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
@@ -273,7 +282,7 @@
   - [Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElementsNby2.java)
     - Boyer Moore's voting algorithm
     - hashing
-  - [Majority Elements(>N/3 times) / Find the elements that appears more than N/3 times in the array](/src/com/problems/array/MajorityElementsNby3.java)
+  - [Majority Elements(>N/3 times) / Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElementsNby3.java)
     - Moore's voting algorithm
     - hashing
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
@@ -302,7 +311,7 @@
   - [Remove Element](/src/com/problems/array/RemoveElement.java) **TBD**
   - [Reverse Integer](/src/com/problems/array/ReverseInteger.java)
   - [3Sum Closest](/src/com/problems/array/ThreeSumClosest.java)
-  - [Trapping Rain Water](/src/com/problems/array/TrappingRainWater.java)
+  - [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
     - two-pointer
     - stack
     - dynamic-programming
@@ -364,7 +373,7 @@
   - [Find maximum in bitonic array](/src/com/problems/binarysearch/FindMaximumInBitonicArray.java)
   - [Find in bitonic array](/src/com/problems/binarysearch/FindElementInBitonicArray.java)
   - [Finding Integer Sqrt of a number](/src/com/problems/binarysearch/SquareRoot.java)
-  - [Finding Fractional Sqrt of a number](/src/com/problems/binarysearch/FractionalSquareRoot.java)
+  - [Finding Fractional Square root of a number](/src/com/problems/binarysearch/FractionalSquareRoot.java)
   - [Nth Root of a Number](/src/com/problems/binarysearch/NthRootOfANumber.java)
   - [Pow(x, n)](/src/com/problems/binarysearch/PowerOfXtoN.java)
   - [Koko Eating Bananas](/src/com/problems/binarysearch/KokoEatingBananas.java)
@@ -906,18 +915,18 @@
     - [Find the City With the Smallest Number of Neighbors at a Threshold Distance](/src/com/problems/graph/FindTheCityWithTheSmallestNumberOfNeighbors.java)
   - **Minimum Spanning Tree**
     - [Minimum Spanning Tree - Theory](/src/com/problems/graph/MinimumSpanningTree.java)
-    - [Prim's Algorithm - Minimum Spanning Tree](/src/com/problems/graph/PrimsAlgorithm.java)
+    - [Prim's Algorithm—Minimum Spanning Tree](/src/com/problems/graph/PrimsAlgorithm.java)
     - [Disjoint Set | Union by Rank | Union by Size | Path Compression](/src/com/problems/graph/DisjointSetImplementation.java)
     - [Kruskal's Algorithm - Minimum Spanning Tree](/src/com/problems/graph/KruskalAlgorithm.java)
     - [Number of Provinces - Disjoint Set](/src/com/problems/graph/NumberOfProvincesUsingDisjointSet.java)
-    - [Number of Operations to Make Network Connected - Using Disjoint Set](/src/com/problems/graph/NumberOfOperationsToMakeANetworkConnected.java)
-    - [Accounts Merge - Using Disjoint Set](/src/com/problems/graph/AccountsMerge.java)
-    - [Number of Islands - II - Online Queries - Using Disjoint Set](/src/com/problems/graph/NumberOfIslandOnlineQueries.java)
+    - [Number of Operations to Make Network Connected—Using Disjoint Set](/src/com/problems/graph/NumberOfOperationsToMakeANetworkConnected.java)
+    - [Accounts Merge—Using Disjoint Set](/src/com/problems/graph/AccountsMerge.java)
+    - [Number of Islands - II - Online Queries—Using Disjoint Set](/src/com/problems/graph/NumberOfIslandOnlineQueries.java)
     - [Making a Large Island - Disjoint Set](/src/com/problems/graph/MakeALargeIsland.java)
     - [Most Stones Removed with Same Row or Column](/src/com/problems/graph/MostStonesRemovedWithSameRowOrColumn.java)
   - **Other Algorithm**
-    - [Strongly Connected Components - Kosaraju's Algorithm](/src/com/problems/graph/KosarajusAlgorithm.java)
-    - [Bridges in Graph - Using Tarjan's Algorithm of time in and low time](/src/com/problems/graph/BridgesInGraph.java)
+    - [Strongly Connected Components—Kosaraju's Algorithm](/src/com/problems/graph/KosarajusAlgorithm.java)
+    - [Bridges in Graph—Using Tarjan's Algorithm of time in and low time](/src/com/problems/graph/BridgesInGraph.java)
     - [Articulation Point in Graph](/src/com/problems/graph/ArticulationPointInGraph.java)
   - **others**
     - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
@@ -930,6 +939,7 @@
   - [Marathon Class on Range Query DS - 2 / Segment Trees / Fenwick Trees / Masterclasses By Striver) / CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
 - **codes**
+  - [Range minimum - Segment tree](/src/com/problems/segmenttree/MinSegmentTree.java)
 
 ### Fenwick Tree
 

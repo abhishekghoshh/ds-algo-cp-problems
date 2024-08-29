@@ -1,64 +1,65 @@
-package segmenttree;
+package com.problems.segmenttree;
 
-public class FlipCoinsAndRangeQuery {
+public class MinSegmentTreeWithLazyPropagation {
 
 	public static void main(String[] args) {
 		type1();
+
 	}
 
-	// in update query range of coins will be flipped
-	// we will store the number of heads only
-	// flip means rangeCount-countOfHead
-	// we will use a boolean array
-	// if false means no need to flip
-	// true means flip
-	// even times of flip means no flip
 	private static void type1() {
-
+		// for range minimum query
+		// instead of tree[index] += (high - low + 1) * val;
+		// the tree[index] will be updated by val only
+		// tree[index] += val;
+		int[] arr = { 1, 3, 1, 2, 5 };
+		SegmentTree segmentTree = new SegmentTree(arr);
+		System.out.println(segmentTree.min(0, arr.length - 1));
+		System.out.println(segmentTree.min(0, 2));
 	}
 
 	public static class SegmentTree {
 		int n;
 		int[] tree;
-		boolean[] lazy;
+		int[] lazy;
 		int arrSize;
 
 		public SegmentTree(int[] arr) {
 			arrSize = arr.length;
 			n = 4 * arrSize;
 			tree = new int[n];
-			lazy = new boolean[n];
+			lazy = new int[n];
 			build(arr, tree, 0, arr.length - 1, 0);
 		}
 
 		private void build(int[] arr, int[] tree, int left, int right, int index) {
 			if (left == right) {
-				tree[index] = arr[left] % 2;
+				tree[index] = arr[left];
 			} else {
 				int mid = (left + right) / 2;
 				build(arr, tree, left, mid, 2 * index + 1);
 				build(arr, tree, mid + 1, right, 2 * index + 2);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+				tree[index] = Math.min(tree[2 * index + 1], tree[2 * index + 2]);
 			}
 		}
 
-		public int headCount(int left, int right) {
-			return headCount(tree, 0, arrSize - 1, left, right, 0);
+		public int min(int left, int right) {
+			return min(tree, 0, arrSize - 1, left, right, 0);
 		}
 
-		private int headCount(int[] tree, int low, int high, int left, int right, int index) {
+		private int min(int[] tree, int low, int high, int left, int right, int index) {
 			// update the previous remaining update and propagate that
 			// later we can do the current operation
-			if (lazy[index]) {
-				// node count - head coin count
-				// flipping the head counts
-				tree[index] = (high - low + 1) - tree[index];
+			if (lazy[index] != 0) {
+				// if the both child is updated by some value then the root node also updated by
+				// the same value
+				tree[index] += lazy[index];
 				// if low!=high then it has children so we can propagate the addition down
 				if (low != high) {
-					lazy[2 * index + 1] = !lazy[2 * index + 1];
-					lazy[2 * index + 2] = !lazy[2 * index + 2];
+					lazy[2 * index + 1] += lazy[index];
+					lazy[2 * index + 2] += lazy[index];
 				}
-				lazy[index] = false;
+				lazy[index] = 0;
 			}
 
 			// our main query operation
@@ -68,9 +69,9 @@ public class FlipCoinsAndRangeQuery {
 				return tree[index];
 			} else {
 				int mid = low + (high - low) / 2;
-				int leftSum = headCount(tree, low, mid, left, right, 2 * index + 1);
-				int rightSum = headCount(tree, mid + 1, high, left, right, 2 * index + 2);
-				return leftSum + rightSum;
+				int leftMin = min(tree, low, mid, left, right, 2 * index + 1);
+				int rightMin = min(tree, mid + 1, high, left, right, 2 * index + 2);
+				return Math.min(leftMin, rightMin);
 			}
 		}
 
@@ -80,9 +81,7 @@ public class FlipCoinsAndRangeQuery {
 
 		private void update(int[] tree, int i, int num, int low, int high, int index) {
 			if (low == high) {
-				// if the we are using modulo if the number is more than 1
-				// ideally it should not occur
-				tree[index] = num % 2;
+				tree[index] = num;
 			} else {
 				int mid = low + (high - low) / 2;
 				if (i <= mid)
@@ -96,22 +95,23 @@ public class FlipCoinsAndRangeQuery {
 		// update the node when you visit it
 		// propagate the update to downwards
 		// only for the complete overlap we will change the node and propagate
-		public void updateRange(int left, int right) {
-			updateAndPropagrate(tree, 0, arrSize - 1, left, right, 0);
+		public void update(int left, int right, int addition) {
+			updateAndPropagrate(tree, 0, arrSize - 1, left, right, 0, addition);
 		}
 
-		public void updateAndPropagrate(int[] tree, int low, int high, int left, int right, int index) {
+		public void updateAndPropagrate(int[] tree, int low, int high, int left, int right, int index, int addition) {
 			// update the previous remaining update and propagate that
 			// later we can update the current update
-			if (lazy[index]) {
-				// high-low+1 will give the count of the range for which the node is responsible
-				tree[index] = (high - low + 1) - tree[index];
+			if (lazy[index] != 0) {
+				// if the both child is updated by some value then the root node also updated by
+				// the same value
+				tree[index] += lazy[index];
 				// if low!=high then it has children so we can propagate the addition down
 				if (low != high) {
-					lazy[2 * index + 1] = !lazy[2 * index + 1];
-					lazy[2 * index + 2] = !lazy[2 * index + 2];
+					lazy[2 * index + 1] += lazy[index];
+					lazy[2 * index + 2] += lazy[index];
 				}
-				lazy[index] = false;
+				lazy[index] = 0;
 			}
 
 			// actual addition for current addition
@@ -120,21 +120,20 @@ public class FlipCoinsAndRangeQuery {
 				return;
 			} else if (low >= left && high <= right) {
 				// complete overlap
-				// flip the coins
-				// heads will be equal to tails which is node-heads
-				tree[index] = (high - low + 1) - tree[index];
+				// update the current node by the addition
+				tree[index] += addition;
 				// if the node is responsible for more than one node
 				// so can propagate the addition
 				if (low != high) {
-					lazy[2 * index + 1] = !lazy[2 * index + 1];
-					lazy[2 * index + 2] = !lazy[2 * index + 2];
+					lazy[2 * index + 1] += addition;
+					lazy[2 * index + 2] += addition;
 				}
 				return;
 			} else {
 				int mid = low + (high - low) / 2;
-				updateAndPropagrate(tree, low, mid, left, right, 2 * index + 1);
-				updateAndPropagrate(tree, mid + 1, high, left, right, 2 * index + 2);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+				updateAndPropagrate(tree, low, mid, left, right, 2 * index + 1, addition);
+				updateAndPropagrate(tree, mid + 1, high, left, right, 2 * index + 2, addition);
+				tree[index] = Math.min(tree[2 * index + 1], tree[2 * index + 2]);
 			}
 		}
 	}

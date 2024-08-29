@@ -1,4 +1,4 @@
-package segmenttree;
+package com.problems.segmenttree;
 
 /*
  * Problem link :
