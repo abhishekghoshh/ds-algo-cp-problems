@@ -781,7 +781,7 @@
   - **DP on squares**
     - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
     - [Count Square Sub matrices with All Ones](/src/com/problems/dp/CountSquareSubmatricesWithAllOnes.java)
-    - [Count Submatrices With Equal Frequency of X and Y](/src/com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java)
+    - [Count Sub matrices With Equal Frequency of X and Y](/src/com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java)
   - **others**
     - [Word Break](/src/com/problems/dp/WordBreak.java)
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
@@ -794,6 +794,8 @@
   - [Meet In The Middle - I](https://unacademy.com/class/meet-in-the-middle-i/M1E1GMNE)
   - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
 - **codes**
+  - [Zero sum exist in array for quadruple](/src/com/problems/special/meetinthemiddle/ZeroSumExistsForQuadruple.java)
+  - [Subset sum](/src/com/problems/special/meetinthemiddle/ZeroSumExistsForQuadruple.java)
   - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
   - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
 
@@ -940,6 +942,9 @@
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
 - **codes**
   - [Range minimum - Segment tree](/src/com/problems/segmenttree/MinSegmentTree.java)
+  - [Range maximum - Segment tree](/src/com/problems/segmenttree/MaxSegmentTree.java)
+  - [Range Sum - Segment tree](/src/com/problems/segmenttree/SumSegmentTree.java)
+  - [Xenia and Bit Operations](/src/com/problems/segmenttree/XeniaAndBitOperation.java)
 
 ### Fenwick Tree
 
@@ -954,19 +959,18 @@
   - [L1 / Tries / Tries Master Class by Striver / CodeBeyond (for revise only)](https://www.youtube.com/watch?v=thsleiL6zxg)
   - [L2 / Tries - FAANG Problems / Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
 - **codes**
-  - [Implement Trie (Prefix Tree)](/src/com/problems/trie/ImplementTrie.java)
-  - [Implement Trie - 2 (Prefix Tree)](/src/com/problems/trie/ImplementTrie2.java)
-  - [Longest String with All Prefixes](/src/com/problems/trie/LongestStringWithAllPrefixes.java)
-  - [Number of Distinct Substrings in a String](/src/com/problems/trie/CountDistinctSubstrings.java)
-  - [Longest duplicate substring in a String](/src/com/problems/trie/LongestDuplicateSubstring.java)
-  - [Design Add and Search Words Data Structure](/src/com/problems/trie/WordDictionary.java)
-  - [Power Set](/src/com/problems/trie/PowerSet.java)
-  - [Maximum XOR of Two Numbers in an Array](/src/com/problems/trie/MaximumXorOfTwoNumbersInArray.java)
-    - [bit-manipulation]
-  - [Maximum xor of a number with items in array](/src/com/problems/trie/MaximumXorOfANumberWithItemsInArray.java)
-    - [bit-manipulation]
-  - [Maximum XOR With an Element From Array](/src/com/problems/trie/MaximumXorWithAnElementFromArray.java)
-    - [bit-manipulation]
+  - **general**
+    - [Implement Trie (Prefix Tree)](/src/com/problems/trie/ImplementTrie.java)
+    - [Implement Trie - 2 (Prefix Tree)](/src/com/problems/trie/ImplementTrie2.java)
+    - [Longest String with All Prefixes](/src/com/problems/trie/LongestStringWithAllPrefixes.java)
+    - [Number of Distinct Substrings in a String](/src/com/problems/trie/CountDistinctSubstrings.java)
+    - [Longest duplicate substring in a String](/src/com/problems/trie/LongestDuplicateSubstring.java)
+    - [Design Add and Search Words Data Structure](/src/com/problems/trie/WordDictionary.java)
+    - [Power Set](/src/com/problems/trie/PowerSet.java)
+  - **bit manipulation**
+    - [Maximum XOR of Two Numbers in an Array](/src/com/problems/trie/MaximumXorOfTwoNumbersInArray.java)
+    - [Maximum xor of a number with items in array](/src/com/problems/trie/MaximumXorOfANumberWithItemsInArray.java)
+    - [Maximum XOR With an Element From Array](/src/com/problems/trie/MaximumXorWithAnElementFromArray.java)
 
 
 ## Special problem

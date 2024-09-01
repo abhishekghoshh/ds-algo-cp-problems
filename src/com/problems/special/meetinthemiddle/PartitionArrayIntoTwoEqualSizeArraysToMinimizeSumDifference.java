@@ -10,10 +10,10 @@ import java.util.List;
  *
  *
  * Solution link:
- * https://www.youtube.com/watch?v=wKeGeBN3u18 -> Tech dose
- * https://www.youtube.com/watch?v=JUFHwaZjO_M -> Happy Engineering With Anmol
- * https://www.youtube.com/watch?v=45TkgKy0GS0 -> Aryan Mittal
- * https://www.youtube.com/watch?v=R9n_Hq2YDhs -> Programming Live with Larry
+ * https://www.youtube.com/watch?v=wKeGeBN3u18 → Tech dose
+ * https://www.youtube.com/watch?v=45TkgKy0GS0 → Aryan Mittal
+ * https://www.youtube.com/watch?v=JUFHwaZjO_M → Happy Engineering With Anmol
+ * https://www.youtube.com/watch?v=R9n_Hq2YDhs → Programming Live with Larry
  */
 public class PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference {
 

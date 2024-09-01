@@ -35,7 +35,7 @@ public class XeniaAndBitOperation {
 			n = 4 * arrSize;
 			tree = new int[n];
 			height = Math.log(arrSize) / Math.log(2);
-			// the start will be from or operation then xor
+			// the start will be from or operation then xor.
 			// do depending on the height we have to calculate
 			if (height % 2 == 0)
 				build(arr, tree, 0, arr.length - 1, 0, false);
@@ -63,27 +63,27 @@ public class XeniaAndBitOperation {
 			return tree[0];
 		}
 
-		public void update(int i, int num) {
+		public void update(int index, int num) {
 			if (height % 2 == 0)
-				update(tree, i, num, 0, n - 1, 0, false);
+				update(index, num, 0, n - 1, 0, false, tree);
 			else
-				update(tree, i, num, 0, n - 1, 0, true);
+				update(index, num, 0, n - 1, 0, true, tree);
 		}
 
-		private void update(int[] tree, int i, int num, int low, int high, int index, boolean flag) {
-			if (low == high) {
-				tree[index] = num;
+		private void update(int index, int num, int rangeStart, int rangeEnd, int treeIndex, boolean flag, int[] tree) {
+			if (rangeStart == rangeEnd) {
+				tree[treeIndex] = num;
 			} else {
-				int mid = low + (high - low) / 2;
-				if (i <= mid) {
-					update(tree, i, num, low, mid, 2 * index + 1, !flag);
+				int mid = rangeStart + (rangeEnd - rangeStart) / 2;
+				if (index <= mid) {
+					update(index, num, rangeStart, mid, 2 * treeIndex + 1, !flag, tree);
 				} else {
-					update(tree, i, num, mid + 1, high, 2 * index + 2, !flag);
+					update(index, num, mid + 1, rangeEnd, 2 * treeIndex + 2, !flag, tree);
 				}
 				if (flag)
-					tree[index] = tree[2 * index + 1] | tree[2 * index + 2];
+					tree[treeIndex] = tree[2 * treeIndex + 1] | tree[2 * treeIndex + 2];
 				else
-					tree[index] = tree[2 * index + 1] ^ tree[2 * index + 2];
+					tree[treeIndex] = tree[2 * treeIndex + 1] ^ tree[2 * treeIndex + 2];
 			}
 
 		}

@@ -244,24 +244,22 @@ public class ClosestSubsequenceSum {
 
     public static int minAbsDifference1(int[] nums, int goal) {
         Data data = new Data();
-        data.min = Integer.MAX_VALUE;
-        data.goal = goal;
-        subsetSum1(0, 0, nums, data);
-        return data.min;
-    }
-
-    static class Data {
-        int min, goal;
+        subsetSum1(0, 0, nums, data, goal);
+        return data.minAbsDifference;
     }
 
     // generating all the sums and also checking the lowest sum
-    private static void subsetSum1(int i, int sum, int[] nums, Data data) {
+    private static void subsetSum1(int i, int sum, int[] nums, Data data, int goal) {
         if (i == nums.length) {
-            data.min = Math.min(data.min, Math.abs(data.goal - sum));
+            data.minAbsDifference = Math.min(data.minAbsDifference, Math.abs(goal - sum));
             return;
         }
-        subsetSum1(i + 1, sum + nums[i], nums, data);
-        subsetSum1(i + 1, sum, nums, data);
+        subsetSum1(i + 1, sum + nums[i], nums, data, goal);
+        subsetSum1(i + 1, sum, nums, data, goal);
+    }
+
+    static class Data {
+        int minAbsDifference = Integer.MAX_VALUE;
     }
 
 }

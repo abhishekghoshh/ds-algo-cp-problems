@@ -59,55 +59,56 @@ public class MinSegmentTree {
 		// then return INT_MAX
 		// 3.complete overlap with the range (L,R)
 		// then return tree(index)
-		public int min(int l, int r) {
-			return min(tree, 0, arrSize - 1, l, r, 0);
+		public int min(int start, int end) {
+			return min(start, end, 0, arrSize - 1, 0, tree);
 		}
 
 		// time complexity is approximately O(log(n))
 		// for very small range no overlap will be occurring most
 		// for very big range complete overlap will be occurring most
 
-		// low, high is the segment tree range
-		// left right is the array/query range
-		// low > right means our query range lies right side of the segment tree
-		// high<right means our query range lies left side of the segment tree
-		// [left,right][low,high] or [low,high][left,right]
-		private int min(int[] tree, int low, int high, int left, int right, int index) {
+		// [treeRangeStart, treeRangeEnd] is the segment tree range.
+		// [start,end] is the query range
+		// (treeRangeEnd < start) means our query range lies right side of the segment tree
+		// (treeRangeStart > end) means our query range lies left side of the segment tree.
+		// [start, end] [treeRangeStart, treeRangeEnd] or [treeRangeStart, treeRangeEnd] [start, end]
+		private int min(int start, int end, int treeRangeStart, int treeRangeEnd, int treeIndex, int[] tree) {
 			// no overlap
-			if (low > right || high < left) {
+			if (treeRangeStart > end || treeRangeEnd < start) {
 				return Integer.MAX_VALUE;
-			} else if (low >= left && high <= right) {
+			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
 				// complete overlap that means our query range lies in between the tree range
-				return tree[index];
+				return tree[treeIndex];
 			} else {
 				// partial overlap
-				int mid = low + (high - low) / 2;
-				int leftMin = min(tree, low, mid, left, right, 2 * index + 1);
-				int rightMin = min(tree, mid + 1, high, left, right, 2 * index + 2);
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				int leftMin = min(start, end, treeRangeStart, mid, 2 * treeIndex + 1, tree);
+				int rightMin = min(start, end, mid + 1, treeRangeEnd, 2 * treeIndex + 2, tree);
 				return Math.min(leftMin, rightMin);
 			}
 		}
 
-		public void update(int i, int num) {
-			update(tree, i, num, 0, arrSize - 1, 0);
+		public void update(int index, int num) {
+			update(index, num, 0, arrSize - 1, 0, tree);
 		}
 
 		// time complexity O(log(4n))
-		private void update(int[] tree, int i, int num, int low, int high, int index) {
+		private void update(int index, int num, int treeRangeStart, int treeRangeEnd, int treeIndex, int[] tree) {
 			// we have reached to the point where we need to update
-			if (low == high) {
-				tree[index] = num;
+			if (treeRangeStart == treeRangeEnd) {
+				tree[treeIndex] = num;
 			} else {
-				int mid = low + (high - low) / 2;
-				// 'i' lies in the left
-				if (i <= mid) {
-					update(tree, i, num, low, mid, 2 * index + 1);
+				int treeRangeMid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				int treeLeftIndex = 2 * treeIndex + 1, treeRightIndex = 2 * treeIndex + 2;
+				// 'index' lies in the left
+				if (index <= treeRangeMid) {
+					update(index, num, treeRangeStart, treeRangeMid, treeLeftIndex, tree);
 				} else {
-					// 'i' lies in right
-					update(tree, i, num, mid + 1, high, 2 * index + 2);
+					// 'index' lies in the right
+					update(index, num, treeRangeMid + 1, treeRangeEnd, treeRightIndex, tree);
 				}
-				// as the child is updated, so we need to rerun
-				tree[index] = Math.min(tree[2 * index + 1], tree[2 * index + 2]);
+				// as the child range min is updated, so we need to recheck if the current range min is also updated or not
+				tree[treeIndex] = Math.min(tree[treeLeftIndex], tree[treeRightIndex]);
 			}
 
 		}
