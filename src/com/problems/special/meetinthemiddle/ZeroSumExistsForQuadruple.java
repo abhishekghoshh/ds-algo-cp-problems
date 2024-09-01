@@ -33,14 +33,19 @@ public class ZeroSumExistsForQuadruple {
         System.out.println(ans);
     }
 
+    // it is also meet in the middle approach,
+    // but here we are cleverly doing the both operations in the same loop
     private static boolean zeroSumExists3(int[] nums) {
         int n = nums.length;
         Set<Integer> bucket = new HashSet<>();
+        // compute the pair sum and add it to the set and check for the reminder
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int sum = nums[i] + nums[j];
+                // add the sum
                 bucket.add(sum);
                 int rem = -sum;
+                // check the reminder
                 if (bucket.contains(rem)) return true;
             }
         }
@@ -48,20 +53,29 @@ public class ZeroSumExistsForQuadruple {
     }
 
     // brute force
-    // meet in the middle
+    // meet in the middle technique
+    // if we can split the task into two, then our work will be straightforward.
+    // we have to compute the sum of nums[i]+nums[j]+nums[k]+nums[l] == 0
+    // where i,j,k,l can be same index or different
     private static void type2() {
         int[] nums = {1, 2, -1, 3, 5};
         boolean ans = zeroSumExists2(nums);
         System.out.println(ans);
     }
 
+    // we will use split our task.
+    // first we will compute all the pair sums and it to the set,
+    // and in the 2nd time we will again compute the pairs.
+    // we will check if the reminder is present in the set or not
     private static boolean zeroSumExists2(int[] nums) {
         int n = nums.length;
         Set<Integer> bucket = new HashSet<>();
+        // compute the pair sum and add it to the set
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
                 bucket.add(nums[i] + nums[j]);
 
+        // compute the pair sum and check the reminder is present in the set or not
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int sum = nums[i] + nums[j];
@@ -86,7 +100,8 @@ public class ZeroSumExistsForQuadruple {
             for (int j = 0; j < n; j++)
                 for (int k = 0; k < n; k++)
                     for (int l = 0; l < n; l++)
-                        if (nums[i] + nums[j] + nums[j] + nums[l] == 0) return true;
+                        if (nums[i] + nums[j] + nums[j] + nums[l] == 0)
+                            return true;
         return false;
     }
 }
