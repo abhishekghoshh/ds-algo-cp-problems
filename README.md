@@ -4,6 +4,24 @@
 - [github](https://github.com/abhishekghoshh)
 - [leetcode](https://leetcode.com/u/abhishekghoshh/)
 
+## Introduction
+
+### Operations Per Second: Most competitive programming platforms allow approximately 10^8 operations per second. Some may allow 10^7 operations.
+
+### Time Complexity Estimates:
+
+- O(1): Acceptable for tiny inputs.
+- O(logN): Acceptable for inputs up to 10^9
+- O(N): Acceptable for N up to 10^8
+- O(NlogN): Acceptable for N up to 10^5
+- O(N^2): Acceptable for N up to 10^4
+- O(N^3): Acceptable for N up to 10^2
+- O(2^N) and O(N!): This is considered a relatively small value, and algorithms with a time complexity of O(2^N)
+  where n≤10 are often accepted.Generally not acceptable for any significant input size due to their rapid growth.
+
+Rough Estimation:
+Generally, if your algorithm's complexity results in operations exceeding 2^27 (which is approximately 134,217,728),
+it is likely to cause TLE in a 1-second time frame.
 
 ## Online Resources
 
@@ -795,7 +813,7 @@
   - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
 - **codes**
   - [Zero sum exist in array for quadruple](/src/com/problems/special/meetinthemiddle/ZeroSumExistsForQuadruple.java)
-  - [Subset sum](/src/com/problems/special/meetinthemiddle/ZeroSumExistsForQuadruple.java)
+  - [Subset sum](/src/com/problems/special/meetinthemiddle/SubsetSum.java)
   - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
   - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
 
