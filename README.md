@@ -39,11 +39,14 @@ it is likely to cause TLE in a 1-second time frame.
 ### Blogs
 
 - **resources**
+  - [LeetCode is a JOKE with This ONE WEIRD TRICK](https://www.youtube.com/watch?v=eB7SMsE6qEc)
+    - [Runtime Overview](https://algo.monster/problems/runtime_summary)
   - [LeetCode was HARD until I Learned these 15 Patterns](https://www.youtube.com/watch?v=DjYZk8nrXVY)
     - [Resources I used to clear Amazon, Google and Microsoft Interviews](https://blog.algomaster.io/p/368a3274-10b7-451b-bd9e-91c45a2164d7)
     - [LeetCode was HARD until I Learned these 15 Patterns](https://blog.algomaster.io/p/15-leetcode-patterns)
     - [20 Patterns to Master Dynamic Programming](https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming)
-  - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
+  - [You’re ONE Flowchart Away From NEVER Struggling With LeetCode Again!](https://www.youtube.com/watch?v=s5gWz9Fa1yo)
+    - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
   - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
   - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
   - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
@@ -238,6 +241,10 @@ it is likely to cause TLE in a 1-second time frame.
 
 
 ## Problems
+
+### logic building
+- **codes**
+  - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
 
 ### array
 
@@ -628,6 +635,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Sort Array by Increasing Frequency](/src/com/problems/heap/SortArrayByIncreasingFrequency.java)
   - [Find K Closest Elements](/src/com/problems/heap/FindKClosestElements.java)
   - [K Closest Points to Origin](/src/com/problems/heap/KClosestPointsToOrigin.java)
+  - [K-th Nearest Obstacle Queries](/src/com/problems/heap/KthNearestObstacleQueries.java)
   - [Sum of elements between k1'th and k2'th smallest elements](/src/com/problems/heap/SumBetweenK1thSmallestAndK2thSmallest.java)
 
 
@@ -963,6 +971,8 @@ it is likely to cause TLE in a 1-second time frame.
   - [Range maximum - Segment tree](/src/com/problems/segmenttree/MaxSegmentTree.java)
   - [Range Sum - Segment tree](/src/com/problems/segmenttree/SumSegmentTree.java)
   - [Xenia and Bit Operations](/src/com/problems/segmenttree/XeniaAndBitOperation.java)
+  - [Sereja and the balanced Brackets](/src/com/problems/segmenttree/SerejaAndBrackets.java)
+  - [Inversion count](/src/com/problems/segmenttree/InversionCount.java)
 
 ### Fenwick Tree
 
