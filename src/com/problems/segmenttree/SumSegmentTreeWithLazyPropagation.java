@@ -1,5 +1,11 @@
 package com.problems.segmenttree;
 
+/*
+ * Problem link :
+ *
+ * Solution link :
+ *
+ */
 public class SumSegmentTreeWithLazyPropagation {
 
 	public static void main(String[] args) {
@@ -48,7 +54,7 @@ public class SumSegmentTreeWithLazyPropagation {
 			if (lazy[index] != 0) {
 				// high-low+1 will give the count of the range for which the node is responsible
 				tree[index] += (high - low + 1) * lazy[index];
-				// if low!=high then it has children so we can propagate the addition down
+				// if low!=high then it has children, so we can propagate the addition down
 				if (low != high) {
 					lazy[2 * index + 1] += lazy[index];
 					lazy[2 * index + 2] += lazy[index];
@@ -90,10 +96,10 @@ public class SumSegmentTreeWithLazyPropagation {
 		// propagate the update to downwards
 		// only for the complete overlap we will change the node and propagate
 		public void update(int left, int right, int addition) {
-			updateAndPropagrate(tree, 0, arrSize - 1, left, right, 0, addition);
+			updateAndPropagate(tree, 0, arrSize - 1, left, right, 0, addition);
 		}
 
-		public void updateAndPropagrate(int[] tree, int low, int high, int left, int right, int index, int addition) {
+		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index, int addition) {
 			// update the previous remaining update and propagate that
 			// later we can update the current update
 			if (lazy[index] != 0) {
@@ -124,8 +130,8 @@ public class SumSegmentTreeWithLazyPropagation {
 				return;
 			} else {
 				int mid = low + (high - low) / 2;
-				updateAndPropagrate(tree, low, mid, left, right, 2 * index + 1, addition);
-				updateAndPropagrate(tree, mid + 1, high, left, right, 2 * index + 2, addition);
+				updateAndPropagate(tree, low, mid, left, right, 2 * index + 1, addition);
+				updateAndPropagate(tree, mid + 1, high, left, right, 2 * index + 2, addition);
 				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
 			}
 		}

@@ -6,7 +6,7 @@ public class FlipCoinsAndRangeQuery {
 		type1();
 	}
 
-	// in update query range of coins will be flipped
+	// in update query range of coins will be flipped.
 	// we will store the number of heads only
 	// flip means rangeCount-countOfHead
 	// we will use a boolean array
@@ -97,10 +97,10 @@ public class FlipCoinsAndRangeQuery {
 		// propagate the update to downwards
 		// only for the complete overlap we will change the node and propagate
 		public void updateRange(int left, int right) {
-			updateAndPropagrate(tree, 0, arrSize - 1, left, right, 0);
+			updateAndPropagate(tree, 0, arrSize - 1, left, right, 0);
 		}
 
-		public void updateAndPropagrate(int[] tree, int low, int high, int left, int right, int index) {
+		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index) {
 			// update the previous remaining update and propagate that
 			// later we can update the current update
 			if (lazy[index]) {
@@ -120,7 +120,7 @@ public class FlipCoinsAndRangeQuery {
 				return;
 			} else if (low >= left && high <= right) {
 				// complete overlap
-				// flip the coins
+				// flip the coin
 				// heads will be equal to tails which is node-heads
 				tree[index] = (high - low + 1) - tree[index];
 				// if the node is responsible for more than one node
@@ -132,8 +132,8 @@ public class FlipCoinsAndRangeQuery {
 				return;
 			} else {
 				int mid = low + (high - low) / 2;
-				updateAndPropagrate(tree, low, mid, left, right, 2 * index + 1);
-				updateAndPropagrate(tree, mid + 1, high, left, right, 2 * index + 2);
+				updateAndPropagate(tree, low, mid, left, right, 2 * index + 1);
+				updateAndPropagate(tree, mid + 1, high, left, right, 2 * index + 2);
 				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
 			}
 		}

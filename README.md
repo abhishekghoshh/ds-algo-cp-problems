@@ -85,7 +85,7 @@ it is likely to cause TLE in a 1-second time frame.
 ### PDF
 
 - [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy_in_Java.pdf)
-- [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
+- [Data Structures And Algorithms Made Easy](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
 - [Introduction to Algorithms fourth edition by Cormen](./pdf/Introduction_to_Algorithms_4th_edition_by_Cormen.pdf)
 
 ### A-Z DSA sheets
@@ -195,23 +195,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Open addressing](/src/com/ds/hashtable/HashTableOpenAddressingBase.java)
     - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
 
-### Segment tree
 
-- **resources**
-- **codes**
-
-### Fenwick tree/Binary Indexed Tree
-
-- **resources**
-  - [sdnr1's blog](https://codeforces.com/blog/entry/61364)
-  - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
-  - **luv**
-    - [Subset Generation using the Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
-    - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
-    - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
-  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
-- **codes**
-  - [Fenwick tree](/src/com/ds/fenwicktree/FenwickTree.java)
 
 
 ### Union find algorithm
@@ -239,8 +223,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [AVL Tree](/src/com/ds/balancedbinarytree/AVLTree.java)
   - [Red-Black Tree](/src/com/ds/balancedbinarytree/RedBlackTree.java)
 
-
-## Problems
+## Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
 
 ### logic building
 - **codes**
@@ -967,18 +950,32 @@ it is likely to cause TLE in a 1-second time frame.
   - [Marathon Class on Range Query DS - 2 / Segment Trees / Fenwick Trees / Masterclasses By Striver) / CodeBeyond](https://www.youtube.com/watch?v=rXnXRU8yMF0)
   - [Segment Tree - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiFY1445K_x1M_O3j9kr3FII)
 - **codes**
-  - [Range minimum - Segment tree](/src/com/problems/segmenttree/MinSegmentTree.java)
-  - [Range maximum - Segment tree](/src/com/problems/segmenttree/MaxSegmentTree.java)
-  - [Range Sum - Segment tree](/src/com/problems/segmenttree/SumSegmentTree.java)
-  - [Xenia and Bit Operations](/src/com/problems/segmenttree/XeniaAndBitOperation.java)
-  - [Sereja and the balanced Brackets](/src/com/problems/segmenttree/SerejaAndBrackets.java)
-  - [Inversion count](/src/com/problems/segmenttree/InversionCount.java)
+  - **general**
+    - [Range minimum - Segment tree](/src/com/problems/segmenttree/MinSegmentTree.java)
+    - [Range maximum - Segment tree](/src/com/problems/segmenttree/MaxSegmentTree.java)
+    - [Range Sum - Segment tree](/src/com/problems/segmenttree/SumSegmentTree.java)
+    - [Xenia and Bit Operations](/src/com/problems/segmenttree/XeniaAndBitOperation.java)
+    - [Sereja and the balanced Brackets](/src/com/problems/segmenttree/SerejaAndBrackets.java)
+    - [Inversion count](/src/com/problems/segmenttree/InversionCount.java)
+    - [Inversion count with negative integers](/src/com/problems/segmenttree/InversionCountWithNegativeIntegers.java)
+  - **lazy propagation**
+    - [Range update and sum query in an array - Lazy Propagation in Segment tree](/src/com/problems/segmenttree/SumSegmentTreeWithLazyPropagation.java)
+    - [Range update and min query in an array - Lazy Propagation in Segment tree](/src/com/problems/segmenttree/MinSegmentTreeWithLazyPropagation.java)
+    - [Flip coins in a Range](/src/com/problems/segmenttree/FlipCoinsAndRangeQuery.java)
 
-### Fenwick Tree
+### Fenwick tree/Binary Indexed Tree
 
 - **resources**
-  - 
+  - [sdnr1's blog](https://codeforces.com/blog/entry/61364)
+  - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
+  - [Fenwick & Segment Tree & Sparse Table Playlist](https://www.youtube.com/playlist?list=PLEL7R4Pm6EmBxBrEq8g2L3MF3W3Shnk58)
+  - **luv**
+    - [Subset Generation using the Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
+    - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
+    - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
+  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
 - **codes**
+  - [Fenwick tree](/src/com/ds/fenwicktree/FenwickTree.java)
 
 ### tries
 
@@ -1029,7 +1026,7 @@ it is likely to cause TLE in a 1-second time frame.
 
 - **resources**
   - [Range Queries - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO)
-  - [Text Processing - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEoZSwjEZT3TvpKG16FntFL)
+  - [Text Processing—Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEoZSwjEZT3TvpKG16FntFL)
 
 
 ## Channels for hard problems

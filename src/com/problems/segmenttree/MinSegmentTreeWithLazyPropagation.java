@@ -1,5 +1,11 @@
 package com.problems.segmenttree;
 
+/*
+ * Problem link :
+ *
+ * Solution link :
+ *
+ */
 public class MinSegmentTreeWithLazyPropagation {
 
 	public static void main(String[] args) {
