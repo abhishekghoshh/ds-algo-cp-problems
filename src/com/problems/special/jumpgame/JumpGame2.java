@@ -14,9 +14,11 @@ import java.util.Arrays;
  * https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/45.%20Jump%20Game%20II
  * */
 public class JumpGame2 {
+
+    public static final int INF = Integer.MAX_VALUE;
+
     public static void main(String[] args) {
         type1();
-        type2();
         type3();
         type4();
     }
@@ -32,62 +34,58 @@ public class JumpGame2 {
         if (cur + nums[cur] >= n - 1) return 1;
         int maxIndex = cur + 1;
         for (int i = cur + 2; i <= cur + nums[cur]; i++)
-            if (i + nums[i] > maxIndex + nums[maxIndex]) maxIndex = i;
+            if (i + nums[i] > maxIndex + nums[maxIndex])
+                maxIndex = i;
         return 1 + jump(nums, maxIndex, n);
     }
 
-    //
+
+    // this is better approach
+    // time complexity O(n) and space complexity is O(1)
+    // we are calculating the jump per window.
+    // lets says we are on 0th index which has value 3,
+    // so we can go to any index up to 3
+    // so our first window is from [0,3]
+    // we will check which is the max index that we can reach from this range
+    // and once we reach to the end we will increase the jump
+    // let's say from 1 we can go till 5 which is the max
+    // so once we reach the end of the range [0,3]
+    // we will again set our range to [3,5]
+    // and max is 8 which is from 4, ideally the jump sequence is 0->1->4...
     private static void type3() {
         int[] nums = {2, 3, 1, 1, 4};
         int n = nums.length;
-        int begin = 0, end = 0, farthest = 0;
+        int end = 0, max = 0;
         int jump = 0;
         for (int i = 0; i < n - 1; i++) {
-            farthest = Math.max(farthest, i + nums[i]);
+            max = Math.max(max, i + nums[i]);
             if (i == end) {
                 jump++;
-                end = farthest;
+                end = max;
             }
         }
         System.out.println(jump);
     }
 
+
     // using dynamic programming
     // using O(n^2)
-    private static void type2() {
-        int[] nums = {2, 3, 1, 1, 4};
-        int n = nums.length;
-        int[] dp = new int[n];
-        Arrays.fill(dp, Integer.MAX_VALUE);
-        // if we are n-1 then minimum step to go to n-1 will obviously be 0
-        dp[n - 1] = 0;
-        for (int i = n - 2; i >= 0; i--) {
-            int min = Integer.MAX_VALUE;
-            for (int j = i + 1; j <= Math.min(n - 1, i + nums[i]); j++)
-                min = Math.min(min, dp[j]);
-            if (min != Integer.MAX_VALUE)
-                dp[i] = min + 1;
-        }
-        System.out.println(dp[0]);
-    }
-
-
-    // brute force solution
     private static void type1() {
         int[] nums = {2, 3, 1, 1, 4};
         int n = nums.length;
-        int[] minPath = new int[n];
-        Arrays.fill(minPath, 10000);
-        minPath[n - 1] = 0;
+        int[] dp = new int[n];
+        Arrays.fill(dp, INF);
+        // if we are n-1 then a minimum step to go to n-1 will be 0
+        dp[n - 1] = 0;
         for (int i = n - 2; i >= 0; i--) {
-            int max = nums[i];
-            for (int j = max; j > 0; j--) {
-                if (i + j < n) {
-                    minPath[i] = Math.min(minPath[i], 1 + minPath[i + j]);
-                }
+            int min = INF;
+            int boundary = Math.min(n - 1, i + nums[i]);
+            for (int j = i + 1; j <= boundary; j++) {
+                min = Math.min(min, dp[j]);
             }
+            if (min != INF) dp[i] = min + 1;
         }
-        System.out.println(minPath[0]);
+        System.out.println(dp[0]);
     }
 
 }

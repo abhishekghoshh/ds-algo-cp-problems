@@ -22,35 +22,33 @@ public class JumpGame5 {
         int d = 2;
         int n = arr.length;
         int max = 0;
-        int[] memo = new int[n];
+        int[] dp = new int[n];
         for (int i = 0; i < n; i++) {
-            max = Math.max(max, jumpNext(i, arr, d, memo));
+            int jump = jumpNext(i, arr, d, dp);
+            max = Math.max(max, jump);
         }
         System.out.println(max);
     }
 
-    private static int jumpNext(int i, int[] arr, int d, int[] memo) {
-        if (memo[i] != 0) return memo[i];
-        int max = 0;
-        int currentHeight = arr[i];
-        int rightBoundary = Math.min(arr.length - 1, i + d);
-        int leftBoundary = Math.max(0, i - d);
-        for (int id = i + 1; id <= rightBoundary; id++) {
-            if (currentHeight > arr[id]) {
-                max = Math.max(max, jumpNext(id, arr, d, memo));
-            } else {
-                break;
-            }
+    private static int jumpNext(int start, int[] arr, int d, int[] dp) {
+        if (dp[start] != 0) return dp[start];
+        int n = arr.length;
+        int max = 0, height = arr[start];
+        int left = Math.max(0, start - d), right = Math.min(n - 1, start + d);
+        // going in the left direction
+        for (int i = start - 1; i >= left; i--) {
+            // if the current height is greater than starting height then we will stop here
+            if (height <= arr[i]) break;
+            max = Math.max(max, jumpNext(i, arr, d, dp));
         }
-        currentHeight = arr[i];
-        for (int id = i - 1; id >= leftBoundary; id--) {
-            if (currentHeight > arr[id]) {
-                max = Math.max(max, jumpNext(id, arr, d, memo));
-            } else {
-                break;
-            }
+        // going in the right direction
+        for (int i = start + 1; i <= right; i++) {
+            // if the current height is greater than starting height then we will stop here
+            if (height <= arr[i]) break;
+            max = Math.max(max, jumpNext(i, arr, d, dp));
         }
-        return memo[i] = max + 1;
+        // +1 for including itself
+        return dp[start] = max + 1;
     }
 
     // brute force
@@ -66,26 +64,23 @@ public class JumpGame5 {
         System.out.println(max);
     }
 
-    private static int jumpNext(int i, int[] arr, int d) {
-        int max = 0;
-        int currentHeight = arr[i];
-        int rightBoundary = Math.min(arr.length - 1, i + d);
-        int leftBoundary = Math.max(0, i - d);
-        for (int id = i + 1; id <= rightBoundary; id++) {
-            if (currentHeight > arr[id]) {
-                max = Math.max(max, jumpNext(id, arr, d));
-            } else {
-                break;
-            }
+    private static int jumpNext(int start, int[] arr, int d) {
+        int n = arr.length;
+        int max = 0, height = arr[start];
+        int left = Math.max(0, start - d), right = Math.min(n - 1, start + d);
+        // going in the left direction
+        for (int i = start - 1; i >= left; i--) {
+            // if the current height is greater than starting height then we will stop here
+            if (height <= arr[i]) break;
+            max = Math.max(max, jumpNext(i, arr, d));
         }
-        currentHeight = arr[i];
-        for (int id = i - 1; id >= leftBoundary; id--) {
-            if (currentHeight > arr[id]) {
-                max = Math.max(max, jumpNext(id, arr, d));
-            } else {
-                break;
-            }
+        // going in the right direction
+        for (int i = start + 1; i <= right; i++) {
+            // if the current height is greater than starting height then we will stop here
+            if (height <= arr[i]) break;
+            max = Math.max(max, jumpNext(i, arr, d));
         }
+        // +1 for including itself
         return max + 1;
     }
 }

@@ -2,6 +2,9 @@ package com.problems.segmenttree;
 
 public class FlipCoinsAndRangeQuery {
 
+	// In this problem, we will have 2 kinds of queries
+	// 1. Flip the coins in a range (convert head to tail and tail to head)
+	// 2. How many heads are present in a range?
 	public static void main(String[] args) {
 		type1();
 	}
@@ -80,7 +83,7 @@ public class FlipCoinsAndRangeQuery {
 
 		private void update(int[] tree, int i, int num, int low, int high, int index) {
 			if (low == high) {
-				// if the we are using modulo if the number is more than 1
+				// if we are using modulo if the number is more than 1,
 				// ideally it should not occur
 				tree[index] = num % 2;
 			} else {
@@ -100,13 +103,15 @@ public class FlipCoinsAndRangeQuery {
 			updateAndPropagate(tree, 0, arrSize - 1, left, right, 0);
 		}
 
+		// if we flip twice, then the head count remains the same
+		// if before flip the head count was x then after flip the count will be (r-l+1) - x
 		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index) {
 			// update the previous remaining update and propagate that
 			// later we can update the current update
 			if (lazy[index]) {
 				// high-low+1 will give the count of the range for which the node is responsible
 				tree[index] = (high - low + 1) - tree[index];
-				// if low!=high then it has children so we can propagate the addition down
+				// if low!=high then it has children, so we can propagate the addition down
 				if (low != high) {
 					lazy[2 * index + 1] = !lazy[2 * index + 1];
 					lazy[2 * index + 2] = !lazy[2 * index + 2];

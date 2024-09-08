@@ -123,9 +123,4 @@ public class JumpGame6 {
         System.out.println(memo[n - 1]);
     }
 
-    private static void print(int... nums) {
-        for (int num : nums)
-            System.out.print(num + " ");
-        System.out.println();
-    }
 }

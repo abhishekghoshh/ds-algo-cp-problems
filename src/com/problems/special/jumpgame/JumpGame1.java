@@ -9,32 +9,21 @@ package com.problems.special.jumpgame;
  * Solution link :
  * https://www.youtube.com/watch?v=C6AZyfj-Kyw&list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi&index=1
  *
- * https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/55.%20Jump%20Game
  *
  * */
 public class JumpGame1 {
-    // TODO check one more time
+
     public static void main(String[] args) {
         type1();
-        type2();
     }
 
 
-    private static void type2() {
-        int[] nums = {2, 3, 1, 1, 4};
-        boolean ans = canJump2(nums);
-        System.out.println(ans);
-    }
-
-    public static boolean canJump2(int[] nums) {
-        int curr = nums[0], n = nums.length;
-        for (int i = 0; i < n; i++) {
-            if (i == curr && nums[i] == 0) break;
-            curr = Math.max(i + nums[i], curr);
-        }
-        return curr >= n - 1;
-    }
-
+    // simple array problem
+    // we have to check if we can ultimately go to the last cell or not,
+    // we will take one variable max.
+    // and everytime we will calculate that from the current index if how far we can go
+    // if that exceeds the max, then we will update the max
+    // and at the last we will check if the max is bigger or equal to the last cell or not
     private static void type1() {
         int[] nums = {2, 3, 1, 1, 4};
         boolean ans = canJump1(nums);
@@ -43,12 +32,17 @@ public class JumpGame1 {
 
     public static boolean canJump1(int[] nums) {
         int n = nums.length;
+        // if n equal to 1 that means we are already on the last cell
         if (n == 1) return true;
         int max = 0;
-        for (int i = 0; i < n - 1 && max >= i; i++) {
-            if (max < i + nums[i]) max = i + nums[i];
-            if (max >= n - 1) return true;
+        for (int i = 0; i < n; i++) {
+            // everytime we will check how much we can go from the current index
+            max = Math.max(max, i + nums[i]);
+            // if the current index is the max index possible which mean, max could not be updated more
+            // we cannot go beyond the current index
+            if (i == max) break;
         }
-        return false;
+        // at the last we will check if the max is bigger or equal to the last cell or not
+        return max >= n - 1;
     }
 }
