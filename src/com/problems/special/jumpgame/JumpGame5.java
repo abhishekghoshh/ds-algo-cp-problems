@@ -16,6 +16,7 @@ public class JumpGame5 {
         type2();
     }
 
+    // same as the previous just one line difference
     // using dynamic programming
     private static void type2() {
         int[] arr = {6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12};
@@ -31,10 +32,13 @@ public class JumpGame5 {
     }
 
     private static int jumpNext(int start, int[] arr, int d, int[] dp) {
+        // if the value is already calculated then we will return from the dp table
         if (dp[start] != 0) return dp[start];
+        // taking max as 0 and setting height as the current index height
         int n = arr.length;
         int max = 0, height = arr[start];
-        int left = Math.max(0, start - d), right = Math.min(n - 1, start + d);
+        int left = Math.max(0, start - d);
+        int right = Math.min(n - 1, start + d);
         // going in the left direction
         for (int i = start - 1; i >= left; i--) {
             // if the current height is greater than starting height then we will stop here
@@ -51,8 +55,12 @@ public class JumpGame5 {
         return dp[start] = max + 1;
     }
 
-    // brute force
-    // using recursion
+    // brute force using recursion
+    // the intuition very simple
+    // from one index we have to go left and right with the range, and which will be lesser than the current height
+    // if any cell height is greater than the current height then we will stop right there.
+    // if we find any lesser height then from that index we will again start JumpNext recursively.
+    // and after everything we will return the max jump
     private static void type1() {
         int[] arr = {6, 4, 14, 6, 8, 13, 9, 7, 10, 6, 12};
         int d = 2;
@@ -66,8 +74,10 @@ public class JumpGame5 {
 
     private static int jumpNext(int start, int[] arr, int d) {
         int n = arr.length;
+        // taking max as 0 and setting height as the current index height
         int max = 0, height = arr[start];
-        int left = Math.max(0, start - d), right = Math.min(n - 1, start + d);
+        int left = Math.max(0, start - d);
+        int right = Math.min(n - 1, start + d);
         // going in the left direction
         for (int i = start - 1; i >= left; i--) {
             // if the current height is greater than starting height then we will stop here

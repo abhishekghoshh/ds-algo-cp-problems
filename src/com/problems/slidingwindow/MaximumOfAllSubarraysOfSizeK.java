@@ -123,8 +123,8 @@ public class MaximumOfAllSubarraysOfSizeK {
 			while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i])
 				deque.pollLast();
 			deque.offer(i);
-			if (i >= k - 1)
-				answer[right++] = nums[deque.peek()];
+			// as we are storing in a decreasing manner to peek will give the highest element
+			if (i >= k - 1) answer[right++] = nums[deque.peek()];
 		}
 		print(answer);
 	}

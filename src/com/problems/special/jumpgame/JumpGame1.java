@@ -20,7 +20,9 @@ public class JumpGame1 {
 
     // simple array problem
     // we have to check if we can ultimately go to the last cell or not,
-    // we will take one variable max.
+    // ideally if every cell have at least 1 then we will be able to reach the last cell
+    // the problem will occur only if there is a series of 1 and there is suddenly a 0, but we can not code only for that
+    // let us generalize the solution, we will take one variable max.
     // and everytime we will calculate that from the current index if how far we can go
     // if that exceeds the max, then we will update the max
     // and at the last we will check if the max is bigger or equal to the last cell or not

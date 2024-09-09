@@ -21,10 +21,47 @@ public class JumpGame3 {
         type4();
     }
 
+    // todo exactly same as the previous
     // we can do some optimizations on the bfs solution
     // we can check all the nodes in the same level of queue at a time
-    // we can negate the point just to say that it is visited
+    // we can negate the point just to mark it as visited
     private static void type4() {
+        int[] arr = {4, 2, 3, 0, 3, 1, 2};
+        int start = 5;
+        boolean ans = canReach4(arr, start);
+        System.out.println(ans);
+    }
+
+    // we will use a queue for tracking the nodes, and we will go nodes one by one
+    // and once we reach the final index we will return true
+    public static boolean canReach4(int[] arr, int start) {
+        int n = arr.length;
+        boolean[] visited = new boolean[n];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        visited[start] = true;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            // checking all nodes at a level
+            while (size-- > 0) {
+                int curr = queue.poll();
+                // if the array value is 0 that means we have reached the final position, so we will return true
+                if (arr[curr] == 0) return true;
+                // we will find the left and the right indices
+                int left = curr - arr[curr], right = curr + arr[curr];
+                // checking if the left index is not out of bounds and not visited
+                if (left >= 0 && !visited[left]) {
+                    visited[left] = true;
+                    queue.add(left);
+                }
+                // checking if the right index is not out of bounds and not visited
+                if (right < n && !visited[right]) {
+                    visited[right] = true;
+                    queue.add(right);
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -39,6 +76,8 @@ public class JumpGame3 {
         System.out.println(ans);
     }
 
+    // we will use a queue for tracking the nodes, and we will go nodes one by one
+    // and once we reach the final index we will return true
     public static boolean canReach3(int[] arr, int start) {
         int n = arr.length;
         boolean[] visited = new boolean[n];
@@ -47,15 +86,17 @@ public class JumpGame3 {
         visited[start] = true;
         while (!queue.isEmpty()) {
             int curr = queue.poll();
+            // if the array value is 0 that means we have reached the final position, so we will return true
             if (arr[curr] == 0) return true;
+            // we will find the left and the right indices
             int left = curr - arr[curr], right = curr + arr[curr];
-
-            if (isNotVisited(left, visited, n)) {
+            // checking if the left index is not out of bounds and not visited
+            if (left >= 0 && !visited[left]) {
                 visited[left] = true;
                 queue.add(left);
             }
-
-            if (isNotVisited(right, visited, n)) {
+            // checking if the right index is not out of bounds and not visited
+            if (right < n && !visited[right]) {
                 visited[right] = true;
                 queue.add(right);
             }
@@ -63,35 +104,30 @@ public class JumpGame3 {
         return false;
     }
 
-    private static boolean isNotVisited(int i, boolean[] visited, int n) {
-        return i >= 0 && i < n && !visited[i];
-    }
-
     // same as type 1 recursion
     // we are not using any extra visited array to mark
-    // we are just multiplying the array item with -1 if we visit that
+    // here we will change the value to negative to mark it as visited
     private static void type2() {
         int[] arr = {4, 2, 3, 0, 3, 1, 2};
         int start = 5;
-        boolean ans = canReach2(arr, start);
+        boolean ans = canReach2(start, arr, arr.length);
         System.out.println(ans);
     }
 
-    public static boolean canReach2(int[] arr, int start) {
-        // If the start is out of bounds or the value at start is negative, return false
-        if (start < 0 || start >= arr.length || arr[start] < 0) return false;
-        // If the value at start is 0, we have reached our goal
+    public static boolean canReach2(int start, int[] arr, int n) {
+        // if the index is out of boundary then we will return false
+        if (start < 0 || start >= n) return false;
+        // if the index is already visited then we will return false
+        if (arr[start] < 0) return false;
+        // if the array value is 0 that means we have reached the final position, so we will return true
         if (arr[start] == 0) return true;
-        // Mark the current position as visited by making the value negative
-        int jump = arr[start];
+        // we will find the left and the right indices
+        int left = start - arr[start], right = start + arr[start];
+        // we will set the visited to true as currently we will be operating on that
         arr[start] = -arr[start];
         // Try jumping left and right recursively
-        if (canReach2(arr, start + jump)
-                || canReach2(arr, start - jump))
-            return true;
-        // If we can't reach the goal from this position, revert the change
-        arr[start] = -arr[start];
-        return false;
+        return canReach2(left, arr, n)
+                || canReach2(right, arr, n);
     }
 
     // using recursion
@@ -105,16 +141,22 @@ public class JumpGame3 {
     public static boolean canReach1(int[] arr, int start) {
         int n = arr.length;
         boolean[] visited = new boolean[n];
-        return canReach1(arr, start, visited, n);
+        return canReach1(start, arr, visited, n);
     }
 
-    private static boolean canReach1(int[] arr, int start, boolean[] visited, int n) {
+    private static boolean canReach1(int start, int[] arr, boolean[] visited, int n) {
+        // if the index is out of boundary then we will return false
         if (start < 0 || start >= n) return false;
-        if (arr[start] == 0) return true;
+        // if the index is already visited then we will return false
         if (visited[start]) return false;
+        // if the array value is 0 that means we have reached the final position, so we will return true
+        if (arr[start] == 0) return true;
+        // we will set the visited to true as currently we will be operating on that
         visited[start] = true;
+        // we will find the left and the right indices
         int left = start - arr[start], right = start + arr[start];
-        return canReach1(arr, left, visited, n)
-                || canReach1(arr, right, visited, n);
+        // and recursively visit both
+        return canReach1(left, arr, visited, n)
+                || canReach1(right, arr, visited, n);
     }
 }

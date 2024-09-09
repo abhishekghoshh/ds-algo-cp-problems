@@ -19,26 +19,8 @@ public class JumpGame2 {
 
     public static void main(String[] args) {
         type1();
-        type3();
-        type4();
+        type2();
     }
-
-    private static void type4() {
-        int[] nums = {2, 3, 1, 1, 4};
-        int ans = jump(nums, 0, nums.length);
-        System.out.println(ans);
-    }
-
-    private static int jump(int[] nums, int cur, int n) {
-        if (cur >= n - 1) return 0;
-        if (cur + nums[cur] >= n - 1) return 1;
-        int maxIndex = cur + 1;
-        for (int i = cur + 2; i <= cur + nums[cur]; i++)
-            if (i + nums[i] > maxIndex + nums[maxIndex])
-                maxIndex = i;
-        return 1 + jump(nums, maxIndex, n);
-    }
-
 
     // this is better approach
     // time complexity O(n) and space complexity is O(1)
@@ -52,13 +34,15 @@ public class JumpGame2 {
     // so once we reach the end of the range [0,3]
     // we will again set our range to [3,5]
     // and max is 8 which is from 4, ideally the jump sequence is 0->1->4...
-    private static void type3() {
+    private static void type2() {
         int[] nums = {2, 3, 1, 1, 4};
         int n = nums.length;
         int end = 0, max = 0;
         int jump = 0;
         for (int i = 0; i < n - 1; i++) {
+            // we will check the max for all the max indices on that range
             max = Math.max(max, i + nums[i]);
+            // we reach to the end we will increase the jump and update the end of the range
             if (i == end) {
                 jump++;
                 end = max;
@@ -69,23 +53,38 @@ public class JumpGame2 {
 
 
     // using dynamic programming
-    // using O(n^2)
+    // time complexity O(n^2)
     private static void type1() {
         int[] nums = {2, 3, 1, 1, 4};
+        int ans = jump1(nums);
+        System.out.println(ans);
+    }
+
+    // todo it is different from the Algorithms Made Easy brute force solution
+    // very simple and intuitive approach brute force approach
+    // we start from 0, we will maintain a dp array which will indicate minimum jump required to fo to that index
+    // for 0th cell it is 0, as we are standing right there
+    // we will initialize all the remaining cells with infinity
+    // so for each cell we will go to all the indices that we can go from the current index
+    // and we will try to minimize jump required on all the indices
+    public static int jump1(int[] nums) {
         int n = nums.length;
+        // early return if n is 1 then we can directly return 1
+        if (n == 1) return 0;
         int[] dp = new int[n];
-        Arrays.fill(dp, INF);
-        // if we are n-1 then a minimum step to go to n-1 will be 0
-        dp[n - 1] = 0;
-        for (int i = n - 2; i >= 0; i--) {
-            int min = INF;
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        for (int i = 0; i < n; i++) {
+            // required jump to go to the index i
+            int jump = dp[i];
+            // we will go to all the indices
             int boundary = Math.min(n - 1, i + nums[i]);
             for (int j = i + 1; j <= boundary; j++) {
-                min = Math.min(min, dp[j]);
+                // now we will minimize the jump for all the index j
+                dp[j] = Math.min(dp[j], jump + 1);
             }
-            if (min != INF) dp[i] = min + 1;
         }
-        System.out.println(dp[0]);
+        return dp[n - 1];
     }
 
 }
