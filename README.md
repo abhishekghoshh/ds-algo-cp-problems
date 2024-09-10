@@ -804,7 +804,8 @@ it is likely to cause TLE in a 1-second time frame.
   - [Meet In The Middle - II](https://unacademy.com/class/meet-in-the-middle-ii/87AE3JF0)
 - **codes**
   - [Zero sum exist in array for quadruple](/src/com/problems/special/meetinthemiddle/ZeroSumExistsForQuadruple.java)
-  - [Subset sum](/src/com/problems/special/meetinthemiddle/SubsetSum.java)
+  - [Find strictly increasing triplets](/src/com/problems/special/meetinthemiddle/FindStrictlyIncreasingTriplets.java)
+  - [Subset sum / Target sum / Knapsack](/src/com/problems/special/meetinthemiddle/SubsetSum.java)
   - [Closest Subsequence Sum](/src/com/problems/special/meetinthemiddle/ClosestSubsequenceSum.java)
   - [Partition Array Into Two Arrays to Minimize Sum Difference](/src/com/problems/special/meetinthemiddle/PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference.java)
 

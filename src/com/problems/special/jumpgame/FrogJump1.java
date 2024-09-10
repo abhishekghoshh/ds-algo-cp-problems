@@ -20,34 +20,46 @@ public class FrogJump1 {
         type4();
     }
 
-    static int[] delta = {1, 0, -1};
 
     // here also we are using dynamic programming
     private static void type4() {
         int[] stones = {0, 1, 3, 5, 6, 8, 12, 17};
-        int n = stones.length;
-        boolean[][] dp = new boolean[n][n];
-        boolean answer = canCross4(1, 0, stones, dp);
+        boolean answer = canCross4(stones);
         System.out.println(answer);
     }
 
+    public static boolean canCross4(int[] stones) {
+        // early return if stone on 2nd index is not 1 then there is no way we can go
+        if (stones[1] != 1) return false;
+        int n = stones.length;
+        boolean[][] dp = new boolean[n][n];
+        return canCross4(1, 0, stones, dp);
+    }
+
     private static boolean canCross4(int start, int last, int[] stones, boolean[][] dp) {
+        int n = stones.length;
         // if we have reached the last index then we can return true
-        if (start == stones.length - 1) return true;
+        if (start == n - 1) return true;
         // dp value is true means we have used this pair of (last,start), and it is not helping us to go to the end
         if (dp[last][start]) return false;
         // calculating the last jump that the frog had taken to reach here
         int lastJump = stones[start] - stones[last];
-        int nextIndex = start + 1;
-        while (nextIndex < stones.length && stones[nextIndex] <= stones[start] + lastJump + 1) {
-            int nextJump = stones[nextIndex] - stones[start];
-            int jump = nextJump - lastJump;
-            if (jump >= -1 && jump <= 1) {
-                if (canCross4(nextIndex, start, stones, dp))
-                    return true;
-            }
-            nextIndex++;
+        // here we will manually check the next stones, we will start from the i+1
+        int next = start + 1;
+        while (next < n) {
+            // calculating the next jump
+            int nextJump = stones[next] - stones[start];
+            // and the delta change in the jump
+            int d = nextJump - lastJump;
+            // if delta is within [-1,1] then we will use the stone as the next jump
+            if (d >= -1 && d <= 1 && canCross4(next, start, stones, dp))
+                return true;
+            // else go to the next index
+            next++;
+            // we will also check if the delta goes beyond k=1
+            if (next == n || stones[next] - stones[start] > lastJump + 1) break;
         }
+        // we are just marking it is true as we can not go by this pair
         dp[last][start] = true;
         return false;
     }

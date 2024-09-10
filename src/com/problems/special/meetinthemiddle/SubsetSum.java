@@ -1,14 +1,17 @@
 package com.problems.special.meetinthemiddle;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 /*
  * Problem link :
+ * https://cses.fi/problemset/task/1628/
  *
  * Solution link :
  *
  *
+ * https://codeforces.com/blog/entry/95571
  */
 public class SubsetSum {
     // we have already solved the subset sum using power set, recursion and dynamic programming approach,
@@ -21,7 +24,99 @@ public class SubsetSum {
     // if we can split the array, compute the sums and then check it using a set then we will not hit TLE
     public static void main(String[] args) {
         type1();
+        type2();
     }
+
+    // this is exactly the previous type
+    // here we have to find the count the subsets
+    private static void type2() {
+        int[] arr = {1, 2, 3};
+        int x = 3;
+        int ans = countSubsets(arr, x);
+        System.out.println(ans);
+    }
+
+    static int countSubsets(int[] arr, int x) {
+        int n = arr.length;
+        int count = 0;
+        // Split the array into two halves
+        int mid = n / 2;
+        int[] firstHalf = new int[1 << mid];
+        int[] secondHalf = new int[1 << (n - mid)];
+        // Calculate all possible subset sums for the first half
+        generateSubsets(arr, 0, mid, firstHalf);
+        // Calculate all possible subset sums for the second half
+        generateSubsets(arr, mid, n, secondHalf);
+        // Sort the second half array
+        Arrays.sort(secondHalf);
+        // For each subset sum in the first half, find the number of subset sums in the second half that add up to x
+        for (int sum : firstHalf) {
+            count += countOccurrences(secondHalf, x - sum);
+        }
+        return count;
+    }
+
+    // we will use power set approach to generate all the subsets
+    static void generateSubsets(int[] arr, int start, int end, int[] subsetSums) {
+        int n = subsetSums.length;
+        for (int num = 0; num < n; num++) {
+            int sum = 0;
+            for (int i = start; i < end; i++) {
+                int mask = 1 << (i - start);
+                if ((num & mask) != 0) {
+                    sum += arr[i];
+                }
+            }
+            subsetSums[num] = sum;
+        }
+    }
+
+    // we will use binary search approach to find the first and last occurrences of the number then return the count
+    public static int countOccurrences(int[] arr, int target) {
+        int first = firstOccurrence(arr, target);
+        int last = lastOccurrence(arr, target);
+        // If the target is not found, return 0
+        if (first == -1) return 0;
+        // Count of occurrences is last index - first index + 1
+        return last - first + 1;
+    }
+
+
+    public static int firstOccurrence(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        int firstOccurrence = -1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                firstOccurrence = mid;
+                right = mid - 1; // Search for the leftmost occurrence
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return firstOccurrence;
+    }
+
+    public static int lastOccurrence(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        int lastOccurrence = -1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                lastOccurrence = mid;
+                left = mid + 1; // Search for the rightmost occurrence
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return lastOccurrence;
+    }
+
+
 
     // we will split the array and use the power set approach to compute all the subsets for the both partition arrays,
     // then we will check if there is any subset whose sum is equal to X.
@@ -40,7 +135,7 @@ public class SubsetSum {
     // if n is 32 then it will be 32 * 2^16 => 2^21, so we will not get any TLE in the code submission
     private static boolean hasSubsetSum1(int[] arr, int x) {
         int n = arr.length;
-        int size = n / 2, offset = n / 2, bits = n / 2;
+        int size = n / 2, offset = n - n / 2, bits = n / 2;
         int N = 1 << size;
         // first, we are creating all subset sums on the first half of the array,
         // and it that to the set, also checking if any of the sum is equal to x then we will return
