@@ -20,38 +20,42 @@ public class FrogJump1 {
         type4();
     }
 
+    static int[] delta = {1, 0, -1};
+
+    // here also we are using dynamic programming
     private static void type4() {
-        int[] stones = getStones();
+        int[] stones = {0, 1, 3, 5, 6, 8, 12, 17};
         int n = stones.length;
         boolean[][] dp = new boolean[n][n];
-        boolean answer = helper(stones, 0, 1, dp);
+        boolean answer = canCross4(1, 0, stones, dp);
         System.out.println(answer);
     }
 
-    private static boolean helper(int[] stones, int lastIndex, int currentIndex, boolean[][] dp) {
-        if (currentIndex == stones.length - 1)
-            return true;
-        if (dp[lastIndex][currentIndex])
-            return false;
-        int lastJump = stones[currentIndex] - stones[lastIndex];
-        int nextIndex = currentIndex + 1;
-        while (nextIndex < stones.length && stones[nextIndex] <= stones[currentIndex] + lastJump + 1) {
-            int nextJump = stones[nextIndex] - stones[currentIndex];
+    private static boolean canCross4(int start, int last, int[] stones, boolean[][] dp) {
+        // if we have reached the last index then we can return true
+        if (start == stones.length - 1) return true;
+        // dp value is true means we have used this pair of (last,start), and it is not helping us to go to the end
+        if (dp[last][start]) return false;
+        // calculating the last jump that the frog had taken to reach here
+        int lastJump = stones[start] - stones[last];
+        int nextIndex = start + 1;
+        while (nextIndex < stones.length && stones[nextIndex] <= stones[start] + lastJump + 1) {
+            int nextJump = stones[nextIndex] - stones[start];
             int jump = nextJump - lastJump;
             if (jump >= -1 && jump <= 1) {
-                if (helper(stones, currentIndex, nextIndex, dp))
+                if (canCross4(nextIndex, start, stones, dp))
                     return true;
             }
             nextIndex++;
         }
-        dp[lastIndex][currentIndex] = true;
+        dp[last][start] = true;
         return false;
     }
 
     // same as the previous,
     // we are just using
     private static void type3() {
-        int[] stones = getStones();
+        int[] stones = {0, 1, 3, 5, 6, 8, 12, 17};
         Map<Integer, Set<Integer>> checked = new HashMap<>();
         for (int stone : stones)
             checked.put(stone, new HashSet<>());
@@ -74,7 +78,37 @@ public class FrogJump1 {
         return false;
     }
 
-    static int count = 0;
+    // this is exactly like the previous one but here we will use dynamic programming
+    private static void type2() {
+        int[] stones = {0, 1, 3, 5, 6, 8, 12, 17};
+        Set<Integer> set = new HashSet<>();
+        int[] delta = {1, 0, -1};
+        Map<Pair, Boolean> dp = new HashMap<>();
+        for (int stone : stones) set.add(stone);
+        boolean answer = canCross(1, 1, set, stones[stones.length - 1], delta, dp);
+        System.out.println(answer);
+    }
+
+    // only 2 variables here is the height and the last, so we will use a hash map with the key (height,last)
+    private static boolean canCross(int height, int last, Set<Integer> set, int lastHeight, int[] delta, Map<Pair, Boolean> dp) {
+        // if we have reached to the final height then we can return true
+        if (height == lastHeight) return true;
+        // if the current height doest not exist then we will simply return false
+        if (!set.contains(height)) return false;
+        // checking if the pair is already exist or not
+        Pair pair = new Pair(height, last);
+        if (dp.containsKey(pair)) return dp.get(pair);
+        // otherwise we will simply do k-1,k,k+1 jumps
+        for (int d : delta) {
+            if (last + d > 0 && canCross(height + last + d, last + d, set, lastHeight, delta, dp)) {
+                dp.put(pair, true);
+                return true;
+            }
+        }
+        // at this point we know that we can not go to the last height with this pair of height and last
+        dp.put(pair, false);
+        return false;
+    }
 
     static class Pair {
         int x;
@@ -99,67 +133,26 @@ public class FrogJump1 {
         }
     }
 
-    private static void type2() {
-        int[] stones = getStones();
-        Set<Integer> set = new HashSet<>();
-        int[] delta = {1, 0, -1};
-        Map<Pair, Boolean> memo = new HashMap<>();
-        for (int stone : stones)
-            set.add(stone);
-        boolean answer = canCross(1, 1, set, stones[stones.length - 1], delta, memo);
-        System.out.println(answer);
-    }
-
-    private static int[] getStones() {
-        return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
-                18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
-                36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
-                54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
-                73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
-                92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108,
-                109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123,
-                124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138,
-                139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153,
-                154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168};
-    }
-
-    private static boolean canCross(int currentHeight, int last, Set<Integer> set, int finalHeight, int[] delta, Map<Pair, Boolean> memo) {
-        Pair pair = new Pair(currentHeight, last);
-        if (currentHeight == finalHeight)
-            return true;
-        if (!set.contains(currentHeight))
-            return false;
-        if (memo.containsKey(pair))
-            return memo.get(pair);
-        for (int d : delta) {
-            if (last + d > 0
-                    && canCross(currentHeight + last + d, last + d, set, finalHeight, delta, memo)) {
-                memo.put(pair, true);
-                return true;
-            }
-        }
-        memo.put(pair, false);
-        return false;
-    }
-
+    // this is simple recursive approach
+    // we will put all the stones in a set
+    // then we will start jumping with 1 then we will do k-1,k,k+1 jumps recursively
     private static void type1() {
         int[] stones = {0, 1, 3, 5, 6, 8, 12, 17};
         Set<Integer> set = new HashSet<>();
         int[] delta = {1, 0, -1};
-        for (int stone : stones)
-            set.add(stone);
+        for (int stone : stones) set.add(stone);
         boolean answer = canCross(1, 1, set, stones[stones.length - 1], delta);
         System.out.println(answer);
     }
 
-    private static boolean canCross(int currentHeight, int last, Set<Integer> set, int finalHeight, int[] delta) {
-        if (currentHeight == finalHeight)
-            return true;
-        if (!set.contains(currentHeight))
-            return false;
+    private static boolean canCross(int height, int last, Set<Integer> set, int lastHeight, int[] delta) {
+        // if we have reached to the final height then we can return true
+        if (height == lastHeight) return true;
+        // if the current height doest not exist then we will simply return false
+        if (!set.contains(height)) return false;
+        // otherwise we will simply do k-1,k,k+1 jumps
         for (int d : delta)
-            if (last + d > 0
-                    && canCross(currentHeight + last + d, last + d, set, finalHeight, delta))
+            if (last + d > 0 && canCross(height + last + d, last + d, set, lastHeight, delta))
                 return true;
         return false;
     }
