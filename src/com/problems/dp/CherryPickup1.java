@@ -170,7 +170,7 @@ public class CherryPickup1 {
     }
 
 
-    // TODO using backtracking
+    // TODO using backtracking, but this solution was failing at the leetcode
     //  First we will go to n-1,n-1 cell if we reach there we will start another function to 0,0
     //  classic backtracking problem
     private static void type1() {

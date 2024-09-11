@@ -3,8 +3,8 @@ package com.problems.array;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/studio/problems/number-of-inversions_6840276
- * https://www.codingninjas.com/codestudio/problems/615
+ * https://www.naukri.com/code360/problems/number-of-inversions_6840276?leftPanelTabValue=PROBLEM
+ * https://www.naukri.com/code360/problems/615
  *
  * Solution link :
  * https://www.youtube.com/watch?v=AseUmwVNaoY

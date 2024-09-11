@@ -12,6 +12,14 @@ public class SumSegmentTreeWithLazyPropagation {
 		type1();
 	}
 
+	// lazy segment tree is very useful for the range updates
+	// it is quite similar to the normal segment tree while we introduce lazy array for the updates
+	// lazy array holds the values that we need to update in the actual index
+	// it is quite similar to the path compression technique which is done by union and find
+	// we will only update the index if we are touching else we just keep it in the lazy array
+	// hoping that it will be updated later once we query or update the index
+	// once we update the index we will propagate the update value in the left child and
+	// right child to their lazy indices
 	private static void type1() {
 		int[] arr = { 1, 3, 1, 2, 5 };
 		SegmentTree segmentTree = new SegmentTree(arr);
@@ -25,6 +33,7 @@ public class SumSegmentTreeWithLazyPropagation {
 		int[] lazy;
 		int arrSize;
 
+		// this is exactly same as the normal segment tree
 		public SegmentTree(int[] arr) {
 			arrSize = arr.length;
 			n = 4 * arrSize;
@@ -33,6 +42,7 @@ public class SumSegmentTreeWithLazyPropagation {
 			build(arr, tree, 0, arr.length - 1, 0);
 		}
 
+		// build is exactly same as the normal segment tree
 		private void build(int[] arr, int[] tree, int left, int right, int index) {
 			if (left == right) {
 				tree[index] = arr[left];
@@ -48,29 +58,28 @@ public class SumSegmentTreeWithLazyPropagation {
 			return sum(tree, 0, arrSize - 1, left, right, 0);
 		}
 
-		private int sum(int[] tree, int low, int high, int left, int right, int index) {
-			// update the previous remaining update and propagate that
-			// later we can do the current operation
-			if (lazy[index] != 0) {
+		private int sum(int[] tree, int treeRangeStart, int treeRangeEnd, int start, int end, int treeIndex) {
+			int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
+			// update the previous remaining update and propagate that later we can do the current operation
+			if (lazy[treeIndex] != 0) {
 				// high-low+1 will give the count of the range for which the node is responsible
-				tree[index] += (high - low + 1) * lazy[index];
+				tree[treeIndex] += (treeRangeEnd - treeRangeStart + 1) * lazy[treeIndex];
 				// if low!=high then it has children, so we can propagate the addition down
-				if (low != high) {
-					lazy[2 * index + 1] += lazy[index];
-					lazy[2 * index + 2] += lazy[index];
+				if (treeRangeStart != treeRangeEnd) {
+					lazy[leftIndex] += lazy[treeIndex];
+					lazy[rightIndex] += lazy[treeIndex];
 				}
-				lazy[index] = 0;
+				lazy[treeIndex] = 0;
 			}
-
 			// our main query operation
-			if (low > right || high < left) {
+			if (treeRangeStart > end || treeRangeEnd < start) {
 				return 0;
-			} else if (low >= left && high <= right) {
-				return tree[index];
+			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
+				return tree[treeIndex];
 			} else {
-				int mid = low + (high - low) / 2;
-				int leftSum = sum(tree, low, mid, left, right, 2 * index + 1);
-				int rightSum = sum(tree, mid + 1, high, left, right, 2 * index + 2);
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				int leftSum = sum(tree, treeRangeStart, mid, start, end, leftIndex);
+				int rightSum = sum(tree, mid + 1, treeRangeEnd, start, end, rightIndex);
 				return leftSum + rightSum;
 			}
 		}
@@ -79,60 +88,59 @@ public class SumSegmentTreeWithLazyPropagation {
 			update(tree, i, num, 0, n - 1, 0);
 		}
 
-		private void update(int[] tree, int i, int num, int low, int high, int index) {
-			if (low == high) {
-				tree[index] = num;
+		private void update(int[] tree, int index, int num, int treeRangeStart, int treeRangeEnd, int treeIndex) {
+			if (treeRangeStart == treeRangeEnd) {
+				tree[treeIndex] = num;
 			} else {
-				int mid = low + (high - low) / 2;
-				if (i <= mid)
-					update(tree, i, num, low, mid, 2 * index + 1);
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				if (index <= mid)
+					update(tree, index, num, treeRangeStart, mid, 2 * treeIndex + 1);
 				else
-					update(tree, i, num, mid + 1, high, 2 * index + 2);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+					update(tree, index, num, mid + 1, treeRangeEnd, 2 * treeIndex + 2);
+				tree[treeIndex] = tree[2 * treeIndex + 1] + tree[2 * treeIndex + 2];
 			}
 		}
 
 		// update the node when you visit it
 		// propagate the update to downwards
 		// only for the complete overlap we will change the node and propagate
-		public void update(int left, int right, int addition) {
-			updateAndPropagate(tree, 0, arrSize - 1, left, right, 0, addition);
+		public void update(int start, int end, int addition) {
+			updateAndPropagate(start, end, 0, arrSize - 1, 0, addition, tree);
 		}
 
-		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index, int addition) {
-			// update the previous remaining update and propagate that
-			// later we can update the current update
-			if (lazy[index] != 0) {
+		public void updateAndPropagate(int start, int end, int treeRangeStart, int treeRangeEnd, int treeIndex, int addition, int[] tree) {
+			int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
+			// update the previous remaining update and propagate that later we can update the current index
+			if (lazy[treeIndex] != 0) {
 				// high-low+1 will give the count of the range for which the node is responsible
-				tree[index] += (high - low + 1) * lazy[index];
-				// if low!=high then it has children so we can propagate the addition down
-				if (low != high) {
-					lazy[2 * index + 1] += lazy[index];
-					lazy[2 * index + 2] += lazy[index];
+				tree[treeIndex] += (treeRangeEnd - treeRangeStart + 1) * lazy[treeIndex];
+				// if low!=high then it has children, so we can propagate the addition down
+				if (treeRangeStart != treeRangeEnd) {
+					lazy[leftIndex] += lazy[treeIndex];
+					lazy[rightIndex] += lazy[treeIndex];
 				}
-				lazy[index] = 0;
+				lazy[treeIndex] = 0;
 			}
-
 			// actual addition for current addition
-			// no overlap
-			if (low > right || high < left) {
+			if (treeRangeStart > end || treeRangeEnd < start) {
+				// no overlap
 				return;
-			} else if (low >= left && high <= right) {
+			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
 				// complete overlap
 				// update the current node by the count*addition
-				tree[index] += (high - low + 1) * addition;
+				tree[treeIndex] += (treeRangeEnd - treeRangeStart + 1) * addition;
 				// if the node is responsible for more than one node
 				// so can propagate the addition
-				if (low != high) {
-					lazy[2 * index + 1] += addition;
-					lazy[2 * index + 2] += addition;
+				if (treeRangeStart != treeRangeEnd) {
+					lazy[leftIndex] += addition;
+					lazy[rightIndex] += addition;
 				}
-				return;
 			} else {
-				int mid = low + (high - low) / 2;
-				updateAndPropagate(tree, low, mid, left, right, 2 * index + 1, addition);
-				updateAndPropagate(tree, mid + 1, high, left, right, 2 * index + 2, addition);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+				// partial overlap
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				updateAndPropagate(start, end, treeRangeStart, mid, leftIndex, addition, tree);
+				updateAndPropagate(start, end, mid + 1, treeRangeEnd, rightIndex, addition, tree);
+				tree[treeIndex] = tree[leftIndex] + tree[rightIndex];
 			}
 		}
 	}

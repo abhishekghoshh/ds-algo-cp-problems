@@ -11,11 +11,12 @@ public class FlipCoinsAndRangeQuery {
 
 	// in update query range of coins will be flipped.
 	// we will store the number of heads only
-	// flip means rangeCount-countOfHead
-	// we will use a boolean array
-	// if false means no need to flip
-	// true means flip
+	// flip means rangeCount - countOfHead
+	// we will use a boolean array for lazy index
+	// if false means no need to flip then true means flip
 	// even times of flip means no flip
+	// This is a problem of sum segment tree but as we are having range updates,
+	// so we are using lazy propagation here
 	private static void type1() {
 
 	}
@@ -108,20 +109,22 @@ public class FlipCoinsAndRangeQuery {
 		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index) {
 			// update the previous remaining update and propagate that
 			// later we can update the current update
+			int leftIndex = 2 * index + 1;
+			int rightIndex = 2 * index + 2;
 			if (lazy[index]) {
 				// high-low+1 will give the count of the range for which the node is responsible
 				tree[index] = (high - low + 1) - tree[index];
 				// if low!=high then it has children, so we can propagate the addition down
 				if (low != high) {
-					lazy[2 * index + 1] = !lazy[2 * index + 1];
-					lazy[2 * index + 2] = !lazy[2 * index + 2];
+					lazy[leftIndex] = !lazy[leftIndex];
+					lazy[rightIndex] = !lazy[rightIndex];
 				}
 				lazy[index] = false;
 			}
 
 			// actual addition for current addition
-			// no overlap
 			if (low > right || high < left) {
+				// no overlap
 				return;
 			} else if (low >= left && high <= right) {
 				// complete overlap
@@ -131,15 +134,15 @@ public class FlipCoinsAndRangeQuery {
 				// if the node is responsible for more than one node
 				// so can propagate the addition
 				if (low != high) {
-					lazy[2 * index + 1] = !lazy[2 * index + 1];
-					lazy[2 * index + 2] = !lazy[2 * index + 2];
+					lazy[leftIndex] = !lazy[leftIndex];
+					lazy[rightIndex] = !lazy[rightIndex];
 				}
 				return;
 			} else {
 				int mid = low + (high - low) / 2;
-				updateAndPropagate(tree, low, mid, left, right, 2 * index + 1);
-				updateAndPropagate(tree, mid + 1, high, left, right, 2 * index + 2);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+				updateAndPropagate(tree, low, mid, left, right, leftIndex);
+				updateAndPropagate(tree, mid + 1, high, left, right, rightIndex);
+				tree[index] = tree[leftIndex] + tree[rightIndex];
 			}
 		}
 	}

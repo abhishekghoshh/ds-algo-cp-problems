@@ -76,7 +76,7 @@ public class MinSegmentTree {
 			// no overlap
 			if (treeRangeStart > end || treeRangeEnd < start) {
 				return Integer.MAX_VALUE;
-			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
+			} else if (start <= treeRangeStart && treeRangeEnd <= end) {
 				// complete overlap that means our query range lies in between the tree range
 				return tree[treeIndex];
 			} else {

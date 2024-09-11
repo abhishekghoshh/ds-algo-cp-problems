@@ -13,6 +13,7 @@ public class MinSegmentTreeWithLazyPropagation {
 
 	}
 
+	// todo check the lazy sum propagation for better understanding
 	private static void type1() {
 		// for range minimum query
 		// instead of tree[index] += (high - low + 1) * val;
@@ -85,16 +86,17 @@ public class MinSegmentTreeWithLazyPropagation {
 			update(tree, i, num, 0, n - 1, 0);
 		}
 
-		private void update(int[] tree, int i, int num, int low, int high, int index) {
-			if (low == high) {
-				tree[index] = num;
+		private void update(int[] tree, int index, int num, int treeRangeStart, int treeRangeEnd, int treeIndex) {
+			if (treeRangeStart == treeRangeEnd) {
+				tree[treeIndex] = num;
 			} else {
-				int mid = low + (high - low) / 2;
-				if (i <= mid)
-					update(tree, i, num, low, mid, 2 * index + 1);
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
+				if (index <= mid)
+					update(tree, index, num, treeRangeStart, mid, leftIndex);
 				else
-					update(tree, i, num, mid + 1, high, 2 * index + 2);
-				tree[index] = tree[2 * index + 1] + tree[2 * index + 2];
+					update(tree, index, num, mid + 1, treeRangeEnd, rightIndex);
+				tree[treeIndex] = Math.min(tree[leftIndex], tree[rightIndex]);
 			}
 		}
 
@@ -105,41 +107,39 @@ public class MinSegmentTreeWithLazyPropagation {
 			updateAndPropagate(tree, 0, arrSize - 1, left, right, 0, addition);
 		}
 
-		public void updateAndPropagate(int[] tree, int low, int high, int left, int right, int index, int addition) {
-			// update the previous remaining update and propagate that
-			// later we can update the current update
-			if (lazy[index] != 0) {
+		public void updateAndPropagate(int[] tree, int treeRangeStart, int treeRangeEnd, int start, int end, int treeIndex, int addition) {
+			int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
+			// update the previous remaining update and propagate that later we can update the current update
+			if (lazy[treeIndex] != 0) {
 				// if the both children are updated by some value, then the root node also updated by
 				// the same value
-				tree[index] += lazy[index];
+				tree[treeIndex] += lazy[treeIndex];
 				// if low!=high then it has children, so we can propagate the addition down
-				if (low != high) {
-					lazy[2 * index + 1] += lazy[index];
-					lazy[2 * index + 2] += lazy[index];
+				if (treeRangeStart != treeRangeEnd) {
+					lazy[leftIndex] += lazy[treeIndex];
+					lazy[rightIndex] += lazy[treeIndex];
 				}
-				lazy[index] = 0;
+				lazy[treeIndex] = 0;
 			}
-
 			// actual addition for current addition
-			// no overlap
-			if (low > right || high < left) {
+			if (treeRangeStart > end || treeRangeEnd < start) {
+				// no overlap
 				return;
-			} else if (low >= left && high <= right) {
+			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
 				// complete overlap
 				// update the current node by the addition
-				tree[index] += addition;
+				tree[treeIndex] += addition;
 				// if the node is responsible for more than one node
 				// so can propagate the addition
-				if (low != high) {
-					lazy[2 * index + 1] += addition;
-					lazy[2 * index + 2] += addition;
+				if (treeRangeStart != treeRangeEnd) {
+					lazy[leftIndex] += addition;
+					lazy[rightIndex] += addition;
 				}
-				return;
 			} else {
-				int mid = low + (high - low) / 2;
-				updateAndPropagate(tree, low, mid, left, right, 2 * index + 1, addition);
-				updateAndPropagate(tree, mid + 1, high, left, right, 2 * index + 2, addition);
-				tree[index] = Math.min(tree[2 * index + 1], tree[2 * index + 2]);
+				int mid = treeRangeStart + (treeRangeEnd - treeRangeStart) / 2;
+				updateAndPropagate(tree, treeRangeStart, mid, start, end, leftIndex, addition);
+				updateAndPropagate(tree, mid + 1, treeRangeEnd, start, end, rightIndex, addition);
+				tree[treeIndex] = Math.min(tree[leftIndex], tree[rightIndex]);
 			}
 		}
 	}

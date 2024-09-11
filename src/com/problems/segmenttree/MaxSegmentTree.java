@@ -60,7 +60,7 @@ public class MaxSegmentTree {
 		private int max(int start, int end, int treeRangeStart, int treeRangeEnd, int treeIndex, int[] tree) {
 			if (end < treeRangeStart || treeRangeEnd < start) {
 				return Integer.MIN_VALUE;
-			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
+			} else if (start <= treeRangeStart && treeRangeEnd <= end) {
 				return tree[treeIndex];
 			} else {
 				int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
