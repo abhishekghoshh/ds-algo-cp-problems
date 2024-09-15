@@ -239,6 +239,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Check if the array is sorted](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
   - [Minimum Average of Smallest and Largest Elements](/src/com/problems/array/CheckIfArrayIsSortedAndRotated.java)
   - [Find the Minimum Area to Cover All Ones I](/src/com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java)
+  - [Distribute Elements Into Two Arrays I](/src/com/problems/array/DistributeElementsIntoTwoArrays1.java)
   - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
     - hashing
     - swap-sort
@@ -374,7 +375,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Search in Rotated Sorted Array I](/src/com/problems/binarysearch/BinarySearchOnRotatedArray1.java)
   - [Search in Rotated Sorted Array II](/src/com/problems/binarysearch/BinarySearchOnRotatedArray2.java)
   - [Searching in nearly sorted array](/src/com/problems/binarysearch/SearchingInNearlySortedArray.java)
-  - [Find out how many times the array has been rotated](/src/com/problems/binarysearch/NoOfTimesSortedArrayRotated.java)
+  - [Find out how many times the sorted array has been rotated](/src/com/problems/binarysearch/NoOfTimesSortedArrayRotated.java)
   - [Minimum in Rotated Sorted Array](/src/com/problems/binarysearch/MinimumInRotatedSortedArray.java)
   - [Single Element in a Sorted Array](/src/com/problems/binarysearch/SingleElementInSortedArray.java)
   - [Find peak element](/src/com/problems/binarysearch/FindPeakElement.java)
@@ -972,12 +973,19 @@ it is likely to cause TLE in a 1-second time frame.
   - [Fenwick Tree/Binary indexed tree playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCvoyP-bztk6uXAYoyZg_U9)
   - [Fenwick & Segment Tree & Sparse Table Playlist](https://www.youtube.com/playlist?list=PLEL7R4Pm6EmBxBrEq8g2L3MF3W3Shnk58)
   - **luv**
-    - [Subset Generation using the Bit Masking with interview Questions](https://www.youtube.com/watch?v=gUxpKm0btH0&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=1)
     - [Binary Indexed Trees / Fenwick Trees made easy | Part 1](https://www.youtube.com/watch?v=DPiY9wFxGIw&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=2)
     - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
-  - [Advanced Data Structures and Algorithms](https://www.youtube.com/playlist?list=PLgUwDviBIf0rf5CQf_HFt35_cF04d8dHN)
 - **codes**
-  - [Fenwick tree](/src/com/ds/fenwicktree/FenwickTree.java)
+  - **Theory**
+    - [Prerequisites](/src/com/problems/fenwicktree/FenwickTreePrerequisites.java)
+    - [Fenwick tree](/src/com/problems/fenwicktree/FenwickTree.java)
+  - **general**
+    - [Inversion count](/src/com/problems/segmenttree/InversionCount.java)
+    - [Count of Smaller Numbers After Self](/src/com/problems/fenwicktree/CountOfSmallerNumbersAfterSelf.java)
+    - [Distribute Elements Into Two Arrays II](/src/com/problems/fenwicktree/DistributeElementsIntoTwoArrays2.java)
+    - [Block Placement Queries](/src/com/problems/fenwicktree/BlockPlacementQueries.java)
+    - [Find Subarray With Bitwise OR Closest to K](/src/com/problems/fenwicktree/FindSubarrayWithBitwiseORClosestToK.java)
+    - [Peaks in Array](/src/com/problems/fenwicktree/PeaksInArray.java)
 
 ### tries
 

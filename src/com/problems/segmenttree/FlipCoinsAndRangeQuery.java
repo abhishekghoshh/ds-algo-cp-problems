@@ -1,5 +1,10 @@
 package com.problems.segmenttree;
-
+/*
+ * Problem link :
+ *
+ * Solution link :
+ *
+ */
 public class FlipCoinsAndRangeQuery {
 
 	// In this problem, we will have 2 kinds of queries

@@ -111,6 +111,7 @@ public class SumSegmentTreeWithLazyPropagation {
 		public void updateAndPropagate(int start, int end, int treeRangeStart, int treeRangeEnd, int treeIndex, int addition, int[] tree) {
 			int leftIndex = 2 * treeIndex + 1, rightIndex = 2 * treeIndex + 2;
 			// update the previous remaining update and propagate that later we can update the current index
+			// this is the place where we are updating the lazy index for the previous iteration
 			if (lazy[treeIndex] != 0) {
 				// high-low+1 will give the count of the range for which the node is responsible
 				tree[treeIndex] += (treeRangeEnd - treeRangeStart + 1) * lazy[treeIndex];
@@ -125,12 +126,12 @@ public class SumSegmentTreeWithLazyPropagation {
 			if (treeRangeStart > end || treeRangeEnd < start) {
 				// no overlap
 				return;
-			} else if (treeRangeStart >= start && treeRangeEnd <= end) {
+			} else if (start <= treeRangeStart && treeRangeEnd <= end) {
 				// complete overlap
 				// update the current node by the count*addition
 				tree[treeIndex] += (treeRangeEnd - treeRangeStart + 1) * addition;
-				// if the node is responsible for more than one node
-				// so can propagate the addition
+				// if the node is responsible for more than one node, so can propagate the addition
+				// this is the place we are updating the lazy index for the current update
 				if (treeRangeStart != treeRangeEnd) {
 					lazy[leftIndex] += addition;
 					lazy[rightIndex] += addition;

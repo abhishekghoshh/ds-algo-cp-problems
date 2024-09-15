@@ -5,6 +5,7 @@ package com.problems.array;
  * problem links :
  * https://www.naukri.com/code360/problems/number-of-inversions_6840276?leftPanelTabValue=PROBLEM
  * https://www.naukri.com/code360/problems/615
+ * https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
  *
  * Solution link :
  * https://www.youtube.com/watch?v=AseUmwVNaoY
@@ -30,9 +31,7 @@ public class CountInversionInArray {
 		type3();
 	}
 
-	// TODO implement fenwick tree approach
 	private static void type3() {
-		// TODO Auto-generated method stub
 
 	}
 
