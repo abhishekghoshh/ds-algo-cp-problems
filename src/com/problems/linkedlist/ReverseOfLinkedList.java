@@ -61,7 +61,7 @@ public class ReverseOfLinkedList {
 	private static void type3() {
 		Node head = new Node(10, 6, 9, 15, 30);
 		print(head);
-		// new head is the new head, at first it is assign to null
+		// new head is the new head, at first it is assigned to null
 		// next pointer is to store the next pointer until we do the intermediate
 		// operation
 		// while(null!=head){next = head.next;head = next;}

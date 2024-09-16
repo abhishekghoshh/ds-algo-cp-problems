@@ -457,6 +457,8 @@ it is likely to cause TLE in a 1-second time frame.
   - [Reverse A Doubly Linked List](/src/com/problems/linkedlist/ReverseADoublyLinkedList.java)
   - [Find middle element in a Linked List](/src/com/problems/linkedlist/MiddleOfLinkedList.java)
   - [Reverse a Linked List](/src/com/problems/linkedlist/ReverseOfLinkedList.java)
+  - [Reverse Linked List II](/src/com/problems/linkedlist/ReverseOfLinkedList2.java)
+  - [Swap Nodes in Pairs](/src/com/problems/linkedlist/SwapNodesInPairs.java)
   - [Detect a loop in Linked List](/src/com/problems/linkedlist/DetectLoopInLinkedList.java)
   - [Find the starting point in Linked List](/src/com/problems/linkedlist/StartingNodeOfCycleInLinkedList.java)
   - [Length of Loop in Linked List](/src/com/problems/linkedlist/LengthOfLoopInLinkedList.java)
@@ -572,6 +574,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Next Smaller Element](/src/com/problems/stack/NextSmallerElement.java)
   - [Previous Greater Element](/src/com/problems/stack/PreviousGreaterElement.java)
   - [Previous Smaller Element](/src/com/problems/stack/PreviousSmallerElement.java)
+  - [Daily Temperatures](/src/com/problems/stack/DailyTemperatures.java)
   - [Sum of subarray minimum](/src/com/problems/stack/SumOfSubarrayMinimum.java)
   - [Sum of subarray maximum](/src/com/problems/stack/SumOfSubarrayMaximum.java)
   - [Sum of Subarray Ranges](/src/com/problems/stack/SumOfSubarrayRanges.java)
@@ -602,7 +605,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Min Heap Implementation](/src/com/problems/heap/MinHeapImplementation.java)
   - [Convert Min Heap To Max Heap](/src/com/problems/heap/ConvertMinHeapToMaxHeap.java)
   - [Kth Largest Element in an Array](/src/com/problems/heap/KthLargestElement.java)
-  - [Kth smallest Element in an Array](/src/com/problems/heap/KthSmallestElement.java)
+  - [Kth Smallest Element in an Array](/src/com/problems/heap/KthSmallestElement.java)
   - [K largest Element in an Array](/src/com/problems/heap/KLargestElementInAnArray.java)
   - [Sort K sorted array](/src/com/problems/heap/SortKSortedArray.java)
   - [Merge M sorted Arrays](/src/com/problems/heap/MergeNSortedArrays.java)
@@ -621,6 +624,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [K Closest Points to Origin](/src/com/problems/heap/KClosestPointsToOrigin.java)
   - [K-th Nearest Obstacle Queries](/src/com/problems/heap/KthNearestObstacleQueries.java)
   - [Sum of elements between k1'th and k2'th smallest elements](/src/com/problems/heap/SumBetweenK1thSmallestAndK2thSmallest.java)
+  - [Find K Pairs with Smallest Sums](/src/com/problems/heap/FindKPairsWithSmallestSums.java)
 
 
 ### bit-manipulation
