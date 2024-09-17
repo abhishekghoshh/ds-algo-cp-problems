@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * https://takeuforward.org/data-structure/print-all-permutations-of-a-string-array/
  * */
-public class PrintAllPermutationsOfStringOrArray {
+public class Permutations1 {
 	// TODO check the videos once again
 	//  When we pass the new string object everytime we intentionally using the recursion, because the every
 	//  recursion stack will have its own object, we do not need to think twice, but when we pass by the array
@@ -47,12 +47,13 @@ public class PrintAllPermutationsOfStringOrArray {
 	}
 
 	private static void permutations6(int start, char[] arr, List<String> ans) {
-		if (start == arr.length) {
+		int n = arr.length;
+		if (start == n) {
 			ans.add(new String(arr));
 			return;
 		}
 		boolean[] visited = new boolean[26];
-		for (int i = start; i < arr.length; i++) {
+		for (int i = start; i < n; i++) {
 			if (!visited[arr[i] - 'a']) {
 				swap(arr, start, i);
 				permutations6(start + 1, arr, ans);
