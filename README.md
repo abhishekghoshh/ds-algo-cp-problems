@@ -541,6 +541,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Permutation with spaces](/src/com/problems/recursion/PermutationWithSpaces.java)
   - [Letter case permutation](/src/com/problems/recursion/LetterCasePermutation.java)
   - [Print all permutations of string or array](/src/com/problems/recursion/PrintAllPermutationsOfStringOrArray.java)
+  - [Permutations II](/src/com/problems/recursion/Permutaions2.java)
   - [Kth permutation sequence](/src/com/problems/recursion/KthPermutationSequence.java)
   - [Largest number in K swaps](/src/com/problems/recursion/LargestNumberAfterKSwaps.java)
   - [N Digit numbers with digits in increasing order](/src/com/problems/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
@@ -822,6 +823,7 @@ it is likely to cause TLE in a 1-second time frame.
 - **codes**
   - [Introduction to binary tree](/src/com/problems/binarytree/IntroductionToBinaryTree.java)
   - [Maximum number Of Nodes in nth label in a binary tree](/src/com/problems/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
+  - [Binary Tree Paths](/src/com/problems/binarytree/BinaryTreePaths.java)
   - [Binary tree Traversal](/src/com/problems/binarytree/BinaryTreeTraversal.java)
   - [Inorder Traversal](/src/com/problems/binarytree/InOrderTraversal.java)
   - [Preorder Traversal](/src/com/problems/binarytree/PreOrderTraversal.java)
@@ -832,6 +834,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Second minimum value in the binary tree](/src/com/problems/binarytree/SecondMinimumValueInBinaryTree.java)
   - [Check if the Binary Tree is Balanced Binary Tree](/src/com/problems/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
   - [Diameter of a Binary Tree](/src/com/problems/binarytree/DiameterOfBinaryTree.java)
+  - [Path Sum II](/src/com/problems/binarytree/PathSum2.java)
   - [Maximum Path Sum in Binary Tree from any node to any node](/src/com/problems/binarytree/MaximumPathSumBinaryTreeFromAnyNodeToAnyNode.java)
   - [Maximum Path Sum in Binary Tree from leaf to leaf](/src/com/problems/binarytree/MaximumPathSumNodesBinaryTreeFromLeafToLeafNode.java)
   - [Check if two trees are identical](/src/com/problems/binarytree/CheckTwoTreesAreIdenticalOrNot.java)
@@ -894,6 +897,7 @@ it is likely to cause TLE in a 1-second time frame.
 - **codes**
   - **Introduction to graph**
     - [Introduction to Graph](/src/com/problems/graph/GraphRepresentation.java)
+    - [Clone Graph](/src/com/problems/graph/CloneGraph.java)
     - [Breadth First Search (BFS): Level Order Traversal](/src/com/problems/graph/BreadthFirstSearchOfGraph.java)
     - [Depth First Search](/src/com/problems/graph/DepthFirstSearchOfGraph.java)
     - [Number of Provinces](/src/com/problems/graph/ConnectedComponents.java)
