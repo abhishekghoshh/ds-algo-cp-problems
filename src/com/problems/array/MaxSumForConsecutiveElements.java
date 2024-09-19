@@ -12,9 +12,11 @@ package com.problems.array;
  * https://www.youtube.com/watch?v=w_KEocd__20&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=5
  *
  * https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/
+ *
+ * Topics:
+ * Maximum subarray problem
+ * Kadane's Algorithm
  * */
-//Maximum subarray problem
-//Kadane's Algorithm
 public class MaxSumForConsecutiveElements {
 
 	public static void main(String[] args) {

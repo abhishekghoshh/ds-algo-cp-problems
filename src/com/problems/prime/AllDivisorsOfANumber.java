@@ -10,8 +10,9 @@ import java.util.List;
  * https://www.codingninjas.com/studio/problems/print-all-divisors-of-a-number_1164188
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=1xNbjMdbjug&t=1s
  * 
- * 
+ * https://takeuforward.org/data-structure/print-all-divisors-of-a-given-number/
  */
 public class AllDivisorsOfANumber {
 

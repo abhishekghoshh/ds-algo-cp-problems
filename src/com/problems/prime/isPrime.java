@@ -4,8 +4,9 @@ package com.problems.prime;
  * https://practice.geeksforgeeks.org/problems/prime-number2314/1
  * 
  * Solution link :
- * 
- * 
+ * https://www.youtube.com/watch?v=1xNbjMdbjug
+ *
+ * https://takeuforward.org/data-structure/check-if-a-number-is-prime-or-not/
  */
 
 public class isPrime {

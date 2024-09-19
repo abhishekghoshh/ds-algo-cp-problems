@@ -1,15 +1,15 @@
 package com.algo.sort;
 
 import static com.util.PrintUtl.print;
-import static com.util.ArrayUtil.swap;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/bubble-sort/1
+ * https://www.geeksforgeeks.org/problems/bubble-sort/1
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=HGk_ypEuS24&t=1061s
+ *
  * https://takeuforward.org/data-structure/bubble-sort-algorithm/
- * 
  */
 public class BubbleSort {
 
@@ -25,5 +25,11 @@ public class BubbleSort {
 				if (arr[j] > arr[j + 1])
 					swap(arr, j, j + 1);
 		print(arr);
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+		int temp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = temp;
 	}
 }

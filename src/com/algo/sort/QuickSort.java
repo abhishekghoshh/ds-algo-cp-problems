@@ -2,17 +2,18 @@ package com.algo.sort;
 
 /*
  * Problem link :
- * 
+ * https://www.geeksforgeeks.org/problems/quick-sort/1
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=WIrA4YexLRQ&t=1s
+ *
  * https://takeuforward.org/data-structure/quick-sort-algorithm/
  * https://www.geeksforgeeks.org/quick-sort/
- * 
  */
 
 import com.util.PrintUtl;
 
-import static com.util.ArrayUtil.*;
+import static com.util.ArrayUtil.swap;
 
 public class QuickSort {
 

@@ -2,9 +2,9 @@ package com.problems.bitmanipulation;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/count-total-set-bits-1587115620/1
  * https://leetcode.com/problems/counting-bits/
- * 
+ * https://www.geeksforgeeks.org/problems/count-total-set-bits-1587115620/1
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=ZzZcFXDcbJw
  * https://www.youtube.com/watch?v=kU5G5-6xEF4

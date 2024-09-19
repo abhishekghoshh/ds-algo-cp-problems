@@ -1,9 +1,12 @@
 package com.problems.recursion;
 /*
  * Problem link :
+ * https://www.geeksforgeeks.org/problems/reverse-an-array/0
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=twuC1F6gLI8
  *
+ * https://takeuforward.org/data-structure/reverse-a-given-array/
  */
 
 import static com.util.PrintUtl.print;

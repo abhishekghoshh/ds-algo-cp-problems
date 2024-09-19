@@ -7,11 +7,13 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/merge-sort/1
+ * https://www.geeksforgeeks.org/problems/merge-sort/1
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=ogjf7ORKfd8
+ *
  * https://takeuforward.org/data-structure/merge-sort-algorithm/
  * https://www.geeksforgeeks.org/merge-sort/
- * 
  */
 public class MergeSort {
 

@@ -1,11 +1,13 @@
-package com.problems.array;
+package com.problems.math;
 
 /*
  * problem links :
  * https://leetcode.com/problems/reverse-integer/description/
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=1xNbjMdbjug&t=1s
  *
+ * https://takeuforward.org/maths/reverse-digits-of-a-number
  * */
 public class ReverseInteger {
     public static void main(String[] args) {

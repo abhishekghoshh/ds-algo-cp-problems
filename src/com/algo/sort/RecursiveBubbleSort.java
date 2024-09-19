@@ -5,11 +5,12 @@ import static com.util.ArrayUtil.swap;
 
 /*
  * Problem link :
- * 
+ * https://www.geeksforgeeks.org/problems/bubble-sort/1
  * 
  * Solution link :
+ *
+ * https://takeuforward.org/arrays/recursive-bubble-sort-algorithm/
  * https://www.geeksforgeeks.org/recursive-bubble-sort/
- * 
  */
 public class RecursiveBubbleSort {
 

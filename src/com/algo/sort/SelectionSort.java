@@ -4,11 +4,12 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * 
+ * https://www.geeksforgeeks.org/problems/selection-sort/1
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=HGk_ypEuS24
+ *
  * https://takeuforward.org/sorting/selection-sort-algorithm/
- * 
  */
 public class SelectionSort {
 

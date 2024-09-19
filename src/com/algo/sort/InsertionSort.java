@@ -5,10 +5,12 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/insertion-sort/1
+ * https://www.geeksforgeeks.org/problems/insertion-sort/0
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=HGk_ypEuS24&t=1900s
+ *
  * https://takeuforward.org/data-structure/insertion-sort-algorithm/
- * 
  */
 public class InsertionSort {
 

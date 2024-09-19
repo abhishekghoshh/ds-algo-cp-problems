@@ -229,6 +229,18 @@ it is likely to cause TLE in a 1-second time frame.
 - **codes**
   - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
 
+### math
+- **codes**
+  - [Count Digits](/src/com/problems/math/CountDigits.java)
+  - [Reverse Integer](/src/com/problems/math/ReverseInteger.java)
+  - [Palindrome Number](/src/com/problems/math/PalindromeNumber.java)
+  - [GCD Or HCF](/src/com/problems/math/GCDAndLCM.java)
+  - [Armstrong Numbers](/src/com/problems/math/ArmstrongNumbers.java)
+  - [Print all Divisors](/src/com/problems/prime/AllDivisorsOfANumber.java)
+  - [Sum of all divisors from 1 to n](/src/com/problems/math/SumOfAllDivisorsFrom1ToN.java)
+  - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)
+
+
 ### array
 
 - **codes**
@@ -262,10 +274,13 @@ it is likely to cause TLE in a 1-second time frame.
     - bit-manipulation
   - [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
     - hashing
+  - [Product of Array Except Self](/src/com/problems/array/ProductOfArrayExceptSelf.java)
+    - hashing
+    - prefix-sum
   - [Longest Subarray with given Sum K(Positives)](/src/com/problems/array/LongestSubarrayWithSumEqualsK_1.java)
     - prefix-sum
     - two-pointer
-  - [Longest Subarray with given Sum K[Positives and Negatives]](/src/com/problems/array/LongestSubarrayWithSumEqualsK_2.java)
+  - [Longest Subarray with given Sum K with Positives and Negatives](/src/com/problems/array/LongestSubarrayWithSumEqualsK_2.java)
     - prefix-sum
     - two-pointer
   - [Longest Subarray with sum equals to Zero](/src/com/problems/array/LongestSubarrayWithSumEqualsZero.java)
@@ -318,7 +333,6 @@ it is likely to cause TLE in a 1-second time frame.
   - [Maximum Product Subarray in an Array](/src/com/problems/array/MaximumProductSubarrayInAnArray.java)
   - [Car Fleet](/src/com/problems/array/CarFleet.java) **TBD**
   - [Remove Element](/src/com/problems/array/RemoveElement.java) **TBD**
-  - [Reverse Integer](/src/com/problems/array/ReverseInteger.java)
   - [3Sum Closest](/src/com/problems/array/ThreeSumClosest.java)
   - [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
     - two-pointer
@@ -354,7 +368,17 @@ it is likely to cause TLE in a 1-second time frame.
   - [Maximum Points You Can Obtain from Cards](/src/com/problems/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
     - dynamic-programming
   - [Container With Most Water](/src/com/problems/slidingwindow/ContainerWithMostWater.java)
+  - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
 
+
+### hashing
+- **resources**
+  - [Hashing | Maps | Time Complexity | Collisions | Division Rule of Hashing | Strivers A2Z DSA Course](https://www.youtube.com/watch?v=KEs5UyBJ39g)
+- **codes**
+  - [Hashing theory](/src/com/problems/hashing/HashingTheory.java)
+  - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
+  - [Frequencies of Limited Range Array Elements](/src/com/problems/hashing/FrequenciesOfLimitedRangeArrayElements.java)
+  - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
 
 ### binary-search
 
@@ -498,6 +522,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Recursion Playlist / Coding / Interview Questions / Algorithm / Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
   - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 - **codes**
+  - [Recursion theory](/src/com/problems/recursion/RecursionTheory.java)
   - [Factorial](/src/com/problems/recursion/Factorial.java)
   - [Fibonacci](/src/com/problems/recursion/FibonacciNumber.java)
   - [Tower of hanoi](/src/com/problems/recursion/TowerOfHanoi.java)
@@ -658,6 +683,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Extract the left most set bit](/src/com/problems/bitmanipulation/ExtractTheLeftMostSetBit.java)
   - [Find total set bit for range 0 to 2^n](/src/com/problems/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java)
   - [Count total set bits](/src/com/problems/bitmanipulation/CountTotalSetBits.java)
+  - [Reverse Bits](/src/com/problems/bitmanipulation/ReverseBits.java)
   - [Find two integer come once in a array/Two Numbers With Odd Occurrences](/src/com/problems/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java)
   - [XOR of every subset in a power set](/src/com/problems/bitmanipulation/XorOfEverySubset.java)
   - [Petr and a Combination Lock](/src/com/problems/bitmanipulation/PetrAndCombinationLock.java)
@@ -683,6 +709,7 @@ it is likely to cause TLE in a 1-second time frame.
 - **codes**
   - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)
   - [All divisors of a number](/src/com/problems/prime/AllDivisorsOfANumber.java)
+  - [Sum of all divisors from 1 to n](/src/com/problems/math/SumOfAllDivisorsFrom1ToN.java)
   - [Find three distinct numbers whose multiplication equals to n](/src/com/problems/prime/FindThreeDistinctNumbersWhoseMultiplicationEqualToN.java)
   - [Sieve of Eratosthenes](/src/com/problems/prime/SieveOfEratosthenes.java)
   - [Prime count for the range 0 to N](/src/com/problems/prime/PrimeCount.java)

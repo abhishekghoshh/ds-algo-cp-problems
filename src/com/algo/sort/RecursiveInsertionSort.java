@@ -4,11 +4,11 @@ import com.util.PrintUtl;
 
 /*
  * Problem link :
- *
+ * https://www.geeksforgeeks.org/problems/insertion-sort/1
  *
  * Solution link :
  *
- *
+ * https://takeuforward.org/arrays/recursive-insertion-sort-algorithm/
  */
 public class RecursiveInsertionSort {
 

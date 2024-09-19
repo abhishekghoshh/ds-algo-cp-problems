@@ -4,7 +4,11 @@ package com.problems.slidingwindow;
  * https://leetcode.com/problems/container-with-most-water/
  * 
  * Solution link :
- * 
+ * https://www.youtube.com/watch?v=UuiTKBwPgAo
+ * https://www.youtube.com/watch?v=B-RAGAcNA24
+ * https://www.youtube.com/watch?v=Uj3gJjg6SXc
+ * https://www.youtube.com/watch?v=6PrIRPpTI9Q
+ *
  * Blog :
  * 
  * */
