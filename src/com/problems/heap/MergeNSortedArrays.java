@@ -7,7 +7,7 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/studio/problems/merge-k-sorted-arrays_975379
+ * https://www.naukri.com/code360/problems/merge-k-sorted-arrays_975379
  * 
  * Solution link : 
  * https://www.youtube.com/watch?v=l8CuET0jlDU

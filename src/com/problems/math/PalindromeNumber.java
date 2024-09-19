@@ -8,7 +8,7 @@ import java.util.Objects;
  * problem links :
  * https://leetcode.com/problems/palindrome-number/description/
  * Solution link :
- * https://www.youtube.com/watch?v=1xNbjMdbjug
+ * https://www.youtube.com/watch?v=1xNbjMdbjug&t=1230s
  *
  * https://takeuforward.org/data-structure/check-if-a-number-is-palindrome-or-not/
  * */

@@ -5,8 +5,8 @@ import com.ds.binarytree.TNode;
 /*
  * Problem link :
  * https://leetcode.com/problems/same-tree/
- * https://www.codingninjas.com/codestudio/problems/799364
- * https://www.codingninjas.com/studio/problems/check-identical-trees_799364
+ * https://www.naukri.com/code360/problems/799364
+ * https://www.naukri.com/code360/problems/check-identical-trees_799364
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=BhuvF_-PWS0&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=19

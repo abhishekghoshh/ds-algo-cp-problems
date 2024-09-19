@@ -10,12 +10,12 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/reverse-linked-list/
- * https://www.codingninjas.com/codestudio/problems/799897
- * https://www.codingninjas.com/studio/problems/reverse-linked-list_920513
+ * https://www.naukri.com/code360/problems/799897
+ * https://www.naukri.com/code360/problems/reverse-linked-list_920513
  *
  * Solution link :
  * https://www.youtube.com/watch?v=D2vI2DNJGd8
- * https://www.youtube.com/watch?v=iRtLEoL-r-g&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=28
+ * https://www.youtube.com/watch?v=iRtLEoL-r-g
  *
  * https://takeuforward.org/data-structure/reverse-a-linked-list/
  * */

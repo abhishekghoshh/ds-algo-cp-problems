@@ -13,6 +13,7 @@ import java.util.Queue;
  * https://www.youtube.com/watch?v=muncqlKJrH0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=8
  *
  * https://takeuforward.org/data-structure/number-of-islands/
+ * https://takeuforward.org/data-structure/number-of-distinct-islands/
  */
 public class NumberOfIslands {
 

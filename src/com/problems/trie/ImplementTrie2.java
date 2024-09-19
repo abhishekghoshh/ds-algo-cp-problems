@@ -1,8 +1,8 @@
 package com.problems.trie;
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/implement-trie_1387095
- * https://www.codingninjas.com/studio/problems/trie-delete-operation_1062663
+ * https://www.naukri.com/code360/problems/implement-trie_1387095
+ * https://www.naukri.com/code360/problems/trie-delete-operation_1062663
  *
  * Solution link :
  * https://www.youtube.com/watch?v=K5pcpkEMCN0&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=2

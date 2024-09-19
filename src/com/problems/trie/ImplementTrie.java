@@ -1,10 +1,12 @@
 package com.problems.trie;
 
+import java.util.ArrayList;
+import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/implement-trie-prefix-tree/
- * https://www.codingninjas.com/codestudio/problems/implement-trie_631356
- * https://www.codingninjas.com/studio/problems/trie-implementation_1062581
+ * https://www.naukri.com/code360/problems/implement-trie_631356
+ * https://www.naukri.com/code360/problems/trie-implementation_1062581
  *
  * Solution link :
  * https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp
@@ -13,9 +15,6 @@ package com.problems.trie;
  *
  */
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ImplementTrie {
     public static void main(String[] args) {

@@ -17,7 +17,8 @@ import static com.util.PrintUtl.print;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=Xb4slcp1U38&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=30
- * 
+ *
+ * https://takeuforward.org/data-structure/merge-two-sorted-linked-lists/
  * */
 public class MergeTwoSortedList {
 

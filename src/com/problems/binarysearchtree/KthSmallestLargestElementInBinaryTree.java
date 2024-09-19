@@ -4,9 +4,9 @@ import com.ds.binarytree.TNode;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1
  * https://leetcode.com/problems/kth-smallest-element-in-a-bst/
- * https://www.codingninjas.com/studio/problems/kth-smallest-node-in-bst_920441
+ * https://www.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1
+ * https://www.naukri.com/code360/problems/kth-smallest-node-in-bst_920441
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=9TJYWh0adfk&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=46

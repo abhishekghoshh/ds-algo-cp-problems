@@ -5,8 +5,8 @@ import com.ds.binarytree.TNode;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
- * https://www.codingninjas.com/codestudio/problems/794950
- * https://www.codingninjas.com/studio/problems/maximum-sum-path-of-a-binary-tree._1214968
+ * https://www.naukri.com/code360/problems/794950
+ * https://www.naukri.com/code360/problems/maximum-sum-path-of-a-binary-tree._1214968
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=WszrfSwMz58&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=18

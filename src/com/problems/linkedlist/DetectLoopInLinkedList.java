@@ -14,7 +14,7 @@ import java.util.Set;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=wiOo4DC5GGA
- * https://www.youtube.com/watch?v=354J83hX7RI&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=35
+ * https://www.youtube.com/watch?v=354J83hX7RI
  *
  * https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/
  * */

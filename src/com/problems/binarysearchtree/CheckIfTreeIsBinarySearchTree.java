@@ -5,8 +5,8 @@ import com.ds.binarytree.TNode;
 /*
  * Problem link :
  * https://leetcode.com/problems/validate-binary-search-tree/
- * https://practice.geeksforgeeks.org/problems/check-for-bst/1
- * https://www.codingninjas.com/studio/problems/check-bst_5975
+ * https://www.geeksforgeeks.org/problems/check-for-bst/1
+ * https://www.naukri.com/code360/problems/check-bst_5975
  *
  * Solution link :
  * https://www.youtube.com/watch?v=f-sj7I5oXEI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=47

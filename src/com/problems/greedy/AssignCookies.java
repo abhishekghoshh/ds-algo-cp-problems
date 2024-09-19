@@ -9,7 +9,7 @@ import java.util.Arrays;
  * https://www.codingninjas.com/studio/problems/assign-cookies_8390826
  *
  * Solution link :
- *
+ * https://www.youtube.com/watch?v=DIX2p7vb9co
  *
  * */
 public class AssignCookies {
@@ -39,7 +39,7 @@ public class AssignCookies {
     // optimized approach
     // first we will sort the entire array
     // we have to assign the cookies such that the greed factor is less than the rank of the cookie
-    // g[i1] <= s[i2] if the condition does not satisfy then we we will go to the next rank cookie,
+    // g[i1] <= s[i2] if the condition does not satisfy then we will go to the next rank cookie,
     // but we will stick to the same greed
     // as both of the array are in sorted order
     // if we will find greater rank cookie afterward

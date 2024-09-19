@@ -7,6 +7,7 @@ package com.problems.slidingwindow;
  * https://www.codingninjas.com/studio/problems/longest-repeating-substring_980523
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=_eNhaDCr6P0
  *
  * */
 public class LongestRepeatingCharacterReplacement {
