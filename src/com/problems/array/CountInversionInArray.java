@@ -5,6 +5,8 @@ package com.problems.array;
  * problem links :
  * https://www.naukri.com/code360/problems/number-of-inversions_6840276?leftPanelTabValue=PROBLEM
  * https://www.naukri.com/code360/problems/615
+ * https://www.naukri.com/code360/problems/count-inversions_615
+ * https://www.naukri.com/code360/problems/count-inversions_615
  * https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
  *
  * Solution link :

@@ -34,8 +34,12 @@ public class CountPalindromicSubsequences {
         if (i > j) return 0;
         if (i == j) return 1;
         if (dp[i][j] != -1) return dp[i][j];
-        if (arr[i] == arr[j]) return dp[i][j] = countPalindrome(i + 1, j, arr, dp) + countPalindrome(i, j - 1, arr, dp);
-        return dp[i][j] = countPalindrome(i + 1, j, arr, dp) + countPalindrome(i, j - 1, arr, dp) - countPalindrome(i + 1, j - 1, arr, dp);
+        if (arr[i] == arr[j])
+            return dp[i][j] = countPalindrome(i + 1, j, arr, dp) + countPalindrome(i, j - 1, arr, dp);
+        return
+                dp[i][j] = countPalindrome(i + 1, j, arr, dp)
+                        + countPalindrome(i, j - 1, arr, dp) -
+                        countPalindrome(i + 1, j - 1, arr, dp);
     }
 
     // brute force approach

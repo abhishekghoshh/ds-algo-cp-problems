@@ -5,8 +5,8 @@ import static com.util.PrintUtl.print2D;
 /*
  * problem link :
  * https://leetcode.com/problems/rotate-image/
- * https://www.codingninjas.com/codestudio/problems/981260
- * https://www.codingninjas.com/studio/problems/rotate-the-matrix_6825090
+ * https://www.naukri.com/code360/problems/981260
+ * https://www.naukri.com/code360/problems/rotate-the-matrix_6825090
  * 
  * Solution link:
  * https://www.youtube.com/watch?v=Z0R2u6gd3GU
