@@ -26,6 +26,16 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		type2();
 		type3();
 		type4();
+		type5();
+	}
+
+	// previous approach uses a boolean array for checking if the character exists or not
+	// but we can also use an integer as a set/ boolean array,
+	// it has 32 bits, and we can use the bits and the bit position as a set
+	// if the bit is 1 then the index is set if 0 then it is empty
+	// todo complete it
+	private static void type5() {
+
 	}
 
 	// best possible solution
