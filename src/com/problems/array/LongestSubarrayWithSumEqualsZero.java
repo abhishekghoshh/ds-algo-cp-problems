@@ -5,9 +5,9 @@ import java.util.Map;
 
 /*
  * problem links :
- * https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
- * https://www.codingninjas.com/codestudio/problems/920321
- * https://www.codingninjas.com/studio/problems/longest-subarray-with-zero-sum_6783450
+ * https://www.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
+ * https://www.naukri.com/code360/problems/920321
+ * https://www.naukri.com/code360/problems/longest-subarray-with-zero-sum_6783450
  *
  * Solution link :
  * https://www.youtube.com/watch?v=xmguZ6GbatA&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=24
@@ -54,8 +54,7 @@ public class LongestSubarrayWithSumEqualsZero {
 		Map<Integer, Integer> prefixSum = new HashMap<>();
 		for (int i = 0; i < n; i++) {
 			sum = sum + nums[i];
-			// upto that point if sum is 0
-			// then length will be i+1
+			// up to this point, if the sum is 0 then, the length will be i+1
 			if (sum == 0) {
 				maxLength = i + 1;
 			}
@@ -64,7 +63,7 @@ public class LongestSubarrayWithSumEqualsZero {
 			if (prefixSum.containsKey(sum)) {
 				maxLength = Math.max(maxLength, i - prefixSum.get(sum));
 			} else {
-				// else add the sum in the prefixsum map with the current index
+				// else add the sum in the prefixsum map with the current index,
 				// we will not update the index of sum even if we find the same sum again
 				prefixSum.put(sum, i);
 			}
