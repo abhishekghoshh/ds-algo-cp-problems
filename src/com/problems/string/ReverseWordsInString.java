@@ -7,14 +7,12 @@ import java.util.Stack;
 /*
  * Problem link : 
  * https://leetcode.com/problems/reverse-words-in-a-string
- * https://www.codingninjas.com/codestudio/problems/696444
- * https://www.codingninjas.com/studio/problems/reverse-words-in-a-string_696444
+ * https://www.naukri.com/code360/problems/696444
  * 
  * Solution link:
  * 
  * 
  * https://takeuforward.org/data-structure/reverse-words-in-a-string/
- * 
  * */
 public class ReverseWordsInString {
 

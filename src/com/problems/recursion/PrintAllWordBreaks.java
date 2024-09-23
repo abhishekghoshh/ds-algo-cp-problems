@@ -7,7 +7,7 @@ import java.util.Set;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/983635
+ * https://www.naukri.com/code360/problems/983635
  *
  * Solution link:
  * 

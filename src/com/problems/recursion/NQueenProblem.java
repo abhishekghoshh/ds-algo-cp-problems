@@ -7,8 +7,8 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/n-queens/
- * https://www.codingninjas.com/codestudio/problems/759332
- * https://www.codingninjas.com/studio/problems/n-queens_696453
+ * https://www.naukri.com/code360/problems/759332
+ * https://www.naukri.com/code360/problems/n-queens_696453
  *
  * Solution link:
  * https://www.youtube.com/watch?v=i05Ju7AftcM

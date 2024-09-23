@@ -5,10 +5,11 @@ import java.util.Queue;
 /*
  * Problem link :
  * https://leetcode.com/problems/implement-stack-using-queues/
- * https://www.codingninjas.com/studio/problems/stack-using-queue_795152
+ * https://www.naukri.com/code360/problems/stack-using-queue_795152
  *
  * Solution link :
  * https://www.youtube.com/watch?v=jDZQKzEtbYQ
+ * https://www.youtube.com/watch?v=tqQ5fTamIN4
  *
  * https://takeuforward.org/data-structure/implement-stack-using-single-queue/
  * */

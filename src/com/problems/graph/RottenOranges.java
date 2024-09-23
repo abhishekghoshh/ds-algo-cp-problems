@@ -6,8 +6,8 @@ import java.util.Queue;
 /*
  * Problem link :
  * https://leetcode.com/problems/rotting-oranges/
- * https://www.codingninjas.com/codestudio/problems/701655
- * https://www.codingninjas.com/studio/problems/rotting-oranges_701655
+ * https://www.naukri.com/code360/problems/701655
+ * https://www.naukri.com/code360/problems/rotting-oranges_701655
  *
  * Solution link :
  * https://www.youtube.com/watch?v=yf3oUhkvqA0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=10

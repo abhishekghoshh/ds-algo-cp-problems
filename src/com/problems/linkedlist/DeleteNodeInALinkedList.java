@@ -8,12 +8,13 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/delete-node-in-a-linked-list/
- * https://www.codingninjas.com/codestudio/problems/1105578
- * https://www.codingninjas.com/studio/problems/delete-node-of-linked-list_8160463
+ * https://www.naukri.com/code360/problems/1105578
+ * https://www.naukri.com/code360/problems/delete-node-of-linked-list_8160463
  *
  * Solution link
  * https://www.youtube.com/watch?v=icnp4FJdZ_c&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=32
  *
+ * https://takeuforward.org/data-structure/delete-given-node-in-a-linked-list-o1-approach/
  * */
 
 public class DeleteNodeInALinkedList {

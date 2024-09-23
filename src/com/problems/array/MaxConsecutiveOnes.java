@@ -3,7 +3,7 @@ package com.problems.array;
 /*
  * Problem link :
  * https://leetcode.com/problems/max-consecutive-ones/
- * https://www.codingninjas.com/studio/problems/traffic_6682625
+ * https://www.naukri.com/code360/problems/traffic_6682625
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=bYWLJb3vCWY
@@ -19,7 +19,7 @@ public class MaxConsecutiveOnes {
 	}
 
 	// optimized approach
-	// on every 0 we are checking the the previous 1's series is the largest or not
+	// on every 0 we are checking the previous 1's series is the largest or not
 	// if the array is ended with 1 then we are also checking the largest once again
 	// time complexity O(n)
 	// space complexity O(1)

@@ -3,8 +3,8 @@ package com.problems.binarysearch;
 /*
  * Problem link : 
  * https://leetcode.com/problems/search-in-rotated-sorted-array/
- * https://www.codingninjas.com/codestudio/problems/630450
- * https://www.codingninjas.com/studio/problems/search-in-rotated-sorted-array_1082554
+ * https://www.naukri.com/code360/problems/630450
+ * https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554
  * 
  * Solution is :
  * https://www.youtube.com/watch?v=5qGrJbHhqFs

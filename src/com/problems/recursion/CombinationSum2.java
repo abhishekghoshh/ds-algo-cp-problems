@@ -7,9 +7,8 @@ import java.util.List;
 /*
  * Problem links:
  * https://leetcode.com/problems/combination-sum-ii/
- * https://www.codingninjas.com/codestudio/problems/1112622
- * https://www.codingninjas.com/studio/problems/combination-sum-ii_1112622
- * 
+ * https://www.naukri.com/code360/problems/1112622
+ *
  * Solution link
  * https://www.youtube.com/watch?v=G1fRTGRxXU8
  *

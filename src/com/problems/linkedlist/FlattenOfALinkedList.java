@@ -14,7 +14,7 @@ import static com.util.PrintUtl.print;
  * problem links:
  * https://www.codingninjas.com/studio/problems/flatten-a-linked-list_1112655
  * https://www.codingninjas.com/codestudio/problems/1112655
- * https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1
+ * https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
  *
  * Solution video:
  * https://www.youtube.com/watch?v=ykelywHJWLg

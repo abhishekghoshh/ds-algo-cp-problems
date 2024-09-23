@@ -8,7 +8,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
- * https://www.codingninjas.com/codestudio/problems/1102307
+ * https://www.naukri.com/code360/problems/1102307
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=37E9ckMDdTk&t=1702s

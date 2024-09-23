@@ -8,8 +8,7 @@ import static com.util.PrintUtl.print;
  *
  * problem links :
  * https://leetcode.com/problems/rotate-list/
- * https://www.codingninjas.com/codestudio/problems/920454
- * https://www.codingninjas.com/studio/problems/rotate-linked-list_920454
+ * https://www.naukri.com/code360/problems/920454
  *
  * Solution link :
  * https://www.youtube.com/watch?v=uT7YI7XbTY8

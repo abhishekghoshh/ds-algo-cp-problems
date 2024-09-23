@@ -4,9 +4,10 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/implement-queue-using-stacks/
- * https://www.codingninjas.com/studio/problems/day-25-:-queue-using-stack_799482
+ * https://www.naukri.com/code360/problems/day-25-:-queue-using-stack_799482
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=tqQ5fTamIN4
  * https://www.youtube.com/watch?v=3Et9MrMc02A
  *
  * https://takeuforward.org/data-structure/implement-queue-using-stack/

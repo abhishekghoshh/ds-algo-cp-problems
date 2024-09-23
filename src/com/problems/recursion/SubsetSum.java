@@ -4,13 +4,14 @@ package com.problems.recursion;
 import java.util.*;
 /*
  * Problem links:
- * https://www.codingninjas.com/codestudio/problems/subset-sum_3843086
- * https://practice.geeksforgeeks.org/problems/subset-sums2234/1
+ * https://www.naukri.com/code360/problems/subset-sum_3843086
  * https://www.naukri.com/code360/problems/subset-sum_630213
+ * https://www.geeksforgeeks.org/problems/subset-sums2234/1
  *
- * Solution link
+ * Solution link:
  * https://www.youtube.com/watch?v=rYkfBRtMJr8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=53
  *
+ * https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/
  * */
 public class SubsetSum {
 

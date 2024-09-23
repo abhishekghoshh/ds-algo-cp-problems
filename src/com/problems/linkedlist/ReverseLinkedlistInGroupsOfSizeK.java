@@ -11,12 +11,12 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/reverse-nodes-in-k-group/
- * https://www.codingninjas.com/codestudio/problems/763406
- * https://www.codingninjas.com/studio/problems/reverse-list-in-k-groups_983644
+ * https://www.naukri.com/code360/problems/763406
+ * https://www.naukri.com/code360/problems/reverse-list-in-k-groups_983644
  * 
  * Solution video :
  * https://www.youtube.com/watch?v=lIar1skcQYI
- * https://www.youtube.com/watch?v=Of0HPkk3JgI&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=35
+ * https://www.youtube.com/watch?v=Of0HPkk3JgI
  *
  * https://takeuforward.org/data-structure/reverse-linked-list-in-groups-of-size-k/
  * */

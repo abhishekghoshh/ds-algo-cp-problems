@@ -9,12 +9,12 @@ import java.util.List;
  * 
  * problem links :
  * https://leetcode.com/problems/palindrome-linked-list/
- * https://www.codingninjas.com/codestudio/problems/799352
- * https://www.codingninjas.com/studio/problems/check-if-linked-list-is-palindrome_985248
+ * https://www.naukri.com/code360/problems/799352
+ * https://www.naukri.com/code360/problems/check-if-linked-list-is-palindrome_985248
  *
  * Solution link :
  * https://www.youtube.com/watch?v=lRY_G-u_8jk
- * https://www.youtube.com/watch?v=-DtNInqFUXs&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=37
+ * https://www.youtube.com/watch?v=-DtNInqFUXs
  *
  * https://takeuforward.org/data-structure/check-if-given-linked-list-is-plaindrome/
  * */

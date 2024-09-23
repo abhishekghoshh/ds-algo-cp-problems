@@ -8,8 +8,7 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/add-two-numbers/
- * https://www.codingninjas.com/codestudio/problems/add-two-numbers-as-linked-lists_1170520
- * https://www.codingninjas.com/studio/problems/add-two-numbers_1170520
+ * https://www.naukri.com/code360/problems/add-two-numbers_1170520
  *
  * Solution link :
  * https://www.youtube.com/watch?v=XmRrGzR6udg
@@ -54,7 +53,7 @@ public class AddTwoNumbers {
 				// we will use l2 for computation
 				l2.data = sum % 10;
 				// l1 has exhausted then we need to point last of l1 to current node of l2
-				// prev was point to l1 so prev.next=l2 will work
+				// prev was point to the l1 so prev.next=l2 will work
 				// after attaching now assign l2 to prev
 				prev.next = l2;
 				prev = l2;
@@ -84,20 +83,20 @@ public class AddTwoNumbers {
 		Node head = new Node(-1);
 		// prev will pointing to head
 		Node prev = head, curr;
-		// loop will go until both is null or carry is 0
+		// loop will go until both are null or carry is 0
 		while (null != l1 || null != l2 || carry != 0) {
-			// sum and carry is calculated even if there is any null list
+			// sum and carry are calculated even if there is any null list
 			sum = carry;
 			sum += (null != l1) ? l1.data : 0;
 			sum += (null != l2) ? l2.data : 0;
 			carry = sum / 10;
 			// temporary creating node
 			curr = new Node(sum % 10);
-			// attaching current pointer to the previous pointer
-			// and then assigning current pointer to previous
+			// attaching the current pointer to the previous pointer
+			// and then assigning the current pointer to previous
 			prev.next = curr;
 			prev = curr;
-			// going to next node if list is not null
+			// going to the next node if the list is not null
 			l1 = (null != l1) ? l1.next : l1;
 			l2 = (null != l1) ? l1.next : l1;
 		}

@@ -5,15 +5,15 @@ import java.util.Arrays;
 /*
  * Problem link:
  * https://leetcode.com/problems/longest-palindromic-substring/
- * https://www.codingninjas.com/codestudio/problems/longest-palindromic-substring_758900
+ * https://www.naukri.com/code360/problems/longest-palindromic-substring_758900
  *
  * Solution link:
- * https://www.youtube.com/watch?v=XYQecbcd6_c -> two pointers
- * https://www.youtube.com/watch?v=ZJUGtWObroc -> two pointers
- * https://www.youtube.com/watch?v=UflHuQj6MVA -> Dynamic Programming
- * https://youtube.com/watch?v=fxwvVnBMN6I -> Dynamic Programming
+ * https://www.youtube.com/watch?v=XYQecbcd6_c → two pointers
+ * https://www.youtube.com/watch?v=ZJUGtWObroc → two pointers
+ * https://www.youtube.com/watch?v=UflHuQj6MVA → Dynamic Programming
+ * https://youtube.com/watch?v=fxwvVnBMN6I → Dynamic Programming
  *
- * https://www.youtube.com/watch?v=06QIlUBLTz4 -> Manachers algorithm
+ * https://www.youtube.com/watch?v=06QIlUBLTz4 → Manachers algorithm
  *
  * https://www.geeksforgeeks.org/longest-palindromic-substring/
  */

@@ -11,8 +11,7 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
- * https://www.codingninjas.com/codestudio/problems/630457
- * https://www.codingninjas.com/studio/problems/-intersection-of-two-linked-lists_630457
+ * https://www.naukri.com/code360/problems/630457
  *
  * Solution link :
  * https://www.youtube.com/watch?v=0DYoPz2Tpt4

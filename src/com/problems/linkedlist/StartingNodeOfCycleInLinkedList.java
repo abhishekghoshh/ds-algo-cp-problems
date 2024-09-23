@@ -11,12 +11,11 @@ import static com.util.PrintUtl.print;
  *
  * problem links :
  * https://leetcode.com/problems/linked-list-cycle-ii/
- * https://www.codingninjas.com/codestudio/problems/1112628
- * https://www.codingninjas.com/studio/problems/linked-list-cycle-ii_1112628
+ * https://www.naukri.com/code360/problems/1112628
  *
  * Solution link :
  * https://www.youtube.com/watch?v=2Kd0KKmmHFc
- * https://www.youtube.com/watch?v=QfbOhn0WZ88&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=38
+ * https://www.youtube.com/watch?v=QfbOhn0WZ88
  *
  * https://takeuforward.org/data-structure/starting-point-of-loop-in-a-linked-list/
  * */

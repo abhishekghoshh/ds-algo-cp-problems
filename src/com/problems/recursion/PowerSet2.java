@@ -5,8 +5,8 @@ import java.util.*;
 /*
  * Problem links:
  * https://leetcode.com/problems/subsets-ii/
- * https://www.codingninjas.com/studio/problems/subsequences-of-string_985087
- * https://www.codingninjas.com/studio/problems/get-all-unique-subsets_624393
+ * https://www.naukri.com/code360/problems/subsequences-of-string_985087
+ * https://www.naukri.com/code360/problems/get-all-unique-subsets_624393
  *
  * Solution link
  * https://www.youtube.com/watch?v=b7AYbpM5YrE

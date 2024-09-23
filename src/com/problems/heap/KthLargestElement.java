@@ -9,8 +9,8 @@ import static com.util.ArrayUtil.swap;
  * 
  * problem links :
  * https://leetcode.com/problems/kth-largest-element-in-an-array
- * https://www.codingninjas.com/studio/problems/k-largest-elements_796005
- * https://www.codingninjas.com/codestudio/problems/kth-smallest-and-largest-element-of-array_1115488
+ * https://www.naukri.com/code360/problems/k-largest-elements_796005
+ * https://www.naukri.com/code360/problems/kth-smallest-and-largest-element-of-array_1115488
  *
  * Solution link :
  * https://www.youtube.com/watch?v=XEmy13g1Qxc

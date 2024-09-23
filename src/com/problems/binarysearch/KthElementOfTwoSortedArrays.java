@@ -4,9 +4,9 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/studio/problems/k-th-element-of-2-sorted-array_1164159
- * https://www.codingninjas.com/codestudio/problems/1112629
- * https://practice.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1
+ * https://www.naukri.com/code360/problems/k-th-element-of-2-sorted-array_1164159
+ * https://www.naukri.com/code360/problems/1112629
+ * https://www.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1
  * 
  * Solution is :
  * https://www.youtube.com/watch?v=D1oDwWCq50g

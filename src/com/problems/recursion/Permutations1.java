@@ -8,7 +8,7 @@ import java.util.Set;
 /*
  * Problem links:
  * https://leetcode.com/problems/permutations/
- * https://www.codingninjas.com/codestudio/problems/758958
+ * https://www.naukri.com/code360/problems/758958
  * 
  * Solution link
  * https://www.youtube.com/watch?v=YK78FU5Ffjw&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=51

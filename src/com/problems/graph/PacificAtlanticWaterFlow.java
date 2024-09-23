@@ -52,16 +52,17 @@ public class PacificAtlanticWaterFlow {
         boolean[][] pacific = new boolean[m][n];
         boolean[][] atlantic = new boolean[m][n];
 
-        //DFS
+        // DFS from last from first and last row
         for (int i = 0; i < n; i++) {
             dfs(heights, 0, i, Integer.MIN_VALUE, pacific);
             dfs(heights, m - 1, i, Integer.MIN_VALUE, atlantic);
         }
+        // dfs from first and last column
         for (int i = 0; i < m; i++) {
             dfs(heights, i, 0, Integer.MIN_VALUE, pacific);
             dfs(heights, i, n - 1, Integer.MIN_VALUE, atlantic);
         }
-        //preparing the result
+        // if both are true, that means we can reach both seas from that point
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (pacific[i][j] && atlantic[i][j]) {

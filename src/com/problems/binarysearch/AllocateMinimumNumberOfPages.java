@@ -7,8 +7,8 @@ import java.util.List;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/studio/problems/allocate-books_1090540
- * https://www.codingninjas.com/codestudio/problems/ayush-gives-ninjatest_1097574?
+ * https://www.naukri.com/code360/problems/allocate-books_1090540
+ * https://www.naukri.com/code360/problems/ayush-gives-ninjatest_1097574
  * https://www.interviewbit.com/problems/allocate-books/
  *
  * Solution is :

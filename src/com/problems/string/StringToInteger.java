@@ -3,9 +3,8 @@ package com.problems.string;
 /*
  * Problem link :
  * https://leetcode.com/problems/string-to-integer-atoi/
- * https://www.codingninjas.com/codestudio/problems/981270
- * https://www.codingninjas.com/studio/problems/implement-atoi-function_981270
- * 
+ * https://www.naukri.com/code360/problems/981270
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=FyTpsuWAoc8
  * https://www.youtube.com/watch?v=gLW6DD59ZaM

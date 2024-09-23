@@ -5,7 +5,7 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/valid-parentheses/
- * https://www.codingninjas.com/studio/problems/valid-parentheses_795104
+ * https://www.naukri.com/code360/problems/valid-parentheses_795104
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=xwjS0iZhw4I

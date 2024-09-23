@@ -2,12 +2,11 @@ package com.problems.binarysearch;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/1062679
- * https://www.codingninjas.com/studio/problems/nth-root-of-m_1062679
- * 
+ * https://www.naukri.com/code360/problems/1062679
+ *
  * Solution is :
  * https://www.youtube.com/watch?v=rjEJeYCasHs
- * https://www.youtube.com/watch?v=WjpswYrS2nY&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=63
+ * https://www.youtube.com/watch?v=WjpswYrS2nY
  *
  * https://takeuforward.org/data-structure/nth-root-of-a-number-using-binary-search/
  * https://www.geeksforgeeks.org/n-th-root-number/

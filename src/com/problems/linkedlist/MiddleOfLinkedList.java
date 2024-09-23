@@ -8,8 +8,7 @@ import static com.util.PrintUtl.print;
  * 
  * problem links :
  * https://leetcode.com/problems/middle-of-the-linked-list/
- * https://www.codingninjas.com/codestudio/problems/973250
- * https://www.codingninjas.com/studio/problems/middle-of-linked-list_973250
+ * https://www.naukri.com/code360/problems/973250
  *
  * Solution link :
  * https://www.youtube.com/watch?v=7LjQ57RqgEc

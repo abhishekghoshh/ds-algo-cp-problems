@@ -4,8 +4,7 @@ package com.problems.string;
  * Problem link :
  * https://leetcode.com/problems/shortest-palindrome
  * https://www.interviewbit.com/problems/minimum-characters-required-to-make-a-string-palindromic/
- * https://www.codingninjas.com/studio/problems/minimum-characters-for-palindrome_893000
- * https://www.codingninjas.com/codestudio/problems/893000
+ * https://www.naukri.com/code360/problems/893000
  * 
  * Solution link :
  * Consistent Code : https://www.youtube.com/watch?v=rLq2vMILp-c

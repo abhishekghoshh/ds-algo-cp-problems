@@ -6,10 +6,10 @@ import static com.util.ArrayUtil.stack;
 import static com.util.PrintUtl.print;
 
 /*
- * Problem link : 
- * https://practice.geeksforgeeks.org/problems/sort-a-stack/1
- * https://www.codingninjas.com/codestudio/problems/sort-a-stack_985275
- * https://www.codingninjas.com/studio/problems/sort-stack_1229505
+ * Problem link :
+ * https://www.naukri.com/code360/problems/sort-a-stack_985275
+ * https://www.naukri.com/code360/problems/sort-stack_1229505
+ * https://www.geeksforgeeks.org/problems/sort-a-stack/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=MOGBRkkOhkY&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=7

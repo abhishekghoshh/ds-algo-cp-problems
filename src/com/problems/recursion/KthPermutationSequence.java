@@ -6,7 +6,7 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/permutation-sequence/
- * https://www.codingninjas.com/codestudio/problems/1112626
+ * https://www.naukri.com/code360/problems/1112626
  * Solution link :
  * https://www.youtube.com/watch?v=wT7gcXLYoao&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=56
  *
