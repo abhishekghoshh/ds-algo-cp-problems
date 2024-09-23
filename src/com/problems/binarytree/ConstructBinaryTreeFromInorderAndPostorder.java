@@ -9,8 +9,8 @@ import java.util.Map;
 /*
  * Problem link :
  * https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
- * https://www.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/1
  * https://www.naukri.com/code360/problems/construct-binary-tree-from-inorder-and-postorder-traversal_1266106
+ * https://www.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=LgLRTaEMRVc&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=36

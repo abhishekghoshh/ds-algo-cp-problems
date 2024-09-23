@@ -145,6 +145,8 @@ public class PrintUtl {
                 System.out.printf("left -> %s, ", left);
                 String right = null == node.right ? "null" : node.right.data + "";
                 System.out.printf("right -> %s", right);
+                String next = null == node.next ? "null" : node.next.data + "";
+                System.out.printf(", next -> %s", next);
                 System.out.print("]");
                 System.out.println();
             }

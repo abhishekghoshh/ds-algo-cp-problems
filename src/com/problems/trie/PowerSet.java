@@ -6,12 +6,13 @@ package com.problems.trie;
  * https://practice.geeksforgeeks.org/problems/power-set4302/1#
  * 
  * Solution link :
- * 
- * 
+ *
+ * https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/
  */
 public class PowerSet {
 
 	// TODO complete this solution with trie data structure
+	//  this can also be done with recursion
 	public static void main(String[] args) {
 		type1();
 		type2();

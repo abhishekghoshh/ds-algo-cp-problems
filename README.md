@@ -882,6 +882,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Lowest Common Ancestor of a Binary Tree](/src/com/problems/binarytree/LowestCommonAncestorOfBinaryTree.java)
   - [Maximum Width of Binary Tree](/src/com/problems/binarytree/MaximumWidthOfBinaryTree.java)
   - [Children Sum Property in a Binary Tree](/src/com/problems/binarytree/ChildrenSumProperty.java)
+  - [Populating Next Right Pointers in Each Node](/src/com/problems/binarytree/PopulatingNextRightPointersInEachNode.java)
   - [Nodes at Distance K in a Binary Tree](/src/com/problems/binarytree/NodesAtDistanceK.java)
   - [Minimum time taken to BURN the Binary Tree from a Node](/src/com/problems/binarytree/MinimumTimeTakenToBurnDownBinaryTree.java)
   - [Count Complete Tree Nodes in a Binary Tree](/src/com/problems/binarytree/CountTotalNodeInCompleteBinaryTree.java)

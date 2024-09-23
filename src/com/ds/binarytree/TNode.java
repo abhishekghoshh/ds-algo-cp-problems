@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TNode {
     public static int NULL = Integer.MIN_VALUE;
     public int data;
-    public TNode left, right;
+    public TNode left, right, next;
 
     public TNode(int data) {
         this.data = data;

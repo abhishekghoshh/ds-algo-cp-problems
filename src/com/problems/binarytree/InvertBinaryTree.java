@@ -7,7 +7,7 @@ import com.util.PrintUtl;
  *
  * problem links :
  * https://leetcode.com/problems/invert-binary-tree/description/
- *
+ * https://www.geeksforgeeks.org/problems/mirror-tree/1
  * Solution link :
  *
  *
@@ -30,7 +30,7 @@ public class InvertBinaryTree {
         // changing the left and right child
         root.left = right;
         root.right = left;
-        // now recursively call on left and right child
+        // now recursively call on the left and right child
         invertTree(left);
         invertTree(right);
         return root;

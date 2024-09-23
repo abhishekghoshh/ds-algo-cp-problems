@@ -5,8 +5,8 @@ import com.util.PrintUtl;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/children-sum-parent/1
- * https://www.codingninjas.com/studio/problems/children-sum-property_8357239
+ * https://www.geeksforgeeks.org/problems/children-sum-parent/1
+ * https://www.naukri.com/code360/problems/children-sum-property_8357239
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=fnmisPM6cVo&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=30
