@@ -11,7 +11,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-postorder-traversal/
- * https://www.codingninjas.com/studio/problems/postorder-traversal_2035933
+ * https://www.naukri.com/code360/problems/postorder-traversal_2035933
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=COQOU6klsBg&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=8

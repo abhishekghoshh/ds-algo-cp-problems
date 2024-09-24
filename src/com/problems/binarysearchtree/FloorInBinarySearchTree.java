@@ -8,7 +8,8 @@ import java.util.List;
 /*
  * Problem link :
  * https://practice.geeksforgeeks.org/problems/floor-in-bst/1
- * https://www.codingninjas.com/studio/problems/floor-from-bst_625868
+ * https://www.naukri.com/code360/problems/floor-from-bst_625868
+ * https://www.naukri.com/code360/problems/floor-from-bst_920457
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=xm_W1ub-K-w&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=43
@@ -47,7 +48,7 @@ public class FloorInBinarySearchTree {
 	}
 
 	// for a valid BST the floor of a value will be the inorder predecessor of the element.
-	// as the inorder traversal will give us the sorted list,
+	// as the in order traversal will give us the sorted list,
 	// we can just traverse on that list, or we can also do a binary search on that to get the flooring element
 	private static void type1() {
 		TNode root = TNode.makeBST(2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14);

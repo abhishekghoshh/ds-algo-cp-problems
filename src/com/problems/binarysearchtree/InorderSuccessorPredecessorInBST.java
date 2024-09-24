@@ -8,8 +8,8 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/inorder-successor-in-bst/
- * https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1
- * https://www.codingninjas.com/studio/problems/predecessor-and-successor-in-bst_893049
+ * https://www.naukri.com/code360/problems/predecessor-and-successor-in-bst_893049
+ * https://www.geeksforgeeks.org/problems/predecessor-and-successor/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=SXKAD2svfmI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=50

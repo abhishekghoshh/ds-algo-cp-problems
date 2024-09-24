@@ -10,7 +10,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
- * https://www.codingninjas.com/studio/problems/preorder-binary-tree_5948
+ * https://www.naukri.com/code360/problems/preorder-binary-tree_5948
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=RlUu72JrOCQ&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=6

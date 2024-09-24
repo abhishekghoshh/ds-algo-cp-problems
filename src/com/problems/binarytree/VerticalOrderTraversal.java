@@ -7,8 +7,8 @@ import java.util.*;
 /*
  * Problem link :
  * https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
- * https://www.codingninjas.com/codestudio/problems/vertical-order-traversal_920533
- * https://www.codingninjas.com/studio/problems/vertical-order-traversal_3622711
+ * https://www.naukri.com/code360/problems/vertical-order-traversal_920533
+ * https://www.naukri.com/code360/problems/vertical-order-traversal_3622711
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=q_a6lpbKJdw&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=22

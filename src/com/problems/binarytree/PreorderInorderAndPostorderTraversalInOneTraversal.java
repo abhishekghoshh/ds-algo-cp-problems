@@ -8,8 +8,7 @@ import java.util.Stack;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/981269
- * https://www.codingninjas.com/studio/problems/tree-traversals_981269
+ * https://www.naukri.com/code360/problems/981269
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=ySp2epYvgTE&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=14

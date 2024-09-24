@@ -9,9 +9,9 @@ import java.util.Queue;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/codestudio/problems/920519
- * https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1
- * https://www.codingninjas.com/studio/problems/left-view-of-binary-tree_625707
+ * https://www.naukri.com/code360/problems/920519
+ * https://www.naukri.com/code360/problems/left-view-of-binary-tree_625707
+ * https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1
  *
  * Solution link :
  * https://www.youtube.com/watch?v=KV4mRzTjlAk&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=25

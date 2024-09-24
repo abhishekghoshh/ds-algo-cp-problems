@@ -908,6 +908,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Maximum element in BST](/src/com/problems/binarysearchtree/MaximumElementInBinarySearchTree.java)
   - [Ceil in a Binary Search Tree](/src/com/problems/binarysearchtree/CeilInBinarySearchTree.java)
   - [Floor in a Binary Search Tree](/src/com/problems/binarysearchtree/FloorInBinarySearchTree.java)
+  - [Convert Sorted Array to Binary Search Tree](/src/com/problems/binarysearchtree/ConvertSortedArrayToBinarySearchTree.java)
   - [Insert a Given Node in Binary Search Tree](/src/com/problems/binarysearchtree/InsertNodeInBinarySearchTree.java)
   - [Delete a Node in Binary Search Tree](/src/com/problems/binarysearchtree/DeleteNodeInBinarySearchTree.java)
   - [Kth largest/smallest element in Binary Search Tree](/src/com/problems/binarysearchtree/KthSmallestLargestElementInBinaryTree.java)
@@ -921,6 +922,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Two Sum In Binary Search Tree](/src/com/problems/binarysearchtree/TwoSumInBinarySearchTree.java)
   - [Recover Binary Search Tree / Correct Binary Search Tree with two nodes swapped](/src/com/problems/binarysearchtree/RecoverBinarySearchTree.java)
   - [Largest Binary Search Tree in Binary Tree](/src/com/problems/binarysearchtree/LargestBinarySearchTreeInBinaryTree.java)
+  - [Maximum Sum BST in Binary Tree](/src/com/problems/binarysearchtree/MaximumSumBSTInBinaryTree.java)
 
 
 ### graph

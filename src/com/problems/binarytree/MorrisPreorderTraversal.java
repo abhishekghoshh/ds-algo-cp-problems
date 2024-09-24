@@ -9,8 +9,9 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-preorder-traversal/
- * https://practice.geeksforgeeks.org/problems/preorder-traversal/1
- * https://www.codingninjas.com/studio/problems/preorder-binary-tree_5948
+ * https://www.geeksforgeeks.org/problems/preorder-traversal/1
+ * https://www.naukri.com/code360/problems/preorder-binary-tree_5948
+ * https://www.naukri.com/code360/problems/preorder-traversal_3838888
  *
  * Solution link :
  * https://www.youtube.com/watch?v=80Zug6D1_r4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=38

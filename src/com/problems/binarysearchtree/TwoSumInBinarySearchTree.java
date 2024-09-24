@@ -9,8 +9,8 @@ import java.util.Stack;
 /*
  * Problem link :
  * https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
- * https://practice.geeksforgeeks.org/problems/find-a-pair-with-given-target-in-bst/1
- * https://www.codingninjas.com/studio/problems/pair-sum-in-bst._920493
+ * https://www.geeksforgeeks.org/problems/find-a-pair-with-given-target-in-bst/1
+ * https://www.naukri.com/code360/problems/pair-sum-in-bst._920493
  *
  * Solution link :
  * https://www.youtube.com/watch?v=ssL3sHwPeb4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=52

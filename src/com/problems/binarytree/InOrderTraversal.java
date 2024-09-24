@@ -11,7 +11,7 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
- * https://www.codingninjas.com/studio/problems/inorder-traversal_3839605
+ * https://www.naukri.com/code360/problems/inorder-traversal_3839605
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=Z_NEgBgbRVI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=7

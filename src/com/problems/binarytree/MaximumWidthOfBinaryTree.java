@@ -9,8 +9,8 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/maximum-width-of-binary-tree/
- * https://practice.geeksforgeeks.org/problems/maximum-width-of-tree/1
- * https://www.codingninjas.com/studio/problems/maximum-width-in-binary-tree_763671
+ * https://www.geeksforgeeks.org/problems/maximum-width-of-tree/1
+ * https://www.naukri.com/code360/problems/maximum-width-in-binary-tree_763671
  *
  * Solution link :
  * https://www.youtube.com/watch?v=ZbybYvcVLks&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=29

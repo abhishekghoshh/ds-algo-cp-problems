@@ -9,8 +9,8 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
- * https://practice.geeksforgeeks.org/problems/inorder-traversal/1
- * https://www.codingninjas.com/studio/problems/inorder-traversal_3839605
+ * https://www.geeksforgeeks.org/problems/inorder-traversal/1
+ * https://www.naukri.com/code360/problems/inorder-traversal_3839605
  *
  * Solution link :
  * https://www.youtube.com/watch?v=80Zug6D1_r4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=38

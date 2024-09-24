@@ -7,9 +7,9 @@ import java.util.List;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/implementing-ceil-in-bst/1
- * https://www.codingninjas.com/studio/problems/ceil-from-bst_920464
- * 
+ * https://www.geeksforgeeks.org/problems/implementing-ceil-in-bst/1
+ * https://www.naukri.com/code360/problems/ceil-from-bst_920464
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=KSsk8AhdOZA&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=42
  *
