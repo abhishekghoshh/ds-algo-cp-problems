@@ -950,7 +950,7 @@ it is likely to cause TLE in a 1-second time frame.
   - **Topo Sort**
     - [Find Eventual Safe States](/src/com/problems/graph/FindEventualSafeStates.java)
     - [Topological Sort Algorithm](/src/com/problems/graph/TopologicalSort.java)
-    - [Kahn’s Algorithm / Topological Sort Algorithm](/src/com/problems/graph/KahnAlgorithm.java)
+    - [Kahn’s Algorithm / Topological Sort Algorithm using BFS](/src/com/problems/graph/KahnAlgorithm.java)
     - [Cycle Detection in Directed Graph (BFS)](/src/com/problems/graph/CycleDetectionUsingKahnAlgorithm.java)
     - [Course Schedule I & II](/src/com/problems/graph/CourseSchedule.java)
     - [Alien dictionary](/src/com/problems/graph/AlienDictionary.java)

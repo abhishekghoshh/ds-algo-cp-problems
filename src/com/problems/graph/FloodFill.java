@@ -8,8 +8,8 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/flood-fill/
- * https://www.codingninjas.com/studio/problems/flood-fill-_1082141
- * https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/1
+ * https://www.naukri.com/code360/problems/flood-fill-_1082141
+ * https://www.geeksforgeeks.org/problems/flood-fill-algorithm1856/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=C-2_uSRli8o&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=9

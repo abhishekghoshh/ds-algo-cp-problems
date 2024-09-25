@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1
+ * https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1
  * https://www.naukri.com/code360/problems/matrix-chain-multiplication_975344
  * 
  * Solution link :

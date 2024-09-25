@@ -15,6 +15,7 @@ import static com.util.GraphUtil.graphBuilder;
  * https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23
  * 
  * https://takeuforward.org/data-structure/kahns-algorithm-topological-sort-algorithm-bfs-g-22/
+ * https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/
  */
 public class CycleDetectionUsingKahnAlgorithm {
 

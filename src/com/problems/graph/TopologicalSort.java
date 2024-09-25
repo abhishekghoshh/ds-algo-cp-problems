@@ -10,8 +10,8 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/topological-sort/1
- * https://www.codingninjas.com/studio/problems/topological-sorting_973003
+ * https://www.geeksforgeeks.org/problems/topological-sort/1
+ * https://www.naukri.com/code360/problems/topological-sorting_973003
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=5lZ0iJMrUMk&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=21

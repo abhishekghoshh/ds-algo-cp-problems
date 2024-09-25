@@ -10,9 +10,9 @@ import static com.util.PrintUtl.print;
  * https://leetcode.com/problems/course-schedule-ii/
  *
  * https://www.geeksforgeeks.org/problems/prerequisite-tasks/1
- * https://practice.geeksforgeeks.org/problems/course-schedule/1
+ * https://www.geeksforgeeks.org/problems/course-schedule/1
  *
- * https://www.codingninjas.com/studio/problems/course-schedule-ii_1069243
+ * https://www.naukri.com/code360/problems/course-schedule-ii_1069243
  *
  * Solution link :
  * https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23

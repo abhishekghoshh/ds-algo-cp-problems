@@ -9,10 +9,11 @@ import java.util.PriorityQueue;
  * 
  * problem links :
  * https://leetcode.com/problems/find-median-from-data-stream/
- * https://www.codingninjas.com/codestudio/problems/running-median_625409
+ * https://www.naukri.com/code360/problems/running-median_625409
  *
  * Solution link :
  * https://www.youtube.com/watch?v=itmhHWaHupI
+ *
  * */
 public class FindMedianFromDataStream {
 	public static void main(String[] args) {

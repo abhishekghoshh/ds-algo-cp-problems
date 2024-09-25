@@ -33,7 +33,7 @@ public class KthLargestElement {
 	private static void type4() {
 		int[] nums = {1, 4, 6, 2, 8, 5, 3, 9, 0, 7};
 		int k = 3;
-		//because there is a negative number, so you can offset 10000
+		//because there is a negative number, so you can offset 1,0000
 		int max = 10000, min = -10000;
 		int range = max - min + 1;
 		int offset = -min;

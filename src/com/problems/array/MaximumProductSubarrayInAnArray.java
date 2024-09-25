@@ -4,7 +4,7 @@ package com.problems.array;
  *
  * problem links :
  * https://leetcode.com/problems/maximum-product-subarray/description/
- * https://www.codingninjas.com/studio/problems/subarray-with-maximum-product_6890008
+ * https://www.naukri.com/code360/problems/subarray-with-maximum-product_6890008
  *
  *
  * Solution link :

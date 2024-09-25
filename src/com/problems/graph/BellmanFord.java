@@ -7,7 +7,7 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
+ * https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
  * 
  * 
  * Solution link :

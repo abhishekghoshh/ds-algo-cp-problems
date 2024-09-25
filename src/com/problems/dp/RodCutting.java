@@ -1,7 +1,7 @@
 package com.problems.dp;
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
+ * https://www.geeksforgeeks.org/problems/rod-cutting0840/1
  * https://www.naukri.com/code360/problems/rod-cutting-problem_800284
  * 
  * Solution link :

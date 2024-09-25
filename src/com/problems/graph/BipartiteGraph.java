@@ -8,8 +8,8 @@ import java.util.Queue;
 /*
  * Problem link :
  * https://leetcode.com/problems/is-graph-bipartite/
- * https://practice.geeksforgeeks.org/problems/bipartite-graph/1
- * https://www.codingninjas.com/studio/problems/check-bipartite-graph-_920551
+ * https://www.geeksforgeeks.org/problems/bipartite-graph/1
+ * https://www.naukri.com/code360/problems/check-bipartite-graph-_920551
  * 
  * Solution link :
  * BFS:

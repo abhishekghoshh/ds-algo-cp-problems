@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 /*
  * Problem link :
  * https://leetcode.com/problems/kth-largest-element-in-a-stream/
- * https://www.codingninjas.com/studio/problems/kth-largest-element-in-a-stream_800301
+ * https://www.naukri.com/code360/problems/kth-largest-element-in-a-stream_800301
  *
  * Solution link :
  *

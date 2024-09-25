@@ -5,8 +5,8 @@ import java.util.Arrays;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/job-sequencing-problem_1169460
- * https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1#
+ * https://www.naukri.com/code360/problems/job-sequencing-problem_1169460
+ * https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1
  * 
  * Solution video :
  * https://www.youtube.com/watch?v=LjPx4wQaRIs&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=48

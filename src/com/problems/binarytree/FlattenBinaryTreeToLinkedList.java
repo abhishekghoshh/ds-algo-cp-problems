@@ -10,8 +10,8 @@ import static com.util.PrintUtl.preOrder;
 /*
  * Problem link :
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
- * https://practice.geeksforgeeks.org/problems/flatten-binary-tree-to-linked-list/1
- * https://www.codingninjas.com/studio/problems/flatten-binary-tree-to-linked-list_1112615
+ * https://www.geeksforgeeks.org/problems/flatten-binary-tree-to-linked-list/1
+ * https://www.naukri.com/code360/problems/flatten-binary-tree-to-linked-list_1112615
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=sWf7k1x9XR4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=39

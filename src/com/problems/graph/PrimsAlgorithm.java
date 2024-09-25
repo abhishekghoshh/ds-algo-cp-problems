@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1
+ * https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1
  * 
  * 
  * Solution link :

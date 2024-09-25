@@ -4,7 +4,7 @@ import com.util.PrintUtl;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/studio/problems/subset-sum_630213
+ * https://www.naukri.com/code360/problems/subset-sum_630213
  * https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
  * 
  * Solution link :

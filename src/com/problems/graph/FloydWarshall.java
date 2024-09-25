@@ -4,7 +4,7 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1
+ * https://www.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=YbY8cVwWAvw&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=42
@@ -32,7 +32,7 @@ public class FloydWarshall {
 		type2();
 	}
 
-	private static int INF = Integer.MAX_VALUE;
+	private static final int INF = Integer.MAX_VALUE;
 
 	// without transforming the array
 	// just like the previous type

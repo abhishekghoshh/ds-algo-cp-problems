@@ -11,8 +11,11 @@ import java.util.List;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=9twcmtQj4DU&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=19
+ *
+ * https://www.youtube.com/watch?v=uzVUw90ZFIg&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=15
  * 
- * https://takeuforward.org/data-structure/detect-cycle-in-a-directed-graph-using-dfs-g-19/ 
+ * https://takeuforward.org/data-structure/detect-cycle-in-a-directed-graph-using-dfs-g-19/
+ * https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/
  */
 
 public class CycleDetectionInDirectedGraph {

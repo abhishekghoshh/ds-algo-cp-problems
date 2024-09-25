@@ -4,6 +4,8 @@ package com.problems.dp;
  * Problem link :
  * https://www.interviewbit.com/problems/0-1-knapsack/
  * https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
+ * https://www.naukri.com/code360/problems/0-1-knapsack_920542
+ * https://www.naukri.com/code360/problems/1072980
  * 
  * Solution link :
  * Aditya verma

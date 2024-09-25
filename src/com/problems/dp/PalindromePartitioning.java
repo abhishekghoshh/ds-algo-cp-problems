@@ -4,6 +4,7 @@ package com.problems.dp;
  * Problem link :
  * https://leetcode.com/problems/palindrome-partitioning-ii/
  * https://www.naukri.com/code360/problems/palindrome-partitioning_873266
+ * https://www.geeksforgeeks.org/problems/palindromic-patitioning4845/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=35
@@ -66,7 +67,7 @@ public class PalindromePartitioning {
 				dp[i] = 0;
 				continue;
 			}
-			// if not then we will break it
+			// if not, then we will break it
 			int minCost = Integer.MAX_VALUE;
 			for (int j = i; j < n; j++) {
 				if (pal[i][j]) {
