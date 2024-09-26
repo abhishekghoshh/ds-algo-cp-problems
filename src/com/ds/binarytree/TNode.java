@@ -3,7 +3,7 @@ package com.ds.binarytree;
 import java.util.Arrays;
 
 public class TNode {
-    public static int NULL = Integer.MIN_VALUE;
+    public static final int NULL = Integer.MIN_VALUE;
     public int data;
     public TNode left, right, next;
 

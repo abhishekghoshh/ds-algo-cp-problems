@@ -3,6 +3,7 @@ package com.problems.dp;
 /*
  * Problem link :
  * https://leetcode.com/problems/super-egg-drop/
+ * https://www.geeksforgeeks.org/problems/egg-dropping-puzzle-1587115620/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=S49zeUjeUL0&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=42

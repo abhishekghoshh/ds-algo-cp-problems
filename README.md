@@ -369,6 +369,7 @@ it is likely to cause TLE in a 1-second time frame.
     - dynamic-programming
   - [Container With Most Water](/src/com/problems/slidingwindow/ContainerWithMostWater.java)
   - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
+  - [Count Distinct Elements In Every Window](/src/com/problems/slidingwindow/CountDistinctElementsInEveryWindow.java)
 
 
 ### hashing
@@ -807,6 +808,8 @@ it is likely to cause TLE in a 1-second time frame.
     - [Longest Bitonic Subsequence](/src/com/problems/dp/LongestBitonicSubsequence.java)
     - [Number of Longest Increasing Subsequences](/src/com/problems/dp/NumberOfLongestIncreasingSubsequence.java)
     - [Maximum Total Damage With Spell Casting](/src/com/problems/dp/MaximumTotalDamageWithSpellCasting.java)
+    - [Max Sum Increasing Subsequence](/src/com/problems/dp/MaxSumIncreasingSubsequence.java)
+    - [Max Sum Increasing Subsequence of length k](/src/com/problems/dp/MaxSumIncreasingSubsequenceOfLengthK.java)
   - **DP on stocks**
     - [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
     - [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
