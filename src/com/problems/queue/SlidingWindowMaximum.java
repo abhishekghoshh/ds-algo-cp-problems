@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /*
  * Problem link :
  * https://leetcode.com/problems/sliding-window-maximum/description/
- * https://www.codingninjas.com/studio/problems/sliding-maximum-_701652
+ * https://www.naukri.com/code360/problems/sliding-maximum-_701652
  *
  * Solution link :
  * https://www.youtube.com/watch?v=CZQGRp93K4k

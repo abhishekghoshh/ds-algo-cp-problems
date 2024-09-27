@@ -7,11 +7,12 @@ import java.util.Stack;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
+ * https://www.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=R6uoSjZ2imo&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=54
- * 
+ *
+ * https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings/solutions/766485/kosaraju-algorithm-on/
  * https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/
  */
 public class KosarajusAlgorithm {
