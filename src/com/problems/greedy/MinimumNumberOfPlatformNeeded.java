@@ -73,7 +73,7 @@ public class MinimumNumberOfPlatformNeeded {
 			}
 			if (answer < platform) answer = platform;
 		}
-		// loop will stop when arrivingTrain = n
+		// loop will stop when arrivingTrain = n,
 		// so we will not need any new platform
 		System.out.println("max platform needed " + answer);
 	}

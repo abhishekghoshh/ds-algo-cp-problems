@@ -8,10 +8,10 @@ import java.util.List;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/1062658
- * https://www.codingninjas.com/studio/problems/maximum-meetings_1062658
- * https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
- * 
+ * https://leetcode.com/problems/meeting-rooms/description/
+ * https://www.naukri.com/code360/problems/1062658
+ * https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
+ *
  * Solution video :
  * https://www.youtube.com/watch?v=II6ziNnub1Q&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=46
  *

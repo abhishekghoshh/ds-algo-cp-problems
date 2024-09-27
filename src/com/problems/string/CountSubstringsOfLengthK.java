@@ -6,6 +6,8 @@ package com.problems.string;
  *
  * Solution link :
  *
+ * Topics:
+ * string, sliding-window
  */
 public class CountSubstringsOfLengthK {
     public static void main(String[] args) {

@@ -1,14 +1,16 @@
 package com.problems.string;
 
 /*
- * Problem link :
+ * Problem link:
  * https://leetcode.com/problems/string-to-integer-atoi/
  * https://www.naukri.com/code360/problems/981270
  *
- * Solution link :
+ * Solution link:
  * https://www.youtube.com/watch?v=FyTpsuWAoc8
  * https://www.youtube.com/watch?v=gLW6DD59ZaM
- * 
+ *
+ * Topics:
+ * string, recursion
  */
 public class StringToInteger {
 

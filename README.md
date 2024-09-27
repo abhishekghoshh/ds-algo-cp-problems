@@ -433,6 +433,8 @@ it is likely to cause TLE in a 1-second time frame.
 ### string
 
 - **codes**
+  - [Encode and Decode Strings](/src/com/problems/string/EncodeAndDecodeStrings.java)
+  - [Decode String](/src/com/problems/string/DecodeString.java)
   - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)
   - [Remove Outermost Parentheses](/src/com/problems/string/RemoveOutermostParentheses.java)
   - [Reverse Words in a String](/src/com/problems/string/ReverseWordsInString.java)
@@ -448,9 +450,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Roman to Integer](/src/com/problems/string/RomanToInteger.java)
   - [Integer to Roman](/src/com/problems/string/IntegerToRoman.java)
   - [Implement Atoi](/src/com/problems/string/StringToInteger.java)
-    - recursion
   - [Count With K Different Characters](/src/com/problems/string/CountSubstringsOfLengthK.java)
-    - sliding-window
   - [Sum of Beauty of All Substrings](/src/com/problems/string/SumOfBeautyOfAllSubstrings.java)
   - [Minimum Add to Make Parentheses Valid](/src/com/problems/string/MinimumAddToMakeParenthesesValid.java)
   - [Count and Say](/src/com/problems/string/CountAndSay.java)
@@ -731,6 +731,8 @@ it is likely to cause TLE in a 1-second time frame.
   - [Lemonade Change](/src/com/problems/greedy/LemonadeChange.java)
   - [Valid Parenthesis String with escape character(*)](/src/com/problems/greedy/ValidParenthesisStringWithEscapeCharacter.java)
   - [N meetings in one room](/src/com/problems/greedy/NMeetingsInOneRoom.java)
+  - [Meeting Rooms](/src/com/problems/greedy/NMeetingRooms1.java)
+  - [Meeting Rooms II](/src/com/problems/greedy/NMeetingRooms2.java)
   - [Minimum number of platforms required for a railway](/src/com/problems/greedy/MinimumNumberOfPlatformNeeded.java)
   - [Job Sequencing Problem](/src/com/problems/greedy/JobSchedulingProblem.java)
   - [Shortest Job First (or SJF) CPU Scheduling](/src/com/problems/greedy/ShortestJobFirstSchedulingAlgorithm.java)
@@ -938,6 +940,7 @@ it is likely to cause TLE in a 1-second time frame.
     - [Clone Graph](/src/com/problems/graph/CloneGraph.java)
     - [Breadth First Search (BFS): Level Order Traversal](/src/com/problems/graph/BreadthFirstSearchOfGraph.java)
     - [Depth First Search](/src/com/problems/graph/DepthFirstSearchOfGraph.java)
+    - [Graph valid tree](/src/com/problems/graph/GraphValidTree.java)
     - [Number of Provinces](/src/com/problems/graph/ConnectedComponents.java)
     - [Number of Islands](/src/com/problems/graph/NumberOfIslands.java)
     - [Flood Fill](/src/com/problems/graph/FloodFill.java)
