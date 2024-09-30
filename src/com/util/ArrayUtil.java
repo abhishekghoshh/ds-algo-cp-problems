@@ -1,5 +1,8 @@
 package com.util;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 public class ArrayUtil {
@@ -53,4 +56,10 @@ public class ArrayUtil {
         for (int item : arr) stack.push(item);
         return stack;
     }
+
+    @SafeVarargs
+    public static <T> List<T> list(T... arr) {
+        return new ArrayList<>(Arrays.asList(arr));
+    }
+
 }
