@@ -87,6 +87,7 @@ it is likely to cause TLE in a 1-second time frame.
 - [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy_in_Java.pdf)
 - [Data Structures And Algorithms Made Easy](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
 - [Introduction to Algorithms fourth edition by Cormen](./pdf/Introduction_to_Algorithms_4th_edition_by_Cormen.pdf)
+- [Computer Algorithms by Horowitz and Sahani](./pdf/horowitz-and-sahani-fundamentals-of-computer-algorithms-2nd-edition.pdf)
 
 ### A-Z DSA sheets
 
