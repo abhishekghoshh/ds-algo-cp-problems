@@ -371,6 +371,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Container With Most Water](/src/com/problems/slidingwindow/ContainerWithMostWater.java)
   - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
   - [Count Distinct Elements In Every Window](/src/com/problems/slidingwindow/CountDistinctElementsInEveryWindow.java)
+  - [Count Substrings With K-Frequency Characters I](/src/com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java)
 
 
 ### hashing
@@ -465,6 +466,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Longest happy prefix](/src/com/problems/string/LongestHappyPrefix.java)
   - [Find the index of first occurrence of a word in a string](/src/com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)
   - [Splitting string into descending consecutive values](/src/com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java)
+  - [Find the Sequence of Strings Appeared on the Screen](/src/com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
 
 
 ### linked-list
