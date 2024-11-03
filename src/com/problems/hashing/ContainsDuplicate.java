@@ -6,11 +6,17 @@ import java.util.Set;
 /*
  * Problem link :
  * https://leetcode.com/problems/contains-duplicate/description/
+ * https://neetcode.io/problems/duplicate-integer
  *
  * Solution link :
  *
  * https://takeuforward.org/data-structure/contains-duplicate-check-if-a-value-appears-atleast-twice/
  */
+
+/*
+ * Tags:
+ * Array, Hashing
+ * */
 public class ContainsDuplicate {
     public static void main(String[] args) {
         type1();

@@ -2,15 +2,19 @@ package com.problems.string;
 /*
  * Problem link :
  * https://leetcode.com/problems/valid-anagram/
- * https://www.codingninjas.com/codestudio/problems/1172164
- * https://www.codingninjas.com/studio/problems/anagram-pairs_626517
+ * https://neetcode.io/problems/is-anagram
+ * https://www.naukri.com/code360/problems/1172164
+ * https://www.naukri.com/code360/problems/anagram-pairs_626517
  *
  * Solution link :
  *
  *
  * https://takeuforward.org/data-structure/check-if-two-strings-are-anagrams-of-each-other/
  */
-
+/*
+ * Tags:
+ * Array, Hashing
+ * */
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,44 +25,52 @@ public class CheckForAnagrams {
 		type2();
 	}
 
+	// same as previous
+	// here we are using the freq array as map
 	private static void type2() {
 		String s = "anagram";
 		String t = "nagaram";
-//		if (s.length() != t.length())  return false;
+		boolean isAnagram = isAnagram2(s, t);
+		System.out.println(isAnagram);
+	}
+
+	private static boolean isAnagram2(String s, String t) {
+		if (s.length() != t.length()) return false;
 		char[] arr1 = s.toCharArray();
 		char[] arr2 = t.toCharArray();
 		int[] freq = new int[26];
 		for (int i = 0; i < arr1.length; i++) {
+			// adding freq to the map
 			freq[arr1[i] - 'a']++;
+			// decreasing frequency to the map
 			freq[arr2[i] - 'a']--;
 		}
-		boolean isAnagram = true;
-		for (int count : freq) {
-			if (count != 0) {
-				isAnagram = false;
-				break;
-			}
+		for (int f : freq) {
+			if (f != 0) return false;
 		}
-		System.out.println(isAnagram);
+		return true;
 	}
 
 
 	private static void type1() {
 		String s = "anagram";
 		String t = "nagaram";
-		//		if (s.length() != t.length())  return false;
-		char[] arr1 = s.toCharArray();
-		char[] arr2 = t.toCharArray();
-		Map<Character, Integer> freq = new HashMap<>();
-		for (char ch : arr1) freq.put(ch, freq.getOrDefault(ch, 0) + 1);
-		for (char ch : arr2) freq.put(ch, freq.getOrDefault(ch, 0) - 1);
-		boolean isAnagram = true;
-		for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
-			if (entry.getValue() != 0) {
-				isAnagram = false;
-				break;
-			}
-		}
+		boolean isAnagram = isAnagram1(s, t);
 		System.out.println(isAnagram);
+	}
+
+	private static boolean isAnagram1(String s, String t) {
+		if (s.length() != t.length()) return false;
+		Map<Character, Integer> freq = new HashMap<>();
+		// adding freq to the map
+		for (char ch : s.toCharArray())
+			freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+		// decreasing frequency to the map
+		for (char ch : t.toCharArray())
+			freq.put(ch, freq.getOrDefault(ch, 0) - 1);
+		// checking if any character has any value other than 0
+		for (Map.Entry<Character, Integer> entry : freq.entrySet())
+			if (entry.getValue() != 0) return false;
+		return true;
 	}
 }

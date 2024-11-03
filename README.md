@@ -84,6 +84,7 @@ it is likely to cause TLE in a 1-second time frame.
 
 ### PDF
 
+- [Cracking the Coding Interview](./pdf/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf)
 - [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy_in_Java.pdf)
 - [Data Structures And Algorithms Made Easy](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
 - [Introduction to Algorithms fourth edition by Cormen](./pdf/Introduction_to_Algorithms_4th_edition_by_Cormen.pdf)
@@ -657,6 +658,8 @@ it is likely to cause TLE in a 1-second time frame.
   - [K-th Nearest Obstacle Queries](/src/com/problems/heap/KthNearestObstacleQueries.java)
   - [Sum of elements between k1'th and k2'th smallest elements](/src/com/problems/heap/SumBetweenK1thSmallestAndK2thSmallest.java)
   - [Find K Pairs with Smallest Sums](/src/com/problems/heap/FindKPairsWithSmallestSums.java)
+  - [Find Minimum Time to Reach Last Room I](/src/com/problems/heap/FindMinimumTimeToReachLastRoom1.java)
+  - [Find Minimum Time to Reach Last Room II](/src/com/problems/heap/FindMinimumTimeToReachLastRoom2.java)
 
 
 ### bit-manipulation

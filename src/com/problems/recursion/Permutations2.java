@@ -16,6 +16,7 @@ public class Permutations2 {
 
     // it is from the permutation1 problem
     // check all the solutions of permutation1
+    // digits are strictly in this range -10 <= d <= 10
     private static void type1() {
         int[] nums = {1, 1, 2};
         List<List<Integer>> ans = permuteUnique(nums);
