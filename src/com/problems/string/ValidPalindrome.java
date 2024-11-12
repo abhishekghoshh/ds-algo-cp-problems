@@ -4,9 +4,18 @@ package com.problems.string;
  * 
  * problem links :
  * https://leetcode.com/problems/valid-palindrome/
+ * https://neetcode.io/problems/is-palindrome
  * 
  * Solution link : 
  * 
+ * */
+
+import static java.lang.Character.isLetterOrDigit;
+import static java.lang.Character.toLowerCase;
+
+/*
+ * Tags:
+ * Two-Pointers
  * */
 public class ValidPalindrome {
 
@@ -15,24 +24,29 @@ public class ValidPalindrome {
 		type2();
 	}
 
+	// we will directly check it from the array
 	private static void type2() {
 		String s = "A man, a plan, a canal: Panama";
+		boolean isPalindrome = isPalindrome2(s);
+		System.out.println(isPalindrome);
+	}
+
+	private static boolean isPalindrome2(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
 		int left = 0, right = n - 1;
 		boolean isPalindrome = true;
 		while (left < right) {
 			// skipping left and right until we find any digit or letter
-			while (left < n && !Character.isLetterOrDigit(arr[left])) left++;
-			while (right >= 0 && !Character.isLetterOrDigit(arr[right])) right--;
-			if (left < right && Character.toLowerCase(arr[left]) != Character.toLowerCase(arr[right])) {
-				isPalindrome = false;
-				break;
-			}
+			while (left < n && !isLetterOrDigit(arr[left])) left++;
+			while (right >= 0 && !isLetterOrDigit(arr[right])) right--;
+			// checking both the character on left and right sides
+			if (left < right && toLowerCase(arr[left]) != toLowerCase(arr[right]))
+				return false;
 			left++;
 			right--;
 		}
-		System.out.println(isPalindrome);
+		return isPalindrome;
 	}
 
 	private static void type1() {
@@ -43,15 +57,16 @@ public class ValidPalindrome {
 
 	public static boolean isPalindrome(String s) {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < s.length(); i++) {
-			if (Character.isLetter(s.charAt(i)))
-				sb.append(Character.toLowerCase(s.charAt(i)));
-			if (Character.isDigit(s.charAt(i)))
-				sb.append(s.charAt(i));
+		for (char ch : s.toCharArray()) {
+			// if it is letter then add it
+			if (Character.isLetter(ch))
+				sb.append(toLowerCase(ch));
+			// if it is digit then add it
+			if (Character.isDigit(ch))
+				sb.append(ch);
 		}
-		StringBuilder sbc = new StringBuilder(sb);
-		sbc.reverse();
-		return sb.toString().contentEquals(sbc);
+		StringBuilder reversed = new StringBuilder(sb).reverse();
+		return sb.compareTo(reversed) == 0;
 	}
 
 }

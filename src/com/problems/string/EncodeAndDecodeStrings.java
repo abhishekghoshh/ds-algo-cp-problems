@@ -14,6 +14,10 @@ import java.util.List;
  * https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c
  *
  */
+/*
+ * Tags:
+ * Array, Hashing
+ * */
 public class EncodeAndDecodeStrings {
     public static void main(String[] args) {
         type1();
@@ -30,19 +34,23 @@ public class EncodeAndDecodeStrings {
 
     private static final String LS = ">>&&<<";
 
-    public static String encode(List<String> strs) {
-        if (strs.isEmpty()) return null;
+    public static String encode(List<String> list) {
+        // if the list is empty then we will return null;
+        if (list.isEmpty()) return null;
         StringBuilder sb = new StringBuilder();
-        int n = strs.size();
+        int n = list.size();
         for (int i = 0; i < n; i++) {
-            sb.append(strs.get(i));
+            sb.append(list.get(i));
+            // we will only append the separator if it is not the last element
             if (i != n - 1) sb.append(LS);
         }
         return sb.toString();
     }
 
     public static List<String> decode(String str) {
+        // if the string is null then we will return and empty list
         if (null == str) return List.of();
+        // else we will split the string based one separator
         return List.of(str.split(LS));
     }
 }

@@ -7,11 +7,16 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/top-k-frequent-elements
- * https://www.codingninjas.com/studio/problems/k-most-frequent-elements_3167808
+ * https://www.naukri.com/code360/problems/k-most-frequent-elements_3167808
+ * https://neetcode.io/problems/top-k-elements-in-list
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6
  * 
+ * */
+/*
+ * Tags:
+ * Array, Hashing
  * */
 public class KMostFrequentElements {
 	public static void main(String[] args) {
@@ -19,44 +24,6 @@ public class KMostFrequentElements {
 		type2();
 		type3();
 		type4();
-		type5();
-	}
-
-	// TODO check it later
-	// not explainable in the interview
-	private static void type5() {
-		int[] nums = {1, 1, 1, 2, 2, 3};
-		int k = 2;
-
-		int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-		for (int num : nums) {
-			if (num > max) max = num;
-			else if (num < min) min = num;
-		}
-		int range = max - min + 1;
-		int[] freq = new int[range];
-		for (int num : nums) freq[num - min]++;
-
-		List<Integer>[] buckets = new List[nums.length + 1];
-		for (int i = 0; i < range; i++) {
-			int num = i + min;
-			int frequency = freq[i];
-			if (buckets[frequency] == null)
-				buckets[frequency] = new ArrayList<>();
-			buckets[frequency].add(num);
-		}
-
-		int[] result = new int[k];
-		for (int i = buckets.length - 1; k > 0; i--) {
-			if (buckets[i] != null) {
-				for (int num : buckets[i]) {
-					k -= 1;
-					result[k] = num;
-					if (k == 0) break;
-				}
-			}
-		}
-		print(result);
 	}
 
 	// same as previous
@@ -66,6 +33,11 @@ public class KMostFrequentElements {
 	private static void type4() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
+		int[] answer = topKFrequent4(nums, k);
+		print(answer);
+	}
+
+	private static int[] topKFrequent4(int[] nums, int k) {
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
 		for (int i : nums) {
@@ -73,23 +45,33 @@ public class KMostFrequentElements {
 			if (i > max) max = i;
 		}
 		// we are using a frequency array instead of a map
-		int[] freq = new int[max - min + 1];
-		for (int i : nums) freq[i - min]++;
-		PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> freq[a]));
+		int offset = -min, N = max - min + 1;
+		int[] freq = new int[N];
+		for (int i : nums) freq[i + offset]++;
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.comparingInt(num -> freq[num]));
 		for (int i = 0; i < freq.length; i++) {
 			minHeap.offer(i);
 			if (minHeap.size() > k) minHeap.poll();
 		}
 		int[] answer = new int[k];
-		for (int i = k - 1; i >= 0; i--) answer[i] = minHeap.poll() + min;
-		print(answer);
+		// adding to the ans array from the back
+		while (!minHeap.isEmpty()) answer[--k] = minHeap.poll() - offset;
+		return answer;
 	}
 
 	// Same as the previous type
 	// just here we are using the frequency array to store the count
+	// this has some disadvantages like if one number is if the min is -99999 and max 99999
+	// but most of the elements belongs to -100 to 100
+	// then will waste multiple spaces by creating a large frequency array
 	private static void type3() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
+		int[] answer = topKFrequent3(nums, k);
+		print(answer);
+	}
+
+	private static int[] topKFrequent3(int[] nums, int k) {
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
 		for (int i : nums) {
@@ -97,16 +79,19 @@ public class KMostFrequentElements {
 			if (i > max) max = i;
 		}
 		// we are using a frequency array instead of a map
-		int[] freq = new int[max - min + 1];
-		for (int i : nums) freq[i - min]++;
-		PriorityQueue<Pair> minHeap = new PriorityQueue<>(Comparator.comparing(pair -> pair.second));
+		int offset = -min, N = max - min + 1;
+		int[] freq = new int[N];
+		for (int i : nums) freq[i + offset]++;
+		// we will use a min heap, so that element with lower frequency will be popped out
+		PriorityQueue<Pair> minHeap = new PriorityQueue<>(Comparator.comparing(pair -> pair.f));
 		for (int i = 0; i < freq.length; i++) {
 			minHeap.offer(new Pair(i, freq[i]));
 			if (minHeap.size() > k) minHeap.poll();
 		}
 		int[] answer = new int[k];
-		for (int i = k - 1; i >= 0; i--) answer[i] = minHeap.poll().first + min;
-		print(answer);
+		// adding to the ans array from the back
+		while (!minHeap.isEmpty()) answer[--k] = minHeap.poll().num - offset;
+		return answer;
 	}
 
 	// Using heap
@@ -114,12 +99,17 @@ public class KMostFrequentElements {
 	private static void type2() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
+		int[] answer = topKFrequent2(nums, k);
+		print(answer);
+	}
+
+	private static int[] topKFrequent2(int[] nums, int k) {
 		Map<Integer, Integer> freq = new HashMap<>();
 		// first we will calculate all the frequency
 		for (int item : nums)
 			freq.put(item, freq.getOrDefault(item, 0) + 1);
-
-		PriorityQueue<Pair> minHeap = new PriorityQueue<>(Comparator.comparing(pair -> pair.second));
+		// we will use a min heap, so that element with lower frequency will be popped out
+		PriorityQueue<Pair> minHeap = new PriorityQueue<>(Comparator.comparing(pair -> pair.f));
 		// now we will store the num and its count to the minHeap
 		// to get the k highest frequent numbers
 		for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
@@ -127,39 +117,48 @@ public class KMostFrequentElements {
 			if (minHeap.size() > k) minHeap.poll();
 		}
 		int[] answer = new int[k];
-		for (int i = k - 1; i >= 0; i--) answer[i] = minHeap.poll().first;
-		print(answer);
+		// adding to the ans array from the back
+		while (!minHeap.isEmpty()) answer[--k] = minHeap.poll().num;
+		return answer;
 	}
 
 	// Brute force approach
 	private static void type1() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
-		Map<Integer, Integer> freq = new HashMap<>();
-		// at first we will calculate all the frequency
-		for (int item : nums)
-			freq.put(item, freq.getOrDefault(item, 0) + 1);
+		int[] answer = topKFrequent1(nums, k);
+		print(answer);
+	}
 
+	private static int[] topKFrequent1(int[] nums, int k) {
+		Map<Integer, Integer> freq = new HashMap<>();
+		// at first, we will calculate all the frequency
+		for (int num : nums)
+			freq.put(num, freq.getOrDefault(num, 0) + 1);
+
+		// creating a pair list of num and frequency of the num
 		Pair[] pairs = new Pair[freq.size()];
 		int i = 0;
 		for (Map.Entry<Integer, Integer> entry : freq.entrySet())
 			pairs[i++] = new Pair(entry.getKey(), entry.getValue());
-		Arrays.sort(pairs, (p1, p2) -> p2.second - p1.second);
+		// sorting the pair array based on the frequency in decreasing order
+		Arrays.sort(pairs, (p1, p2) -> p2.f - p1.f);
 		int[] answer = new int[k];
-		for (i = 0; i < k; i++) answer[i] = pairs[i].first;
-		print(answer);
+		// now taking only the first k items from the pairs array
+		for (i = 0; i < k; i++) answer[i] = pairs[i].num;
+		return answer;
 	}
 
 	static class Pair {
-		public int first, second;
+		public int num, f;
 
-		public Pair(int first, int second) {
-			this.first = first;
-			this.second = second;
+		public Pair(int num, int f) {
+			this.num = num;
+			this.f = f;
 		}
 
 		public String toString() {
-			return "[" + first + "," + second + "]";
+			return "[" + num + "," + f + "]";
 		}
 	}
 

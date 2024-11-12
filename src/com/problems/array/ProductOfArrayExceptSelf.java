@@ -5,7 +5,15 @@ import com.util.PrintUtl;
 /*
  * Problem links:
  * https://leetcode.com/problems/product-of-array-except-self/
+ * https://neetcode.io/problems/products-of-array-discluding-self
+ *
  * Solution link :
+ *
+ *
+ * */
+/*
+ * Tags:
+ * Array, Hashing
  * */
 public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
@@ -70,6 +78,7 @@ public class ProductOfArrayExceptSelf {
             right[i] = nums[i] * (i < n - 1 ? right[i + 1] : 1);
         }
         // calculating the ans
+        // multiplying the both side
         for (int i = 0; i < n; i++) {
             ans[i] *= (i > 0 ? left[i - 1] : 1);
             ans[i] *= (i < n - 1 ? right[i + 1] : 1);

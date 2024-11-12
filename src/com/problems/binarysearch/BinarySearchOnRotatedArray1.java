@@ -2,7 +2,8 @@ package com.problems.binarysearch;
 
 /*
  * Problem link : 
- * https://leetcode.com/problems/search-in-rotated-sorted-array/
+ * https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+ * https://neetcode.io/problems/find-target-in-rotated-sorted-array
  * https://www.naukri.com/code360/problems/630450
  * https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554
  * 
@@ -11,7 +12,11 @@ package com.problems.binarysearch;
  * https://www.youtube.com/watch?v=r3pMQ8-Ad5s&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=65
  * https://www.youtube.com/watch?v=Id-DdcWb5AU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=8
  *
+ * Blogs :
  * https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/
+ *
+ * Tags :
+ * Binary-Search
  * */
 public class BinarySearchOnRotatedArray1 {
 

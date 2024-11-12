@@ -8,7 +8,13 @@ package com.problems.binarysearch;
  * Solution is :
  * https://www.youtube.com/watch?v=w2G2W8l__pc&t=1s
  *
+ *
+ * Blogs :
  * https://takeuforward.org/arrays/search-element-in-rotated-sorted-array-ii/
+ *
+ *
+ * Tags :
+ * Binary-Search
  * */
 public class BinarySearchOnRotatedArray2 {
     public static void main(String[] args) {

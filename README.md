@@ -340,8 +340,9 @@ it is likely to cause TLE in a 1-second time frame.
     - two-pointer
     - stack
     - dynamic-programming
-  - **others**
-    - [Find the Count of Monotonic Pairs I](/src/com/problems/array/FindTheCountOfMonotonicPairs.java)
+  - [Find the Count of Monotonic Pairs I](/src/com/problems/array/FindTheCountOfMonotonicPairs.java)
+  - [Adjacent Increasing Subarrays Detection I](/src/com/problems/array/AdjacentIncreasingSubarraysDetection1.java)
+  - [Adjacent Increasing Subarrays Detection II](/src/com/problems/array/AdjacentIncreasingSubarraysDetection2.java)
 
 
 ### sliding-window
