@@ -843,6 +843,7 @@ it is likely to cause TLE in a 1-second time frame.
     - [Word Break](/src/com/problems/dp/WordBreak.java)
     - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
     - [Minimum Cost for Cutting Cake I](/src/com/problems/dp/MinimumCostForCuttingCakeI.java)
+    - [Sum of Good Subsequences](/src/com/problems/dp/SumOfGoodSubsequences.java)
 
 ### meet-in-the-middle
 

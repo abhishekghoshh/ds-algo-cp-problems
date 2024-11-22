@@ -40,6 +40,7 @@ public class MinimumCostForCuttingCakeI {
     }
 
     // recursion with memoization
+    // check the question first then the intuition
     private static void type1() {
         int m = 3, n = 2;
         int[] horizontalCut = {1, 3}, verticalCut = {5};
