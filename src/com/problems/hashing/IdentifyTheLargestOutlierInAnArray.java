@@ -14,6 +14,14 @@ public class IdentifyTheLargestOutlierInAnArray {
         type2();
     }
 
+    // optimized approach
+    // very good example of hashing
+    // the numbers are like [a,b,c,d, sum, outlier]
+    // if we count the total and subtract outlier then we will get 2*sum,
+    // so we will use a set, store all the numbers and then check if (total-outlier)/2 present in the set or not
+    // but there can but some edge cases like total-outlier is not even
+    // also outlier can be equal to the computed sum, at that time we have to check if the freq of the outlier is >= 2
+    // then there might be more than one answer, so we will store all the numbers in an array and then return the max
     private static void type2() {
         int[] nums = {-2, -1, -3, -6, 4};
         int ans = getLargestOutlier2(nums);
@@ -39,7 +47,7 @@ public class IdentifyTheLargestOutlierInAnArray {
         return Collections.max(potentialOutliers);
     }
 
-    //
+    // brute force approach
     private static void type1() {
 
     }
