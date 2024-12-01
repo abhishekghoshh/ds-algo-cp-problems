@@ -230,6 +230,7 @@ it is likely to cause TLE in a 1-second time frame.
 ### logic building
 - **codes**
   - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
+  - [Smallest Number With All Set Bits](/src/com/problems/logicbuilding/SmallestNumberWithAllSetBits.java)
 
 ### math
 - **codes**
@@ -384,6 +385,7 @@ it is likely to cause TLE in a 1-second time frame.
   - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
   - [Frequencies of Limited Range Array Elements](/src/com/problems/hashing/FrequenciesOfLimitedRangeArrayElements.java)
   - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
+  - [Identify the Largest Outlier in an Array](/src/com/problems/hashing/IdentifyTheLargestOutlierInAnArray.java)
 
 ### binary-search
 
@@ -1003,6 +1005,8 @@ it is likely to cause TLE in a 1-second time frame.
   - **others**
     - [Count the Number of Houses at a Certain Distance I](/src/com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java)
     - [Frog Position After T Seconds](/src/com/problems/graph/FrogPositionAfterTSeconds.java)
+    - [Maximize the Number of Target Nodes After Connecting Trees I](/src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees1.java)
+    - [Maximize the Number of Target Nodes After Connecting Trees II](/src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees2.java)
 
 ### segment-tree  
 
@@ -1105,5 +1109,4 @@ it is likely to cause TLE in a 1-second time frame.
   - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
   - [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
   - [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
-
 
