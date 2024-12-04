@@ -20,6 +20,11 @@ it is likely to cause TLE in a 1-second time frame.
 - O(2^N) and O(N!): This is considered a relatively small value, and algorithms with a time complexity of O(2^N)
   where n≤10 are often accepted.Generally not acceptable for any significant input size due to their rapid growth.
 
+#### Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
+
 ## Table of contents
-- [resources](./resources/resources.md)
-- [prerequisites](./resources/prerequisites.md)
+- [resources](/resources/resources.md)
+- [prerequisites](/resources/prerequisites.md)
+- [math](/resources/maths.md)
+- [arrays and hashing](/resources/array-and-hashing.md)
+- [two pointers]

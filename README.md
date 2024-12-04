@@ -1,31 +1,5 @@
 
-
-[README.md](README.md)
-
-
-
 ## Algorithm & Data Structures
-
-
-### array
-
-- **codes**
-  - [Dynamic array](/src/com/ds/array/Array.java)
-
-### sorting
-
-- **codes**
-  - [Swap sort](/src/com/algo/sort/SwapSort.java)
-  - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
-  - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
-  - [Insertion sort](/src/com/algo/sort/InsertionSort.java)
-  - [Recursive Insertion sort](/src/com/algo/sort/RecursiveInsertionSort.java)
-  - [Selection sort](/src/com/algo/sort/SelectionSort.java)
-  - [Quick sort](/src/com/algo/sort/QuickSort.java)
-  - [Merge sort](/src/com/algo/sort/MergeSort.java)
-  - [Count sort](/src/com/algo/sort/CountSort.java)
-  - [Radix sort](/src/com/algo/sort/RadixSort.java)
-  - [Heap sort](/src/com/algo/sort/HeapSort.java)
 
 
 ### string
@@ -71,16 +45,6 @@
   - [Heap](/src/com/ds/heap/Heap.java)
 
 
-### hash-table
-- **resources**
-  - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
-- **codes**
-  - [doc](/src/com/ds/hashtable/README.md)
-  - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
-  - [Open addressing](/src/com/ds/hashtable/HashTableOpenAddressingBase.java)
-    - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
-
-
 
 
 ### Union find algorithm
@@ -107,24 +71,6 @@
 - **codes**
   - [AVL Tree](/src/com/ds/balancedbinarytree/AVLTree.java)
   - [Red-Black Tree](/src/com/ds/balancedbinarytree/RedBlackTree.java)
-
-## Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
-
-### logic building
-- **codes**
-  - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
-  - [Smallest Number With All Set Bits](/src/com/problems/logicbuilding/SmallestNumberWithAllSetBits.java)
-
-### math
-- **codes**
-  - [Count Digits](/src/com/problems/math/CountDigits.java)
-  - [Reverse Integer](/src/com/problems/math/ReverseInteger.java)
-  - [Palindrome Number](/src/com/problems/math/PalindromeNumber.java)
-  - [GCD Or HCF](/src/com/problems/math/GCDAndLCM.java)
-  - [Armstrong Numbers](/src/com/problems/math/ArmstrongNumbers.java)
-  - [Print all Divisors](/src/com/problems/prime/AllDivisorsOfANumber.java)
-  - [Sum of all divisors from 1 to n](/src/com/problems/math/SumOfAllDivisorsFrom1ToN.java)
-  - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)
 
 
 ### array
@@ -259,17 +205,7 @@
   - [Count Distinct Elements In Every Window](/src/com/problems/slidingwindow/CountDistinctElementsInEveryWindow.java)
   - [Count Substrings With K-Frequency Characters I](/src/com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java)
 
-
-### hashing
-- **resources**
-  - [Hashing | Maps | Time Complexity | Collisions | Division Rule of Hashing | Strivers A2Z DSA Course](https://www.youtube.com/watch?v=KEs5UyBJ39g)
-- **codes**
-  - [Hashing theory](/src/com/problems/hashing/HashingTheory.java)
-  - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
-  - [Frequencies of Limited Range Array Elements](/src/com/problems/hashing/FrequenciesOfLimitedRangeArrayElements.java)
-  - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
-  - [Identify the Largest Outlier in an Array](/src/com/problems/hashing/IdentifyTheLargestOutlierInAnArray.java)
-
+  
 ### binary-search
 
 - **codes**
