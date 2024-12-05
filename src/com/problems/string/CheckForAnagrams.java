@@ -1,7 +1,11 @@
 package com.problems.string;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * Problem link :
- * https://leetcode.com/problems/valid-anagram/
+ * https://leetcode.com/problems/valid-anagram/description/
  * https://neetcode.io/problems/is-anagram
  * https://www.naukri.com/code360/problems/1172164
  * https://www.naukri.com/code360/problems/anagram-pairs_626517
@@ -11,13 +15,8 @@ package com.problems.string;
  *
  * https://takeuforward.org/data-structure/check-if-two-strings-are-anagrams-of-each-other/
  */
-/*
- * Tags:
- * Array, Hashing
- * */
-import java.util.HashMap;
-import java.util.Map;
 
+// Tags : Array, String, Hashing
 public class CheckForAnagrams {
 
 	public static void main(String[] args) {

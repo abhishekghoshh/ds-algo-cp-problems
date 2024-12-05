@@ -4,11 +4,6 @@
 
 ### string
 
-- **codes**
-  - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
-  - [Z-Function](/src/com/algo/string/ZFunction.java)
-  - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
-  - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
 ### Linked List
 
@@ -123,9 +118,6 @@
     - prefix-sum
   - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
     - prefix-sum
-  - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
-    - two-pointer
-    - hashing
   - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
     - two-pointer
     - hashing
@@ -254,42 +246,6 @@
   - [Find a Peak Element II](/src/com/problems/binarysearch/FindPeakElementII.java)
   - [Median of Row Wise Sorted Matrix](/src/com/problems/binarysearch/MedianOfRowWiseSortedMatrix.java)
 
-
-### string
-
-- **codes**
-  - [Encode and Decode Strings](/src/com/problems/string/EncodeAndDecodeStrings.java)
-  - [Decode String](/src/com/problems/string/DecodeString.java)
-  - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)
-  - [Remove Outermost Parentheses](/src/com/problems/string/RemoveOutermostParentheses.java)
-  - [Reverse Words in a String](/src/com/problems/string/ReverseWordsInString.java)
-  - [Reverse Words](/src/com/problems/string/ReverseWords.java)
-  - [Largest Odd Number in String](/src/com/problems/string/LargestOddNumberInString.java)
-  - [Longest Common Prefix](/src/com/problems/string/LongestCommonPrefix.java)
-  - [Isomorphic Strings](/src/com/problems/string/IsomorphicStrings.java)
-  - [Rotate String](/src/com/problems/string/RotateString.java)
-  - [Check if two Strings are anagrams of each other](/src/com/problems/string/CheckForAnagrams.java)
-  - [Group anagrams](/src/com/problems/string/GroupAnagrams.java)
-  - [Sort Characters by frequency](/src/com/problems/string/SortCharactersByFrequency.java)
-  - [Maximum Nesting Depth of the Parentheses](/src/com/problems/string/MaximumNestingDepthOfTheParentheses.java)
-  - [Roman to Integer](/src/com/problems/string/RomanToInteger.java)
-  - [Integer to Roman](/src/com/problems/string/IntegerToRoman.java)
-  - [Implement Atoi](/src/com/problems/string/StringToInteger.java)
-  - [Count With K Different Characters](/src/com/problems/string/CountSubstringsOfLengthK.java)
-  - [Sum of Beauty of All Substrings](/src/com/problems/string/SumOfBeautyOfAllSubstrings.java)
-  - [Minimum Add to Make Parentheses Valid](/src/com/problems/string/MinimumAddToMakeParenthesesValid.java)
-  - [Count and Say](/src/com/problems/string/CountAndSay.java)
-  - [Valid palindrome](/src/com/problems/string/ValidPalindrome.java)
-  - [Longest Palindrome](/src/com/problems/string/LongestPalindrome.java)
-  - [Shortest Palindrome / Minimum Characters For Palindrome](/src/com/problems/string/MinimumCharactersForPalindrome.java)
-  - [Longest palindromic substring](/src/com/problems/string/LongestPalindromicSubstring.java)
-  - [Count Palindromic Subsequences](/src/com/problems/string/CountPalindromicSubsequences.java)
-  - [Palindromic Substrings](/src/com/problems/string/PalindromicSubstrings.java)
-  - [Repeated String Match](/src/com/problems/string/RepeatedStringMatch.java)
-  - [Longest happy prefix](/src/com/problems/string/LongestHappyPrefix.java)
-  - [Find the index of first occurrence of a word in a string](/src/com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)
-  - [Splitting string into descending consecutive values](/src/com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java)
-  - [Find the Sequence of Strings Appeared on the Screen](/src/com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
 
 
 ### linked-list

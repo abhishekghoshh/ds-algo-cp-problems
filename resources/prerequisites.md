@@ -14,5 +14,6 @@
 - [Heap sort](/src/com/algo/sort/HeapSort.java)
 
 ### logic building
+- [Concatenation of Array](/src/com/problems/logicbuilding/ConcatenationOfArray.java)
 - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
 - [Smallest Number With All Set Bits](/src/com/problems/logicbuilding/SmallestNumberWithAllSetBits.java)

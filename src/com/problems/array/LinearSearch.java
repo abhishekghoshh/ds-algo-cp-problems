@@ -2,7 +2,7 @@ package com.problems.array;
 
 /*
  * Problem link :
- * https://www.codingninjas.com/studio/problems/linear-search_6922070
+ * https://www.naukri.com/code360/problems/linear-search_6922070
  *
  * Solution is :
  * https://www.youtube.com/watch?v=wvcQg43_V8U&t=1614s

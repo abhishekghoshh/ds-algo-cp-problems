@@ -14,10 +14,8 @@ import java.util.List;
  * https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c
  *
  */
-/*
- * Tags:
- * Array, Hashing
- * */
+
+// Tags : Array, String, Hashing
 public class EncodeAndDecodeStrings {
     public static void main(String[] args) {
         type1();

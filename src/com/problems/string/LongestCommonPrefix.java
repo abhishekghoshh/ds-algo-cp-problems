@@ -1,9 +1,13 @@
 package com.problems.string;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
 /*
  * Problem link :
- * https://leetcode.com/problems/longest-common-prefix/
- * https://www.codingninjas.com/codestudio/problems/2090383
- * https://www.codingninjas.com/studio/problems/longest-common-prefix_628874
+ * https://leetcode.com/problems/longest-common-prefix/description/
+ * https://www.naukri.com/code360/problems/2090383
+ * https://www.naukri.com/code360/problems/longest-common-prefix_628874
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=0sWShKIJoo4
@@ -13,111 +17,73 @@ package com.problems.string;
  * 
  */
 
+// Tags : String, Array, trie
 public class LongestCommonPrefix {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
 		type3();
-		type4();
-		type5();
 	}
 
 	// using trie method
 	// not best approach
 	// it will take same time but will take some extra space
-	private static void type5() {
-		String[] strs = { "flower", "flow", "flight" };
-	}
-
-	private static void type4() {
-		String[] stringArray = {"flower", "flow", "flight"};
-		String pre = stringArray[0];
-		int i = 1;
-		while (i < stringArray.length) {
-			// if pre is not a substring, then we are then we are reducing the size of pre by 1
-			// indexOf method will give us -1 if there is no match
-			while (stringArray[i].indexOf(pre) != 0)
-				pre = pre.substring(0, pre.length() - 1);
-			i++;
-		}
-		System.out.println(pre);
-	}
-
 	private static void type3() {
 		String[] strs = { "flower", "flow", "flight" };
-		StringBuilder prefix = new StringBuilder();
-		int i = 0, j = 0;
-		String s = strs[0];
-		char common = '\0';
-		while (j < s.length()) {
-			if (i == 0) {
-				common = s.charAt(j);
-				i++;
-			}
-			char ch = s.charAt(j);
-			if (ch != common) {
-				break;
-			} else if (i == strs.length) {
-				prefix.append(common);
-				s = strs[0];
-				i = 0;
-				j++;
-			} else {
-				s = strs[i++];
-			}
-		}
-		System.out.println(prefix);
 	}
 
+	// not so optimized
+	// here we are sorting the strings by their length first
+	// then we are taking the first element as pivot like the last time
+	// then checking the remaining string one at a time and update the pivot len accordingly
 	private static void type2() {
 		String[] strs = { "flower", "flow", "flight" };
-		StringBuilder sb = new StringBuilder();
-		int minLength = Integer.MAX_VALUE;
-		String commonPrefix = null;
-		for (int i = 0; i < strs.length; i++) {
-			minLength = Math.min(minLength, strs[i].length());
-		}
-		for (int i = 0; i < minLength; i++) {
-			char c = strs[0].charAt(i);
-			for (int j = 0; j < strs.length; j++) {
-				if (strs[j].charAt(i) != c) {
-					commonPrefix = sb.toString();
-				}
-			}
-			if (null != commonPrefix) {
-				break;
-			} else {
-				sb.append(c);
-			}
-		}
-		System.out.println(commonPrefix);
+		String ans = longestCommonPrefix2(strs);
+		System.out.println(ans);
 	}
 
-	private static void type1() {
-		String[] strs = { "flower", "flow", "flight" };
-		char ch;
-		String commonPrefix = null;
-		String pivot = strs[0];
-		int n = pivot.length();
-		for (int index = 0; index <= n; index++) {
-			if (index < n) {
-				ch = pivot.charAt(index);
-			} else {
-				commonPrefix = pivot;
-				break;
-			}
-			for (int i = 1; i < strs.length; i++) {
-				if (index == strs[i].length() || ch != strs[i].charAt(index)) {
-					commonPrefix = pivot.substring(0, index);
+	private static String longestCommonPrefix2(String[] strs) {
+		int n = strs.length;
+		if (n == 1) return strs[0];
+		Arrays.sort(strs, Comparator.comparing(String::length));
+		char[] pivot = strs[0].toCharArray();
+		int len = pivot.length;
+		for (int j = 1; j < n; j++) {
+			for (int i = 0; i < len; i++) {
+				// if the character do not match then we will stop and update len
+				if (pivot[i] != strs[j].charAt(i)) {
+					len = i;
 					break;
 				}
 			}
-			if (null != commonPrefix) {
-				break;
-			}
 		}
-		System.out.println(commonPrefix);
+		return strs[0].substring(0, len);
+	}
+
+
+	// brute force approach
+	private static void type1() {
+		String[] strs = { "flower", "flow", "flight" };
+		String ans = longestCommonPrefix1(strs);
+		System.out.println(ans);
+	}
+
+	public static String longestCommonPrefix1(String[] strs) {
+		int n = strs.length;
+		if (n == 1) return strs[0];
+		// we will take the first string as the pivot element
+		String pivot = strs[0];
+		int i = 0;
+		for (char ch : pivot.toCharArray()) {
+			// from the remaining string we will check if it matches with the current character or not
+			for (int j = 1; j < n; j++) {
+				if (i == strs[j].length() || ch != strs[j].charAt(i))
+					return pivot.substring(0, i);
+			}
+			i++;
+		}
+		return pivot;
 	}
 
 }

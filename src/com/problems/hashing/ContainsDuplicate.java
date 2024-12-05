@@ -11,12 +11,10 @@ import java.util.Set;
  * Solution link :
  *
  * https://takeuforward.org/data-structure/contains-duplicate-check-if-a-value-appears-atleast-twice/
- */
-
-/*
- * Tags:
- * Array, Hashing
+ *
  * */
+
+// Tags : Array, Hashing
 public class ContainsDuplicate {
     public static void main(String[] args) {
         type1();

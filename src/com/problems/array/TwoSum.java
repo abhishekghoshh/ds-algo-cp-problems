@@ -1,6 +1,7 @@
 package com.problems.array;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 /*
  * 
  * problem links :
@@ -22,127 +23,44 @@ import java.util.*;
  * two numbers such that they add up to target. You may assume that each input
  * would have exactly one solution, and you may not use the same element twice.
  */
-/*
- * Tags:
- * Array, Hashing
- * */
+
+// Tags : Array, Hashing, two-pointer
 public class TwoSum {
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
-		type4();
-		type5();
 	}
 
-	private static void type5() {
-		int[] nums = { 2, 7, 11, 15 };
-		int target = 9;
-		int[] answer = twoSum5(nums, target);
-		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
-	}
-
-	private static int[] twoSum5(int[] nums, int target) {
-		Set<Integer> set = new HashSet<>();
-		int i = 0;
-		int n = nums.length;
-		while (i < n && !set.contains(target - nums[i])) {
-            set.add(nums[i++]);
-        }
-		for (int j = 0; j < n; j++) {
-			if (nums[i] + nums[j] == target)
-				return new int[]{i, j};
-        }
-		return new int[]{-1, -1};
-	}
-
-	// two pointer technique
-	// time complexity O(n*log(n)) + O(n)
-	// space complexity O(1)
-	private static void type4() {
-		int[] nums = { 2, 7, 11, 15 };
-		int target = 9;
-		int[] answer = twoSum4(nums, target);
-		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
-	}
-
-	private static int[] twoSum4(int[] nums, int target) {
-		Arrays.sort(nums);
-		int[] answer = {-1, -1};
-		int low = 0, high = nums.length - 1;
-		while (low < high) {
-			int sum = nums[low] + nums[high];
-			if (sum == target) {
-				return new int[]{low, high};
-			}
-			if (sum < target) {
-				low++;
-			} else {
-				high--;
-			}
-		}
-		return answer;
-	}
-
-	// binary search approach
-	// time complexity O(n*log(n)) + O(n*log(n))
-	// space complexity O(1)
-	private static void type3() {
-		int[] nums = { 2, 7, 11, 15 };
-		int target = 9;
-		int[] answer = twoSum3(nums, target);
-		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
-	}
-
-	private static int[] twoSum3(int[] nums, int target) {
-		int diff;
-		int n = nums.length;
-		int low, high, mid;
-		Arrays.sort(nums);
-		for (int i = 0; i < n; i++) {
-			diff = target - nums[i];
-			low = i + 1;
-			high = n - 1;
-			while (low <= high) {
-				mid = low + (high - low) / 2;
-				if (nums[mid] == diff) return new int[]{i, mid};
-				if (nums[mid] < diff) {
-					low = mid + 1;
-				} else {
-					high = mid - 1;
-				}
-			}
-		}
-		return new int[2];
-	}
-
-	// hashmap reminder approach
+	// Optimized approach using hashmap
+	// we will store the [num, index] to the map and
+	// for every num we will check if we can find target-num from the map
 	// Time complexity O(n)
 	// space complexity O(n)
 	private static void type2() {
-		int[] nums = { 2, 7, 11, 15 };
+		int[] nums = {2, 11, 15, 7};
 		int target = 9;
 		int[] answer = twoSum2(nums, target);
 		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
 	}
 
 	private static int[] twoSum2(int[] nums, int target) {
-		int n = nums.length, diff;
+		int n = nums.length;
 		Map<Integer, Integer> map = new HashMap<>();
 		for (int i = 0; i < n; i++) {
-			diff = target - nums[i];
-			if (map.containsKey(diff)) {
-				return new int[]{i, map.get(diff)};
+			int num1 = target - nums[i];
+			if (map.containsKey(num1)) {
+				return new int[]{map.get(num1), i};
 			}
 			map.put(nums[i], i);
 		}
 		return new int[2];
 	}
 
+	// brute force
 	// Time complexity O(n^2)
 	// space complexity O(1)
 	private static void type1() {
-		int[] nums = { 2, 7, 11, 15 };
+		int[] nums = {2, 11, 15, 7};
 		int target = 9;
 		int[] answer = twoSum1(nums, target);
 		System.out.printf("indexes are %d,%d%n", answer[0], answer[1]);
