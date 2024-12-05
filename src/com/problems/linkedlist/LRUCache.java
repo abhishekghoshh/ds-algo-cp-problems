@@ -16,6 +16,7 @@ import java.util.Set;
  */
 
 
+// Tags : Linked List. Hashing
 public class LRUCache {
 
 	public static void main(String[] args) {

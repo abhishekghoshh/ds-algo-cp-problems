@@ -8,6 +8,8 @@ package com.problems.trie;
  * 
  * 
  */
+
+// Tags : Bit Manipulation, Tries
 public class MaximumXorOfANumberWithItemsInArray {
 
 	public static void main(String[] args) {

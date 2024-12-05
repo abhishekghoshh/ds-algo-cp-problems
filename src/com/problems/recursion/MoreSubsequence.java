@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * Problem links:
- * https://www.codingninjas.com/studio/problems/more-subsequence_8842355
+ * https://www.naukri.com/code360/problems/more-subsequence_8842355
  * Solution link
  *
  * */

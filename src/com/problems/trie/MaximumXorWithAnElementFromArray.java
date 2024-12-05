@@ -14,6 +14,8 @@ import static com.util.PrintUtl.print;
  *
  * https://takeuforward.org/trie/maximum-xor-queries-trie/
  */
+
+// Tags : Bit Manipulation, Tries
 public class MaximumXorWithAnElementFromArray {
 
 	// You are given an array nums consisting of non-negative integers. You are also

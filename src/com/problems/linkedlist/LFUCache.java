@@ -13,6 +13,8 @@ import java.util.Map;
  * https://www.youtube.com/watch?v=0PSB9y8ehbk&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=79
  * 
  */
+
+// Tags : Linked List. Hashing
 public class LFUCache {
 
 

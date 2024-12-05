@@ -14,6 +14,8 @@ import java.util.Stack;
  *
  * https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/32.%20Longest%20Valid%20Parentheses
  * */
+
+// Tags : Array, String, Dynamic Programming
 public class LongestValidParenthesis {
     public static void main(String[] args) {
         type1();

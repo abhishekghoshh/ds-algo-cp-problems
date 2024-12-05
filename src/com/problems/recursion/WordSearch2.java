@@ -15,6 +15,8 @@ import java.util.List;
  * https://takeuforward.org/data-structure/word-search-ii/
  * https://www.codingninjas.com/studio/problem-details/word-search_630520
  * */
+
+// Tags : Recursion, Trie
 public class WordSearch2 {
     public static void main(String[] args) {
         type1();

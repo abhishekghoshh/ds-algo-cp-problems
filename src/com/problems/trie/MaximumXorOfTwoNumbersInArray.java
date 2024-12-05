@@ -12,6 +12,8 @@ import java.util.HashSet;
  *
  * https://takeuforward.org/data-structure/maximum-xor-of-two-numbers-in-an-array/
  */
+
+// Tags : Bit Manipulation, Tries
 public class MaximumXorOfTwoNumbersInArray {
 
 	public static void main(String[] args) {
