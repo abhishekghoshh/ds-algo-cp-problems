@@ -1,9 +1,136 @@
 
+
+[README.md](README.md)
+
+## Online Resources
+
+### Youtube channels
+
+- **resources**
+  - [take U forward](https://www.youtube.com/@takeUforward/playlists)
+  - [NeetCode](https://www.youtube.com/@NeetCode/playlists)
+  - [NeetCodeIO](https://www.youtube.com/@NeetCodeIO/playlists)
+  - [Fraz](https://www.youtube.com/@mohammadfraz/playlists)
+  - [CodeBeyond](https://www.youtube.com/@CodeBeyond/playlists)
+  - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)
+  - [Aryan Mittal](https://www.youtube.com/@ARYANMITTAL/playlists)
+
+### Blogs
+
+- **resources**
+  - [LeetCode is a JOKE with This ONE WEIRD TRICK](https://www.youtube.com/watch?v=eB7SMsE6qEc)
+    - [Runtime Overview](https://algo.monster/problems/runtime_summary)
+  - [LeetCode was HARD until I Learned these 15 Patterns](https://www.youtube.com/watch?v=DjYZk8nrXVY)
+    - [Resources I used to clear Amazon, Google and Microsoft Interviews](https://blog.algomaster.io/p/368a3274-10b7-451b-bd9e-91c45a2164d7)
+    - [LeetCode was HARD until I Learned these 15 Patterns](https://blog.algomaster.io/p/15-leetcode-patterns)
+    - [20 Patterns to Master Dynamic Programming](https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming)
+  - [You’re ONE Flowchart Away From NEVER Struggling With LeetCode Again!](https://www.youtube.com/watch?v=s5gWz9Fa1yo)
+    - [Flow chart for which algorithm to use for a problem](https://algo.monster/flowchart)
+  - [100 Days of DSA](https://whimsical.com/100-days-of-dsa-JjsnhMcKViecPVFfFAZx3g)
+  - [3 Months DSA Roadmap](https://whimsical.com/3-months-dsa-roadmap-WSohgysgPm5YzdhSBnfK4E)
+  - [Master Roadmap](https://whimsical.com/master-roadmap-SzYF2dY2SqwtPQfY5A3mZS)
+- **interview-experiences**
+  - [coding-ninjas](https://www.codingninjas.com/studio/interview-experiences)
+
+### Youtube single videos
+
+- **resources**
+  
+  - [Infix Postfix and Prefix Expressions](https://www.youtube.com/watch?v=_PU5t-gk_B4)
+  - [The hidden beauty of the "A*" algorithm](https://www.youtube.com/watch?v=A60q6dcoCjw)
+  - [How Do You Calculate a Minimum Spanning Tree?](https://www.youtube.com/watch?v=Yldkh0aOEcg)
+  - [How Dijkstra's Algorithm Works](https://www.youtube.com/watch?v=EFg3u_E6eHU)
+  - [Understanding B-Trees: The Data Structure Behind Modern Databases](https://www.youtube.com/watch?v=K1a2Bk8NrYQ)
+  - [Fibonacci Heaps or "How to invent an extremely clever data structure"](https://www.youtube.com/watch?v=6JxvKfSV9Ns)
+  - [Faster than Rust and C++: the PERFECT hash table](https://www.youtube.com/watch?v=DMQ_HcNSOAI)
+  - [Data Compression](https://www.youtube.com/playlist?list=PLpXOY-RxVRTOR1PAtQUwoZN2tSs1ICSk7)
+
+  - **william-fiset**
+    - [Data structures playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu)
+    - [Graph Theory Playlist](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
+
+  - **Coursera**
+    - [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome)
+    - [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2/home/welcome)
+    - [Algorithms Specialization](https://www.coursera.org/specializations/algorithms#courses)
+      - [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer/home/welcome)
+      - [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures/home/welcome)
+      - [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy/home/welcome)
+      - [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete/home/welcome)
+    - [Java Programming: Principles of Software Design](https://www.coursera.org/learn/java-programming-design-principles/home/welcome)
+    - [Distributed Programming in Java](https://www.coursera.org/learn/distributed-programming-in-java/home/welcome)
+  - [Tech Dev Guide](https://techdevguide.withgoogle.com/paths/data-structures-and-algorithms)
+
+### PDF
+
+- [Cracking the Coding Interview](./pdf/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf)
+- [Data Structures And Algorithms Made Easy In JAVA](./pdf/Data_Structures_and_Algorithms_Made_Easy_in_Java.pdf)
+- [Data Structures And Algorithms Made Easy](./pdf/Data_Structures_and_Algorithms_Made_Easy.pdf)
+- [Introduction to Algorithms fourth edition by Cormen](./pdf/Introduction_to_Algorithms_4th_edition_by_Cormen.pdf)
+- [Computer Algorithms by Horowitz and Sahani](./pdf/horowitz-and-sahani-fundamentals-of-computer-algorithms-2nd-edition.pdf)
+
+### A-Z DSA sheets
+
+- **resources**
+  - [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
+  - [neetcode.io](https://neetcode.io/practice)
+  - [Leetcode DSA sheet by Fraz](https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9sFE/edit#gid=0)
+  - [Questions by Love Babbar](https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view)
+  - [Techdose-101](https://docs.google.com/spreadsheets/d/1TtgjX_cZPxEyuzwlLqCk9q6C1-HUXM8014ADfIXNKZE/edit#gid=0)
+  - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
+  - [DSA Sheet Final / AlgoPrep](https://docs.google.com/spreadsheets/d/16MyliPAOywm5H3Hmy_Utk6P5gwx4vvpb7i5iAqj1Aw4/edit#gid=0)
+  - [zerotrac.github.io](https://zerotrac.github.io/leetcode_problem_rating/#/)
+  - **Coding Ninja**
+    - [Interview prep with curated problems list](https://www.codingninjas.com/studio/problem-lists)
+    - [interview bundle](https://www.codingninjas.com/studio/interview-bundle)
+    - [Online Mock Test Series](https://www.codingninjas.com/studio/test-series)
+  - [Leetcode study plan](https://leetcode.com/studyplan/)
+  - [Leetcode explore](https://leetcode.com/explore/)
+  - [AlgoPrep's 151 Problems Sheet](https://docs.google.com/spreadsheets/d/1kyHfGGaLTzWspcqMUUS5Httmip7t8LJB0P-uPrRLGos/edit#gid=0)
+  - **GeekForGeeks**
+    - [Microsoft SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/mts-1?tab=Chapters)
+    - [Amazon SDE Preparation Test Series](https://www.geeksforgeeks.org/batch/Amazon-Test-Series?tab=Chapters)
+    - [SDE Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=a663236c31453b969852f9ea22507634&sortBy=submissions&sprint_name=SDE%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+    - [Beginner's DSA Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=ca8ae412173dbd8346c26a0295d098fd&sortBy=submissions&sprint_name=Beginner%27s%20DSA%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+    - [Love Babbar Sheet](https://www.geeksforgeeks.org/explore?page=1&sprint=94ade6723438d94ecf0c00c3937dad55&sortBy=submissions&sprint_name=Love%20Babbar%20Sheet&utm_source=geeksforgeeks&utm_medium=main_header&utm_campaign=practice_header)
+    - [Top 50 Array Problems](https://www.geeksforgeeks.org/explore?page=2&sprint=50746f92a895c22a50504ac0c1fb9c84&sortBy=submissions&sprint_name=Top%2050%20Array%20Problems)
+    - [Top 50 String Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=57184072610b884e5df3584cc534115d&sortBy=submissions&sprint_name=Top%2050%20String%20Problems)
+    - [Top 50 DP Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=93d672753b74440c7427214c8ebf866d&sortBy=submissions&sprint_name=Top%2050%20DP%20Problems)
+    - [Top 50 Graph Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=405e9db0f353691ad3b2d546b19145e9&sortBy=submissions&sprint_name=Top%2050%20Graph%20Problems)
+    - [Top 50 Tree Problems](https://www.geeksforgeeks.org/explore?page=1&sprint=5f24de84b65bf7c4f4399c8111e26b81&sortBy=submissions&sprint_name=Top%2050%20Tree%20Problems)
+
+
 ## Algorithm & Data Structures
+
+
+### array
+
+- **codes**
+  - [Dynamic array](/src/com/ds/array/Array.java)
+
+### sorting
+
+- **codes**
+  - [Swap sort](/src/com/algo/sort/SwapSort.java)
+  - [Bubble sort](/src/com/algo/sort/BubbleSort.java)
+  - [Recursive Bubble sort](/src/com/algo/sort/RecursiveBubbleSort.java)
+  - [Insertion sort](/src/com/algo/sort/InsertionSort.java)
+  - [Recursive Insertion sort](/src/com/algo/sort/RecursiveInsertionSort.java)
+  - [Selection sort](/src/com/algo/sort/SelectionSort.java)
+  - [Quick sort](/src/com/algo/sort/QuickSort.java)
+  - [Merge sort](/src/com/algo/sort/MergeSort.java)
+  - [Count sort](/src/com/algo/sort/CountSort.java)
+  - [Radix sort](/src/com/algo/sort/RadixSort.java)
+  - [Heap sort](/src/com/algo/sort/HeapSort.java)
 
 
 ### string
 
+- **codes**
+  - [Rabin Karp](/src/com/algo/string/RabinKarp.java)
+  - [Z-Function](/src/com/algo/string/ZFunction.java)
+  - [KMP algo / LPS(pi) array](/src/com/algo/string/KMPAlgorithm.java)
+  - [Boyer Moore](/src/com/algo/string/BoyerMoore.java)
 
 ### Linked List
 
@@ -40,6 +167,16 @@
   - [Heap](/src/com/ds/heap/Heap.java)
 
 
+### hash-table
+- **resources**
+  - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
+- **codes**
+  - [doc](/src/com/ds/hashtable/README.md)
+  - [Separate Chaining](/src/com/ds/hashtable/HashTableSeparateChaining.java)
+  - [Open addressing](/src/com/ds/hashtable/HashTableOpenAddressingBase.java)
+    - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
+
+
 
 
 ### Union find algorithm
@@ -66,6 +203,24 @@
 - **codes**
   - [AVL Tree](/src/com/ds/balancedbinarytree/AVLTree.java)
   - [Red-Black Tree](/src/com/ds/balancedbinarytree/RedBlackTree.java)
+
+## Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
+
+### logic building
+- **codes**
+  - [Check if Two Chessboard Squares Have the Same Color](/src/com/problems/logicbuilding/CheckTwoChessboards.java)
+  - [Smallest Number With All Set Bits](/src/com/problems/logicbuilding/SmallestNumberWithAllSetBits.java)
+
+### math
+- **codes**
+  - [Count Digits](/src/com/problems/math/CountDigits.java)
+  - [Reverse Integer](/src/com/problems/math/ReverseInteger.java)
+  - [Palindrome Number](/src/com/problems/math/PalindromeNumber.java)
+  - [GCD Or HCF](/src/com/problems/math/GCDAndLCM.java)
+  - [Armstrong Numbers](/src/com/problems/math/ArmstrongNumbers.java)
+  - [Print all Divisors](/src/com/problems/prime/AllDivisorsOfANumber.java)
+  - [Sum of all divisors from 1 to n](/src/com/problems/math/SumOfAllDivisorsFrom1ToN.java)
+  - [Check if the number is prime or not](/src/com/problems/prime/isPrime.java)
 
 
 ### array
@@ -118,6 +273,9 @@
     - prefix-sum
   - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
     - prefix-sum
+  - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
+    - two-pointer
+    - hashing
   - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
     - two-pointer
     - hashing
@@ -198,6 +356,16 @@
   - [Count Substrings With K-Frequency Characters I](/src/com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java)
 
 
+### hashing
+- **resources**
+  - [Hashing | Maps | Time Complexity | Collisions | Division Rule of Hashing | Strivers A2Z DSA Course](https://www.youtube.com/watch?v=KEs5UyBJ39g)
+- **codes**
+  - [Hashing theory](/src/com/problems/hashing/HashingTheory.java)
+  - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
+  - [Frequencies of Limited Range Array Elements](/src/com/problems/hashing/FrequenciesOfLimitedRangeArrayElements.java)
+  - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
+  - [Identify the Largest Outlier in an Array](/src/com/problems/hashing/IdentifyTheLargestOutlierInAnArray.java)
+
 ### binary-search
 
 - **codes**
@@ -246,6 +414,42 @@
   - [Find a Peak Element II](/src/com/problems/binarysearch/FindPeakElementII.java)
   - [Median of Row Wise Sorted Matrix](/src/com/problems/binarysearch/MedianOfRowWiseSortedMatrix.java)
 
+
+### string
+
+- **codes**
+  - [Encode and Decode Strings](/src/com/problems/string/EncodeAndDecodeStrings.java)
+  - [Decode String](/src/com/problems/string/DecodeString.java)
+  - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)
+  - [Remove Outermost Parentheses](/src/com/problems/string/RemoveOutermostParentheses.java)
+  - [Reverse Words in a String](/src/com/problems/string/ReverseWordsInString.java)
+  - [Reverse Words](/src/com/problems/string/ReverseWords.java)
+  - [Largest Odd Number in String](/src/com/problems/string/LargestOddNumberInString.java)
+  - [Longest Common Prefix](/src/com/problems/string/LongestCommonPrefix.java)
+  - [Isomorphic Strings](/src/com/problems/string/IsomorphicStrings.java)
+  - [Rotate String](/src/com/problems/string/RotateString.java)
+  - [Check if two Strings are anagrams of each other](/src/com/problems/string/CheckForAnagrams.java)
+  - [Group anagrams](/src/com/problems/string/GroupAnagrams.java)
+  - [Sort Characters by frequency](/src/com/problems/string/SortCharactersByFrequency.java)
+  - [Maximum Nesting Depth of the Parentheses](/src/com/problems/string/MaximumNestingDepthOfTheParentheses.java)
+  - [Roman to Integer](/src/com/problems/string/RomanToInteger.java)
+  - [Integer to Roman](/src/com/problems/string/IntegerToRoman.java)
+  - [Implement Atoi](/src/com/problems/string/StringToInteger.java)
+  - [Count With K Different Characters](/src/com/problems/string/CountSubstringsOfLengthK.java)
+  - [Sum of Beauty of All Substrings](/src/com/problems/string/SumOfBeautyOfAllSubstrings.java)
+  - [Minimum Add to Make Parentheses Valid](/src/com/problems/string/MinimumAddToMakeParenthesesValid.java)
+  - [Count and Say](/src/com/problems/string/CountAndSay.java)
+  - [Valid palindrome](/src/com/problems/string/ValidPalindrome.java)
+  - [Longest Palindrome](/src/com/problems/string/LongestPalindrome.java)
+  - [Shortest Palindrome / Minimum Characters For Palindrome](/src/com/problems/string/MinimumCharactersForPalindrome.java)
+  - [Longest palindromic substring](/src/com/problems/string/LongestPalindromicSubstring.java)
+  - [Count Palindromic Subsequences](/src/com/problems/string/CountPalindromicSubsequences.java)
+  - [Palindromic Substrings](/src/com/problems/string/PalindromicSubstrings.java)
+  - [Repeated String Match](/src/com/problems/string/RepeatedStringMatch.java)
+  - [Longest happy prefix](/src/com/problems/string/LongestHappyPrefix.java)
+  - [Find the index of first occurrence of a word in a string](/src/com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)
+  - [Splitting string into descending consecutive values](/src/com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java)
+  - [Find the Sequence of Strings Appeared on the Screen](/src/com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
 
 
 ### linked-list
@@ -299,7 +503,7 @@
     - hashing
 
 
-### recursion
+### recursion  
 
 - **resources**
   - [Recursion (Basics to Advanced) and Backtracking Series](https://www.youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
@@ -506,7 +710,7 @@
   - [Segmented Sieve](/src/com/problems/prime/SegmentedSieve.java)
 
 
-### greedy
+### greedy  
 
 - **codes**
   - [Assign Cookies](/src/com/problems/greedy/AssignCookies.java)
@@ -527,7 +731,7 @@
   - [Minimum Number of Pushes to Type Word I](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord1.java)
   - [Minimum Number of Pushes to Type Word II](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord2.java)
 
-
+  
 ### dynamic-programming
 
 - **resources**
@@ -783,7 +987,7 @@
     - [Maximize the Number of Target Nodes After Connecting Trees I](/src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees1.java)
     - [Maximize the Number of Target Nodes After Connecting Trees II](/src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees2.java)
 
-### segment-tree
+### segment-tree  
 
 - **resources**
   - [Masterclass: Range Query DS / Segment Trees / Fenwick Trees / Masterclasses By Striver / CodeBeyond](https://www.youtube.com/watch?v=NEG-SoyigGE)
