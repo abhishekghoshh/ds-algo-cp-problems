@@ -4,6 +4,7 @@
 ### General
 - [Is Subsequence](/src/com/problems/string/IsSubsequence.java)
 - [Length of Last Word](/src/com/problems/string/LengthOfLastWord.java)
+- [Word Pattern](/src/com/problems/string/WordPattern.java)
 - [Encode and Decode Strings](/src/com/problems/string/EncodeAndDecodeStrings.java)
 - [Decode String](/src/com/problems/string/DecodeString.java)
 - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)

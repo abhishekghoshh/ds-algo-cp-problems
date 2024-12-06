@@ -2,10 +2,12 @@ package com.algo.sort;
 
 /*
  * Problem link :
+ * https://leetcode.com/problems/sort-an-array/
  * https://www.geeksforgeeks.org/problems/quick-sort/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=WIrA4YexLRQ&t=1s
+ * https://www.youtube.com/watch?v=MsYZSinhuFo
  *
  * https://takeuforward.org/data-structure/quick-sort-algorithm/
  * https://www.geeksforgeeks.org/quick-sort/

@@ -44,6 +44,7 @@ public class RepeatAndMissingNumber {
 		print(ans);
 	}
 
+	// todo check it once more
 	public static int[] findErrorNums5(int[] nums) {
 		int missing = 0;
 		int repeat = 0;
@@ -129,20 +130,23 @@ public class RepeatAndMissingNumber {
 		print(ans);
 	}
 
+	// swap sort is also a good technique
+	// todo check it once more
 	public static int[] findErrorNums3(int[] nums) {
-		int index = 0;
-		int repeat = 0;
-		int missing = 0;
-		while (index < nums.length) {
-			if (nums[index] == index + 1 || nums[nums[index] - 1] == nums[index]) {
-				index++;
+		int n = nums.length;
+		int i = 0;
+		int repeat = 0, missing = 0;
+		while (i < n) {
+			if (nums[i] == i + 1 || nums[nums[i] - 1] == nums[i]) {
+				i++;
 			} else {
-				int temp = nums[index];
-				nums[index] = nums[temp - 1];
+				// swap i and nums[i]
+				int temp = nums[i];
+				nums[i] = nums[temp - 1];
 				nums[temp - 1] = temp;
 			}
 		}
-		for (int i = 0; i < nums.length; i++) {
+		for (i = 0; i < n; i++) {
 			if (i + 1 != nums[i]) {
 				repeat = nums[i];
 				missing = i + 1;

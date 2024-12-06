@@ -6,11 +6,12 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://practice.geeksforgeeks.org/problems/merge-sort/1
+ * https://leetcode.com/problems/sort-an-array/
  * https://www.geeksforgeeks.org/problems/merge-sort/1
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=ogjf7ORKfd8
+ * https://www.youtube.com/watch?v=MsYZSinhuFo
  *
  * https://takeuforward.org/data-structure/merge-sort-algorithm/
  * https://www.geeksforgeeks.org/merge-sort/
@@ -18,10 +19,50 @@ import static com.util.PrintUtl.print;
 public class MergeSort {
 
 	public static void main(String[] args) {
-//		type1();
+		type1();
 		type2();
 	}
 
+	// it is using recursion, a very common approach
+	private static void type1() {
+		int[] arr = {2, 5, 7, 5, 9, 15, 13, 2, 7, 8};
+		mergeSort(arr, 0, arr.length - 1);
+		print(arr);
+	}
+
+	static void mergeSort(int[] nums, int low, int high) {
+		if (low < high) {
+			int mid = low + (high - low) / 2;
+			mergeSort(nums, low, mid);
+			mergeSort(nums, mid + 1, high);
+			merge(nums, low, mid, high);
+		}
+	}
+
+	static void merge(int[] nums, int low, int mid, int high) {
+		int n = high - low + 1;
+		int[] copy = new int[n];
+		int left = low;
+		int right = mid + 1;
+		int i = 0;
+		// first, we will merge two sorted arrays into a copy array
+		while (left <= mid && right <= high) {
+			if (nums[left] < nums[right])
+				copy[i++] = nums[left++];
+			else
+				copy[i++] = nums[right++];
+		}
+
+		// if there is anything remaining in the left array
+		while (left <= mid) copy[i++] = nums[left++];
+		// if anything left in the right array
+		while (right <= high) copy[i++] = nums[right++];
+
+		// we will copy back to the original array
+		for (i = 0; i < n; i++) nums[low + i] = copy[i];
+	}
+
+	// todo not for interview just for fun
 	// we will try to mimic the recursion using a stack
 	private static void type2() {
 		int[] arr = {9, 7, 5, 3, 15, 13, 2, 8, 1};
@@ -70,40 +111,5 @@ public class MergeSort {
 		}
 	}
 
-	// it is using recursion, a very common approach
-	private static void type1() {
-		int[] arr = { 2, 5, 7, 5, 9, 15, 13, 2, 7, 8 };
-		mergeSort(arr, 0, arr.length - 1);
-		print(arr);
-	}
-
-	static void mergeSort(int[] arr, int l, int r) {
-		if (l < r) {
-			int mid = l + (r - l) / 2;
-			mergeSort(arr, l, mid);
-			mergeSort(arr, mid + 1, r);
-			merge(arr, l, mid, r);
-		}
-	}
-
-	static void merge(int[] arr, int l, int m, int r) {
-		int n = r - l + 1;
-		int[] copy = new int[n];
-		int left = l;
-		int right = m + 1;
-		int i = 0;
-		// first, we will merge two sorted arrays into a copy array
-		while (left <= m && right <= r)
-			if (arr[left] < arr[right]) copy[i++] = arr[left++];
-			else copy[i++] = arr[right++];
-
-		// if there is anything remaining in the left array
-		while (left <= m) copy[i++] = arr[left++];
-		// if anything left in the right array
-		while (right <= r) copy[i++] = arr[right++];
-
-		// we will copy back to the original array
-		for (i = 0; i < n; i++) arr[l + i] = copy[i];
-	}
 
 }

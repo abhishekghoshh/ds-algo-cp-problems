@@ -20,6 +20,9 @@
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElements2.java)
 - [Can Place Flowers](/src/com/problems/array/CanPlaceFlowers.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
+- [Find All Numbers Disappeared in an Array](/src/com/problems/array/FindAllNumbersDisappearedInAnArray.java)
+- [Maximum Number of Balloons](/src/com/problems/array/MaximumNumberOfBalloons.java)
+- []
 
 
 

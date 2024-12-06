@@ -6,7 +6,7 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/top-k-frequent-elements
+ * https://leetcode.com/problems/top-k-frequent-elements/description/
  * https://www.naukri.com/code360/problems/k-most-frequent-elements_3167808
  * https://neetcode.io/problems/top-k-elements-in-list
  * 
@@ -14,11 +14,11 @@ import static com.util.PrintUtl.print;
  * https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6
  * 
  * */
-/*
- * Tags:
- * Array, Hashing
- * */
+
+// Tags : Array, Heap, Hashing
 public class KMostFrequentElements {
+
+	// todo check type 1->4 one by one and remember the steps
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -123,6 +123,8 @@ public class KMostFrequentElements {
 	}
 
 	// Brute force approach
+	// first we will create a frequency map with [num, freq[num]]
+	// and store this pair into an array and
 	private static void type1() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
