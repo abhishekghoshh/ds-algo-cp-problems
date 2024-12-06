@@ -15,13 +15,16 @@ import java.util.Map;
  * https://www.youtube.com/watch?v=OtCsBK7e4rk
  *
  * Https://takeuforward.org/data-structure/find-the-majority-element-that-occurs-more-than-n-2-times/
- * */
-/*
- * The majority element is the element that appears more than n / 2 times.
- * You may assume that the majority element always exists in the array.
- * */
-public class MajorityElementsNby2 {
+ *
+ */
 
+// Tags : Arrays, Boyer Moore's voting algorithm
+public class MajorityElements1 {
+
+	/*
+	 * The majority element is the element that appears more than n / 2 times.
+	 * You may assume that the majority element always exists in the array.
+	 */
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -36,21 +39,26 @@ public class MajorityElementsNby2 {
 	// space complexity O(1)
 	private static void type3() {
 		int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
-		int answer = 0;
-		int count = 0;
-        for (int num : nums) {
-            if (count == 0) {
-                count = 1;
-                answer = num;
-            } else {
-                if (answer == num) {
-                    count++;
-                } else {
-                    count--;
-                }
-            }
-        }
+		int answer = majorityElement3(nums);
 		System.out.println("Item is " + answer);
+	}
+
+	private static int majorityElement3(int[] nums) {
+		int ans = 0;
+		int count = 0;
+		for (int num : nums) {
+			if (count == 0) {
+				count = 1;
+				ans = num;
+			} else {
+				if (ans == num) {
+					count++;
+				} else {
+					count--;
+				}
+			}
+		}
+		return ans;
 	}
 
 	// frequency map approach
@@ -58,39 +66,43 @@ public class MajorityElementsNby2 {
 	// space complexity O(n)
 	private static void type2() {
 		int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
-		int num = 0;
-		Map<Integer, Integer> frequency = new HashMap<>();
-		for (int item : nums)
-			if (!frequency.containsKey(item)) frequency.put(item, 1);
-			else frequency.put(item, frequency.get(item) + 1);
-
-		for (Map.Entry<Integer, Integer> entry : frequency.entrySet()) {
-			if (entry.getValue() > nums.length / 2) {
-				num = entry.getKey();
-				break;
-			}
-		}
+		int num = majorityElement2(nums);
 		System.out.println("Item is " + num);
+	}
+
+	private static int majorityElement2(int[] nums) {
+		int n = nums.length;
+		Map<Integer, Integer> freq = new HashMap<>();
+		// calculating the freq of the elements
+		for (int num : nums)
+			freq.put(num, 1 + freq.getOrDefault(num, 0));
+
+		for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
+			int num = entry.getKey(), f = entry.getValue();
+			if (f > n / 2) return num;
+		}
+		return -1;
 	}
 
 	// brute force approach
 	// time complexity O(n^2)
 	// space complexity O(1)
+	// checking all the numbers and check their frequencies
 	private static void type1() {
 		int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
-		int answer = 0;
+		int ans = majorityElement1(nums);
+		System.out.println(ans);
+	}
+
+	private static int majorityElement1(int[] nums) {
 		int n = nums.length / 2;
 		for (int num1 : nums) {
 			int count = 0;
 			for (int num2 : nums)
-				if (num1 == num2)
-					count++;
-			if (count > n) {
-				answer = num1;
-				break;
-			}
+				if (num1 == num2) count++;
+			if (count > n) return num1;
 		}
-		System.out.println("Item is " + answer);
+		return -1;
 	}
 
 }

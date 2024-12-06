@@ -12,6 +12,7 @@
 - [Reverse Words](/src/com/problems/string/ReverseWords.java)
 - [Largest Odd Number in String](/src/com/problems/string/LargestOddNumberInString.java)
 - [Longest Common Prefix](/src/com/problems/string/LongestCommonPrefix.java)
+- [Unique Email Addresses](/src/com/problems/string/UniqueEmailAddresses.java)
 - [Isomorphic Strings](/src/com/problems/string/IsomorphicStrings.java)
 - [Rotate String](/src/com/problems/string/RotateString.java)
 - [Check if two Strings are anagrams of each other](/src/com/problems/string/CheckForAnagrams.java)

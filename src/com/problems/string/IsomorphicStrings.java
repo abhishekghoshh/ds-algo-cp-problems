@@ -13,149 +13,113 @@ import java.util.Map;
  *
  *
  * */
+
+// Tags : String, hashing
 public class IsomorphicStrings {
     public static void main(String[] args) {
         type1();
         type2();
         type3();
-        type4();
-        type5();
     }
 
 
-    // best solution in the leetcode
-    private static void type5() {
+    // this is also same as previous but here we have organized the if else
+    // here we will check one edge first
+    private static void type3() {
         String s = "paper", t = "title";
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        int n = sArr.length;
-        boolean isIsomorphic = true;
-        char[] map = new char[128];
-        boolean[] assigned = new boolean[128];
-        for (int i = 0; i < sArr.length; i++) {
-            if (map[sArr[i]] == 0 && (!assigned[tArr[i]])) {
-                map[sArr[i]] = tArr[i];
-                assigned[tArr[i]] = true;
-            } else if (map[sArr[i]] != tArr[i]) {
-                isIsomorphic = false;
-                break;
-            }
-        }
-        System.out.println(isIsomorphic);
+        boolean ans = isIsomorphic3(s, t);
+        System.out.println(ans);
     }
 
-    // TODO best approach, tell it in the interview
-    private static void type4() {
-        String s = "paper", t = "title";
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        int n = sArr.length;
-        boolean isIsomorphic = true;
+    private static boolean isIsomorphic3(String s, String t) {
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+        int n = arr1.length;
         int[] map1 = new int[128];
         int[] map2 = new int[128];
-        int c1, c2;
         for (int i = 0; i < n; i++) {
-            c1 = sArr[i];
-            c2 = tArr[i];
+            int c1 = arr1[i], c2 = arr2[i];
+            // from ch1->ch2, if there is no edge then we will set the edge
+            // if there is already an edge then we will check if its ch1->ch2 or not
             if (map1[c1] == 0) {
                 map1[c1] = c2;
             } else if (map1[c1] != c2) {
-                isIsomorphic = false;
-                break;
+                return false;
             }
+            // from ch2->ch1, if there is no edge then we will set the edge
+            // if there is already an edge then we will check if its ch2->ch1 or not
             if (map2[c2] == 0) {
                 map2[c2] = c1;
             } else if (map2[c2] != c1) {
-                isIsomorphic = false;
-                break;
+                return false;
             }
         }
-        System.out.println(isIsomorphic);
+        return true;
     }
 
-    private static void type3() {
-        String s = "paper", t = "title";
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        int n = sArr.length;
-        boolean isIsomorphic = true;
-        int[] map1 = new int[128];
-        int[] map2 = new int[128];
-        int c1, c2;
-        for (int i = 0; i < n; i++) {
-            c1 = sArr[i];
-            c2 = tArr[i];
-            if (map1[c1] == 0 && map2[c2] == 0) {
-                map1[c1] = c2;
-                map2[c2] = c1;
-            } else if (map1[c1] != 0 && map2[c2] == 0) {
-                isIsomorphic = false;
-                break;
-            } else if (map1[c1] == 0 && map2[c2] != 0) {
-                isIsomorphic = false;
-                break;
-            } else if (map1[c1] != c2 || map2[c2] != c1) {
-                isIsomorphic = false;
-                break;
-            }
-        }
-        System.out.println(isIsomorphic);
-    }
-
+    // little optimized from previous approach
+    // we will use array instead of map
     private static void type2() {
         String s = "paper", t = "title";
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        int n = sArr.length;
-        boolean isIsomorphic = true;
-        int[] map1 = new int[128];
-        int[] map2 = new int[128];
-        for (int i = 0; i < 128; i++) map1[i] = map2[i] = -1;
-        int c1, c2;
+        boolean ans = isIsomorphic2(s, t);
+        System.out.println(ans);
+    }
+
+    private static boolean isIsomorphic2(String s, String t) {
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+        int n = arr1.length;
+        int N = 128;
+        int[] map1 = new int[N];
+        int[] map2 = new int[N];
         for (int i = 0; i < n; i++) {
-            c1 = sArr[i];
-            c2 = tArr[i];
-            if (map1[c1] == -1 && map2[c2] == -1) {
-                map1[c1] = c2;
-                map2[c2] = c1;
-            } else if (map1[c1] != -1 && map2[c2] == -1) {
-                isIsomorphic = false;
-                break;
-            } else if (map1[c1] == -1 && map2[c2] != -1) {
-                isIsomorphic = false;
-                break;
-            } else if (map1[c1] != c2 || map2[c2] != c1) {
-                isIsomorphic = false;
-                break;
+            int ch1 = arr1[i], ch2 = arr2[i];
+            // if there is no mapping as of now then we will add the mapping from ch1->ch2 and ch2->ch1
+            if (map1[ch1] == 0 && map2[ch2] == 0) {
+                map1[ch1] = ch2;
+                map2[ch2] = ch1;
+            } else if ((map1[ch1] != 0 && map2[ch2] == 0)
+                    || (map1[ch1] == 0 && map2[ch2] != 0)
+                    || (map1[ch1] != ch2 || map2[ch2] != ch1)) {
+                // else if there is any mapping for one of the character already then we will return true
+                return false;
             }
         }
-        System.out.println(isIsomorphic);
+        return true;
     }
 
 
+    // Brute force
+    // here we will use 2 map of [character,character]
+    // first map => arr1 char , arr2 char
+    // second map => arr2 char , arr1 char
+    // so that there will be only one to one mapping from ch1 to ch2
     private static void type1() {
         String s = "paper", t = "title";
-        char[] sArr = s.toCharArray();
-        char[] tArr = t.toCharArray();
-        int n = sArr.length;
-        boolean isIsomorphic = true;
+        boolean ans = isIsomorphic1(s, t);
+        System.out.println(ans);
+    }
+
+    private static boolean isIsomorphic1(String s, String t) {
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+        int n = arr1.length;
+        // this is for holding the mappings
         Map<Character, Character> map1 = new HashMap<>();
         Map<Character, Character> map2 = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            if (!map1.containsKey(sArr[i]) && !map2.containsKey(tArr[i])) {
-                map1.put(sArr[i], tArr[i]);
-                map2.put(tArr[i], sArr[i]);
-            } else if ((!map1.containsKey(sArr[i]) && map2.containsKey(tArr[i]))) {
-                isIsomorphic = false;
-                break;
-            } else if (map1.containsKey(sArr[i]) && !map2.containsKey(tArr[i])) {
-                isIsomorphic = false;
-                break;
-            } else if (map1.get(sArr[i]) != tArr[i] || map2.get(tArr[i]) != sArr[i]) {
-                isIsomorphic = false;
-                break;
+            char ch1 = arr1[i], ch2 = arr2[i];
+            // if there is no mapping as of now then we will add the mapping from ch1->ch2 and ch2->ch1
+            if (!map1.containsKey(ch1) && !map2.containsKey(ch2)) {
+                map1.put(ch1, ch2);
+                map2.put(ch2, ch1);
+            } else if ((!map1.containsKey(ch1) && map2.containsKey(ch2))
+                    || (map1.containsKey(ch1) && !map2.containsKey(ch2))
+                    || (map1.get(ch1) != ch2 || map2.get(ch2) != ch1)) {
+                // else if there is any mapping for one of the character already then we will return true
+                return false;
             }
         }
-        System.out.println(isIsomorphic);
+        return true;
     }
 }

@@ -60,12 +60,7 @@
   - [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
     - three-pointer (Dutch national flag)
     - hashing
-  - [Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElementsNby2.java)
-    - Boyer Moore's voting algorithm
-    - hashing
-  - [Majority Elements(>N/3 times) / Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElementsNby3.java)
-    - Moore's voting algorithm
-    - hashing
+  
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
     - dynamic-programming
@@ -80,7 +75,6 @@
   - [Set Matrix Zero](/src/com/problems/array/SetMatrixToZero.java)
   - [Rotate Image by 90 degree](/src/com/problems/array/RotateMatrix.java)
   - [Spiral Traversal of Matrix](/src/com/problems/array/SpiralTraversalOfMatrix.java)
-  - [Program to generate Pascal’s Triangle](/src/com/problems/array/PascalTriangle.java)
   - [Merge Overlapping Sub-intervals](/src/com/problems/array/MergeOverlappingSubIntervals.java)
     - greedy
   - [Merge two Sorted Arrays Without Extra Space](/src/com/problems/array/MergeTwoSortedArraysWithoutExtraSpace.java)
@@ -89,7 +83,6 @@
     - merge-technique-from-merge-sort
   - [Maximum Product Subarray in an Array](/src/com/problems/array/MaximumProductSubarrayInAnArray.java)
   - [Car Fleet](/src/com/problems/array/CarFleet.java) **TBD**
-  - [Remove Element](/src/com/problems/array/RemoveElement.java) **TBD**
   - [3Sum Closest](/src/com/problems/array/ThreeSumClosest.java)
   - [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
     - two-pointer

@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/group-anagrams/
+ * https://leetcode.com/problems/group-anagrams/description/
  * https://neetcode.io/problems/anagram-groups
  * 
  * Solution link
@@ -12,10 +12,7 @@ import java.util.*;
  * 
  * */
 
-/*
- * Tags:
- * Array, Hashing
- * */
+// Tags : String, Array, Hashing
 public class GroupAnagrams {
 
 
@@ -35,6 +32,9 @@ public class GroupAnagrams {
 	};
 	public static final long MOD = 10000000000L;
 
+	// most optimized approach
+	// here we will use primes in order to create the hash
+	// we do not need the save anything in the array
 	// we will create a hash function from the characters of the array
 	// we will map the characters to the first 26 prime numbers
 	private static void type3() {
@@ -46,7 +46,9 @@ public class GroupAnagrams {
 	private static List<List<String>> groupAnagrams3(String[] strs) {
 		Map<Long, List<String>> map = new HashMap<>();
 		for (String str : strs) {
+			// creating the key
 			long hash = createHash(str);
+			// now add the pair into the map
 			if (!map.containsKey(hash))
 				map.put(hash, new ArrayList<>());
 			map.get(hash).add(str);
@@ -61,7 +63,10 @@ public class GroupAnagrams {
 		return answer;
 	}
 
-	// we will create a custom hash function from the frequency of the characters
+	// same as previous
+	// but here we will not use sorting
+	// we will create freq array for all the string
+	// then a custom hash from the frequency of the characters
 	private static void type2() {
 		String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 		List<List<String>> ans = groupAnagrams2(strs);
@@ -71,9 +76,11 @@ public class GroupAnagrams {
 	private static List<List<String>> groupAnagrams2(String[] strs) {
 		Map<String, List<String>> map = new HashMap<>();
 		for (String str : strs) {
+			// creating the key
 			int[] freq = new int[26];
 			for (char ch : str.toCharArray()) freq[ch - 'a']++;
 			String key = createKey(freq);
+			// now add the pair into the map
 			if (!map.containsKey(key))
 				map.put(key, new ArrayList<>());
 			map.get(key).add(str);
@@ -88,6 +95,8 @@ public class GroupAnagrams {
 	}
 
 	// brute force approach
+	// make a key value pair of [sorted string, original string]
+	// for the anagrams sorted string will be same
 	private static void type1() {
 		String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 		List<List<String>> ans = groupAnagrams1(strs);
@@ -97,12 +106,14 @@ public class GroupAnagrams {
 	private static List<List<String>> groupAnagrams1(String[] strs) {
 		Map<String, List<String>> map = new HashMap<>();
 		for (String str : strs) {
-			char[] chs = str.toCharArray();
-			Arrays.sort(chs);
-			String sortedStr = new String(chs);
-			if (!map.containsKey(sortedStr))
-				map.put(sortedStr, new ArrayList<>());
-			map.get(sortedStr).add(str);
+			// create the sorted string
+			char[] arr = str.toCharArray();
+			Arrays.sort(arr);
+			String key = new String(arr);
+			// now add the pair into the map
+			if (!map.containsKey(key))
+				map.put(key, new ArrayList<>());
+			map.get(key).add(str);
 		}
 		return new ArrayList<>(map.values());
 	}
