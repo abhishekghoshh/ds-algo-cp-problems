@@ -22,7 +22,9 @@
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Find All Numbers Disappeared in an Array](/src/com/problems/array/FindAllNumbersDisappearedInAnArray.java)
 - [Maximum Number of Balloons](/src/com/problems/array/MaximumNumberOfBalloons.java)
-- []
+- [Monotonic Array](/src/com/problems/array/MonotonicArray.java)
+- [Number of Good Pairs](/src/com/problems/array/NumberOfGoodPairs.java)
+- [Maximum Product Difference Between Two Pairs](/src/com/problems/array/MaximumProductDifferenceBetweenTwoPairs.java)
 
 
 

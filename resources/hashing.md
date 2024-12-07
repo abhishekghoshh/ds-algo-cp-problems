@@ -12,9 +12,13 @@
 - [Linear probing](/src/com/ds/hashtable/HashTableLinearProbing.java)
 
 ### Hashing
+- [Design HashSet](/src/com/problems/hashing/DesignHashSet.java)
+- [Design HashMap](/src/com/problems/hashing/DesignHashMap.java)
 - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
 - [Check if two Strings are anagrams of each other](/src/com/problems/string/CheckForAnagrams.java)
 - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
+- [Number of Good Pairs](/src/com/problems/array/NumberOfGoodPairs.java)
+- [Destination City](/src/com/problems/string/DestinationCity.java)
 
 
 

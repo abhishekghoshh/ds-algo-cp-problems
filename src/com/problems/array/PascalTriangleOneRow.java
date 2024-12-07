@@ -19,21 +19,23 @@ public class PascalTriangleOneRow {
     }
 
     // print the specific row
+    // one specific row
     private static void type1() {
-        int numRow = 3;
+        int numRow = 5;
         List<Integer> row = getRow(numRow);
         System.out.println("5th row is " + row);
     }
 
-    private static List<Integer> getRow(int rowIndex) {
-        List<Integer> row = new ArrayList<>();
+    private static List<Integer> getRow(int row) {
+        List<Integer> ans = new ArrayList<>();
         int denominator = 1;
-        row.add(1);
-        while (rowIndex != 1) {
-            rowIndex--;
-            row.add(row.get(row.size() - 1) * rowIndex / denominator);
+        ans.add(1);
+        while (row != 1) {
+            row--;
+            int last = ans.get(ans.size() - 1);
+            ans.add(last * row / denominator);
             denominator++;
         }
-        return row;
+        return ans;
     }
 }
