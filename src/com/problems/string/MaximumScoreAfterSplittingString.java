@@ -27,20 +27,26 @@ public class MaximumScoreAfterSplittingString {
     public static int maxScore2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
-        int max = 0;
+        // first we will calculate all the ones
         int ones = 0;
         for (char ch : arr) {
             if (ch == '1') ones++;
         }
-        int left = 0, right = ones;
+        // now we will go through the array once again
+        // we will take two variables leftZeros, rightOnes
+        // we will initialize them with 0 and total count of 1s
+        // so if the bit is 0 then we will increment leftZeros else we will decrement from the rightOnes,
+        // so we don't need to calculate again
+        int max = 0;
+        int leftZeros = 0, rightOnes = ones;
         for (int i = 0; i < n - 1; i++) {
             int bit = arr[i] - '0';
             if (bit == 0) {
-                left++;
+                leftZeros++;
             } else {
-                right--;
+                rightOnes--;
             }
-            max = Math.max(max, (left + right));
+            max = Math.max(max, (leftZeros + rightOnes));
         }
         return max;
     }
@@ -57,7 +63,19 @@ public class MaximumScoreAfterSplittingString {
         char[] arr = s.toCharArray();
         int n = arr.length;
         int max = 0;
-
+        for (int i = 1; i < n; i++) {
+            int counter = 0;
+            // checking the left side
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j] == '0') counter++;
+            }
+            // checking the right side
+            for (int j = i; j < n; j++) {
+                if (arr[j] == '1') counter++;
+            }
+            // checking the max
+            max = Math.max(max, counter);
+        }
         return max;
     }
 }

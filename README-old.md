@@ -26,9 +26,7 @@
   - [Find missing number in an array](/src/com/problems/array/FindMissingNumberInAnArray.java)
     - bit-manipulation
     - hashing
-  - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
-    - bit-manipulation
-    - hashing
+
   - [Maximum Consecutive Ones](/src/com/problems/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
     - bit-manipulation

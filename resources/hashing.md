@@ -19,6 +19,12 @@
 - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
 - [Number of Good Pairs](/src/com/problems/array/NumberOfGoodPairs.java)
 - [Destination City](/src/com/problems/string/DestinationCity.java)
+- [Path Crossing](/src/com/problems/hashing/PathCrossing.java)
+- [Redistribute Characters to Make All Strings Equal](/src/com/problems/string/RedistributeCharactersToMakeAllStringsEqual.java)
+- [Largest Substring Between Two Equal Characters](/src/com/problems/array/LargestSubstringBetweenTwoEqualCharacters.java)
+- [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
+- [First Unique Character in a String](/src/com/problems/string/FirstUniqueCharacterInAString.java)
+- [Intersection of Two Arrays](/src/com/problems/array/IntersectionOfTwoArrays.java)
 
 
 

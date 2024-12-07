@@ -12,8 +12,10 @@ import static com.util.PrintUtl.print;
  * Solution link :
  * https://www.youtube.com/watch?v=2D0D8HE6uak
  * https://www.youtube.com/watch?v=5nMGY4VUoRY&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=4
+ * https://www.youtube.com/watch?v=d-ulaeRBA64
  *
  * https://takeuforward.org/data-structure/find-the-repeating-and-missing-numbers/
+ * https://neetcode.io/solutions/set-mismatch
  * */
 
 // Tags : Arrays, Hashing, Bit manipulation
