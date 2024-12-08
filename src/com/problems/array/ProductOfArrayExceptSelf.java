@@ -4,17 +4,16 @@ import com.util.PrintUtl;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/product-of-array-except-self/
+ * https://leetcode.com/problems/product-of-array-except-self/description/
  * https://neetcode.io/problems/products-of-array-discluding-self
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=bNvIQI2wAjk
  *
- *
+ * https://neetcode.io/solutions/product-of-array-except-self
  * */
-/*
- * Tags:
- * Array, Hashing
- * */
+
+// Tags : Array, Hashing, Prefix sum
 public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         type1();

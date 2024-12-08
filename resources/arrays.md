@@ -29,6 +29,7 @@
 - [Intersection of Two Arrays](/src/com/problems/array/IntersectionOfTwoArrays.java)
 - [Number of Students Unable to Eat Lunch](/src/com/problems/array/NumberOfStudentsUnableToEatLunch.java)
 - [Time Needed to Buy Tickets](/src/com/problems/array/TimeNeededToBuyTickets.java)
+- [Special Array With X Elements Greater Than or Equal X](/src/com/problems/array/SpecialArrayWithXElementsGreaterThanOrEqualX.java)
 
 
 ### Bit Manipulation
@@ -38,5 +39,6 @@
 - [Find Pivot Index](/src/com/problems/array/FindPivotIndex.java)
 - [Range Sum Query - Immutable](/src/com/problems/array/RangeSumQueryImmutable.java)
 - [Largest Substring Between Two Equal Characters](/src/com/problems/array/LargestSubstringBetweenTwoEqualCharacters.java)
+- [Product of Array Except Self](/src/com/problems/array/ProductOfArrayExceptSelf.java)
 
 

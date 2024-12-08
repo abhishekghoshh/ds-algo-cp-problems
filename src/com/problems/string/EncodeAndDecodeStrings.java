@@ -5,14 +5,14 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/encode-and-decode-strings/description/
- * https://www.lintcode.com/problem/659/
  * https://neetcode.io/problems/string-encode-and-decode
+ * https://www.lintcode.com/problem/659/
  *
  * Solution link :
  * https://www.youtube.com/watch?v=B1k_sxOSgv8
  *
+ * https://neetcode.io/solutions/encode-and-decode-strings
  * https://medium.com/@miniChang8/leetcode-encode-and-decode-strings-4dde7e0efa1c
- *
  */
 
 // Tags : Array, String, Hashing

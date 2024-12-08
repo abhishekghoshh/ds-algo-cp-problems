@@ -12,7 +12,9 @@ import static com.util.PrintUtl.print;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6
- * 
+ * https://www.youtube.com/watch?v=YPTqKIgVk-k
+ *
+ * https://neetcode.io/solutions/top-k-frequent-elements
  * */
 
 // Tags : Array, Heap, Hashing

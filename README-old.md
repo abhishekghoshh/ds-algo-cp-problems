@@ -32,9 +32,7 @@
     - bit-manipulation
   - [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
     - hashing
-  - [Product of Array Except Self](/src/com/problems/array/ProductOfArrayExceptSelf.java)
-    - hashing
-    - prefix-sum
+  - 
   - [Longest Subarray with given Sum K(Positives)](/src/com/problems/array/LongestSubarrayWithSumEqualsK_1.java)
     - prefix-sum
     - two-pointer
