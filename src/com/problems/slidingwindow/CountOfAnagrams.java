@@ -4,13 +4,17 @@ import java.util.*;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/find-all-anagrams-in-a-string
- * https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
+ * https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
+ * https://www.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
  *
  * Solution link :
- * Aditya Verma :
  * https://www.youtube.com/watch?v=MW4lJ8Y0xXk&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=5
+ * https://www.youtube.com/watch?v=G8xtZy0fDKg
+ *
+ * https://neetcode.io/solutions/find-all-anagrams-in-a-string
  * */
+
+
 public class CountOfAnagrams {
 
 	public static void main(String[] args) {
@@ -28,10 +32,15 @@ public class CountOfAnagrams {
 	private static void type6() {
 		String s = "mfrxforxxorfxdofr";
 		String p = "for";
+		List<Integer> ret = findAnagrams6(s, p);
+		System.out.println(ret);
+	}
+
+	private static List<Integer> findAnagrams6(String s, String p) {
 		int n1 = s.length();
 		int n2 = p.length();
+		if (n1 < n2) return new ArrayList<>();
 		List<Integer> ret = new ArrayList<>();
-		if (n1 < n2) return;
 		// first, we are storing all the frequency of the pattern
 		int[] freq = new int[26];
 		for (var c : p.toCharArray()) freq[c - 'a']++;
@@ -61,8 +70,7 @@ public class CountOfAnagrams {
 				j++;
 			}
 		}
-		System.out.println(ret.size());
-		System.out.println(ret);
+		return ret;
 	}
 
 	// same as previous one
@@ -161,13 +169,17 @@ public class CountOfAnagrams {
 	// type 2 and type 3 are same
 	// just that we are not taking any set
 	// Asymptotically it should take more time but in reality it's taking less
-	// as it's easy it work on array rather than customized data structure
+	// as it's easy it works on array rather than customized data structure
 	private static void type3() {
 		String text = "mforxxorfxdofr";
 		String pattern = "for";
+		List<Integer> list = findAnagrams3(text, pattern);
+		System.out.println(list);
+	}
 
+	private static List<Integer> findAnagrams3(String text, String pattern) {
+		if (text.length() < pattern.length()) new ArrayList<>();
 		List<Integer> list = new ArrayList<>();
-		if (text.length() < pattern.length()) return;
 		int[] patternArray = new int[26];
 		int[] textArray = new int[26];
 		int textSize = text.length();
@@ -181,15 +193,13 @@ public class CountOfAnagrams {
 				if (equals(patternArray, textArray)) {
 					list.add(i - patternSize);
 				}
-				if (i == textSize)
-					break;
+				if (i == textSize) break;
 				textArray[text.charAt(i) - 'a']++;
 				textArray[text.charAt(i - patternSize) - 'a']--;
 			}
 			i++;
 		}
-		System.out.println(list.size());
-		System.out.println(list);
+		return list;
 	}
 
 	private static boolean equals(int[] patternArray, int[] textArray) {
@@ -202,7 +212,7 @@ public class CountOfAnagrams {
 	}
 
 	// Sliding window
-	// if the text size is n and we are looping through 26 letters in every window
+	// if the text size is n, and we are looping through 26 letters in every window
 	// so time complexity is O(n*k)
 	// space complexity is O(2*26+k) for 2 array
 	// We can optimize this by using Map
@@ -210,34 +220,39 @@ public class CountOfAnagrams {
 		String text = "mforxxorfxdofr";
 		String pattern = "for";
 
-		int n = text.length();
-		int k = pattern.length();
+		int count = countAnagrams2(text, pattern);
+		System.out.println(count);
+	}
+
+	private static int countAnagrams2(String text, String pattern) {
+		int n1 = text.length();
+		int n2 = pattern.length();
 		Set<Integer> allUniqueCharacters = new HashSet<>(26);
-		int[] patternFrequency = new int[26];
-		int[] windowFrequency = new int[26];
-		int left = 0, right = 0, count = 0;
-		while (right < k) {
+		int[] freq1 = new int[26]; // for pattern frequency
+		int[] freq2 = new int[26]; // for window frequency
+		int left = 0, right = 0, count;
+		while (right < n2) {
 			allUniqueCharacters.add(index(pattern.charAt(right)));
-			patternFrequency[index(pattern.charAt(right))]++;
-			windowFrequency[index(text.charAt(right))]++;
+			freq1[index(pattern.charAt(right))]++;
+			freq2[index(text.charAt(right))]++;
 			right++;
 		}
 		// calculating for the first window
-		count = equals(patternFrequency, windowFrequency, allUniqueCharacters) ? 1 : 0;
+		count = equals(freq1, freq2, allUniqueCharacters) ? 1 : 0;
 		// at this point left=0 and right=k
-		while (right < n) {
+		while (right < n1) {
 			// updating frequency for the current window
 			// where left=1 and right=k
-			windowFrequency[index(text.charAt(left))]--;
-			windowFrequency[index(text.charAt(right))]++;
+			freq2[index(text.charAt(left))]--;
+			freq2[index(text.charAt(right))]++;
 			// calculating for the current window
-			if (equals(patternFrequency, windowFrequency, allUniqueCharacters)) {
+			if (equals(freq1, freq2, allUniqueCharacters)) {
 				count++;
 			}
 			left++;
 			right++;
 		}
-		System.out.println(count);
+		return count;
 	}
 
 	private static boolean equals(int[] patternArray, int[] textArray, Set<Integer> allUniqueCharacters) {

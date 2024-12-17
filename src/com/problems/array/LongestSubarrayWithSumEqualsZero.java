@@ -15,6 +15,8 @@ import java.util.Map;
  *
  * https://takeuforward.org/data-structure/length-of-the-longest-subarray-with-zero-sum/
  * */
+
+// Tags : Arrays, hashing, prefix sum
 public class LongestSubarrayWithSumEqualsZero {
 
 	public static void main(String[] args) {

@@ -13,9 +13,7 @@
   - [Find the Minimum Area to Cover All Ones I](/src/com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java)
   - [Distribute Elements Into Two Arrays I](/src/com/problems/array/DistributeElementsIntoTwoArrays1.java)
   - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
-    - hashing
-    - swap-sort
-    - Cycle-Detection-Using-Tortoise-Method
+
   - [Remove Duplicates in-place from Sorted Array](/src/com/problems/array/RemoveDuplicateFromSortedArray.java)
   - [Left Rotate an array by one place](/src/com/problems/array/LeftRotateByOne.java)
   - [Left rotate an array by D places](/src/com/problems/array/LeftRotateArray.java)
@@ -30,32 +28,15 @@
   - [Maximum Consecutive Ones](/src/com/problems/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
     - bit-manipulation
-  - [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
-    - hashing
   - 
-  - [Longest Subarray with given Sum K(Positives)](/src/com/problems/array/LongestSubarrayWithSumEqualsK_1.java)
-    - prefix-sum
-    - two-pointer
-  - [Longest Subarray with given Sum K with Positives and Negatives](/src/com/problems/array/LongestSubarrayWithSumEqualsK_2.java)
-    - prefix-sum
-    - two-pointer
-  - [Longest Subarray with sum equals to Zero](/src/com/problems/array/LongestSubarrayWithSumEqualsZero.java)
-    - prefix-sum
-  - [Longest Subarray xor equal to K](/src/com/problems/array/LongestSubarrayXorEqualToK.java)
-    - prefix-sum
-  - [Count of subarray sum equals K](/src/com/problems/array/CountOfSubarraySumEqualsK.java)
-    - prefix-sum
-  - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
-    - prefix-sum
+
   - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
     - two-pointer
     - hashing
   - [4 Sum / Find Quads that add up to a target value](/src/com/problems/array/FourSum.java)
     - two-pointer
     - hashing
-  - [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
-    - three-pointer (Dutch national flag)
-    - hashing
+
   
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)

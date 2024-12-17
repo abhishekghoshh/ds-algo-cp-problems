@@ -18,6 +18,8 @@ import java.util.Map;
  * https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/
  * https://takeuforward.org/arrays/longest-subarray-with-sum-k-postives-and-negatives/
  * */
+
+// Tags : Arrays, hashing, prefix sum
 public class LongestSubarrayWithSumEqualsK_2 {
 
 	public static void main(String[] args) {

@@ -30,6 +30,9 @@
 - [Number of Students Unable to Eat Lunch](/src/com/problems/array/NumberOfStudentsUnableToEatLunch.java)
 - [Time Needed to Buy Tickets](/src/com/problems/array/TimeNeededToBuyTickets.java)
 - [Special Array With X Elements Greater Than or Equal X](/src/com/problems/array/SpecialArrayWithXElementsGreaterThanOrEqualX.java)
+- [Valid Sudoku](/src/com/problems/array/ValidSudoku.java)
+- [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
+- [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
 
 
 ### Bit Manipulation
@@ -40,5 +43,14 @@
 - [Range Sum Query - Immutable](/src/com/problems/array/RangeSumQueryImmutable.java)
 - [Largest Substring Between Two Equal Characters](/src/com/problems/array/LargestSubstringBetweenTwoEqualCharacters.java)
 - [Product of Array Except Self](/src/com/problems/array/ProductOfArrayExceptSelf.java)
+- [Brick Wall](/src/com/problems/array/BrickWall.java)
+
+- [Longest Subarray with given Sum K(Positives)](/src/com/problems/array/LongestSubarrayWithSumEqualsK_1.java)
+- [Longest Subarray with given Sum K with Positives and Negatives](/src/com/problems/array/LongestSubarrayWithSumEqualsK_2.java)
+- [Longest Subarray with sum equals to Zero](/src/com/problems/array/LongestSubarrayWithSumEqualsZero.java)
+- [Longest Subarray xor equal to K](/src/com/problems/array/LongestSubarrayXorEqualToK.java)
+- [Count of subarray sum equals K](/src/com/problems/array/CountOfSubarraySumEqualsK.java)
+- [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
 
 
+- [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)

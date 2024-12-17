@@ -5,13 +5,15 @@ import java.util.Map;
 
 /*
  * Problem link:
- * https://www.codingninjas.com/studio/problems/longest-subarray-with-sum-k_6682399
+ * https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_6682399
  *
  * Solution:
  * https://www.youtube.com/watch?v=frf7qxiN2qU&t=3s
  *
  * https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/
  * */
+
+// Tags : Arrays, hashing, prefix sum
 public class LongestSubarrayWithSumEqualsK_1 {
     public static void main(String[] args) {
         type1();

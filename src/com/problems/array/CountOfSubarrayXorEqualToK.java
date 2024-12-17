@@ -5,8 +5,8 @@ import java.util.Map;
 
 /*
  * Problem link:
- * https://www.codingninjas.com/studio/problems/subarrays-with-xor-k_6826258?leftPanelTabValue=PROBLEM
- * https://www.codingninjas.com/codestudio/problems/1115652
+ * https://www.naukri.com/code360/problems/1115652
+ * https://www.naukri.com/code360/problems/subarrays-with-xor-k_6826258
  * https://www.interviewbit.com/problems/subarray-with-given-xor/
  * 
  * Solution:
@@ -15,6 +15,8 @@ import java.util.Map;
  *
  * https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/
  * */
+
+// Tags : Arrays, hashing, prefix sum
 public class CountOfSubarrayXorEqualToK {
 
 	public static void main(String[] args) {
@@ -39,14 +41,14 @@ public class CountOfSubarrayXorEqualToK {
 	// prefixXor.put(0, 1); and if(xor==k) count++ has the same purpose
 	// if we include prefixXor.put(0, 1) then, at xor==k and previousXor will be 0
 	// then count = count + prefixXor.get(0); it will be automatically added
-	// if we add if(xor==k) count++ then we will manually checking for k equality
+	// if we add if(xor==k) count++ then we will manually check for k equality
 	// at that time prefixXor.containsKey(0) will return false
-	// count = count + prefixXor.get(0); will not be exexuted
+	// count = count + prefixXor.get(0); will not be executed
 	private static void type2() {
 		int[] nums = { 4, 2, 2, 6, 4 };
 		int k = 6;
 		Map<Integer, Integer> prefixXor = new HashMap<>();
-		int xor = 0, n = nums.length, count = 0, previousXor;
+		int xor = 0, count = 0, previousXor;
 		prefixXor.put(0, 1);// zero prefix xor for empty sub array
         for (int num : nums) {
             xor = xor ^ num;
@@ -67,13 +69,13 @@ public class CountOfSubarrayXorEqualToK {
 	private static void type1() {
 		int[] nums = { 4, 2, 2, 6, 4 };
 		int k = 6;
-		int xor = 0, count = 0;
-		for (int i = 0; i < nums.length; i++) {
-			xor = 0;
-			for (int j = i; j < nums.length; j++) {
+		int count = 0;
+		int n = nums.length;
+		for (int i = 0; i < n; i++) {
+			int xor = 0;
+			for (int j = i; j < n; j++) {
 				xor = xor ^ nums[j];
-				if (xor == k)
-					count++;
+				if (xor == k) count++;
 			}
 		}
 		System.out.println("count is " + count);

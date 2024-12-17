@@ -25,6 +25,12 @@
 - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
 - [First Unique Character in a String](/src/com/problems/string/FirstUniqueCharacterInAString.java)
 - [Intersection of Two Arrays](/src/com/problems/array/IntersectionOfTwoArrays.java)
+- [Valid Sudoku](/src/com/problems/array/ValidSudoku.java)
+- [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
+- [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
+- [Encode and Decode TinyURL](/src/com/problems/array/EncodeAndDecodeTinyURL.java)
+- [Brick Wall](/src/com/problems/array/BrickWall.java)
+- [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)
 
 
 

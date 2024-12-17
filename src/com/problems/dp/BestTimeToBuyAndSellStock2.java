@@ -4,14 +4,18 @@ import java.util.Arrays;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
  * https://www.naukri.com/code360/problems/selling-stock_630282
  *
  * Solution link :
  * https://www.youtube.com/watch?v=nGJmxkUJQGs&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=37
+ * https://www.youtube.com/watch?v=3SJ3pUkPQMc
  *
  * https://takeuforward.org/data-structure/buy-and-sell-stock-ii-dp-36/
+ * https://neetcode.io/solutions/best-time-to-buy-and-sell-stock-ii
  */
+
+// Tags : Arrays, Dynamic programming
 public class BestTimeToBuyAndSellStock2 {
     public static void main(String[] args) {
         type1();

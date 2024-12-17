@@ -11,6 +11,7 @@ import java.util.Map;
  *
  * */
 
+// Tags : Arrays, hashing, prefix sum
 public class LongestSubarrayXorEqualToK {
 	public static void main(String[] args) {
 		type1();

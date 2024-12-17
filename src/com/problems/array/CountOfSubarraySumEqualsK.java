@@ -5,19 +5,50 @@ import java.util.Map;
 
 /*
  * Problem link:
- * https://leetcode.com/problems/subarray-sum-equals-k
- * https://www.codingninjas.com/studio/problems/subarray-sums-i_1467103
+ * https://leetcode.com/problems/subarray-sum-equals-k/description/
+ * https://www.naukri.com/code360/problems/subarray-sums-i_1467103
  * 
  * Solution link:
  * https://www.youtube.com/watch?v=xvNwoz-ufXA
+ * https://www.youtube.com/watch?v=fFVZt-6sgyo
  *
  * https://takeuforward.org/arrays/count-subarray-sum-equals-k/
+ * https://neetcode.io/solutions/subarray-sum-equals-k
  * */
+
+// Tags : Arrays, hashing, prefix sum
 public class CountOfSubarraySumEqualsK {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
+		type3();
+	}
+
+	// same as the previous
+	// but here we will make the code little crisp
+	private static void type3() {
+		int[] nums = {1, 2, 3};
+		int k = 3;
+		int count = subarraySum3(nums, k);
+		System.out.println(count);
+	}
+
+	private static int subarraySum3(int[] nums, int k) {
+		int count = 0;
+		int sum = 0;
+		Map<Integer, Integer> prefixSum = new HashMap<>();
+		prefixSum.put(0, 1);// zero prefix sum for empty sub array
+		for (int num : nums) {
+			sum += num;
+			int rem = sum - k;
+			// if a reminder exists that mean k also exists
+			// the number of prefix sum of a reminder is equals the number prefix sum of k
+			count += prefixSum.getOrDefault(rem, 0);
+			// on every index we are updating the prefix sum count
+			prefixSum.put(sum, 1 + prefixSum.getOrDefault(sum, 0));
+		}
+		return count;
 	}
 
 	// prefix sum approach
@@ -33,29 +64,34 @@ public class CountOfSubarraySumEqualsK {
 	// prefixSumMap.put(0, 1); and if(sum==k) count++ has the same purpose
 	// if we include prefixSumMap.put(0, 1) then, at sum==k and reminder will be 0
 	// then count = count + prefixSumMap.get(reminder); it will be automatically
-	// added if we add if(sum==k) count++ then we will manually checking for k
+	// added if we add if(sum==k) count++ then we will manually check for k
 	// equality, at that time prefixSum.containsKey(0) will return false
-	// count = count + prefixSumMap.get(0);; will not be exexuted
+	// count = count + prefixSumMap.get(0);; will not be executed
 	private static void type2() {
 		int[] nums = { 1, 2, 3 };
 		int k = 3;
-		int sum = 0, reminder, count = 0;
-		Map<Integer, Integer> prefixSumMap = new HashMap<>();
-		prefixSumMap.put(0, 1);// zero prefix sum for empty sub array
+		int count = subarraySum2(nums, k);
+		System.out.println(count);
+	}
+
+	private static int subarraySum2(int[] nums, int k) {
+		int sum = 0, count = 0;
+		Map<Integer, Integer> prefixSum = new HashMap<>();
+		prefixSum.put(0, 1);// zero prefix sum for empty sub array
 		for (int num : nums) {
-			sum = sum + num;
-			reminder = sum - k;
+			sum += num;
+			int rem = sum - k;
 			// if a reminder exists that mean k also exists
 			// the number of prefix sum of a reminder is equals the number prefix sum of k
-			if (prefixSumMap.containsKey(reminder))
-				count = count + prefixSumMap.get(reminder);
+			if (prefixSum.containsKey(rem))
+				count += prefixSum.get(rem);
 			// on every index we are updating the prefix sum count
-			if (!prefixSumMap.containsKey(sum))
-				prefixSumMap.put(sum, 1);
+			if (!prefixSum.containsKey(sum))
+				prefixSum.put(sum, 1);
 			else
-				prefixSumMap.put(sum, 1 + prefixSumMap.get(sum));
+				prefixSum.put(sum, 1 + prefixSum.get(sum));
 		}
-		System.out.println("Count of subarry is " + count);
+		return count;
 	}
 
 	// brute force approach using two loops
@@ -64,6 +100,11 @@ public class CountOfSubarraySumEqualsK {
 	private static void type1() {
 		int[] nums = { 1, 2, 3 };
 		int k = 3;
+		int count = subarraySum1(nums, k);
+		System.out.println(count);
+	}
+
+	private static int subarraySum1(int[] nums, int k) {
 		int count = 0;
 		for (int i = 0; i < nums.length; i++) {
 			int sum = 0;
@@ -73,6 +114,6 @@ public class CountOfSubarraySumEqualsK {
 					count++;
 			}
 		}
-		System.out.println("Count of subarry is " + count);
+		return count;
 	}
 }

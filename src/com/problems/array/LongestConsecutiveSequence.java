@@ -6,28 +6,29 @@ import java.util.Set;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/longest-consecutive-sequence/
- * https://www.naukri.com/code360/problems/759408
+ * https://leetcode.com/problems/longest-consecutive-sequence/description/
  * https://neetcode.io/problems/longest-consecutive-sequence
+ * https://www.naukri.com/code360/problems/759408
  * 
  * Solution link :
- * https://www.youtube.com/watch?v=qgizvmgeyUM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=23
- * https://www.youtube.com/watch?v=oO5uLE7EUlM&t=1s
+ * https://www.youtube.com/watch?v=qgizvmgeyUM
+ * https://www.youtube.com/watch?v=oO5uLE7EUlM
+ * https://www.youtube.com/watch?v=P6RZZMu_maU
  *
  * https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/
+ * https://neetcode.io/solutions/longest-consecutive-sequence
  * */
-/*
- * Given an unsorted array of integers nums = [100,4,200,1,3,2], 
- * return the length of the longest consecutive elements sequence. 
- * The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
- * */
-/*
- * Tags:
- * Array, Hashing
- * */
-// todo Special notice : In leetcode type1 approach is taking the least time
+
+
+// Tags : Array, Hashing
 public class LongestConsecutiveSequence {
 
+	// todo Special notice : In leetcode type1 approach is taking the least time
+	/*
+	 * Given an unsorted array of integers nums = [100,4,200,1,3,2],
+	 * return the length of the longest consecutive elements sequence.
+	 * The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+	 * */
 	public static void main(String[] args) {
 		type1();
 		type2();

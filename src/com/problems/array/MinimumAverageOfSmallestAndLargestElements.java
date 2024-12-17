@@ -9,6 +9,8 @@ import java.util.PriorityQueue;
  * Solution link :
  *
  */
+
+// Tags : hashing, swap-sort, Cycle-Detection-Using-Tortoise-Method
 public class MinimumAverageOfSmallestAndLargestElements {
     public static void main(String[] args) {
         type1();

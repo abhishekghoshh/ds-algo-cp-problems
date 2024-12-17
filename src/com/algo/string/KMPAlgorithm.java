@@ -62,12 +62,15 @@ public class KMPAlgorithm {
 
 		int answer = -1;
 
-		int[] pattern = new int[s2.length];
+		int n2 = s2.length;
+		int n1 = s1.length;
+
+		int[] pattern = new int[n2];
 		Arrays.fill(pattern, -1);
 
 		// finding pattern array
 		int i = 1, j = 0;
-		while (i < s2.length) {
+		while (i < n2) {
 			if (s2[i] == s2[j]) {
 				pattern[i] = j;
 				i++;
@@ -81,10 +84,10 @@ public class KMPAlgorithm {
 
 		// operating on actual string
 		i = j = 0;
-		while (i < s1.length) {
+		while (i < n1) {
 			if (s1[i] == s2[j]) {
-				if (j == s2.length - 1) {
-					answer = i - s2.length + 1;
+				if (j == n2 - 1) {
+					answer = i - n2 + 1;
 					break;
 				}
 				i++;
