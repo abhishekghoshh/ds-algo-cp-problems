@@ -18,8 +18,11 @@
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)
 - [Compare version number](/src/com/problems/string/CompareVersionNumber.java)
 - [Remove Outermost Parentheses](/src/com/problems/string/RemoveOutermostParentheses.java)
+
+- [Reverse String](/src/com/problems/string/ReverseString.java)
 - [Reverse Words in a String](/src/com/problems/string/ReverseWordsInString.java)
-- [Reverse Words](/src/com/problems/string/ReverseWords.java)
+- [Reverse Words in a String III](/src/com/problems/string/ReverseWordsInString3.java)
+
 - [Largest Odd Number in String](/src/com/problems/string/LargestOddNumberInString.java)
 - [Longest Common Prefix](/src/com/problems/string/LongestCommonPrefix.java)
 - [Unique Email Addresses](/src/com/problems/string/UniqueEmailAddresses.java)

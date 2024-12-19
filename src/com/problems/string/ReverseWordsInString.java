@@ -2,7 +2,6 @@ package com.problems.string;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /*
  * Problem link : 
@@ -16,183 +15,96 @@ import java.util.Stack;
  * */
 public class ReverseWordsInString {
 
+	/*
+	 * 1 <= s.length <= 10^4
+	 * s contains English letters (upper-case and lower-case), digits, and spaces ' '
+	 * There is at least one word in s
+	 * */
 	public static void main(String[] args) {
-		// TODO study all the approaches
-		type0();
 		type1();
 		type2();
-		type3();
-		type4();
-		type5();
-		type6();
 	}
 
-	// most optimized approach
-	private static void type6() {
-		String s = "a good   example";
+	// optimized approach using two pointers
+	// we will go from the last to first
+	// 1. we will skip all the spaces till we will find a letter
+	// that will be our end index, 2. then we will go till we find a space
+	// that index will be our start of the word.
+	// 3. we will use a loop to store the word
+	// now we will save that into our string builder and also add a space
+	// lastly we will remove one extra space
+	private static void type2() {
+		String s = "  hello world I am home ";
+		String ans = reverseWords2(s);
+		System.out.println(ans);
+	}
+
+	public static String reverseWords2(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
-		char[] result = new char[n];
-		int outPos = 0;
-		// we will be looping through from last to first
-		for (int i = n - 1; i >= 0; i--) {
-			// skip all the trailing whitespaces first
+		StringBuilder sb = new StringBuilder();
+		int i = n - 1;
+		while (i >= 0) {
+			// skipping the empty spaces
 			while (i >= 0 && arr[i] == ' ') i--;
-			// if i<0 means there is no character found
-			if (i < 0) break;
-			// now we have found the end of the word
-			int endOfWord = i;
-			// we will find the start of the word
-			while (i > 0 && arr[i - 1] != ' ') i--;
-			// now we will add the space after the previous word
-			if (outPos > 0) result[outPos++] = ' ';
-			// now we will copy word by word
-			for (int j = i; j <= endOfWord; j++)
-				result[outPos++] = arr[j];
+			if (i == -1) break;
+			// going till we find an empty space to find the start of the word
+			int end = i;
+			while (i >= 0 && arr[i] != ' ') i--;
+			int start = i + 1;
+			// now we will copy the word into our string builder
+			for (int j = start; j <= end; j++) sb.append(arr[j]);
+			sb.append(' ');
 		}
-		String answer = String.valueOf(result, 0, outPos);
-		System.out.println(answer);
+		// remove the extra space
+		sb.deleteCharAt(sb.length() - 1);
+		return sb.toString();
 	}
 
-	public static void type5() {
-		String s = "a good   example";
-		StringBuilder sb = new StringBuilder();
-		for (int i = s.length() - 1; i >= 0; i--) {
-			if (s.charAt(i) != ' ') {
-				if (sb.length() > 0)
-					sb.append(' ');
-				int j = i;
-				while (i >= 0 && s.charAt(i) != ' ') {
-					i--;
-				}
-				i++;
-				sb.append(s.substring(i, j + 1));
+	// brute force approach
+	// stores a list of [start,end] of every word
+	// now reverse the list and loop through the words and add them into our ans
+	private static void type1() {
+		String s = "  hello world I am home ";
+		String ans = reverseWords1(s);
+		System.out.println(ans);
+	}
+
+	private static String reverseWords1(String s) {
+		char[] arr = s.toCharArray();
+		int n = arr.length;
+		List<int[]> indices = new ArrayList<>();
+		// storing the [wordStart, wordEnd] indices in a list,
+		// we need one flag to check if the word is already started or not
+		boolean wordStarted = false;
+		for (int i = 0; i < n; i++) {
+			// there is a space
+			if (arr[i] == ' ') {
+				wordStarted = false;
+				continue;
 			}
-		}
-		String answer = sb.toString();
-		System.out.println(answer);
-	}
-
-	public static void type4() {
-		String s = "a good   example";
-		int n = s.length();
-		StringBuilder ans = new StringBuilder("");
-		StringBuilder temp = new StringBuilder("");
-		for (int i = n - 1; i >= 0; i--) {
-			char ch = s.charAt(i);
-			if (ch != ' ')
-				temp.append(ch);
-			if ((ch == ' ' || i == 0) && temp.length() > 0) {
-				if (ans.length() > 0)
-					ans.append(" ");
-				temp.reverse();
-				ans.append(temp);
-				temp.setLength(0);
+			// there is a character, and it is the start of a word
+			if (!wordStarted) {
+				indices.add(new int[]{i, i});
+				wordStarted = true;
 			}
-		}
-		String answer = ans.toString();
-		System.out.println(answer);
-	}
-
-	public static void type3() {
-		String s = "a good   example";
-		Stack<String> st = new Stack<String>();
-		for (String a : s.trim().split(" ")) {
-			if (!a.isEmpty())
-				st.push(a);
+			int[] lastPair = indices.get(indices.size() - 1);
+			lastPair[1] = i;
 		}
 		StringBuilder sb = new StringBuilder();
-		while (!st.isEmpty()) {
-			sb.append(st.pop());
+		// going from last to first in the indices list
+		int sz = indices.size();
+		for (int i = sz - 1; i >= 0; i--) {
+			int[] pair = indices.get(i);
+			int start = pair[0], end = pair[1];
+			// add the word into the string builder and also adding a space
+			for (int j = start; j <= end; j++) sb.append(arr[j]);
 			sb.append(" ");
 		}
-		String answer = sb.toString().trim();
-		System.out.println(answer);
+		// remove the extra space
+		sb.deleteCharAt(sb.length() - 1);
+		return sb.toString();
 	}
 
-	public static void type2() {
-		String s = "a good   example";
-		s = s.trim();
-		String str[] = s.split("\\s+");
-		StringBuilder res = new StringBuilder();
-		for (int i = str.length - 1; i >= 0; i--) {
-			res.append(str[i]);
-			if (i != 0) {
-				res.append(" ");
-			}
-		}
-		String answer = res.toString();
-		System.out.println(answer);
-	}
-
-	@Deprecated
-	private static void type1() {
-		String s = "a good   example";
-		if (null == s || s.length() == 1)
-			return;
-		List<Point> points = new ArrayList<>();
-		boolean wordStarted = false;
-		int letterCount = 0;
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) != ' ') {
-				letterCount++;
-				if (!wordStarted) {
-					wordStarted = true;
-					points.add(new Point(i, i));
-				} else {
-					points.get(points.size() - 1).end = i;
-				}
-			} else {
-				wordStarted = false;
-			}
-		}
-		if (points.size() == 0)
-			return;
-		// System.out.println(points);
-		char[] arr = new char[letterCount + points.size() - 1];
-		int index = 0;
-		Point point = null;
-		for (int i = points.size() - 1; i >= 0; i--) {
-			point = points.get(i);
-			for (int j = point.start; j <= point.end; j++) {
-				arr[index++] = s.charAt(j);
-			}
-			if (i != 0) {
-				arr[index++] = ' ';
-			}
-		}
-		s = new String(arr);
-		System.out.println(s);
-	}
-
-	private static class Point {
-		public int start;
-		public int end;
-
-		public Point(int x, int y) {
-			this.start = x;
-			this.end = y;
-		}
-	}
-
-	@Deprecated
-	private static void type0() {
-		String s = "a good   example";
-		int left = 0, right = 0;
-		s = s.trim();
-		StringBuilder str = new StringBuilder();
-		while (right <= s.length()) {
-			if (right == s.length() || s.charAt(right) == ' ') {
-				str = new StringBuilder(s.substring(left, right)).append(" ").append(str);
-				while (right < s.length() && s.charAt(right + 1) == ' ') {
-					right++;
-				}
-				left = right + 1;
-			}
-			right++;
-		}
-		str.deleteCharAt(str.length() - 1);
-		System.out.println(str.toString());
-	}
 
 }

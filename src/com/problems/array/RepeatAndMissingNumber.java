@@ -4,7 +4,7 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/set-mismatch/
+ * https://leetcode.com/problems/set-mismatch/description/
  * https://www.interviewbit.com/problems/repeat-and-missing-number-array/
  * https://www.naukri.com/code360/problems/873366
  * https://www.naukri.com/code360/problems/missing-and-repeating-numbers_6828164

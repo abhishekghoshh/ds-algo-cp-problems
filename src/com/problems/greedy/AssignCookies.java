@@ -6,7 +6,7 @@ import java.util.Arrays;
  *
  * problem links :
  * https://leetcode.com/problems/assign-cookies/description/
- * https://www.codingninjas.com/studio/problems/assign-cookies_8390826
+ * https://www.naukri.com/code360/problems/assign-cookies_8390826
  *
  * Solution link :
  * https://www.youtube.com/watch?v=DIX2p7vb9co
@@ -16,49 +16,36 @@ public class AssignCookies {
     public static void main(String[] args) {
         type1();
         type2();
-        type3();
     }
 
-    // same as type2
-    private static void type3() {
-        int[] g = {1, 2, 3};
-        int[] s = {1, 1};
-        int count = 0;
-        Arrays.sort(g);
-        Arrays.sort(s);
-        int j = s.length - 1;
-        for (int i = g.length - 1; i >= 0; i--) {
-            if (j >= 0 && s[j] >= g[i]) {
-                count++;
-                j--;
-            }
-        }
-        System.out.println(count);
-    }
+
 
     // optimized approach
     // first we will sort the entire array
-    // we have to assign the cookies such that the greed factor is less than the rank of the cookie
-    // g[i1] <= s[i2] if the condition does not satisfy then we will go to the next rank cookie,
-    // but we will stick to the same greed
-    // as both of the array are in sorted order
-    // if we will find greater rank cookie afterward
+    // now we will use two pointers one on children another on the cookies
+    // now we will go through all the cookies, we have cookies and children both sorted from lowest to highest,
+    // we can only give a cookie to a child if cookie size <= student greed
     private static void type2() {
         int[] g = {1, 2, 3};
         int[] s = {1, 1};
-        int i1 = 0, i2 = 0;
-        int n1 = g.length, n2 = s.length;
-        int count = 0;
+        int count = findContentChildren2(g, s);
+        System.out.println(count);
+    }
+
+    private static int findContentChildren2(int[] g, int[] s) {
         Arrays.sort(s);
         Arrays.sort(g);
-        while (i1 < n1 && i2 < n2) {
-            if (g[i1] <= s[i2]) {
+        int m = g.length, n = s.length;
+        int count = 0;
+        // going through all the cookies
+        // increment the greed only the cookie can satisfy that
+        for (int i = 0, j = 0; i < n && j < m; i++) {
+            if (g[j] <= s[i]) {
                 count++;
-                i1++;
+                j++;
             }
-            i2++;
         }
-        System.out.println(count);
+        return count;
     }
 
     // brute force approach

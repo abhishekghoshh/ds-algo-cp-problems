@@ -35,6 +35,12 @@
 - [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
 
 
+
+### Swap sort
+- [Swap sort](/src/com/algo/sort/SwapSort.java)
+- [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
+- [Find All Duplicates in an Array](/src/com/problems/array/FindAllDuplicatesInAnArray.java)
+
 ### Bit Manipulation
 - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
 

@@ -77,7 +77,6 @@
   - [First Negative Number in every Window of Size K](/src/com/problems/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
   - [Count Occurrences Of Anagrams](/src/com/problems/slidingwindow/CountOfAnagrams.java)
   - [Maximum of all subarrays of size k](/src/com/problems/slidingwindow/MaximumOfAllSubarraysOfSizeK.java)
-    - queue
   - [Longest Substring With K Unique Characters / Variable Size Sliding Window](/src/com/problems/slidingwindow/LargestSubstringWithKUniqueCharacters.java)
   - [Longest Substring With Without Repeating Characters / Variable Size Sliding Window](/src/com/problems/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java)
   - [Fruit Into Baskets / Pick Toys / An Interesting Sliding Window Problem](/src/com/problems/slidingwindow/FruitIntoBaskets.java)
@@ -99,6 +98,7 @@
   - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
   - [Count Distinct Elements In Every Window](/src/com/problems/slidingwindow/CountDistinctElementsInEveryWindow.java)
   - [Count Substrings With K-Frequency Characters I](/src/com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java)
+  - [Minimum Size Subarray Sum](/src/com/problems/slidingwindow/MinimumSizeSubarraySum.java)
 
 
 
