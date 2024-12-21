@@ -22,9 +22,18 @@ public class ReorderList {
         type1();
         type2();
         type3();
+        type4();
     }
 
-    // this is the same approach as previous but here we have used recursion in place of stack
+    // todo most optimized approach
+    // first we will use a fast and slow pointer to go to the middle of the linked list
+    // now we have 2 list [start, mid] [mid+1, end]
+    // now if we reverse the 2nd list [end, mid+1]
+    // we we will do a merge on both list, taking one from each linked list at a time
+    private static void type4() {
+    }
+
+    // this is the same approach as previous, but here we have used recursion in place of stack
     private static void type3() {
         Node head = new Node(1, 2, 3, 4, 5, 6, 7);
         reorderList3(head);
@@ -84,7 +93,7 @@ public class ReorderList {
         // we will break the list and the middle-node.next to null
         Node next = slow.next;
         slow.next = null;
-        // we will save the last half nodes in stack
+        // we will save the last half-nodes in stack
         Stack<Node> stack = new Stack<>();
         while (next != null) {
             stack.push(next);

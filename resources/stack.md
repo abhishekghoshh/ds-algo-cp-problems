@@ -20,6 +20,7 @@
 - [Prefix to Infix](/src/com/problems/stack/PrefixToInfix.java)
 - [Prefix to Postfix](/src/com/problems/stack/PrefixToPostfix.java)
 - [Postfix to Prefix](/src/com/problems/stack/PostfixToPrefix.java)
+- [Make The String Great](/src/com/problems/stack/MakeTheStringGreat.java)
 - [Next Greater Element](/src/com/problems/stack/NextGreaterElement.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Next Greater Element in a Circle](/src/com/problems/stack/NextGreaterElementInCircle.java)

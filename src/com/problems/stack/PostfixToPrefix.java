@@ -5,7 +5,7 @@ import java.util.Stack;
 /*
  *
  * problem links :
- * https://www.codingninjas.com/studio/problems/postfix-to-prefix_1788455
+ * https://www.naukri.com/code360/problems/postfix-to-prefix_1788455
  *
  * Solution link :
  * https://www.youtube.com/watch?v=smQ88h1qzQY

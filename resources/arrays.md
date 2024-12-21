@@ -10,6 +10,7 @@
 
 ### General
 - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
+- [Contains Duplicate II](/src/com/problems/hashing/ContainsDuplicate2.java)
 - [Replace Elements with Greatest Element on Right Side](/src/com/problems/array/ReplaceElementsWithGreatestElementOnRightSide.java)
 - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
 - [Program to generate Pascal’s Triangle](/src/com/problems/array/PascalTriangle.java)

@@ -15,6 +15,8 @@
   - [Find the duplicate in an array of N+1 integers](/src/com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
 
   - [Remove Duplicates in-place from Sorted Array](/src/com/problems/array/RemoveDuplicateFromSortedArray.java)
+  - 
+  - 
   - [Left Rotate an array by one place](/src/com/problems/array/LeftRotateByOne.java)
   - [Left rotate an array by D places](/src/com/problems/array/LeftRotateArray.java)
   - [Move Zeros to end](/src/com/problems/array/MovesZeroToEnd.java)
