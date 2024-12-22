@@ -9,13 +9,19 @@
 
 
 ### General
+- [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
+- [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
+- [4 Sum / Find Quads that add up to a target value](/src/com/problems/array/FourSum.java)
+
 - [Contains Duplicate](/src/com/problems/hashing/ContainsDuplicate.java)
 - [Contains Duplicate II](/src/com/problems/hashing/ContainsDuplicate2.java)
+
 - [Replace Elements with Greatest Element on Right Side](/src/com/problems/array/ReplaceElementsWithGreatestElementOnRightSide.java)
-- [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
+
 - [Program to generate Pascal’s Triangle](/src/com/problems/array/PascalTriangle.java)
 - [Program to generate Pascal’s Triangle one row](/src/com/problems/array/PascalTriangleOneRow.java)
 - [Program to generate Pascal’s Triangle one element](/src/com/problems/array/PascalTriangleOneElement.java)
+
 - [Remove Element](/src/com/problems/array/RemoveElement.java)
 - [Majority Element I | Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElements1.java)
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElements2.java)
@@ -34,7 +40,10 @@
 - [Valid Sudoku](/src/com/problems/array/ValidSudoku.java)
 - [Longest Consecutive Sequence in an Array](/src/com/problems/array/LongestConsecutiveSequence.java)
 - [Sort an array of 0's 1's and 2's](/src/com/problems/array/SortZeroOneTwo.java)
+- [Minimum Number of Operations to Make Elements in Array Distinct](/src/com/problems/array/MinimumNumberOfOperationsToMakeElementsInArrayDistinct.java)
 
+- [Minimum Number of Swaps to Make The String Balanced](/src/com/problems/array/MinimumNumberOfSwapsToMakeTheStringBalanced.java)
+- [Number of Pairs of Interchangeable Rectangles](/src/com/problems/array/NumberOfPairsOfInterchangeableRectangles.java)
 
 
 ### Swap sort

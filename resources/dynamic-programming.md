@@ -100,4 +100,5 @@
 - [Maximize Total Cost of Alternating Subarrays](/src/com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
 - [Minimum Cost for Cutting Cake I](/src/com/problems/dp/MinimumCostForCuttingCakeI.java)
 - [Sum of Good Subsequences](/src/com/problems/dp/SumOfGoodSubsequences.java)
+- [Count Paths With the Given XOR Value](/src/com/problems/dp/CountPathsWithTheGivenXORValue.java)
 

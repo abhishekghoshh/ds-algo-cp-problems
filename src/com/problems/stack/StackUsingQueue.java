@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 /*
  * Problem link :
- * https://leetcode.com/problems/implement-stack-using-queues/
+ * https://leetcode.com/problems/implement-stack-using-queues/description/
  * https://www.naukri.com/code360/problems/stack-using-queue_795152
  *
  * Solution link :

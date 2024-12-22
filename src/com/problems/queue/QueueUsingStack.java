@@ -3,14 +3,16 @@ package com.problems.queue;
 import java.util.Stack;
 /*
  * Problem link :
- * https://leetcode.com/problems/implement-queue-using-stacks/
+ * https://leetcode.com/problems/implement-queue-using-stacks/description/
  * https://www.naukri.com/code360/problems/day-25-:-queue-using-stack_799482
  *
  * Solution link :
  * https://www.youtube.com/watch?v=tqQ5fTamIN4
  * https://www.youtube.com/watch?v=3Et9MrMc02A
+ * https://www.youtube.com/watch?v=eanwa3ht3YQ
  *
  * https://takeuforward.org/data-structure/implement-queue-using-stack/
+ * https://neetcode.io/solutions/implement-queue-using-stacks
  * */
 public class QueueUsingStack {
 

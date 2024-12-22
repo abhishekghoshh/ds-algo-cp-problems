@@ -15,51 +15,18 @@ import java.util.Stack;
  * https://takeuforward.org/data-structure/check-for-balanced-parentheses/
  *
  *
- * Tags :
- * Stack
  * */
+
+// Tags : Stack, String
 public class ValidParenthesis {
 
 	public static void main(String[] args) {
 		type1();
 		type2();
-		type3();
 	}
 
-	private static void type3() {
-		String s = "()[]{}";
-		boolean answer = isValid3(s);
-		System.out.println(answer);
-	}
 
-	// similar to the previous approach with little difference
-	// here we are saving exactly opposite closing bracket of the opening bracket
-	private static boolean isValid3(String s) {
-		char[] stack = new char[s.length()];
-		int top = 0;
-		for (char ch : s.toCharArray()) {
-			// we will add exactly opposite brackets for every opening brackets
-			switch (ch) {
-			case '(':
-				stack[top++] = ')';
-				break;
-			case '{':
-				stack[top++] = '}';
-				break;
-			case '[':
-				stack[top++] = ']';
-				break;
-			default:
-				// if the stack is empty or the top character of the stack is not same as the current character
-				if (top == 0 || stack[--top] != ch) return false;
-				break;
-			}
-		}
-		// checking if the stack is empty or not
-		return (top == 0);
-	}
-
-	// exactly like the previous but here we are using normal array as stack
+	// exactly like the previous, but here we are using a normal array as stack
 	private static void type2() {
 		String s = "()[]{}";
 		boolean answer = isValid2(s);

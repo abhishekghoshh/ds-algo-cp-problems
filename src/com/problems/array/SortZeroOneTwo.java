@@ -21,7 +21,7 @@ import static com.util.PrintUtl.print;
  * https://neetcode.io/solutions/sort-colors
  * */
 
-// Tags : Arrays, sorting, hashing, Dutch national flag algorithm 3 pointer
+// Tags: Arrays, sorting, hashing, Dutch national flag algorithm 3 pointer
 public class SortZeroOneTwo {
 
 	public static void main(String[] args) {

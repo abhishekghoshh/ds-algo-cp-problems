@@ -11,16 +11,21 @@
 - [Implement Stack using Arrays](/src/com/problems/stack/Stack.java)
 - [Implement Stack using Queue](/src/com/problems/stack/StackUsingQueue.java)
 - [Implement stack using Linkedlist](/src/com/problems/stack/StackUsingLinkedlist.java)
+- [Implement Queue using Stack](/src/com/problems/queue/QueueUsingStack.java)
+- [Implement Min Stack](/src/com/problems/stack/MinStack.java)
+
 - [Valid Parentheses](/src/com/problems/stack/ValidParenthesis.java)
 - [Longest Valid Parentheses](/src/com/problems/stack/LongestValidParenthesis.java)
-- [Implement Min Stack](/src/com/problems/stack/MinStack.java)
+- [Baseball Game](/src/com/problems/stack/BaseballGame.java)
+- [Make The String Great](/src/com/problems/stack/MakeTheStringGreat.java)
+
 - [Infix to Postfix](/src/com/problems/stack/InfixToPostfix.java)
 - [Postfix to Infix](/src/com/problems/stack/PostfixToInfix.java)
 - [Infix To Prefix](/src/com/problems/stack/InfixToPrefix.java)
 - [Prefix to Infix](/src/com/problems/stack/PrefixToInfix.java)
 - [Prefix to Postfix](/src/com/problems/stack/PrefixToPostfix.java)
 - [Postfix to Prefix](/src/com/problems/stack/PostfixToPrefix.java)
-- [Make The String Great](/src/com/problems/stack/MakeTheStringGreat.java)
+
 - [Next Greater Element](/src/com/problems/stack/NextGreaterElement.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Next Greater Element in a Circle](/src/com/problems/stack/NextGreaterElementInCircle.java)

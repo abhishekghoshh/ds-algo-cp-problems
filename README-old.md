@@ -32,12 +32,7 @@
     - bit-manipulation
   - 
 
-  - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
-    - two-pointer
-    - hashing
-  - [4 Sum / Find Quads that add up to a target value](/src/com/problems/array/FourSum.java)
-    - two-pointer
-    - hashing
+
 
   
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)

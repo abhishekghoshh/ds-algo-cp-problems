@@ -1,12 +1,15 @@
 package com.problems.dp;
 
 /*
- * Problem link :
+ * Problem link:
  * https://leetcode.com/problems/sum-of-good-subsequences/description/
  * Course Schedule:
  *
  *
  * Solution link :
+ *
+ *
+ *
  */
 public class SumOfGoodSubsequences {
     public static void main(String[] args) {

@@ -1,6 +1,9 @@
 package com.problems.array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /*
@@ -15,6 +18,8 @@ import java.util.stream.Collectors;
  *
  * https://takeuforward.org/data-structure/4-sum-find-quads-that-add-up-to-a-target-value/
  * */
+
+// Tags: Arrays, Two Pointers
 public class FourSum {
 
 	public static void main(String[] args) {
@@ -44,14 +49,14 @@ public class FourSum {
 			// we have to skip this nums[i]
 			if ((long) nums[i] + nums[n - 3] + nums[n - 2] + nums[n - 1] < target) continue;
 			for (int j = i + 1; j <= n - 3; j++) {
-				//if there is a series of duplicates then it will just take the first time when j==i+1
+				//if there is a series of duplicates, then it will just take the first time when j==i+1
 				//when j>i+1 then for all duplicate value will be skipped
 				if (j > i + 1 && nums[j] == nums[j - 1]) continue;
-				// in a series left most elements are the smallest
-				// if sum of i and j to j+2 elements are less than target then there is not point to check
+				// in a series left, most elements are the smallest
+				// if the sum of i and j to j+2 elements are less than target then there is no point to check
 				if ((long) nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target ) break;
-				// if nums[i] plus nums[j] and last 2 numbers are less than target 
-				// than means nums[j] is useless as last 2 numbers are the highest
+				// if nums[i] plus nums[j] and the last 2 numbers are less than target
+				// than means nums[j] is useless as the last 2 numbers are the highest,
 				// we have to skip this nums[j]
 				if ((long) nums[i] + nums[j] + nums[n - 2] + nums[n - 1] < target ) continue;
 				left = j + 1;

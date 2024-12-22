@@ -19,9 +19,9 @@ import static com.util.ArrayUtil.minN;
  * Blogs :
  * https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/
  *
- * Tags:
- * Two-Pointers
  * */
+
+// Tags: array, two pointers
 public class ThreeSum {
 
 	public static void main(String[] args) {
@@ -52,7 +52,7 @@ public class ThreeSum {
 			// and num[i] is not capable to generate 0 even with the highest of numbers on that array
 			if (nums[i] + nums[n - 2] + nums[n - 1] < 0) continue;
 			// as nums[i] + nums[i + 1] + nums[i + 2] will be the smallest in this series
-			// if sum of first 3 is greater than 0 then the sum for remaining items will also be greater than 0,
+			// if the sum of first 3 is greater than 0 then the sum for remaining items will also be greater than 0,
 			// so we will break here
 			if (nums[i] + nums[i + 1] + nums[i + 2] > 0) break;
 			left = i + 1;

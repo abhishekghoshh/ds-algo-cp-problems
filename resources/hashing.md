@@ -31,6 +31,7 @@
 - [Encode and Decode TinyURL](/src/com/problems/array/EncodeAndDecodeTinyURL.java)
 - [Brick Wall](/src/com/problems/array/BrickWall.java)
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)
+- [Minimum Number of Operations to Make Elements in Array Distinct](/src/com/problems/array/MinimumNumberOfOperationsToMakeElementsInArrayDistinct.java)
 
 
 

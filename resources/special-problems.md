@@ -13,3 +13,22 @@
 - [Jump Game 7](/src/com/problems/special/jumpgame/JumpGame7.java)
 - [Frog Jump 1](/src/com/problems/special/jumpgame/FrogJump1.java)
 - [Frog Jump 2](/src/com/problems/special/jumpgame/FrogJump2.java)
+
+### Resources
+
+### Stone Game
+
+- [Stone game]
+- [Stone game II]
+- [Stone game III]
+- [Stone game IV]
+- [Stone game V]
+- [Stone game VI]
+- [Stone game VII]
+- [Stone game VIII]
+- [Stone game IX]
+
+### Resources
+
+- [Master Game Theory / Geeksforgeeks](https://www.youtube.com/playlist?list=PLM68oyaqFM7RqV8GBCMGsmwyFxUVr36tx)
+- [Game Theory - Level 3 / pepcoding](https://www.youtube.com/playlist?list=PL-Jc9J83PIiENC1X16gjxjaIbSXBr8C6e)
