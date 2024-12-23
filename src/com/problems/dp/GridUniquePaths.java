@@ -13,6 +13,8 @@ package com.problems.dp;
  * https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/
  *
  * */
+
+// Tags: Arrays, Dynamic Programming, Combination Approach
 public class GridUniquePaths {
 
 	public static void main(String[] args) {

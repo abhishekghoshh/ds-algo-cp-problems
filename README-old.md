@@ -29,16 +29,13 @@
 
   - [Maximum Consecutive Ones](/src/com/problems/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
-    - bit-manipulation
-  - 
 
 
 
   
   - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
-    - dynamic-programming
-    - combination-approach
+
   - [Count Pairs That Form a Complete Day II](/src/com/problems/array/CountPairsThatFormCompleteDay2.java)
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/PrintMaxSumForConsecutiveElements.java)

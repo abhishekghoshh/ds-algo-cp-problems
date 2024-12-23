@@ -15,6 +15,8 @@ import java.util.Map;
  *
  * https://takeuforward.org/arrays/find-the-number-that-appears-once-and-the-other-numbers-twice/
  */
+
+// Tags: Hashing, Bit Manipulation
 public class FindTheNumberAppearsOnlyOnce {
 
 	public static void main(String[] args) {

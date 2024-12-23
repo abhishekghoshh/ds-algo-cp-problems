@@ -23,8 +23,10 @@
 - [Program to generate Pascal’s Triangle one element](/src/com/problems/array/PascalTriangleOneElement.java)
 
 - [Remove Element](/src/com/problems/array/RemoveElement.java)
+
 - [Majority Element I | Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElements1.java)
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElements2.java)
+
 - [Can Place Flowers](/src/com/problems/array/CanPlaceFlowers.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Find All Numbers Disappeared in an Array](/src/com/problems/array/FindAllNumbersDisappearedInAnArray.java)
@@ -44,6 +46,8 @@
 
 - [Minimum Number of Swaps to Make The String Balanced](/src/com/problems/array/MinimumNumberOfSwapsToMakeTheStringBalanced.java)
 - [Number of Pairs of Interchangeable Rectangles](/src/com/problems/array/NumberOfPairsOfInterchangeableRectangles.java)
+- [Maximum Product of the Length of Two Palindromic Subsequences](/src/com/problems/array/MaximumProductOfTheLengthOfTwoPalindromicSubsequences.java)
+- [Grid Game](/src/com/problems/array/GridGame.java)
 
 
 ### Swap sort

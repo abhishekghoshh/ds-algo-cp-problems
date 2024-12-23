@@ -20,6 +20,9 @@ public class CountPathsWithTheGivenXORValue {
     static int mod = (int) 1e9 + 7;
 
     // same as before top-down approach with the same dp table
+    // for every cell, we will go to its right and down and calculate new xor.
+    // and check if the new xor is already calculated or not if yes then get the count else take 0
+    // and add the count for the previous
     private static void type3() {
         int[][] grid = {};
         int k = 11;
@@ -46,17 +49,19 @@ public class CountPathsWithTheGivenXORValue {
         // Fill the DP table
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                for (int xorValue : dp[i][j].keySet()) {
-                    int count = dp[i][j].get(xorValue);
+                for (int xor : dp[i][j].keySet()) {
+                    int count = dp[i][j].get(xor);
                     // Move right
                     if (j + 1 < n) {
-                        int newXor = xorValue ^ grid[i][j + 1];
-                        dp[i][j + 1].put(newXor, (dp[i][j + 1].getOrDefault(newXor, 0) + count) % mod);
+                        int newXor = xor ^ grid[i][j + 1];
+                        int countForNewXor = dp[i][j + 1].getOrDefault(newXor, 0);
+                        dp[i][j + 1].put(newXor, (countForNewXor + count) % mod);
                     }
                     // Move down
                     if (i + 1 < m) {
-                        int newXor = xorValue ^ grid[i + 1][j];
-                        dp[i + 1][j].put(newXor, (dp[i + 1][j].getOrDefault(newXor, 0) + count) % mod);
+                        int newXor = xor ^ grid[i + 1][j];
+                        int countForNewXor = dp[i + 1][j].getOrDefault(newXor, 0);
+                        dp[i + 1][j].put(newXor, (countForNewXor + count) % mod);
                     }
                 }
             }
