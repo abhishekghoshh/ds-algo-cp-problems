@@ -5,11 +5,12 @@ import java.util.Map;
 import java.util.Random;
 /*
  * Problem link :
- * https://leetcode.com/problems/insert-delete-getrandom-o1/
+ * https://leetcode.com/problems/insert-delete-getrandom-o1/description/
  * 
  * Solution link :
+ * https://www.youtube.com/watch?v=j4KwhBziOpg
  *
- *
+ * https://neetcode.io/solutions/insert-delete-getrandom-o1
  */
 public class RandomizedSetProblem {
 
@@ -29,7 +30,7 @@ public class RandomizedSetProblem {
 	static class RandomizedSet {
 		Map<Integer, Integer> cache;
 		int[] arr;
-		int size = 0;
+		int n = 0;
 		Random random;
 
 		public RandomizedSet() {
@@ -40,22 +41,24 @@ public class RandomizedSetProblem {
 
 		public boolean insert(int val) {
 			if (isPresent(val)) return false;
-			cache.put(val, size);
-			arr[size++] = val;
+			cache.put(val, n);
+			arr[n++] = val;
 			return true;
 		}
 
 		private boolean isPresent(int val) {
-			return cache.containsKey(val) && (-1 != cache.get(val));
+			return cache.containsKey(val);
 		}
 
 		public boolean remove(int val) {
 			if (!isPresent(val)) return false;
-			int index = cache.get(val);
-			cache.put(arr[size - 1], index);
-			swap(arr, size - 1, index);
-			cache.put(val, -1);
-			size--;
+			// setting the last element to the index of the removed element
+			int i = cache.get(val);
+			int lastElement = arr[n - 1];
+			cache.put(lastElement, i);
+			swap(arr, n - 1, i);
+			cache.remove(val); // removing the val
+			n--; // decreasing the size
 			return true;
 		}
 
@@ -66,7 +69,7 @@ public class RandomizedSetProblem {
 		}
 
 		public int getRandom() {
-			return arr[random.nextInt(size)];
+			return arr[random.nextInt(n)];
 		}
 	}
 }

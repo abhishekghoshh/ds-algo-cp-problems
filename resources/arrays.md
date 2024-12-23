@@ -48,6 +48,8 @@
 - [Number of Pairs of Interchangeable Rectangles](/src/com/problems/array/NumberOfPairsOfInterchangeableRectangles.java)
 - [Maximum Product of the Length of Two Palindromic Subsequences](/src/com/problems/array/MaximumProductOfTheLengthOfTwoPalindromicSubsequences.java)
 - [Grid Game](/src/com/problems/array/GridGame.java)
+- [Largest Number](/src/com/problems/array/LargestNumber.java)
+- [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
 
 
 ### Swap sort
@@ -72,5 +74,6 @@
 - [Count of subarray sum equals K](/src/com/problems/array/CountOfSubarraySumEqualsK.java)
 - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
 
+- [Continuous Subarray Sum](/src/com/problems/array/ContinuousSubarraySum.java)
 
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)

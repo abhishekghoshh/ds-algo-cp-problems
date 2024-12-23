@@ -33,7 +33,7 @@
 
 
   
-  - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
+  - 
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
 
   - [Count Pairs That Form a Complete Day II](/src/com/problems/array/CountPairsThatFormCompleteDay2.java)
