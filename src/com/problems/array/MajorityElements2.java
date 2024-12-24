@@ -20,7 +20,7 @@ import java.util.Map;
  */
 
 
-// Tags : Arrays, Moore's voting algorithm
+// Tags: Arrays, Moore's voting algorithm
 public class MajorityElements2 {
 
 	/*

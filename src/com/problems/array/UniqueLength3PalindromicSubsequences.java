@@ -9,7 +9,7 @@ package com.problems.array;
  * https://neetcode.io/solutions/unique-length-3-palindromic-subsequences
  * */
 
-// Tags : Arrays, hashing, prefix sum
+// Tags: Arrays, hashing, prefix sum
 public class UniqueLength3PalindromicSubsequences {
     public static void main(String[] args) {
         type1();

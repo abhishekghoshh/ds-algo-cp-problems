@@ -18,4 +18,7 @@
 - [Increasing Triplet Subsequence](/src/com/problems/greedy/IncreasingTripletSubsequence.java)
 - [Minimum Number of Pushes to Type Word I](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord1.java)
 - [Minimum Number of Pushes to Type Word II](/src/com/problems/greedy/MinimumNumberOfPushesToTypeWord2.java)
+
+
 - [Maximum Number of Distinct Elements After Operations](/src/com/problems/greedy/MaximumNumberOfDistinctElementsAfterOperations.java)
+- [Non-decreasing Array](/src/com/problems/greedy/NonDecreasingArray.java)

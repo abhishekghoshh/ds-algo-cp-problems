@@ -9,6 +9,7 @@
 
 
 ### General
+
 - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
 - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
 - [4 Sum / Find Quads that add up to a target value](/src/com/problems/array/FourSum.java)
@@ -26,6 +27,7 @@
 
 - [Majority Element I | Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElements1.java)
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElements2.java)
+
 
 - [Can Place Flowers](/src/com/problems/array/CanPlaceFlowers.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
@@ -50,7 +52,11 @@
 - [Grid Game](/src/com/problems/array/GridGame.java)
 - [Largest Number](/src/com/problems/array/LargestNumber.java)
 - [Insert Delete GetRandom O(1)](/src/com/problems/array/RandomizedSetProblem.java)
-
+- [Push Dominoes](/src/com/problems/array/PushDominoes.java)
+- [Non-decreasing Array](/src/com/problems/greedy/NonDecreasingArray.java)
+- [Sign of the Product of an Array](/src/com/problems/array/SignOfTheProductOfAnArray.java)
+- [Find the Difference of Two Arrays](/src/com/problems/array/FindTheDifferenceOfTwoArrays.java)
+- [Design Parking System](/src/com/problems/array/DesignParkingSystem.java)
 
 ### Swap sort
 - [Swap sort](/src/com/algo/sort/SwapSort.java)
@@ -59,6 +65,7 @@
 
 ### Bit Manipulation
 - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
+- [Check If a String Contains All Binary Codes of Size K](/src/com/problems/array/CheckIfAStringContainsAllBinaryCodesOfSizeK.java)
 
 ### Prefix Sum
 - [Find Pivot Index](/src/com/problems/array/FindPivotIndex.java)
@@ -77,3 +84,12 @@
 - [Continuous Subarray Sum](/src/com/problems/array/ContinuousSubarraySum.java)
 
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)
+
+
+- [Range Sum Query 2D - Immutable](/src/com/problems/array/RangeSumQuery2DImmutable.java)
+
+
+
+### Sliding window
+
+- [Number of Zero-Filled Subarrays](/src/com/problems/slidingwindow/NumberOfZeroFilledSubarrays.java)

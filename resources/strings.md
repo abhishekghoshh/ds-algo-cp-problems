@@ -25,6 +25,7 @@
 
 - [Largest Odd Number in String](/src/com/problems/string/LargestOddNumberInString.java)
 - [Longest Common Prefix](/src/com/problems/string/LongestCommonPrefix.java)
+- [Repeated DNA Sequences](/src/com/problems/string/RepeatedDNASequences.java)
 - [Unique Email Addresses](/src/com/problems/string/UniqueEmailAddresses.java)
 - [Isomorphic Strings](/src/com/problems/string/IsomorphicStrings.java)
 - [Rotate String](/src/com/problems/string/RotateString.java)
