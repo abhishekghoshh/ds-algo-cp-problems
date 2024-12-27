@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * Problem link:
- * https://leetcode.com/problems/longest-palindromic-substring/
+ * https://leetcode.com/problems/longest-palindromic-substring/description/
  * https://www.naukri.com/code360/problems/longest-palindromic-substring_758900
  *
  * Solution link:
@@ -150,7 +150,6 @@ public class LongestPalindromicSubstring {
 	// it will handle all the string but 1 and 2 length string
 	// we need to manually do that.
 	// in recursion that will be essentially our base cases
-	//
 	private static void type3() {
 		String s = "aacabdkacaa";
 		char[] arr = s.toCharArray();

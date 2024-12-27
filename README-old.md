@@ -24,8 +24,7 @@
   - [Union of Two Sorted Arrays](/src/com/problems/array/UnionOfTwoSortedArrays.java)
   - [Vowels Game in a String](/src/com/problems/array/VowelsGameInAString.java)
   - [Find missing number in an array](/src/com/problems/array/FindMissingNumberInAnArray.java)
-    - bit-manipulation
-    - hashing
+
 
   - [Maximum Consecutive Ones](/src/com/problems/array/MaxConsecutiveOnes.java)
   - [Find the number that appears once, and the other numbers twice](/src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
@@ -33,7 +32,7 @@
 
 
   
-  - 
+
   - [Grid Unique Paths / Count paths from left-top to the right bottom of a matrix](/src/com/problems/dp/GridUniquePaths.java)
 
   - [Count Pairs That Form a Complete Day II](/src/com/problems/array/CountPairsThatFormCompleteDay2.java)
@@ -47,18 +46,16 @@
   - [Rotate Image by 90 degree](/src/com/problems/array/RotateMatrix.java)
   - [Spiral Traversal of Matrix](/src/com/problems/array/SpiralTraversalOfMatrix.java)
   - [Merge Overlapping Sub-intervals](/src/com/problems/array/MergeOverlappingSubIntervals.java)
-    - greedy
+
   - [Merge two Sorted Arrays Without Extra Space](/src/com/problems/array/MergeTwoSortedArraysWithoutExtraSpace.java)
   - [Count inversions in an array](/src/com/problems/array/CountInversionInArray.java)
   - [Count Reverse Pairs](/src/com/problems/array/ReversePairs.java)
-    - merge-technique-from-merge-sort
+  - 
   - [Maximum Product Subarray in an Array](/src/com/problems/array/MaximumProductSubarrayInAnArray.java)
   - [Car Fleet](/src/com/problems/array/CarFleet.java) **TBD**
   - [3Sum Closest](/src/com/problems/array/ThreeSumClosest.java)
   - [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
-    - two-pointer
-    - stack
-    - dynamic-programming
+
   - [Find the Count of Monotonic Pairs I](/src/com/problems/array/FindTheCountOfMonotonicPairs.java)
   - [Adjacent Increasing Subarrays Detection I](/src/com/problems/array/AdjacentIncreasingSubarraysDetection1.java)
   - [Adjacent Increasing Subarrays Detection II](/src/com/problems/array/AdjacentIncreasingSubarraysDetection2.java)

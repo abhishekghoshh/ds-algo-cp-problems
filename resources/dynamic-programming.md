@@ -14,6 +14,7 @@
 ### Introduction
 - [Fibonacci series](/src/com/problems/dp/FibonacciSeries.java)
 - [Climbing stairs](/src/com/problems/dp/ClimbingStairs.java)
+- [Min Cost Climbing Stairs](/src/com/problems/dp/MinCostClimbingStairs.java)
 - [Frog Jump](/src/com/problems/dp/FrogJump.java)
 - [Frog jump with K distances](/src/com/problems/dp/FrogJumpWithKDistances.java)
 - [Maximum Sum of Non-Adjacent Elements / House Robber 1](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
@@ -25,6 +26,7 @@
 - [Minimum path Sum](/src/com/problems/dp/MinimumPathSum.java)
 - [Minimum path sum in a triangle](/src/com/problems/dp/MinimumPathSumInATriangle.java)
 - [Minimum/Maximum Falling Path Sum | Variable Starting and Ending Points](/src/com/problems/dp/MinimumFallingPathSum.java)
+- [Delete and Earn](/src/com/problems/dp/DeleteAndEarn.java)
 - [Cherry Pickup 1](/src/com/problems/dp/CherryPickup1.java)
 - [Cherry Pickup 2](/src/com/problems/dp/CherryPickup2.java)
 
@@ -102,4 +104,5 @@
 - [Sum of Good Subarrays](/src/com/problems/dp/SumOfGoodSubsequences.java)
 - [Sum of Good Subsequences](/src/com/problems/dp/SumOfGoodSubsequences.java)
 - [Count Paths With the Given XOR Value](/src/com/problems/dp/CountPathsWithTheGivenXORValue.java)
+- [Champagne Tower](/src/com/problems/dp/ChampagneTower.java)
 

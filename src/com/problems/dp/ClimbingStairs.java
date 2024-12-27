@@ -5,8 +5,8 @@ import java.util.Arrays;
 /*
  *
  * problem links :
- * https://leetcode.com/problems/climbing-stairs/
- * https://www.codingninjas.com/studio/problems/count-ways-to-reach-the-n-th-stairs_798650
+ * https://leetcode.com/problems/climbing-stairs/description/
+ * https://www.naukri.com/code360/problems/count-ways-to-reach-the-n-th-stairs_798650
  *
  * Solution link :
  * https://www.youtube.com/watch?v=mLfjzJsN8us&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=3

@@ -51,6 +51,7 @@
 - [Find the index of first occurrence of a word in a string](/src/com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)
 - [Splitting string into descending consecutive values](/src/com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java)
 - [Find the Sequence of Strings Appeared on the Screen](/src/com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
+- [Minimum Remove to Make Valid Parentheses](/src/com/problems/string/MinimumRemoveToMakeValidParentheses.java)
 
 ### Advanced
 - [Rabin Karp](/src/com/algo/string/RabinKarp.java)

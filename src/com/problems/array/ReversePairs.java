@@ -15,9 +15,7 @@ package com.problems.array;
  * https://takeuforward.org/data-structure/count-reverse-pairs/
  */
 
-/*
- * A reverse pair is a pair (i, j) where 0 <= i < j < nums.length and nums[i] > 2 * nums[j].
- * */
+// Tags: merge-technique-from-merge-sort
 public class ReversePairs {
 
 	public static void main(String[] args) {
@@ -26,6 +24,7 @@ public class ReversePairs {
 	}
 
 	// TODO optimal approach
+	//  A reverse pair is a pair (i, j) where 0 <= i < j < nums.length and nums[i] > 2 * nums[j].
 	// in the merge function of the merge sort we will compute the reverse pairs
 	// we will have two sorted array left and right
 	// we will use two pointer, we will move the right pointer

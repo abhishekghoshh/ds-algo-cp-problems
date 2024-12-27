@@ -9,6 +9,8 @@ package com.problems.array;
  *
  * https://takeuforward.org/arrays/find-the-missing-number-in-an-array/
  * */
+
+// Tags: Arrays, Hashing, Bit manipulation
 public class FindMissingNumberInAnArray {
 
 	public static void main(String[] args) {

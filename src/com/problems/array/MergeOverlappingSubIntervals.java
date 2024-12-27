@@ -17,7 +17,7 @@ import java.util.*;
  * */
 
 
-
+// Tags: Array, Greedy
 public class MergeOverlappingSubIntervals {
 
 	public static void main(String[] args) {

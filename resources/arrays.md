@@ -57,6 +57,13 @@
 - [Sign of the Product of an Array](/src/com/problems/array/SignOfTheProductOfAnArray.java)
 - [Find the Difference of Two Arrays](/src/com/problems/array/FindTheDifferenceOfTwoArrays.java)
 - [Design Parking System](/src/com/problems/array/DesignParkingSystem.java)
+- [Design Underground System](/src/com/problems/array/DesignUndergroundSystem.java)
+- [Minimum Penalty for a Shop](/src/com/problems/array/MinimumPenaltyForAShop.java)
+- [Champagne Tower](/src/com/problems/dp/ChampagneTower.java)
+- [Design a Food Rating System](/src/com/problems/array/DesignAFoodRatingSystem.java)
+- [Minimum Number of Operations to Make Array Empty](/src/com/problems/array/MinimumNumberOfOperationsToMakeArrayEmpty.java)
+- [Divide Array Into Arrays With Max Difference](/src/com/problems/array/DivideArrayIntoArraysWithMaxDifference.java)
+- [Sequential Digits](/src/com/problems/array/SequentialDigits.java)
 
 ### Swap sort
 - [Swap sort](/src/com/algo/sort/SwapSort.java)
@@ -66,6 +73,10 @@
 ### Bit Manipulation
 - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
 - [Check If a String Contains All Binary Codes of Size K](/src/com/problems/array/CheckIfAStringContainsAllBinaryCodesOfSizeK.java)
+
+### hashing
+
+- [Convert an Array Into a 2D Array With Conditions](/src/com/problems/array/ConvertAnArrayIntoA2DArrayWithConditions.java)
 
 ### Prefix Sum
 - [Find Pivot Index](/src/com/problems/array/FindPivotIndex.java)
@@ -82,9 +93,10 @@
 - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
 
 - [Continuous Subarray Sum](/src/com/problems/array/ContinuousSubarraySum.java)
-
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)
-
+- [Sum of Absolute Differences in a Sorted Array](/src/com/problems/array/SumOfAbsoluteDifferencesInASortedArray.java)
+- [Contiguous Array](/src/com/problems/array/ContiguousArray.java)
+- [Find Polygon With the Largest Perimeter](/src/com/problems/array/FindPolygonWithTheLargestPerimeter.java)
 
 - [Range Sum Query 2D - Immutable](/src/com/problems/array/RangeSumQuery2DImmutable.java)
 
@@ -93,3 +105,4 @@
 ### Sliding window
 
 - [Number of Zero-Filled Subarrays](/src/com/problems/slidingwindow/NumberOfZeroFilledSubarrays.java)
+- [Optimal Partition of String](/src/com/problems/array/OptimalPartitionOfString.java)

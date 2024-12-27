@@ -14,6 +14,8 @@ import java.util.Stack;
  * 
  * https://takeuforward.org/data-structure/trapping-rainwater/
  * */
+
+// Tags: Arrays, two pointers, Stack, Dynamic Programming
 public class TrappingRainWater {
 
 	public static void main(String[] args) {

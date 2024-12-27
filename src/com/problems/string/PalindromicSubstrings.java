@@ -72,8 +72,9 @@ public class PalindromicSubstrings {
         // we will use a dp array to check if range is palindrome not
         boolean[][] dp = new boolean[n][n];
         // all the single length character is palindrome
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             dp[i][i] = true;
+        }
         // we will initialize the totalCount with 1 as all the single length character is palindrome
         int totalCount = n;
         // now we will check 2 length strings
