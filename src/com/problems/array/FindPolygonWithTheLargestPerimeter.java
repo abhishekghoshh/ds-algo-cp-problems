@@ -14,43 +14,21 @@ import java.util.PriorityQueue;
  */
 // Tags: Arrays, Prefix Sum, Priority Queue, Greedy, Sorting
 public class FindPolygonWithTheLargestPerimeter {
+
     public static void main(String[] args) {
         type1();
         type2();
-        type3();
     }
 
-    private static void type3() {
-        int[] nums = {1, 12, 1, 2, 5, 50, 3};
-        long ans = largestPerimeter3(nums);
-        System.out.println(ans);
-    }
 
-    private static long largestPerimeter3(int[] nums) {
-        return largestPerimeter3(nums, nums.length);
-    }
-
-    static long largestPerimeter3(int[] nums, int end) {
-        int maxIndex = 0;
-        long sum = 0;
-        for (int i = 0; i < end; i++) {
-            sum += nums[i];
-            if (nums[i] > nums[maxIndex])
-                maxIndex = i;
-        }
-        if ((sum - nums[maxIndex]) > nums[maxIndex])
-            return sum;
-        else {
-            int temp = nums[maxIndex];
-            nums[maxIndex] = nums[end - 1];
-            nums[end - 1] = temp;
-            if (end < 3)
-                return -1;
-            return largestPerimeter3(nums, end - 1);
-        }
-
-    }
-
+    // using priority queue
+    // here we are doing it in a reverse way
+    // here we will calculate the total sum and using a max heap we are saving all the num
+    // now we are polling sides from heap one by one
+    // if we subtract side from the sum we will get sum[a1..ak-1]
+    // now we will check if sum[a1..ak-1] > ak or not
+    // if yes then return the sum else remove ak from the sum
+    // continue this till the side is atleast 3
     private static void type2() {
         int[] nums = {1, 12, 1, 2, 5, 50, 3};
         long ans = largestPerimeter2(nums);
@@ -65,20 +43,29 @@ public class FindPolygonWithTheLargestPerimeter {
             heap.offer(num);
         }
         while (heap.size() >= 3) {
-            int max = heap.poll();
-            long diff = sum - max;
-            if (diff > max) {
+            int side = heap.poll();
+            long remSum = sum - side;
+            if (remSum > side) {
                 return sum;
             }
-            sum = diff;
+            sum = remSum;
         }
         return -1;
     }
 
     // todo explain this in the interview
     // this is a greedy approach
-    // here we will sort the array first
-
+    // so there are 2 conditions
+    // A polygon is a closed plane figure that has at least 3 sides
+    // a1 + a2 + a3 + ... + ak-1 > ak
+    // here we will sort the array first, so lower sides will come first
+    // so if we just use a loop and iterate over the array and get the side total
+    // then we can just check sum(a1..ak-1) > a[k] or not
+    // if yes we can just include the a[k] to our polygon
+    // and we don't need to check for other combination as a[k] is highest among others
+    // if sum(a1..ak-1) > a[k] satisfies then sum(a1..ak) > a[i] will be satisfied
+    // so if total is greater than num then we will think that [a1..ak] will be our current largest polygon
+    // we will update the total in every iteration
     private static void type1() {
         int[] nums = {1, 12, 1, 2, 5, 50, 3};
         long ans = largestPerimeter1(nums);

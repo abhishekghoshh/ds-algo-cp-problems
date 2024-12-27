@@ -68,7 +68,9 @@ public class DeleteAndEarn {
         return prev;
     }
 
-    //
+    // iterative approach
+    // same as type2, here we will go from 0 to n
+    // and collect value for (i-1) and (i-2) and compute the value with the same condition
     private static void type3() {
         int[] nums = {1, 2, 3, 15, 16, 17, 18};
         int ans = deleteAndEarn3(nums);
