@@ -1,22 +1,21 @@
 package com.problems.string;
 
+import static java.lang.Character.isLetterOrDigit;
+import static java.lang.Character.toLowerCase;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/valid-palindrome/
+ * https://leetcode.com/problems/valid-palindrome/description/
  * https://neetcode.io/problems/is-palindrome
  * 
- * Solution link : 
- * 
+ * Solution link :
+ * https://www.youtube.com/watch?v=jJXJ16kPFWg
+ *
+ * https://neetcode.io/solutions/valid-palindrome
  * */
 
-import static java.lang.Character.isLetterOrDigit;
-import static java.lang.Character.toLowerCase;
 
-/*
- * Tags:
- * Two-Pointers
- * */
+// Tags: String, Array, Two pointer
 public class ValidPalindrome {
 
 	public static void main(String[] args) {
@@ -25,6 +24,7 @@ public class ValidPalindrome {
 	}
 
 	// we will directly check it from the array
+	// two pointer approach
 	private static void type2() {
 		String s = "A man, a plan, a canal: Panama";
 		boolean isPalindrome = isPalindrome2(s);

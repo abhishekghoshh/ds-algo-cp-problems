@@ -10,8 +10,12 @@ import java.util.Arrays;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=DIX2p7vb9co
+ * https://www.youtube.com/watch?v=JW8fgvoxPTg
  *
+ * https://neetcode.io/solutions/assign-cookies
  * */
+
+// Tags: Array, Greedy
 public class AssignCookies {
     public static void main(String[] args) {
         type1();

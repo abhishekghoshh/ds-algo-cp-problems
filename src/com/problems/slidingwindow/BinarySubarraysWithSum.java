@@ -7,12 +7,16 @@ import java.util.Map;
  *
  * problem links :
  * https://leetcode.com/problems/binary-subarrays-with-sum
- * https://www.codingninjas.com/studio/problems/count-substrings-with-k-ones_3128698
+ * https://www.naukri.com/code360/problems/count-substrings-with-k-ones_3128698
  *
  * Solution link :
+ * Leet Corner :
+ * https://www.youtube.com/watch?v=-DNN2Xk7Xb8
  *
- * Leet Corner : https://www.youtube.com/watch?v=-DNN2Xk7Xb8
+ *
  * */
+
+// Tags: Prefix sum
 public class BinarySubarraysWithSum {
     public static void main(String[] args) {
         type1();

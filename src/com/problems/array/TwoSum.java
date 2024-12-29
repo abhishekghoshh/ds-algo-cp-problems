@@ -15,17 +15,15 @@ import java.util.Map;
  *
  * https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
  * 
- * A reverse pair is a pair (i, j) where 0 <= i < j < nums.length and nums[i] > 2 * nums[j].
  * */
-
-/*
- * Given an array of integers nums and an integer target, return indices of the
- * two numbers such that they add up to target. You may assume that each input
- * would have exactly one solution, and you may not use the same element twice.
- */
 
 // Tags : Array, Hashing, two-pointer
 public class TwoSum {
+	/*
+	 * Given an array of integers nums and an integer target, return indices of the
+	 * two numbers such that they add up to target. You may assume that each input
+	 * would have exactly one solution, and you may not use the same element twice.
+	 */
 	public static void main(String[] args) {
 		type1();
 		type2();

@@ -31,6 +31,7 @@ public class ReverseWordsInString3 {
         // and if the next character is a space, or it is the last character in the array,
         // then we will reverse the word
         for (int i = 0, start = 0; i < n; i++) {
+            // either it is the last character or there is a space at the next character
             if (i == n - 1 || arr[i + 1] == ' ') {
                 reverse(arr, start, i);
                 start = i + 2; // updating the start of the word

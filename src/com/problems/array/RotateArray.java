@@ -3,17 +3,19 @@ package com.problems.array;
 import static com.util.PrintUtl.print;
 
 /*
- * Problem link : 
- * https://leetcode.com/problems/rotate-array/
- * https://leetcode.com/contest/weekly-contest-405/problems/find-the-encrypted-string/
+ * Problem link :
+ * https://leetcode.com/problems/rotate-array/description/
+ * https://leetcode.com/problems/find-the-encrypted-string/description/
  * https://www.codingninjas.com/studio/problems/rotate-array_1230543
  *
  * Solution is :
  * https://www.youtube.com/watch?v=wvcQg43_V8U
+ * https://www.youtube.com/watch?v=BHr381Guz3Y
  *
  * https://takeuforward.org/data-structure/rotate-array-by-k-elements/
+ * https://neetcode.io/solutions/rotate-array
  * */
-public class LeftRotateArray {
+public class RotateArray {
 
 	public static void main(String[] args) {
 		type1();
@@ -23,6 +25,13 @@ public class LeftRotateArray {
 	}
 
 	// for rotating to the right, change the index of the reverse method
+	// s = "dart", k = 3
+	// ans = "tdar" (it is left rotation by k spaces)
+	// we can just do the same with little modification
+	// reverse(0,n-1) => reverse(0,n-k-1) => reverse(n-k,n-1)
+	// or we can compute k2 = n-k
+	// and compute the right rotation of k2
+	// in a circle k right rotation means n-k left rotation and vice versa
 	private static void type4() {
 		String s = "dart";
 		int k = 3;
@@ -51,15 +60,31 @@ public class LeftRotateArray {
 		}
 	}
 
+	// todo explain this in the interview
+	//  lets say the numbers are 1, 2, 3, 4, 5, 6, 7
+	//  and after rotation k=3 left rotation it will be 5 6 7 1 2 3 4
+	//  lets make the intuition from the answer itself
+	//  if we divide the array into 2 parts arr[0,k) arr[k,n)
+	//  if we just reverse them individually then it would become 7 6 5 4 3 2 1
+	//  now it become something we have seen already
+	//  it was the complete reverse of the array,
+	//  so if we reverse the whole array we will get the original array
+	//  so our answer will be like -> reverse(0,n-1) => reverse(0,k-1) => reverse(k,n-1)
 	// time complexity O(2n)
 	// space complexity O(1)
 	private static void type3() {
 		int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
 		int k = 3;
-		k = k % nums.length;
-		reverse(nums, 0, nums.length - 1);
+		rotate3(k, nums);
+	}
+
+	// reverse(0,n-1) => reverse(0,k-1) => reverse(k,n-1)
+	private static void rotate3(int k, int[] nums) {
+		int n = nums.length;
+		k = k % n;
+		reverse(nums, 0, n - 1);
 		reverse(nums, 0, k - 1);
-		reverse(nums, k, nums.length - 1);
+		reverse(nums, k, n - 1);
 		print(nums);
 	}
 
@@ -74,11 +99,17 @@ public class LeftRotateArray {
 		}
 	}
 
+	// todo do not try to explain it to the interview
 	// time complexity O(n*k)
 	// space complexity O(1)
 	private static void type2() {
 		int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
 		int k = 3;
+		rotate2(nums, k);
+		print(nums);
+	}
+
+	private static void rotate2(int[] nums, int k) {
 		int n = nums.length;
 		k = k % n;
 		// shift k times
@@ -92,7 +123,6 @@ public class LeftRotateArray {
 			// assign the last to zeroth items
 			nums[0] = last;
 		}
-		print(nums);
 	}
 
 	// create one extra array
@@ -103,16 +133,19 @@ public class LeftRotateArray {
 	private static void type1() {
 		int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
 		int k = 3;
+		rotate1(nums, k);
+		print(nums);
+	}
+
+	private static void rotate1(int[] nums, int k) {
 		int n = nums.length;
 		k = k % n;
 		int[] copy = new int[n];
 		for (int i = 0; i < n; i++) {
-			copy[(i + k) % n] = nums[i];
+			int j = (i + k) % n;
+			copy[j] = nums[i];
 		}
-		for (int i = 0; i < n; i++) {
-			nums[i] = copy[i];
-		}
-		print(nums);
+		System.arraycopy(copy, 0, nums, 0, n);
 	}
 
 }

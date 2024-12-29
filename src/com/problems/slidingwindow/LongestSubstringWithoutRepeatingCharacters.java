@@ -13,18 +13,18 @@ import java.util.Set;
  *
  *
  * Solution link:
- * https://www.youtube.com/watch?v=-zSxTJkcdAo
+ * new Striver : https://www.youtube.com/watch?v=-zSxTJkcdAo
  * Striver : https://www.youtube.com/watch?v=qtVh-XEpsJo&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=27
  * Aditya verma : https://www.youtube.com/watch?v=L6cffskouPQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=11
+ * Neetcode : https://www.youtube.com/watch?v=wiGpQwVHdE0
  *
  * Blogs:
  * https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/
+ * https://neetcode.io/solutions/longest-substring-without-repeating-characters
  *
- *
- * Tags :
- * Sliding-Window
  * */
 
+// Tags: String, Variable length Sliding Window
 public class LongestSubstringWithoutRepeatingCharacters {
 
 	public static void main(String[] args) {
@@ -66,6 +66,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
 	}
 
 
+	// todo this is more optimized approach
+	//  here we do not need to remove the character, so we will store character as well as their indices
+	//  so now if we find any duplicate character we will check if the index is lesser than the starting of the window or not
+	//  if yes then start is a valid character for the current window, else we will initialize the window from the
+	//  character's last index + 1
 	// two pointer approach
 	// time complexity O(n)
 	// space complexity O(n)
@@ -83,10 +88,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		int n = s.length();
 		Map<Character, Integer> map = new HashMap<>();
 		int max = 0;
-		char ch;
 		int left = 0, right = 0;
 		while (right < n) {
-			ch = s.charAt(right);
+			char ch = s.charAt(right);
 			// if it's a new character then it's we are just adding it to map or
 			// if the character is present, but its index is less than the start of the current series
 			if (!map.containsKey(ch) || map.get(ch) < left) {
@@ -106,7 +110,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		return max;
 	}
 
-	// two pointer approach
+	// todo explain this in the interview
+	// optimized approach using two pointer approach
 	// time complexity O(2*n)
 	// space complexity O(n)
 	private static void type2() {
@@ -120,16 +125,17 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		char[] arr = s.toCharArray();
 		Set<Character> set = new HashSet<>();
 		int max = 0;
-		char ch;
 		int left = 0, right = 0;
 		while (right < n) {
-			ch = arr[right];
+			char ch = arr[right];
+			// we will add a new character till we find any duplicate
 			if (!set.contains(ch)) {
 				set.add(ch);
 				max = Math.max(max, right - left + 1);
 				right++;
 			} else {
-				// assuming remove function takes O(1) time
+				// once we find any duplicate character we will
+				// shrink the window from the left side and remove characters from the set also
 				while (set.contains(ch))
 					set.remove(arr[left++]);
 			}
@@ -140,6 +146,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 	// brute force approach
 	// time complexity O(n^2)
 	// space complexity O(n)
+	// we will check for every substring possible
 	private static void type1() {
 		String s = "abcabcbb";
 		int max = lengthOfLongestSubstring1(s);

@@ -19,9 +19,9 @@ import static com.util.ArrayUtil.max;
  * https://takeuforward.org/data-structure/stock-buy-and-sell-dp-35/
  *
  *
- * Tags :
- * Two-Pointers,Sliding-Window
  * */
+
+// Tags: Two-Pointers,Sliding-Window
 public class BestTimeToBuyAndSellStock1 {
 
 	public static void main(String[] args) {

@@ -11,6 +11,7 @@
 ### General
 
 - [Two Sum : Check if a pair with given sum exists in Array](/src/com/problems/array/TwoSum.java)
+- [Two Sum II - Input Array Is Sorted](/src/com/problems/array/TwoSum2InputArrayIsSorted.java)
 - [3 Sum : Find triplets that add up to a zero](/src/com/problems/array/ThreeSum.java)
 - [4 Sum / Find Quads that add up to a target value](/src/com/problems/array/FourSum.java)
 
@@ -28,6 +29,8 @@
 - [Majority Element I | Find the Majority Element that occurs more than N/2 times](/src/com/problems/array/MajorityElements1.java)
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](/src/com/problems/array/MajorityElements2.java)
 
+- [Left Rotate an array by one place](/src/com/problems/array/LeftRotateByOne.java)
+- [Rotate Array](/src/com/problems/array/RotateArray.java)
 
 - [Can Place Flowers](/src/com/problems/array/CanPlaceFlowers.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
@@ -64,6 +67,11 @@
 - [Minimum Number of Operations to Make Array Empty](/src/com/problems/array/MinimumNumberOfOperationsToMakeArrayEmpty.java)
 - [Divide Array Into Arrays With Max Difference](/src/com/problems/array/DivideArrayIntoArraysWithMaxDifference.java)
 - [Sequential Digits](/src/com/problems/array/SequentialDigits.java)
+
+
+- [Merge two Sorted Arrays Without Extra Space](/src/com/problems/array/MergeTwoSortedArraysWithoutExtraSpace.java)
+- [Count inversions in an array](/src/com/problems/array/CountInversionInArray.java)
+- [Count Reverse Pairs](/src/com/problems/array/ReversePairs.java)
 
 ### Swap sort
 - [Swap sort](/src/com/algo/sort/SwapSort.java)
@@ -104,5 +112,16 @@
 
 ### Sliding window
 
+- [Minimum Difference Between Highest and Lowest of K Scores](/src/com/problems/slidingwindow/MinimumDifferenceBetweenHighestAndLowestOfKScores.java)
 - [Number of Zero-Filled Subarrays](/src/com/problems/slidingwindow/NumberOfZeroFilledSubarrays.java)
 - [Optimal Partition of String](/src/com/problems/array/OptimalPartitionOfString.java)
+
+
+### Two pointer
+
+- [Move Zeros to end](/src/com/problems/array/MovesZeroToEnd.java)
+- [Sort Array By Parity](/src/com/problems/array/SortArrayByParity.java)
+- [Remove Duplicates from Sorted Array](/src/com/problems/array/RemoveDuplicateFromSortedArray.java)
+- [Remove Duplicates from Sorted Array II](/src/com/problems/array/RemoveDuplicateFromSortedArray2.java)
+- [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](/src/com/problems/array/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold.java)
+- 

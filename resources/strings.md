@@ -12,6 +12,10 @@
 - [Minimum Changes To Make Alternating Binary String](/src/com/problems/string/MinimumChangesToMakeAlternatingBinaryString.java)
 - [Redistribute Characters to Make All Strings Equal](/src/com/problems/string/RedistributeCharactersToMakeAllStringsEqual.java)
 - [First Unique Character in a String](/src/com/problems/string/FirstUniqueCharacterInAString.java)
+- [Merge Strings Alternately](/src/com/problems/string/MergeStringsAlternately.java)
+- [Backspace String Compare](/src/com/problems/string/BackspaceStringCompare.java)
+- [Check If Two String Arrays are Equivalent](/src/com/problems/string/CheckIfTwoStringArraysAreEquivalent.java)
+
 - [Encode and Decode TinyURL](/src/com/problems/array/EncodeAndDecodeTinyURL.java)
 - [Encode and Decode Strings](/src/com/problems/string/EncodeAndDecodeStrings.java)
 - [Decode String](/src/com/problems/string/DecodeString.java)
@@ -40,12 +44,16 @@
 - [Sum of Beauty of All Substrings](/src/com/problems/string/SumOfBeautyOfAllSubstrings.java)
 - [Minimum Add to Make Parentheses Valid](/src/com/problems/string/MinimumAddToMakeParenthesesValid.java)
 - [Count and Say](/src/com/problems/string/CountAndSay.java)
+
 - [Valid palindrome](/src/com/problems/string/ValidPalindrome.java)
+- [Valid Palindrome II](/src/com/problems/string/ValidPalindrome2.java)
+- [Find First Palindromic String in the Array](/src/com/problems/string/FindFirstPalindromicStringInTheArray.java)
 - [Longest Palindrome](/src/com/problems/string/LongestPalindrome.java)
 - [Shortest Palindrome / Minimum Characters For Palindrome](/src/com/problems/string/MinimumCharactersForPalindrome.java)
 - [Longest palindromic substring](/src/com/problems/string/LongestPalindromicSubstring.java)
 - [Count Palindromic Subsequences](/src/com/problems/string/CountPalindromicSubsequences.java)
 - [Palindromic Substrings](/src/com/problems/string/PalindromicSubstrings.java)
+
 - [Repeated String Match](/src/com/problems/string/RepeatedStringMatch.java)
 - [Longest happy prefix](/src/com/problems/string/LongestHappyPrefix.java)
 - [Find the index of first occurrence of a word in a string](/src/com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)

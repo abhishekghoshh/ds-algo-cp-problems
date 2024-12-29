@@ -2,13 +2,13 @@ package com.problems.array;
 
 import java.util.Arrays;
 
-import static com.util.PrintUtl.print;
 import static com.util.ArrayUtil.swap;
+import static com.util.PrintUtl.print;
 
 /*
  * problem link:
- * https://leetcode.com/problems/merge-sorted-array/
- * https://www.codingninjas.com/codestudio/problems/1214628
+ * https://leetcode.com/problems/merge-sorted-array/description/
+ * https://www.naukri.com/code360/problems/1214628
  *
  * 
  * Solution link:
@@ -16,6 +16,11 @@ import static com.util.ArrayUtil.swap;
  * https://www.youtube.com/watch?v=hVl2b3bLzBw&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=5
  *
  * https://takeuforward.org/data-structure/merge-two-sorted-arrays-without-extra-space/
+ *
+ *
+ * https://www.youtube.com/watch?v=P1Ic85RarKY
+ *
+ * https://neetcode.io/solutions/merge-sorted-array
  * */
 
 //1st -> brute force approach
@@ -39,14 +44,18 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int[] nums2 = { 3, 9 };
 		int m = nums1.length - nums2.length;
 		int n = nums2.length;
-		for (int i = 0; i < n; i++) {
-			nums1[i + m] = nums2[i];
-		}
+		merge4(n, nums1, m, nums2);
+		print(nums1);
+	}
+
+	private static void merge4(int n, int[] nums1, int m, int[] nums2) {
+		if (n >= 0)
+			System.arraycopy(nums2, 0, nums1, m, n);
 		int length = (m + n);
 		int gap = length;
-		int left = 0, right = 0;
+		int left, right;
 		while (gap != 0) {
-			gap = (int) Math.ceil(gap / 2);
+			gap = (int) Math.ceil((double) gap / 2);
 			left = 0;
 			right = left + gap;
 			while (right < length) {
@@ -57,9 +66,9 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 				right++;
 			}
 		}
-		print(nums1);
 	}
 
+	// todo explain this in the interview
 	// two pointer approach
 	// using a 3rd array for holding the answer
 	// size of the array will be m+n
@@ -69,23 +78,28 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int[] nums2 = { 2, 5, 6 };
 		int m = 3;
 		int n = 3;
-		int[] answer = new int[m + n];
-		int index = 0;
-		int left = 0, right = 0;
-		while (left < m && right < n) {
-			if (nums1[left] <= nums2[right]) {
-				answer[index++] = nums1[left++];
+		merge3(m, n, nums1, nums2);
+		print(nums1);
+	}
+
+	private static void merge3(int m, int n, int[] nums1, int[] nums2) {
+		int N = m + n;
+		int[] nums = new int[N];
+		// 2 pointer on 2 arrays and taking the lowest element and incrementing the pointers
+		int i = 0, j = 0, k = 0;
+		while (i < m && j < n) {
+			if (nums1[i] < nums2[j]) {
+				nums[k++] = nums1[i++];
 			} else {
-				answer[index++] = nums2[right++];
+				nums[k++] = nums2[j++];
 			}
 		}
-		while (left < m) {
-			answer[index++] = nums1[left++];
-		}
-		while (right < n) {
-			answer[index++] = nums2[right++];
-		}
-		print(answer);
+		// if there are any elements remaining the first array
+		while (i < m) nums[k++] = nums1[i++];
+		// if there are any elements remaining the second array
+		while (j < n) nums[k++] = nums2[j++];
+		// copying back to num1 again
+		for (k = 0; k < N; k++) nums1[k] = nums[k];
 	}
 
 	// without extra space
@@ -96,7 +110,12 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int m = 3;
 		int[] nums2 = { 2, 5, 6 };
 		int n = 3;
-		int right = 0, temp = 0;
+		merge2(m, nums1, nums2, n);
+		print(nums1);
+	}
+
+	private static void merge2(int m, int[] nums1, int[] nums2, int n) {
+		int right, temp = 0;
 		for (int i = 0; i < m; i++) {
 			if (nums1[i] > nums2[0]) {
 				swap(nums1, nums2, i, 0);
@@ -109,7 +128,6 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 				nums2[right] = temp;
 			}
 		}
-		print(nums1, nums2);
 	}
 
 
@@ -122,11 +140,14 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		int[] nums2 = { 2, 5, 6 };
 		int n = 3;
 
-		for (int i = 0; i < n; i++) {
-			nums1[i + m] = nums2[i];
-		}
-		Arrays.sort(nums1);
+		merge1(n, nums1, m, nums2);
 		print(nums1);
+	}
+
+	private static void merge1(int n, int[] nums1, int m, int[] nums2) {
+		if (n >= 0)
+			System.arraycopy(nums2, 0, nums1, m, n);
+		Arrays.sort(nums1);
 	}
 
 
