@@ -3,10 +3,12 @@ package com.problems.string;
 /*
  * Problem link:
  * https://leetcode.com/problems/palindromic-substrings/description/
+ * https://neetcode.io/problems/palindromic-substrings
  *
  * Solution link:
+ * https://www.youtube.com/watch?v=4RACzI5-du8
  *
- *
+ * https://neetcode.io/solutions/palindromic-substrings
  */
 public class PalindromicSubstrings {
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ public class PalindromicSubstrings {
         type3();
     }
 
-    // most optimized approach
+    // todo most optimized approach using 2 pointer
     // we will not use any extra dp array
     // we will choose one index and start looking for palindrome
     // making that index as center,
@@ -53,10 +55,10 @@ public class PalindromicSubstrings {
         return count;
     }
 
-    // optimized approach using dynamic programming
+    // todo optimized approach using dynamic programming
     // first we will calculate 1 length palindrome then 2 then subsequently n
     // generally lets take a substring s[i,j] will be palindrome when
-    // s[i]==s[j] and s[i+1][j-1] is also palindrome
+    // s[i] == s[j] and s[i+1][j-1] is also palindrome
     // we will use the same formula
     private static void type2() {
         String s = "aaa";

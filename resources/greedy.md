@@ -22,3 +22,4 @@
 
 - [Maximum Number of Distinct Elements After Operations](/src/com/problems/greedy/MaximumNumberOfDistinctElementsAfterOperations.java)
 - [Non-decreasing Array](/src/com/problems/greedy/NonDecreasingArray.java)
+- [Find the Lexicographically Largest String From the Box I](/src/com/problems/greedy/FindTheLexicographicallyLargestStringFromTheBox1.java)

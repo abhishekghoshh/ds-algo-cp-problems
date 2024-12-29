@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/coin-change
+ * https://leetcode.com/problems/coin-change/description/
+ * https://neetcode.io/problems/coin-change
  * https://www.naukri.com/code360/problems/minimum-elements_3843091
  * 
  * Solution link :
@@ -12,7 +13,11 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=rMfOgY07TFs&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=17
  *
  * https://www.youtube.com/watch?v=myPeWb3Y68A&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=21
+ *
+ * https://www.youtube.com/watch?v=H9bfqozjoqs
+ *
  * https://takeuforward.org/data-structure/minimum-coins-dp-20/
+ * https://neetcode.io/solutions/coin-change
  */
 public class MinimumNoOfCoinsForCoinChange {
 
@@ -161,7 +166,7 @@ public class MinimumNoOfCoinsForCoinChange {
 		return dp[n][amount] <= amount ? dp[n][amount] : -1;
 	}
 
-	// using recursion with the
+	// using recursion with the dynamic programming
 	private static void type2() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
@@ -175,6 +180,8 @@ public class MinimumNoOfCoinsForCoinChange {
 		// initialization
 		for (int[] row : dp) Arrays.fill(row, -1);
 		int coinsNeeded = coinChange2(n, coins, amount, dp);
+		// coins needed can never exceed amount even if only coin with value 1 present
+		// then also we would need only (amount) number of coins
 		if (coinsNeeded > amount) return -1;
 		return coinsNeeded;
 	}
@@ -187,8 +194,7 @@ public class MinimumNoOfCoinsForCoinChange {
 		if (n == 0) return INF;
 		// if the recursion call is already done, then we will directly return
 		if (dp[n][amount] != -1) return dp[n][amount];
-		// we have two choices, either to take the current coin (if possible)
-		// or not take it
+		// we have two choices, either to take the current coin (if possible) or not take it
 		// if we take it, then we have to increase the coin count
 		if (coins[n - 1] <= amount)
 			return dp[n][amount] = Math.min(

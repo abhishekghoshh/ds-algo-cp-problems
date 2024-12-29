@@ -32,6 +32,7 @@
 - [Left Rotate an array by one place](/src/com/problems/array/LeftRotateByOne.java)
 - [Rotate Array](/src/com/problems/array/RotateArray.java)
 
+- [Minimum Operations to Make Columns Strictly Increasing](/src/com/problems/array/MinimumOperationsToMakeColumnsStrictlyIncreasing.java)
 - [Can Place Flowers](/src/com/problems/array/CanPlaceFlowers.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Find All Numbers Disappeared in an Array](/src/com/problems/array/FindAllNumbersDisappearedInAnArray.java)

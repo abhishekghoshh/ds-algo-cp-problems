@@ -5,6 +5,7 @@ import java.util.Arrays;
 /*
  * Problem link:
  * https://leetcode.com/problems/longest-palindromic-substring/description/
+ * https://neetcode.io/problems/longest-palindromic-substring
  * https://www.naukri.com/code360/problems/longest-palindromic-substring_758900
  *
  * Solution link:
@@ -12,10 +13,12 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=ZJUGtWObroc → two pointers
  * https://www.youtube.com/watch?v=UflHuQj6MVA → Dynamic Programming
  * https://youtube.com/watch?v=fxwvVnBMN6I → Dynamic Programming
+ * https://www.youtube.com/watch?v=XYQecbcd6_c
  *
  * https://www.youtube.com/watch?v=06QIlUBLTz4 → Manachers algorithm
  *
  * https://www.geeksforgeeks.org/longest-palindromic-substring/
+ * https://neetcode.io/solutions/longest-palindromic-substring
  */
 public class LongestPalindromicSubstring {
 	public static void main(String[] args) {
@@ -39,6 +42,11 @@ public class LongestPalindromicSubstring {
 	// it is possible.
 	private static void type5() {
 		String s = "babab";
+		String ans = longestPalindrome5(s);
+		System.out.println(ans);
+	}
+
+	private static String longestPalindrome5(String s) {
 		int n = 2 * s.length() + 3;
 		// in the start, we will add @, and in the end we will add &, we will add # in between
 		// initializing the transformed array, if the actual array is "babad"
@@ -86,9 +94,7 @@ public class LongestPalindromicSubstring {
 		}
 		int start = (index - count - 1) / 2;
 		String answer = s.substring(start, start + count);
-
-		System.out.println(count);
-		System.out.println(answer);
+		return answer;
 	}
 
 	// TODO this is brute force of manacher algorithm
@@ -107,6 +113,11 @@ public class LongestPalindromicSubstring {
 	// then mirror can be at two places -> a|a or ab|a,
 	private static void type4() {
 		String s = "babad";
+		int count = longestPalindrome4(s);
+		System.out.println(count);
+	}
+
+	private static int longestPalindrome4(String s) {
 		int n = 2 * s.length() + 3;
 		// in the start, we will add @, and in the end we will add &, we will add # in between
 		// initializing the transformed array, if the actual array is "babad"
@@ -136,7 +147,7 @@ public class LongestPalindromicSubstring {
 		}
 		// now we will find the max count in lps array
 		int count = Arrays.stream(lps).max().getAsInt();
-		System.out.println(count);
+		return count;
 	}
 
 	// TODO Using dynamic programming, check type7 from longest palindromic subsequence
@@ -152,6 +163,11 @@ public class LongestPalindromicSubstring {
 	// in recursion that will be essentially our base cases
 	private static void type3() {
 		String s = "aacabdkacaa";
+		String answer = longestPalindrome3(s);
+		System.out.println(answer);
+	}
+
+	private static String longestPalindrome3(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
 		int[][] dp = new int[n][n];
@@ -185,8 +201,7 @@ public class LongestPalindromicSubstring {
 				}
 			}
 		}
-		String answer = s.substring(start, start + max);
-		System.out.println(answer);
+		return s.substring(start, start + max);
 	}
 
 
@@ -194,9 +209,15 @@ public class LongestPalindromicSubstring {
 	// time complexity O(n^2)
 	// space complexity O(1)
 	// if you are using java don't directly operate on string
-	// rather create one array of character otherwise it will long time
+	// rather create one array of character
+	// as String.charAt is computationally expensive
 	private static void type2() {
 		String s = "babad";
+		String ans = longestPalindrome2(s);
+		System.out.println(ans);
+	}
+
+	private static String longestPalindrome2(String s) {
 		char[] arr = s.toCharArray();
 		int start = 0, max = 0, len;
 		for (int i = 0; i < arr.length; i++) {
@@ -211,12 +232,12 @@ public class LongestPalindromicSubstring {
 				start = i - (len - 1) / 2;
 			}
 		}
-		String answer = s.substring(start, start + max);
-		System.out.println(answer);
+		return s.substring(start, start + max);
 	}
 
 	static int expand(int l, int r, char[] arr) {
-		while (l >= 0 && r < arr.length && arr[l] == arr[r]) {
+		int n = arr.length;
+		while (l >= 0 && r < n && arr[l] == arr[r]) {
 			l--;
 			r++;
 		}

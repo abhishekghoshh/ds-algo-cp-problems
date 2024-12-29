@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * Problem link:
- * https://www.codingninjas.com/studio/problems/count-palindromic-subsequences_1062696
+ * https://www.naukri.com/code360/problems/count-palindromic-subsequences_1062696
  *
  * Solution link:
  * Yogesh & Shailesh (CodeLibrary) : https://www.youtube.com/watch?v=vlbA8oUxSV0

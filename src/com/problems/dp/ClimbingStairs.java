@@ -6,12 +6,15 @@ import java.util.Arrays;
  *
  * problem links :
  * https://leetcode.com/problems/climbing-stairs/description/
+ * https://neetcode.io/problems/climbing-stairs
  * https://www.naukri.com/code360/problems/count-ways-to-reach-the-n-th-stairs_798650
  *
  * Solution link :
  * https://www.youtube.com/watch?v=mLfjzJsN8us&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=3
+ * https://www.youtube.com/watch?v=Y0lT9Fck7qI
  *
  * https://takeuforward.org/data-structure/dynamic-programming-climbing-stairs/
+ * https://neetcode.io/solutions/climbing-stairs
  * */
 public class ClimbingStairs {
     // This problem is the same as fibonacci series
@@ -43,17 +46,17 @@ public class ClimbingStairs {
     // space complexity O(n) for array
     private static void type3() {
         int n = 10;
-        int[] memo = new int[n + 1];
-        Arrays.fill(memo, -1);
-        memo[0] = memo[1] = 1;
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, -1);
+        dp[0] = dp[1] = 1;
         // same as previous f(i) = f(i-1) + f(i-2)
         // but as it is bottom up approach,
         // we will start from the lowest input possible
         // we will go till n
         for (int i = 2; i <= n; i++)
-            memo[i] = memo[i - 1] + memo[i - 2];
+            dp[i] = dp[i - 1] + dp[i - 2];
 
-        System.out.println(memo[n]);
+        System.out.println(dp[n]);
     }
 
     // using memoization
@@ -61,18 +64,18 @@ public class ClimbingStairs {
     // space complexity O(n) for stack space
     private static void type2() {
         int n = 10;
-        int[] memo = new int[n + 1];
-        Arrays.fill(memo, -1);
-        int answer = climbStairs(n, memo);
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, -1);
+        int answer = climbStairs(n, dp);
         System.out.println(answer);
     }
 
-    private static int climbStairs(int n, int[] memo) {
+    private static int climbStairs(int n, int[] dp) {
         if (n <= 1) return 1;
         // checking if the recursion call is already happened or not
-        if (memo[n] != -1) return memo[n];
+        if (dp[n] != -1) return dp[n];
         // before returning, we will also save the answer
-        return memo[n] =
+        return dp[n] =
                 climbStairs(n - 1) + climbStairs(n - 2);
     }
 
