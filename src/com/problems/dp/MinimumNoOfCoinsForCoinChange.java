@@ -23,7 +23,7 @@ public class MinimumNoOfCoinsForCoinChange {
 
 	static int INF = (int) 1e9;
 
-	// todo check this problem one more time
+	// todo check this problem to have a very good and progressive intuition
 	public static void main(String[] args) {
 		type1();
 		type2();
@@ -33,6 +33,7 @@ public class MinimumNoOfCoinsForCoinChange {
 		type6();
 	}
 
+	// todo best possible solution
 	// check coin change 2 for better understanding
 	// similar to a previous type with some little optimization
 	// similar to the problem of [no of way possible for creating amount]
@@ -49,13 +50,13 @@ public class MinimumNoOfCoinsForCoinChange {
 		dp[0] = 0;
 		// we will loop through for all the coins and for all the amount
 		for (int coin : coins) {
-			for (int i = coin; i <= amount; ++i)
+			for (int amt = coin; amt <= amount; ++amt)
 				// we have 2 options either to include the current coin or not
 				// if we are using the current coin, then we have to add +1,
 				// and we have to take the minimum out of 2 choices
-				dp[i] = Math.min(
-						dp[i - coin] + 1,
-						dp[i]
+				dp[amt] = Math.min(
+						dp[amt - coin] + 1,
+						dp[amt]
 				);
 		}
 		// ideally dp[amount] should be less than amount, if it greater than then we cannot create amount
@@ -166,6 +167,7 @@ public class MinimumNoOfCoinsForCoinChange {
 		return dp[n][amount] <= amount ? dp[n][amount] : -1;
 	}
 
+	// starting point of the problem
 	// using recursion with the dynamic programming
 	private static void type2() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
