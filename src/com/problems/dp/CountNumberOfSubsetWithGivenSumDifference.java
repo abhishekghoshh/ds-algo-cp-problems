@@ -2,7 +2,7 @@ package com.problems.dp;
 
 /*
  * Problem link:
- * https://leetcode.com/problems/target-sum/ => the intuition is little bit different but the solution is same
+ * https://leetcode.com/problems/target-sum/description/ => the intuition is little bit different but the solution is same
  * https://www.naukri.com/code360/problems/partitions-with-given-difference_3751628
  * https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1
  * 

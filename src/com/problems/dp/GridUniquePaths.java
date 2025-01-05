@@ -2,8 +2,9 @@ package com.problems.dp;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/unique-paths/
- * https://www.codingninjas.com/studio/problems/1081470
+ * https://leetcode.com/problems/unique-paths/description/
+ * https://neetcode.io/problems/count-paths
+ * https://www.naukri.com/code360/problems/1081470
  *
  * Solution link
  * https://www.youtube.com/watch?v=t_f0nwwdg5o
@@ -11,6 +12,7 @@ package com.problems.dp;
  *
  * https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/
  * https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/
+ * https://neetcode.io/solutions/unique-paths
  *
  * */
 
@@ -18,13 +20,13 @@ package com.problems.dp;
 public class GridUniquePaths {
 
 	public static void main(String[] args) {
-		type0();
 		type1();
 		type2();
 		type3();
 		type4();
 	}
 
+	// todo maybe optimal but explain at the last
 	// Optimal approach
 	// combination approach
 	// if m=3 n=2 then sequence can be RRD,RDR,DRR
@@ -54,84 +56,73 @@ public class GridUniquePaths {
 		return (int) count;
 	}
 
-	// dynamic programming approach
-	// iterative way
+	// todo explain this or the memoization in the interview
+	// dynamic programming approach iterative way
 	// time complexity O(m*n)
 	// space complexity O(m*n) + O(max(m,n))
 	private static void type3() {
 		int m = 3, n = 2;
-		int[][] memo = new int[m][n];
-		// initializing the starting cell and first row and the first column
-		memo[1][1] = 1;
-		for (int i = 1; i < m; i++) memo[i][0] = 1;
-		for (int j = 1; j < n; j++) memo[0][j] = 1;
-		// filling up the remaining cell
-		for (int i = 1; i < m; i++)
-			for (int j = 1; j < n; j++)
-				memo[i][j] = memo[i - 1][j] + memo[i][j - 1];
-
-		System.out.println("count is " + memo[m][n]);
+		int ans = uniquePaths3(m, n);
+		System.out.println("count is " + ans);
 	}
 
+	private static int uniquePaths3(int m, int n) {
+		int[][] dp = new int[m + 1][n + 1];
+		// if we are on first row or first column then there is only one way to go (1,1),
+		// so initializing first row and the first column with 1
+		for (int i = 1; i <= m; i++) dp[i][1] = 1;
+		for (int j = 1; j <= n; j++) dp[1][j] = 1;
+		// filling up the remaining cell
+		for (int i = 2; i <= m; i++) {
+			for (int j = 2; j <= n; j++)
+				dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+		}
+		return dp[m][n];
+	}
+
+	// todo explain this
 	// dynamic programming approach
 	// recursive way
 	// time complexity
 	// space complexity O(m*n) + O(max(m,n))
 	private static void type2() {
 		int m = 3, n = 2;
-		int[][] memo = new int[m][n];
-		int count = findPaths(0, 0, m, n, memo);
+		int count = uniquePaths2(m, n);
 		System.out.println("count is " + count);
 	}
 
-	private static int findPaths(int i, int j, int m, int n, int[][] memo) {
-		// out of bounds
-		if (i >= m || j >= n) return 0;
-		// we have reached the destination
-		if (i == m - 1 && j == n - 1) return 1;
-		// if it is already calculated, then we will directly return the answer
-		if (memo[i][j] != 0) return memo[i][j];
-		// we will traverse and also store the result
-		return memo[i][j] = findPaths(i + 1, j, m, n, memo)
-				+ findPaths(i, j + 1, m, n, memo);
+	private static int uniquePaths2(int m, int n) {
+		int[][] dp = new int[m + 1][n + 1];
+		return uniquePaths2(m, n, dp);
 	}
 
-	// brute force approach
+	private static int uniquePaths2(int m, int n, int[][] dp) {
+		// out of bounds
+		if (n == 0 || m == 0) return 0;
+		// we have reached the destination
+		if (n == 1 && m == 1) return 1;
+		// if it is already calculated, then we will directly return the answer
+		if (dp[m][n] != 0) return dp[m][n];
+		// we will traverse and also store the result
+		return dp[m][n] = uniquePaths2(m, n - 1, dp) + uniquePaths2(m - 1, n, dp);
+	}
+
+	// brute force approach using recursion
 	// time complexity
 	// space complexity
-	// same as previous just here the starting and ending are different
 	private static void type1() {
 		int m = 3, n = 2;
-		int count = findPaths(0, 0, m, n);
+		int count = uniquePaths1(m, n);
 		System.out.println("count is " + count);
 	}
 
-	private static int findPaths(int i, int j, int m, int n) {
+	private static int uniquePaths1(int m, int n) {
 		// out of bounds
-		if (i >= m || j >= n) return 0;
+		if (n == 0 || m == 0) return 0;
 		// we have reached the destination
-		if (i == m - 1 && j == n - 1) return 1;
+		if (n == 1 && m == 1) return 1;
 		// else we have 2 choices
-		return findPaths(i + 1, j, m, n) + findPaths(i, j + 1, m, n);
-	}
-
-	// brute force approach
-	// time complexity
-	// space complexity
-	private static void type0() {
-		int n = 3;
-		int m = 2;
-		int count = findPaths(n - 1, m - 1);
-		System.out.println("count is " + count);
-	}
-
-	private static int findPaths(int n, int m) {
-		// out of bounds
-		if (n < 0 || m < 0) return 0;
-		// we have reached the destination
-		if (n == 0 && m == 0) return 1;
-		// else we have 2 choices
-		return findPaths(n - 1, m) + findPaths(n, m - 1);
+		return uniquePaths1(m, n - 1) + uniquePaths1(m - 1, n);
 	}
 
 }

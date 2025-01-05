@@ -6,8 +6,8 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/combination-sum-iii
- * https://www.codingninjas.com/studio/problems/combination-sum-iii_5038357
+ * https://leetcode.com/problems/combination-sum-iii/description/
+ * https://www.naukri.com/code360/problems/combination-sum-iii_5038357
  *
  * Solution link
  *

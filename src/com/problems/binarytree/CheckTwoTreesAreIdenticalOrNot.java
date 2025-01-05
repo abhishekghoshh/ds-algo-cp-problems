@@ -4,14 +4,16 @@ import com.ds.binarytree.TNode;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/same-tree/
+ * https://leetcode.com/problems/same-tree/description/
+ * https://neetcode.io/problems/same-binary-tree
  * https://www.naukri.com/code360/problems/799364
- * https://www.naukri.com/code360/problems/check-identical-trees_799364
- * 
+ *
  * Solution link :
  * https://www.youtube.com/watch?v=BhuvF_-PWS0&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=19
+ * https://www.youtube.com/watch?v=vRbbcKXCxOw
  * 
  * https://takeuforward.org/data-structure/check-if-two-trees-are-identical/
+ * https://neetcode.io/solutions/same-tree
  */
 public class CheckTwoTreesAreIdenticalOrNot {
 

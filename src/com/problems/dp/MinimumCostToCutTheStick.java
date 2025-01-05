@@ -9,8 +9,10 @@ import java.util.Arrays;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=xwomavsC86c&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=51
+ * https://www.youtube.com/watch?v=EVxTO5I0d7w
  *
  * https://takeuforward.org/data-structure/minimum-cost-to-cut-the-stick-dp-50/
+ * https://neetcode.io/solutions/minimum-cost-to-cut-a-stick
  */
 public class MinimumCostToCutTheStick {
     public static void main(String[] args) {
@@ -19,62 +21,74 @@ public class MinimumCostToCutTheStick {
         type3();
     }
 
+    // todo avoid iterative approach in the interview, but if you pull this over then go ahead
     // we can transform the recursion to iteration
     private static void type3() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
+        int ans = minCost3(cuts, n);
+        System.out.println(ans);
+    }
+
+    private static int minCost3(int[] cuts, int n) {
         int c = cuts.length;
-        int len = c + 2;
+        int N = c + 2;
         // we will sort the array, so that cuts will be in order
         Arrays.sort(cuts);
         // we will modify the cut array
-        int[] nums = new int[len];
+        int[] nums = new int[N];
         nums[0] = 0;
-        nums[c + 1] = n;
+        nums[N - 1] = n;
         System.arraycopy(cuts, 0, nums, 1, c);
         cuts = nums;
         // create the dp of the same size
-        int[][] dp = new int[len][len];
+        int[][] dp = new int[N][N];
 
         // we want all ranges possible, so to turn recursion into iteration, we will start
         // left from the last, and we will start right just after left to the last index.
         // so after that we can just copy the recurrence relation from the recursion
-        for (int left = len - 1; left >= 0; left--) {
-            // we will start right left+2 otherwise there will not be any cut
-            // between left and right
-            for (int right = left + 2; right < len; right++) {
+        for (int left = N - 1; left >= 0; left--) {
+            // we will start right left+2 otherwise there will not be any cut between left and right
+            for (int right = left + 2; right < N; right++) {
                 int cost = cuts[right] - cuts[left];
                 int min = Integer.MAX_VALUE;
                 // we will cut everywhere between left+1 to right-1 and split the rod
                 // new rod will be left to k and k to right
-                for (int k = left + 1; k < right; k++)
+                for (int k = left + 1; k < right; k++) {
                     min = Math.min(
                             min,
                             dp[left][k] + dp[k][right]
                     );
+                }
                 dp[left][right] = min + cost;
             }
         }
-        int ans = dp[0][len - 1];
-        System.out.println(ans);
+        return dp[0][N - 1];
     }
 
+    // todo if you get the recurrence relation from the previous type then this is a cakewalk
     // recursion with memoization
     private static void type2() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
+        int ans = minCost2(cuts, n);
+        System.out.println(ans);
+    }
+
+    private static int minCost2(int[] cuts, int n) {
         int c = cuts.length;
         // we will sort the array, so that cuts will be in order
         Arrays.sort(cuts);
         // we will modify the cut array
-        int[] nums = new int[c + 2];
+        int N = c + 2;
+        int[] nums = new int[N];
         nums[0] = 0;
-        nums[c + 1] = n;
+        nums[N - 1] = n;
         System.arraycopy(cuts, 0, nums, 1, c);
         // create the dp of the same size
-        int[][] dp = new int[c + 2][c + 2];
-        int ans = minCost2(0, c + 1, nums, dp);
-        System.out.println(ans);
+        int[][] dp = new int[N][N];
+        for (int[] row : dp) Arrays.fill(row, -1);
+        return minCost2(0, c + 1, nums, dp);
     }
 
     private static int minCost2(int left, int right, int[] cuts, int[][] dp) {
@@ -83,7 +97,7 @@ public class MinimumCostToCutTheStick {
         // the current cost will be right length - left length
         int cost = cuts[right] - cuts[left];
         // if the call is already made, then we will return the value
-        if (dp[left][right] != 0) return dp[left][right];
+        if (dp[left][right] != -1) return dp[left][right];
         int min = Integer.MAX_VALUE;
         // we will cut everywhere between left+1 to right-1 and split the rod
         // new rod will be left to k and k to right
@@ -95,7 +109,7 @@ public class MinimumCostToCutTheStick {
         return dp[left][right] = min + cost;
     }
 
-    // using simple recursion.
+    // todo using simple recursion. we will construct the recurrence relation here
     // let's say the rod is having the marker is on 0 to n.
     // we want to cut it in all cuts, so the first thing we could do is, sort the cuts.
     // let's say the first cut is on ith index having value k.
@@ -111,17 +125,22 @@ public class MinimumCostToCutTheStick {
     private static void type1() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
+        int ans = minCost1(cuts, n);
+        System.out.println(ans);
+    }
+
+    private static int minCost1(int[] cuts, int n) {
         int c = cuts.length;
         // we will sort the array, so that cuts will be in order
         Arrays.sort(cuts);
         // we will modify the cut array
-        int[] nums = new int[c + 2];
+        int N = c + 2;
+        int[] nums = new int[N];
         nums[0] = 0;
-        nums[c + 1] = n;
+        nums[N - 1] = n;
         System.arraycopy(cuts, 0, nums, 1, c);
 
-        int ans = minCost1(0, c + 1, nums);
-        System.out.println(ans);
+        return minCost1(0, c + 1, nums);
     }
 
     private static int minCost1(int left, int right, int[] cuts) {

@@ -5,12 +5,15 @@ import java.util.Arrays;
 /*
  * Problem link :
  * https://leetcode.com/problems/distinct-subsequences/description/
+ * https://neetcode.io/problems/count-subsequences
  * https://www.naukri.com/code360/problems/subsequence-counting_3755256
  *
  * Solution link :
  * https://www.youtube.com/watch?v=nVG7eTiD2bY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=33
+ * https://www.youtube.com/watch?v=-RDzMJ33nx8
  *
  * https://takeuforward.org/data-structure/distinct-subsequences-dp-32/
+ * https://neetcode.io/solutions/distinct-subsequences
  */
 public class DistinctSubsequences {
     public static void main(String[] args) {
@@ -18,13 +21,15 @@ public class DistinctSubsequences {
         type2();
         type3();
         type4();
+        // space optimized to 1D array
         type5();
     }
 
-    // top-down approach or the tabulation form
+    // todo top-down approach or the tabulation form
     // we will use some space optimization here
     // we will use a single array for storing all dp values.
-    // please check the 0/1 knapsack or unbounded knapsack if you are unable to understand single array concept
+    // todo please check the 0/1 knapsack or unbounded knapsack if you are unable to understand single array concept
+    //  we do not need the prev array, because of the recurrence
     private static void type5() {
         String s = "rabbbit";
         String t = "rabbit";
@@ -78,6 +83,7 @@ public class DistinctSubsequences {
     }
 
     // top-down approach or the tabulation form
+    // again we will use the same recurrence relation from previous types
     private static void type3() {
         String s = "rabbbit";
         String t = "rabbit";
@@ -94,6 +100,7 @@ public class DistinctSubsequences {
         // we will use the same condition as the recursion here
         for (int i = 1; i <= n1; i++) {
             for (int j = 1; j <= n2; j++)
+                // if the character is same then we will have 2 options
                 if (arr1[i - 1] == arr2[j - 1])
                     dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
                 else
@@ -103,6 +110,7 @@ public class DistinctSubsequences {
     }
 
     // recursion with memoization
+    // same as the previous type with the same recurrence relation
     private static void type2() {
         String s = "rabbbit";
         String t = "rabbit";
@@ -134,8 +142,11 @@ public class DistinctSubsequences {
             return dp[n1][n2] = numDistinct2(n1 - 1, n2, arr1, arr2, dp);
     }
 
-    // brute force approach
-    // using recursion
+    // brute force approach using recursion
+    // here we will construct the recurrence relation
+    // if the character are same then we have 2 options
+    // either to remove characters from both string or remove from the original string and search again
+    // if the characters are not same then we will remove from the original string and search again
     private static void type1() {
         String s = "rabbbit";
         String t = "rabbit";

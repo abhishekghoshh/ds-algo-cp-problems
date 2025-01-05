@@ -7,11 +7,15 @@ import com.util.PrintUtl;
  *
  * problem links :
  * https://leetcode.com/problems/invert-binary-tree/description/
+ * https://neetcode.io/problems/invert-a-binary-tree
  * https://www.geeksforgeeks.org/problems/mirror-tree/1
- * Solution link :
  *
+ * Solution link :
+ * https://www.youtube.com/watch?v=OnSn2XEQ4MY
  *
  * https://takeuforward.org/data-structure/check-for-symmetrical-binary-tree/
+ * https://neetcode.io/solutions/invert-binary-tree
+ *
  * */
 public class InvertBinaryTree {
     public static void main(String[] args) {

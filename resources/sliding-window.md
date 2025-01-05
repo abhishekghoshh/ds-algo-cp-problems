@@ -17,13 +17,15 @@
 - [Max Consecutive Ones III](/src/com/problems/slidingwindow/MaxConsecutiveOnes3.java)
 - [Longest Repeating Character Replacement](/src/com/problems/slidingwindow/LongestRepeatingCharacterReplacement.java)
 - [Binary Subarrays With Sum](/src/com/problems/slidingwindow/BinarySubarraysWithSum.java)
-    - prefix-sum
 - [Count Number of Nice Subarrays](/src/com/problems/slidingwindow/CountNumberOfNiceSubarrays.java)
-    - prefix-sum
 - [Maximum Points You Can Obtain from Cards](/src/com/problems/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
-    - dynamic-programming
 - [Container With Most Water](/src/com/problems/slidingwindow/ContainerWithMostWater.java)
 - [Frequency of the Most Frequent Element](/src/com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java)
 - [Count Distinct Elements In Every Window](/src/com/problems/slidingwindow/CountDistinctElementsInEveryWindow.java)
 - [Count Substrings With K-Frequency Characters I](/src/com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java)
 - [Minimum Size Subarray Sum](/src/com/problems/slidingwindow/MinimumSizeSubarraySum.java)
+
+
+- [Maximum Subarray With Equal Products](/src/com/problems/slidingwindow/MaximumSubarrayWithEqualProducts.java)
+- [Find Mirror Score of a String](/src/com/problems/slidingwindow/FindMirrorScoreOfAString.java)
+- [Maximum Coins From K Consecutive Bags](/src/com/problems/slidingwindow/MaximumCoinsFromKConsecutiveBags.java)

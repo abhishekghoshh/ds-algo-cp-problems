@@ -1,15 +1,20 @@
 package com.problems.dp;
 /*
  * Problem link :
- * https://leetcode.com/problems/edit-distance/
+ * https://leetcode.com/problems/edit-distance/description/
+ * https://neetcode.io/problems/edit-distance
  * https://www.naukri.com/code360/problems/edit-distance_630420
  * https://www.naukri.com/code360/problems/shortest-common-supersequence_4244493
  *
  * Solution link :
  * https://www.youtube.com/watch?v=fJaKO8FbDdo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=35
+ * https://www.youtube.com/watch?v=XYi2-LPrwm4
  *
  * https://takeuforward.org/data-structure/edit-distance-dp-33/
+ * https://neetcode.io/solutions/edit-distance
  */
+
+import java.util.Arrays;
 
 public class EditDistance {
 
@@ -94,6 +99,7 @@ public class EditDistance {
         for (int i = 1; i <= n1; i++) dp[i][0] = i;
         // here the first string length is 0, so edit distance will be the length of the second string
         for (int j = 1; j <= n2; j++) dp[0][j] = j;
+
         // top-down calculation
         for (int i = 1; i <= n1; i++) {
             for (int j = 1; j <= n2; j++) {
@@ -138,20 +144,15 @@ public class EditDistance {
 
         // initialization
         int[][] dp = new int[n1 + 1][n2 + 1];
-
-        for (int i = 0; i <= n1; i++) {
-            for (int j = 0; j <= n2; j++) {
-                // for initialization, we have three cases, if i=0 then it will be j and vise versa
-                // for others we will initialize it to -1
-                if (i == 0) dp[i][j] = j;
-                else if (j == 0) dp[i][j] = i;
-                else dp[i][j] = -1;
-            }
-        }
+        for (int[] row : dp) Arrays.fill(row, -1);
         return minDistance(n1, n2, w2, w1, dp);
     }
 
     private static int minDistance(int n1, int n2, char[] word2, char[] word1, int[][] dp) {
+        // if n1 or n2 is at 0, means one of the strings is exhausted completely,
+        // then we will return the remaining length of the other string
+        if (n1 == 0 || n2 == 0) return (n1 == 0) ? n2 : n1;
+
         if (dp[n1][n2] != -1) return dp[n1][n2];
         // if the current last characters are same, then we don't have to consider that character
         if (word1[n1 - 1] == word2[n2 - 1])
@@ -159,17 +160,20 @@ public class EditDistance {
 
         // if that is different, then we have 3 options
         // to replace the last character and search again; that cost 1 operation
-        int ch1 = minDistance(n1 - 1, n2 - 1, word2, word1, dp);
+        int d1 = minDistance(n1 - 1, n2 - 1, word2, word1, dp);
         // to remove the last character from the first string and search again, that cost 1
-        int ch2 = minDistance(n1 - 1, n2, word2, word1, dp);
+        int d2 = minDistance(n1 - 1, n2, word2, word1, dp);
         // to remove the last character from the second string and search again, that cost 1
-        int ch3 = minDistance(n1, n2 - 1, word2, word1, dp);
+        int d3 = minDistance(n1, n2 - 1, word2, word1, dp);
 
         // and would be minimum from these 3 choices
-        return dp[n1][n2] = 1 + min(ch1, ch3, ch2);
+        return dp[n1][n2] = 1 + min(d1, d3, d2);
     }
 
     // recursion and brute force approach
+    // we will construct the recurrence relation
+    // if the character is same then we will check for editDistance1(n1-1, n2-1)
+    // else we have 3 options either remove char from 1st string or from 2nd string or replace last char of the string
     private static void type1() {
         String word1 = "abc";
         String word2 = "efg";
@@ -179,13 +183,19 @@ public class EditDistance {
     }
 
     private static int editDistance1(String word1, String word2) {
-        return minDistance(word1.length(), word2.length(), word2.toCharArray(), word1.toCharArray());
+        int n1 = word1.length();
+        int n2 = word2.length();
+        // if the n1 is 0 then the edit distance will be n2 or n2 is 0 then the edit distance will be n1
+        if (n1 == 0 || n2 == 0) return (n1 == 0) ? n2 : n1;
+        char[] w1 = word1.toCharArray();
+        char[] w2 = word2.toCharArray();
+        return minDistance(n1, n2, w1, w2);
     }
 
     private static int minDistance(int n1, int n2, char[] word2, char[] word1) {
         // if n1 or n2 is at 0, means one of the strings is exhausted completely,
         // then we will return the remaining length of the other string
-        if (n1 == 0 || n2 == 0) return n1 == 0 ? n2 : n1;
+        if (n1 == 0 || n2 == 0) return (n1 == 0) ? n2 : n1;
         // if the character is same then we will directly check for the 1-character small string
         if (word1[n1 - 1] == word2[n2 - 1]) return minDistance(n1 - 1, n2 - 1, word2, word1);
         // else we have three cases, 1. replace last character for both of the strings

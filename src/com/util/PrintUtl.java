@@ -304,4 +304,15 @@ public class PrintUtl {
             if (object != null) return false;
         return true;
     }
+
+    public static void printStrings(char[][] arr) {
+        for (char[] a : arr) {
+            System.out.print(new String(a) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void print2D(List<int[]> list) {
+
+    }
 }

@@ -16,7 +16,7 @@ import java.util.Map;
  *
  * */
 
-// Tags: Prefix sum
+// Tags: Arrays, Prefix sum, Sliding window
 public class BinarySubarraysWithSum {
     public static void main(String[] args) {
         type1();

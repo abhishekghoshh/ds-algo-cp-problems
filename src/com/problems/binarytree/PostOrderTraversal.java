@@ -10,14 +10,17 @@ import java.util.Stack;
 import static com.util.PrintUtl.print;
 /*
  * Problem link :
- * https://leetcode.com/problems/binary-tree-postorder-traversal/
+ * https://leetcode.com/problems/binary-tree-postorder-traversal/description/
  * https://www.naukri.com/code360/problems/postorder-traversal_2035933
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=COQOU6klsBg&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=8
  * https://www.youtube.com/watch?v=2YBhNLodD8Q&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=12
+ * https://www.youtube.com/watch?v=QhszUQhGGlA
+ *
  *
  * https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/
+ * https://neetcode.io/solutions/binary-tree-postorder-traversal
  */
 public class PostOrderTraversal {
 
@@ -25,41 +28,8 @@ public class PostOrderTraversal {
 		type1();
 		type2();
 		type3();
-		type4();
 	}
 
-	// TODO check it later
-	private static void type4() {
-		TNode root = TNode.withCount(7);
-		List<Integer> postOrder = postOrder4(root);
-		print(root);
-		print(postOrder);
-	}
-
-	private static List<Integer> postOrder4(TNode root) {
-		List<Integer> postOrder = new ArrayList<>();
-		Stack<TNode> st = new Stack<>();
-		while (root != null || !st.isEmpty()) {
-			if (root != null) {
-				st.push(root);
-				root = root.left;
-			} else {
-				TNode temp = st.peek().right;
-				if (temp == null) {
-					temp = st.peek();
-					st.pop();
-					postOrder.add(temp.data);
-					while (!st.isEmpty() && temp == st.peek().right) {
-						temp = st.peek();
-						st.pop();
-						postOrder.add(temp.data);
-					}
-				} else
-					root = temp;
-			}
-		}
-		return postOrder;
-	}
 
 	// TODO best solution, explain this in the interview
 	// with iteration using 1 stack,
@@ -83,7 +53,7 @@ public class PostOrderTraversal {
 			// adding the root
 			postOrder.add(node.data);
 			// as we will first process the right, so we will add the left first
-			// so in the next iteration the right child will come first
+			// so in the next iteration the right child will come first [the tree will be root -> right -> left]
 			if (null != node.left) stack.push(node.left);
 			if (null != node.right) stack.push(node.right);
 		}
@@ -110,12 +80,12 @@ public class PostOrderTraversal {
 		while (!s1.isEmpty()) {
 			root = s1.pop();
 			s2.push(root);
+			// ultimately these nodes will be again added in a stack so here we are add it first left then right
 			if (root.left != null) s1.push(root.left);
 			if (root.right != null) s1.push(root.right);
 		}
 		while (!s2.isEmpty()) {
-			postOrder.add(s2.peek().data);
-			s2.pop();
+			postOrder.add(s2.pop().data);
 		}
 		return postOrder;
 	}

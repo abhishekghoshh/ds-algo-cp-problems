@@ -15,13 +15,18 @@
 ### General
 - [Introduction to binary tree](/src/com/problems/binarytree/IntroductionToBinaryTree.java)
 - [Maximum number Of Nodes in nth label in a binary tree](/src/com/problems/binarytree/MaximumNumberOfNodesAtNthLabelInBinaryTree.java)
-- [Binary Tree Paths](/src/com/problems/binarytree/BinaryTreePaths.java)
+
 - [Binary tree Traversal](/src/com/problems/binarytree/BinaryTreeTraversal.java)
 - [Inorder Traversal](/src/com/problems/binarytree/InOrderTraversal.java)
 - [Preorder Traversal](/src/com/problems/binarytree/PreOrderTraversal.java)
 - [Postorder Traversal](/src/com/problems/binarytree/PostOrderTraversal.java)
 - [Level wise order Traversal](/src/com/problems/binarytree/LevelWiseOrderTraversal.java)
 - [Preorder Inorder Postorder Traversals in One Traversal](/src/com/problems/binarytree/PreorderInorderAndPostorderTraversalInOneTraversal.java)
+- [Zig Zag Traversal Of Binary Tree](/src/com/problems/binarytree/ZigzagLevelOrderTraversal.java)
+- [Vertical Order Traversal of Binary Tree](/src/com/problems/binarytree/VerticalOrderTraversal.java)
+
+
+- [Binary Tree Paths](/src/com/problems/binarytree/BinaryTreePaths.java)
 - [Height of a Binary Tree/Maximum Depth of Binary Tree](/src/com/problems/binarytree/HeightOfBinaryTree.java)
 - [Second minimum value in the binary tree](/src/com/problems/binarytree/SecondMinimumValueInBinaryTree.java)
 - [Check if the Binary Tree is Balanced Binary Tree](/src/com/problems/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
@@ -32,12 +37,13 @@
 - [Check if two trees are identical](/src/com/problems/binarytree/CheckTwoTreesAreIdenticalOrNot.java)
 - [Invert/Flip Binary Tree (Create)](/src/com/problems/binarytree/InvertBinaryTree.java)
 - [Subtree of Another Tree](/src/com/problems/binarytree/SubtreeOfAnotherTree.java)
-- [Zig Zag Traversal Of Binary Tree](/src/com/problems/binarytree/ZigzagLevelOrderTraversal.java)
-- [Vertical Order Traversal of Binary Tree](/src/com/problems/binarytree/VerticalOrderTraversal.java)
+
+
 - [Top view of a Binary Tree](/src/com/problems/binarytree/TopViewOfBinaryTree.java)
 - [Bottom view of a Binary Tree](/src/com/problems/binarytree/BottomViewOfBinaryTree.java)
 - [Left view of Binary Tree](/src/com/problems/binarytree/LeftViewOfBinaryTree.java)
 - [Right view of Binary Tree](/src/com/problems/binarytree/RightViewOfBinaryTree.java)
+
 - [Boundary Traversal of Binary Tree](/src/com/problems/binarytree/BoundaryTraversalInBinaryTree.java)
 - [Symmetric Binary Tree](/src/com/problems/binarytree/CheckForSymmetricalBinaryTree.java)
 - [Print Root to Node Path in a Binary Tree](/src/com/problems/binarytree/PrintRootToNodePath.java)

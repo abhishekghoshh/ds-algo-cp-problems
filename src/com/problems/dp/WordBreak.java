@@ -7,11 +7,13 @@ import java.util.List;
 /*
  * Problem link :
  * https://leetcode.com/problems/word-break/description/
- * https://www.codingninjas.com/studio/problems/word-break-1_758963
+ * https://neetcode.io/problems/word-break
+ * https://www.naukri.com/code360/problems/word-break-1_758963
  *
  * Solution link:
  * https://www.youtube.com/watch?v=Sx9NNgInc3A
  *
+ * https://neetcode.io/solutions/word-break
  * */
 public class WordBreak {
     public static void main(String[] args) {
@@ -34,39 +36,50 @@ public class WordBreak {
         String s = "abcd";
         List<String> words = new ArrayList<>(List.of("a", "abc", "b", "cd"));
 
+        boolean ans = wordBreak3(s, words);
+        System.out.println(ans);
+    }
+
+    private static boolean wordBreak3(String s, List<String> wordDict) {
         char[] arr = s.toCharArray();
+        int n = arr.length;
         // we will create a word map
-        LinkedList<String>[] wordMap = new LinkedList[26];
-        for (String word : words) {
+        List<String>[] wordMap = new List[26];
+        for (int i = 0; i < 26; i++) wordMap[i] = new ArrayList<>();
+        for (String word : wordDict) {
             int ch = word.charAt(0) - 'a';
-            if (wordMap[ch] == null) wordMap[ch] = new LinkedList<>();
             wordMap[ch].add(word);
         }
         // dp to store if from that index the remaining string is constructable or not
-        boolean[] dp = new boolean[arr.length];
+        boolean[] dp = new boolean[n];
+
         // we will go from the last to first
-        for (int i = arr.length - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             int ch = arr[i] - 'a';
             // if there is no word starting with this letter, then we will continue
             if (wordMap[ch] == null) continue;
             for (String word : wordMap[ch]) {
-                int n = word.length();
+                int wLen = word.length();
                 // if the current index + word size exceeding the string size, then we cannot accommodate the word
-                if (i + n > arr.length) continue;
-                // if the current word, spreading to the last letter, or should I say there is no remaining string left
-                // then we do not have to check from the remaining string
-                if (i + n == arr.length)
-                    dp[i] = hasPrefix(arr, word, i);
-                else
-                    // here we are checking if the current word is can be accommodated or not also
-                    // the remaining string is also constructable or not
-                    dp[i] = dp[i + n] && hasPrefix(arr, word, i);
+                if (i + wLen > n) continue;
+                // if there is no remaining string left, the current word is spreading to the last letter, or dp[i + wLen] is true
+                // which means remaining string can be made then dp[i] will
+                if (i + wLen == n || dp[i + wLen]) {
+                    boolean isWordAPrefix = true;
+                    for (int j = 0; j < wLen; j++) {
+                        if (arr[i + j] != word.charAt(j)) {
+                            isWordAPrefix = false;
+                            break;
+                        }
+                    }
+                    dp[i] = isWordAPrefix;
+                }
                 // if dp[i] is already true, then we do not need to check for the next word
                 if (dp[i]) break;
             }
         }
         // dp[0] is our final answer
-        System.out.println(dp[0]);
+        return dp[0];
     }
 
     // so we are going index wise
@@ -83,22 +96,24 @@ public class WordBreak {
         System.out.println(hasWord);
     }
 
-    private static boolean wordBreak2(String s, List<String> words) {
-        int[] memo = new int[s.length() + 1];
-        return hasWord2(0, s.toCharArray(), words, memo);
+    private static boolean wordBreak2(String s, List<String> wordDict) {
+        int n = s.length();
+        int[] dp = new int[n + 1];
+        return hasWord2(0, s.toCharArray(), wordDict, dp);
     }
 
-    private static boolean hasWord2(int i, char[] arr, List<String> words, int[] memo) {
-        if (i == arr.length) return true;
-        if (memo[i] != 0) return (memo[i] == 1);
+    private static boolean hasWord2(int i, char[] arr, List<String> words, int[] dp) {
+        int n = arr.length;
+        // if we have reached the last character then we will return true as the word is made
+        if (i == n) return true;
+        // if the dp is already calculated then we will return true
+        if (dp[i] != 0) return (dp[i] == 1);
         for (String word : words)
-            if (word.charAt(0) == arr[i]
-                    && hasPrefix(arr, word, i)
-                    && hasWord2(i + word.length(), arr, words, memo)) {
-                memo[i] = -1;
+            if (hasPrefix(arr, word, i) && hasWord2(i + word.length(), arr, words, dp)) {
+                dp[i] = 1;
                 return true;
             }
-        memo[i] = -1;
+        dp[i] = -1;
         return false;
     }
 
@@ -118,20 +133,22 @@ public class WordBreak {
     }
 
     private static boolean hasWord1(int i, char[] arr, List<String> wordDict) {
-        if (i == arr.length) return true;
-        for (String word : wordDict)
-            if (word.charAt(0) == arr[i]
-                    && hasPrefix(arr, word, i)
-                    && hasWord1(i + word.length(), arr, wordDict))
+        int n = arr.length;
+        // if we have reached the last character then we will return true as the word is made
+        if (i == n) return true;
+        for (String word : wordDict) {
+            if (hasPrefix(arr, word, i) && hasWord1(i + word.length(), arr, wordDict)) {
                 return true;
+            }
+        }
         return false;
     }
 
-    private static boolean hasPrefix(char[] arr, String word, int i) {
+    private static boolean hasPrefix(char[] arr, String word, int start) {
         int n = word.length();
-        if (i + n > arr.length) return false;
-        for (int j = 0; j < n; j++)
-            if (word.charAt(j) != arr[j + i]) return false;
+        if (start + n > arr.length) return false;
+        for (int i = 0; i < n; i++)
+            if (word.charAt(i) != arr[i + start]) return false;
         return true;
     }
 

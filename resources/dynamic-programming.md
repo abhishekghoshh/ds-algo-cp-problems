@@ -13,6 +13,7 @@
 
 ### Introduction
 - [Fibonacci series](/src/com/problems/dp/FibonacciSeries.java)
+- [N-th Tribonacci Number](/src/com/problems/dp/TribonacciSeries.java)
 - [Climbing stairs](/src/com/problems/dp/ClimbingStairs.java)
 - [Min Cost Climbing Stairs](/src/com/problems/dp/MinCostClimbingStairs.java)
 - [Frog Jump](/src/com/problems/dp/FrogJump.java)
@@ -37,8 +38,8 @@
 - [Equal sum partition](/src/com/problems/dp/EqualSumPartition.java)
 - [Count of Subset sum](/src/com/problems/dp/CountOfSubsetSum.java)
 - [Minimum Subset sum difference](/src/com/problems/dp/MinimumSubsetSumDifference.java)
-- [Count the number of subset with a given difference / Count partitions with Given Difference](/src/com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
 - [Target sum](/src/com/problems/dp/TargetSum.java)
+- [Count the number of subset with a given difference / Count partitions with Given Difference](/src/com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
 
 ### Unbounded Knapsack
 - [Unbounded Knapsack](/src/com/problems/dp/UnboundedKnapsack.java)

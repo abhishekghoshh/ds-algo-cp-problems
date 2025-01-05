@@ -11,13 +11,17 @@ import java.util.List;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=SrP-PiLSYC0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=12
+ * https://www.youtube.com/watch?v=OM1MTokvxs4
  *
  * https://takeuforward.org/data-structure/minimum-path-sum-in-triangular-grid-dp-11/
+ * https://neetcode.io/solutions/triangle
  * */
 public class MinimumPathSumInATriangle {
     public static void main(String[] args) {
+        // type1 and type2 are enough for interview
         type1();
         type2();
+        // but check type3,type4,type5 for tabulation approach and eventually memory optimization
         type3();
         type4();
         type5();
@@ -154,17 +158,19 @@ public class MinimumPathSumInATriangle {
         return minimumTotal2(0, 0, n, triangle, dp);
     }
 
-    private static int minimumTotal2(int i, int j, int n, List<List<Integer>> triangle, int[][] dp) {
-        // if j is greater than the ith row size, then it is out of bounds
-        if (j >= triangle.get(i).size()) return Integer.MAX_VALUE;
+    private static int minimumTotal2(int r, int c, int n, List<List<Integer>> triangle, int[][] dp) {
+        // if j is greater than the ith row size then it is out of bounds
+        List<Integer> row = triangle.get(r);
+        if (c >= row.size()) return Integer.MAX_VALUE;
+        int curr = row.get(c);
         // i == n-1 means it reaches the last row
-        if (i == n - 1) return triangle.get(i).get(j);
+        if (r == n - 1) return curr;
         // checking if it is calculated or not
-        if (dp[i][j] != -1) return dp[i][j];
+        if (dp[r][c] != -1) return dp[r][c];
         // else we will go to down and down right and take the minimum
-        return dp[i][j] = triangle.get(i).get(j) + Math.min(
-                minimumTotal2(i + 1, j, n, triangle, dp),
-                minimumTotal2(i + 1, j + 1, n, triangle, dp));
+        return dp[r][c] = curr + Math.min(
+                minimumTotal2(r + 1, c, n, triangle, dp),
+                minimumTotal2(r + 1, c + 1, n, triangle, dp));
     }
 
     // using the recursion
@@ -187,14 +193,17 @@ public class MinimumPathSumInATriangle {
         return minimumTotal1(0, 0, n, triangle);
     }
 
-    private static int minimumTotal1(int i, int j, int n, List<List<Integer>> triangle) {
+    private static int minimumTotal1(int r, int c, int n, List<List<Integer>> triangle) {
         // if j is greater than the ith row size then it is out of bounds
-        if (j >= triangle.get(i).size()) return Integer.MAX_VALUE;
+        List<Integer> row = triangle.get(r);
+        if (c >= row.size()) return Integer.MAX_VALUE;
+        int curr = row.get(c);
         // i == n-1 means it reaches the last row
-        if (i == n - 1) return triangle.get(i).get(j);
+        if (r == n - 1) return curr;
         // else we will go to down and down right and take the minimum
-        return triangle.get(i).get(j) + Math.min(
-                minimumTotal1(i + 1, j, n, triangle),
-                minimumTotal1(i + 1, j + 1, n, triangle));
+        return curr + Math.min(
+                minimumTotal1(r + 1, c, n, triangle),
+                minimumTotal1(r + 1, c + 1, n, triangle)
+        );
     }
 }

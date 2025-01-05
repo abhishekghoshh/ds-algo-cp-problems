@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/longest-common-subsequence/
+ * https://leetcode.com/problems/longest-common-subsequence/description/
+ * https://neetcode.io/problems/longest-common-subsequence
  * https://www.naukri.com/code360/problems/longest-common-subsequence_624879
  * 
  * Solution link :
@@ -17,6 +18,9 @@ import java.util.Arrays;
  *
  * https://www.youtube.com/watch?v=NPZn9jBrX8U&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=26
  * https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/
+ *
+ * https://www.youtube.com/watch?v=Ua0GhsJSlWM
+ * https://neetcode.io/solutions/longest-common-subsequence
  */
 public class LongestCommonSubsequence {
 
@@ -27,6 +31,7 @@ public class LongestCommonSubsequence {
 		type4();
 	}
 
+	// todo this is not required in the interview
 	// Tabulation with a memory optimization
 	// two 1D array for storing the current row and previous row
 	private static void type4() {
@@ -67,9 +72,16 @@ public class LongestCommonSubsequence {
 		return prev[prev.length - 1];
 	}
 
+	// same as previous type but here we will use bottom up approach
+	// recurrence relation is same as the recursion
 	private static void type3() {
 		String text1 = "abac";
 		String text2 = "cab";
+		int count = longestCommonSubsequence3(text1, text2);
+		System.out.println(count);
+	}
+
+	private static int longestCommonSubsequence3(String text1, String text2) {
 		char[] arr1 = text1.toCharArray();
 		char[] arr2 = text2.toCharArray();
 		int n1 = arr1.length;
@@ -77,7 +89,7 @@ public class LongestCommonSubsequence {
 		int[][] dp = new int[n1 + 1][n2 + 1];
 		// we could fill up all the cell with 0 for n1, and n2 is 0,
 		// but it is not needed as all the cells are already 0
-		for (int i = 1; i <= n1; i++)
+		for (int i = 1; i <= n1; i++) {
 			for (int j = 1; j <= n2; j++)
 				// if the char is same then we will decrease the length for both of the strings
 				if (arr1[i - 1] == arr2[j - 1])
@@ -88,11 +100,12 @@ public class LongestCommonSubsequence {
 							dp[i - 1][j],
 							dp[i][j - 1]
 					);
-
-		int count = dp[n1][n2];
-		System.out.println(count);
+		}
+		return dp[n1][n2];
 	}
 
+	// recursion with memoization
+	// same as previous but here we will introduce a dp array with dimension of (n1+1)*(n2+1)
 	private static void type2() {
 		String s1 = "xabcmagg";
 		String s2 = "abcdamg";

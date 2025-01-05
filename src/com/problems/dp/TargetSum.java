@@ -4,12 +4,15 @@ import java.util.Arrays;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/target-sum/
+ * https://leetcode.com/problems/target-sum/description/
+ * https://neetcode.io/problems/target-sum
  *
  * Solution link :
  * https://www.youtube.com/watch?v=Hw6Ygp3JBYw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12
  *
  * https://www.youtube.com/watch?v=g0npyaQtAQM
+ * https://www.youtube.com/watch?v=dwMOrl85Xes
+ * https://neetcode.io/solutions/target-sum
  *
  * https://www.youtube.com/watch?v=b3GD8263-PQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=22
  * https://takeuforward.org/data-structure/target-sum-dp-21/
@@ -33,7 +36,7 @@ public class TargetSum {
         type5();
     }
 
-    // intuition from the count number of subset with given sum difference
+    // intuition from the count number of subset with given sum difference (CountNumberOfSubsetWithGivenSumDifference.type2)
     private static void type5() {
         // todo check the type2 from the count number of subset with given sum difference
         //  we can apply the same logic here
@@ -56,59 +59,87 @@ public class TargetSum {
     private static void type4() {
         int[] nums = { 1, 1, 1, 2, 3 };
         int target = 2;
-        int total = Arrays.stream(nums).sum();
-        int[] dp = new int[2 * total + 1];
-        dp[nums[0] + total] = 1;
-        dp[-nums[0] + total] += 1;
+        int count = findTargetSumWays4(nums, target);
+        System.out.println(count);
+    }
 
-        for (int i = 1; i < nums.length; i++) {
-            int[] temp = new int[2 * total + 1];
-            for (int sum = -total; sum <= total; sum++) {
-                if (dp[sum + total] > 0) {
-                    temp[sum + nums[i] + total] += dp[sum + total];
-                    temp[sum - nums[i] + total] += dp[sum + total];
+    private static int findTargetSumWays4(int[] nums, int target) {
+        int n = nums.length;
+        int sum = 0;
+        for (int num : nums) sum += num;
+
+        // if sum + target is odd, then we cannot make subsets
+        // if the sum is lesser than the target, then we cannot make the target by
+        // subtracting one partition to another
+        if ((sum + target) % 2 != 0 || sum < Math.abs(target))
+            return 0;
+        int[] dp = new int[2 * sum + 1];
+        dp[nums[0] + sum] = 1;
+        dp[-nums[0] + sum] += 1;
+
+        for (int i = 1; i < n; i++) {
+            int num = nums[i];
+            int[] temp = new int[2 * sum + 1];
+            for (int s = -sum; s <= sum; s++) {
+                int offsetSum = s + sum;
+                if (dp[offsetSum] > 0) {
+                    temp[offsetSum + num] += dp[offsetSum];
+                    temp[offsetSum - num] += dp[offsetSum];
                 }
             }
             dp = temp;
         }
 
-        int count = Math.abs(target) > total ? 0 : dp[target + total];
-        System.out.println(count);
+        return dp[target + sum];
     }
 
 
     private static void type3() {
         int[] nums = { 1, 1, 1, 2, 3 };
         int target = 2;
+        int count = findTargetSumWays3(nums, target);
+        System.out.println(count);
+    }
+
+    private static int findTargetSumWays3(int[] nums, int target) {
         int n = nums.length;
-        int total = Arrays.stream(nums).sum();
+        int sum = 0;
+        for (int num : nums) sum += num;
+
+        // if sum + target is odd, then we cannot make subsets
+        // if the sum is lesser than the target, then we cannot make the target by
+        // subtracting one partition to another
+        if ((sum + target) % 2 != 0 || sum < Math.abs(target))
+            return 0;
+
         // if we think closely, then intermediate sum can be range from -total to +total,
         // - total when all signs are negative and +total when all signs are positive
         // so our range will be from o..n and -total..+total
         // so can make our dp array to store intermediate result, but we can not use negative index,
         // so we will add offset and our offset will be the total sum
-        int[][] dp = new int[n][2 * total + 1];
-        // till 0th element the total sum can be +0th element or -0th element,
-        // so we will increment the count
-        dp[0][nums[0] + total] = 1;
-        dp[0][-nums[0] + total] += 1;
+        int[][] dp = new int[n][2 * sum + 1];
+        // till 0th element the total sum can be +0th element or -0th element, so we will increment the count
+        dp[0][nums[0] + sum] = 1;
+        dp[0][-nums[0] + sum] += 1;
 
+        // we will start from 1
         for (int i = 1; i < n; i++) {
-            for (int sum = -total; sum <= total; sum++) {
-                // dp[i - 1][sum + total] > 0 this means with i-1 elements we can construct the sum,
-                // if it's 0 then the sum is possible with previous elements
-                // now we will increment sum+num[i] and sum-nums[i] for ith row
-                if (dp[i - 1][sum + total] > 0) {
-                    dp[i][sum + nums[i] + total] += dp[i - 1][sum + total];
-                    dp[i][sum - nums[i] + total] += dp[i - 1][sum + total];
+            int num = nums[i];
+            for (int s = -sum; s <= sum; s++) {
+                int offsetSum = s + sum;
+                // dp[i - 1][offsetSum] is greater than 0 means it is possible to create sum s with n-1 elements
+                // so will take current num use both of the signs and add the value of dp[i - 1][offsetSum] to that
+                if (dp[i - 1][offsetSum] > 0) {
+                    dp[i][offsetSum + num] += dp[i - 1][offsetSum];
+                    dp[i][offsetSum - num] += dp[i - 1][offsetSum];
                 }
             }
         }
-        int count = Math.abs(target) > total ? 0 : dp[nums.length - 1][target + total];
-        System.out.println(count);
+        return dp[n - 1][target + sum];
     }
 
 
+    // todo will only work on the positive numbers
     /*
     *  Recursion with Memoization.
       In the last approach, we can observe that a lot of redundant function calls
@@ -151,19 +182,21 @@ public class TargetSum {
         // if sum + target is odd, then we cannot make subsets
         // if the sum is lesser than the target, then we cannot make the target by
         // subtracting one partition to another
-        if ((sum + target) % 2 != 0
-                || sum < Math.abs(target)) return 0;
+        if ((sum + target) % 2 != 0 || sum < Math.abs(target))
+            return 0;
 
-        int[][] memo = new int[n][2 * sum + 1];
+        int[][] dp = new int[n][2 * sum + 1];
         // we are using -1 set the cell value as unvisited
-        for (int[] row : memo) Arrays.fill(row, -1);
+        for (int[] row : dp) Arrays.fill(row, -1);
 
-        return findTargetSumWays2(nums, 0, 0, target, memo, sum);
+        return findTargetSumWays2(nums, 0, 0, target, dp, sum);
     }
 
     public static int findTargetSumWays2(int[] nums, int i, int sum, int target, int[][] dp, int offset) {
         // if index reaches nums length that means we have consumed the entire array
-        if (i == nums.length) return sum == target ? 1 : 0;
+        int n = nums.length;
+        if (i == n)
+            return (sum == target) ? 1 : 0;
 
         // we are checking in the dp table if it consists the value,
         // we are adding offset because the sum can be negative
@@ -177,6 +210,7 @@ public class TargetSum {
     }
 
 
+    // todo will only work on the positive numbers
     /*
     *  Brute force approach
      The brute force approach is based on recursion.
@@ -203,10 +237,11 @@ public class TargetSum {
 
     public static int findTargetSumWays1(int[] nums, int i, int sum, int target) {
         // if index reaches nums length that means we have consumed the entire array
-        if (i == nums.length) return sum == target ? 1 : 0;
-        else
-            // else we have 2 possible choices, either add + to this number or add - to this number
-            return findTargetSumWays1(nums, i + 1, sum + nums[i], target)
+        int n = nums.length;
+        if (i == n)
+            return (sum == target) ? 1 : 0;
+        // else we have 2 possible choices, either add + to this number or add - to this number
+        return findTargetSumWays1(nums, i + 1, sum + nums[i], target)
                     + findTargetSumWays1(nums, i + 1, sum - nums[i], target);
     }
 }

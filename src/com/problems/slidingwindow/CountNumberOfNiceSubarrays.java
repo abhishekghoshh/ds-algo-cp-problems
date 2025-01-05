@@ -10,6 +10,8 @@ package com.problems.slidingwindow;
  *
  * Aditya Rajiv : https://www.youtube.com/watch?v=atUJS7ArOY0
  * */
+
+// Tags: Arrays, Prefix sum, Sliding window
 public class CountNumberOfNiceSubarrays {
     public static void main(String[] args) {
         type1();

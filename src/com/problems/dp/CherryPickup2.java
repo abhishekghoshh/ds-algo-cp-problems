@@ -5,7 +5,7 @@ import java.util.Arrays;
 /*
  *
  * problem links :
- * https://leetcode.com/problems/cherry-pickup-ii
+ * https://leetcode.com/problems/cherry-pickup-ii/description/
  * https://www.naukri.com/code360/problems/ninja-and-his-friends_3125885
  * https://www.geeksforgeeks.org/problems/chocolates-pickup/1
  *
@@ -14,6 +14,7 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=c1stwk2TbNk
  *
  * https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/
+ * https://neetcode.io/solutions/cherry-pickup-ii
  * */
 public class CherryPickup2 {
     static int INF = (int) 1e9;
@@ -30,7 +31,8 @@ public class CherryPickup2 {
     private static void type4() {
     }
 
-    // tabulation or the bottom-up approach
+    // todo check it later better go with the recursive solution
+    //  tabulation or the bottom-up approach
     private static void type3() {
         int[][] grid = {
                 {2, 3, 1, 2},
@@ -80,6 +82,7 @@ public class CherryPickup2 {
         System.out.println(answer);
     }
 
+    // todo exactly like the previous type
     // recursion with memoization
     private static void type2() {
         int[][] grid = {
@@ -87,6 +90,11 @@ public class CherryPickup2 {
                 {3, 4, 2, 2},
                 {5, 6, 3, 5}
         };
+        int answer = cherryPickup2(grid);
+        System.out.println(answer);
+    }
+
+    private static int cherryPickup2(int[][] grid) {
         int r = 3, c = 4;
         // the first bot will start from (0,0), and the second one will start from (0,c-1)
         // but as bot bots are going in the same pace in row wise,
@@ -98,8 +106,7 @@ public class CherryPickup2 {
         int[][][] dp = new int[r][c][c];
         for (int[][] dp1 : dp) for (int[] row : dp1) Arrays.fill(row, -1);
 
-        int answer = maximumChocolates2(0, 0, c - 1, r, c, grid, dp);
-        System.out.println(answer);
+        return maximumChocolates2(0, 0, c - 1, r, c, grid, dp);
     }
 
     public static int maximumChocolates2(int i, int j1, int j2, int r, int c, int[][] grid, int[][][] dp) {
@@ -129,19 +136,24 @@ public class CherryPickup2 {
         return dp[i][j1][j2] = chocolate + max;
     }
 
-    // with recursion
+    // todo brute solution with recursion
+    //  the main thing here is to construct the recurrence relation
     private static void type1() {
         int[][] grid = {
                 {2, 3, 1, 2},
                 {3, 4, 2, 2},
                 {5, 6, 3, 5}
         };
+        int answer = cherryPickup1(grid);
+        System.out.println(answer);
+    }
+
+    private static int cherryPickup1(int[][] grid) {
         int r = 3, c = 4;
         // the first bot will start from (0,0), and the second one will start from (0,c-1)
         // but as bot bots are going in the same pace in row wise,
         // so we can just keep one (i) and j1 and j2
-        int answer = maximumChocolates1(0, 0, c - 1, r, c, grid);
-        System.out.println(answer);
+        return maximumChocolates1(0, 0, c - 1, r, c, grid);
     }
 
     public static int maximumChocolates1(int i, int j1, int j2, int r, int c, int[][] grid) {
@@ -159,8 +171,8 @@ public class CherryPickup2 {
         int max = Integer.MIN_VALUE;
         for (int d1 = -1; d1 <= 1; d1++) {
             for (int d2 = -1; d2 <= 1; d2++) {
-                int temp = maximumChocolates1(i + 1, j1 + d1, j2 + d2, r, c, grid);
-                max = Math.max(max, temp);
+                int chocolates = maximumChocolates1(i + 1, j1 + d1, j2 + d2, r, c, grid);
+                max = Math.max(max, chocolates);
             }
         }
         return chocolate + max;

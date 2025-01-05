@@ -10,14 +10,16 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/binary-tree-inorder-traversal/
+ * https://leetcode.com/problems/binary-tree-inorder-traversal/description/
  * https://www.naukri.com/code360/problems/inorder-traversal_3839605
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=Z_NEgBgbRVI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=7
  * https://www.youtube.com/watch?v=lxTGsVXjwvM&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=11
+ * https://www.youtube.com/watch?v=g_S5WuasWUE
  * 
  * https://takeuforward.org/data-structure/inorder-traversal-of-binary-tree/
+ * https://neetcode.io/solutions/binary-tree-inorder-traversal
  */
 public class InOrderTraversal {
 
@@ -26,6 +28,7 @@ public class InOrderTraversal {
 		type2();
 	}
 
+	// todo check it one more time properly
 	// here the first we need to go left, then we need to print root then the right subtree
 	// with iteration using stack
 	private static void type2() {

@@ -28,9 +28,12 @@
 - [Subarrays with Sum k](/src/com/problems/recursion/SubarraysWithSumK.java)
 - [Print all subsequences/Power Set with unique elements](/src/com/problems/recursion/PowerSet1.java)
 - [Print all subsequences/Power Set with duplicate elements](/src/com/problems/recursion/PowerSet2.java)
+
 - [Combination sum 1](/src/com/problems/recursion/CombinationSum1.java)
 - [Combination sum 2](/src/com/problems/recursion/CombinationSum2.java)
 - [Combination sum 2](/src/com/problems/recursion/CombinationSum3.java)
+- [Combination Sum 4](/src/com/problems/recursion/CombinationSum4.java)
+
 - [Subset sum](/src/com/problems/recursion/SubsetSum.java)
 - [Count of Subset sum equal to k](/src/com/problems/recursion/CountOfSubsetSumEqualToK.java)
 - [Print subset sum divisible by K](/src/com/problems/recursion/PrintSubsetSumDivisibleByK.java)

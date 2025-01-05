@@ -9,15 +9,18 @@ import static com.ds.binarytree.TNode.NULL;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/maximum-depth-of-binary-tree/
- * https://www.codingninjas.com/studio/problems/height-of-binary-tree_4609628
- * https://www.codingninjas.com/codestudio/problems/841416
+ * https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+ * https://neetcode.io/problems/depth-of-binary-tree
+ * https://www.naukri.com/code360/problems/height-of-binary-tree_4609628
+ * https://www.naukri.com/code360/problems/841416
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=eD3tmO66aBA&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=15
  * https://www.youtube.com/watch?v=aqLTbtWh40E&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=5
+ * https://www.youtube.com/watch?v=hTM3phVI6YQ
  *
  * https://takeuforward.org/data-structure/maximum-depth-of-a-binary-tree/
+ * https://neetcode.io/solutions/maximum-depth-of-binary-tree
  * */
 public class HeightOfBinaryTree {
 	public static void main(String[] args) {
@@ -41,7 +44,8 @@ public class HeightOfBinaryTree {
 		int level = 1;
 		queue.offer(root);
 		while (!queue.isEmpty()) {
-			// n is the number of the node on that specific level
+			// n is the number of the node on that specific level,
+			// polling all the nodes in that level
 			int n = queue.size();
 			for (int i = 0; i < n; i++) {
 				TNode node = queue.poll();
@@ -68,7 +72,10 @@ public class HeightOfBinaryTree {
 
 	private static int height1(TNode root) {
 		if (null == root) return 0;
-		return 1 + Math.max(height1(root.left), height1(root.right));
+		return 1 + Math.max(
+				height1(root.left),
+				height1(root.right)
+		);
 	}
 
 

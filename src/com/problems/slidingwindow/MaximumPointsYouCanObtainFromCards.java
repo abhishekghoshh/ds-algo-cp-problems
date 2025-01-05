@@ -8,6 +8,8 @@ package com.problems.slidingwindow;
  * Solution link :
  *
  * */
+
+// Tags: Array, Dynamic programming, Sliding window
 public class MaximumPointsYouCanObtainFromCards {
     public static void main(String[] args) {
         type1();

@@ -9,14 +9,16 @@ import java.util.Stack;
 import static com.util.PrintUtl.print;
 /*
  * Problem link :
- * https://leetcode.com/problems/binary-tree-preorder-traversal/
+ * https://leetcode.com/problems/binary-tree-preorder-traversal/description/
  * https://www.naukri.com/code360/problems/preorder-binary-tree_5948
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=RlUu72JrOCQ&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=6
  * https://www.youtube.com/watch?v=Bfqd8BsPVuw&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=10
+ * https://www.youtube.com/watch?v=afTpieEZXck
  * 
  * https://takeuforward.org/data-structure/preorder-traversal-of-binary-tree/
+ * https://neetcode.io/solutions/binary-tree-preorder-traversal
  */
 
 public class PreOrderTraversal {
