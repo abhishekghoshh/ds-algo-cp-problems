@@ -5,20 +5,21 @@ import java.util.Arrays;
 public class TNode {
     public static final int NULL = Integer.MIN_VALUE;
     public int data;
+    public int val;
     public TNode left, right, next;
 
     public TNode(int data) {
-        this.data = data;
+        this.data = this.val = data;
     }
 
     public TNode(int val, TNode left, TNode right) {
-        this.data = val;
+        this.data = this.val = val;
         this.left = left;
         this.right = right;
     }
 
     public TNode data(int data) {
-        this.data = data;
+        this.data = this.val = data;
         return this;
     }
 
@@ -58,6 +59,20 @@ public class TNode {
         TNode[] nodes = new TNode[n];
         for (int i = 0; i < n; i++)
             nodes[i] = (nums[i] != NULL) ? new TNode(nums[i]) : null;
+        for (int i = 0; i < n; i++) {
+            if (null == nodes[i]) continue;
+            int left = i * 2 + 1, right = i * 2 + 2;
+            nodes[i].left = left < n ? nodes[left] : null;
+            nodes[i].right = right < n ? nodes[right] : null;
+        }
+        return nodes[0];
+    }
+    public static TNode withObjectNodes(Integer... nums) {
+        int n = nums.length;
+        if (n == 0) return null;
+        TNode[] nodes = new TNode[n];
+        for (int i = 0; i < n; i++)
+            nodes[i] = (nums[i] != null) ? new TNode(nums[i]) : null;
         for (int i = 0; i < n; i++) {
             if (null == nodes[i]) continue;
             int left = i * 2 + 1, right = i * 2 + 2;

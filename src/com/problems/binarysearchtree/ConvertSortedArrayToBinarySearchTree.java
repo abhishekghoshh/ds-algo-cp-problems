@@ -6,8 +6,11 @@ import com.util.PrintUtl;
 /*
  * Problem link :
  * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/
- * Solution link :
  *
+ * Solution link :
+ * https://www.youtube.com/watch?v=0K0uCMYq5ng
+ *
+ * https://neetcode.io/solutions/convert-sorted-array-to-binary-search-tree
  */
 public class ConvertSortedArrayToBinarySearchTree {
     public static void main(String[] args) {

@@ -31,12 +31,18 @@
 - [Second minimum value in the binary tree](/src/com/problems/binarytree/SecondMinimumValueInBinaryTree.java)
 - [Check if the Binary Tree is Balanced Binary Tree](/src/com/problems/binarytree/CheckIfTheBinaryTreeIsHeightBalanced.java)
 - [Diameter of a Binary Tree](/src/com/problems/binarytree/DiameterOfBinaryTree.java)
+- [Path Sum](/src/com/problems/binarytree/PathSum.java)
 - [Path Sum II](/src/com/problems/binarytree/PathSum2.java)
 - [Maximum Path Sum in Binary Tree from any node to any node](/src/com/problems/binarytree/MaximumPathSumBinaryTreeFromAnyNodeToAnyNode.java)
 - [Maximum Path Sum in Binary Tree from leaf to leaf](/src/com/problems/binarytree/MaximumPathSumNodesBinaryTreeFromLeafToLeafNode.java)
 - [Check if two trees are identical](/src/com/problems/binarytree/CheckTwoTreesAreIdenticalOrNot.java)
 - [Invert/Flip Binary Tree (Create)](/src/com/problems/binarytree/InvertBinaryTree.java)
 - [Subtree of Another Tree](/src/com/problems/binarytree/SubtreeOfAnotherTree.java)
+- [Merge Two Binary Trees](/src/com/problems/binarytree/MergeTwoBinaryTrees.java)
+- [Range Sum of BST](/src/com/problems/binarytree/RangeSumOfBST.java)
+- [Leaf-Similar Trees](/src/com/problems/binarytree/LeafSimilarTrees.java)
+- [Evaluate Boolean Binary Tree](/src/com/problems/binarytree/EvaluateBooleanBinaryTree.java)
+
 
 
 - [Top view of a Binary Tree](/src/com/problems/binarytree/TopViewOfBinaryTree.java)
@@ -45,7 +51,7 @@
 - [Right view of Binary Tree](/src/com/problems/binarytree/RightViewOfBinaryTree.java)
 
 - [Boundary Traversal of Binary Tree](/src/com/problems/binarytree/BoundaryTraversalInBinaryTree.java)
-- [Symmetric Binary Tree](/src/com/problems/binarytree/CheckForSymmetricalBinaryTree.java)
+- [Symmetric Tree](/src/com/problems/binarytree/SymmetricTree.java)
 - [Print Root to Node Path in a Binary Tree](/src/com/problems/binarytree/PrintRootToNodePath.java)
 - [Lowest Common Ancestor of a Binary Tree](/src/com/problems/binarytree/LowestCommonAncestorOfBinaryTree.java)
 - [Maximum Width of Binary Tree](/src/com/problems/binarytree/MaximumWidthOfBinaryTree.java)

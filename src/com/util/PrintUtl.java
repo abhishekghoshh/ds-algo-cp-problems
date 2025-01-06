@@ -312,7 +312,4 @@ public class PrintUtl {
         System.out.println();
     }
 
-    public static void print2D(List<int[]> list) {
-
-    }
 }
