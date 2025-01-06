@@ -5,14 +5,16 @@ import com.util.PrintUtl;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/delete-node-in-a-bst/
- * https://practice.geeksforgeeks.org/problems/delete-a-node-from-bst/1
- * https://www.codingninjas.com/studio/problems/delete-node-in-bst_920381
+ * https://leetcode.com/problems/delete-node-in-a-bst/description/
+ * https://www.geeksforgeeks.org/problems/delete-a-node-from-bst/1
+ * https://www.naukri.com/code360/problems/delete-node-in-bst_920381
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=kouxiP_H5WE&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=45
+ * https://www.youtube.com/watch?v=LFzAoJJt92M
  *
  * https://takeuforward.org/binary-search-tree/delete-a-node-in-binary-search-tree/
+ * https://neetcode.io/solutions/delete-node-in-a-bst
  */
 public class DeleteNodeInBinarySearchTree {
 
@@ -37,21 +39,23 @@ public class DeleteNodeInBinarySearchTree {
 		// if the current root is the target, then we will delete the node
 		if (root.data == target) return deleteNode(root);
 		// we are also keeping track of the parent node
-		TNode curr = root, prev = null;
-		// we need the previous node because
-		// we need to know that current node is in which side
+		TNode node = root, parent = null;
+		// we need the parent node as we need to know that current node is in which side
 		// because we need to assign a node after deleting the target node
-		while (null != curr) {
-			if (target == curr.data) {
-				if (prev.left == curr) prev.left = deleteNode(curr);
-				else prev.right = deleteNode(curr);
+		while (null != node) {
+			// if the current node is the target node then we will use the parent node
+			if (target == node.data) {
+				if (parent.left == node)
+					parent.left = deleteNode(node);
+				else parent.right = deleteNode(node);
 				return root;
-			} else if (target < curr.data) {
-				prev = curr;
-				curr = curr.left;
+			}
+			// going to the left or right based on where target may reside
+			parent = node;
+			if (target < node.data) {
+				node = node.left;
 			} else {
-				prev = curr;
-				curr = curr.right;
+				node = node.right;
 			}
 		}
 		return root;

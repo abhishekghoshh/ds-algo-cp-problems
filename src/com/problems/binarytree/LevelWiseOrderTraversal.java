@@ -9,14 +9,17 @@ import java.util.Queue;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/binary-tree-level-order-traversal/
+ * https://leetcode.com/problems/binary-tree-level-order-traversal/description/
  * https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
- * https://www.codingninjas.com/studio/problems/zigzag-binary-tree-traversal_920532
+ * https://neetcode.io/problems/level-order-traversal-of-binary-tree
+ * https://www.naukri.com/code360/problems/zigzag-binary-tree-traversal_920532
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=EoAsWbO7sqg&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=9
+ * https://www.youtube.com/watch?v=6ZnyEApgFYg
  * 
  * https://takeuforward.org/data-structure/level-order-traversal-of-a-binary-tree/
+ * https://neetcode.io/solutions/binary-tree-level-order-traversal
  */
 
 public class LevelWiseOrderTraversal {
@@ -30,27 +33,40 @@ public class LevelWiseOrderTraversal {
 	// recursively
 	private static void type3() {
 		TNode root = TNode.withCount(19);
-		List<List<Integer>> levelWiseList = traverse(root, 0, new ArrayList<>());
+		List<List<Integer>> levelWiseList = levelOrder3(root);
 		System.out.println(levelWiseList);
+	}
+
+	private static List<List<Integer>> levelOrder3(TNode root) {
+		List<List<Integer>> list = new ArrayList<>();
+		traverse(root, 0, list);
+		return list;
 	}
 
 	// we will also track a third variable to keep track of the current level
 	// first it will go to the leftest node and while traversal.
 	// It will add the list one by one, and in later part while traversing the right child, it will
 	// get the level wise list and add the current node into that
-	public static List<List<Integer>> traverse(TNode root, int level, List<List<Integer>> levelWiseList) {
-		if (level == levelWiseList.size()) levelWiseList.add(new ArrayList<>());
+	public static void traverse(TNode root, int level, List<List<Integer>> list) {
+		if (root == null) return;
+		// as we have used 0 index so if the level is size then we need another level
+		if (level == list.size())
+			list.add(new ArrayList<>());
 		// add the root to its level
-		levelWiseList.get(level).add(root.data);
-		// traverse the left and right child with level+1
-		if (root.left != null) traverse(root.left, level + 1, levelWiseList);
-		if (root.right != null) traverse(root.right, level + 1, levelWiseList);
-		return levelWiseList;
+		list.get(level).add(root.data);
+		// traverse the left and right child with level + 1
+		traverse(root.left, level + 1, list);
+		traverse(root.right, level + 1, list);
 	}
 
 	// iteratively
 	private static void type2() {
 		TNode root = TNode.withCount(19);
+		List<List<Integer>> answer = levelOrder2(root);
+		System.out.println(answer);
+	}
+
+	private static List<List<Integer>> levelOrder2(TNode root) {
 		Queue<TNode> queue = new LinkedList<>();
 		List<List<Integer>> answer = new ArrayList<>();
 		queue.offer(root);
@@ -67,11 +83,16 @@ public class LevelWiseOrderTraversal {
 			}
 			answer.add(level);
 		}
-		System.out.println(answer);
+		return answer;
 	}
 
 	private static void type1() {
 		TNode root = TNode.withCount(19);
+		List<Integer> answer = levelOrder1(root);
+		System.out.println(answer);
+	}
+
+	private static List<Integer> levelOrder1(TNode root) {
 		Queue<TNode> queue = new LinkedList<>();
 		queue.offer(root);
 		List<Integer> answer = new ArrayList<>();
@@ -84,7 +105,7 @@ public class LevelWiseOrderTraversal {
 			if (null != node.left) queue.offer(node.left);
 			if (null != node.right) queue.offer(node.right);
 		}
-		System.out.println(answer);
+		return answer;
 	}
 
 }

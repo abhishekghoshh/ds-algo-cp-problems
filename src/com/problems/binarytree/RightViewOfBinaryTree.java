@@ -10,13 +10,17 @@ import java.util.Queue;
 /*
  * Problem link :
  * https://leetcode.com/problems/binary-tree-right-side-view/description/
- * https://www.codingninjas.com/studio/problems/right-view_764605
+ * https://neetcode.io/problems/binary-tree-right-side-view
+ * https://www.naukri.com/code360/problems/right-view_764605
  * https://www.geeksforgeeks.org/problems/right-view-of-binary-tree/1
  *
  * Solution link :
  * https://www.youtube.com/watch?v=KV4mRzTjlAk&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=25
+ * https://www.youtube.com/watch?v=d4zLyf32e3I
  *
  * https://takeuforward.org/data-structure/right-left-view-of-binary-tree/
+ * https://neetcode.io/solutions/binary-tree-right-side-view
+ *
  */
 public class RightViewOfBinaryTree {
     public static void main(String[] args) {
@@ -59,9 +63,14 @@ public class RightViewOfBinaryTree {
     // using dfs / recursion
     private static void type1() {
         TNode root = TNode.withCount(15);
-        ArrayList<Integer> rightView = new ArrayList<>();
-        rightViewTraversal(root, rightView, 0);
+        List<Integer> rightView = rightSideView1(root);
         System.out.println(rightView);
+    }
+
+    private static List<Integer> rightSideView1(TNode root) {
+        List<Integer> rightView = new ArrayList<>();
+        rightViewTraversal(root, rightView, 0);
+        return rightView;
     }
 
     // it will go to most right, and if there is one level found, then it will add that to the list.
