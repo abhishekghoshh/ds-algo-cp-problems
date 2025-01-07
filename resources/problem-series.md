@@ -14,25 +14,6 @@
 - [Frog Jump 1](/src/com/problems/special/jumpgame/FrogJump1.java)
 - [Frog Jump 2](/src/com/problems/special/jumpgame/FrogJump2.java)
 
-### Resources
-
-### Stone Game
-
-- [Stone game]
-- [Stone game II]
-- [Stone game III]
-- [Stone game IV]
-- [Stone game V]
-- [Stone game VI]
-- [Stone game VII]
-- [Stone game VIII]
-- [Stone game IX]
-
-### Resources
-
-- [Master Game Theory / Geeksforgeeks](https://www.youtube.com/playlist?list=PLM68oyaqFM7RqV8GBCMGsmwyFxUVr36tx)
-- [Game Theory - Level 3 / pepcoding](https://www.youtube.com/playlist?list=PL-Jc9J83PIiENC1X16gjxjaIbSXBr8C6e)
-
 ### House Robber
 
 - [House Robber]
@@ -47,3 +28,20 @@
 - [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
 - [Best Time to Buy and Sell Stock with Cooldown](/src/com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
 - [Best Time to Buy and Sell Stock with Transaction Fee](/src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
+
+### Resources
+
+- [Master Game Theory / Geeksforgeeks](https://www.youtube.com/playlist?list=PLM68oyaqFM7RqV8GBCMGsmwyFxUVr36tx)
+- [Game Theory - Level 3 / pepcoding](https://www.youtube.com/playlist?list=PL-Jc9J83PIiENC1X16gjxjaIbSXBr8C6e)
+
+### Stone Game
+
+- [Stone game]
+- [Stone game II]
+- [Stone game III]
+- [Stone game IV]
+- [Stone game V]
+- [Stone game VI]
+- [Stone game VII]
+- [Stone game VIII]
+- [Stone game IX]

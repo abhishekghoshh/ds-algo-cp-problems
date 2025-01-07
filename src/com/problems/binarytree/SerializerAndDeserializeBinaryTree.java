@@ -22,7 +22,7 @@ import java.util.Queue;
  */
 public class SerializerAndDeserializeBinaryTree {
 
-	// TODO check it one more time
+	// TODO this is a very good problem
 	public static void main(String[] args) {
 		type1();
 		type2();

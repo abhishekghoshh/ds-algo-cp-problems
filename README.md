@@ -48,4 +48,4 @@ it is likely to cause TLE in a 1-second time frame.
 - [segment tree](/resources/segment-tree.md)
 - [fenwick tree/binary indexed tree](/resources/fenwick-tree.md)
 - [tries](/resources/tries.md)
-- [special problems](/resources/special-problems.md)
+- [problem series](/resources/problem-series.md)

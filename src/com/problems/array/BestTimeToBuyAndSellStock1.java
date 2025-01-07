@@ -1,7 +1,5 @@
 package com.problems.array;
 
-import static com.util.ArrayUtil.max;
-
 /*
  * problem links:
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
@@ -13,11 +11,12 @@ import static com.util.ArrayUtil.max;
  * Solution link:
  * https://www.youtube.com/watch?v=eMSfBgbiEjk
  * https://www.youtube.com/watch?v=excAOvwF_Wk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=36
+ * https://www.youtube.com/watch?v=1pkOgXD63yU
  *
  * Blogs:
  * https://takeuforward.org/data-structure/stock-buy-and-sell/
  * https://takeuforward.org/data-structure/stock-buy-and-sell-dp-35/
- *
+ * https://neetcode.io/solutions/best-time-to-buy-and-sell-stock
  *
  * */
 
@@ -30,9 +29,9 @@ public class BestTimeToBuyAndSellStock1 {
 		type3();
 	}
 
-	// todo not required to say it in the interview
-	// using dynamic programming
-	// not necessarily required here, but it is a good practice to do a solution in a different way
+	// todo using dynamic programming, don't say it in the interview
+	//  here we are storing all profits for all days
+	//  not necessarily required here, but it is a good practice to do a solution in a different way
 	private static void type3() {
 		int[] prices = {7, 11, 4, 1, 2};
 		int ans = maxProfit3(prices);
@@ -41,20 +40,24 @@ public class BestTimeToBuyAndSellStock1 {
 
 	private static int maxProfit3(int[] prices) {
 		int n = prices.length;
+		int maxProfit = 0;
 		// finding for all (0..i) profits
 		int[] profits = new int[n];
 		// for the first day the profit will be 0
 		profits[0] = 0;
 		// we will treat 0th day price as the lowest price
-		int lowest = prices[0];
+		int prevMin = prices[0];
 		for (int i = 1; i < n; i++) {
+			int price = prices[i];
 			// if the current price is less than lowest
-			if (prices[i] < lowest)
-				lowest = prices[i];
-			else
-				profits[i] = prices[i] - lowest;
+			if (price < prevMin) {
+				prevMin = price;
+			} else {
+				profits[i] = price - prevMin;
+				maxProfit = Math.max(maxProfit, profits[i]);
+			}
 		}
-		return max(profits);
+		return maxProfit;
 	}
 
 	// todo discuss in the interview
@@ -69,27 +72,29 @@ public class BestTimeToBuyAndSellStock1 {
 	}
 
 	private static int maxProfit2(int[] prices) {
-		int max = 0;
+		int n = prices.length;
+		int maxProfit = 0;
 		// storing the previous highest selling price
-		int highestSellingPrice = 0;
-		for (int i = prices.length - 1; i >= 0; i--) {
+		int prevMax = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			int price = prices[i];
 			// the current price is greater than the previous price then
-			if (prices[i] > highestSellingPrice) {
-				highestSellingPrice = prices[i];
+			if (price > prevMax) {
+				prevMax = price;
 			} else {
 				// the current price is lower than the previous price then
 				// we can set the current index as the buying day as previous highest as the selling day
 				// and calculate the profit
-				int profit = highestSellingPrice - prices[i];
-				if (profit > max) max = profit;
+				int profit = prevMax - price;
+				if (profit > maxProfit) maxProfit = profit;
 			}
 		}
-		return max;
+		return maxProfit;
 	}
 
 	// brute force approach
 	// for everyday we are checking its next highest day and calculate temporary profits
-	// try to check for all i,j where i<j and arr[i]<arr[j]
+	// try to check for all i,j where (i < j) and (arr[i] < arr[j])
 	// o(n^2) time complexity
 	private static void type1() {
 		int[] prices = { 7, 1, 5, 3, 6, 4 };

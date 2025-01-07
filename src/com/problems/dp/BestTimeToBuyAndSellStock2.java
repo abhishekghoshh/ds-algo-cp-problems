@@ -17,18 +17,53 @@ import java.util.Arrays;
 
 // Tags : Arrays, Dynamic programming
 public class BestTimeToBuyAndSellStock2 {
+
+    // todo check all the iterative approach
     public static void main(String[] args) {
+        // recursive approach (in the interview go with this)
         type1();
         type2();
+        // iterative approach (if possible try to derive it
         type3();
         type4();
         type5();
         type6();
+        // this is the iterative way, but it is easy to explain
+        type7();
+        // todo convert other iterative approaches from (n to 0) to (0 to n), so that it become easy to explain
+    }
+
+    // here we will calculate from the start
+    // todo try to derive this is the interview
+    private static void type7() {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        int ans = maxProfit7(prices);
+        System.out.println(ans);
+    }
+
+    public static int maxProfit7(int[] prices) {
+        int currSell = 0; // current profit after selling the item
+        int currBuy = Integer.MIN_VALUE; // current profit after buying the item
+        for (int price : prices) {
+            // assigning curr to the prev
+            int prevSell = currSell;
+            int prevBuy = currBuy;
+            // now we are either buying or selling on today's price
+            // else we can skip for the day then currSell will be prevSell and currBuy will be prevBuy
+            currSell = Math.max(prevSell, prevBuy + price); // selling on the current price
+            currBuy = Math.max(prevBuy, prevSell - price); // buying stock on current price
+        }
+        return currSell;
     }
 
     // same as previous, we will use 4 variables instead of arrays
     private static void type6() {
         int[] prices = {7, 1, 5, 3, 6, 4};
+        int ans = maxProfit6(prices);
+        System.out.println(ans);
+    }
+
+    private static int maxProfit6(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
         int nextBuy = 0, nextSell = 0, currBuy, currSell;
@@ -44,8 +79,7 @@ public class BestTimeToBuyAndSellStock2 {
             nextSell = currSell;
         }
         // the answer is on dp[0][0] for the first day, and the time is to buy
-        int ans = nextBuy;
-        System.out.println(ans);
+        return nextBuy;
     }
 
     // same as previous just here we will not use the inner loop of canBuy
@@ -88,14 +122,15 @@ public class BestTimeToBuyAndSellStock2 {
         for (int day = n - 1; day >= 0; day--) {
             int[] curr = new int[2];
             for (int canBuy = 0; canBuy <= 1; canBuy++) {
+                int profit1;
+                // true means we can buy on that day and false we can sell on that day
                 if (canBuy == 0) {
-                    // we can either buy or skip for that day
-                    curr[canBuy] = Math.max(-prices[day] + next[1], next[0]);
+                    profit1 = -prices[day] + next[1];
                 } else {
-                    // else means we can sell on that day
-                    // we can either sell or we can also check for the next day
-                    curr[canBuy] = Math.max(prices[day] + next[0], next[1]);
+                    profit1 = prices[day] + next[0];
                 }
+                int profit2 = next[canBuy]; // skipping the day
+                curr[canBuy] = Math.max(profit1, profit2);
             }
             next = curr;
         }
@@ -106,73 +141,73 @@ public class BestTimeToBuyAndSellStock2 {
 
     // top-down approach
     // or iterative approach with tabulation
+    // we are copying the same recurrence relation from the recursion
     // TODO we can skip the internal canBuy loop and just add that two lines one after another
     //  dp[day][0] = ...... and dp[day][1] = .....
     private static void type3() {
         int[] prices = {7, 1, 5, 3, 6, 4};
+        int ans = maxProfit3(prices);
+        System.out.println(ans);
+    }
+
+    private static int maxProfit3(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
         int[][] dp = new int[n + 1][2];
         dp[n][0] = dp[n][1] = 0;
         for (int day = n - 1; day >= 0; day--) {
             for (int canBuy = 0; canBuy <= 1; canBuy++) {
+                int profit1;
+                // true means we can buy on that day and false we can sell on that day
                 if (canBuy == 0) {
-                    // we can either buy or skip for that day
-                    dp[day][canBuy] = Math.max(
-                            -prices[day] + dp[day + 1][1],
-                            dp[day + 1][0]
-                    );
+                    profit1 = -prices[day] + dp[day + 1][1]; // buying on the day
                 } else {
-                    // else means we can sell on that day
-                    // we can either sell or we can also check for the next day
-                    dp[day][canBuy] = Math.max(
-                            prices[day] + dp[day + 1][0],
-                            dp[day + 1][1]
-                    );
+                    profit1 = prices[day] + dp[day + 1][0]; // selling on the day
                 }
+                int profit2 = dp[day + 1][canBuy]; // skipping the day
+                dp[day][canBuy] = Math.max(profit1, profit2);
             }
         }
         // the answer is on dp[0][0] for the first day, and the time is to buy
-        int ans = dp[0][0];
-        System.out.println(ans);
+        return dp[0][0];
     }
 
 
-    // recursion with memoization
+    // todo recursion with memoization
     // lets not use a boolean value for canBuy
     // let's use 0,1 values for canBuy
     // 0 for can buy and 1 for can sell
     private static void type1() {
         int[] prices = {7, 1, 5, 3, 6, 4};
-        int n = prices.length;
-        int[][] dp = new int[n][2];
-        for (int[] row : dp) Arrays.fill(row, -1);
-        int ans = maxProfit2(0, 0, prices, dp);
+        int ans = maxProfit2(prices);
         System.out.println(ans);
     }
 
-    public static int maxProfit2(int day, int canBuy, int[] prices, int[][] dp) {
-        // checking if it is out of bounds or not
-        if (day == prices.length) return 0;
-        if (dp[day][canBuy] != -1) return dp[day][canBuy];
-        // true means we can buy on that day
-        if (canBuy == 0) {
-            // we can either buy or skip for that day
-            return dp[day][canBuy] = Math.max(
-                    -prices[day] + maxProfit2(day + 1, 1, prices, dp),
-                    maxProfit2(day + 1, 0, prices, dp)
-            );
-        } else {
-            // else means we can sell on that day
-            // we can either sell or we can also check for the next day
-            return dp[day][canBuy] = Math.max(
-                    prices[day] + maxProfit2(day + 1, 0, prices, dp),
-                    maxProfit2(day + 1, 1, prices, dp)
-            );
-        }
+    private static int maxProfit2(int[] prices) {
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        for (int[] row : dp)
+            Arrays.fill(row, -1);
+        // we are setting can buy as true as the person can buy the first day even
+        return maxProfit2(0, 0, prices, dp);
     }
 
-    // recursion brute force
+    public static int maxProfit2(int i, int canBuy, int[] prices, int[][] dp) {
+        // checking if it is out of bounds or not
+        if (i == prices.length) return 0;
+        if (dp[i][canBuy] != -1) return dp[i][canBuy];
+        int profit1;
+        // true means we can buy on that day and false we can sell on that day
+        if (canBuy == 0) {
+            profit1 = -prices[i] + maxProfit2(i + 1, 1, prices, dp); // buying on the day
+        } else {
+            profit1 = prices[i] + maxProfit2(i + 1, 0, prices, dp); // selling on the day
+        }
+        int profit2 = maxProfit2(i + 1, canBuy, prices, dp);
+        return dp[i][canBuy] = Math.max(profit1, profit2);
+    }
+
+    // todo recursion brute force
     // we have 2 choices for every index,
     // 1. either to buy or sell on that day
     // 2. skip the current day
@@ -180,27 +215,27 @@ public class BestTimeToBuyAndSellStock2 {
     // if we can buy, then we will subtract the price and if we could sell then we will add the price
     private static void type2() {
         int[] prices = {7, 1, 5, 3, 6, 4};
-        int ans = maxProfit1(0, true, prices);
+        int ans = maxProfit1(prices);
         System.out.println(ans);
     }
 
-    public static int maxProfit1(int day, boolean canBuy, int[] prices) {
+    private static int maxProfit1(int[] prices) {
+        // we are setting can buy as true as the person can buy the first day even
+        return maxProfit1(0, true, prices);
+    }
+
+    public static int maxProfit1(int i, boolean canBuy, int[] prices) {
         // checking if it is out of bounds or not
-        if (day == prices.length) return 0;
-        // true means we can buy on that day
+        if (i == prices.length) return 0;
+        int profit1;
+        // true means we can buy on that day and false we can sell on that day
         if (canBuy) {
-            // we can either buy or skip for that day
-            return Math.max(
-                    -prices[day] + maxProfit1(day + 1, false, prices),
-                    maxProfit1(day + 1, true, prices)
-            );
+            profit1 = -prices[i] + maxProfit1(i + 1, false, prices);// buying on the day
         } else {
-            // else means we can sell on that day
-            // we can either sell or we can also check for the next day
-            return Math.max(
-                    prices[day] + maxProfit1(day + 1, true, prices),
-                    maxProfit1(day + 1, false, prices)
-            );
+            profit1 = prices[i] + maxProfit1(i + 1, true, prices);// selling on the day
         }
+        int profit2 = maxProfit1(i + 1, canBuy, prices); // skipping the day
+        // we will return the max
+        return Math.max(profit1, profit2);
     }
 }

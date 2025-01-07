@@ -8,13 +8,15 @@ import static com.util.PrintUtl.print;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/online-stock-span/
- * https://www.codingninjas.com/codestudio/problems/span-of-ninja-coin_1475049
- * https://www.codingninjas.com/studio/problems/stock-span_5243295
+ * https://leetcode.com/problems/online-stock-span/description/
+ * https://www.naukri.com/code360/problems/span-of-ninja-coin_1475049
+ * https://www.naukri.com/code360/problems/stock-span_5243295
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=6
- * 
+ * https://www.youtube.com/watch?v=slYh0ZNEqSw
+ *
+ * https://neetcode.io/solutions/online-stock-span
  * */
 public class StockSpan {
 	// The span of the stock's price today is defined as the maximum number of
@@ -27,6 +29,7 @@ public class StockSpan {
 	// for each index the answer will be i - previous greater element index
 	public static void main(String[] args) {
 		type1();
+		// all the problems are using the same next greater/smaller element technique using the stack
 		type2();
 		type3();
 		type4();
@@ -60,8 +63,9 @@ public class StockSpan {
 		// here we are using an array as stack
 		public int next(int price) {
 			prices[i] = price;
-			while (top > 0 && prices[stack[top]] <= price) top--;
-			int res = top == 0 ? i + 1 : i - stack[top];
+			while (top > 0 && prices[stack[top]] <= price)
+				top--;
+			int res = (top == 0) ? (i + 1) : (i - stack[top]);
 			stack[++top] = i++;
 			return res;
 		}
@@ -95,9 +99,9 @@ public class StockSpan {
 			list.add(price);
 			int n = list.size();
 			int span;
-			while (!stack.isEmpty() && list.get(stack.peek()) <= price) stack.pop();
-			if (stack.isEmpty()) span = n;
-			else span = n - 1 - stack.peek();
+			while (!stack.isEmpty() && list.get(stack.peek()) <= price)
+				stack.pop();
+			span = (!stack.isEmpty()) ? (n - 1 - stack.peek()) : n;
 			stack.add(n - 1);
 			return span;
 		}
@@ -109,16 +113,15 @@ public class StockSpan {
 	private static void type3() {
 		int[] stocks = { 100, 80, 60, 70, 60, 75, 85 };
 		int n = stocks.length;
-		int[] answer = new int[n];
+		int[] span = new int[n];
 		Stack<Integer> stack = new Stack<>();
 		int j = 0;
 		for (int i = 0; i < n; i++) {
 			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) stack.pop();
-			if (stack.isEmpty()) answer[j++] = i + 1;
-			else answer[j++] = i - stack.peek();
+			span[i] = (!stack.isEmpty()) ? (i + 1) : (i - stack.peek());
 			stack.push(i);
 		}
-		print(answer);
+		print(span);
 	}
 
 	// time complexity O(3n)
@@ -135,9 +138,9 @@ public class StockSpan {
 		for (int i = 0; i < n; i++) {
 			// we are removing all the previous lesser or equal to elements
 			// it will pop until there is a large element in stack
-			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i]) stack.pop();
-			if (stack.isEmpty()) indices[i] = -1;
-			else indices[i] = stack.peek();
+			while (!stack.isEmpty() && stocks[stack.peek()] <= stocks[i])
+				stack.pop();
+			indices[i] = (!stack.isEmpty()) ? stack.peek() : -1;
 			stack.add(i);
 		}
 		// print(indices);
