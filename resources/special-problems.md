@@ -32,3 +32,18 @@
 
 - [Master Game Theory / Geeksforgeeks](https://www.youtube.com/playlist?list=PLM68oyaqFM7RqV8GBCMGsmwyFxUVr36tx)
 - [Game Theory - Level 3 / pepcoding](https://www.youtube.com/playlist?list=PL-Jc9J83PIiENC1X16gjxjaIbSXBr8C6e)
+
+### House Robber
+
+- [House Robber]
+- [House Robber II]
+- [House Robber III]
+
+### Stocks
+
+- [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
+- [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
+- [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
+- [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
+- [Best Time to Buy and Sell Stock with Cooldown](/src/com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
+- [Best Time to Buy and Sell Stock with Transaction Fee](/src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)

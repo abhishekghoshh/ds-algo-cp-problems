@@ -42,6 +42,7 @@ public class InOrderTraversal {
 		Stack<TNode> stack = new Stack<>();
 		List<Integer> inOrder = new ArrayList<>();
 		TNode node = root;
+		// observation: if the node is null that might be the ending of a leaf node and parent nodes might be in the stack
 		while (null != node || !stack.isEmpty()) {
 			// we are going as left side as possible
 			// because in the recursion also we went as left side as possible

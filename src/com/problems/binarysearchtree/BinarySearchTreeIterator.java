@@ -13,8 +13,9 @@ import java.util.Stack;
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=D2jMcmxU4bs&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=51
- * 
- * 
+ * https://www.youtube.com/watch?v=RXy5RzGF5wo
+ *
+ * https://neetcode.io/solutions/binary-search-tree-iterator
  */
 public class BinarySearchTreeIterator {
 	public static void main(String[] args) {
@@ -61,12 +62,11 @@ public class BinarySearchTreeIterator {
 
 		public int next() {
 			TNode node = stack.pop();
+			int data = node.val; // here we add the item to the inorder list
 			// if you remember in the iterative inorder we stored the node in the answer list.
-			// then we explored the nodes right
-			// we assumed that left and root is explored
-			// here also we are doing the same, going to the left most node
+			// then we explored the nodes right subtree
 			pushAllLeft(node.right);
-			return node.data;
+			return data;
 		}
 
 		public boolean hasNext() {
