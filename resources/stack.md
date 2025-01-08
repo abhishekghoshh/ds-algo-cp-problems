@@ -25,6 +25,7 @@
 - [Prefix to Infix](/src/com/problems/stack/PrefixToInfix.java)
 - [Prefix to Postfix](/src/com/problems/stack/PrefixToPostfix.java)
 - [Postfix to Prefix](/src/com/problems/stack/PostfixToPrefix.java)
+- [Evaluate Reverse Polish Notation](/src/com/problems/stack/EvaluateReversePolishNotation.java)
 
 - [Next Greater Element](/src/com/problems/stack/NextGreaterElement.java)
 - [Next Greater Element for different array](/src/com/problems/stack/NextGreaterElementForDifferentArray.java)
@@ -35,12 +36,12 @@
 - [Previous Smaller Element](/src/com/problems/stack/PreviousSmallerElement.java)
 - [Daily Temperatures](/src/com/problems/stack/DailyTemperatures.java)
 - [Stock span problem](/src/com/problems/stack/StockSpan.java)
+- [Remove K Digits](/src/com/problems/stack/RemoveKDigits.java)
 
 - [Sum of subarray minimum](/src/com/problems/stack/SumOfSubarrayMinimum.java)
 - [Sum of subarray maximum](/src/com/problems/stack/SumOfSubarrayMaximum.java)
 - [Sum of Subarray Ranges](/src/com/problems/stack/SumOfSubarrayRanges.java)
 - [Asteroid Collision](/src/com/problems/stack/AsteroidCollision.java)
-- [Remove K Digits](/src/com/problems/stack/RemoveKDigits.java)
 - [Largest rectangle in a histogram](/src/com/problems/stack/MaximumAreaOfHistogram.java)
 - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
 - [Sliding Window maximum](/src/com/problems/stack/MaximumOfMinimumForEveryWindowSize.java)

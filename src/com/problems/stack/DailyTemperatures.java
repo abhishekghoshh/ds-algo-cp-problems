@@ -5,9 +5,12 @@ import static com.util.PrintUtl.print;
 /*
  * Problem link :
  * https://leetcode.com/problems/daily-temperatures/description/
+ * https://neetcode.io/problems/daily-temperatures
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=cTBiBSnjO3c
  *
+ * https://neetcode.io/solutions/daily-temperatures
  * */
 public class DailyTemperatures {
     public static void main(String[] args) {
@@ -15,6 +18,7 @@ public class DailyTemperatures {
         type2();
     }
 
+    // todo optimized approach using monotonic increasing stack or
     // we will use a monotonic increasing stack to find the next greater temperature
     private static void type2() {
         int[] temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
@@ -29,15 +33,17 @@ public class DailyTemperatures {
         int[] ans = new int[n];
         // this will be our stack
         int top = -1;
-        int[] stack = new int[n];
-        // now we will compute from the back
+        int[] st = new int[n];
+        // now we will compute from the back (n...0)
         for (int i = n - 1; i >= 0; i--) {
             // we will pop from the stack (decrease top) if stack contains lesser or equal temperature
-            while (top != -1 && temperatures[i] >= temperatures[stack[top]]) top--;
-            // checking if there is any element on stack and based on that we will add it to answer
-            ans[i] = (top != -1) ? (stack[top] - i) : 0;
+            while (top != -1 && temperatures[i] >= temperatures[st[top]])
+                top--; // popping from the stack
+            // checking if the stack is empty or not if empty meaning then there is nothing on the right
+            // else we will take the difference of the greater temperature day with the current day
+            ans[i] = (top != -1) ? (st[top] - i) : 0;
             // adding the current element to the stack
-            stack[++top] = i;
+            st[++top] = i;
         }
         return ans;
     }

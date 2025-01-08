@@ -5,12 +5,16 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/generate-parentheses/
- * https://practice.geeksforgeeks.org/problems/generate-all-possible-parentheses/1
- * https://www.codingninjas.com/studio/problems/generate-all-parenthesis_920445
+ * https://leetcode.com/problems/generate-parentheses/description/
+ * https://neetcode.io/problems/generate-parentheses
+ * https://www.geeksforgeeks.org/problems/generate-all-possible-parentheses/1
+ * https://www.naukri.com/code360/problems/generate-all-parenthesis_920445
  * 
  * Solution link
  * https://www.youtube.com/watch?v=eyCj_u3PoJE&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=17
+ * https://neetcode.io/solutions/generate-parentheses
+ *
+ * https://www.youtube.com/watch?v=s9fokUqJ76A
  * */
 public class GenerateAllBalancedParenthesis {
 
