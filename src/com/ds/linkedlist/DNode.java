@@ -5,6 +5,9 @@ public class DNode {
     public DNode next;
     public DNode prev;
 
+    public DNode() {
+
+    }
     public DNode(int data) {
         this.data = data;
         this.next = null;

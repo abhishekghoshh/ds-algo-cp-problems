@@ -1,7 +1,5 @@
 package com.problems.stack;
 
-import com.util.PrintUtl;
-
 import java.util.Stack;
 
 /*
@@ -27,10 +25,19 @@ public class SumOfSubarrayMinimum {
 
     private static final int MOD = 1000000007;
 
-    // Best solution
-    // to solve the solution in a single pass
+    // todo Best solution
+    //  similar to the maximum area of the histogram problem
+    //  just check it one more time
+    //  it will calculate the range in one pass and one stack
+
+    //  todo has some issues in leetcode, check it later
     private static void type4() {
         int[] nums = {71, 55, 82, 55};
+        int sum = sumSubarrayMins4(nums);
+        System.out.println(sum);
+    }
+
+    private static int sumSubarrayMins4(int[] nums) {
         long sum = 0;
         Stack<Integer> st = new Stack<>();
         // we are maintaining a monotonic increasing array here
@@ -41,22 +48,21 @@ public class SumOfSubarrayMinimum {
         // we don't need an extra loop to calculate everything
         // but this loop will run till n
         // on the last pass we will pop one by one and calculate the range
-        for (int i = 0; i <= nums.length; i++) {
-            while (!st.isEmpty() && (i == nums.length || nums[i] <= nums[st.peek()])) {
+        int n = nums.length;
+        for (int i = 0; i <= n; i++) {
+            while (!st.isEmpty() && (i == n || nums[i] <= nums[st.peek()])) {
                 int top = st.pop();
                 long left = top - (st.isEmpty() ? -1 : st.peek());
                 long right = i - top;
-                sum += left * right * nums[top];
+                sum += (left * right * nums[top]) % MOD;
             }
             st.push(i);
         }
-        System.out.println(sum);
+        return (int) sum;
     }
 
 
-
-    // same as type2
-    // here we will use an array as stack
+    // todo same as type2 but here we will use an array as stack
     private static void type3() {
         int[] nums = {71, 55, 82, 55};
         int answer = sumSubarrayMins3(nums);
@@ -69,8 +75,7 @@ public class SumOfSubarrayMinimum {
         // Left Stack
         long[] leftRange = leftRange3(nums, n);
         long[] rightRange = rightRange3(nums, n);
-        PrintUtl.print(leftRange);
-        PrintUtl.print(rightRange);
+
         // for each value we have left and right contribution will be (Left * Right) * Element
         long res = 0;
         for (int i = 0; i < n; i++) {
@@ -78,7 +83,7 @@ public class SumOfSubarrayMinimum {
             long total = nums[i] * prod;
             res = (res + total) % MOD;
         }
-        return (int) (res % MOD);
+        return (int) res;
     }
     private static long[] leftRange3(int[] nums, int n) {
         long[] leftRange = new long[n];
@@ -109,13 +114,12 @@ public class SumOfSubarrayMinimum {
     }
 
 
-
-
-    // using stack
-    // intuition is
-    // rather creating all the subarrays and then find the minimum
-    // we will find the range of subarray for every element
-    // suppose we are considering a subarray 1 3 5 2 4 6 1
+    // todo optimized approach using stack
+    //  rather finding the minimum element for every range
+    //  if we can find if an element is minimum for how many ranges then the answer will be same
+    //  I know this intuition is kind of tricky to think but if we remember this one line then the question is solved
+    //  rather creating all the subarrays and then find the minimum we will find the range of subarray for every element
+    //  suppose we are considering a subarray 1 3 5 2 4 6 1
     // we are finding range of subarray for element 2
     // for the element 2 the range is from 3 5 2 4 6
     // on the left it is 3 5 2 and on the right it is 2 4 6
@@ -129,29 +133,17 @@ public class SumOfSubarrayMinimum {
     // similar on the right side
     private static void type2() {
         int[] nums = {71, 55, 82, 55};
+        int answer = sumSubarrayMins2(nums);
+        System.out.println(answer);
+    }
 
+    private static int sumSubarrayMins2(int[] nums) {
         int n = nums.length;
-
         // Left Stack
-        long[] leftRange = new long[n];
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            while (!stack.empty() && nums[i] < nums[stack.peek()])
-                stack.pop();
-            leftRange[i] = stack.isEmpty() ? i + 1 : i - stack.peek();
-            stack.push(i);
-        }
+        long[] leftRange = leftRange2(nums, n);
         // Right Stack
-        long[] rightRange = new long[n];
-        stack = new Stack<>();
-        for (int i = n - 1; i >= 0; i--) {
-            while (!stack.empty() && nums[i] <= nums[stack.peek()])
-                stack.pop();
-            rightRange[i] = stack.isEmpty() ? n - i : stack.peek() - i;
-            stack.push(i);
-        }
-        PrintUtl.print(leftRange);
-        PrintUtl.print(rightRange);
+        long[] rightRange = rightRange2(nums, n);
+
         // for each value we have left and right contribution will be (Left * Right) * Element
         long res = 0;
         for (int i = 0; i < n; i++) {
@@ -159,13 +151,44 @@ public class SumOfSubarrayMinimum {
             long total = (nums[i] * prod) % MOD;
             res = (res + total) % MOD;
         }
-        int answer = (int) (res % MOD);
+        return (int) res;
+    }
 
-        System.out.println(answer);
+    // todo one thing to notice is that in the left range we have used nums[i] < nums[stack.peek()
+    //  while in right range we have used nums[i] <= nums[stack.peek()
+    //  ideally it should be same condition, as there can be duplicate numbers
+    //  so for at least one of the stack we are using strict monotonic increasing and for another it is just increasing stack
+
+    private static long[] leftRange2(int[] nums, int n) {
+        long[] leftRange = new long[n];
+        // monotonic increasing stack
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            while (!stack.empty() && nums[i] < nums[stack.peek()])
+                stack.pop();
+            leftRange[i] = stack.isEmpty() ? (i + 1) : i - stack.peek();
+            stack.push(i);
+        }
+        return leftRange;
+    }
+
+    private static long[] rightRange2(int[] nums, int n) {
+        long[] rightRange = new long[n];
+        // monotonic increasing stack
+        Stack<Integer> stack = new Stack<>();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!stack.empty() && nums[i] <= nums[stack.peek()])
+                stack.pop();
+            rightRange[i] = stack.isEmpty() ? (n - i) : stack.peek() - i;
+            stack.push(i);
+        }
+        return rightRange;
     }
 
 
+
     // simple brute force using 2 loops
+    // for every range we will calculate the min
     private static void type1() {
         int[] arr = {71, 55, 82, 55};
         int n = arr.length;

@@ -38,11 +38,12 @@
 - [Stock span problem](/src/com/problems/stack/StockSpan.java)
 - [Remove K Digits](/src/com/problems/stack/RemoveKDigits.java)
 
+- [Largest rectangle in a histogram](/src/com/problems/stack/MaximumAreaOfHistogram.java)
 - [Sum of subarray minimum](/src/com/problems/stack/SumOfSubarrayMinimum.java)
 - [Sum of subarray maximum](/src/com/problems/stack/SumOfSubarrayMaximum.java)
 - [Sum of Subarray Ranges](/src/com/problems/stack/SumOfSubarrayRanges.java)
+
 - [Asteroid Collision](/src/com/problems/stack/AsteroidCollision.java)
-- [Largest rectangle in a histogram](/src/com/problems/stack/MaximumAreaOfHistogram.java)
 - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
 - [Sliding Window maximum](/src/com/problems/stack/MaximumOfMinimumForEveryWindowSize.java)
 - [The Celebrity Problem](/src/com/problems/stack/CelebrityProblem.java)

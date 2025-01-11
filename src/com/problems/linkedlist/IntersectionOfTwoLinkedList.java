@@ -10,14 +10,16 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/intersection-of-two-linked-lists/
+ * https://leetcode.com/problems/intersection-of-two-linked-lists/description/
  * https://www.naukri.com/code360/problems/630457
  *
  * Solution link :
  * https://www.youtube.com/watch?v=0DYoPz2Tpt4
  * https://www.youtube.com/watch?v=u4FWXfgS8jw&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=34
+ * https://www.youtube.com/watch?v=D0X0BONOQhI
  *
  * https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/
+ * https://neetcode.io/solutions/intersection-of-two-linked-lists
  * */
 public class IntersectionOfTwoLinkedList {
 	public static void main(String[] args) {
@@ -27,24 +29,16 @@ public class IntersectionOfTwoLinkedList {
 		type4();
 	}
 
-	// better optimized approach
-	// two linked list having common point
-	// time complexity O(2*max(n1,n2)))
-	// space complexity O(1)
-	// let's say n1<n2 and n1=m1+d and n2=m2+d
-	// l1 will exhaust after m1+d traversal then we are assigning it to l2
-	// same with l2
-	// l2 will exhaust after m2+d traversal then we are assigning it to l1
-	// let say after exhausting l1 again starts from l1, so it will have to go m2
-	// distance to find intersection, so after m1+d+m2 distance first pointer will
-	// again find the intersection point
-	// after exhausting l2 again starts from l1, so it will have to go m1
-	// distance to find intersection, so after m2+d+m1 distance second pointer will
-	// again find the intersection point
-	// both the point is traversing with same speed, and we after m1+m2+d the both
-	// pointer will be same
-	// so if we traverse both pointer in a loop until they became same then we will
-	// find our answer
+	// todo better optimized approach
+	//  time complexity O(2 * max(n1, n2)))
+	//  space complexity O(1)
+	//  if l1 is m1->d and l2 is m2->d where d is the common portion
+	//  then (l1->l2) will be m1->d->m2->d and (l2->l1) will be (m2->d->m1->d)
+	//  now if we use 2 pointer h1 and h2 and assign to thr start of (l1->l2) and (l2->l1)
+	//  and traverse it then after some point it will go to the common potion
+	//  we need not to create (l1->l2) and (l2->l1), we can do little smart
+	//  we will start with h1=l1 and h2=l2, once h1.next is null then we will assign it to l2 and h2.next is null
+	//  we will assign it to l1, then ultimate h1 will be l1l2 and h2 will be l2l1
 	private static void type4() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
@@ -54,23 +48,18 @@ public class IntersectionOfTwoLinkedList {
 	}
 
 	private static Node getIntersectionNode4(Node headA, Node headB) {
-		// let say headA = (a + h)
-		// and headB = (b + h)
+		// let say headA = (a + h) and headB = (b + h)
 		Node h1 = headA, h2 = headB;
-		// h1 will become (h1 + h2)
-		// h2 will become (h2 + h1)
-		// so let's say if there is no common point then
-		// after (n1+n2) both h1 and h2 will go to null and loop will terminate.
-		// if there is some common point
-		// h1 will become (a + h + b + h)
-		// h2 will become (b + h + a + h)
-		//  still, the loop will terminate when it comes to last h
+		// h1 will become (h1 + h2) h2 will become (h2 + h1)
+		// so let's say if there is no common point then after (n1+n2) both h1 and h2 will go to null and loop will terminate.
+		// if there is some common point then h1 will become (a + h + b + h) and h2 will become (b + h + a + h)
+		// still, the loop will terminate when it comes to last h
 		while (h1 != h2) {
 			h1 = null != h1 ? h1.next : headB;
 			h2 = null != h2 ? h2.next : headA;
 		}
 		// if there is no intersection point, then it h1 will be null
-		return null != h1 ? h1 : h2;
+		return h1;
 	}
 
 	// TODO explain this in the interview
@@ -100,21 +89,19 @@ public class IntersectionOfTwoLinkedList {
 			n2++;
 			h2 = h2.next;
 		}
-		// then we will move (n1-n2) for the longer linked list
-		// if n1>n2 then this while loop will execute
+		// todo we will try to make the longer list equal to the shorter list
+		// then we will move (n1 - n2) for the longer linked list, if (n1 > n2) then this while loop will execute
 		while (n1 > n2) {
 			n1--;
 			headA = headA.next;
 		}
-		// if n2>n2 then this one will execute
-		// the previous for loop will not execute
+		// if (n2 > n2) then this one will execute, the previous for loop will not execute
 		while (n2 > n1) {
 			n2--;
 			headB = headB.next;
 		}
 		// now we are at the starting point for the both of the linked lists
-		// at this point both linked lists have the same number of nodes
-		// we will go till nodes are same
+		// at this point both linked lists have the same number of nodes, we will go till nodes are same
 		while (headA != headB) {
 			headA = headA.next;
 			headB = headB.next;
@@ -123,19 +110,20 @@ public class IntersectionOfTwoLinkedList {
 	}
 
 
-	// hashing approach
-	// time complexity(O(n1+n2)
-	// space complexity O(n1)
+	// todo hashing approach
+	//  time complexity  O(n1*log(n1) + n2)
+	//  space complexity O(n1)
 	private static void type2() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
-		Node point = getIntersectionNode2(headA, headB);
-		print(point);
+		Node ans = getIntersectionNode2(headA, headB);
+		print(ans);
 	}
 
 	private static Node getIntersectionNode2(Node headA, Node headB) {
 		Set<Node> set = new HashSet<>();
+		// adding all the nodes in the set
 		for (Node node1 = headA; null != node1; node1 = node1.next)
 			set.add(node1);
 
@@ -145,21 +133,23 @@ public class IntersectionOfTwoLinkedList {
 		return null;
 	}
 
-	// brute force approach
-	// time complexity(O(n1*n2)
-	// space complexity (1)
+	// todo brute force approach
+	//  time complexity(O(n1*n2)
+	//  space complexity (1)
 	private static void type1() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
-		Node point = getIntersectionNode1(headA, headB);
-		print(point);
+		Node ans = getIntersectionNode1(headA, headB);
+		print(ans);
 	}
 
 	private static Node getIntersectionNode1(Node headA, Node headB) {
-		for (Node node1 = headA; null != node1; node1 = node1.next)
+		// using n^2 loop
+		for (Node node1 = headA; null != node1; node1 = node1.next) {
 			for (Node node2 = headB; null != node2; node2 = node2.next)
 				if (node1 == node2) return node1;
+		}
 		return null;
 	}
 

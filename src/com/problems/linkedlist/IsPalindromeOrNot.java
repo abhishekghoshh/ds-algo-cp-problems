@@ -8,15 +8,17 @@ import java.util.List;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/palindrome-linked-list/
+ * https://leetcode.com/problems/palindrome-linked-list/description/
  * https://www.naukri.com/code360/problems/799352
  * https://www.naukri.com/code360/problems/check-if-linked-list-is-palindrome_985248
  *
  * Solution link :
  * https://www.youtube.com/watch?v=lRY_G-u_8jk
  * https://www.youtube.com/watch?v=-DtNInqFUXs
+ * https://www.youtube.com/watch?v=yOzXms1J6Nk
  *
  * https://takeuforward.org/data-structure/check-if-given-linked-list-is-plaindrome/
+ * https://neetcode.io/solutions/palindrome-linked-list
  * */
 public class IsPalindromeOrNot {
 
@@ -26,6 +28,12 @@ public class IsPalindromeOrNot {
 		type3();
 	}
 
+	// todo most optimized approach
+	//  we will first go to the middle of the linked list
+	//  now we can divide the linked list into (start,mid) and (mid,last)
+	//  but there is a problem we can not go from last -> mid
+	//  we can reverse the 2nd part so the lost will be like [last,mid] and [start,mid]
+	//  now we will use 2 pointer node1 and node2 and traverse till null
 	private static void type3() {
 		Node head = new Node(1, 2, 3, 4, 3, 2, 1);
 		boolean isPalindrome = isPalindrome3(head);
@@ -55,7 +63,7 @@ public class IsPalindromeOrNot {
 		return true;
 	}
 
-	// optimized approach
+	// todo optimized approach
 	// fist we will find the middle O(n/2)
 	// reverse the remaining list O(n/2)
 	// check for equality for list[0,n/2) and list[n/2,n) O(n/2)
@@ -123,15 +131,17 @@ public class IsPalindromeOrNot {
 
 	private static boolean isPalindrome1(Node head) {
 		// save the list data into a arraylist
-		List<Integer> list = new ArrayList<>();
+		List<Node> list = new ArrayList<>();
 		while (null != head) {
-			list.add(head.data);
+			list.add(head);
 			head = head.next;
 		}
 		// then check that arraylist is a palindrome or not
 		int left = 0, right = list.size() - 1;
 		while (left < right) {
-			if ((int) list.get(left) != list.get(right)) return false;
+			// if the left and right are not same then we will return false
+			if (list.get(left).val != list.get(right).val)
+				return false;
 			left++;
 			right--;
 		}

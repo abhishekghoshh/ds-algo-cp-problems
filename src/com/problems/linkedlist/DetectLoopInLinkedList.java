@@ -8,15 +8,17 @@ import java.util.Set;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/linked-list-cycle/
- * https://www.codingninjas.com/codestudio/problems/628974
- * https://www.codingninjas.com/studio/problems/cycle-detection-in-a-singly-linked-list_628974
+ * https://leetcode.com/problems/linked-list-cycle/description/
+ * https://neetcode.io/problems/linked-list-cycle-detection
+ * https://www.naukri.com/code360/problems/628974
  *
  * Solution link :
  * https://www.youtube.com/watch?v=wiOo4DC5GGA
  * https://www.youtube.com/watch?v=354J83hX7RI
+ * https://www.youtube.com/watch?v=gBTe7lFR3vc
  *
  * https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/
+ * https://neetcode.io/solutions/linked-list-cycle
  * */
 public class DetectLoopInLinkedList {
 
@@ -25,13 +27,10 @@ public class DetectLoopInLinkedList {
 		type2();
 	}
 
-	// tortoise method
-	// efficient approach without any extra space
-	// but it can go more than o(n)
-	// as it will
-	// here we have a slow node and fast node
-	// slow node goes one node at a time,
-	// fast node goes two nodes
+	// todo tortoise method efficient approach without any extra space
+	// but it can go more than O(n)
+	// as it will here we have a slow node and fast node
+	// slow node goes one node at a time, fast node goes two nodes
 	// if there is any loop then slow and fast will travel with different speed
 	// and after some they will reach the same node
 	// if there is no cycle then fast will exhaust automatically
@@ -43,18 +42,20 @@ public class DetectLoopInLinkedList {
 		PrintUtl.print(head);
 		node2.last(node1);
 
+		boolean hasCycle = hasCycle2(head);
+		System.out.println("cycle present : " + hasCycle);
+	}
+
+	private static boolean hasCycle2(Node head) {
 		Node slow = head;
 		Node fast = head;
-		boolean hasCycle = false;
+		// traversing the linked list
 		while (null != fast && null != fast.next) {
 			slow = slow.next;
 			fast = fast.next.next;
-			if (slow == fast) {
-				hasCycle = true;
-				break;
-			}
+			if (slow == fast) return true;
 		}
-		System.out.println("cycle present : " + hasCycle);
+		return false;
 	}
 
 	// brute force approach
@@ -68,16 +69,17 @@ public class DetectLoopInLinkedList {
 		PrintUtl.print(head);
 		node2.last(node1);
 
+		boolean hasCycle = hasCycle1(head);
+		System.out.println("cycle present : " + hasCycle);
+	}
+
+	private static boolean hasCycle1(Node head) {
 		Set<Node> set = new HashSet<>();
-		boolean hasCycle = false;
 		while (null != head) {
-			if (set.contains(head)) {
-				hasCycle = true;
-				break;
-			}
+			if (set.contains(head)) return true;
 			set.add(head);
 			head = head.next;
 		}
-		System.out.println("cycle present : " + hasCycle);
+		return false;
 	}
 }

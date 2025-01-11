@@ -3,7 +3,7 @@ package com.problems.linkedlist;
 import com.ds.linkedlist.Node;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static com.util.PrintUtl.print;
@@ -12,13 +12,16 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://www.codingninjas.com/codestudio/problems/80033
- * https://leetcode.com/problems/merge-two-sorted-lists/
+ * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * https://neetcode.io/problems/merge-two-sorted-linked-lists
+ * https://www.naukri.com/code360/problems/80033
  *
  * Solution link :
  * https://www.youtube.com/watch?v=Xb4slcp1U38&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=30
+ * https://www.youtube.com/watch?v=XIdigk956u0
  *
  * https://takeuforward.org/data-structure/merge-two-sorted-linked-lists/
+ * https://neetcode.io/solutions/merge-two-sorted-lists
  * */
 public class MergeTwoSortedList {
 
@@ -38,10 +41,11 @@ public class MergeTwoSortedList {
 		print(head);
 	}
 
+	// in place merge we will use a prev pointer then we will compare l1.data and l2.data
 	public static Node mergeTwoLists2(Node list1, Node list2) {
 		// we are assigning a dummy node to head to prevent null pointer exception
-		Node head = new Node(-1);
-		Node prev = head;
+		Node dummyHead = new Node();
+		Node prev = dummyHead;
 		// we will preform merging till both list1 and list2 is non-null
 		while (null != list1 && null != list2) {
 			if (list1.data < list2.data) {
@@ -57,11 +61,10 @@ public class MergeTwoSortedList {
 		// as the lists are in sorted order, so we can just attach
 		// the non-null list to the prev
 		prev.next = (null != list1) ? list1 : list2;
-		return head.next;
+		return dummyHead.next;
 	}
 
 	// TODO delete it later, it is kept only for the demonstration purpose
-	@SuppressWarnings("deprecated")
 	public static Node mergeTwoLists2_Old(Node list1, Node list2) {
 		Node head = null;
 		if (null != list1 && null != list2) {
@@ -100,30 +103,39 @@ public class MergeTwoSortedList {
 
 	// brute force approach
 	// putting all items in list O(n1+n2)
-	// sorting the list O((n1+n2)*log(n1+n2))
+	// sorting the list O((n1+n2) * log(n1+n2))
 	// creating the the linked list with all the items
-	// time complexity O(n1+n2)+O((n1+n2)*log(n1+n2))+O(n1+n2)
-	// space complexity O(2*(n1+n2)) for list+linked list
+	// time complexity O(n1+n2) + O((n1+n2) * log(n1+n2)) + O(n1+n2)
+	// space complexity O(2*(n1+n2)) for list + linked list
 	private static void type1() {
 		Node list1 = new Node(1, 4, 5, 7);
 		Node list2 = new Node(2, 3, 6, 8, 9);
-		List<Integer> list = new ArrayList<>();
+		Node head = mergeTwoLists1(list1, list2);
+		print(head);
+	}
+
+	private static Node mergeTwoLists1(Node list1, Node list2) {
+		List<Node> list = new ArrayList<>();
+		// adding list1 to the list
 		while (null != list1) {
-			list.add(list1.data);
+			list.add(list1);
 			list1 = list1.next;
 		}
+		// adding list2 to the list
 		while (null != list2) {
-			list.add(list2.data);
+			list.add(list2);
 			list2 = list2.next;
 		}
-		Collections.sort(list);
-		Node head = new Node(-1);
-		Node node = head;
-		for (int data : list) {
-			node.next = new Node(data);
-			node = node.next;
+		// sorting the list
+		list.sort(Comparator.comparingInt(node -> node.data));
+		Node dummyHead = new Node();
+		Node prev = dummyHead;
+		// connecting the nodes
+		for (Node node : list) {
+			prev.next = node;
+			prev = node;
 		}
-		print(head);
+		return dummyHead.next;
 	}
 
 }

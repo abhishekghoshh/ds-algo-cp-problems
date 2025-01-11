@@ -10,15 +10,17 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/remove-nth-node-from-end-of-list/
- * https://www.codingninjas.com/codestudio/problems/799912
- * https://www.codingninjas.com/studio/problems/delete-kth-node-from-end_799912
+ * https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+ * https://neetcode.io/problems/remove-node-from-end-of-linked-list
+ * https://www.naukri.com/code360/problems/799912
  *
  * Solution link :
  * https://www.youtube.com/watch?v=3kMKYQ2wNIU
  * https://www.youtube.com/watch?v=Lhu3MsXZy-Q
+ * https://www.youtube.com/watch?v=XVuQxVej6y8
  *
  * https://takeuforward.org/data-structure/remove-n-th-node-from-the-end-of-a-linked-list/
+ * https://neetcode.io/solutions/remove-nth-node-from-end-of-list
  * */
 public class RemoveNthNodeFromBackOfList {
 
@@ -26,42 +28,11 @@ public class RemoveNthNodeFromBackOfList {
 		type1();
 		type2();
 		type3();
-		type4();
 	}
 
-	private static void type4() {
-		Node head = new Node(1, 2, 3, 4, 5, 6, 7, 8, 9);
-		int n = 3;
-		Node result = removeNthFromEnd4(head, n);
-		print(result);
-	}
-
-	public static Node removeNthFromEnd4(Node head, int n) {
-		if (head.next == null) return null;
-		// Create two pointers, fast and slow
-		Node fast = head;
-		Node slow = head;
-
-		// Move the fast pointer N nodes ahead
-		for (int i = 0; i < n; i++)
-			fast = fast.next;
-
-		// If fast becomes null, the Nth node from the end is the head
-		if (fast == null) return head.next;
-
-		// Move both pointers until fast reaches the end
-		while (fast.next != null) {
-			fast = fast.next;
-			slow = slow.next;
-		}
-		// Delete the Nth node from the end
-        slow.next = slow.next.next;
-        return head;
-	}
-
-	// TODO explain this in the interview
-	// TODO check once more
-	// same as previous just a little optimized
+	// todo simplest approach but time complexity O(n)
+	// 	we can also explain this in the interview only thing is the time complexity is O(3n)
+	// reverse the list then delete the node again reverse and return
 	private static void type3() {
 		Node head = new Node(1, 2, 3, 4, 5, 6, 7, 8, 9);
 		int n = 3;
@@ -69,33 +40,39 @@ public class RemoveNthNodeFromBackOfList {
 		print(result);
 	}
 
-	public static Node removeNthFromEnd3(Node head, int n) {
-		// if there is a single pointer, then we will return null
-		// because n can be maximum and minimum 1
-		// we have to remove the head pointer
-		if (head.next == null) return null;
-		// we will add a dummy pointer at the start
-		// for our reference because the head pointer can also be deleted
-		Node right = new Node();
-		right.next = head;
-		// moving the right pointer to the end of the window
-		// after n operation it right will go to the last element of the window
-		for (int i = 0; i < n; i++)
-			right = right.next;
-		// as we have added a node for the previous,
-		// that is why we have again added one dummy node
-		Node start = new Node();
-		Node left = start;
-		left.next = head;
-		while (right != null && right.next != null) {
-			right = right.next;
-			left = left.next;
+	private static Node removeNthFromEnd3(Node head, int n) {
+		head = reverse(head);
+		// creating a dummy head and attach the head to it
+		Node dummyHead = new Node();
+		dummyHead.next = head;
+		Node prev = dummyHead, curr = head;
+		// going to the node
+		for (int i = 1; i < n; i++) {
+			prev = curr;
+			curr = curr.next;
 		}
-		// detaching the pointer
-		left.next = left.next.next;
-		return start.next;
+		prev.next = prev.next.next;
+		// breaking the link again
+		head = dummyHead.next;
+		dummyHead.next = null;
+		// reversing again
+		return reverse(head);
 	}
-	// two pointer or sliding window technique
+
+	private static Node reverse(Node node) {
+		Node prev = null;
+		while (null != node) {
+			Node next = node.next;
+			node.next = prev;
+			prev = node;
+			node = next;
+		}
+		return prev;
+	}
+
+	// todo best approach two pointer or sliding window technique
+	// 	but do it little carefully, this can be confusing sometimes
+
 	// time complexity O(n)
 	// space complexity O(1)
 	private static void type2() {
@@ -106,38 +83,24 @@ public class RemoveNthNodeFromBackOfList {
 	}
 
 	public static Node removeNthFromEnd2(Node head, int n) {
-		// if there is a single pointer, then we will return null
-		// because n can be maximum and minimum 1
-		// we have to remove the head pointer
 		if (head.next == null) return null;
-		Node left = head, right = head, prev;
-		// moving the right pointer to the end of the window
-		// after n-1 operation it right will go to the last element of the window
-		for (int i = 1; i < n && null != right; i++)
+		// Create two pointers, left and right
+		Node left = head, right = head;
+
+		// Move the right pointer N nodes ahead
+		for (int i = 0; i < n; i++)
 			right = right.next;
 
-		// right will be null only if listLength <= n
-		// suppose the length of list is n, then after only n-1 traversal it will go to
-		// the last element
-		if (null == right || null == right.next) {
-			head = head.next;
-		} else {
-			// suppose the list is 1 2 3 4 5 6 7 8 9 and n = 3
-			// then after n-1=2 traversal right will go 3 and left is 1
-			// We will slide the window to the last element not the null
-			// at this point right will be 9 and left will be 7
-			// our target is to remove 7
-			// we will assign the left pointer to prev before moving it to next,
-			// so prev is pointing to 6 now
-			// our work is now 6.next=7.next then free the 7 pointer
-			prev = left;
-			while (null != right.next) {
-				right = right.next;
-				prev = left;
-				left = left.next;
-			}
-			prev.next = left.next;
+		// If fast becomes null, the Nth node from the end is the head
+		if (right == null) return head.next;
+
+		// Move both pointers until fast reaches the end
+		while (right.next != null) {
+			right = right.next;
+			left = left.next;
 		}
+		// Delete the Nth node from the end
+		left.next = left.next.next;
 		return head;
 	}
 
@@ -164,13 +127,12 @@ public class RemoveNthNodeFromBackOfList {
 			list.add(node);
 			node = node.next;
 		}
-		int size = list.size();
-		// if linked list size equal to n
-		// then we have to remove the first pointer
-		if (size == n) return head.next;
+		int sz = list.size();
+		// if linked list size equal to n then we have to remove the first pointer
+		if (sz == n) return head.next;
 		// we will get the target pointer and it's previous pointer
-		node = list.get(size - n);
-		Node prev = list.get(size - n - 1);
+		node = list.get(sz - n);
+		Node prev = list.get(sz - n - 1);
 		// we will change the pointer
 		prev.next = node.next;
 		return head;

@@ -2,30 +2,31 @@ package com.ds.linkedlist;
 
 public class Node {
     public int data;
+    public int val;
     public Node next = null;
     public Node bottom = null;
     public Node random = null;
 
 
     public Node() {
-        this.data = 0;
+        this.val = this.data = 0;
         this.next = null;
     }
 
     public Node(int data) {
-        this.data = data;
+        this.val = this.data = data;
         this.next = null;
     }
 
     public Node(int data, Node next) {
-        this.data = data;
+        this.val = this.data = data;
         this.next = next;
     }
 
 
     public Node(int val, int... others) {
         Node node = this;
-        this.data = val;
+        this.val = this.data = val;
         for (int data : others) {
             Node newNode = new Node(data);
             node.next = newNode;

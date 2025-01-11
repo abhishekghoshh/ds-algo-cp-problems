@@ -125,4 +125,4 @@
 - [Remove Duplicates from Sorted Array](/src/com/problems/array/RemoveDuplicateFromSortedArray.java)
 - [Remove Duplicates from Sorted Array II](/src/com/problems/array/RemoveDuplicateFromSortedArray2.java)
 - [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](/src/com/problems/array/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold.java)
-- 
+- [Boats to Save People](/src/com/problems/array/BoatsToSavePeople.java)
