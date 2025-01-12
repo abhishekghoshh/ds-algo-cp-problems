@@ -53,6 +53,7 @@
 - [Bellman Ford](/src/com/problems/graph/BellmanFord.java)
 - [Floyd Warshall](/src/com/problems/graph/FloydWarshall.java)
 - [Find the City With the Smallest Number of Neighbors at a Threshold Distance](/src/com/problems/graph/FindTheCityWithTheSmallestNumberOfNeighbors.java)
+- [Minimize the Maximum Edge Weight of Graph](/src/com/problems/graph/MinimizeTheMaximumEdgeWeightOfGraph.java)
 
 ### Minimum Spanning Tree
 - [Minimum Spanning Tree - Theory](/src/com/problems/graph/MinimumSpanningTree.java)

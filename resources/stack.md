@@ -42,6 +42,7 @@
 - [Sum of subarray minimum](/src/com/problems/stack/SumOfSubarrayMinimum.java)
 - [Sum of subarray maximum](/src/com/problems/stack/SumOfSubarrayMaximum.java)
 - [Sum of Subarray Ranges](/src/com/problems/stack/SumOfSubarrayRanges.java)
+- [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
 
 - [Asteroid Collision](/src/com/problems/stack/AsteroidCollision.java)
 - [Maximal Rectangles in a Binary Matrix](/src/com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)

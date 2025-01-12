@@ -15,6 +15,7 @@
 - [Reverse of an array](/src/com/problems/recursion/ReverseOfAnArray.java)
 - [String is palindrome or not](/src/com/problems/recursion/StringIsPalindrome.java)
 - [Height of a binary tree/Max depth of a Binary tree](/src/com/problems/binarytree/HeightOfBinaryTree.java)
+- [Zigzag Grid Traversal With Skip](/src/com/problems/binarytree/ZigzagGridTraversalWithSkip.java)
 - [Recursive Implementation of atoi()](/src/com/problems/string/StringToInteger.java)
 - [Pow(x, n)](/src/com/problems/binarysearch/PowerOfXtoN.java)
 - [Count Good Numbers](/src/com/problems/recursion/CountGoodNumbers.java)

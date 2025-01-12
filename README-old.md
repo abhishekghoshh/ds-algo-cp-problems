@@ -38,7 +38,7 @@
   - [Kadane’s Algorithm : Maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/MaxSumForConsecutiveElements.java)
   - [Print maximum Subarray Sum in an Array for consecutive elements](/src/com/problems/array/PrintMaxSumForConsecutiveElements.java)
   - [Maximum Subarray Sum in an Array for non-consecutive elements](/src/com/problems/array/MaxSumForNonConsecutiveElements.java)
-  - [Rearrange Array Elements by Sign](/src/com/problems/array/RearrangeArrayElementsBySign.java)
+
   - [next_permutation : find next lexicographically greater permutation](/src/com/problems/array/NextPermutation.java)
   - [Leaders in an Array](/src/com/problems/array/LeadersInAnArray.java)
   - [Set Matrix Zero](/src/com/problems/array/SetMatrixToZero.java)
@@ -49,9 +49,9 @@
 
   - 
   - [Maximum Product Subarray in an Array](/src/com/problems/array/MaximumProductSubarrayInAnArray.java)
-  - [Car Fleet](/src/com/problems/array/CarFleet.java) **TBD**
+-
   - [3Sum Closest](/src/com/problems/array/ThreeSumClosest.java)
-  - [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)
+
 
   - [Find the Count of Monotonic Pairs I](/src/com/problems/array/FindTheCountOfMonotonicPairs.java)
   - [Adjacent Increasing Subarrays Detection I](/src/com/problems/array/AdjacentIncreasingSubarraysDetection1.java)

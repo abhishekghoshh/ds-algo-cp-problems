@@ -74,6 +74,8 @@
 - [Count inversions in an array](/src/com/problems/array/CountInversionInArray.java)
 - [Count Reverse Pairs](/src/com/problems/array/ReversePairs.java)
 
+- [Car Fleet](/src/com/problems/array/CarFleet.java)
+
 ### Swap sort
 - [Swap sort](/src/com/algo/sort/SwapSort.java)
 - [Find the repeating and missing numbers](/src/com/problems/array/RepeatAndMissingNumber.java)
@@ -126,3 +128,7 @@
 - [Remove Duplicates from Sorted Array II](/src/com/problems/array/RemoveDuplicateFromSortedArray2.java)
 - [Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](/src/com/problems/array/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold.java)
 - [Boats to Save People](/src/com/problems/array/BoatsToSavePeople.java)
+- [Rearrange Array Elements by Sign](/src/com/problems/array/RearrangeArrayElementsBySign.java)
+- [Bag of Tokens](/src/com/problems/array/BagOfTokens.java)
+- [Minimum Length of String After Deleting Similar Ends](/src/com/problems/array/MinimumLengthOfStringAfterDeletingSimilarEnds.java)
+- [Trapping Rainwater](/src/com/problems/array/TrappingRainWater.java)

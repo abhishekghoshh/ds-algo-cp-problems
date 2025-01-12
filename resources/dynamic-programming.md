@@ -108,4 +108,5 @@
 - [Sum of Good Subsequences](/src/com/problems/dp/SumOfGoodSubsequences.java)
 - [Count Paths With the Given XOR Value](/src/com/problems/dp/CountPathsWithTheGivenXORValue.java)
 - [Champagne Tower](/src/com/problems/dp/ChampagneTower.java)
+- [Maximum Amount of Money Robot Can Earn](/src/com/problems/dp/MaximumAmountOfMoneyRobotCanEarn.java)
 

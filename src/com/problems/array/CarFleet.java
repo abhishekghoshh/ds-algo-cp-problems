@@ -80,7 +80,7 @@ public class CarFleet {
         return fleet;
     }
 
-    // this is a greedy approach
+    // todo this is a greedy approach
     // whatever the speed is, the first car will always go at first,
     // so we will create an array of (n*2) of (pos,time to reach target)
     // and sort the cars as per the position, closest car will come first

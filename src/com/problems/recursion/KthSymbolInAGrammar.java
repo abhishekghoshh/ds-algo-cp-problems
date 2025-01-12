@@ -22,10 +22,9 @@ public class KthSymbolInAGrammar {
 		type2();
 	}
 
-	// TODO it is also very efficient approach
-	//  but it is failing
+	// TODO it is also very efficient approach just the thinking process is little bit different
 	private static void type2() {
-		int n = 3, k = 3;
+		int n = 3, k = 4;
 		int value = kthGrammar1(n, k);
 		System.out.printf("at %d row at %d column value is %d \n", n, k, value);
 	}
@@ -44,10 +43,11 @@ public class KthSymbolInAGrammar {
 		if (n == 1) return 0;
 		// size is the total size of the series that is 2^n-1
 		int rowSize = (1 << (n - 1));
-		if (k <= rowSize / 2) // it is in the first half
+		int half = rowSize / 2;
+		if (k <= half) // it is in the first half
 			return kthGrammar1(n - 1, k);
 		else // it is in the second half
-			return 1 - kthGrammar1(n - 1, rowSize - k);
+			return 1 - kthGrammar1(n - 1, k - half);
 	}
 
 
@@ -60,7 +60,7 @@ public class KthSymbolInAGrammar {
 	// in xX, the 1st bit is the same, while the 2nd bit is opposite,
 	// so we can conclude that if it is an odd bit position then it is the same bit else opposite
 	private static void type1() {
-		int n = 3, k = 3;
+		int n = 3, k = 4;
 		int value = kthGrammar(n, k);
 		System.out.printf("at %d row at %d column value is %d \n", n, k, value);
 	}
@@ -69,8 +69,9 @@ public class KthSymbolInAGrammar {
 		// in the first row there is only 0
 		if (n == 1) return 0;
 		// finding the bit for previous n
-		int previous = kthGrammar(n - 1, (k + 1) / 2);
-		// if k is odd, then the same else opposite
+		int prevK = (k + 1) / 2; // if current layer it is k then prev layer it will be (k+1)/2
+		int previous = kthGrammar(n - 1, prevK);
+		// if k is odd, then the same else opposite [in xX] if k is odd then bit will be same else opposite
 		return isOdd(k) ? previous : (1 - previous);
 	}
 
