@@ -5,12 +5,16 @@ import java.util.Map;
 
 /*
  * Problem link:
- * https://leetcode.com/problems/fruit-into-baskets/
- * https://www.codingninjas.com/studio/problems/fruits-and-baskets_985356
+ * https://leetcode.com/problems/fruit-into-baskets/description/
+ * https://www.naukri.com/code360/problems/fruits-and-baskets_985356
  * 
  * Solution:
- * Aditya Verma : https://www.youtube.com/watch?v=seOKHXB_w74&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=12
- * 
+ * Aditya Verma :
+ * https://www.youtube.com/watch?v=seOKHXB_w74&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=12
+ * Neetcode:
+ * https://www.youtube.com/watch?v=yYtaV0G3mWQ
+ *
+ * https://neetcode.io/solutions/fruit-into-baskets
  */
 
 public class FruitIntoBaskets {
@@ -24,17 +28,15 @@ public class FruitIntoBaskets {
 	// Starting from any tree of your choice, you must pick exactly one fruit from
 	// every tree (including the start tree) while moving to the right. The picked
 	// fruits must fit in one of your baskets.
-	// Once you reach a tree with fruit that cannot fit in your baskets, you must
-	// stop.
-	// Given the integer array fruits, return the maximum number of fruits you can
-	// pick.
+	// Once you reach a tree with fruit that cannot fit in your baskets, you must stop.
+	// Given the integer array fruits, return the maximum number of fruits you can pick.
 	public static void main(String[] args) {
 		type1();
+		// sliding window
 		type2();
 		type3();
+		// we will just use prev and prev2 variables
 		type4();
-		type5();
-		type6();
 	}
 
 	// TODO best possible solution, same as type5 just it is less complicated to understand
@@ -49,177 +51,142 @@ public class FruitIntoBaskets {
 	// if there is a new type of fruit then we will set that count to 1
 	// because the current fruit will become my new prev fruit
 	// we will change the pointers accordingly
-	private static void type6() {
-		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
-		int max = 0;
-		int curMax = 0;
-		int prev = -1;
-		int prev2 = -1;
-		int prevContinuousCount = 0;
-		for (int fruit : fruits) {
-			if (fruit == prev) {
-				curMax++;
-				prevContinuousCount++;
-			} else {
-				if (fruit == prev2) curMax++;
-				else curMax = prevContinuousCount + 1;
-				prevContinuousCount = 1;
-				prev2 = prev;
-				prev = fruit;
-			}
-			max = Math.max(max, curMax);
-		}
-		System.out.println(max);
-	}
-
-	// TODO best possible solution in leetcode
-	private static void type5() {
-		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
-		int max = 0;
-		int curMax = 0;
-		int prev = -1;
-		int prev2 = -1;
-		int prevCount = 0;
-		for (int fruit : fruits) {
-			if (fruit == prev || fruit == prev2) {
-				curMax++;
-			} else {
-				max = Math.max(max, curMax);
-				curMax = prevCount + 1;
-			}
-			if (fruit == prev) {
-				prevCount++;
-			} else {
-				prevCount = 1;
-				prev2 = prev;
-				prev = fruit;
-			}
-		}
-		max = Math.max(max, curMax);
-		System.out.println(max);
-	}
-
-	// TODO best possible solution I came up with
 	private static void type4() {
 		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
-		int k = 2;
-		int n = fruits.length;
-		int left = 0, max = 0;
-		int types = 0;
-		int[] freq = new int[100001];
-		for (int right = 0; right < n; right++) {
-			int fruit = fruits[right];
-			if (freq[fruit] == 0) types++;
-			freq[fruit]++;
-			while (left < n && types > k) {
-				int fruitToBeRemoved = fruits[left++];
-				freq[fruitToBeRemoved]--;
-				if (freq[fruitToBeRemoved] == 0) types--;
-			}
-			max = Math.max(max, right - left + 1);
-		}
+		int max = totalFruit5(fruits);
 		System.out.println(max);
 	}
 
+	private static int totalFruit5(int[] fruits) {
+		int max = 0;
+		// we will use 2 variables prev and prev2 for storing the fruits which are
+		int prev = -1, prev2 = -1;
+		// count of the current series with prev and prev2 type of fruits
+		int count = 0;
+		// if the current fruit is not the previous fruit then we have 2 cases either it is prev2 or different fruit
+		// if it is prev2 then the series should continue
+		// but if it is a different fruit then we need the count of prevFruit [which we can find using a loop]
+		int prevFruitContinuousCount = 0;
+		for (int fruit : fruits) {
+			if (fruit == prev) {
+				count++;
+				prevFruitContinuousCount++;
+			} else {
+				if (fruit == prev2) {
+					count++; // continue the fruit series
+				} else {
+					count = prevFruitContinuousCount + 1; // create a new series with prevFruitContinuousCount and the current fruit
+				}
+				// we will now update all the variables
+				prevFruitContinuousCount = 1;
+				prev2 = prev;
+				prev = fruit;
+			}
+			max = Math.max(max, count);
+		}
+		return max;
+	}
+
+
+	// same as previous but here we will use the array as freq map
 	private static void type3() {
 		int[] fruits = {6, 2, 1, 1, 3, 6, 6};
-		int k = 2;
+		int max = totalFruit3(fruits);
+		System.out.println(max);
+	}
+
+	private static int totalFruit3(int[] fruits) {
 		int n = fruits.length;
-		int left = 0, max = 0;
+		int max = 0;
 		int types = 0;
-		Map<Integer, Integer> map = new HashMap<>();
-		for (int right = 0; right < n; right++) {
+		// creating the frequency array
+		int maxFruit = -1;
+		for (int fruit : fruits) {
+			maxFruit = Math.max(fruit, maxFruit);
+		}
+		int[] freq = new int[maxFruit + 1];
+		// we will go through the array and add the fruits one by one
+		for (int left = 0, right = 0; right < n; right++) {
 			int fruit = fruits[right];
-			if (!map.containsKey(fruit) || map.get(fruit) == 0) {
-				map.put(fruit, 1);
-				types++;
-			} else map.put(fruit, map.get(fruit) + 1);
-			while (left < n && types > k) {
-				int fruitToBeRemoved = fruits[left++];
-				int fruitToBeRemovedCount = map.get(fruitToBeRemoved);
-				map.put(fruitToBeRemoved, fruitToBeRemovedCount - 1);
-				if (fruitToBeRemovedCount == 1) types--;
+			// it is a new fruit
+			if (freq[fruit] == 0) types++;
+			freq[fruit]++;
+			// if type is greater than 2 then we will shrink the window
+			while (left < right && types > 2) {
+				int leftFruit = fruits[left++];
+				// it is the last fruit, so we will decrease the type
+				if (freq[leftFruit] == 1) types--;
+				freq[leftFruit]--;
 			}
-			max = Math.max(max, right - left + 1);
+			max = Math.max((right - left + 1), max);
 		}
+		return max;
+	}
+
+
+	// todo optimized approach using sliding window
+	//  this is max toys problem which is same as the max fruits problem
+	private static void type2() {
+		int[] fruits = {1, 2, 3, 2, 2};
+		int max = totalFruit2(fruits);
+		System.out.println(max);
+
+		char[] toys = {'a', 'b', 'a', 'a', 'c', 'c', 'a', 'b'};
+		max = totalToys1(toys);
 		System.out.println(max);
 	}
 
-	// sliding window
-	private static void type2() {
-		int[] fruits = { 1, 2, 3, 2, 2 };
-		int k = 2;
+	private static int totalFruit2(int[] fruits) {
 		int n = fruits.length;
-		int left = 0, right = 0, max = 0;
+		int max = 0;
 		Map<Integer, Integer> map = new HashMap<>();
 		int types = 0;
-		int fruitsSize = 0;
-		while (right < n && types < k) {
-			int fruit = fruits[right++];
-			if (!map.containsKey(fruit)) {
-				map.put(fruit, 1);
-				types++;
-			} else map.put(fruit, map.get(fruit) + 1);
-		}
-//		if (right == n) return n;
-		max = right;
-		while (right < n) {
-			int fruit = fruits[right++];
-			if (!map.containsKey(fruit)) {
-				map.put(fruit, 0);
+		// we will go through the array and add the fruits one by one
+		for (int left = 0, right = 0; right < n; right++) {
+			int fruit = fruits[right];
+			// it is a new fruit
+			if (map.getOrDefault(fruit, 0) == 0) types++;
+			map.put(fruit, map.getOrDefault(fruit, 0) + 1);
+			// if type is greater than 2 then we will shrink the window
+			while (left < right && types > 2) {
+				int leftFruit = fruits[left++];
+				// it is the last fruit, so we will decrease the type
+				if (map.get(leftFruit) == 1) types--;
+				map.put(leftFruit, map.get(fruit) - 1);
 			}
-			map.put(fruit, map.get(fruit) + 1);
-			while (map.keySet().size() != k) {
-				int prev = fruits[left];
-				int c = map.get(prev);
-				if (c == 1) {
-					map.remove(prev);
-				} else {
-					map.put(prev, c - 1);
-				}
-				left++;
-			}
-			max = Math.max((right - left), max);
+			max = Math.max((right - left + 1), max);
 		}
-		System.out.println(max);
+		return max;
 	}
 
-	// sliding window
-	private static void type1() {
-		char[] toys = { 'a', 'b', 'a', 'a', 'c', 'c', 'a', 'b' };
-		int k = 2;
+	private static int totalToys1(char[] toys) {
 		int n = toys.length;
-		int left = 0, right = 0, max = 0;
+		int max = 0;
 		Map<Character, Integer> map = new HashMap<>();
-		while (right < n && map.keySet().size() < k) {
-			char toy = toys[right++];
-			if (!map.containsKey(toy)) {
-				map.put(toy, 0);
+		int types = 0;
+		for (int left = 0, right = 0; right < n; right++) {
+			char toy = toys[right];
+			// it is a new toy
+			if (map.getOrDefault(toy, 0) == 0) types++;
+			map.put(toy, map.getOrDefault(toy, 0) + 1);
+			// if type is greater than 2 then we will shrink the window
+			while (left < right && types > 2) {
+				char leftToy = toys[left++];
+				// it is the last toy, so we will decrease the type
+				if (map.get(leftToy) == 1) types--;
+				map.put(leftToy, map.get(toy) - 1);
 			}
-			map.put(toy, map.get(toy) + 1);
+			max = Math.max((right - left + 1), max);
 		}
-		if (right == n)
-			return;
-		max = right;
-		while (right < n) {
-			char toy = toys[right++];
-			if (!map.containsKey(toy)) {
-				map.put(toy, 0);
-			}
-			map.put(toy, map.get(toy) + 1);
-			while (map.keySet().size() != k) {
-				char prev = toys[left];
-				int c = map.get(prev);
-				if (c == 1) {
-					map.remove(prev);
-				} else {
-					map.put(prev, c - 1);
-				}
-				left++;
-			}
-			max = Math.max((right - left), max);
-		}
-		System.out.println(max);
+		return max;
 	}
+
+
+	// brute force approach
+	private static void type1() {
+
+	}
+
+
 
 }
