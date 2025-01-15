@@ -10,6 +10,10 @@ import java.util.Set;
  * Solution:
  * https://www.youtube.com/watch?v=akwRFY2eyXs
  * https://www.youtube.com/watch?v=CBSeilNvZHs
+ *
+ *
+ * https://www.youtube.com/watch?v=etI6HqWVa8U
+ * https://neetcode.io/solutions/subarrays-with-k-different-integers
  * */
 public class SubarrayWithAtMostKDifferentIntegers {
     public static void main(String[] args) {
@@ -17,7 +21,7 @@ public class SubarrayWithAtMostKDifferentIntegers {
         type2();
     }
 
-    // optimized approach
+    // todo optimized approach
     // sliding window technique
     // let's take an example
     // suppose we have array 1234
@@ -35,19 +39,19 @@ public class SubarrayWithAtMostKDifferentIntegers {
         int k = 3;
         int n = nums.length;
         int[] freq = new int[n + 1];
-        int left = 0, num, leftItem, distinct = 0;
+        int distinct = 0;
         int count = 0;
-        for (int right = 0; right < n; right++) {
-            num = nums[right];
+        for (int left = 0, right = 0; right < n; right++) {
+            int num = nums[right];
             if (freq[num] == 0) distinct++;
             freq[num]++;
             while (left < n && distinct > k) {
-                leftItem = nums[left++];
+                int leftItem = nums[left++];
                 freq[leftItem]--;
                 if (freq[leftItem] == 0) distinct--;
             }
             // length of the new substring
-            count += right - left + 1;
+            count += (right - left + 1);
         }
         System.out.println(count);
     }
@@ -59,19 +63,25 @@ public class SubarrayWithAtMostKDifferentIntegers {
     private static void type1() {
         int[] nums = {1, 2, 1, 2, 3, 4};
         int k = 3;
+        int count = subarraysWithAtMostKDistinct1(nums, k);
+        System.out.println(count);
+    }
+
+    private static int subarraysWithAtMostKDistinct1(int[] nums, int k) {
         int count = 0, n = nums.length;
-        Set<Integer> set;
+        Set<Integer> set = new HashSet<>();
         // it will store how much subarray possible for every number until k
         int[] counts = new int[k + 1];
         for (int i = 0; i < n; i++) {
-            set = new HashSet<>();
             for (int j = i; j < n; j++) {
+                // if the set size is already k, and we are getting a new number then we will break
                 if (set.size() == k && !set.contains(nums[j])) break;
                 set.add(nums[j]);
                 counts[set.size()]++;
             }
+            set.clear();
         }
         for (int c : counts) count += c;
-        System.out.println(count);
+        return count;
     }
 }

@@ -3,13 +3,13 @@ package com.problems.linkedlist;
 /*
  *
  * problem links :
- * https://leetcode.com/problems/design-linked-list/
+ * https://leetcode.com/problems/design-linked-list/description/
  *
  * Solution link :
  * https://www.youtube.com/watch?v=Wf4QhpdVFQo
  *
  * https://github.com/neetcode-gh/leetcode/blob/main/java/0707-design-linked-list.java
- *
+ * https://neetcode.io/solutions/design-linked-list
  * */
 
 // TODO Explore later and code walkthrough

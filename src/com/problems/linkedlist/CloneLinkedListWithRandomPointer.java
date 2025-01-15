@@ -10,15 +10,18 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/copy-list-with-random-pointer/
- * https://www.codingninjas.com/codestudio/problems/873376
- * https://www.codingninjas.com/studio/problems/clone-a-linked-list-with-random-pointers_983604
+ * https://leetcode.com/problems/copy-list-with-random-pointer/description/
+ * https://neetcode.io/problems/copy-linked-list-with-random-pointer
+ * https://www.naukri.com/code360/problems/873376
+ * https://www.naukri.com/code360/problems/clone-a-linked-list-with-random-pointers_983604
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=q570bKdrnlw
  * https://www.youtube.com/watch?v=VNf6VynfpdM
+ * https://www.youtube.com/watch?v=5Y2EiZST97Y
  *
  * https://takeuforward.org/data-structure/clone-linked-list-with-random-and-next-pointer/
+ * https://neetcode.io/solutions/copy-list-with-random-pointer
  * */
 public class CloneLinkedListWithRandomPointer {
 
@@ -92,6 +95,9 @@ public class CloneLinkedListWithRandomPointer {
 	}
 
 	// brute force approach
+	// first we will copy the entire list and along the way we will store (old-list-node, copy-list-node) into a map
+	// after creating the list we will again traverse check if the old list node has any random node or not
+	// if yes then we will get the copy list node from the map and assign it to the random node of current copy-list-node
 	// time complexity O(2n)
 	// space complexity O(n)
 	private static void type1() {
@@ -102,32 +108,32 @@ public class CloneLinkedListWithRandomPointer {
 	}
 
 	public static Node copyRandomList1(Node head) {
+		Node node1 = head;
 		// creating a dummy node for head at last we will remove it
 		Node newHead = new Node(0);
-		Node curr, copy = newHead;
-		Node node = head;
+		Node prev = newHead;
 		// we will create a pointer of old list node -> new list node
 		Map<Node, Node> map = new HashMap<>();
-		while (null != node) {
+		while (null != node1) {
 			// creating a node
-			curr = new Node(node.data);
+			Node node2 = new Node(node1.data);
 			// creating the mapping
-			map.put(node, curr);
+			map.put(node1, node2);
 			// we are moving the copy list
-			copy.next = curr;
-			copy = copy.next;
+			prev.next = node2;
+			prev = prev.next;
 			// we are moving the actual list
-			node = node.next;
+			node1 = node1.next;
 		}
 		// as newHead has an extra dummy pointer
-		copy = newHead.next;
-		node = head;
+		node1 = head;
+		Node node2 = newHead.next;
 		// now we will traverse the list and attach the random pointer
-		while (null != copy) {
-			if (null != node.random)
-				copy.random = map.get(node.random);
-			node = node.next;
-			copy = copy.next;
+		while (null != node2) {
+			if (null != node1.random)
+				node2.random = map.get(node1.random);
+			node1 = node1.next;
+			node2 = node2.next;
 		}
 		// as there was a dummy node at first, so we will remove it
 		return newHead.next;

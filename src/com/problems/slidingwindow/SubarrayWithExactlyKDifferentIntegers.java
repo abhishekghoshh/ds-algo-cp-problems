@@ -10,6 +10,9 @@ import java.util.Set;
  * Solution:
  * https://www.youtube.com/watch?v=akwRFY2eyXs
  * https://www.youtube.com/watch?v=CBSeilNvZHs
+ *
+ * https://www.youtube.com/watch?v=etI6HqWVa8U
+ * https://neetcode.io/solutions/subarrays-with-k-different-integers
  * */
 
 // Please check the problem SubarrayWithAtMostKDifferentIntegers first
@@ -17,7 +20,7 @@ public class SubarrayWithExactlyKDifferentIntegers {
 
 	public static void main(String[] args) {
 		type1();
-		type2();
+		type2(); // todo discuss it in the interview
 		type3();
 	}
 
@@ -76,16 +79,23 @@ public class SubarrayWithExactlyKDifferentIntegers {
 	// sliding window
 	// if we know how to calculate Subarrays with at most K Different Integers
 	// then our work is pretty easy
-	// we will calculate Subarrays with at most K Different Integers
-	// for k and k-1
+	// we will calculate Subarrays with at most K Different Integers for k and k-1
 	// and if we subtract SubarrayWithAtMostKDifferentIntegers of k and k-1
 	// then we will find Subarrays with exactly K Different Integers
+
+	// todo we know how to find count of the subarray whose sum is less than equal to target
+	//  but we need exactly how many subarrays whose sum is equal to target
+	//  if we find the count for target and subtract to the count of target-1
+	//  then we will get subarrays count whose sum is equal to target
 	private static void type2() {
 		int[] nums = {1, 2, 1, 2, 3};
 		int k = 2;
-//		if (n < k) return 0;
-		int count = getCount(nums, k) - getCount(nums, k - 1);
+		int count = subarraysWithKDistinct2(nums, k);
 		System.out.println(count);
+	}
+
+	private static int subarraysWithKDistinct2(int[] nums, int k) {
+		return getCount(nums, k) - getCount(nums, k - 1);
 	}
 
 	private static int getCount(int[] nums, int k) {
@@ -95,8 +105,10 @@ public class SubarrayWithExactlyKDifferentIntegers {
 		int count = 0;
 		for (int right = 0; right < n; right++) {
 			num = nums[right];
+			// if f is 0 then it is a new number in the range
 			if (freq[num] == 0) distinct++;
-			freq[num]++;
+			freq[num]++; // updating the freq
+			// if distinct count is greater thatz
 			while (left < n && distinct > k) {
 				leftItem = nums[left++];
 				freq[leftItem]--;
@@ -112,17 +124,22 @@ public class SubarrayWithExactlyKDifferentIntegers {
 	private static void type1() {
 		int[] nums = {1, 2, 1, 2, 3};
 		int k = 2;
+		int count = subarraysWithKDistinct1(nums, k);
+		System.out.println(count);
+	}
+
+	private static int subarraysWithKDistinct1(int[] nums, int k) {
 		int count = 0, n = nums.length;
-		Set<Integer> set;
+		Set<Integer> set = new HashSet<>();
 		for (int i = 0; i < n; i++) {
-			set = new HashSet<>();
 			for (int j = i; j < n; j++) {
 				if (set.size() == k && !set.contains(nums[j])) break;
 				set.add(nums[j]);
 				if (set.size() == k) count++;
 			}
+			set.clear();
 		}
-		System.out.println(count);
+		return count;
 	}
 
 }

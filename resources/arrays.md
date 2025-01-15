@@ -102,6 +102,7 @@
 - [Longest Subarray xor equal to K](/src/com/problems/array/LongestSubarrayXorEqualToK.java)
 - [Count of subarray sum equals K](/src/com/problems/array/CountOfSubarraySumEqualsK.java)
 - [Count of subarray xor equal to K](/src/com/problems/array/CountOfSubarrayXorEqualToK.java)
+- [Binary Subarrays With Sum](/src/com/problems/slidingwindow/BinarySubarraysWithSum.java)
 
 - [Continuous Subarray Sum](/src/com/problems/array/ContinuousSubarraySum.java)
 - [Unique Length 3 Palindromic Subsequences](/src/com/problems/array/UniqueLength3PalindromicSubsequences.java)

@@ -13,13 +13,16 @@
 - [Minimum Window Substring / Variable Size Sliding Window](/src/com/problems/slidingwindow/MinimumWindowSubstring.java)
 - [Minimum Window Subsequence](/src/com/problems/slidingwindow/MinimumWindowSubsequence.java)
 - [Maximum Sum of Distinct Subarrays With Length K](/src/com/problems/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java)
+
 - [Subarrays with at most K Different Integers](/src/com/problems/slidingwindow/SubarrayWithAtMostKDifferentIntegers.java)
 - [Subarrays with exactly K Different Integers](/src/com/problems/slidingwindow/SubarrayWithExactlyKDifferentIntegers.java)
+- [Binary Subarrays With Sum](/src/com/problems/slidingwindow/BinarySubarraysWithSum.java)
+
 - [Number of Substrings Containing All Three Characters](/src/com/problems/slidingwindow/NumberOfSubstringsContainingAllThreeCharacters.java)
 - [Max Consecutive Ones III](/src/com/problems/slidingwindow/MaxConsecutiveOnes3.java)
 - [Longest Repeating Character Replacement](/src/com/problems/slidingwindow/LongestRepeatingCharacterReplacement.java)
 - [Permutation in String](/src/com/problems/slidingwindow/PermutationInString.java)
-- [Binary Subarrays With Sum](/src/com/problems/slidingwindow/BinarySubarraysWithSum.java)
+
 - [Count Number of Nice Subarrays](/src/com/problems/slidingwindow/CountNumberOfNiceSubarrays.java)
 - [Maximum Points You Can Obtain from Cards](/src/com/problems/slidingwindow/MaximumPointsYouCanObtainFromCards.java)
 - [Container With Most Water](/src/com/problems/slidingwindow/ContainerWithMostWater.java)
