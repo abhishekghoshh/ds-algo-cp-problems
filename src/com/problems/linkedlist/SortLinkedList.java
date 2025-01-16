@@ -15,6 +15,9 @@ import static com.util.PrintUtl.print;
  *
  * Solution link :
  * https://www.youtube.com/watch?v=8ocB7a_c-Cc
+ * https://www.youtube.com/watch?v=TGveA1oFhrc
+ *
+ * https://neetcode.io/solutions/sort-list
  * */
 public class SortLinkedList {
     public static void main(String[] args) {
@@ -24,6 +27,7 @@ public class SortLinkedList {
         type4();
     }
 
+    // todo do not discuss it in the interview
     // TODO study this quick sort one more time
     // using quick sort
     private static void type4() {
@@ -59,33 +63,30 @@ public class SortLinkedList {
     }
 
 
-    // using merge sort
+    // todo optimized approach using merge sort
+    //  discuss it in the interview
+    //  using a merge sort idea
     private static void type3() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
-        head = partition(head);
+        head = mergeSort(head);
         print(head);
     }
 
-    public static Node partition(Node head) {
-        // using a merge sort idea
-        if (head == null || head.next == null) return head;
-        // as this is not an array, so we have to find out the
-        // middle pointer by traversing the entire array.
-        // but we could do one thing
-        // we could use the tortoise approach of finding the middle node
-        Node mid = findMid(head);
+    public static Node mergeSort(Node head) {
+        if (head == null || head.next == null)
+            return head;
+        // as this is not an array, so we have to find out the middle pointer by traversing the entire array.
+        // but we could do one thing we could use the tortoise approach of finding the middle node
+        Node mid = mid(head);
         Node head2 = mid.next;
-        // detaching the middle pointer
-        mid.next = null;
-        // at this point, we have two lists
-        // one is head to mid
-        // another is mid.next ... last
-        head = partition(head);
-        head2 = partition(head2);
+        mid.next = null;  // detaching the middle pointer
+        // at this point, we have two lists one is head to mid another is mid.next ... last
+        head = mergeSort(head);
+        head2 = mergeSort(head2);
         return merge(head, head2);
     }
 
-    public static Node findMid(Node head) {
+    public static Node mid(Node head) {
         Node slow = head, fast = head;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
@@ -95,10 +96,10 @@ public class SortLinkedList {
     }
 
     public static Node merge(Node list1, Node list2) {
-        Node head = new Node(-1);
-        Node prev = head;
+        Node dummyHead = new Node(-1);
+        Node prev = dummyHead;
         while (null != list1 && null != list2) {
-            if (list1.data < list2.data) {
+            if (list1.val < list2.val) {
                 prev.next = list1;
                 list1 = list1.next;
             } else {
@@ -108,7 +109,7 @@ public class SortLinkedList {
             prev = prev.next;
         }
         prev.next = (null != list1) ? list1 : list2;
-        return head.next;
+        return dummyHead.next;
     }
 
     // optimized approach using insertion sort
@@ -163,6 +164,11 @@ public class SortLinkedList {
     // brute force approach
     private static void type1() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
+        Node ans = sortList1(head);
+        print(ans);
+    }
+
+    private static Node sortList1(Node head) {
         Node node = head;
         List<Integer> list = new ArrayList<>();
         while (null != node) {
@@ -175,6 +181,6 @@ public class SortLinkedList {
             node.data = num;
             node = node.next;
         }
-        print(head);
+        return head;
     }
 }

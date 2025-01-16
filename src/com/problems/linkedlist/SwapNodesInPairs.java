@@ -12,7 +12,9 @@ import java.util.List;
  * https://leetcode.com/problems/swap-nodes-in-pairs/description/
  *
  * Solution link :
+ * https://www.youtube.com/watch?v=o811TZLAWOo
  *
+ * https://neetcode.io/solutions/swap-nodes-in-pairs
  * */
 public class SwapNodesInPairs {
     public static void main(String[] args) {
@@ -20,7 +22,8 @@ public class SwapNodesInPairs {
         type2();
     }
 
-    // in place reversal
+    // todo in place reversal without extra space
+    // time complexity is O(N)
     private static void type2() {
         Node head = new Node(1, 2, 3, 4);
         head = swapPairs2(head);
@@ -34,17 +37,18 @@ public class SwapNodesInPairs {
         if (null == head || head.next == null) return head;
         // this is the dummy node
         Node dummy = new Node();
-        Node last = dummy;
+        Node prev = dummy;
         while (head != null && head.next != null) {
-            Node next = head.next.next;
+            Node next = head.next.next; // saving the next node
             // first node and the second node
             Node node1 = head, node2 = head.next;
-            // now we will change the links
-            last.next = node2;
+            // changing the next pointers of the node1 and node2
+            prev.next = node2;
             node2.next = node1;
             node1.next = next;
-            // we will reassign the nodes
-            last = node1;
+            // updating the previous
+            prev = node1;
+            // going to the next node
             head = next;
         }
         // now return without the dummy node
@@ -53,7 +57,7 @@ public class SwapNodesInPairs {
 
     // using extra array for reversal
     // todo as per the problem said we should not change the nodes just change the links
-    // time complexity O(3n)
+    // time complexity O(2n)
     // space complexity O(n)
     private static void type1() {
         Node head = new Node(1, 2, 3, 4);
@@ -63,31 +67,28 @@ public class SwapNodesInPairs {
 
     public static Node swapPairs1(Node head) {
         if (null == head || head.next == null) return head;
-        List<Node> list = new ArrayList<>();
-        Node copy = head;
         // adding the nodes to the list
-        while (copy != null) {
-            list.add(copy);
-            copy = copy.next;
+        List<Node> list = new ArrayList<>();
+        Node node = head;
+        while (node != null) {
+            list.add(node);
+            node = node.next;
         }
+        Node dummyHead = new Node();
+        Node prev = dummyHead;
         int n = list.size();
         // we will go to 2 hops everytime
         for (int i = 0; i < n; i += 2) {
-            // if the next element is out of range then we will break;
-            if (i + 1 > n - 1) break;
-            // swapping the nodes
-            Node node1 = list.get(i), node2 = list.get(i + 1);
-            list.set(i + 1, node1);
-            list.set(i, node2);
+            Node node1 = list.get(i);
+            Node node2 = list.get(i + 1);
+            // changing the next pointers of the node1 and node2
+            prev.next = node2;
+            node1.next = node2.next;
+            node2.next = node1;
+            // updating the previous
+            prev = node1;
         }
-        // swapping the links
-        for (int i = 0; i < n; i++) {
-            if (i < n - 1) {
-                list.get(i).next = list.get(i + 1);
-            } else {
-                list.get(i).next = null;
-            }
-        }
-        return list.get(0);
+
+        return dummyHead.next;
     }
 }

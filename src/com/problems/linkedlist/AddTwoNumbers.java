@@ -7,14 +7,16 @@ import static com.util.PrintUtl.print;
 /*
  * 
  * problem links :
- * https://leetcode.com/problems/add-two-numbers/
+ * https://leetcode.com/problems/add-two-numbers/description/
  * https://www.naukri.com/code360/problems/add-two-numbers_1170520
  *
  * Solution link :
  * https://www.youtube.com/watch?v=XmRrGzR6udg
  * https://www.youtube.com/watch?v=LBVsXSMOIk4&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=33
+ * https://www.youtube.com/watch?v=wgFPrzTjm7s
  *
  * https://takeuforward.org/data-structure/add-two-numbers-represented-as-linked-lists/
+ * https://neetcode.io/solutions/add-two-numbers
  * */
 public class AddTwoNumbers {
 
@@ -70,6 +72,7 @@ public class AddTwoNumbers {
 
 	// time complexity o(max(m,n)+1)
 	// space o(max(m,n)+1)
+	// we will go left to right and also track the carry
 	private static void type1() {
 		Node l1 = new Node(2, 4, 3, 5);
 		Node l2 = new Node(5, 6, 4);
@@ -78,7 +81,7 @@ public class AddTwoNumbers {
 	}
 
 	public static Node addTwoNumbers1(Node l1, Node l2) {
-		int carry = 0, sum;
+		int carry = 0;
 		// assigning a dummy pointer
 		Node head = new Node(-1);
 		// prev will pointing to head
@@ -86,7 +89,7 @@ public class AddTwoNumbers {
 		// loop will go until both are null or carry is 0
 		while (null != l1 || null != l2 || carry != 0) {
 			// sum and carry are calculated even if there is any null list
-			sum = carry;
+			int sum = carry;
 			sum += (null != l1) ? l1.data : 0;
 			sum += (null != l2) ? l2.data : 0;
 			carry = sum / 10;
@@ -97,8 +100,8 @@ public class AddTwoNumbers {
 			prev.next = curr;
 			prev = curr;
 			// going to the next node if the list is not null
-			l1 = (null != l1) ? l1.next : l1;
-			l2 = (null != l1) ? l1.next : l1;
+			l1 = (null != l1) ? l1.next : null;
+			l2 = (null != l1) ? l1.next : null;
 		}
 		return head.next;
 	}

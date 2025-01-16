@@ -2,78 +2,43 @@ package com.problems.linkedlist;
 
 import com.ds.linkedlist.Node;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.util.PrintUtl.print;
 
 /*
  *
  * problem links :
- * https://leetcode.com/problems/rotate-list/
+ * https://leetcode.com/problems/rotate-list/description/
  * https://www.naukri.com/code360/problems/920454
  *
  * Solution link :
  * https://www.youtube.com/watch?v=uT7YI7XbTY8
  * https://www.youtube.com/watch?v=9VPm6nEbVPA&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=40
+ * https://www.youtube.com/watch?v=UcGtPs2LE_c
  *
  * https://takeuforward.org/data-structure/rotate-a-linked-list/
+ * https://neetcode.io/solutions/rotate-list
  * */
 public class RotateLinkedListToRight {
 
     public static void main(String[] args) {
         type1();
         type2();
-        type3();
     }
 
-    private static void type3() {
-        Node head = new Node(1, 2, 3, 4, 5);
-        int k = 2;
-        print(head);
-        head = rotateRight3(head, k);
-        print(head);
-    }
 
-    // slightly better than previous
-    // as here we are counting the nodes and going to the last node
-    // at the same time
-    public static Node rotateRight3(Node head, int k) {
-        if (head == null || head.next == null || k == 0) return head;
-        int n = 1;
-        Node last = head;
-        while (null != last.next) {
-            n++;
-            last = last.next;
-        }
-        if (k % n == 0) return head;
-        k = k % n;
-        k = n - k;
-        Node node = head;
-        Node prev = null, newHead;
-        while (k != 0) {
-            prev = node;
-            node = node.next;
-            k--;
-        }
-        newHead = node;
-        last.next = head;
-        prev.next = null;
-        return newHead;
-    }
-
-    // TODO best approach
-    // discuss it in the interview
-    // optimized approach
+    // TODO best approach discuss it in the interview
     // time complexity O(n)
     // space complexity O(1)
     // if the series is  1 2 3 4 5 and k = 2
     // then after two rotation it will become  4 5 1 2 3
-    // see our our work is just cut the last k pointers
-    // and add it to head
-    // so from the start we will go n-k nodes
-    // which is same as k nodes from the end
+    // see our our work is just cut the last k pointers and add it to head
+    // so from the start we will go n-k nodes which is same as k nodes from the end
     private static void type2() {
-        Node head = new Node(1, 2, 3, 4, 5);
-        int k = 2;
-        print(head);
+        Node head = new Node(0,1,2);
+        int k = 4;
         head = rotateRight2(head, k);
         print(head);
     }
@@ -94,40 +59,56 @@ public class RotateLinkedListToRight {
     // now we will assign head to 3.next which is 4
     // also breaks 3's next pointer
     public static Node rotateRight2(Node head, int k) {
+        // if node count is 0 or 1 or k == 0 then there will be now change
         if (head == null || head.next == null || k == 0) return head;
-        int n = 0;
-        Node node = head;
-        while (null != node) {
-            n++;
-            node = node.next;
-        }
-        if (k % n == 0) return head;
+        int n = count(head);
+        // if k is multiple n then we after k shift it will again become original list
+        if ((k % n) == 0) return head;
+        // removing the extra iteration
         k = k % n;
-        k = n - k;
-        node = head;
-        Node prev = null, newHead;
-        while (k != 0) {
-            prev = node;
+        // k rotation meaning list will be starting n-k element, so we will be going to the prev of that node
+        int k1 = n - k;
+        Node node = head;
+        for (int i = 1; i < k1; i++) {
             node = node.next;
-            k--;
         }
-        newHead = node;
-        while (null != node.next) node = node.next;
+        Node newHead = node.next;
+        node.next = null; // breaking the link
+        // now we will go the last node of the 2nd list, because we need to attach last.next = head
+        node = newHead;
+        while (node.next != null) {
+            node = node.next;
+        }
         node.next = head;
-        prev.next = null;
         return newHead;
     }
 
-    // brute force approach
-    // time complexity O(k)
-    // store it in the array
-    // then rotate the array
-    private static void type1() {
+    private static int count(Node head) {
+        int n = 0;
+        while (null != head) {
+            n++;
+            head = head.next;
+        }
+        return n;
+    }
 
+    // todo brute force approach
+    //  time complexity O(n)
+    //  store it in the array then rotate the array
+    private static void type1() {
+        Node head = new Node(1, 2, 3, 4, 5);
+        int k = 2;
+        Node ans = rotateRight1(head, k);
+        print(ans);
     }
 
     public static Node rotateRight1(Node head, int k) {
-
+        List<Node> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head);
+            head = head.next;
+        }
+        // do the rest
         return head;
     }
 }

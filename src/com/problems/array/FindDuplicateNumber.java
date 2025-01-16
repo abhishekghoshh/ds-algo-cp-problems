@@ -1,32 +1,43 @@
 package com.problems.array;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/find-the-duplicate-number/
- * https://www.codingninjas.com/codestudio/problems/1112602
- *
+ * https://leetcode.com/problems/find-the-duplicate-number/description/
+ * https://neetcode.io/problems/find-duplicate-integer
+ * https://www.naukri.com/code360/problems/1112602
  *
  * Solution link :
  * https://www.youtube.com/watch?v=32Ll35mhWg0&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=1
+ * https://www.youtube.com/watch?v=wjYnzkAhcNk
  *
  * https://takeuforward.org/data-structure/find-the-duplicate-in-an-array-of-n1-integers/
+ * https://neetcode.io/solutions/find-the-duplicate-number
  * */
 public class FindDuplicateNumber {
 
+	/*
+	 * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+	 *
+	 * 1 <= n <= 105
+	 * nums.length == n + 1
+	 * 1 <= nums[i] <= n
+	 * */
 	public static void main(String[] args) {
 		type0();
-		type1();
-		type2();
+
+		type1(); // using sort then linear scan
+
+		type2(); // using boolean or int array
 		type3();
-		type4();
-		type5();
+
+		type4(); // todo using swap sort approach try to discuss this in the interview
+
+		type5(); // using fast and slow pointer nice but do not discuss it
 	}
 
-	// linked list cycle approach
+	// todo check again linked list cycle approach
 	// it's same as cycle detection in linked list
 	// we will take two pointer slow and fast
 	// and move them by one and two
@@ -48,7 +59,12 @@ public class FindDuplicateNumber {
 	// as it may rotate some cycles
 	private static void type5() {
 		// int nums[] = { 1, 3, 4, 2, 8, 6, 5, 9, 8, 10, 11 };
-		int nums[] = { 1, 3, 4, 2, 2 };
+		int[] nums = {1, 3, 4, 2, 2};
+		int slow = findDuplicate6(nums);
+		System.out.println("Duplicate element is " + slow);
+	}
+
+	private static int findDuplicate6(int[] nums) {
 		int slow, fast;
 		slow = nums[0];
 		fast = nums[0];
@@ -59,7 +75,7 @@ public class FindDuplicateNumber {
 				break;
 			}
 		}
-		// at this point we detects the cycle
+		// at this point we detect the cycle
 		slow = nums[0];
 		// now slow points to first
 		// fast points to collision
@@ -69,86 +85,106 @@ public class FindDuplicateNumber {
 			slow = nums[slow];
 			fast = nums[fast];
 		}
-		System.out.println("Duplicate element is " + slow);
+		return slow;
 	}
 
-	// swap sort without using extra space
+	// todo check again swap sort without using extra space
 	// given array must be mutable
 	private static void type4() {
 		int[] nums = { 1, 3, 4, 2, 2 };
-		int index = 0;
-		int duplicateElement = 0;
-		while (index < nums.length) {
-			if (nums[index] == index + 1) {
-				index++;
-			} else if (nums[nums[index] - 1] == nums[index]) {
-				duplicateElement = nums[index];
-				break;
+		int ans = findDuplicate5(nums);
+		System.out.println("Duplicate element is " + ans);
+	}
+
+	private static int findDuplicate5(int[] nums) {
+		int i = 0;
+		int n = nums.length;
+		while (i < n) {
+			int num = nums[i];
+			// if then current index hold the current i+1 then it is right
+			// then we will go to the next index
+			if (num == i + 1) {
+				i++;
+				continue;
+			}
+			// ideally num should be in num-1 index but if num-1 already has num then num is duplicate
+			if (nums[num - 1] == num) {
+				return num;
 			} else {
-				int temp = nums[index];
-				nums[index] = nums[temp - 1];
-				nums[temp - 1] = temp;
+				nums[i] = nums[num - 1];
+				nums[num - 1] = num; // now num is in its correct place
 			}
 		}
-		System.out.println("Duplicate element is " + duplicateElement);
+		return -1;
 	}
 
 	// using set with extra space on single iteration
 	private static void type3() {
 		int[] nums = { 1, 3, 4, 2, 2 };
-		int duplicateElement = 0;
-		Set<Integer> set = new HashSet<>();
-		for (int item : nums) {
-			if (set.contains(item)) {
-				duplicateElement = item;
-				break;
-			}
-			set.add(item);
+		int ans = findDuplicate4(nums);
+		System.out.println("Duplicate element is " + ans);
+	}
+
+	private static int findDuplicate4(int[] nums) {
+		int n = nums.length;
+		boolean[] set = new boolean[n + 1];
+		for (int num : nums) {
+			if (set[num]) return num;
+			set[num] = true;
 		}
-		System.out.println("Duplicate element is " + duplicateElement);
+		return -1;
 	}
 
 	// count sort using extra space on a single iteration
 	private static void type2() {
 		int[] nums = { 1, 3, 4, 2, 2 };
-		int length = nums.length;
-		int[] frequency = new int[length];
-		int duplicateElement = 0;
-		for (int item : nums) {
-			frequency[item - 1]++;
-			if (frequency[item - 1] > 1) {
-				duplicateElement = item;
-				break;
-			}
-		}
+		int duplicateElement = findDuplicate3(nums);
 		System.out.println("Duplicate element is " + duplicateElement);
+	}
+
+	private static int findDuplicate3(int[] nums) {
+		int n = nums.length;
+		int[] freq = new int[n + 1];
+		int duplicateElement = 0;
+		for (int num : nums) {
+			freq[num]++;
+			if (freq[num] > 1) return num;
+		}
+		return duplicateElement;
 	}
 
 	/// sort the array and check linear
 	// time complexity O(n + n*log(n))
 	private static void type1() {
 		int[] nums = { 1, 3, 4, 2, 2 };
+		int ans = findDuplicate2(nums);
+		System.out.println(ans);
+	}
+
+	private static int findDuplicate2(int[] nums) {
 		int length = nums.length;
 		Arrays.sort(nums);
 		for (int i = 0; i < length - 1; i++) {
-			if (nums[i] == nums[i + 1]) {
-				System.out.println("Duplicate element is " + nums[i]);
-				break;
-			}
+			if (nums[i] == nums[i + 1]) return nums[i];
 		}
+		return -1;
 	}
 
 	// brute force approach o(n^2)
 	private static void type0() {
 		int[] nums = { 1, 3, 4, 2, 2 };
-		int length = nums.length;
-		for (int i = 0; i < length - 1; i++) {
-			for (int j = i + 1; j < length; j++) {
-				if (nums[i] == nums[j]) {
-					System.out.println("Duplicate element is " + nums[i]);
-				}
+		int ans = findDuplicate1(nums);
+		System.out.println(ans);
+	}
+
+	private static int findDuplicate1(int[] nums) {
+		int n = nums.length;
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (nums[i] == nums[j]) return nums[i];
 			}
 		}
+		return -1;
 	}
 
 }
