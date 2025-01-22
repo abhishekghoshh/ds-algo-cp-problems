@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  ds-algo-cp-problems:
+    container_name: ds-algo-cp-problems
+    image: abhishek1009/ds-algo-cp-problems:latest
+    build:
+      context: .  # Set the build context to the docs directory
+    ports:
+      - "8000:8000"
+    # volume mount so that it will get the local changes automatically
+    volumes:
+      - ./:/home/abhishek/workspace/ds-algo-cp-problems  # Mounts the local docs directory to /docs in the container
