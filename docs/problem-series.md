@@ -4,15 +4,15 @@
 - [Jump Game Problems / Algorithms Made Easy](https://www.youtube.com/playlist?list=PLJtzaiEpVo2yaP5v5bq0-QJgU0lO3TrEi)
 
 ### Jump Game
-- [Jump Game 1](/src/com/problems/special/jumpgame/JumpGame1.java)
-- [Jump Game 2](/src/com/problems/special/jumpgame/JumpGame2.java)
-- [Jump Game 3](/src/com/problems/special/jumpgame/JumpGame3.java)
-- [Jump Game 4](/src/com/problems/special/jumpgame/JumpGame4.java)
-- [Jump Game 5](/src/com/problems/special/jumpgame/JumpGame5.java)
-- [Jump Game 6](/src/com/problems/special/jumpgame/JumpGame6.java)
-- [Jump Game 7](/src/com/problems/special/jumpgame/JumpGame7.java)
-- [Frog Jump 1](/src/com/problems/special/jumpgame/FrogJump1.java)
-- [Frog Jump 2](/src/com/problems/special/jumpgame/FrogJump2.java)
+- [Jump Game 1](src/com/problems/special/jumpgame/JumpGame1.java)
+- [Jump Game 2](src/com/problems/special/jumpgame/JumpGame2.java)
+- [Jump Game 3](src/com/problems/special/jumpgame/JumpGame3.java)
+- [Jump Game 4](src/com/problems/special/jumpgame/JumpGame4.java)
+- [Jump Game 5](src/com/problems/special/jumpgame/JumpGame5.java)
+- [Jump Game 6](src/com/problems/special/jumpgame/JumpGame6.java)
+- [Jump Game 7](src/com/problems/special/jumpgame/JumpGame7.java)
+- [Frog Jump 1](src/com/problems/special/jumpgame/FrogJump1.java)
+- [Frog Jump 2](src/com/problems/special/jumpgame/FrogJump2.java)
 
 ### House Robber
 
@@ -22,12 +22,12 @@
 
 ### Stocks
 
-- [Best Time to Buy and Sell Stock](/src/com/problems/array/BestTimeToBuyAndSellStock1.java)
-- [Best Time to Buy and Sell Stock 2](/src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
-- [Best Time to Buy and Sell Stock 3](/src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
-- [Best Time to Buy and Sell Stock 4](/src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
-- [Best Time to Buy and Sell Stock with Cooldown](/src/com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
-- [Best Time to Buy and Sell Stock with Transaction Fee](/src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
+- [Best Time to Buy and Sell Stock](src/com/problems/array/BestTimeToBuyAndSellStock1.java)
+- [Best Time to Buy and Sell Stock 2](src/com/problems/dp/BestTimeToBuyAndSellStock2.java)
+- [Best Time to Buy and Sell Stock 3](src/com/problems/dp/BestTimeToBuyAndSellStock3.java)
+- [Best Time to Buy and Sell Stock 4](src/com/problems/dp/BestTimeToBuyAndSellStock4.java)
+- [Best Time to Buy and Sell Stock with Cooldown](src/com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
+- [Best Time to Buy and Sell Stock with Transaction Fee](src/com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
 
 ### Resources
 
