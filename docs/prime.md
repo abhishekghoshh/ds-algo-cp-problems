@@ -14,3 +14,5 @@
 - [For a specific a range, find the count of N, such that N is the prime factor of the other number](src/com/problems/prime/CountPrimeFactorsOfHowManyNumbers.java)
 - [Prime factorization of given number](src/com/problems/prime/PrimeFactorizationOfGivenNumber.java)
 - [Segmented Sieve](src/com/problems/prime/SegmentedSieve.java)
+
+- [Assign Elements to Groups with Constraints](src/com/problems/prime/AssignElementsToGroupsWithConstraints.java)

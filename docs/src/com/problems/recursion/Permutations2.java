@@ -8,6 +8,9 @@ import java.util.List;
  * https://leetcode.com/problems/permutations-ii/description/
  *
  * solution link
+ * https://www.youtube.com/watch?v=qhBVWf0YafA
+ *
+ * https://neetcode.io/solutions/permutations-ii
  * */
 public class Permutations2 {
     public static void main(String[] args) {
@@ -34,16 +37,15 @@ public class Permutations2 {
     private static void permuteUnique(int start, int[] nums, List<List<Integer>> ans) {
         int n = nums.length;
         if (start == n) {
-            List<Integer> list = new ArrayList<>();
-            for (int item : nums) list.add(item);
-            ans.add(list);
+            ans.add(toList(nums));
             return;
         }
         int N = 21, offset = 10;
         boolean[] set = new boolean[N];
         for (int i = start; i < n; i++) {
-            if (!set[nums[i] + offset]) {
-                set[nums[i] + offset] = true;
+            int num = nums[i];
+            if (!set[num + offset]) {
+                set[num + offset] = true;
                 // swapping the element
                 swap(nums, start, i);
                 permuteUnique(start + 1, nums, ans);
@@ -51,6 +53,12 @@ public class Permutations2 {
                 swap(nums, start, i);
             }
         }
+    }
+
+    private static List<Integer> toList(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int item : nums) list.add(item);
+        return list;
     }
 
     private static void swap(int[] nums, int left, int right) {

@@ -2,12 +2,16 @@ package com.problems.trie;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/design-add-and-search-words-data-structure/
+ * https://leetcode.com/problems/design-add-and-search-words-data-structure/description/
+ * https://neetcode.io/problems/design-word-search-data-structure
  * 
  * Solution link :
  * https://www.youtube.com/watch?v=h-F2jRUzpBo -> Tech Dose
  * https://www.youtube.com/watch?v=6O73KA53ayY -> Codebix
+ *
  * https://www.youtube.com/watch?v=BTf05gs_8iU -> NeetCode
+ * https://neetcode.io/solutions/design-add-and-search-words-data-structure
+ *
  * https://www.youtube.com/watch?v=T0Cml8tb9UA -> Pepcoding
  * 
  */
@@ -31,16 +35,17 @@ public class WordDictionary {
 	}
 
 	private static class Trie {
+		public static final int SIZE = 26;
 		private final Node head;
 
 		public Trie() {
 			head = new Node();
 		}
 
+		// iteratively going through the word and adding the node
 		public void addWord(String word) {
 			Node node = head;
-			char[] arr = word.toCharArray();
-			for (char ch : arr) {
+			for (char ch : word.toCharArray()) {
 				int pos = ch - 'a';
 				if (node.nodes[pos] == null)
 					node.nodes[pos] = new Node();
@@ -54,10 +59,14 @@ public class WordDictionary {
 		}
 
 		private boolean search(char[] arr, int i, Node node) {
+			// if we have reached the end of the word, then we will just check if the current node is the end of the word
 			if (i == arr.length) return node.isEnd;
 			if (arr[i] == '.') {
-				for (int id = 0; id < 26; id++) {
-					if (null != node.nodes[id] && search(arr, i + 1, node.nodes[id]))
+				for (int pos = 0; pos < SIZE; pos++) {
+					// if the node is null, then continue
+					if (node.nodes[pos] == null) continue;
+					// if the node is not null, then search for the next character
+					if (search(arr, i + 1, node.nodes[pos]))
 						return true;
 				}
 				return false;

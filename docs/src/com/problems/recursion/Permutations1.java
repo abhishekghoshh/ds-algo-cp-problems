@@ -7,7 +7,8 @@ import java.util.Set;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/permutations/
+ * https://leetcode.com/problems/permutations/description/
+ * https://neetcode.io/problems/permutations
  * https://www.naukri.com/code360/problems/758958
  * 
  * Solution link
@@ -19,6 +20,11 @@ import java.util.Set;
  * https://www.youtube.com/watch?v=EnRciMd08_g&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=8
  *
  * https://takeuforward.org/data-structure/print-all-permutations-of-a-string-array/
+ *
+ *
+ *
+ * https://www.youtube.com/watch?v=FZe0UqISmUw
+ * https://neetcode.io/solutions/permutations
  * */
 public class Permutations1 {
 	// TODO check the videos once again
@@ -29,16 +35,19 @@ public class Permutations1 {
 	//  pass by value -> recursion
 	//  pass by reference -> backtracking
 	public static void main(String[] args) {
-		type1();
+		type1(); // this is a brute force technique
+
+		// these 3 types assume there will be no duplicates
 		type2();
 		type3();
 		type4();
+
+		// todo this will handles the duplicates using visited array or a hashset
 		type5();
 		type6();
 	}
 
-	// using backtracking in place array
-	// with 2 optimization
+	// todo using backtracking in-place-array with two optimizations
 	private static void type6() {
 		String string = "abac";
 		List<String> ans = new ArrayList<>();
@@ -54,19 +63,21 @@ public class Permutations1 {
 		}
 		boolean[] visited = new boolean[26];
 		for (int i = start; i < n; i++) {
-			if (!visited[arr[i] - 'a']) {
-				swap(arr, start, i);
-				permutations6(start + 1, arr, ans);
-				swap(arr, start, i);
-				visited[arr[i] - 'a'] = true;
-			}
+			char ch = arr[i];
+			// if in the current iteration we have already visited this character, then we will skip this
+			if (visited[ch - 'a']) continue;
+			swap(arr, start, i);
+			permutations6(start + 1, arr, ans);
+			swap(arr, start, i);
+			visited[ch - 'a'] = true; // mark the character visited
 		}
 	}
 
 
-	// assuming there are some duplicates,
-	// we will be creating a boolean map to so that don't encounter any duplicate
-	// element similar to a type1 solution
+	// todo explain this in the interview
+	//  assuming there are some duplicates,
+	//  we will be creating a boolean map to so that don't encounter any duplicate
+	//  element similar to a type1 solution
 	private static void type5() {
 		String string = "abac";
 		List<String> ans = new ArrayList<>();
@@ -97,9 +108,9 @@ public class Permutations1 {
 		}
 	}
 
-	// same as type previous type3
-	// in place of a char array here it is an int array
-	// this is using backtracking as we are doing it in place
+	// todo same as type previous type3
+	//  in place of a char array here it is an int array
+	//  this is using backtracking as we are doing it in place
 	private static void type4() {
 		int[] nums = { 1, 2, 3 };
 		List<List<Integer>> answer = new ArrayList<>();
@@ -109,9 +120,7 @@ public class Permutations1 {
 
 	private static void permutations4(int[] arr, int start, List<List<Integer>> answer) {
 		if (start == arr.length) {
-			List<Integer> bucket = new ArrayList<>();
-			for (int num : arr) bucket.add(num);
-			answer.add(bucket);
+			answer.add(toList(arr));
 			return;
 		}
 		for (int i = start; i < arr.length; i++) {
@@ -120,38 +129,48 @@ public class Permutations1 {
 			swap(arr, i, start);
 		}
 	}
-
 	private static void swap(int[] array, int left, int right) {
 		int temp = array[left];
 		array[left] = array[right];
 		array[right] = temp;
 	}
 
-	// assuming all characters are distinct,
-	// choosing one character or element to be the first
-	// compatible with both string and array
-	// string array needs to convert in to array.
-	// if it's a int array then we can take the List of Integers for bucket
-	// this is using backtracking as we are doing it in place
+	private static List<Integer> toList(int[] arr) {
+		List<Integer> bucket = new ArrayList<>();
+		for (int num : arr) bucket.add(num);
+		return bucket;
+	}
+
+
+	// todo assuming all characters are distinct,
+	//  choosing one character or element to be the first
+	//  string array needs to convert in to array.
+	//  if it's an int array, then we can take the List of Integers for bucket
+	//  this is using backtracking as we are doing it in place
 	private static void type3() {
-		String string = "abc";
-		List<String> answer = new ArrayList<>();
-		permutations3(string.toCharArray(), 0, answer);
+		String string = "abcd";
+		List<String> answer = permute2(string);
 		System.out.println(answer);
 	}
 
+	private static List<String> permute2(String string) {
+		List<String> answer = new ArrayList<>();
+		permutations3(string.toCharArray(), 0, answer);
+		return answer;
+	}
+
 	private static void permutations3(char[] array, int start, List<String> answer) {
-		if (start == array.length) {
+		int n = array.length;
+		if (start == n) {
 			answer.add(new String(array));
 			return;
 		}
-		// Let say the string is abcd.
-		// Index is 0
-		// now we are choosing c to be the first
-		// so we swap it with index so string will be cbad
-		// now again we will start recursion from index+1
+		// Let say the string is abcd and the starting index is 0.
+		// Now we are choosing c to be the first,
+		// so we swap it with index, so string will be cbad
+		// now again we will start recursion from (starting index + 1)
 		// gain after all the computation we will replace it back
-		for (int i = start; i < array.length; i++) {
+		for (int i = start; i < n; i++) {
 			swap(array, i, start);
 			permutations3(array, start + 1, answer);
 			swap(array, i, start);
@@ -164,28 +183,34 @@ public class Permutations1 {
 		array[right] = ch;
 	}
 
-	// all elements are distinct
-	// compatible with both string and array
+	// todo this is a brute force approach
+	//  assuming all characters are distinct,
+	//  here we are using a set
 	private static void type2() {
 		String string = "abc";
-		List<String> answer = new ArrayList<>();
-		Set<Character> set = new HashSet<>();
-		permutations2(new StringBuilder(), string, set, answer);
+		List<String> answer = permute1(string);
 		System.out.println(answer);
 	}
 
-	private static void permutations2(StringBuilder prev, String curr, Set<Character> set, List<String> answer) {
-		if (set.size() == curr.length()) {
-			answer.add(prev.toString());
+	private static List<String> permute1(String string) {
+		List<String> answer = new ArrayList<>();
+		Set<Character> set = new HashSet<>();
+		permutations2(new StringBuilder(), string.toCharArray(), set, answer);
+		return answer;
+	}
+
+	private static void permutations2(StringBuilder bucket, char[] arr, Set<Character> set, List<String> answer) {
+		int n = arr.length;
+		if (set.size() == n) {
+			answer.add(bucket.toString());
 		}
-		// at every point we recursion we will add one unique element
-		for (int i = 0; i < curr.length(); i++) {
-			char ch = curr.charAt(i);
+		// at every point we recursion, we will add one unique element
+		for (char ch : arr) {
 			if (!set.contains(ch)) {
-				prev.append(ch);
+				bucket.append(ch);
 				set.add(ch);
-				permutations2(prev, curr, set, answer);
-				prev.deleteCharAt(prev.length() - 1);
+				permutations2(bucket, arr, set, answer);
+				bucket.deleteCharAt(bucket.length() - 1);
 				set.remove(ch);
 			}
 		}
@@ -204,7 +229,7 @@ public class Permutations1 {
 		if (curr.isEmpty()) answer.add(prev.toString());
 		// suppose the string is 'abcd' and previous is empty.
 		// so we will first consider 'a', bcd then b,acd then c,abd then
-		// now for 'a','bcd' , previous is a and current string is 'bcd'
+		// now for 'a','bcd', previous is a and current string is 'bcd'
 		// we will follow the same 'ab','cd' then ac,bd then ad,bc
 		for (int i = 0; i < curr.length(); i++) {
 			String remaining = curr.substring(0, i) + curr.substring(i + 1);

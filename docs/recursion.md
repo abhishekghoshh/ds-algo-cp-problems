@@ -8,6 +8,7 @@
 
 ### General
 - [Recursion theory](src/com/problems/recursion/RecursionTheory.java)
+- [Sum of All Subset XOR Totals](src/com/problems/recursion/SumOfAllSubsetXORTotals.java)
 - [Factorial](src/com/problems/recursion/Factorial.java)
 - [Fibonacci](src/com/problems/recursion/FibonacciNumber.java)
 - [Tower of hanoi](src/com/problems/recursion/TowerOfHanoi.java)
@@ -27,6 +28,8 @@
 - [Generate Parentheses](src/com/problems/recursion/GenerateAllBalancedParenthesis.java)
 - [Print N-bit binary numbers having more 1s than 0s](src/com/problems/recursion/GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java)
 - [Subarrays with Sum k](src/com/problems/recursion/SubarraysWithSumK.java)
+
+
 - [Print all subsequences/Power Set with unique elements](src/com/problems/recursion/PowerSet1.java)
 - [Print all subsequences/Power Set with duplicate elements](src/com/problems/recursion/PowerSet2.java)
 
@@ -34,6 +37,12 @@
 - [Combination sum 2](src/com/problems/recursion/CombinationSum2.java)
 - [Combination sum 2](src/com/problems/recursion/CombinationSum3.java)
 - [Combination Sum 4](src/com/problems/recursion/CombinationSum4.java)
+
+- [Permutation with spaces](src/com/problems/recursion/PermutationWithSpaces.java)
+- [Letter case permutation](src/com/problems/recursion/LetterCasePermutation.java)
+- [Print all permutations of string or array](src/com/problems/recursion/Permutations1.java)
+- [Permutations II](src/com/problems/recursion/Permutations2.java)
+- [Kth permutation sequence](src/com/problems/recursion/KthPermutationSequence.java)
 
 - [Subset sum](src/com/problems/recursion/SubsetSum.java)
 - [Count of Subset sum equal to k](src/com/problems/recursion/CountOfSubsetSumEqualToK.java)
@@ -49,11 +58,7 @@
 - [K-th Symbol in Grammar](src/com/problems/recursion/KthSymbolInAGrammar.java)
 - [Find Kth Bit in Nth Binary String](src/com/problems/recursion/FindKthBitInNthBinaryString.java)
 - [Expression Add Operators](src/com/problems/recursion/ExpressionAddOperators.java)
-- [Permutation with spaces](src/com/problems/recursion/PermutationWithSpaces.java)
-- [Letter case permutation](src/com/problems/recursion/LetterCasePermutation.java)
-- [Print all permutations of string or array](src/com/problems/recursion/Permutations1.java)
-- [Permutations II](src/com/problems/recursion/Permutations2.java)
-- [Kth permutation sequence](src/com/problems/recursion/KthPermutationSequence.java)
+
 - [Largest number in K swaps](src/com/problems/recursion/LargestNumberAfterKSwaps.java)
 - [N Digit numbers with digits in increasing order](src/com/problems/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
 - [Print all word breaks](src/com/problems/recursion/PrintAllWordBreaks.java)

@@ -109,4 +109,5 @@
 - [Count Paths With the Given XOR Value](src/com/problems/dp/CountPathsWithTheGivenXORValue.java)
 - [Champagne Tower](src/com/problems/dp/ChampagneTower.java)
 - [Maximum Amount of Money Robot Can Earn](src/com/problems/dp/MaximumAmountOfMoneyRobotCanEarn.java)
+- [Count Substrings Divisible By Last Digit](src/com/problems/dp/CountSubstringsDivisibleByLastDigit.java)
 

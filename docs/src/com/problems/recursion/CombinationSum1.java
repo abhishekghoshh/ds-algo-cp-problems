@@ -6,7 +6,8 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/combination-sum/
+ * https://leetcode.com/problems/combination-sum/description/
+ * https://neetcode.io/problems/combination-target-sum
  * https://www.naukri.com/code360/problems/759331
  * https://www.naukri.com/code360/problems/combination-sum_981296
  *
@@ -14,6 +15,9 @@ import java.util.List;
  * https://www.youtube.com/watch?v=OyZFFqQtu98
  *
  * https://takeuforward.org/data-structure/combination-sum-1/
+ *
+ * https://www.youtube.com/watch?v=GBKI9VSKdGg
+ * https://neetcode.io/solutions/combination-sum
  * */
 public class CombinationSum1 {
     /*
@@ -43,11 +47,16 @@ public class CombinationSum1 {
     private static void type2() {
         int[] nums = {3, 1, 4, 2};
         int target = 7;
+        List<List<Integer>> answer = combinationSum2(nums, target);
+        System.out.println(answer);
+    }
+
+    private static List<List<Integer>> combinationSum2(int[] nums, int target) {
         List<List<Integer>> answer = new ArrayList<>();
         List<Integer> bucket = new ArrayList<>();
         Arrays.sort(nums);
         combinationSum2(nums, 0, target, bucket, answer);
-        System.out.println(answer);
+        return answer;
     }
 
     // we can also use a linked list in place of an array list
@@ -79,10 +88,15 @@ public class CombinationSum1 {
     private static void type1() {
         int[] nums = {3, 6, 2, 7};
         int target = 7;
+        List<List<Integer>> answer = combinationSum1(nums, target);
+        System.out.println(answer);
+    }
+
+    private static List<List<Integer>> combinationSum1(int[] nums, int target) {
         List<List<Integer>> answer = new ArrayList<>();
         List<Integer> bucket = new ArrayList<>();
         combinationSum1(nums, 0, target, bucket, answer);
-        System.out.println(answer);
+        return answer;
     }
 
     private static void combinationSum1(int[] nums, int n, int remaining, List<Integer> bucket, List<List<Integer>> answer) {

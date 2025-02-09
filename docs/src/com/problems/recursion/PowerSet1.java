@@ -8,11 +8,12 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/subsets/
- * https://www.codingninjas.com/studio/problems/print-subsequences_8416366
- * https://www.codingninjas.com/codestudio/problems/unique-subsets_3625236
- * https://practice.geeksforgeeks.org/problems/power-set4302/1
- * https://www.codingninjas.com/studio/problems/subset-sum_3843086
+ * https://leetcode.com/problems/subsets/description/
+ * https://neetcode.io/problems/subsets
+ * https://www.naukri.com/code360/problems/print-subsequences_8416366
+ * https://www.naukri.com/code360/problems/unique-subsets_3625236
+ * https://www.naukri.com/code360/problems/subset-sum_3843086
+ * https://www.geeksforgeeks.org/problems/power-set4302/1
  *
  * Solution link
  * https://www.youtube.com/watch?v=b7AYbpM5YrE
@@ -22,6 +23,10 @@ import java.util.List;
  *
  * https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/
  * https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/
+ *
+ *
+ * https://www.youtube.com/watch?v=REOH22Xwdkk
+ * https://neetcode.io/solutions/subsets
  * */
 
 public class PowerSet1 {

@@ -4,7 +4,8 @@ import java.util.*;
 
 /*
  * Problem links:
- * https://leetcode.com/problems/subsets-ii/
+ * https://leetcode.com/problems/subsets-ii/description/
+ * https://neetcode.io/problems/subsets-ii
  * https://www.naukri.com/code360/problems/subsequences-of-string_985087
  * https://www.naukri.com/code360/problems/get-all-unique-subsets_624393
  *
@@ -18,39 +19,50 @@ import java.util.*;
  *
  * https://takeuforward.org/data-structure/subset-ii-print-all-the-unique-subsets/
  * https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/
+ *
+ *
+ * https://www.youtube.com/watch?v=Vn2v6ajA7U0
+ * https://neetcode.io/solutions/subsets-ii
  * */
 public class PowerSet2 {
 
     // the algorithms used for no unique elements wil also work on the unique elements
     public static void main(String[] args) {
         type1();
-        type2();
+        type2(); // todo this solution will not work
         type3();
     }
 
-    // Given array has duplicate characters
-    // here, our intuition is that we will pick one unique item a time from the remaining list
-    // first we will make 0 item lists then 1 item then 2 then n items
+    // todo best solution, explain this in the interview
+    //  Given array has duplicate characters
+    //  here, our intuition is that we will pick one unique item a time from the remaining list
+    //  first we will make 0 item lists then 1 item then 2 then n items
     private static void type3() {
         int[] nums = {1, 2, 2};
+        List<List<Integer>> answer = powerSet3(nums);
+        System.out.println(answer);
+    }
+
+    private static List<List<Integer>> powerSet3(int[] nums) {
         List<List<Integer>> answer = new ArrayList<>();
         Arrays.sort(nums);
         List<Integer> bucket = new ArrayList<>();
         powerSet3(nums, 0, bucket, answer);
-        System.out.println(answer);
+        return answer;
     }
 
     // TODO check the method one more time if it still confuses you
     //  let's say we have a list 1,2,2,3
     //  we will start from every index and go till last
-    private static void powerSet3(int[] arr, int n, List<Integer> list, List<List<Integer>> answer) {
+    private static void powerSet3(int[] arr, int start, List<Integer> list, List<List<Integer>> answer) {
+        int n = arr.length;
         // one every recursion we will add the current list (till this recursion call) the answer
         answer.add(new ArrayList<>(list));
-        for (int i = n; i < arr.length; i++) {
+        for (int i = start; i < n; i++) {
             // we will check if the current item is the same as the previous item or not
             // if it is the same, then we will skip the loop
             // we have to add a condition that i is not
-            if (i != n && arr[i - 1] == arr[i]) continue;
+            if (i != start && arr[i - 1] == arr[i]) continue;
             // we are choosing arr[i] to be part of the bucket
             list.add(arr[i]);
             // computing the remaining
@@ -61,7 +73,7 @@ public class PowerSet2 {
     }
 
     // TODO this solution will not work (X)
-    // it will contain duplicate sets also
+    //  it will contain duplicate sets also
     private static void type2() {
         int[] nums = {1, 2, 1, 3, 2, 4};
         List<List<Integer>> answer = new ArrayList<>();
@@ -84,7 +96,8 @@ public class PowerSet2 {
 
     }
 
-    // duplicate elements with a set, extra computation needed
+    // todo using recursion with a set
+    //  duplicate elements with a set, extra computation needed
     private static void type1() {
         String str = "aaa";
         Set<String> answer = new HashSet<>();
@@ -92,16 +105,16 @@ public class PowerSet2 {
         System.out.println(answer);
     }
 
-    private static void powerSet1(StringBuilder sb, int n, String str, Set<String> answer) {
-        if (n == str.length()) {
+    private static void powerSet1(StringBuilder sb, int i, String str, Set<String> answer) {
+        if (i == str.length()) {
             answer.add(sb.toString());
             return;
         }
         // here we are not choosing it to be a part of the answer
-        powerSet1(sb, n + 1, str, answer);
+        powerSet1(sb, i + 1, str, answer);
         // here we are choosing the element to a part of the answer
-        sb.append(str.charAt(n));
-        powerSet1(sb, n + 1, str, answer);
+        sb.append(str.charAt(i));
+        powerSet1(sb, i + 1, str, answer);
         // as previous is a StringBuilder so we are changing the actual object so we
         // need to delete the last character which we have added previously
         sb.deleteCharAt(sb.length() - 1);

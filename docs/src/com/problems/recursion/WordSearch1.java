@@ -3,22 +3,26 @@ package com.problems.recursion;
 /*
  * Problem links:
  * https://leetcode.com/problems/word-search/description/
- * https://www.codingninjas.com/studio/problems/word-search---l_892986
+ * https://neetcode.io/problems/search-for-word
+ * https://www.naukri.com/code360/problems/word-search---l_892986
  *
  * Solution link
+ * https://www.youtube.com/watch?v=pfiQ_PS1g8E
  *
- *
+ * https://neetcode.io/solutions/word-search
  * https://takeuforward.org/data-structure/word-search-leetcode/
  * */
 public class WordSearch1 {
     public static void main(String[] args) {
         type1();
         type2();
-        type3();
     }
 
-    // same as previous here we will add another optimization
-    private static void type3() {
+    // same as previous
+    // here we will not use any visited array
+    // here we will change the input array to mark the cell as visited.
+    // also we will use a freq array to check if the characters in the word are present on the board or not
+    private static void type2() {
         char[][] board = {
                 {'A', 'B', 'C', 'E'},
                 {'S', 'F', 'C', 'S'},
@@ -30,9 +34,10 @@ public class WordSearch1 {
     }
 
     private static boolean exist3(char[][] board, String word) {
-        char[] arr = word.toCharArray();
         int m = board.length, n = board[0].length;
-
+        // if the cell count is less than the word length, then we can return false
+        if (m * n < word.length()) return false;
+        char[] arr = word.toCharArray();
         // this is the little optimization that we have done
         // we will check if the characters in that word are present in the board or not
         int[] freq = new int[128];
@@ -44,37 +49,9 @@ public class WordSearch1 {
             // if the frequency is less than 0 means this character is not present in the board
             if (freq[ch] < 0) return false;
         }
+        // now we will traverse the array
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == arr[0]
-                        && hasWord2(board, i, j, 0, arr))
-                    return true;
-            }
-        }
-        return false;
-    }
-
-    // same as previous 
-    // here we will not use any visited array
-    // here we will change the input array
-    private static void type2() {
-        char[][] board = {
-                {'A', 'B', 'C', 'E'},
-                {'S', 'F', 'C', 'S'},
-                {'A', 'D', 'E', 'E'}
-        };
-        String word = "ABCCED";
-        boolean exist = exist2(board, word);
-        System.out.println(exist);
-    }
-
-    private static boolean exist2(char[][] board, String word) {
-        char[] arr = word.toCharArray();
-        int m = board.length, n = board[0].length;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                // we will start the traversal for every cell if its value is the word's first character
-                // if the traversal returns true, then we will also return true
                 if (board[i][j] == arr[0]
                         && hasWord2(board, i, j, 0, arr))
                     return true;
@@ -112,8 +89,7 @@ public class WordSearch1 {
         return false;
     }
 
-    // using recursion and backtracking
-    // using a visited array
+    // todo using recursion and backtracking and a visited array
     private static void type1() {
         char[][] board = {
                 {'A', 'B', 'C', 'E'},
@@ -142,16 +118,15 @@ public class WordSearch1 {
     }
 
     private static boolean hasWord1(char[][] board, int i, int j, int idx, char[] arr, boolean[][] visited) {
-        // if we go to nth index, that means we have already found 0..n-1 indexes
-        // we can return true from here
+        // if it is the last index on the string, then we can return true
         if (idx == arr.length) return true;
-        // if the coordinate is out of bound or the cell value is not arr[i] or the cell is already visited
+        // if the coordinate is out of bound or the cell value is not arr[i] or the cell is already visited,
         // then we will return false
         if (isOutOfBound(i, j, board)
                 || board[i][j] != arr[idx]
                 || visited[i][j])
             return false;
-
+        // marking the index
         visited[i][j] = true;
 
         // we will go to all four directions and try to explore

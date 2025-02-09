@@ -8,6 +8,8 @@
 ### Prerequisites
 - [AVL Tree](src/com/ds/balancedbinarytree/AVLTree.java)
 - [Red-Black Tree](src/com/ds/balancedbinarytree/RedBlackTree.java)
+- [B Tree](src/com/ds/balancedbinarytree/BTree.java)
+- [B+ Tree](src/com/ds/balancedbinarytree/BPlusTree.java)
 
 ### General
 - [Introduction to Binary Search Trees](src/com/problems/binarysearchtree/IntroductionToBinarySearchTree.java)

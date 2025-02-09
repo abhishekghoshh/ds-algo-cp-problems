@@ -15,6 +15,7 @@
 - [Design Add and Search Words Data Structure](src/com/problems/trie/WordDictionary.java)
 - [Power Set](src/com/problems/trie/PowerSet.java)
 - [Word Search 2](src/com/problems/recursion/WordSearch2.java)
+- [Extra Characters in a String](src/com/problems/recursion/ExtraCharactersInAString.java)
 
 ### Bit Manipulation
 - [Maximum XOR of Two Numbers in an Array](src/com/problems/trie/MaximumXorOfTwoNumbersInArray.java)

@@ -7,13 +7,15 @@ import java.util.List;
 /*
  * Problem links:
  * https://leetcode.com/problems/word-search-ii/description/
- * https://www.codingninjas.com/studio/problems/word-search_630520
+ * https://neetcode.io/problems/search-for-word-ii
+ * https://www.naukri.com/code360/problems/word-search_630520
  *
  * Solution link
  * https://www.youtube.com/watch?v=asbcE9mZz_U
+ * https://neetcode.io/solutions/word-search-ii
  *
  * https://takeuforward.org/data-structure/word-search-ii/
- * https://www.codingninjas.com/studio/problem-details/word-search_630520
+ * https://www.naukri.com/code360/problem-details/word-search_630520
  * */
 
 // Tags : Recursion, Trie
@@ -42,22 +44,22 @@ public class WordSearch2 {
         System.out.println(answer);
     }
 
-    static class TrieNode2 {
+    static class Node2 {
         int count = 0;
         boolean isEnd = false;
-        TrieNode2[] nodes = new TrieNode2[26];
+        Node2[] nodes = new Node2[26];
     }
 
     private static List<String> findWords3(char[][] board, String[] words) {
         List<String> answer = new ArrayList<>();
-        TrieNode2 trieNode = new TrieNode2();
+        Node2 trie = new Node2();
         // it will build the trie
         for (String word : words) {
-            TrieNode2 node = trieNode;
+            Node2 node = trie;
             for (char ch : word.toCharArray()) {
                 int pos = ch - 'a';
                 if (node.nodes[pos] == null)
-                    node.nodes[pos] = new TrieNode2();
+                    node.nodes[pos] = new Node2();
                 node = node.nodes[pos];
                 // we will also increment the word counter
                 node.count++;
@@ -73,15 +75,15 @@ public class WordSearch2 {
                 int pos = board[i][j] - 'a';
                 // not null means there might be a word in the trie starting with the cell character
                 // additionally we will also check if the word count is greater than 0 or not
-                if (trieNode.nodes[pos] != null && trieNode.nodes[pos].count > 0)
-                    findWord3(board, i, j, trieNode, new StringBuilder(), answer);
+                if (trie.nodes[pos] != null && trie.nodes[pos].count > 0)
+                    findWord3(board, i, j, trie, new StringBuilder(), answer);
             }
         }
         return answer;
     }
 
     private static boolean findWord3(char[][] board, int i, int j,
-                                     TrieNode2 node, StringBuilder word, List<String> answer) {
+                                     Node2 node, StringBuilder word, List<String> answer) {
         // if the cell out of boundary or the cell is already visited or character is not found in the trie
         // additionally, we will check the word count is greater than 0 or not
         if (isOutOfBound(i, j, board)
@@ -89,12 +91,10 @@ public class WordSearch2 {
                 || node.nodes[board[i][j] - 'a'] == null
                 || node.nodes[board[i][j] - 'a'].count <= 0)
             return false;
-        // we will change the cell value to an arbitrary character to mark it as visited
         char ch = board[i][j];
-        board[i][j] = '-';
-
-        // we will maintain one flag, if on this node or any future node
-        // there is a word, then we will decrement the count variable
+        board[i][j] = '-'; // we will change the cell value to - to mark it as visited
+        // we will maintain one flag, if on this node or any future node there is a word,
+        // then we will decrement the count variable
         boolean hasWordEnding = false;
 
         // we will append the letter to the string
@@ -106,7 +106,7 @@ public class WordSearch2 {
         // so we will add the word into the answer, but we will not stop here.
         // here we will additionally do some other things
         // we will set the flag to true, decrement the count and also unset the variable.
-        // else the word might get added in some other word like
+        // else, the word might get added in some other word like
         // if the current word is abc, and there is another word abcd
         if (node.isEnd) {
             answer.add(word.toString());
@@ -114,7 +114,6 @@ public class WordSearch2 {
             node.count--;
             node.isEnd = false;
         }
-
         // we will traverse all four sides, and if there is any word found, then
         // we will set the flag value to true, and also we will decrement the count value
         if (findWord3(board, i + 1, j, node, word, answer)) {

@@ -88,6 +88,7 @@
 ### hashing
 
 - [Convert an Array Into a 2D Array With Conditions](src/com/problems/array/ConvertAnArrayIntoA2DArrayWithConditions.java)
+- [Sort Matrix by Diagonals](src/com/problems/array/SortMatrixByDiagonals.java)
 
 ### Prefix Sum
 - [Find Pivot Index](src/com/problems/array/FindPivotIndex.java)
