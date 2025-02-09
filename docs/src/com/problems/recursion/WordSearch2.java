@@ -20,6 +20,8 @@ import java.util.List;
 
 // Tags : Recursion, Trie
 public class WordSearch2 {
+
+    // check it later again
     public static void main(String[] args) {
         type1();
         type2();
