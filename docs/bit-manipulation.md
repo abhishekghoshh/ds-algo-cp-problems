@@ -7,7 +7,9 @@
 
 ### General
 - [Introduction to Bit Manipulation](src/com/problems/bitmanipulation/BitManipulation.java)
+- [Find the number that appears once, and the other numbers twice](src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
 - [Negative of a Number](src/com/problems/bitmanipulation/NegativeOfNumber.java)
+- [Add Binary](src/com/problems/bitmanipulation/AddBinary.java)
 - [How many Bits are required to represent a number](src/com/problems/bitmanipulation/HowManyBitsRequiredToRepresentOneNumber.java)
 - [Swap two numbers](src/com/problems/bitmanipulation/SwapTwoNumbers.java)
 - [XOR of 0 to n numbers](src/com/problems/bitmanipulation/XorOfNnumbers.java)
@@ -29,7 +31,8 @@
 - [Find total set bit for range 0 to 2^n](src/com/problems/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java)
 - [Count total set bits](src/com/problems/bitmanipulation/CountTotalSetBits.java)
 - [Reverse Bits](src/com/problems/bitmanipulation/ReverseBits.java)
-- [Find two integer come once in a array/Two Numbers With Odd Occurrences](src/com/problems/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java)
+- [Find missing number in an array](src/com/problems/array/FindMissingNumberInAnArray.java)
+- [Find two integers come once in an array/Two Numbers With Odd Occurrences](src/com/problems/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java)
 - [XOR of every subset in a power set](src/com/problems/bitmanipulation/XorOfEverySubset.java)
 - [Petr and a Combination Lock](src/com/problems/bitmanipulation/PetrAndCombinationLock.java)
 - [Bit Set](src/com/problems/bitmanipulation/BitSet.java)

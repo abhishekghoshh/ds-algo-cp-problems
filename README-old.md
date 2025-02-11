@@ -22,11 +22,11 @@
   - [Linear Search](/src/com/problems/array/LinearSearch.java)
   - [Union of Two Sorted Arrays](/src/com/problems/array/UnionOfTwoSortedArrays.java)
   - [Vowels Game in a String](/src/com/problems/array/VowelsGameInAString.java)
-  - [Find missing number in an array](/src/com/problems/array/FindMissingNumberInAnArray.java)
+
 
 
   - [Maximum Consecutive Ones](/src/com/problems/array/MaxConsecutiveOnes.java)
-  - [Find the number that appears once, and the other numbers twice](/src/com/problems/array/FindTheNumberAppearsOnlyOnce.java)
+  - 
 
 
 
