@@ -56,6 +56,10 @@ public class PrintUtl {
         if (arr != null) for (int item : arr) System.out.print(item + " ");
         System.out.println();
     }
+    public static void print(boolean[] arr) {
+        if (arr != null) for (boolean item : arr) System.out.print(item + " ");
+        System.out.println();
+    }
 
     public static void print(long[] arr) {
         if (arr != null) for (long item : arr) System.out.print(item + " ");

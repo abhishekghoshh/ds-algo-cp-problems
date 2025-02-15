@@ -18,6 +18,7 @@ public class FindTheDifference {
         type2();
     }
 
+
     // todo optimized approach using xor
     //  characters can be represented as the ascii integers
     //  all the characters which are present in the both strings will be cancelled

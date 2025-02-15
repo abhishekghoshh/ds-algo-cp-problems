@@ -46,3 +46,6 @@
 - [Maximum XOR with an element from array](src/com/problems/trie/MaximumXorWithAnElementFromArray.java)
 - [Maximum XOR sum of two arrays ](src/com/problems/bitmanipulation/MinimumXorSumOfTwoArrays.java)
 - [Power of x to n](src/com/problems/bitmanipulation/PowerOfXtoN.java)
+- [Bitwise AND of Numbers Range](src/com/problems/bitmanipulation/BitwiseANDOfNumbersRange.java)
+- [Count Triplets That Can Form Two Arrays of Equal XOR](src/com/problems/bitmanipulation/CountTripletsThatCanFormTwoArraysOfEqualXOR.java)
+- [Minimum Array End](src/com/problems/bitmanipulation/MinimumArrayEnd.java)

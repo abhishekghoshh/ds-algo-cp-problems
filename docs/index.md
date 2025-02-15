@@ -9,6 +9,10 @@
 - billion row challenge in java
 - Map reduce in java
 
+## Data structure visualization
+- [visualgo.net](https://visualgo.net/en)
+- [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
 ## Introduction
 
 **Operations Per Second**: Most competitive programming platforms allow approximately 10^8 operations per second. Some may allow 10^7 operations. Generally, if your algorithm's complexity results in operations exceeding 2^27 (which is approximately 134,217,728),

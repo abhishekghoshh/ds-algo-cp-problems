@@ -3,11 +3,14 @@ package com.problems.math;
 /*
  * problem links :
  * https://leetcode.com/problems/reverse-integer/description/
+ * https://neetcode.io/problems/reverse-integer
  *
  * Solution link :
  * https://www.youtube.com/watch?v=1xNbjMdbjug&t=1s
- *
  * https://takeuforward.org/maths/reverse-digits-of-a-number
+ *
+ * https://www.youtube.com/watch?v=HAgLH58IgJQ
+ * https://neetcode.io/solutions/reverse-integer
  * */
 public class ReverseInteger {
     public static void main(String[] args) {
