@@ -13,45 +13,16 @@ package com.problems.math;
  * https://neetcode.io/solutions/reverse-integer
  * */
 public class ReverseInteger {
+
+    // todo Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
     public static void main(String[] args) {
         type1();
         type2();
-        type3();
     }
 
-    // most optimized approach
-    private static void type3() {
-        int x = -123;
-        int reverse = reverse(x);
-        System.out.println(reverse);
-    }
-
-    public static int reverse(int x) {
-        boolean negative = x < 0;
-        if (negative) x = -x;
-        int i = x, bound = Integer.MAX_VALUE, reverse = 0, digit;
-        int tens = 1;
-        while (i > 9) {
-            tens *= 10;
-            i = i / 10;
-        }
-        i = x;
-        while (tens > 0) {
-            digit = i % 10;
-            i = i / 10;
-            if (tens == 1000000000 && digit > 2) return 0;
-            bound -= (digit * tens);
-            if (bound < 0) return 0;
-            reverse = reverse + digit * tens;
-            tens = tens / 10;
-        }
-        if (negative) reverse = -reverse;
-        return reverse;
-    }
-
-    // optimized approach
-    // but this approach uses long data
-    // which is prohibited in the question
+    // todo optimized approach
+    //  simple clean approach
+    //  we know the range is -2147483648 to 2147483647
     private static void type2() {
         int x = -123;
         int reverse = reverse2(x);
@@ -59,20 +30,27 @@ public class ReverseInteger {
     }
 
     public static int reverse2(int x) {
-        long y = 0;
-        int i = 0;
-        if (x < 0) {
-            i = 1;
-            x = -x;
-        }
-        while (x > 0) {
-            y *= 10;
-            y += x % 10;
+        int reverse = 0;
+        while (x != 0) {
+            int digit = x % 10;
+            // checking for positive overflow,
+            // so the int max is 2147483647, and the current reverse is already more than 214748364
+            // so whatever will add in iteration,
+            // that will still make the reverse number an overflow number.
+            // or the current reverse is 214748364, and the current digit is more than 7,
+            // then also the reverse number will be overflow in the current iteration
+            if (reverse > Integer.MAX_VALUE / 10 || (reverse == Integer.MAX_VALUE / 10 && digit > 7)) {
+                return 0;
+            }
+            // checking for negative overflow
+            // exactly same as the positive overflow, but the condition is different
+            if (reverse < Integer.MIN_VALUE / 10 || (reverse == Integer.MIN_VALUE / 10 && digit < -8)) {
+                return 0;
+            }
+            reverse = (reverse * 10) + digit;
             x = x / 10;
         }
-        if (y > Integer.MAX_VALUE || y < Integer.MIN_VALUE) return 0;
-        if (i == 0) return (int) y;
-        return (int) -y;
+        return reverse;
     }
 
     // brute force approach

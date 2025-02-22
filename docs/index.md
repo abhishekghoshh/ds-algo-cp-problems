@@ -13,6 +13,11 @@
 - [visualgo.net](https://visualgo.net/en)
 - [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
+## Code Designing
+
+- [3 Smart Tactics Senior Devs Use to Cut Cognitive Load!](https://www.youtube.com/watch?v=Q_3_CKs-pHM)
+  - [complexity.json](https://github.com/plainionist/AboutCleanCode/blob/main/Complexity/complexity.json)
+
 ## Introduction
 
 **Operations Per Second**: Most competitive programming platforms allow approximately 10^8 operations per second. Some may allow 10^7 operations. Generally, if your algorithm's complexity results in operations exceeding 2^27 (which is approximately 134,217,728),
