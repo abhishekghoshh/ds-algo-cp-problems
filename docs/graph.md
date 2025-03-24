@@ -78,3 +78,4 @@
 - [Maximize the Number of Target Nodes After Connecting Trees I](src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees1.java)
 - [Maximize the Number of Target Nodes After Connecting Trees II](src/com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees2.java)
 - [Maximize Amount After Two Days of Conversions](src/com/problems/graph/MaximizeAmountAfterTwoDaysOfConversions.java)
+- [Properties Graph](src/com/problems/graph/PropertiesGraph.java)

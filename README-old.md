@@ -58,6 +58,7 @@
   - [Adjacent Increasing Subarrays Detection II](/src/com/problems/array/AdjacentIncreasingSubarraysDetection2.java)
 
 
+- [Fruits Into Baskets](docs/src/com/problems/array/FruitsIntoBaskets.java)
 
 
 

@@ -41,3 +41,5 @@
 - [Find K Pairs with Smallest Sums](src/com/problems/heap/FindKPairsWithSmallestSums.java)
 - [Find Minimum Time to Reach Last Room I](src/com/problems/heap/FindMinimumTimeToReachLastRoom1.java)
 - [Find Minimum Time to Reach Last Room II](src/com/problems/heap/FindMinimumTimeToReachLastRoom2.java)
+
+- [Choose K Elements With Maximum Sum](src/com/problems/heap/ChooseKElementsWithMaximumSum.java)
