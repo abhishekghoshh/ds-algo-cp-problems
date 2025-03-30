@@ -55,6 +55,7 @@
 - [Minimum Number of Insertions and Deletion to convert String a to String b](src/com/problems/dp/MinimumInsertionDeletionForStringConversion.java)
 - [Longest Palindromic Subsequence](src/com/problems/dp/LongestPalindromicSubsequence.java)
 - [Longest Palindromic Substring](src/com/problems/string/LongestPalindromicSubstring.java)
+- [Longest Palindrome After Substring Concatenation II](src/com/problems/dp/LongestPalindromeAfterSubstringConcatenation.java)
 - [Count Palindromic Subsequences](src/com/problems/string/CountPalindromicSubsequences.java)
 - [Palindromic Substrings](src/com/problems/string/PalindromicSubstrings.java)
 - [Minimum number of deletions in a string to make it a palindrome](src/com/problems/dp/MinimumNoOfDeletionForPalindrome.java)

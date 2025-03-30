@@ -71,8 +71,7 @@ public class LongestCommonSubstring {
 					// similar to the longest common subsequence
 					dp[i][j] = 1 + dp[i - 1][j - 1];
 					// this is the extra stuff that we are doing to store the result
-					// unlike LCS the substring can be found anywhere in between the string
-					// not the end
+					// unlike LCS the substring can be found anywhere in between the strings not the end
 					if (max < dp[i][j]) {
 						max = dp[i][j];
 						end = i - 1;

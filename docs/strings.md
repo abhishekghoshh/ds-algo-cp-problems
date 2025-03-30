@@ -53,6 +53,7 @@
 - [Longest palindromic substring](src/com/problems/string/LongestPalindromicSubstring.java)
 - [Count Palindromic Subsequences](src/com/problems/string/CountPalindromicSubsequences.java)
 - [Palindromic Substrings](src/com/problems/string/PalindromicSubstrings.java)
+- [Longest Palindrome After Substring Concatenation II](src/com/problems/dp/LongestPalindromeAfterSubstringConcatenation.java)
 
 - [Repeated String Match](src/com/problems/string/RepeatedStringMatch.java)
 - [Longest happy prefix](src/com/problems/string/LongestHappyPrefix.java)

@@ -135,7 +135,7 @@ public class LongestPalindromicSubstring {
 		// starting and ending character is different
 		arr[0] = '@';
 		arr[n - 1] = '&';
-		// int array for longest palindrome string length array
+		// int array for a longest palindrome string length array
 		int[] lps = new int[n];
 		// we don't need to calculate for the first two and last two characters
 		for (int i = 2; i < n - 2; i++) {
@@ -172,7 +172,7 @@ public class LongestPalindromicSubstring {
 		char[] arr = s.toCharArray();
 		int start = 0, max = 0, len;
 		for (int i = 0; i < arr.length; i++) {
-			// odd length palindrome,when we are considering the odd length palindrome, and the center is (i,i)
+			// odd length palindrome, when we are considering the odd length palindrome, and the center is (i,i)
 			int len1 = expand(i, i, arr);
 			// even length palindrome, when we are considering the even length palindrome, and the center is (i,i+1)
 			int len2 = expand(i, i + 1, arr);
@@ -231,7 +231,7 @@ public class LongestPalindromicSubstring {
 			}
 		}
 		// now we will do generalization,
-		// we will start with 3 character string, and eventually we will check till n
+		// we will start with 3 character strings, and eventually we will check till n
 		for (int d = 3; d <= n; d++) {
 			for (int i = 0; i + d <= n; i++) {
 				int end = i + d - 1;

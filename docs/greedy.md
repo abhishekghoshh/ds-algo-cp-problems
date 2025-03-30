@@ -1,6 +1,7 @@
 ## Greedy
 
 ### General
+- [Minimum Cost to Reach Every Position](src/com/problems/greedy/MinimumCostToReachEveryPosition.java)
 - [Assign Cookies](src/com/problems/greedy/AssignCookies.java)
 - [Fractional Knapsack](src/com/problems/greedy/FractionalKnapsack.java)
 - [Find Minimum Number Of Coins](src/com/problems/greedy/MinimumNumberOfCoins.java)
