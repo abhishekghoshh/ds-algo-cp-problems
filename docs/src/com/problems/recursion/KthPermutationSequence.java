@@ -55,9 +55,9 @@ public class KthPermutationSequence {
 		System.out.println(result);
 	}
 
-	// suppose we have a number 1234, this number will have 24 permutations
-	// out of which 1st 6 numbers will be starting with 1, second 6 numbers will be starting from 2 and so on
-	// so if we take 10 th number, we know one thing that it will start from 2
+	// suppose we have the number 1234, this number will have 24 permutations
+	// out of which 1st 6 numbers will be starting with 1, second 6 numbers will be starting from 2 and so on.
+	// so if we take 10th number, we know one thing that it will start from 2
 	// so first item 2 is fixed remaining number is 134
 	// now we know we have 6 numbers and out of which 1st 2 numbers starts with 1,
 	// second 2 numbers starts with, this we can find the remaining

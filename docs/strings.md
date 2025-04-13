@@ -54,6 +54,8 @@
 - [Count Palindromic Subsequences](src/com/problems/string/CountPalindromicSubsequences.java)
 - [Palindromic Substrings](src/com/problems/string/PalindromicSubstrings.java)
 - [Longest Palindrome After Substring Concatenation II](src/com/problems/dp/LongestPalindromeAfterSubstringConcatenation.java)
+- [Smallest Palindromic Rearrangement I](src/com/problems/string/SmallestPalindromicRearrangement1.java)
+- [Smallest Palindromic Rearrangement II](src/com/problems/string/SmallestPalindromicRearrangement2.java)
 
 - [Repeated String Match](src/com/problems/string/RepeatedStringMatch.java)
 - [Longest happy prefix](src/com/problems/string/LongestHappyPrefix.java)
