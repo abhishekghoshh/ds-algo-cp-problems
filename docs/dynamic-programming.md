@@ -111,4 +111,6 @@
 - [Champagne Tower](src/com/problems/dp/ChampagneTower.java)
 - [Maximum Amount of Money Robot Can Earn](src/com/problems/dp/MaximumAmountOfMoneyRobotCanEarn.java)
 - [Count Substrings Divisible By Last Digit](src/com/problems/dp/CountSubstringsDivisibleByLastDigit.java)
+- [Find X Value of Array I](src/com/problems/dp/FindXValueOfArray1.java)
+- [Maximum Product of Subsequences With an Alternating Sum Equal to K](src/com/problems/dp/MaximumProductOfSubsequencesWithAnAlternatingSumEqualToK.java)
 

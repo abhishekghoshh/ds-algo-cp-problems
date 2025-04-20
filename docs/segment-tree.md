@@ -19,3 +19,7 @@
 - [Range update and sum query in an array - Lazy Propagation in Segment tree](src/com/problems/segmenttree/SumSegmentTreeWithLazyPropagation.java)
 - [Range update and min query in an array - Lazy Propagation in Segment tree](src/com/problems/segmenttree/MinSegmentTreeWithLazyPropagation.java)
 - [Flip coins in a Range](src/com/problems/segmenttree/FlipCoinsAndRangeQuery.java)
+
+
+### Others
+- [Find X Value of Array II](src/com/problems/segmenttree/FindXValueOfArray2.java)

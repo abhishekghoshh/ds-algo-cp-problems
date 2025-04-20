@@ -136,3 +136,9 @@
 - [Bag of Tokens](src/com/problems/array/BagOfTokens.java)
 - [Minimum Length of String After Deleting Similar Ends](src/com/problems/array/MinimumLengthOfStringAfterDeletingSimilarEnds.java)
 - [Trapping Rainwater](src/com/problems/array/TrappingRainWater.java)
+
+
+### Others
+- [Minimum Pair Removal to Sort Array I](src/com/problems/array/MinimumPairRemovalToSortArray1.java)
+- [Minimum Pair Removal to Sort Array II](src/com/problems/array/MinimumPairRemovalToSortArray2.java)
+- [Implement Router](src/com/problems/array/ImplementRouter.java)

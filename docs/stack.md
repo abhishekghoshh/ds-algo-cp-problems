@@ -37,6 +37,7 @@
 - [Daily Temperatures](src/com/problems/stack/DailyTemperatures.java)
 - [Stock span problem](src/com/problems/stack/StockSpan.java)
 - [Remove K Digits](src/com/problems/stack/RemoveKDigits.java)
+- [Make Array Non-decreasing](src/com/problems/stack/MakeArrayNonDecreasing.java)
 
 - [Largest rectangle in a histogram](src/com/problems/stack/MaximumAreaOfHistogram.java)
 - [Sum of subarray minimum](src/com/problems/stack/SumOfSubarrayMinimum.java)
