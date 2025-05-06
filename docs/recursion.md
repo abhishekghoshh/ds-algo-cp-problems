@@ -28,6 +28,7 @@
 - [Generate Parentheses](src/com/problems/recursion/GenerateAllBalancedParenthesis.java)
 - [Print N-bit binary numbers having more 1s than 0s](src/com/problems/recursion/GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java)
 - [Subarrays with Sum k](src/com/problems/recursion/SubarraysWithSumK.java)
+- [Fill a Special Grid](src/com/problems/recursion/FillASpecialGrid.java)
 
 
 - [Print all subsequences/Power Set with unique elements](src/com/problems/recursion/PowerSet1.java)

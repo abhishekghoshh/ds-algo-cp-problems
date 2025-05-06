@@ -5,7 +5,7 @@ import java.util.List;
 
 /*
  * Problem links:
- * https://www.codingninjas.com/studio/problems/subarrays-with-sum-%E2%80%98k'_6922076
+ * https://www.naukri.com/code360/problems/subarrays-with-sum-k_6922076
  * Solution link
  *
  * */
