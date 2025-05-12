@@ -142,3 +142,4 @@
 - [Minimum Pair Removal to Sort Array I](src/com/problems/array/MinimumPairRemovalToSortArray1.java)
 - [Minimum Pair Removal to Sort Array II](src/com/problems/array/MinimumPairRemovalToSortArray2.java)
 - [Implement Router](src/com/problems/array/ImplementRouter.java)
+- [Equal Sum Grid Partition I](src/com/problems/array/EqualSumGridPartition1.java)

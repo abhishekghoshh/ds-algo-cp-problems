@@ -15,6 +15,7 @@
 - [Design HashSet](src/com/problems/hashing/DesignHashSet.java)
 - [Design HashMap](src/com/problems/hashing/DesignHashMap.java)
 - [Contains Duplicate](src/com/problems/hashing/ContainsDuplicate.java)
+- [Minimum Deletions for At Most K Distinct Characters](src/com/problems/hashing/MinimumDeletionsForAtMostKDistinctCharacters.java)
 - [Calculate Score After Performing Instructions](src/com/problems/hashing/CalculateScoreAfterPerformingInstructions.java)
 - [Check if two Strings are anagrams of each other](src/com/problems/string/CheckForAnagrams.java)
 - [Two Sum : Check if a pair with given sum exists in Array](src/com/problems/array/TwoSum.java)
