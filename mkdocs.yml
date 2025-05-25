@@ -1,6 +1,6 @@
 site_name: DS and Algo Problems
 site_url: https://abhishekghoshh.github.io/ds-algo-cp-problems
-#docs_dir: 'src/docs'
+docs_dir: 'src'
 nav:
   - Home: index.md
   - resources: resources.md

@@ -9,13 +9,13 @@
   - [Range Sum Query and Inversion Count Using BIT | Part 2](https://www.youtube.com/watch?v=NOykDuH1_OY&list=PLauivoElc3gilwo3g_ASRqysDvybOlzVQ&index=3)
 
 ### Theory
-- [Prerequisites](src/com/problems/fenwicktree/FenwickTreePrerequisites.java)
-- [Fenwick tree](src/com/problems/fenwicktree/FenwickTree.java)
+- [Prerequisites](com/problems/fenwicktree/FenwickTreePrerequisites.java)
+- [Fenwick tree](com/problems/fenwicktree/FenwickTree.java)
 
 ### General
-- [Inversion count](src/com/problems/segmenttree/InversionCount.java)
-- [Count of Smaller Numbers After Self](src/com/problems/fenwicktree/CountOfSmallerNumbersAfterSelf.java)
-- [Distribute Elements Into Two Arrays II](src/com/problems/fenwicktree/DistributeElementsIntoTwoArrays2.java)
-- [Block Placement Queries](src/com/problems/fenwicktree/BlockPlacementQueries.java)
-- [Find Subarray With Bitwise OR Closest to K](src/com/problems/fenwicktree/FindSubarrayWithBitwiseORClosestToK.java)
-- [Peaks in Array](src/com/problems/fenwicktree/PeaksInArray.java)
+- [Inversion count](com/problems/segmenttree/InversionCount.java)
+- [Count of Smaller Numbers After Self](com/problems/fenwicktree/CountOfSmallerNumbersAfterSelf.java)
+- [Distribute Elements Into Two Arrays II](com/problems/fenwicktree/DistributeElementsIntoTwoArrays2.java)
+- [Block Placement Queries](com/problems/fenwicktree/BlockPlacementQueries.java)
+- [Find Subarray With Bitwise OR Closest to K](com/problems/fenwicktree/FindSubarrayWithBitwiseORClosestToK.java)
+- [Peaks in Array](com/problems/fenwicktree/PeaksInArray.java)
