@@ -1,4 +1,4 @@
-package util;
+package com.util.deprecated;
 
 public class Pair<T1, T2> {
     public T1 first;

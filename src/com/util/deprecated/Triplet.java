@@ -1,4 +1,4 @@
-package util;
+package com.util.deprecated;
 
 public class Triplet<T1, T2, T3> {
 	public T1 first;

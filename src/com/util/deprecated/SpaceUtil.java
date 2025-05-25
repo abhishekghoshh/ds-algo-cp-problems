@@ -1,4 +1,4 @@
-package util;
+package com.util.deprecated;
 
 public class SpaceUtil {
 	public static String withSpace(Object i) {

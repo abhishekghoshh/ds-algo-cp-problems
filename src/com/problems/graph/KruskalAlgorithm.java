@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import static util.OnlineJudgeInit.scanner;
-import static util.OnlineJudgeInit.set;
+import static com.util.deprecated.OnlineJudgeInit.set;
 
 /*
  * Problem link :

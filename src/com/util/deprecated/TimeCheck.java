@@ -1,4 +1,4 @@
-package util;
+package com.util.deprecated;
 
 public class TimeCheck {
     public static long timeTook(Runnable runnable){

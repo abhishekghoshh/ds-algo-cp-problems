@@ -1,3 +1,21 @@
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('li>a').forEach(a => {
+        a.addEventListener('click', function(e) {
+            if (a.href.endsWith('.java')) {
+                if (e.target === this) {
+                    e.preventDefault();
+                    openFile(a.href);
+                }
+            }
+        });
+    });
+});
+
+function openFile(link) {
+    console.log('Opening file:', link);
+}
+
+
 const COMMENT_PATTERN_1=/\/\/(.*)/g
 const COMMENT_PATTERN_2=/\/\*(.*?)\*\//g
 
@@ -50,7 +68,7 @@ function beautifyCode(javaCode) {
 }
 
 
-function openFile(filePath) {
+function openFileV2(filePath) {
     event.preventDefault();
     event.stopPropagation();
     const modal = document.createElement('div');

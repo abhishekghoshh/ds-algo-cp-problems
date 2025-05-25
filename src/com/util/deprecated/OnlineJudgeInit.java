@@ -1,4 +1,4 @@
-package util;
+package com.util.deprecated;
 
 import com.util.PrintUtl;
 
