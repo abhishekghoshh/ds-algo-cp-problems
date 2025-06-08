@@ -136,6 +136,7 @@
 - [Bag of Tokens](com/problems/array/BagOfTokens.java)
 - [Minimum Length of String After Deleting Similar Ends](com/problems/array/MinimumLengthOfStringAfterDeletingSimilarEnds.java)
 - [Trapping Rainwater](com/problems/array/TrappingRainWater.java)
+- [Transform Array to All Equal Elements](com/problems/array/TransformArrayToAllEqualElements.java)
 
 
 ### Others
