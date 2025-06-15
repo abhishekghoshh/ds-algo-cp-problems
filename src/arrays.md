@@ -144,3 +144,4 @@
 - [Minimum Pair Removal to Sort Array II](com/problems/array/MinimumPairRemovalToSortArray2.java)
 - [Implement Router](com/problems/array/ImplementRouter.java)
 - [Equal Sum Grid Partition I](com/problems/array/EqualSumGridPartition1.java)
+- [Count Special Triplets](com/problems/array/CountSpecialTriplets.java)

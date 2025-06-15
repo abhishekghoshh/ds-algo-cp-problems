@@ -4,6 +4,7 @@
 ### General
 - [Is Subsequence](com/problems/string/IsSubsequence.java)
 - [Length of Last Word](com/problems/string/LengthOfLastWord.java)
+- [Generate Tag for Video Caption](com/problems/string/GenerateTagForVideoCaption.java)
 - [Word Pattern](com/problems/string/WordPattern.java)
 - [Find Words That Can Be Formed by Characters](com/problems/string/FindWordsThatCanBeFormedByCharacters.java)
 - [Largest 3-Same-Digit Number in String](com/problems/string/Largest3SameDigitNumberInString.java)
