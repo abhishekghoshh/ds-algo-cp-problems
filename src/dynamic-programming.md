@@ -113,4 +113,5 @@
 - [Count Substrings Divisible By Last Digit](com/problems/dp/CountSubstringsDivisibleByLastDigit.java)
 - [Find X Value of Array I](com/problems/dp/FindXValueOfArray1.java)
 - [Maximum Product of Subsequences With an Alternating Sum Equal to K](com/problems/dp/MaximumProductOfSubsequencesWithAnAlternatingSumEqualToK.java)
+- [Inverse Coin Change](com/problems/dp/InverseCoinChange.java)
 
