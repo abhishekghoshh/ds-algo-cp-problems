@@ -66,6 +66,8 @@
 - [Find the Sequence of Strings Appeared on the Screen](com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
 - [Minimum Remove to Make Valid Parentheses](com/problems/string/MinimumRemoveToMakeValidParentheses.java)
 
+- [Partition String](com/problems/string/PartitionString.java)
+
 ### Advanced
 - [Rabin Karp](com/algo/string/RabinKarp.java)
 - [Z-Function](com/algo/string/ZFunction.java)

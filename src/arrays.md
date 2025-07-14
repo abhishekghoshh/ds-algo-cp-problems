@@ -114,7 +114,7 @@
 - [Find Polygon With the Largest Perimeter](com/problems/array/FindPolygonWithTheLargestPerimeter.java)
 
 - [Range Sum Query 2D - Immutable](com/problems/array/RangeSumQuery2DImmutable.java)
-
+- [Longest Common Prefix Between Adjacent Strings After Removals](com/problems/array/LongestCommonPrefixBetweenAdjacentStringsAfterRemovals.java)
 
 
 ### Sliding window
