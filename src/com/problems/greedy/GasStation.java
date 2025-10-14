@@ -30,6 +30,14 @@ public class GasStation {
     // if we remove gas acquired at index i then even i+1 to j will also not make any sense
     // as i to j is already negative, and we are removing ith index gas, that will again make it more negative
     // we will start from j+1 and reset the current gas to 0
+
+    // also anything in between index i and j can never be the answer
+    // let's say the answer lies between index i and j, and which is index k
+    // ideally index k should give enough surplus gas to reach j
+    // and the gas at i to k must be positive other otherwise we could not reach to k from i
+    // so if k be the answer then from k to we could go to j, but again that invalidates our current math
+    // currently at j we are having negative gas, so k can never be the answer
+    // so we will start from j+1 and reset the current gas to 0
     private static void type3() {
         int[] gas = {1, 2, 3, 4, 5};
         int[] cost = {3, 4, 5, 1, 2};
