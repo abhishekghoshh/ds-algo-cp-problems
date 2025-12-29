@@ -1,13 +1,16 @@
 # Data structure and Algorithm problems and solutions
 
 ## My programming profiles
+
 - [github](https://github.com/abhishekghoshh)
 - [leetcode](https://leetcode.com/u/abhishekghoshh/)
+
 
 ## Introduction
 
 **Operations Per Second**: Most competitive programming platforms allow approximately 10^8 operations per second. Some may allow 10^7 operations. Generally, if your algorithm's complexity results in operations exceeding 2^27 (which is approximately 134,217,728),
 it is likely to cause TLE in a 1-second time frame.
+
 
 ### Time Complexity Estimates:
 
@@ -22,30 +25,34 @@ it is likely to cause TLE in a 1-second time frame.
 
 #### Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
 
+
 ## Table of contents
-- [resources](/resources/resources.md)
-- [prerequisites](/resources/prerequisites.md)
-- [math](/resources/maths.md)
-- [arrays](/resources/arrays.md)
-- [hashing](/resources/hashing.md)
-- [two pointers](/resources/two-pointers.md)
-- [sliding window](/resources/sliding-window.md)
-- [binary search](/resources/binary-search.md)
-- [strings](/resources/strings.md)
-- [linked list](/resources/linked-list.md)
-- [recursion](/resources/recursion.md)
-- [stack](/resources/stack.md)
-- [queue](/resources/queue.md)
-- [heap/priority queue](/resources/heap.md)
-- [bit manipulation](/resources/bit-manipulation.md)
-- [prime](/resources/prime.md)
-- [greedy](/resources/greedy.md)
-- [dynamic programming](/resources/dynamic-programming.md)
-- [meet in the middle](/resources/meet-in-the-middle.md)
-- [binary tree](/resources/binary-tree.md)
-- [binary search tree](/resources/binary-search-tree.md)
-- [graph](/resources/graph.md)
-- [segment tree](/resources/segment-tree.md)
-- [fenwick tree/binary indexed tree](/resources/fenwick-tree.md)
-- [tries](/resources/tries.md)
-- [problem series](/resources/problem-series.md)
+
+- [index](src/index.md)
+- [resources](src/resources.md)
+- [prerequisites](src/prerequisites.md)
+- [patterns](src/patterns.md)
+- [math](src/maths.md)
+- [arrays](src/arrays.md)
+- [hashing](src/hashing.md)
+- [two pointers](src/two-pointers.md)
+- [sliding window](src/sliding-window.md)
+- [binary search](src/binary-search.md)
+- [strings](src/strings.md)
+- [linked list](src/linked-list.md)
+- [recursion](src/recursion.md)
+- [stack](src/stack.md)
+- [queue](src/queue.md)
+- [heap/priority queue](src/heap.md)
+- [bit manipulation](src/bit-manipulation.md)
+- [prime](src/prime.md)
+- [greedy](src/greedy.md)
+- [dynamic programming](src/dynamic-programming.md)
+- [meet in the middle](src/meet-in-the-middle.md)
+- [binary tree](src/binary-tree.md)
+- [binary search tree](src/binary-search-tree.md)
+- [graph](src/graph.md)
+- [segment tree](src/segment-tree.md)
+- [fenwick tree/binary indexed tree](src/fenwick-tree.md)
+- [tries](src/tries.md)
+- [problem series](src/problem-series.md)

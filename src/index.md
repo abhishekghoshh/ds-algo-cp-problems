@@ -1,6 +1,7 @@
 # Data structure and Algorithm problems and solutions
 
 ## My programming profiles
+
 - [github](https://github.com/abhishekghoshh)
 - [leetcode](https://leetcode.com/u/abhishekghoshh/)
 - [algo.monster](https://algo.monster/dashboard)
@@ -36,3 +37,8 @@ it is likely to cause TLE in a 1-second time frame.
   where (n ≤ 10) are often accepted.Generally not acceptable for any significant input size due to their rapid growth.
 
 Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
+
+
+## Some interesting videos
+
+- [Tech Isn’t Fun Anymore](https://www.youtube.com/watch?v=8AlSDOrpSAU)

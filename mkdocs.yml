@@ -1,10 +1,19 @@
 site_name: DS and Algo Problems
+site_description: A comprehensive collection of Data Structures and Algorithms problems with solutions, categorized by topics and difficulty levels, to enhance problem-solving skills.
+site_author: Abhishek Ghosh
 site_url: https://abhishekghoshh.github.io/ds-algo-cp-problems
+
+repo_name: abhishekghoshh/ds-algo-cp-problems
+repo_url: https://github.com/abhishekghoshh/ds-algo-cp-problems
+edit_uri: edit/main/docs/
+
 docs_dir: 'src'
+
 nav:
   - Home: index.md
   - resources: resources.md
   - prerequisites: prerequisites.md
+  - patterns: patterns.md
   - math: maths.md
   - arrays: arrays.md
   - hashing: hashing.md
@@ -69,16 +78,21 @@ theme:
 plugins:
   - social
   - search
+  - tags
   - mkdocs-pdf
 
 extra:
   social:
-    - icon: fontawesome/brands/github-alt
+    - icon: fontawesome/brands/github
       link: https://github.com/abhishekghoshh
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/abhishek1009
     - icon: fontawesome/brands/twitter
       link: https://x.com/abhishek_ghoshh
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/abhishek-ghosh-220679132/
+  version:
+    provider: mike
 
 markdown_extensions:
   - attr_list
