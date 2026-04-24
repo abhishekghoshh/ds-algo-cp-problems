@@ -9,6 +9,7 @@
 - [NeetCode](https://www.youtube.com/@NeetCode/playlists)
 - [NeetCodeIO](https://www.youtube.com/@NeetCodeIO/playlists)
 - [Aryan Mittal](https://www.youtube.com/@ARYANMITTAL/playlists)
+- [Web Fusion with Bharadwaj](https://www.youtube.com/@code-with-Bharadwaj/playlists)
 - [The Ultimate DSA Course for 2025 (with 100% less vibe coding)](https://www.youtube.com/watch?v=DMeD8trbj6A)
 - [CodeBeyond](https://www.youtube.com/@CodeBeyond/playlists)
 - [Pepcoding](https://www.youtube.com/@Pepcoding/playlists)

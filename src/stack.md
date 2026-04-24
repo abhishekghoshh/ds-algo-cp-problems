@@ -1,13 +1,18 @@
 ## Stack
 
 ### Resources
+
+- [Data Structures 101: How Queue and Stack work?](https://www.youtube.com/watch?v=HdTcc4err_I)
+  - [How Queue and Stack data structures work?](https://techwithnikola.com/blog/data-structures/queue-and-stack)
 - [Stack](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsC0FVi9Rshi-5fFU1QwcFQ1)
 
 ### Prerequisites
+
 - [Array Stack](com/ds/stack/ArrayStack.java)
 - [Linked list Stack](com/ds/stack/LinkedListStack.java)
 
 ### General
+
 - [Implement Stack using Arrays](com/problems/stack/Stack.java)
 - [Implement Stack using Queue](com/problems/stack/StackUsingQueue.java)
 - [Implement stack using Linkedlist](com/problems/stack/StackUsingLinkedlist.java)

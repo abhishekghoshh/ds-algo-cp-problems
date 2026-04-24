@@ -1,12 +1,17 @@
 ## Hashing
 
 ### Youtube
+
+- [Introduction to Hash Maps](https://www.youtube.com/watch?v=t-vM3LJDfug)
+  - [data-structures-and-algorithms/blob/main/closed_addressing_hash_map.h](https://github.com/freezing/data-structures-and-algorithms/blob/main/closed_addressing_hash_map.h)
 - [hash-table](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsDH5Wq-Vk5tDb8gH03cULZS)
 
 ### Blogs
+
 - [Hashing | Maps | Time Complexity | Collisions | Division Rule of Hashing | Strivers A2Z DSA Course](https://takeuforward.org/hashing/hashing-maps-time-complexity-collisions-division-rule-of-hashing-strivers-a2z-dsa-course/)
 
 ### Prerequisites
+
 - [Separate Chaining](com/ds/hashtable/HashTableSeparateChaining.java)
 - [Open addressing](com/ds/hashtable/HashTableOpenAddressingBase.java)
 - [Linear probing](com/ds/hashtable/HashTableLinearProbing.java)

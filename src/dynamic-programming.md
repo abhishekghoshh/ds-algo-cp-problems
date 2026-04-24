@@ -1,6 +1,11 @@
 ## Dynamic Programming
 
 ### Resources
+
+- [Mastering Dynamic Programming - How to solve any interview problem](https://www.youtube.com/watch?v=Hdr64lKQ3e4)
+- [Mastering Dynamic Programming - A Real-Life Problem (Part 2)](https://www.youtube.com/watch?v=rE5h11FwiVw)
+
+- [Learn Dynamic Programming with Animations – Full Course for Beginners](https://www.youtube.com/watch?v=66hDgWottdA)
 - [Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges](https://www.youtube.com/watch?v=oBt53YbR9Kk)
 - [Dynamic Programming Playlist / Coding / Interview Questions / Tutorials / Algorithm](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
 - [Dynamic Programming Playlist / Interview Questions / Recursion / Tabulation / Striver / C++ / Java / DSA / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
@@ -11,7 +16,9 @@
 - [Dynamic Programming - Level 2](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEZvXCn-c5UIBvfT8dA-8EG)
 - [Complete Dynamic Programming By Rajneesh Kumar](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEnpZ_Wz8YENHwrgScQTLDh)
 
+
 ### Introduction
+
 - [Fibonacci series](com/problems/dp/FibonacciSeries.java)
 - [N-th Tribonacci Number](com/problems/dp/TribonacciSeries.java)
 - [Climbing stairs](com/problems/dp/ClimbingStairs.java)
@@ -31,7 +38,9 @@
 - [Cherry Pickup 1](com/problems/dp/CherryPickup1.java)
 - [Cherry Pickup 2](com/problems/dp/CherryPickup2.java)
 
+
 ### 0/1 Knapsack problems
+
 - [Knapsack](com/problems/dp/Knapsack.java)
 - [Print knapsack items](com/problems/dp/PrintingKnapsack.java)
 - [Subset sum](com/problems/dp/SubsetSum.java)
@@ -41,13 +50,17 @@
 - [Target sum](com/problems/dp/TargetSum.java)
 - [Count the number of subset with a given difference / Count partitions with Given Difference](com/problems/dp/CountNumberOfSubsetWithGivenSumDifference.java)
 
+
 ### Unbounded Knapsack
+
 - [Unbounded Knapsack](com/problems/dp/UnboundedKnapsack.java)
 - [Rod Cutting](com/problems/dp/RodCutting.java)
 - [Maximum number of choices for a coin change](com/problems/dp/MaximumNoOfWaysForCoinChange.java)
 - [Minimum number of coins for a coin change](com/problems/dp/MinimumNoOfCoinsForCoinChange.java)
 
+
 ### Longest common subsequence
+
 - [Longest common subsequence](com/problems/dp/LongestCommonSubsequence.java)
 - [Print Longest common subsequence](com/problems/dp/PrintLongestCommonSubsequence.java)
 - [Longest common substring](com/problems/dp/LongestCommonSubstring.java)
@@ -66,7 +79,9 @@
 - [Edit Distance](com/problems/dp/EditDistance.java)
 - [Wildcard Matching](com/problems/dp/WildcardMatching.java)
 
+
 ### Longest increasing subsequence
+
 - [Longest Increasing Subsequence](com/problems/dp/LongestIncreasingSubsequence.java)
 - [Printing Longest Increasing Subsequence](com/problems/dp/PrintingLongestIncreasingSubsequence.java)
 - [Largest Divisible Subset](com/problems/dp/LargestDivisibleSubset.java)
@@ -77,7 +92,9 @@
 - [Max Sum Increasing Subsequence](com/problems/dp/MaxSumIncreasingSubsequence.java)
 - [Max Sum Increasing Subsequence of length k](com/problems/dp/MaxSumIncreasingSubsequenceOfLengthK.java)
 
+
 ### DP on stocks
+
 - [Best Time to Buy and Sell Stock](com/problems/array/BestTimeToBuyAndSellStock1.java)
 - [Best Time to Buy and Sell Stock 2](com/problems/dp/BestTimeToBuyAndSellStock2.java)
 - [Best Time to Buy and Sell Stock 3](com/problems/dp/BestTimeToBuyAndSellStock3.java)
@@ -85,7 +102,9 @@
 - [Best Time to Buy and Sell Stock with Cooldown](com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java)
 - [Best Time to Buy and Sell Stock with Transaction Fee](com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java)
 
+
 ### Matrix chain multiplication
+
 - [Matrix chain multiplication](com/problems/dp/MatrixChainMultiplication.java)
 - [Minimum cost to Cut the Stick](com/problems/dp/MinimumCostToCutTheStick.java)
 - [Bust Balloons](com/problems/dp/BustBalloons.java)
@@ -95,12 +114,16 @@
 - [Scrambled String](com/problems/dp/ScrambledString.java)
 - [Egg dropping](com/problems/dp/EggDropping.java)
 
+
 ### DP on squares
+
 - [Maximal Rectangles in a Binary Matrix](com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java)
 - [Count Square Sub matrices with All Ones](com/problems/dp/CountSquareSubmatricesWithAllOnes.java)
 - [Count Sub matrices With Equal Frequency of X and Y](com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java)
 
+
 ### others
+
 - [More subsequence](com/problems/recursion/MoreSubsequence.java)
 - [Word Break](com/problems/dp/WordBreak.java)
 - [Maximize Total Cost of Alternating Subarrays](com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)

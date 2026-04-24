@@ -1,17 +1,20 @@
 ## Binary Search Tree
 
 ### Resources
+
 - [Binary Trees / Binary Search Trees / C++ / Java / Data Structures and Algorithms / Placements](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk)
 - [Binary Search Tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsCYY48kOkeLQ-cg9-eqInzs)
 - [AVL tree](https://www.youtube.com/playlist?list=PLDV1Zeh2NRsD06x59fxczdWLhDDszUHKt)
 
 ### Prerequisites
+
 - [AVL Tree](com/ds/balancedbinarytree/AVLTree.java)
 - [Red-Black Tree](com/ds/balancedbinarytree/RedBlackTree.java)
 - [B Tree](com/ds/balancedbinarytree/BTree.java)
 - [B+ Tree](com/ds/balancedbinarytree/BPlusTree.java)
 
 ### General
+
 - [Introduction to Binary Search Trees](com/problems/binarysearchtree/IntroductionToBinarySearchTree.java)
 - [Search in a Binary Search Tree](com/problems/binarysearchtree/SearchInBinarySearchTree.java)
 - [Minimum Distance Between BST Nodes](com/problems/binarysearchtree/MinimumDistanceBetweenBSTNodes.java)
