@@ -1,6 +1,6 @@
-### sliding-window
+### Sliding Window
 
-- **codes**
+
 - [Maximum Sum Subarray of size K](com/problems/slidingwindow/MaximumSumSubarrayOfSizeK.java)
 - [First Negative Number in every Window of Size K](com/problems/slidingwindow/FirstNegativeNumberInEveryWindowOfSizeK.java)
 - [Count Occurrences Of Anagrams](com/problems/slidingwindow/CountOfAnagrams.java)

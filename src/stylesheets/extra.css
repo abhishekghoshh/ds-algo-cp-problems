@@ -1,19 +1,199 @@
 pre {
-    background-color: #f5f5f5;
-    padding: 10px;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--md-code-bg-color, #f5f5f5);
+    padding: 1rem;
+    font-family: var(--md-code-font-family, "Courier New", Courier, monospace);
     white-space: pre-wrap;
     word-wrap: break-word;
+    border-radius: 0.75rem;
+}
+
+body.java-modal-open {
+    overflow: hidden;
+}
+
+.java-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.68);
+    backdrop-filter: blur(6px);
+}
+
+.java-modal {
+    width: min(1100px, 100%);
+    max-height: min(88vh, 1000px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
+    border-radius: 1rem;
+    background: var(--md-default-bg-color, #ffffff);
+    color: var(--md-default-fg-color, #1f2937);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+}
+
+.java-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.12));
+    background: var(--md-default-bg-color, #ffffff);
+}
+
+.java-modal-title-block {
+    min-width: 0;
+}
+
+.java-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--md-default-fg-color, #111827);
+}
+
+.java-modal-subtitle {
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--md-default-fg-color--light, #6b7280);
+    word-break: break-all;
+}
+
+.java-modal-close {
+    flex-shrink: 0;
+    border: 1px solid var(--md-default-fg-color--lighter, rgba(0, 0, 0, 0.2));
+    border-radius: 999px;
+    background: transparent;
+    color: var(--md-default-fg-color, #111827);
+    font: inherit;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.65rem 1rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.java-modal-close:hover,
+.java-modal-close:focus-visible {
+    background: var(--md-accent-fg-color--transparent, rgba(13, 148, 136, 0.12));
+    border-color: var(--md-accent-fg-color, #0f766e);
+    color: var(--md-accent-fg-color, #0f766e);
+    outline: none;
+}
+
+.java-modal-body {
+    min-height: 0;
+    overflow: auto;
+    padding: 1.25rem;
+    background: var(--md-code-bg-color, #f8fafc);
+}
+
+.java-modal-status {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: var(--md-default-bg-color, #ffffff);
+    color: var(--md-default-fg-color--light, #4b5563);
+    border: 1px dashed var(--md-default-fg-color--lighter, rgba(0, 0, 0, 0.2));
+}
+
+.java-modal-status-error {
+    color: #b42318;
+    border-style: solid;
+    border-color: rgba(180, 35, 24, 0.24);
+    background: rgba(180, 35, 24, 0.08);
+}
+
+.java-source-viewer {
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.08));
+    border-radius: 0.85rem;
+    background: var(--md-code-bg-color, #f5f5f5);
+    white-space: pre;
+    overflow: auto;
+    word-wrap: normal;
+    line-height: 1.6;
+    tab-size: 4;
+}
+
+.java-source-viewer code {
+    display: block;
+    color: var(--md-code-fg-color, var(--md-default-fg-color, #111827));
+    font-family: var(--md-code-font-family, "Courier New", Courier, monospace);
+    font-size: 0.85rem;
 }
 
 .keyword {
-    color: blue;
+    color: #005cc5;
+    font-weight: 700;
 }
 
 .string {
-    color: green;
+    color: #0a7f43;
 }
 
 .comment {
-    color: gray;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.annotation {
+    color: #7c3aed;
+}
+
+.number {
+    color: #b45309;
+}
+
+[data-md-color-scheme="slate"] .java-modal-overlay {
+    background: rgba(2, 6, 23, 0.78);
+}
+
+[data-md-color-scheme="slate"] .java-modal {
+    box-shadow: 0 24px 80px rgba(2, 6, 23, 0.48);
+}
+
+[data-md-color-scheme="slate"] .keyword {
+    color: #7dd3fc;
+}
+
+[data-md-color-scheme="slate"] .string {
+    color: #86efac;
+}
+
+[data-md-color-scheme="slate"] .comment {
+    color: #94a3b8;
+}
+
+[data-md-color-scheme="slate"] .annotation {
+    color: #c4b5fd;
+}
+
+[data-md-color-scheme="slate"] .number {
+    color: #fdba74;
+}
+
+@media (max-width: 768px) {
+    .java-modal-overlay {
+        padding: 0.75rem;
+    }
+
+    .java-modal-header,
+    .java-modal-body {
+        padding: 1rem;
+    }
+
+    .java-modal-close {
+        padding: 0.55rem 0.85rem;
+    }
+
+    .java-source-viewer {
+        padding: 1rem;
+    }
 }

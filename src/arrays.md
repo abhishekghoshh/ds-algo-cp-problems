@@ -1,10 +1,15 @@
-## Arrays
+# Arrays
 
-### Youtube
+## Youtube
+
 - [Dynamic and Static Arrays](https://www.youtube.com/watch?v=PEnFFiQe1pM)
 - [Dynamic Array Code](https://www.youtube.com/watch?v=tvw4v7FEF1w)
 
+
+## Codes
+
 ### Prerequisites
+
 - [Dynamic array](com/ds/array/Array.java)
 
 
@@ -78,21 +83,32 @@
 
 - [Car Fleet](com/problems/array/CarFleet.java)
 
+
+
 ### Swap sort
+
 - [Swap sort](com/algo/sort/SwapSort.java)
 - [Find the repeating and missing numbers](com/problems/array/RepeatAndMissingNumber.java)
 - [Find All Duplicates in an Array](com/problems/array/FindAllDuplicatesInAnArray.java)
 
+
+
 ### Bit Manipulation
+
 - [Find the repeating and missing numbers](com/problems/array/RepeatAndMissingNumber.java)
 - [Check If a String Contains All Binary Codes of Size K](com/problems/array/CheckIfAStringContainsAllBinaryCodesOfSizeK.java)
+
+
 
 ### hashing
 
 - [Convert an Array Into a 2D Array With Conditions](com/problems/array/ConvertAnArrayIntoA2DArrayWithConditions.java)
 - [Sort Matrix by Diagonals](com/problems/array/SortMatrixByDiagonals.java)
 
+
+
 ### Prefix Sum
+
 - [Find Pivot Index](com/problems/array/FindPivotIndex.java)
 - [Range Sum Query - Immutable](com/problems/array/RangeSumQueryImmutable.java)
 - [Largest Substring Between Two Equal Characters](com/problems/array/LargestSubstringBetweenTwoEqualCharacters.java)
@@ -117,11 +133,13 @@
 - [Longest Common Prefix Between Adjacent Strings After Removals](com/problems/array/LongestCommonPrefixBetweenAdjacentStringsAfterRemovals.java)
 
 
+
 ### Sliding window
 
 - [Minimum Difference Between Highest and Lowest of K Scores](com/problems/slidingwindow/MinimumDifferenceBetweenHighestAndLowestOfKScores.java)
 - [Number of Zero-Filled Subarrays](com/problems/slidingwindow/NumberOfZeroFilledSubarrays.java)
 - [Optimal Partition of String](com/problems/array/OptimalPartitionOfString.java)
+
 
 
 ### Two pointer
@@ -139,7 +157,9 @@
 - [Transform Array to All Equal Elements](com/problems/array/TransformArrayToAllEqualElements.java)
 
 
+
 ### Others
+
 - [Minimum Pair Removal to Sort Array I](com/problems/array/MinimumPairRemovalToSortArray1.java)
 - [Minimum Pair Removal to Sort Array II](com/problems/array/MinimumPairRemovalToSortArray2.java)
 - [Implement Router](com/problems/array/ImplementRouter.java)

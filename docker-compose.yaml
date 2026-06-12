@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   ds-algo-cp-problems:
     container_name: ds-algo-cp-problems
