@@ -126,7 +126,7 @@ body.java-modal-open {
     display: block;
     color: var(--md-code-fg-color, var(--md-default-fg-color, #111827));
     font-family: var(--md-code-font-family, "Courier New", Courier, monospace);
-    font-size: 0.85rem;
+    font-size: 0.65rem;
 }
 
 .keyword {
@@ -141,6 +141,20 @@ body.java-modal-open {
 .comment {
     color: #6b7280;
     font-style: italic;
+}
+
+.java-source-viewer .comment a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.12rem;
+}
+
+.java-source-viewer .comment a:hover,
+.java-source-viewer .comment a:focus-visible {
+    color: var(--md-accent-fg-color, #0f766e);
+    text-decoration-style: solid;
+    outline: none;
 }
 
 .annotation {
@@ -169,6 +183,11 @@ body.java-modal-open {
 
 [data-md-color-scheme="slate"] .comment {
     color: #94a3b8;
+}
+
+[data-md-color-scheme="slate"] .java-source-viewer .comment a:hover,
+[data-md-color-scheme="slate"] .java-source-viewer .comment a:focus-visible {
+    color: #67e8f9;
 }
 
 [data-md-color-scheme="slate"] .annotation {

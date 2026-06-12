@@ -1,6 +1,7 @@
 const KEYWORD_PATTERN = /\b(abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|if|implements|import|instanceof|int|interface|long|native|new|null|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|true|try|var|void|volatile|while|record|sealed|permits|non-sealed|false)\b/g;
 const NUMBER_PATTERN = /\b(0[xX][\da-fA-F_]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?[dDfFlL]?)\b/g;
 const ANNOTATION_PATTERN = /(^|[^\w])(@[A-Za-z_]\w*)/g;
+const URL_PATTERN = /(https?:\/\/[^\s*<]+)/g;
 
 let activeModal = null;
 let activeModalClose = null;
@@ -166,8 +167,15 @@ function beautifyCode(javaCode) {
 function preserveTokens(source, pattern, className, tokens) {
     return source.replace(pattern, (match) => {
         const placeholder = `__JAVA_TOKEN_${tokens.length}__`;
-        tokens.push(`<span class="${className}">${match}</span>`);
+        const tokenText = className === 'comment' ? linkifyCommentUrls(match) : match;
+        tokens.push(`<span class="${className}">${tokenText}</span>`);
         return placeholder;
+    });
+}
+
+function linkifyCommentUrls(text) {
+    return text.replace(URL_PATTERN, (url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
     });
 }
 
