@@ -17,12 +17,16 @@ document.addEventListener('click', (event) => {
     }
 
     const url = new URL(anchor.href, window.location.href);
-    if (!url.pathname.endsWith('.java')) {
+    if (url.pathname.endsWith('.java')) {
+        event.preventDefault();
+        openFile(anchor.href, anchor.textContent.trim());
         return;
     }
 
-    event.preventDefault();
-    openFile(anchor.href, anchor.textContent.trim());
+    if (isYouTubeLink(url)) {
+        event.preventDefault();
+        openYouTubeVideo(anchor.href, anchor.textContent.trim());
+    }
 });
 
 document.addEventListener('keydown', (event) => {
@@ -50,6 +54,17 @@ async function openFile(link, label) {
             true
         );
     }
+}
+
+function openYouTubeVideo(link, label) {
+    const embedUrl = toYouTubeEmbedUrl(link);
+    if (!embedUrl) {
+        window.open(link, '_blank', 'noopener,noreferrer');
+        return;
+    }
+
+    const modal = createModal(label || 'YouTube Video', link);
+    renderYouTubeVideo(modal.body, embedUrl, label || 'YouTube Video');
 }
 
 function createModal(title, link) {
@@ -148,6 +163,24 @@ function renderJavaSource(container, javaCode) {
     container.appendChild(pre);
 }
 
+function renderYouTubeVideo(container, embedUrl, title) {
+    container.innerHTML = '';
+
+    const frameWrap = document.createElement('div');
+    frameWrap.className = 'video-modal-frame-wrap';
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'video-modal-frame';
+    iframe.src = embedUrl;
+    iframe.title = title || 'YouTube video player';
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+    frameWrap.appendChild(iframe);
+    container.appendChild(frameWrap);
+}
+
 function beautifyCode(javaCode) {
     let highlightedCode = escapeHtml(javaCode).replace(/\t/g, '    ');
     const tokens = [];
@@ -193,4 +226,42 @@ function escapeHtml(value) {
 function fileNameFromLink(link) {
     const pathname = new URL(link, window.location.href).pathname;
     return pathname.split('/').pop() || 'Java source';
+}
+
+function isYouTubeLink(url) {
+    const host = url.hostname.replace(/^www\./, '').toLowerCase();
+    return host === 'youtube.com' || host === 'm.youtube.com' || host === 'youtu.be';
+}
+
+function toYouTubeEmbedUrl(link) {
+    const url = new URL(link, window.location.href);
+    const host = url.hostname.replace(/^www\./, '').toLowerCase();
+    let videoId = '';
+    const listId = url.searchParams.get('list') || '';
+
+    if (host === 'youtu.be') {
+        videoId = url.pathname.slice(1).split('/')[0];
+    } else if (host === 'youtube.com' || host === 'm.youtube.com') {
+        if (url.pathname === '/watch') {
+            videoId = url.searchParams.get('v') || '';
+        } else if (url.pathname === '/playlist') {
+            if (listId) {
+                return `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(listId)}`;
+            }
+        } else if (url.pathname.startsWith('/shorts/')) {
+            videoId = url.pathname.split('/')[2] || '';
+        } else if (url.pathname.startsWith('/embed/')) {
+            videoId = url.pathname.split('/')[2] || '';
+        }
+    }
+
+    if (!videoId && listId) {
+        return `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(listId)}`;
+    }
+
+    if (!videoId) {
+        return '';
+    }
+
+    return `https://www.youtube.com/embed/${encodeURIComponent(videoId)}`;
 }
