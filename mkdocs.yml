@@ -38,6 +38,7 @@ nav:
   - fenwick tree/binary indexed tree: fenwick-tree.md
   - tries: tries.md
   - problem series: problem-series.md
+  - p and np: p-np-problems.md
 
 extra_javascript:
   - javascripts/extra.js

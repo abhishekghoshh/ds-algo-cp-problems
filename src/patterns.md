@@ -26,6 +26,8 @@
 
 ### Playlists
 
+- [5-Hour LeetCode Course: Core DSA Patterns for Interviews](https://www.youtube.com/watch?v=ADWPbock-7U)
+- [Master DSA using 25 DSA PATTERNS for Coding Interviews || New & Easy way to Master DSA. – Crack Any Problem with These!](https://www.youtube.com/playlist?list=PLh_njhZ_MgInazcDWlX1RlpwIIYACSyIJ)
 - [DSA Patterns 2025 | Crack FAANG in 3 Months | DSA Patterns by IITian](https://www.youtube.com/playlist?list=PLbJhGqY-mq47k_WLUtzVjmarUm1EuXPj2)
   - [DSA patterns Cheat Sheet](https://docs.google.com/spreadsheets/d/1T5-nGsJ9WNwna44e9WWRD0jlZIT5KxVOGvylcvvVrY8/edit?gid=0#gid=0)
 - [DSA Patterns Course 2025 ✅  | Crack Coding Interviews in 3 Months | Babua DSA Patterns Course | 30+ DSA Patterns](https://www.youtube.com/playlist?list=PLVItHqpXY_DDFNeS6NUUoRsloyaPRdl1l)
