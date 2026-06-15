@@ -174,3 +174,4 @@ dmypy.json
 out/
 .metals
 .vscode
+.DS_Store
