@@ -36,9 +36,14 @@ public class TwoSum2InputArrayIsSorted {
         int end = numbers.length - 1;
         while (start < end) {
             int diff = numbers[end] + numbers[start] - target;
-            if (diff == 0) {
+
+            // If the diff is 0 then we have found the answer, and we will return the ans
+            if (diff == 0)
                 return new int[]{start + 1, end + 1};
-            } else if (diff > 0) {
+
+            // if diff is greater than 0 then we need to decrease the sum, which can only be achieved by decreasing end pointer
+            // if diff is less than 0 then we need to increase the sum, which can only be achieved by increasing start pointer
+            if (diff > 0) {
                 end--;
             } else {
                 start++;

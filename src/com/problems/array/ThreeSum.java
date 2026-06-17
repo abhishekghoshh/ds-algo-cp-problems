@@ -7,7 +7,7 @@ import static com.util.ArrayUtil.minN;
 
 /*
  * Problem link :
- * https://leetcode.com/problems/3sum/
+ * https://leetcode.com/problems/3sum/description/
  * https://neetcode.io/problems/three-integer-sum
  * https://www.naukri.com/code360/problems/three-sum_6922132
  * https://www.naukri.com/code360/problems/893028
@@ -27,7 +27,43 @@ public class ThreeSum {
 
 	public static void main(String[] args) {
 		type1();
-		type2();
+		type2(); // check this one
+		type3();
+	}
+
+	// Exactly same as previous, just here we are not skipping some optimization in the first loop
+	// but here
+	private static void type3() {
+		int[] nums = {-1, 0, 1, 2, -1, -4};
+		List<List<Integer>> answer = threeSum3(nums);
+		System.out.println(answer);
+	}
+
+	private static List<List<Integer>> threeSum3(int[] nums) {
+		List<List<Integer>> ans = new ArrayList<>();
+		Arrays.sort(nums);
+		int n = nums.length;
+		for (int i = 0; i < n - 2; i++) {
+			int seed = nums[i];
+			if (i > 0 && nums[i] == nums[i - 1]) continue;
+			int left = i + 1;
+			int right = n - 1;
+			while (left < right) {
+				int leftNum = nums[left];
+				int rightNum = nums[right];
+				int sum = seed + leftNum + rightNum;
+				if (sum == 0) {
+					ans.add(List.of(seed, leftNum, rightNum));
+					while (left < n && nums[left] == leftNum) left++;
+					while (right > i && nums[right] == rightNum) right--;
+				} else if (sum < 0) {
+					left++;
+				} else {
+					right--;
+				}
+			}
+		}
+		return ans;
 	}
 
 	// todo two pointer approach

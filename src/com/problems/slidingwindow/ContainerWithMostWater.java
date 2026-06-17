@@ -20,6 +20,39 @@ public class ContainerWithMostWater {
 	
 	public static void main(String[] args) {
 		type1();
+		type2();
+	}
+
+	// This is exactly same as the type1, but here we are just simplifying the code a bit
+	// so the logic remains the same, we will take two pointers left and right and then we will calculate the water in between,
+	// and then we will shrink the container size,
+	// on every 2 pointers we will calculate the water, and then we will take the max of that water and the previous max
+	// so there is height on left and right pointer both.
+	// We will increase the left pointer if the height of left is less than or equal to the height of right, else we will decrease the right pointer
+	// because if left is smaller than by shilfting the left pointer we might get a bigger height and hence bigger water,
+	// We will move the shorter wall, as the area is limited by the shorter wall, so we need to find a taller wall to increase the area.
+	private static void type2() {
+		int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+		int max = maxArea2(height);
+		System.out.println(max);
+	}
+
+	private static int maxArea2(int[] height) {
+		int n = height.length;
+		int left = 0, right = n - 1;
+		int w, h;
+		int max = 0;
+		while (left < right) {
+			w = right - left;
+			h = Math.min(height[left], height[right]);
+			max = Math.max(max, w * h);
+			if (height[left] <= height[right]) {
+				left++;
+			} else {
+				right--;
+			}
+		}
+		return max;
 	}
 
 	// TODO two pointer approach
