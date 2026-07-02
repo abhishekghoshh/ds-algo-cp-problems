@@ -42,3 +42,36 @@ Algorithm & Data Structures and problems from leetcode, GFG, coding-ninjas ...
 ## Some interesting videos
 
 - [Tech Isn’t Fun Anymore](https://www.youtube.com/watch?v=8AlSDOrpSAU)
+
+
+
+## Table of contents
+
+- [index](index.md)
+- [resources](resources.md)
+- [prerequisites](prerequisites.md)
+- [patterns](patterns.md)
+- [math](maths.md)
+- [arrays](arrays.md)
+- [hashing](hashing.md)
+- [two pointers](two-pointers.md)
+- [sliding window](sliding-window.md)
+- [binary search](binary-search.md)
+- [strings](strings.md)
+- [linked list](linked-list.md)
+- [recursion](recursion.md)
+- [stack](stack.md)
+- [queue](queue.md)
+- [heap/priority queue](heap.md)
+- [bit manipulation](bit-manipulation.md)
+- [prime](prime.md)
+- [greedy](greedy.md)
+- [dynamic programming](dynamic-programming.md)
+- [meet in the middle](meet-in-the-middle.md)
+- [binary tree](binary-tree.md)
+- [binary search tree](binary-search-tree.md)
+- [graph](graph.md)
+- [segment tree](segment-tree.md)
+- [fenwick tree/binary indexed tree](fenwick-tree.md)
+- [tries](tries.md)
+- [problem series](problem-series.md)

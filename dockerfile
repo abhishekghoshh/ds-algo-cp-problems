@@ -1,17 +1,18 @@
 # Use the latest Ubuntu image as the base
-FROM ubuntu:latest
+FROM python:3.13-slim-bookworm
 
 # Set non-interactive mode for APT
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Update package lists and install required packages
-RUN apt-get update && \
-    apt-get install -y software-properties-common && \
-    apt-add-repository -y universe && \
-    apt-add-repository -y ppa:deadsnakes/ppa && \
-    apt-get update && \
-    apt-get install -y python3.13 python3.13-venv python3.13-dev python3-pip libcairo2 libcairo2-dev && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+USER root
+
+RUN apt-get update \
+ && apt-get install --no-install-recommends -y \
+    build-essential \
+    libcairo2 \
+    libcairo2-dev \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables for MkDocs
 ENV MKDOCS_VERSION=1.6.1
