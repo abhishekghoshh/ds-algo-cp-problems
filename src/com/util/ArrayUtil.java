@@ -7,9 +7,7 @@ import java.util.Stack;
 
 public class ArrayUtil {
     public static void swap(int[] arr, int i, int j) {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+        swap(arr, arr, j, i);
     }
 
     public static void swap(int[] nums1, int[] nums2, int i1, int i2) {

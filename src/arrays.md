@@ -19,6 +19,7 @@
 - [Two Sum II - Input Array Is Sorted](com/problems/array/TwoSum2InputArrayIsSorted.java)
 - [3 Sum : Find triplets that add up to a zero](com/problems/array/ThreeSum.java)
 - [4 Sum / Find Quads that add up to a target value](com/problems/array/FourSum.java)
+- [Valid Triangle Number](com/problems/array/ValidTriangleNumber.java)
 
 - [Contains Duplicate](com/problems/hashing/ContainsDuplicate.java)
 - [Contains Duplicate II](com/problems/hashing/ContainsDuplicate2.java)

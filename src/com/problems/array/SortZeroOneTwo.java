@@ -19,6 +19,7 @@ import static com.util.PrintUtl.print;
  *
  * https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s/
  * https://neetcode.io/solutions/sort-colors
+ * https://www.hellointerview.com/learn/code/two-pointers/sort-colors
  * */
 
 // Tags: Arrays, sorting, hashing, Dutch national flag algorithm 3 pointer
@@ -31,8 +32,8 @@ public class SortZeroOneTwo {
 	}
 
 	// in place ordering using three pointer
-	// todo Dutch national flag algorithm 3 pointer
-	// TODO this solution is failing for some test cases in leetcode
+	// NOTE Dutch national flag algorithm 3 pointer
+	// NOTE this solution is failing for some test cases in leetcode
 	private static void type3() {
 		int[] arr = { 2, 0, 2, 1, 1, 0, 0, 2, 1, 0, 2, 1, 0 };
 		sortColors3(arr);
@@ -85,8 +86,8 @@ public class SortZeroOneTwo {
 		}
 	}
 
-	// brute force approach
-	// sort the array with o(nlogn) complexity
+	// brute force approaches
+	// sort the array with o(NLogN) complexity
 	private static void type1() {
 		int[] arr = { 2, 0, 2, 1, 1, 0, 0, 2, 1, 0, 2, 1, 0 };
 		sortColors1(arr);

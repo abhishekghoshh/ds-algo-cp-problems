@@ -1,5 +1,7 @@
 package com.problems.array;
 
+import com.util.ArrayUtil;
+
 import static com.util.PrintUtl.print;
 
 /*
@@ -17,6 +19,7 @@ import static com.util.PrintUtl.print;
  * https://www.youtube.com/watch?v=aayNRwUN3Do
  *
  * https://neetcode.io/solutions/move-zeroes
+ * https://www.hellointerview.com/learn/code/two-pointers/move-zeroes
  * */
 public class MovesZeroToEnd {
     public static void main(String[] args) {
@@ -44,6 +47,35 @@ public class MovesZeroToEnd {
         for (int i = slow; i < n; i++) nums[i] = 0;
     }
 
+
+    // In place swapping
+    // time complexity O(n)
+    // space complexity O(1)
+    // lets divide the problem
+    // first we will find the first 0th index
+    private static void type2_() {
+        int[] nums = {0, 1, 0, 3, 12};
+        moveZeroes2_(nums);
+        print(nums);
+    }
+
+    private static void moveZeroes2_(int[] nums) {
+        int zeroI = -1;
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            // if we find a 0 and zeroI is not initialized, then initialize it
+            if (nums[i] == 0 && zeroI == -1) {
+                zeroI = i;
+            } else if (nums[i] != 0 && zeroI != -1) {
+                // now we have found a non-zero element, and there is surely a zero element in the left side
+                // then we will swap them
+                nums[zeroI++] = nums[i];
+                nums[i] = 0;
+            }
+        }
+    }
+
+
     // In place swapping
     // time complexity O(n)
     // space complexity O(1)
@@ -63,9 +95,7 @@ public class MovesZeroToEnd {
     }
 
     public static void swap(int[] arr, int i, int j) {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+        ArrayUtil.swap(arr, i, j);
     }
 
     // This is not in place
