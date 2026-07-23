@@ -45,3 +45,7 @@
 - [Stone game VII]
 - [Stone game VIII]
 - [Stone game IX]
+
+### DSA Pumbai
+
+- [Find the K-Beauty of a Number](com/problems/special/dsapumbai/Week51KBeauty.java)

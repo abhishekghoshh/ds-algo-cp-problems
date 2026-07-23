@@ -45,6 +45,14 @@
 - [Rachit](https://www.youtube.com/c/RachitJain/playlists)
 - [CodeHelp - by Babbar](https://www.youtube.com/@CodeHelp/playlists)
 - [CodeNCode](https://www.youtube.com/@codencode/playlists)
+- [Errichto Algorithms](https://www.youtube.com/@Errichto/playlists)
+- [Errichto Hard Algorithms](https://www.youtube.com/@Errichto2/playlists)
+
+
+## Youtube Playlists
+
+- [Range Queries - Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO)
+- [Text Processing—Level 3](https://www.youtube.com/playlist?list=PL-Jc9J83PIiEoZSwjEZT3TvpKG16FntFL)
 
 
 
