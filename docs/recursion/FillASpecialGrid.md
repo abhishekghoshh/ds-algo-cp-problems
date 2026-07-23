@@ -1,25 +1,30 @@
 # FillASpecialGrid
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/FillASpecialGrid.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/fill-a-special-grid/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Fill a special grid pattern using recursion and backtracking.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Recursive way
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+recursive way
 
 ```java
-private static void type2() {
+    private static void type2() {
         int N = 2;
         int[][] ans = specialGrid1(N);
         PrintUtl.print2D(ans);
     }
+
     public static int[][] specialGrid1(int N) {
         if (N == 0) return new int[][]{new int[]{0}};
         int n = 1 << N;
@@ -28,6 +33,7 @@ private static void type2() {
         fill2(arr, low, high, 0, n - 1, 0, n - 1);
         return arr;
     }
+
     private static void fill2(int[][] arr, int low, int high, int x1, int x2, int y1, int y2) {
         int count = high - low + 1;
         int d = (x2 - x1 + 1) / 2;
@@ -46,12 +52,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Iterative way
+iterative way
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

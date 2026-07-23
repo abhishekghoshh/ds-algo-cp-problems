@@ -1,31 +1,36 @@
 # SumOfAbsoluteDifferencesInASortedArray
 
-**Topic:** `array` | **File:** `com/problems/array/SumOfAbsoluteDifferencesInASortedArray.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3nkc-e66JmA)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+calculate absolute sum for all the element
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly like the previous type, but we cannot have this intuition directly
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly like the previous type, but we cannot have this intuition directly same as previous but here we are trying to do everything in one go calculating the sum calculating the right side sum calculating the result, for num it will be (num-num) or 0 we are not considering it updating the left side sum
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 4, 6, 8, 10};
         int[] ans = getSumAbsoluteDifferences3(nums);
         print(ans);
     }
+
+    // todo same as previous but here we are trying to do everything in one go
     private static int[] getSumAbsoluteDifferences3(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
@@ -49,14 +54,17 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous but here we are trying to do everything in one go todo prefix sum approach we can use a prefix array then use it in our problem but here we will store directly on the array this is a sorted array like 1,2,3,4,5 lets take the example for 3 and simplify this |3-1| + |3-2| + |3-3| + |3-4| + |3-5| => 3-1 + 3-2 + 0 + 4-3 + 5-3 2*3 - (1+2) + 0 + (4+5) - 2*3 (leftSideLength * item) - prefixSum + 0 + suffixSum - (rightSideLength * item) we will use 2 loops for simplicity one for creating the (leftSideLength * item) - (rightSideLength * item) and total in the next iteration we will use the total sum to create the prefixSum and suffixSum
+prefix sum approach we can use a prefix array then use it in our problem but here we will store directly on the array this is a sorted array like 1,2,3,4,5 lets take the example for 3 and simplify this |3-1| + |3-2| + |3-3| + |3-4| + |3-5| => 3-1 + 3-2 + 0 + 4-3 + 5-3 2*3 - (1+2) + 0 + (4+5) - 2*3 (leftSideLength * item) - prefixSum + 0 + suffixSum - (rightSideLength * item) we will use 2 loops for simplicity one for creating the (leftSideLength * item) - (rightSideLength * item) and total in the next iteration we will use the total sum to create the prefixSum and suffixSum we will calculate the result in 2 phases we can also do it in one phase we will calculate for num[i] contribution for ith index here we will calculate the remaining words contribution for ith index calculating the right side sum updating the left side sum
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 4, 6, 8, 10};
         int[] ans = getSumAbsoluteDifferences2(nums);
         print(ans);
     }
+
+    // we will calculate the result in 2 phases
+    // we can also do it in one phase
     public static int[] getSumAbsoluteDifferences2(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
@@ -80,11 +88,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will calculate the result in 2 phases we can also do it in one phase brute force approach calculate absolute sum for all the element
+brute force approach calculate absolute sum for all the element
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

@@ -1,7 +1,11 @@
 # FenwickTree
 
-**Topic:** `fenwicktree` | **File:** `com/problems/fenwicktree/FenwickTree.java`
+**Topic:** `fenwicktree`  ## 📝 Problem Statement
 
-## Solution Links
+The size of the array holding the Fenwick tree values
+
+
+
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Qe8qRhz3lzQ)

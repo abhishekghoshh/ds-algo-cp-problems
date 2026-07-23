@@ -1,30 +1,34 @@
 # ConnectedComponents
 
-**Topic:** `graph` | **File:** `com/problems/graph/ConnectedComponents.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-provinces/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/number-of-provinces/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-the-number-of-states_1377943)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=lea-Wl_uWXY)
 - [▶ YouTube](https://www.youtube.com/watch?v=ACzkVtewUYA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=7)
 - [📄 takeUforward](https://takeuforward.org/graph/connected-components-in-graphs/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/number-of-provinces/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an undirected graph with V vertices numbered from 0 to V-1 and E edges, represented as a 2D array edges[][], where each entry edges[i] = [u, v] denotes an edge between vertices u and v. Count the number of connected components in the graph. Two
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will do bfs/dfs if all the nodes are connected, then after one traversal all the nodes will be visited. so we will start dfs with one node and check all the remaining nodes if any node is not visited means that node is not connected we will increment the counter
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will do bfs/dfs if all the nodes are connected, then after one traversal all the nodes will be visited. so we will start dfs with one node and check all the remaining nodes if any node is not visited means that node is not connected we will increment the counter start the dfs if the node is not visited we will set the visited true when operating on it
 
 ```java
-private static void type2() {
+	private static void type2() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 		adjList.add(new ArrayList<>(List.of(2, 3, 1)));
 		adjList.add(new ArrayList<>(List.of(0)));
@@ -44,6 +48,7 @@ private static void type2() {
 		}
 		System.out.println(component);
 	}
+
 	private static void dfs(int start, boolean[] visited,
 							ArrayList<ArrayList<Integer>> adjList) {
 		// we will set the visited true when operating on it
@@ -54,12 +59,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will do bfs/dfs if all the nodes are connected, then after one traversal all the nodes will be visited. so we will start dfs with one node and check all the remaining nodes if any node is not visited means that node is not connected we will increment the counter
+we will do bfs/dfs if all the nodes are connected, then after one traversal all the nodes will be visited. so we will start dfs with one node and check all the remaining nodes if any node is not visited means that node is not connected we will increment the counter start the dfs if the node is not visited recursive function for dfs
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] isConnected = {
 				{1, 1, 0},
 				{1, 1, 0},
@@ -78,6 +83,8 @@ private static void type1() {
 		}
 		System.out.println(component);
 	}
+
+	// recursive function for dfs
 	private static void dfs(int start, boolean[] visited,
 							int v, int[][] isConnected) {
 		visited[start] = true;
@@ -85,4 +92,6 @@ private static void type1() {
 			if (start != end && isConnected[start][end] == 1 && !visited[end])
 				dfs(end, visited, v, isConnected);
 	}
+
+}
 ```

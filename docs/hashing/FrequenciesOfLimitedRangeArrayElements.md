@@ -1,31 +1,36 @@
 # FrequenciesOfLimitedRangeArrayElements
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/FrequenciesOfLimitedRangeArrayElements.java`
+**Topic:** `hashing`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/0)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-frequency-of-each-element-in-the-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array arr[]&nbsp;containing positive integers. The elements in the array&nbsp;arr[] range from&nbsp; 1 to n (where n is the size of the array), and some numbers may be repeated or absent. Your have to count the frequency of all numbers in th
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will use a hashmap here
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will use a hashmap here P+1 size freq array is enough to
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {2, 3, 2, 3, 5};
         int P = 5;
         int N = arr.length;
         frequencyCount(arr, N, P);
         PrintUtl.print(arr);
     }
+
     public static void frequencyCount(int[] arr, int N, int P) {
         // P+1 size freq array is enough to
         int[] freq = new int[P + 1];
@@ -36,11 +41,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use the brute force approach here
+we will use the brute force approach here
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

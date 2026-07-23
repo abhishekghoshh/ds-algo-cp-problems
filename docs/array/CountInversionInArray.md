@@ -1,12 +1,16 @@
 # CountInversionInArray
 
-**Topic:** `array` | **File:** `com/problems/array/CountInversionInArray.java`
+**Topic:** `array`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Description: A pair ('ARR[i]', 'ARR[j]') is said to be an inversion when: 1. 'ARR[i] > 'ARR[j]' 2. 'i' < 'j' Where 'i' and 'j' denote the indices ranging from [0, 'N').
+Description:
+A pair ('ARR[i]', 'ARR[j]') is said to be an inversion when:
+1. 'ARR[i] > 'ARR[j]'
+2. 'i' < 'j'
+Where 'i' and 'j' denote the indices ranging from [0, 'N').
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/number-of-inversions_6840276?leftPanelTabValue=PROBLEM)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/615)
@@ -14,34 +18,32 @@ Description: A pair ('ARR[i]', 'ARR[j]') is said to be an inversion when: 1. 'AR
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/count-inversions_615)
 - [📄 LeetCode](https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=AseUmwVNaoY)
 - [▶ YouTube](https://www.youtube.com/watch?v=kQ1mJlwW-c0)
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-inversions-in-an-array/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **3** approaches, progressing from brute force to optimal:
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-### Approach 3 — Optimal
-
-Optimal approach
+### Approach 3: 🏆 Optimal Solution
 
 ```java
-private static void type3() {
+	private static void type3() {
 
 	}
 ```
 
 ### Approach 2
 
-Merge sort approach time complexity O(n*log(n)) space complexity o(n) if we don't have to change the original array then we can copy the original and compute on that we will divide the array and on the merge we will do our operation before merging we will have two sorted array like 2,3,5 and 1,4 so we can definitely find ARR[i] > 'ARR[j] from two arrays if we are taking anything from right array that means everything on left array is greater than item on right array like when left =0 and right=0 on upper array among 2 and 1 we are taking 1 and it is from right array so all element of left will be greater than right top
+merge sort approach if we don't have to change the original array then we can copy the original and compute on that we will divide the array and on the merge we will do our operation before merging we will have two sorted array like 2,3,5 and 1,4 so we can definitely find ARR[i] > 'ARR[j] from two arrays if we are taking anything from right array that means everything on left array is greater than item on right array like when left =0 and right=0 on upper array among 2 and 1 we are taking 1 and it is from right array so all element of left will be greater than right top here the element on right array is small so we will be doing the calculation
 
-**Complexity:** Time: o(n*log(n) | Space: o(n)
+**Time Complexity:** `O(n*log(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 2, 5, 1, 3, 4 };
 		Value value = new Value();
 		applyMergeSort(nums, 0, nums.length - 1, value);
@@ -49,6 +51,11 @@ private static void type2() {
 		System.out.println("Count is " + value.data);
 
 	}
+
+	public static class Value {
+		int data = 0;
+	}
+
 	private static void applyMergeSort(int[] nums, int i, int j, Value value) {
 		if (i < j) {
 			int mid = (i + j) / 2;
@@ -57,6 +64,7 @@ private static void type2() {
 			mergeWithComputation(nums, i, mid, j, value);
 		}
 	}
+
 	private static void mergeWithComputation(int[] nums, int i, int mid, int j, Value value) {
 		int[] array = new int[j - i + 1];
 		int left = i, right = mid + 1;
@@ -83,14 +91,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(n^2) space complexity O(1)
+brute force
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 2, 5, 1, 3, 4 };
 		int count = 0;
 		for (int i = 0; i < nums.length - 1; i++) {
@@ -102,4 +111,7 @@ private static void type1() {
 		}
 		System.out.println("Count is " + count);
 	}
+
+
+}
 ```

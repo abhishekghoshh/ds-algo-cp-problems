@@ -1,31 +1,35 @@
 # ValidPalindrome2
 
-**Topic:** `string` | **File:** `com/problems/string/ValidPalindrome2.java`
-
+**Topic:** `string`  
 **Tags:** String, Array, Two pointer
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-palindrome-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=JrxRYBwG6EI)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Given a string s, return true if the s can be palindrome after deleting at most one character from it. very optimal approach we will use 2 pointers start and end we will increase start and decrease end till the characters are equal once we find any equal character we have 2 choices either to delete the starting character or to delete the ending character if either of them is a palindrome then we have found our answer, and we will return true;
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+very optimal approach we will use 2 pointers start and end we will increase start and decrease end till the characters are equal once we find any equal character we have 2 choices either to delete the starting character or to delete the ending character if either of them is a palindrome then we have found our answer, and we will return true;
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abca";
         boolean ans = validPalindrome(s);
         System.out.println(ans);
     }
+
     public static boolean validPalindrome(String s) {
         int i = 0, j = s.length() - 1;
         while (i < j) {
@@ -38,14 +42,23 @@ private static void type2() {
         }
         return true;
     }
+
+    static boolean isPalindrome(String s, int i, int j) {
+        while (i < j) {
+            if (s.charAt(i++) != s.charAt(j--))
+                return false;
+        }
+        return true;
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abca";
     }
+}
 ```

@@ -16,6 +16,10 @@ public class JumpGame3 {
 
 ```
 
+## 📝 Problem Statement
+
+Determine if you can reach any index with value 0 starting from start.
+
 ## Source Code
 
 ```java

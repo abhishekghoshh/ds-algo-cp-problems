@@ -1,27 +1,31 @@
 # CelebrityProblem
 
-**Topic:** `stack` | **File:** `com/problems/stack/CelebrityProblem.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-celebrity/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/the-celebrity-problem_982769)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Z5AEc12ieOs)
 - [▶ YouTube](https://www.youtube.com/watch?v=CiiXBvrX-5A)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+A celebrity is a person known to all but does not know anyone at a
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-A celebrity is a person known to all but does not know anyone at a party, it is not possible to have more than one celebrity TODO check it later one more time
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+if matrix[i][j] == 1 then i knows j so i is not celebrity if both matrix[i][j] and matrix[j][i] is 0 then both are not celebrity everybody should know the celebrity at last we will cross check that our assumption is correct or not so we will check the false conditions matrix[c][i] == 1 means c knows i so c is not celebrity matrix[i][c] == 0 means i does not know c, so c is not celebrity
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
 		Stack<Integer> stack = new Stack<>();
@@ -53,10 +57,10 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+we will assume that 0th person is a celebrity and update it once they know anyone that means c knows i so c is not a celebrity, so we will i as a celebrity at last, we will cross-check that our assumption is correct or not so we will check the false conditions matrix[c][i] == 1 means c knows i so c is not celebrity matrix[i][c] == 0 means i does not know c, so c is not celebrity
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
 		// we will assume that 0th person is a celebrity and update it once they know anyone
@@ -81,14 +85,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2 + n) space complexity O(2n)
+brute force approach it means how many persons know him it means he knows how many persons it means i know j
 
-**Complexity:** Time: o(n^2 + n) | Space: o(2n)
+**Time Complexity:** `O(n^2 + n)`
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] matrix = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
 		int n = 3;
 		// it means how many persons know him
@@ -108,4 +113,6 @@ private static void type1() {
 			if (out[i] == 0 && in[i] == n - 1) c = i;
 		System.out.println(c + " th person is celebrity");
 	}
+
+}
 ```

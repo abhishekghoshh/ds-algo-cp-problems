@@ -1,28 +1,32 @@
 # MinimumPathSumInATriangle
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumPathSumInATriangle.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/triangle/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/triangle_1229398)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=SrP-PiLSYC0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=12)
 - [▶ YouTube](https://www.youtube.com/watch?v=OM1MTokvxs4)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-path-sum-in-triangular-grid-dp-11/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given a triangle array, find the minimum path sum from top to bottom.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Type1 and type2 are enough for interview but check type3,type4,type5 for tabulation approach and eventually memory optimization using tabulation or bottom-up approach, but here we will use only 2 arrays for storing current and previous dp values
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+using tabulation or bottom-up approach, but here we will use only 2 arrays for storing current and previous dp values if n is 1 then we will directly return the answer Create two arrays to store intermediate results: front and cur Initialize the front array with the values from the bottom row of the triangle Starting from the second to last row, calculate the minimum path sum for each element Calculate the two possible paths: moving down or moving diagonally Store the minimum of the two paths in the cur array Update the front array with the values from the cur array for the next row The result is stored at the top of the front array
 
 ```java
-private static void type5() {
+    private static void type5() {
         List<List<Integer>> triangle = List.of(
                 List.of(2),
                 List.of(3, 4),
@@ -32,6 +36,7 @@ private static void type5() {
         int answer = minimumTotal5(triangle);
         System.out.println(answer);
     }
+
     private static int minimumTotal5(List<List<Integer>> triangle) {
         int n = triangle.size();
         // if n is 1 then we will directly return the answer
@@ -65,10 +70,10 @@ private static void type5() {
 
 ### Approach 4
 
-Using tabulation or bottom-up approach
+using tabulation or bottom-up approach we will do the same bottom-up approach, but here we will start from the reverse if n is 1 then we will directly return the answer Initialize the bottom row of dp with the values from the bottom row of the triangle Starting from the second to last row, calculate the minimum path sum for each element Calculate the two possible paths: moving down or moving diagonally Store the minimum of the two paths in dp The result is stored at the top of dp array
 
 ```java
-private static void type4() {
+    private static void type4() {
         List<List<Integer>> triangle = List.of(
                 List.of(2),
                 List.of(3, 4),
@@ -78,6 +83,8 @@ private static void type4() {
         int answer = minimumTotal4(triangle);
         System.out.println(answer);
     }
+
+    // we will do the same bottom-up approach, but here we will start from the reverse
     private static int minimumTotal4(List<List<Integer>> triangle) {
         int n = triangle.size();
         // if n is 1 then we will directly return the answer
@@ -103,10 +110,10 @@ private static void type4() {
 
 ### Approach 3
 
-We will do the same bottom-up approach, but here we will start from the reverse using tabulation or bottom-up approach
+using tabulation or bottom-up approach if n is 1 then we will directly return the answer unlike recursive way in iteration, we will go in reverse direction
 
 ```java
-private static void type3() {
+    private static void type3() {
         List<List<Integer>> triangle = List.of(
                 List.of(2),
                 List.of(3, 4),
@@ -116,6 +123,7 @@ private static void type3() {
         int answer = minimumTotal3(triangle);
         System.out.println(answer);
     }
+
     private static int minimumTotal3(List<List<Integer>> triangle) {
         int n = triangle.size();
         // if n is 1 then we will directly return the answer
@@ -138,10 +146,10 @@ private static void type3() {
 
 ### Approach 2
 
-Using recursion and memoization
+using recursion and memoization if n is 1 then we will directly return the answer else we will start from 0,0 to any column in nth row if j is greater than the ith row size then it is out of bounds i == n-1 means it reaches the last row checking if it is calculated or not else we will go to down and down right and take the minimum
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<List<Integer>> triangle = List.of(
                 List.of(2),
                 List.of(3, 4),
@@ -151,6 +159,7 @@ private static void type2() {
         int answer = minimumTotal2(triangle);
         System.out.println(answer);
     }
+
     public static int minimumTotal2(List<List<Integer>> triangle) {
         int n = triangle.size();
         // if n is 1 then we will directly return the answer
@@ -160,6 +169,7 @@ private static void type2() {
         // else we will start from 0,0 to any column in nth row
         return minimumTotal2(0, 0, n, triangle, dp);
     }
+
     private static int minimumTotal2(int r, int c, int n, List<List<Integer>> triangle, int[][] dp) {
         // if j is greater than the ith row size then it is out of bounds
         List<Integer> row = triangle.get(r);
@@ -176,12 +186,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using the recursion
+using the recursion if n is 1 then we will directly return the answer else we will start from 0,0 to any column in nth row if j is greater than the ith row size then it is out of bounds i == n-1 means it reaches the last row else we will go to down and down right and take the minimum
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<List<Integer>> triangle = List.of(
                 List.of(2),
                 List.of(3, 4),
@@ -191,6 +201,7 @@ private static void type1() {
         int answer = minimumTotal1(triangle);
         System.out.println(answer);
     }
+
     public static int minimumTotal1(List<List<Integer>> triangle) {
         int n = triangle.size();
         // if n is 1 then we will directly return the answer
@@ -198,6 +209,7 @@ private static void type1() {
         // else we will start from 0,0 to any column in nth row
         return minimumTotal1(0, 0, n, triangle);
     }
+
     private static int minimumTotal1(int r, int c, int n, List<List<Integer>> triangle) {
         // if j is greater than the ith row size then it is out of bounds
         List<Integer> row = triangle.get(r);
@@ -211,4 +223,5 @@ private static void type1() {
                 minimumTotal1(r + 1, c + 1, n, triangle)
         );
     }
+}
 ```

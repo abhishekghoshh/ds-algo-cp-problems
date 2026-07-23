@@ -1,28 +1,34 @@
 # LowestCommonAncestorOfBinaryTree
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/LowestCommonAncestorOfBinaryTree.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/920541)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/lca-of-binary-tree_920541)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_-QHfMDde90&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=28)
 - [📄 takeUforward](https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given the root of a binary tree and two nodes p and q, find the lowest common ancestor (LCA).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Unlike the type1 it is little hard to visualize but, it will cater all the cases
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+unlike the type1 it is little hard to visualize but, it will cater all the cases it is straightforward to visualize if both nodes are in child nodes of some node. like p <- left <- left <- [node] -> right -> q, but it is hard to visualize for the arrangement like p -> right -> q in that time p will be the answer, so the recursion will stop once it finds the p node.
+
+which eventually will be our answer visualize it another time unlike another traversal, it will go to the bottom till one of the nodes is found we will go left and right to find if there is any node or not both left and right are not null, we found our result node, so we will return the root otherwise, we will send the non-null node as it contains the answer
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.withCount(100);
 		TNode p = root.search(20);
 		TNode q = root.search(40);
@@ -30,6 +36,15 @@ private static void type2() {
 		TNode node = lca2(root, p, q);
 		System.out.println(node.data);
 	}
+
+	// it is straightforward to visualize if both nodes are in child nodes of some node.
+	// like p <- left <- left <- [node] -> right -> q,
+	// but it is hard to visualize for the arrangement like
+	// p -> right -> q
+	// in that time p will be the answer,
+	// so the recursion will stop once it finds the p node.
+	// which eventually will be our answer
+	// TODO visualize it another time
 	public static TNode lca2(TNode root, TNode p, TNode q) {
 		// unlike another traversal,
 		// it will go to the bottom till one of the nodes is found
@@ -46,12 +61,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-It is straightforward to visualize if both nodes are in child nodes of some node. like p <- left <- left <- [node] -> right -> q, but it is hard to visualize for the arrangement like p -> right -> q in that time p will be the answer, so the recursion will stop once it finds the p node. which eventually will be our answer TODO visualize it another time little naive approach
+little naive approach we are using one flag for finding the lowest common ancestor flag value 0 means no node found flag value 1 means one node found flag value 2 means both nodes found root is null means no nodes are found so returning 0 we will start with 0 flagValue, means no node found if one of the nodes is found, then we will increment the flag value now we will go to the left and right subtree if that have any node or not if the flag value is 2 and node is still null then it is the lowest common ancestor null check is important otherwise for all the upper level also it will set the node lastly, we will return the flag value
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withCount(100);
 		TNode p = root.search(20);
 		TNode q = root.search(40);
@@ -59,6 +74,13 @@ private static void type1() {
 		System.out.println(node.data);
 
 	}
+
+	private static TNode node = null;
+
+	// we are using one flag for finding the lowest common ancestor
+	// flag value 0 means no node found
+	// flag value 1 means one node found
+	// flag value 2 means both nodes found
 	private static int lca1(TNode root, TNode p, TNode q) {
 		// root is null means no nodes are found so returning 0
 		if (null == root) return 0;
@@ -76,4 +98,6 @@ private static void type1() {
 		// lastly, we will return the flag value
 		return flag;
 	}
+
+}
 ```

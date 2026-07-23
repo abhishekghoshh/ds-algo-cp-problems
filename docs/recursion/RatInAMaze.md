@@ -1,30 +1,34 @@
 # RatInAMaze
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/RatInAMaze.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/758966)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/rat-in-a-maze-_8842357)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bLGZhJlt4y0)
 - [▶ YouTube](https://www.youtube.com/watch?v=7AYJLrDxbBU&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=12)
 - [▶ YouTube](https://www.youtube.com/watch?v=4Wc_QCxr_WQ&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=14)
 - [📄 takeUforward](https://takeuforward.org/data-structure/rat-in-a-maze/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to reach the destination at (N - 1, N - 1). Find all possible paths that the rat can take to reach from source to destination. The directions in which the rat can move are 'U'(up), 'D'(down), 'L' (left), 'R' (right) Value 0 at a cell in the matrix represents that it is blocked and rat cannot move to it while value 1 at a cell in the matrix represents that rat can be travel through it. Note: In a path, no cell can be visited more than one time. If the source cell is 0, the rat cannot move to any other cell. Print is sorted order we will use slight optimization first we will not use any boolean visited matrix. we will set the bit as 0 once we start visiting it, and once the recursion call is complete, we will again set the bit to 1. also we will not the string builder rather we will char array
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+we will use slight optimization first we will not use any boolean visited matrix. we will set the bit as 0 once we start visiting it, and once the recursion call is complete, we will again set the bit to 1. also we will not the string builder rather we will char array same as type1 just we are creating di and dj array to go to a different direction
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[][] mat = {
 				{1, 0, 0, 0},
 				{1, 1, 0, 1},
@@ -35,6 +39,7 @@ private static void type4() {
 		ArrayList<String> answer = findPath4(mat, n);
 		System.out.println(answer);
 	}
+
 	private static ArrayList<String> findPath4(int[][] mat, int n) {
 		ArrayList<String> answer = new ArrayList<>();
 		char[] bucket = new char[2 * n - 2];
@@ -42,6 +47,7 @@ private static void type4() {
 			traverse4(0, 0, 0, mat, answer, bucket);
 		return answer;
 	}
+
 	private static void traverse4(int i, int j, int steps, int[][] matrix, ArrayList<String> answer, char[] bucket) {
 		int n = matrix.length;
 		if (i == n - 1 && j == n - 1) {
@@ -60,14 +66,18 @@ private static void type4() {
 			}
 		}
 	}
+
+
+	// same as type1 just we are creating di and dj array to go to a different direction
+	private static final char[] dir = {'D', 'L', 'R', 'U'};
+	private static final int[] di = {+1, 0, 0, -1};
+	private static final int[] dj = {0, -1, 1, 0};
 ```
 
 ### Approach 3
 
-Same as type1 just we are creating di and dj array to go to a different direction
-
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] mat = {
 				{1, 0, 0, 0},
 				{1, 1, 0, 1},
@@ -78,6 +88,7 @@ private static void type3() {
 		ArrayList<String> answer = findPath3(mat, n);
 		System.out.println(answer);
 	}
+
 	public static ArrayList<String> findPath3(int[][] mat, int n) {
 		ArrayList<String> answer = new ArrayList<>();
 		if (mat[0][0] != 0) {
@@ -87,6 +98,7 @@ private static void type3() {
 		}
 		return answer;
 	}
+
 	private static void traverse3(int i, int j, int[][] matrix, ArrayList<String> ans, StringBuilder bucket, boolean[][] visited) {
 		int n = matrix.length;
 		if (i == n - 1 && j == n - 1) {
@@ -110,10 +122,10 @@ private static void type3() {
 
 ### Approach 2
 
-Using visited matrix same as previous with little refactoring
+using visited matrix same as previous with little refactoring if out of bounds or there is no path or the point is already visited all directions are L R U D if we sort alphabetically then D L R U
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] mat = {
 				{1, 0, 0, 0},
 				{1, 1, 0, 1},
@@ -124,6 +136,7 @@ private static void type2() {
 		ArrayList<String> answer = findPath2(mat, n);
 		System.out.println(answer);
 	}
+
 	public static ArrayList<String> findPath2(int[][] mat, int n) {
 		ArrayList<String> answer = new ArrayList<>();
 		if (mat[0][0] != 0) {
@@ -132,6 +145,7 @@ private static void type2() {
 		}
 		return answer;
 	}
+
 	private static void traverse2(int[][] mat, int i, int j, ArrayList<String> answer, boolean[][] visited, StringBuilder bucket) {
 		int n = mat.length;
 		if (i == n - 1 && j == n - 1) {
@@ -159,17 +173,18 @@ private static void type2() {
 		bucket.deleteCharAt(bucket.length() - 1);
 		visited[i][j] = false;
 	}
+
 	private static boolean isOutOfBounds(int i, int j, int[][] matrix) {
 		return i >= matrix.length || i < 0 || j >= matrix[0].length || j < 0;
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using visited matrix
+using visited matrix we have reached the destination this is out of bound all directions are L R U D if we sort alphabetically then D L R U go down if it is having a cell and not visited go left if it is having a cell and not visited go right if it is having a cell and not visited go up if it is having a cell and not visited
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] mat = {
 				{1, 0, 0, 0},
 				{1, 1, 0, 1},
@@ -180,6 +195,7 @@ private static void type1() {
 		ArrayList<String> answer = findPath1(mat, n);
 		System.out.println(answer);
 	}
+
 	public static ArrayList<String> findPath1(int[][] mat, int n) {
 		ArrayList<String> answer = new ArrayList<>();
 		if (mat[0][0] != 0) {
@@ -189,6 +205,7 @@ private static void type1() {
 		}
 		return answer;
 	}
+
 	private static void traverse1(int i, int j, int n, int[][] mat, boolean[][] visited, StringBuilder bucket, ArrayList<String> answer) {
 		// we have reached the destination
 		if (i == n - 1 && j == n - 1) {
@@ -230,4 +247,5 @@ private static void type1() {
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
 	}
+}
 ```

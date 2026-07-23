@@ -1,21 +1,24 @@
 # MaximumSubarrayWithEqualProducts
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaximumSubarrayWithEqualProducts.java`
+**Topic:** `slidingwindow`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Maximum subarray where product equals sum.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 1, 2, 1, 1, 1};
         int ans = maxLength2(nums);
         System.out.println(ans);
     }
+
     public static int maxLength2(int[] nums) {
         int n = nums.length;
         int mul = nums[0] * nums[1];
@@ -52,16 +55,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach Check if prod(arr) == lcm(arr) * gcd(arr)
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 1, 2, 1, 1, 1};
         int ans = maxLength1(nums);
         System.out.println(ans);
     }
+
     private static int maxLength1(int[] nums) {
         int n = nums.length;
         int max = 0;
@@ -83,4 +87,20 @@ private static void type1() {
         }
         return max;
     }
+
+
+    static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    static int lcm(int a, int b) {
+        // LCM formula
+        return a / gcd(a, b) * b;
+    }
+}
 ```

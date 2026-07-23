@@ -1,36 +1,43 @@
 # MergeTwoSortedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/MergeTwoSortedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 - [📄 NeetCode](https://neetcode.io/problems/merge-two-sorted-linked-lists)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/80033)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Xb4slcp1U38&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=30)
 - [▶ YouTube](https://www.youtube.com/watch?v=XIdigk956u0)
 - [📄 takeUforward](https://takeuforward.org/data-structure/merge-two-sorted-linked-lists/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Merge two sorted linked lists.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized merge approach used in merge operation in merge sort time complexity O(n) space complexity O(1) in place merge
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+optimized merge approach used in merge operation in merge sort in place merge in place merge we will use a prev pointer then we will compare l1.data and l2.data we are assigning a dummy node to head to prevent null pointer exception we will preform merging till both list1 and list2 is non-null at this point either list1 is null or list2 is null as the lists are in sorted order, so we can just attach the non-null list to the prev delete it later, it is kept only for the demonstration purpose assigning the head and copy of head we will merge here at this point either l1 or l2 is null so we can directly attach the remaining linkedlist it the head
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node list1 = new Node(1, 4, 5, 7);
 		Node list2 = new Node(2, 3, 6, 8, 9);
 		Node head = mergeTwoLists2(list1, list2);
 		print(head);
 	}
+
+	// in place merge we will use a prev pointer then we will compare l1.data and l2.data
 	public static Node mergeTwoLists2(Node list1, Node list2) {
 		// we are assigning a dummy node to head to prevent null pointer exception
 		Node dummyHead = new Node();
@@ -52,6 +59,8 @@ private static void type2() {
 		prev.next = (null != list1) ? list1 : list2;
 		return dummyHead.next;
 	}
+
+	// TODO delete it later, it is kept only for the demonstration purpose
 	public static Node mergeTwoLists2_Old(Node list1, Node list2) {
 		Node head = null;
 		if (null != list1 && null != list2) {
@@ -88,19 +97,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-In place merge we will use a prev pointer then we will compare l1.data and l2.data TODO delete it later, it is kept only for the demonstration purpose brute force approach putting all items in list O(n1+n2) sorting the list O((n1+n2) * log(n1+n2)) creating the the linked list with all the items time complexity O(n1+n2) + O((n1+n2) * log(n1+n2)) + O(n1+n2) space complexity O(2*(n1+n2)) for list + linked list
+brute force approach putting all items in list O(n1+n2) sorting the list O((n1+n2) * log(n1+n2)) creating the the linked list with all the items adding list1 to the list adding list2 to the list sorting the list connecting the nodes
 
-**Complexity:** Time: o(n1+n2) | Space: o(2*(n1+n2)
+**Time Complexity:** `O(n1+n2)`
+**Space Complexity:** `O(2*(n1+n2)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node list1 = new Node(1, 4, 5, 7);
 		Node list2 = new Node(2, 3, 6, 8, 9);
 		Node head = mergeTwoLists1(list1, list2);
 		print(head);
 	}
+
 	private static Node mergeTwoLists1(Node list1, Node list2) {
 		List<Node> list = new ArrayList<>();
 		// adding list1 to the list
@@ -124,4 +135,6 @@ private static void type1() {
 		}
 		return dummyHead.next;
 	}
+
+}
 ```

@@ -1,32 +1,39 @@
 # LargestDivisibleSubset
 
-**Topic:** `dp` | **File:** `com/problems/dp/LargestDivisibleSubset.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/largest-divisible-subset/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/divisible-set_3754960)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=gDuZwBW9VvM&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=45)
 - [▶ YouTube](https://www.youtube.com/watch?v=LeRU6irRoW0)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-divisible-subset-dp-44/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the largest subset where every pair is divisible (a%b==0 or b%a==0).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Copying the logic from the longest increasing subsequence where we are using a single dp array to store the longest increasing subsequence. we will sort the array, so the array will be arranged in an increasing manner let's say nums are 2, 6, 12. if 2 divisible by 6 and 6 divisible by 12, then we do not need to check for 2 divisible by 12 or not and also we do not need the check divisibility of the numbers in another way. like we are checking only curr % prev, we do not need to check prev % curr we will use two dp arrays, one for storing dp values and another for storing the previous indices of the previous longest increasing subsequence initially we will put -1 for the previous index as we will consider all the num as a single length LIS for the same reason we will put 1 to dp array
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+copying the logic from the longest increasing subsequence where we are using a single dp array to store the longest increasing subsequence. we will sort the array, so the array will be arranged in an increasing manner let's say nums are 2, 6, 12. if 2 divisible by 6 and 6 divisible by 12, then we do not need to check for 2 divisible by 12 or not and also we do not need the check divisibility of the numbers in another way.
+
+like we are checking only curr % prev, we do not need to check prev % curr we will use two dp arrays, one for storing dp values and another for storing the previous indices of the previous longest increasing subsequence initially we will put -1 for the previous index as we will consider all the num as a single length LIS for the same reason we will put 1 to dp array we will initialize previousIndex with -1 as this can be a start of new subsequence also we will set the default value of dp to 1 for the same reason we will check the divisibility here and if maxPrev is unassigned or current prev dp value is greater than max previous dp value, then we will set the prev to the max prev if max prev has a proper value then we will update the dp[i] and set prev index of current as max prev we will also check the maximum index for the dp value we have the prev index array, we will loop until -1
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 4, 8};
         List<Integer> list = largestDivisibleSubset(nums);
         System.out.println(list);
     }
+
     public static List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
         // we will initialize previousIndex with -1 as this can be a start of new subsequence
@@ -67,12 +74,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute force approach
+using brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         
     }
+}
 ```

@@ -1,17 +1,21 @@
 # NqueriesForNumberToThePowerK
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/NqueriesForNumberToThePowerK.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Answer queries for number raised to power K.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Queries must be less than 20
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+queries must be less than 20 pre computation of values store n^1, n^2 , n^4, n^8 and so on extracting the last set bit removing the last set bit from the number
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int n = 7;
 		int[] queries = { 7, 8, 19, 12, 3 };
 		long[] answer = new long[queries.length];
@@ -38,6 +42,7 @@ private static void type3() {
 		}
 		print(answer);
 	}
+
 	private static void print(long[] answer) {
 		for (double num : answer) {
 			System.out.print(num + " ");
@@ -49,10 +54,10 @@ private static void type3() {
 
 ### Approach 2
 
-Queries must be less than 20
+queries must be less than 20
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 7;
 		int[] queries = { 7, 8, 19, 12, 3 };
 		long[] answer = new long[queries.length];
@@ -68,12 +73,10 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 7;
 		int[] queries = { 7, 8, 19, 12, 3 };
 		double[] answer = new double[queries.length];
@@ -82,10 +85,13 @@ private static void type1() {
 		}
 		print(answer);
 	}
+
 	private static void print(double[] answer) {
 		for (double num : answer) {
 			System.out.print(num + " ");
 		}
 		System.out.println();
 	}
+
+}
 ```

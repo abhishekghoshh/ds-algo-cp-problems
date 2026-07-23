@@ -1,32 +1,38 @@
 # DivideTwoIntegers
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/DivideTwoIntegers.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/divide-two-integers/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/-divide-two-integers_1112617)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/division-without-using-multiplication-division-and-mod-operator/0)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=zhJt9xIoXCI)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given two integers dividend and divisor, divide two integers without using
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given two integers dividend and divisor, divide two integers without using multiplication, division, and mod operator. Note: Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. For this problem, if the quotient is strictly greater than 231 - 1, then return 231 - 1, and if the quotient is strictly less than -231, then return -231. TODO check all the possible solution TODO check it later
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+check it later if both are negative or both are positive as we have already extracted the final sign, so we don't require the dividend and divisor with sign as it will change the bits this means mask * 2 to power i mask will be negative only there is an overflow add the sign in case the answer is more than max int value
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int dividend = -2147483648;
 		int divisor = -1;
 		int quotient = divide(dividend, divisor);
 		System.out.println(quotient);
 	}
+
+	// TODO best approach
 	public static int divide(int dividend, int divisor) {
 		if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
 		long dividendL = dividend;
@@ -59,10 +65,10 @@ private static void type3() {
 
 ### Approach 2
 
-Best approach
+int quotient = 0; int subQuot = 0;
 
 ```java
-private static void type2() {
+	private static void type2() {
 		long dividend = 100;
 		long divisor = 7;
 		if (dividend == Integer.MIN_VALUE && divisor == -1) {
@@ -89,12 +95,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+if both are negative or both are positive as we have already extracted the final sign so we don't require the dividend and divisor with sign as it will change the bits
 
 ```java
-private static void type1() {
+	private static void type1() {
 		long dividend = 100;
 		long divisor = 7;
 
@@ -116,4 +122,6 @@ private static void type1() {
 		quotient = sign == 1 ? quotient : -quotient;
 		System.out.println("quotient is " + quotient);
 	}
+
+}
 ```

@@ -1,28 +1,32 @@
 # MColoringProblem
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/MColoringProblem.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/981273)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/m-coloring-problem_981273)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1#)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=wuVwUK25Rfc)
 - [📄 takeUforward](https://takeuforward.org/data-structure/m-coloring-problem/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given an undirected graph and m colors, determine if the graph can be colored with at most m colors such that no two adjacent vertices have the same color.
 
-### Implementation
+## 💡 Approaches
 
-Using backtracking for every point, we are checking if all colors are possible, or not if one color is possible, then we are going to the next point
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+using backtracking for every point, we are checking if all colors are possible, or not if one color is possible, then we are going to the next point it n means we have already colored 0 to n-1 nodes we are trying for m color one by one color available means we can allot ith color to point now we are checking possibilities for the next node it comes to this section mean with ith coloring, the graph cannot be colored, so we are removing the color
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int m = 3;
 		int n = 4;
 		boolean[][] graph = {
@@ -34,10 +38,12 @@ private static void type1() {
 		boolean isPossible = graphColoring1(graph, m, n);
 		System.out.println(isPossible);
 	}
+
 	public static boolean graphColoring1(boolean[][] graph, int m, int n) {
 		int[] points = new int[n];
 		return isColoringPossible(graph, 0, points, m, n);
 	}
+
 	private static boolean isColoringPossible(boolean[][] graph, int i, int[] points, int m, int n) {
 		// it n means we have already colored 0 to n-1 nodes
 		if (i == n) return true;
@@ -55,9 +61,11 @@ private static void type1() {
 		}
 		return false;
 	}
+
 	private static boolean colorAvailable(boolean[][] graph, int point, int color, int n, int[] points) {
 		for (int i = 0; i < n; i++)
 			if (graph[i][point] && points[i] == color) return false;
 		return true;
 	}
+}
 ```

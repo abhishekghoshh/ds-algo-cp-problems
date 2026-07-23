@@ -1,27 +1,32 @@
 # ChooseKElementsWithMaximumSum
 
-**Topic:** `heap` | **File:** `com/problems/heap/ChooseKElementsWithMaximumSum.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/choose-k-elements-with-maximum-sum/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Choose K elements with maximum sum.
 
-### Implementation
+## 💡 Approaches
 
-Optimized using priority queue but check it later as well it would be easy to find out the lower elements if we have sorted the nums1 array, so then we will start from the last we will easily obtain the elements which are lesser than that but if we sort we will lose the indices, so we will create an 2D array, [num,index] then sort on that once we find that we will start from the last, but we only need top k elements, so we will use a priority queue once priority queue has more than k then we will poll the lowest element we will also carry a sum variable so that we do not need to compute the sum everytime
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Optimized using priority queue but check it later as well it would be easy to find out the lower elements if we have sorted the nums1 array, so then we will start from the last we will easily obtain the elements which are lesser than that but if we sort we will lose the indices, so we will create an 2D array, [num,index] then sort on that once we find that we will start from the last, but we only need top k elements, so we will use a priority queue once priority queue has more than k then we will poll the lowest element we will also carry a sum variable so that we do not need to compute the sum everytime sorted in reverse if the current item is equal to previous item then we will copy the sum for the prev item add nums2 ith element to sum and priority queue if size it greater than k then we will poll
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums1 = {4, 2, 1, 5, 3};
         int[] nums2 = {10, 20, 30, 40, 50};
         int k = 2;
         long[] ans = findMaxSum(nums1, nums2, k);
         PrintUtl.print(ans);
     }
+
     public static long[] findMaxSum(int[] nums1, int[] nums2, int k) {
         int n = nums1.length;
         long[] sums = new long[n];
@@ -58,4 +63,5 @@ private static void type1() {
         }
         return sums;
     }
+}
 ```

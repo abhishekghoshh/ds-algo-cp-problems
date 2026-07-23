@@ -1,20 +1,23 @@
 # ImplementRouter
 
-**Topic:** `array` | **File:** `com/problems/array/ImplementRouter.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/implement-router/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Implement a router with packet forwarding logic.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

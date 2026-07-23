@@ -1,32 +1,37 @@
 # CountTripletsThatCanFormTwoArraysOfEqualXOR
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/CountTripletsThatCanFormTwoArraysOfEqualXOR.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=e4Yx9KjqzQ8)
 - [▶ YouTube](https://www.youtube.com/watch?v=IAcO4Wyr2ak)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Count triplets (i,j,k) where XOR of subarrays are equal.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Most optimized approach time complexity O(n * log(n)) log(n) for the map operations heavily inspired by the previous approach if we see how we are calculating the ans => count += (k - i); so for any k there can be can be some i at i1 or i2 or i3 which will be contributing to the ans like 3k -i1 -i2 -i3 so we need to find the count of i1, i2, i3 and total index count
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n * log(n)
+### Approach 4: 🏆 Optimal Solution
+
+most optimized approach log(n) for the map operations heavily inspired by the previous approach if we see how we are calculating the ans => count += (k - i); so for any k there can be can be some i at i1 or i2 or i3 which will be contributing to the ans like 3k -i1 -i2 -i3 so we need to find the count of i1, i2, i3 and total index count
+
+**Time Complexity:** `O(n * log(n)`
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] arr = {2, 3, 1, 6, 7};
         int ans = countTriplets4(arr);
         System.out.println(ans);
     }
+
     private static int countTriplets4(int[] arr) {
         int n = arr.length;
         int count = 0;
@@ -49,16 +54,17 @@ private static void type4() {
 
 ### Approach 3
 
-Let's make it more optimized time complexity O(n^2) we could precompute the xor we could use a property of xor here for any x, y if x ^ y = 0 then x = y if x ^ y ^ x = 0 then x ^ y = z and x = y ^ z we can generalize then if the total xor is 0 and the length is n so we can say there can be n pairs or equal xor
+let's make it more optimized we could precompute the xor we could use a property of xor here for any x, y if x ^ y = 0 then x = y if x ^ y ^ x = 0 then x ^ y = z and x = y ^ z we can generalize then if the total xor is 0 and the length is n so we can say there can be n pairs or equal xor we are taking n+1 because in the iteration we will use prefix[i-1] so for removing that if i > 0 logic we are using n+1 elements from 0 to k xor will be prefix[k] and from 0 to i, xor will be prefix[i] so from i to k xor will be prefix[k] ^ prefix[i-1] prefix[i] ^ prefix[k + 1] == 0 means prefix[i] == prefix[k + 1]
 
-**Complexity:** Time: o(n^2)
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] arr = {2, 3, 1, 6, 7};
         int ans = countTriplets3(arr);
         System.out.println(ans);
     }
+
     private static int countTriplets3(int[] arr) {
         int n = arr.length;
         int count = 0;
@@ -84,14 +90,16 @@ private static void type3() {
 
 ### Approach 2
 
-Little optimized from the brute force approach still time complexity is O(n^3) we need 3 loops atleast to find all the possible triplets and along the way we will calculate the xor
+little optimized from the brute force approach we need 3 loops atleast to find all the possible triplets and along the way we will calculate the xor 'i' will be from 0 to n-2 j will be i+1 to n k will be j to n
+
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {2, 3, 1, 6, 7};
         int ans = countTriplets2(arr);
         System.out.println(ans);
     }
+
     private static int countTriplets2(int[] arr) {
         int n = arr.length;
         int count = 0;
@@ -113,18 +121,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^4)
+brute force approach finding xor of the elements from i to j finding xor of the elements from j to k if the xor is the same, then we are increasing the count
 
-**Complexity:** Time: o(n^4)
+**Time Complexity:** `O(n^4)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {2, 3, 1, 6, 7};
         int ans = countTriplets1(arr);
         System.out.println(ans);
     }
+
     private static int countTriplets1(int[] arr) {
         int n = arr.length;
         int count = 0;
@@ -147,4 +156,5 @@ private static void type1() {
         }
         return count;
     }
+}
 ```

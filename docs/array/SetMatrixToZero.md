@@ -1,28 +1,32 @@
 # SetMatrixToZero
 
-**Topic:** `array` | **File:** `com/problems/array/SetMatrixToZero.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/set-matrix-zeroes/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/set-matrix-zeros_3846774)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=N0MgLvceX7M&t=1s)
 - [▶ YouTube](https://www.youtube.com/watch?v=M65xBewcqcI&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/set-matrix-zero/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an m x n integer matrix, if an element is 0, set its entire row and column to 0 in-place.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimized approach without extra space instead of using two extra matrices row and col, we will use the 1st row and 1st column of the given matrix to keep a track of the cells that need to be marked with 0. as we are marking 0th cell 0, so we can skip traversing that
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+optimized approach without extra space instead of using two extra matrices row and col, we will use the 1st row and 1st column of the given matrix to keep a track of the cells that need to be marked with 0. as we are marking 0th cell 0, so we can skip traversing that [0,0] can decide both 0th column and row calculation of the first column is done by isFirstColumnZero boolean value so j is from 1 going from the last checking with 1st element of row and column to find if the cell is 0 or not
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] matrix = { 
 				{ 1, 1, 2, 2 }, 
 				{ 3, 4, 5, 2 }, 
@@ -55,10 +59,10 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach with extra space of O(row)+O(column) using a row matrix set and colum matrix set to mark which of the row and columns will be zero
+optimized approach with extra space of O(row)+O(column) using a row matrix set and colum matrix set to mark which of the row and columns will be zero
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] matrix = { 
 				{ 1, 1, 2, 2 }, 
 				{ 3, 4, 5, 2 }, 
@@ -82,12 +86,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] matrix = { 
 				{ 1, 1, 2, 2 }, 
 				{ 3, 4, 5, 2 }, 
@@ -110,6 +114,7 @@ private static void type1() {
 		}
 		print2D(matrix);
 	}
+
 	private static void setRowAndColumnToNegativeValue(int row, int column, int[][] matrix) {
 		for (int i = 0; i < matrix[row].length; i++) {
 			if (matrix[row][i] != 0) {
@@ -122,4 +127,6 @@ private static void type1() {
 			}
 		}
 	}
+
+}
 ```

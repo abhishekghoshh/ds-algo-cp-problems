@@ -1,27 +1,31 @@
 # UniqueEmailAddresses
 
-**Topic:** `string` | **File:** `com/problems/string/UniqueEmailAddresses.java`
-
+**Topic:** `string`  
 **Tags:** String, Array
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/unique-email-addresses/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+requires only one iteration for every string
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Little better than the previous
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+little better than the previous
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] emails = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
         int ans = numUniqueEmails2(emails);
         System.out.println(ans);
     }
+
     private static int numUniqueEmails2(String[] emails) {
         Set<String> set = new HashSet<>();
         StringBuilder sb = new StringBuilder();
@@ -47,16 +51,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force but optimized requires only one iteration for every string
+brute force but optimized requires only one iteration for every string once we find the @ we will add all the remaining if it + then we will set the hadPlus as true
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] emails = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
         int ans = numUniqueEmails1(emails);
         System.out.println(ans);
     }
+
     public static int numUniqueEmails1(String[] emails) {
         Set<String> set = new HashSet<>();
         StringBuilder sb = new StringBuilder();
@@ -82,4 +87,5 @@ private static void type1() {
         }
         return set.size();
     }
+}
 ```

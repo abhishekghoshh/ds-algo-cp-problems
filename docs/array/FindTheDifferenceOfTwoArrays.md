@@ -1,32 +1,36 @@
 # FindTheDifferenceOfTwoArrays
 
-**Topic:** `array` | **File:** `com/problems/array/FindTheDifferenceOfTwoArrays.java`
-
+**Topic:** `array`  
 **Tags:** Array, hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-difference-of-two-arrays/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=a4wqKR-znBE)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the difference of two arrays.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-1 <= nums1.length, nums2.length <= 1000 -1000 <= nums1[i], nums2[i] <= 1000 optimized approach using hashing but as we know the ranges, so we will use an array
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+1 <= nums1.length, nums2.length <= 1000 -1000 <= nums1[i], nums2[i] <= 1000 optimized approach using hashing but as we know the ranges, so we will use an array adding both the array to the set not checking which element is present in one but not in another that will be our set difference
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums1 = {1, 2, 3};
         int[] nums2 = {2, 4, 6};
         List<List<Integer>> ans = findDifference2(nums1, nums2);
         System.out.println(ans);
     }
+
     public static List<List<Integer>> findDifference2(int[] nums1, int[] nums2) {
         int N = 2001;
         int offset = 1000;
@@ -47,12 +51,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

@@ -1,27 +1,31 @@
 # MinimizeMaxDistanceToGasStation
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/MinimizeMaxDistanceToGasStation.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/minimise-max-distance_7541449)
 - [📄 LeetCode](https://leetcode.com/problems/minimize-max-distance-to-gas-station/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=kMSBvlZ-_HA)
 - [📄 takeUforward](https://takeuforward.org/arrays/minimise-maximum-distance-between-gas-stations/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Place additional gas stations to minimize the maximum distance.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Best solution uses binary search on answer method TODO check it one more time
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+best solution uses binary search on answer method check it one more time Find the maximum distance: Apply Binary search:
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         int k = 6;
         int n = arr.length;
@@ -47,6 +51,7 @@ private static void type4() {
         double answer = high;
         System.out.println(answer);
     }
+
     public static int numberOfGasStationsRequired(double dist, int[] arr) {
         int n = arr.length; // size of the array
         int cnt = 0;
@@ -63,10 +68,10 @@ private static void type4() {
 
 ### Approach 3
 
-Using same heap approach just like the previous one
+using same heap approach just like the previous one insert the first n-1 elements into pq with respective distance values: Pick and place k gas stations: Find the maximum section and insert the gas station: insert the current gas station:
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         int k = 6;
         int n = arr.length;
@@ -95,14 +100,25 @@ private static void type3() {
         double answer = maxHeap.peek().first;
         System.out.println(answer);
     }
+
+    private static class Pair {
+        double first;
+        int second;
+
+        Pair(double first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
 ```
 
 ### Approach 2
 
-Using heap time complexity is O(n*log(n))
+using heap we will save the distance between two points and the gas station at that point comparator function will act upon the density between the two points for the start it will be 1 before allocating anything between ith and i+1 th gas station there will be will only one gas station but we will poll the most distant point then add a point then again we will push it back heap will get us the max distant point again
+
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {1, 2, 3, 6, 10};
         int k = 4;
         int n = arr.length;
@@ -129,12 +145,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity is O(n^2)
+brute force approach Pick and place k gas stations: Find the maximum section and insert the gas station: insert the current gas station: Find the maximum distance i.e. the answer:
+
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         int k = 6;
         int n = arr.length;
@@ -166,4 +183,5 @@ private static void type1() {
         }
         System.out.println(maxAns);
     }
+}
 ```

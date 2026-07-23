@@ -1,25 +1,27 @@
 # PostfixToPrefix
 
-**Topic:** `stack` | **File:** `com/problems/stack/PostfixToPrefix.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/postfix-to-prefix_1788455)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=smQ88h1qzQY)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         String exp = "ab+cd-*";
         char[] arr = exp.toCharArray();
         Stack<String> stack = new Stack<>();
@@ -34,4 +36,6 @@ private static void type1() {
         }
         System.out.println(stack.peek());
     }
+
+}
 ```

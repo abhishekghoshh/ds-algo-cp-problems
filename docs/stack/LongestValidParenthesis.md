@@ -1,29 +1,32 @@
 # LongestValidParenthesis
 
-**Topic:** `stack` | **File:** `com/problems/stack/LongestValidParenthesis.java`
-
+**Topic:** `stack`  
 **Tags:** Array, String, Dynamic Programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-valid-parentheses/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=VdQuwtEd10M&t=648s&pp=ygUZTG9uZ2VzdCBWYWxpZCBQYXJlbnRoZXNlcw%3D%3D)
 - [▶ YouTube](https://www.youtube.com/watch?v=qC5DGX0CPFA)
 - [https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/32.%20Longest%20Valid%20Parentheses](https://github.com/Algorithms-Made-Easy/Leetcode-Challenge/blob/main/32.%20Longest%20Valid%20Parentheses)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given a string containing just '(' and ')', find the length of the longest valid parentheses substring.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-This is too complex to implement in an interview This is an example of dynamic programming once we find any () we are trying to explore it's left side and right side we can surely explore on right side but to exploration on left is tricky so, we will do one thing once we find any balanced parenthesis we will save the right index and left index to an array and for left side exploration we will try to check if there is any ending of balanced parenthesis on the left side, if we find any then we will change left to starting of left side balanced parenthesis
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+this is too complex to implement in an interview This is an example of dynamic programming once we find any () we are trying to explore it's left side and right side we can surely explore on right side but to exploration on left is tricky so, we will do one thing once we find any balanced parenthesis we will save the right index and left index to an array and for left side exploration we will try to check if there is any ending of balanced parenthesis on the left side, if we find any then we will change left to starting of left side balanced parenthesis we will try to expand once we find any () left side exploration
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = ")(((((()())()()))()(()))(";
         char[] chArr = s.toCharArray();
         int n = chArr.length;
@@ -62,10 +65,11 @@ private static void type4() {
 
 ### Approach 3
 
-This is the most optimal approach time complexity is O(2n) space complexity is O(1)
+this is the most optimal approach exploration from left to right exploration from right to left
+
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = ")(((((()())()()))()(()))(";
         char[] chArr = s.toCharArray();
         int n = chArr.length;
@@ -98,10 +102,10 @@ private static void type3() {
 
 ### Approach 2
 
-Explain code walkthrough later
+explain code walkthrough later
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = ")(((((()())()()))()(()))(";
         char[] chArr = s.toCharArray();
         int n = chArr.length;
@@ -125,12 +129,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity is O(n^3) it will get time time limit exceeds We will check for every (i,j) if it is a valid parenthesis or not and get the max out of all pairs but here is a problem if we have checked for an i,j then we don't have to check for a pair inside (i,j) that is purely redundant
+brute force approach it will get time time limit exceeds We will check for every (i,j) if it is a valid parenthesis or not and get the max out of all pairs but here is a problem if we have checked for an i,j then we don't have to check for a pair inside (i,j) that is purely redundant
+
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = ")(((((()())()()))()(()))(";
         char[] chArr = s.toCharArray();
         int n = chArr.length;
@@ -142,6 +147,8 @@ private static void type1() {
         }
         System.out.println(max);
     }
+
+    // time complexity is O(N)
     private static boolean isValidParenthesis(char[] chArr, int start, int end) {
         if ((end - start + 1) % 2 != 0 || chArr[start] == ')' || chArr[end] == '(')
             return false;
@@ -156,4 +163,5 @@ private static void type1() {
         }
         return openBraces == 0;
     }
+}
 ```

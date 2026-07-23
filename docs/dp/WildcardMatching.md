@@ -1,31 +1,36 @@
 # WildcardMatching
 
-**Topic:** `dp` | **File:** `com/problems/dp/WildcardMatching.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/wildcard-matching/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/wildcard-pattern-matching_701650)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ZmlQ3vgAOMo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=35)
 - [📄 takeUforward](https://takeuforward.org/data-structure/wildcard-matching-dp-34/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given an input string s and a pattern p, implement wildcard pattern matching with support for '?' (matches any single character) and '*' (matches any sequence of characters).
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Check it later It is the most efficient technique it uses two pointer technique
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+check it later It is the most efficient technique it uses two pointer technique If the current characters in the input string and pattern match, or the pattern character is '?' If the current character in the pattern is '*' If there was a previously encountered '*' in the pattern If none of the above conditions are met, it means the pattern cannot match the input string At this point, we have reached the end of the input string Skip any remaining '*' characters in the pattern If we have reached the end of the pattern after skipping the '*' characters, it means the pattern matches the input string
 
 ```java
-private static void type5() {
+    private static void type5() {
         String s = "adceb", p = "*a*b";
         boolean isMatch = isMatch5(s, p);
         System.out.println(isMatch);
     }
+
     public static boolean isMatch5(String s, String p) {
         int n1 = s.length(); // Get the length of the input string
         int n2 = p.length(); // Get the length of the pattern string
@@ -68,14 +73,15 @@ private static void type5() {
 
 ### Approach 4
 
-Bottom-up approach with space optimization we will use only two arrays for storing current and previous row values
+bottom-up approach with space optimization we will use only two arrays for storing current and previous row values if both n1 and n2 are zero, we will set it as 0 for all n1 as zero, checking if from start the pattern has all the * all not check the recursion for finding all the recurrence relations for all n2 as zero, the value of the dp will be 0 assigning the curr as the prev
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = "adceb", p = "*a*b";
         boolean isMatch = isMatch4(s, p);
         System.out.println(isMatch);
     }
+
     private static boolean isMatch4(String s, String p) {
         char[] arr1 = s.toCharArray(), arr2 = p.toCharArray();
         int n1 = arr1.length, n2 = arr2.length;
@@ -109,14 +115,15 @@ private static void type4() {
 
 ### Approach 3
 
-Bottom-up approach with tabulation we will use 2D array to store the dp values
+bottom-up approach with tabulation we will use 2D array to store the dp values if both n1 and n2 are zero, we will set it as 0 for all n1 as zero, checking if from start the pattern has all the * all not for all n2 as zero, the value of the dp will be 0 check the recursion for finding all the recurrence relations
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "adceb", p = "*a*b";
         boolean isMatch = isMatch3(s, p);
         System.out.println(isMatch);
     }
+
     private static boolean isMatch3(String s, String p) {
         char[] arr1 = s.toCharArray(), arr2 = p.toCharArray();
         int n1 = arr1.length, n2 = arr2.length;
@@ -148,20 +155,26 @@ private static void type3() {
 
 ### Approach 2
 
-Bottom-up approach with recursion as memoization 0 means not traversed, -1 is false, and 1 is true
+bottom-up approach with recursion as memoization 0 means not traversed, -1 is false, and 1 is true if both n1 and n2 is 0 that means both of the strings are consumed if n2 is 0, that means pattern string is consumed and we will return 0 if the first string is consumed entirely, then to match with the pattern.
+
+the pattern must have all the characters as * if it is then we will return true else false if the cell is computed, then we will return if both the character matches or pattern has ? as character, then will consider it as a match if it is * then we have two options, either to consider * as a single character or an empty character n1-1 means we are using * to match a character in the original string.
+
+n2-1 means we are treating the * as an empty character saving to the int array
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "adceb", p = "*a*b";
         boolean isMatch = isMatch2(s, p);
         System.out.println(isMatch);
     }
+
     public static boolean isMatch2(String s, String p) {
         char[] arr1 = s.toCharArray(), arr2 = p.toCharArray();
         int n1 = arr1.length, n2 = arr2.length;
         int[][] dp = new int[n1 + 1][n2 + 1];
         return isMatch2(n1, n2, arr1, arr2, dp);
     }
+
     public static boolean isMatch2(int n1, int n2, char[] arr1, char[] arr2, int[][] dp) {
         // if both n1 and n2 is 0 that means both of the strings are consumed
         if (n1 == 0 && n2 == 0) return true;
@@ -198,21 +211,25 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using recursion
+brute force approach using recursion if both n1 and n2 is 0 that means both of the strings are consumed if n2 is 0, that means pattern string is consumed and we will return 0 if the first string is consumed entirely, then to match with the pattern. the pattern must have all the characters as * if it is then we will return true else false if both the character matches or pattern has ?
+
+as character, then will consider it as a match if it is * then we have two options, either to consider * as a single character or an empty character n1-1 means we are using * to match a character in the original string. n2-1 means we are treating the * as an empty character
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "adceb", p = "*a*b";
         boolean isMatch = isMatch1(s, p);
         System.out.println(isMatch);
     }
+
     public static boolean isMatch1(String s, String p) {
         char[] arr1 = s.toCharArray(), arr2 = p.toCharArray();
         int n1 = arr1.length, n2 = arr2.length;
         return isMatch1(n1, n2, arr1, arr2);
     }
+
     public static boolean isMatch1(int n1, int n2, char[] arr1, char[] arr2) {
         // if both n1 and n2 is 0 that means both of the strings are consumed
         if (n1 == 0 && n2 == 0) return true;
@@ -243,4 +260,5 @@ private static void type1() {
             return false;
         }
     }
+}
 ```

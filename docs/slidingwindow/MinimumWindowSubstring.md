@@ -1,36 +1,40 @@
 # MinimumWindowSubstring
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MinimumWindowSubstring.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Arrays, String, sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-window-substring/description/)
 - [📄 NeetCode](https://neetcode.io/problems/minimum-window-with-characters)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/minimum-window-substring_1215004)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=WJaij9ffOIY)
 - Aditya Verma : https://www.youtube.com/watch?v=iwv1llyN6mo&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=13
 - Neetcode : https://www.youtube.com/watch?v=jSto0O4AJbM
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given two strings s and t of lengths m and n respectively, return the minimum
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "". The testcases will be generated such that the answer is unique. A substring is a contiguous sequence of characters within the string. todo exactly like the previous type but here we are using array and freq mao same as previous type but here we will use array instead of map
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly like the previous type but here we are using array and freq mao same as previous type but here we will use array instead of map adding to the frequency map from the pattern array now we will loop through the actual array, and at this point the freq map has items from the pattern array, we will take advantage of that we will decrease the characters from the actual array if the frequency is greater than equal to 0 then the current character also belongs to the pattern array otherwise freq would be negative, so we will decrement n2 as we found one character from pattern array checking if the len is lesser than the min length, then we will update the min and the start of the window as we are shifting the left side, so we will increment the frequency if the freq of left character is greater than 0 that means it is from the pattern array, so we have again added one character from pattern array, hence we will increment n2
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
 		String minWindow = minWindow3(s, t);
 		System.out.println(minWindow);
 	}
+
 	private static String minWindow3(String s, String t) {
 		int n1 = s.length(), n2 = t.length();
 		char[] arr = s.toCharArray();
@@ -70,15 +74,16 @@ private static void type3() {
 
 ### Approach 2
 
-Sliding two pointer approach using sliding window discuss this in the interview this is an optimized approach we will use a frequency map to store the frequency of the pattern array then we will apply the map into actual array and decrement character from the freq map if all the freq is less than equal to 0 then the prev string is consumed but for that we need to check the all the freq every time, we could do a little trick we could use one variable n and decrement it when then freq of the char is greater than equal to 0 if negative, then that is not present on the pattern array if n is 0 then the pattern array is present in that range and we will save that range length and now we will shrink the range from the left side till n == 0
+sliding two pointer approach using sliding window discuss this in the interview this is an optimized approach we will use a frequency map to store the frequency of the pattern array then we will apply the map into actual array and decrement character from the freq map if all the freq is less than equal to 0 then the prev string is consumed but for that we need to check the all the freq every time, we could do a little trick we could use one variable n and decrement it when then freq of the char is greater than equal to 0 if negative, then that is not present on the pattern array if n is 0 then the pattern array is present in that range and we will save that range length and now we will shrink the range from the left side till n == 0 adding to the frequency map from the pattern array now we will loop through the actual array, and at this point the freq map has items from the pattern array, we will take advantage of that we will decrease the characters from the actual array if the frequency is greater than equal to 0 then the current character also belongs to the pattern array otherwise freq would be negative, so we will decrement n2 as we found one character from pattern array if n2 is 0 then we will shrink the left side checking if the len is lesser than the min length, then we will update the min and the start of the window as we are shifting the left side, so we will increment the frequency if the freq of left character is greater than 0 that means it is from the pattern array, so we have again added one character from pattern array, hence we will increment n2
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "ADOBECODEBANCABN";
 		String t = "ABC";
 		String min = minWindow2(s, t);
 		System.out.println(min);
 	}
+
 	private static String minWindow2(String s, String t) {
 		char[] sArr = s.toCharArray();
 		char[] tArr = t.toCharArray();
@@ -120,14 +125,16 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "ADOBECODEBANC";
 		String t = "ABC";
 
 	}
+
+}
 ```

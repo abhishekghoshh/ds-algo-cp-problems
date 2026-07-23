@@ -1,36 +1,43 @@
 # PowerSet
 
-**Topic:** `trie` | **File:** `com/problems/trie/PowerSet.java`
+**Topic:** `trie`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/1062667)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/power-set4302/1#)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/power-set-print-all-the-possible-subsequences-of-the-string/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a string s, generate all possible subsequences of the string (including the empty subsequence) and return them in lexicographical order.
+A subsequence is obtained by deleting zero or more characters from the string without changing the relative
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Complete this solution with trie data structure this can also be done with recursion unique strings
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+unique strings
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String str = "aabab";
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Repeated strings
+repeated strings
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String str = "aabab";
 	}
+
+}
 ```

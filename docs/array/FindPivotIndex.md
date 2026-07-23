@@ -1,27 +1,31 @@
 # FindPivotIndex
 
-**Topic:** `array` | **File:** `com/problems/array/FindPivotIndex.java`
-
+**Topic:** `array`  
 **Tags:** Prefix Sum, Array
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-pivot-index/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an array nums, find the pivot index where the sum of elements left of index equals sum of elements right of index.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Most optimized approach using just only suffix sum
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+most optimized approach using just only suffix sum
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 7, 3, 6, 5, 6};
         int ans = pivotIndex3(nums);
         System.out.println(ans);
     }
+
     public static int pivotIndex3(int[] nums) {
         int n = nums.length;
         int[] suffixSum = new int[n];
@@ -41,14 +45,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using the prefix sum and suffix sum
+optimized approach using the prefix sum and suffix sum
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 7, 3, 6, 5, 6};
         int ans = pivotIndex2(nums);
         System.out.println(ans);
     }
+
     private static int pivotIndex2(int[] nums) {
         int n = nums.length;
         int[] prefixSum = new int[n];
@@ -70,16 +75,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 7, 3, 6, 5, 6};
         int ans = pivotIndex1(nums);
         System.out.println(ans);
     }
+
     private static int pivotIndex1(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
@@ -90,4 +96,5 @@ private static void type1() {
         }
         return -1;
     }
+}
 ```

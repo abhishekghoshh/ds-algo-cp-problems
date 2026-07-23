@@ -1,21 +1,25 @@
 # PetrAndCombinationLock
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/PetrAndCombinationLock.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [https://codeforces.com/problemset/problem/1097/B](https://codeforces.com/problemset/problem/1097/B)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+this is a problem of recursion, memoization, bottom-up problem
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+size of power is 2^n so we will run a loop 0 to 2^n -1
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 10, 20, 30 };
 		int n = arr.length;
 		// size of power is 2^n
@@ -45,20 +49,23 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This is a problem of recursion, memoization, bottom-up problem
+this is a problem of recursion, memoization, bottom-up problem
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] arr = { 10, 20, 30 };
 		boolean isPossible = combination(arr, 0, 0);
 		System.out.println(isPossible);
 	}
+
 	private static boolean combination(int[] arr, int i, int sum) {
 		if (i == arr.length) {
 			return sum % 360 == 0;
 		}
 		return combination(arr, i + 1, sum + arr[i]) || combination(arr, i + 1, sum - arr[i]);
 	}
+
+}
 ```

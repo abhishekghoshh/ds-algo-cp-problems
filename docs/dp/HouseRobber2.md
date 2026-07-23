@@ -1,42 +1,49 @@
 # HouseRobber2
 
-**Topic:** `dp` | **File:** `com/problems/dp/HouseRobber2.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/house-robber-ii/description/)
 - [📄 NeetCode](https://neetcode.io/problems/house-robber-ii)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/house-robber-ii_839733)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3WaxQMELSkw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=7)
 - [▶ YouTube](https://www.youtube.com/watch?v=rWAJCfYYOvM)
 - [📄 takeUforward](https://takeuforward.org/data-structure/dynamic-programming-house-robber-dp-6/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+the question states that the houses are in circle, and 0th house and nth house are adjacent
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-The question states that the houses are in circle, and 0th house and nth house are adjacent we can use the same array, we can just manipulate the indices rather than creating 2 new arrays
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we can use the same array, we can just manipulate the indices rather than creating 2 new arrays
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Same as house robber 1, with a constraint that if we are taking the 0th element, then we cannot take n-1 th element. todo lets make the intuition, if we cut the circle it will be a straight line which makes it same question like robber 1, but if we take first then we can not the last easiest solution would be make 2 arrays nums[0,n-1) and nums[1,n) apply robber problem solution for each nums and take the max so can make two arrays, one with the 0th element and another n-1 th element, and we can take the max from both. so 0 and n-1th will never be in the same array
+same as house robber 1, with a constraint that if we are taking the 0th element, then we cannot take n-1 th element. lets make the intuition, if we cut the circle it will be a straight line which makes it same question like robber 1, but if we take first then we can not the last easiest solution would be make 2 arrays nums[0,n-1) and nums[1,n) apply robber problem solution for each nums and take the max so can make two arrays, one with the 0th element and another n-1 th element, and we can take the max from both.
+
+so 0 and n-1th will never be in the same array creating 2 individual arrays taking the current home not taking the current home
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 3, 1};
         int answer = rob(nums);
         System.out.println(answer);
     }
+
     public static int rob(int[] nums) {
         int n = nums.length;
         if (n == 1) return nums[0];
@@ -50,6 +57,7 @@ private static void type1() {
         }
         return Math.max(robOne(nums1), robOne(nums2));
     }
+
     public static int robOne(int[] nums) {
         int n = nums.length;
         int prev2 = nums[0];
@@ -65,4 +73,5 @@ private static void type1() {
         }
         return prev;
     }
+}
 ```

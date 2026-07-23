@@ -1,22 +1,26 @@
 # RemoveOutermostParentheses
 
-**Topic:** `string` | **File:** `com/problems/string/RemoveOutermostParentheses.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-outermost-parentheses/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/maximum-nesting-depth-of-the-parentheses_8144741)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Remove the outermost parentheses from each primitive decomposition of a valid parentheses string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach for the starting of the parenthesis counter will be 0 so we will be ignoring that character for the end of the parenthesis counter will be 0 again
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "(()())(())(()(()))";
         StringBuilder answer = new StringBuilder();
         int counter = 0;
@@ -37,12 +41,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "(()())(())(()(()))";
         int n = s.length();
         char[] arr = s.toCharArray();
@@ -67,4 +71,5 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+}
 ```

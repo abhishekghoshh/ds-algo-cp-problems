@@ -1,27 +1,31 @@
 # KokoEatingBananas
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/KokoEatingBananas.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/koko-eating-bananas/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/minimum-rate-to-eat-bananas_7449064)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=qyfekrNni90)
 - [📄 takeUforward](https://takeuforward.org/binary-search/koko-eating-bananas/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Koko loves to eat bananas. There are n piles of bananas. Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile and eats k bananas from that pile. Return the minimum integer k such that she can eat all the bananas within h hours.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Binary search on answer at a minimum, the monkey has take least 1 banana if the monkey is bounded by k then at max monkey can take max(pile) so if we start binary search from 0 -> k such that if we check if the monkey can eat at most k bananas in one iteration and the monkey can finish all the bananas
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+binary search on answer at a minimum, the monkey has take least 1 banana if the monkey is bounded by k then at max monkey can take max(pile) so if we start binary search from 0 -> k such that if we check if the monkey can eat at most k bananas in one iteration and the monkey can finish all the bananas if (piles.length == 1) return divide(piles[0], h);
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] piles = {30, 11, 23, 4, 20};
         int h = 5;
 //        if (piles.length == 1) return divide(piles[0], h);
@@ -40,6 +44,7 @@ private static void type2() {
         }
         System.out.println(answer);
     }
+
     private static boolean canEat(int[] piles, int mid, int h) {
         int hourNeeded;
         for (int pile : piles) {
@@ -50,12 +55,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

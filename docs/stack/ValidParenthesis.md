@@ -1,35 +1,39 @@
 # ValidParenthesis
 
-**Topic:** `stack` | **File:** `com/problems/stack/ValidParenthesis.java`
-
+**Topic:** `stack`  
 **Tags:** Stack, String
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-parentheses/description/)
 - [📄 NeetCode](https://neetcode.io/problems/validate-parentheses)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/valid-parentheses_795104)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=xwjS0iZhw4I)
 - [▶ YouTube](https://www.youtube.com/watch?v=wkDfsKijrZ8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/check-for-balanced-parentheses/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+exactly like the previous, but here we are using a normal array as stack
 
-### Implementation
+## 💡 Approaches
 
-Exactly like the previous, but here we are using a normal array as stack
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+exactly like the previous, but here we are using a normal array as stack if the character is an opening parenthesis, then we will just add it at this point, the current character is a closing parenthesis if stack is empty that mean there is no opening parenthesis to match this closing parenthesis for a proper closing parenthesis, there must be one opening parenthesis popping from the stack checking if the stack is empty or not
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "()[]{}";
 		boolean answer = isValid2(s);
 		System.out.println(answer);
 	}
+
 	private static boolean isValid2(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -57,7 +61,13 @@ private static void type2() {
 		// checking if the stack is empty or not
 		return (top == 0);
 	}
+```
 
+### Approach 1: 🔨 Brute Force
+
+if the character is an opening parenthesis, then we will just add it at this point, the current character is a closing parenthesis if stack is empty that mean there is no opening parenthesis to match this closing parenthesis for a proper closing parenthesis, there must be one opening parenthesis checking if the stack is empty or not
+
+```java
 	private static void type1() {
 		String s = "()[]{}";
 		boolean answer = isValid1(s);

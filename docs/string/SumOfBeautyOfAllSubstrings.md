@@ -1,22 +1,26 @@
 # SumOfBeautyOfAllSubstrings
 
-**Topic:** `string` | **File:** `com/problems/string/SumOfBeautyOfAllSubstrings.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sum-of-beauty-of-all-substrings/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sum-of-beauty-of-all-substrings_8143656)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Calculate the sum of beauty of all substrings, where beauty = maxFreq - minFreq of characters.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Slightly optimized from brute force, we are skipping the find max iteration
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+slightly optimized from brute force, we are skipping the find max iteration
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "aabcb";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -39,12 +43,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "aabcb";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -59,6 +63,7 @@ private static void type1() {
         }
         System.out.println(sum);
     }
+
     private static int beautyOfString(int[] freq) {
         int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
         for (int num : freq) {
@@ -67,4 +72,5 @@ private static void type1() {
         }
         return max - min;
     }
+}
 ```

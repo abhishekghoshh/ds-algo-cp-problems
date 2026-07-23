@@ -1,32 +1,36 @@
 # MinCostClimbingStairs
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinCostClimbingStairs.java`
-
+**Topic:** `dp`  
 **Tags:** Array, Dynamic Programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/min-cost-climbing-stairs/description/)
 - [📄 NeetCode](https://neetcode.io/problems/min-cost-climbing-stairs)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ktmzAZWkEZ0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given cost array, find minimum cost to reach the top of stairs.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Space optimized as we were only dependent on the i-1 and i-2, so we could use 2 variables prev2 and prev and a curr variable and then update prev1 and prev2 on each iteration
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+space optimized as we were only dependent on the i-1 and i-2, so we could use 2 variables prev2 and prev and a curr variable and then update prev1 and prev2 on each iteration
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int ans = minCostClimbingStairs4(cost);
         System.out.println(ans);
     }
+
     public static int minCostClimbingStairs4(int[] cost) {
         int prev1 = 0, prev2 = 0;
         int n = cost.length;
@@ -43,14 +47,15 @@ private static void type4() {
 
 ### Approach 3
 
-Bottom up approach using same dp array we know one thing that from jumping any index, total cost would be cost[i] + prevCost if we want to jump into any index, we can jump from either from i-1 or i-2, so we will take minimum cost of from prev1 and prev2 indices for the current i we will do this till n as someone could land on n skipping n-1 index so we will start from 2 and end at n
+bottom up approach using same dp array we know one thing that from jumping any index, total cost would be cost[i] + prevCost if we want to jump into any index, we can jump from either from i-1 or i-2, so we will take minimum cost of from prev1 and prev2 indices for the current i we will do this till n as someone could land on n skipping n-1 index so we will start from 2 and end at n
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int ans = minCostClimbingStairs3(cost);
         System.out.println(ans);
     }
+
     private static int minCostClimbingStairs3(int[] cost) {
         int n = cost.length;
         int[] dp = new int[n + 1];
@@ -65,14 +70,15 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous but here we are using a dp array and initialize with -1 here also we will start from 0 and 1 and take the minimum in each recursive call we will go either 1 step or 2 step further and take the minimum but before calling any further recursive call we will check the dp array if it already has any value or not
+same as previous but here we are using a dp array and initialize with -1 here also we will start from 0 and 1 and take the minimum in each recursive call we will go either 1 step or 2 step further and take the minimum but before calling any further recursive call we will check the dp array if it already has any value or not
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int ans = minCostClimbingStairs2(cost);
         System.out.println(ans);
     }
+
     private static int minCostClimbingStairs2(int[] cost) {
         int n = cost.length;
         int[] dp = new int[n + 1];
@@ -82,6 +88,7 @@ private static void type2() {
                 minCostClimbingStairs2(1, cost, dp)
         );
     }
+
     private static int minCostClimbingStairs2(int i, int[] cost, int[] dp) {
         int n = cost.length;
         if (i >= n) return 0;
@@ -93,22 +100,24 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using recursion we will start from 0 and 1 and take the minimum in each recursive call we will go either 1 step or 2 step further and take the minimum
+brute force approach using recursion we will start from 0 and 1 and take the minimum in each recursive call we will go either 1 step or 2 step further and take the minimum
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int ans = minCostClimbingStairs1(cost);
         System.out.println(ans);
     }
+
     private static int minCostClimbingStairs1(int[] cost) {
         return Math.min(
                 minCostClimbingStairs1(0, cost),
                 minCostClimbingStairs1(1, cost)
         );
     }
+
     private static int minCostClimbingStairs1(int i, int[] cost) {
         int n = cost.length;
         if (i >= n) return 0;
@@ -117,4 +126,5 @@ private static void type1() {
                 minCostClimbingStairs1(i + 2, cost)
         );
     }
+}
 ```

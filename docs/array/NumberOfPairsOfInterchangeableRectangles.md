@@ -1,29 +1,34 @@
 # NumberOfPairsOfInterchangeableRectangles
 
-**Topic:** `array` | **File:** `com/problems/array/NumberOfPairsOfInterchangeableRectangles.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-pairs-of-interchangeable-rectangles/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=lEQ8ZlLOuyQ)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+which will be fC2 ⇒ f*(f-1)/2
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Not the most optimized approach as an array is easier and less time-consuming to handle, so we will use an array to store the ratios we will create an array of double as the same size of the rectangles. then sort that array, so same ratios will come in together we will count that then apply the f*(f-1)/2
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+not the most optimized approach as an array is easier and less time-consuming to handle, so we will use an array to store the ratios we will create an array of double as the same size of the rectangles. then sort that array, so same ratios will come in together we will count that then apply the f*(f-1)/2 storing all the ratios now counting for all the ratios
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] rectangles = {{4, 8}, {3, 6}, {10, 20}, {5, 30}};
         long ans = interchangeableRectangles2(rectangles);
         System.out.println(ans);
     }
+
     private static long interchangeableRectangles2(int[][] rectangles) {
         int n = rectangles.length;
         // storing all the ratios
@@ -51,16 +56,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using a hashmap we will store the ratios and their freq in a map if there are f number of rectangles with the same ratios. if 2 rectangles can interchange, so the problem is to choose 2 among f options which will be fC2 ⇒ f*(f-1)/2
+brute force approach using a hashmap we will store the ratios and their freq in a map if there are f number of rectangles with the same ratios. if 2 rectangles can interchange, so the problem is to choose 2 among f options which will be fC2 ⇒ f*(f-1)/2 now counting for all the ratios
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] rectangles = {{4, 8}, {3, 6}, {10, 20}, {5, 30}};
         long ans = interchangeableRectangles1(rectangles);
         System.out.println(ans);
     }
+
     public static long interchangeableRectangles1(int[][] rectangles) {
         // now counting for all the ratios
         Map<Double, Long> freq = new HashMap<>();
@@ -76,4 +82,5 @@ private static void type1() {
         }
         return count;
     }
+}
 ```

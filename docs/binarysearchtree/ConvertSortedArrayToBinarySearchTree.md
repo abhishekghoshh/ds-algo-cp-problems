@@ -1,32 +1,38 @@
 # ConvertSortedArrayToBinarySearchTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/ConvertSortedArrayToBinarySearchTree.java`
+**Topic:** `binarysearchtree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0K0uCMYq5ng)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+then the left side will be the left subtree and the right side will be the right subtree
 
-### Implementation
+## 💡 Approaches
 
-Using recursion, we know there could be multiple ways for creating a binary search tree. so we will use the divide and conquer approach, we will take the middle element as root, then the left side will be the left subtree and the right side will be the right subtree
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+using recursion, we know there could be multiple ways for creating a binary search tree. so we will use the divide and conquer approach, we will take the middle element as root, then the left side will be the left subtree and the right side will be the right subtree if start is greater than the end, that means there will be no node left else we will take the mid and treat that as root we will take the left and right range and create the left and right subtree
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {-10, -3, 0, 5, 9};
         TNode root = sortedArrayToBST(nums);
         PrintUtl.inOrder(root);
     }
+
     public static TNode sortedArrayToBST(int[] nums) {
         return sortedArrayToBST(nums, 0, nums.length - 1);
     }
+
     public static TNode sortedArrayToBST(int[] nums, int start, int end) {
         // if start is greater than the end, that means there will be no node left
         if (start > end) return null;
@@ -38,4 +44,5 @@ private static void type1() {
         root.right = sortedArrayToBST(nums, mid + 1, end);
         return root;
     }
+}
 ```

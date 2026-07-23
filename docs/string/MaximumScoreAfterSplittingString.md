@@ -1,29 +1,34 @@
 # MaximumScoreAfterSplittingString
 
-**Topic:** `string` | **File:** `com/problems/string/MaximumScoreAfterSplittingString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-score-after-splitting-a-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=mc_eSStDrWw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Split a binary string into two non-empty parts to maximize the score (left zeros + right ones).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach we will calculate the ones in one iteration
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will calculate the ones in one iteration first we will calculate all the ones now we will go through the array once again we will take two variables leftZeros, rightOnes we will initialize them with 0 and total count of 1s so if the bit is 0 then we will increment leftZeros else we will decrement from the rightOnes, so we don't need to calculate again
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "011101";
         int ans = maxScore2(s);
         System.out.println(ans);
     }
+
     public static int maxScore2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -52,16 +57,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach we will use a pointer and calculate left 0s and right 1s individually
+brute force approach we will use a pointer and calculate left 0s and right 1s individually checking the left side checking the right side checking the max
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "011101";
         int ans = maxScore1(s);
         System.out.println(ans);
     }
+
     public static int maxScore1(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -81,4 +87,5 @@ private static void type1() {
         }
         return max;
     }
+}
 ```

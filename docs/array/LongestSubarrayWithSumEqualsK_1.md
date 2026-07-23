@@ -1,30 +1,37 @@
 # LongestSubarrayWithSumEqualsK_1
 
-**Topic:** `array` | **File:** `com/problems/array/LongestSubarrayWithSumEqualsK_1.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_6682399)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=frf7qxiN2qU&t=3s)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Two pointers approach variable length sliding window technique works on positive numbers only A simple intuition for the optimal approach is that, while forming a subarray if the sum as already greater than k, we can stop there and increase the starting index. Because, already the sum has reached k, if we are still going to add more elements, it would definitely go up. Time complexity O(2 *n) space complexity O(1) space complexity O(1)
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(2 *n) | Space: o(1)
+### Approach 4: 🏆 Optimal Solution
+
+Two pointers approach variable length sliding window technique works on positive numbers only A simple intuition for the optimal approach is that, while forming a subarray if the sum as already greater than k, we can stop there and increase the starting index.
+
+Because, already the sum has reached k, if we are still going to add more elements, it would definitely go up. if sum > k, reduce the subarray from left until sum becomes less or equal to k: Move forward the right pointer:
+
+**Time Complexity:** `O(2 *n)`
+**Space Complexity:** `O(1)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type4() {
+    private static void type4() {
         int k = 3;
         int[] arr = {1, 2, 3, 1, 1, 1, 1};
         int n = arr.length;
@@ -51,12 +58,13 @@ private static void type4() {
 
 ### Approach 3
 
-Same as type2 just with little modification Prefix sum approach Hashing approach where we store all the cumulative sun from the start and each index we check if the (sum -k) exists before or not if exists then in between range has the sum of k time complexity O(n) + o(log(n)) for hashing for the worst case space complexity O(n)
+Same as type2 just with little modification Prefix sum approach Hashing approach where we store all the cumulative sun from the start and each index we check if the (sum -k) exists before or not if exists then in between range has the sum of k
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int k = 3;
         int[] arr = {1, 2, 3, 1, 1, 1, 1};
         int n = arr.length;
@@ -77,12 +85,13 @@ private static void type3() {
 
 ### Approach 2
 
-Prefix sum approach Hashing approach where we store all the cumulative sun from the start and each index we check if the (sum -k) exists before or not if exists then in between range has the sum of k time complexity O(n) + o(log(n)) for hashing for the worst case space complexity O(n)
+Prefix sum approach Hashing approach where we store all the cumulative sun from the start and each index we check if the (sum -k) exists before or not if exists then in between range has the sum of k
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int k = 3;
         int[] arr = {1, 2, 3, 1, 1, 1, 1};
         int n = arr.length;
@@ -102,14 +111,15 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(1)
+brute force approach
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int k = 3;
         int[] arr = {1, 2, 3, 1, 1, 1, 1};
         int n = arr.length;
@@ -124,4 +134,5 @@ private static void type1() {
         }
         System.out.println(maxLen);
     }
+}
 ```

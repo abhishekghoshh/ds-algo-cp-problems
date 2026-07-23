@@ -1,30 +1,41 @@
 # WordLadder2
 
-**Topic:** `graph` | **File:** `com/problems/graph/WordLadder2.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/word-ladder-ii/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/word-ladder-ii/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/shortest-transition-paths_8391015)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=DREutrv2XD0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=30)
 - [📄 takeUforward](https://takeuforward.org/graph/g-30-word-ladder-ii/)
 - [▶ YouTube](https://www.youtube.com/watch?v=AD4SFl7tu7I&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=31)
 - [📄 takeUforward](https://takeuforward.org/graph/word-ladder-ii-optimised-approach-g-31/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+but this answer will only be accepted in geekforgeeks not leetcode
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+Push all values of wordList into a set if set does not contain the end word then we can directly return Perform BFS traversal and push the string in the queue as soon as they’re found in the wordList. Create a map of type word->level to get the idea on which level the word comes after the transformations.
+
+beginWord initialised with level 1. Break out if the word matches the endWord Replace each character of the word with letters from a-z and check whether the transformed word is present in the wordList or not, if yes then push to queue push the word along with its level in the map data structure.
+
+A list for storing the final answer. If we reach the endWord, we stop and move to step-2,that is to perform reverse dfs traversal. initializing arraylist with some default length Function for implementing backtracking using the created map in reverse order to find the transformation sequence in less time.
+
+If word equals beginWord, we’ve found one of the sequences to reverse the sequence and return. before adding to the answer, we are reversing it and check whether the transformed word is present in the map and at the previous level or not. pop the current word from the back of the list, to traverse other possibilities.
+
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String beginWord = "hit";
 		String endWord = "cog";
 		List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
@@ -32,6 +43,7 @@ private static void type3() {
 		List<List<String>> answer = findLadders3(wordList, beginWord, endWord);
 		System.out.println(answer);
 	}
+
 	private static List<List<String>> findLadders3(List<String> wordList, String beginWord, String endWord) {
 		// Push all values of wordList into a set
 		// to make deletion from it easier and in less time complexity.
@@ -88,6 +100,7 @@ private static void type3() {
 		}
 		return ans;
 	}
+
 	private static void dfs(String beginWord, String word, List<String> seq, List<List<String>> ans, Map<String, Integer> map) {
 		// Function for implementing backtracking using the created map
 		// in reverse order to find the transformation sequence in less time.
@@ -125,10 +138,10 @@ private static void type3() {
 
 ### Approach 2
 
-This will also get TLE in leetcode
+this will also get TLE in leetcode rather than maintaining a visited set, we will maintain a set and everytime we encounter any word we will remove that from set if end word is not present, then will return the empty list directly as we are starting from the beginning word, so we will remove that this helper method will group all the similar words like dog cog bog and the key will be #og we are using a linked list specifically for the fast operation we will go level wise, so we need the current size of the queue we have to change it from the last word of the sequence if the end word is not present, then we will skip creating a new seq from the old seq and new word also adding it to the queue we are adding these words in the toBeDeleted list, to delete in future if at any level we find the end-word, then we will add that to the answer we know it is the lowest level possible because we are going to the level wise and at last we may loop through the transformed words that are to be deleted if the answer array is not empty, that means there is least one answer exist, so we can stop the loop here again we are clearing the toBeDeletedWords list
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String beginWord = "hit";
 		String endWord = "cog";
 		List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
@@ -136,6 +149,7 @@ private static void type2() {
 		List<List<String>> answer = findLadders2(wordList, beginWord, endWord);
 		System.out.println(answer);
 	}
+
 	private static List<List<String>> findLadders2(List<String> wordList, String beginWord, String endWord) {
 		List<List<String>> answer = new LinkedList<>();
 		// rather than maintaining a visited set, we will maintain a set
@@ -200,6 +214,7 @@ private static void type2() {
 		}
 		return answer;
 	}
+
 	public static void groupWords(String word, Map<String, LinkedList<String>> wordsKeyMap) {
 		char[] copy = word.toCharArray();
 		for (int i = 0; i < copy.length; i++) {
@@ -213,18 +228,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Not the most optimized approach, we will use the same technique as the WordLadder1 type2 problem. but rather than storing the string only to queue, we will store the list of string or the sequence, but this answer will only be accepted in geekforgeeks not leetcode
+not the most optimized approach, we will use the same technique as the WordLadder1 type2 problem. but rather than storing the string only to queue, we will store the list of string or the sequence, but this answer will only be accepted in geekforgeeks not leetcode rather than maintaining a visited set, we will maintain a set and everytime we encounter any word we will remove that from set if end word is not present, then will return the empty list directly as we are starting from the beginning word, so we will remove that we are using a linked list specifically for the fast operation we will check how many words are in the same level then we will loop on that words of same level in queue saving the current char for future usage again replacing with the old char check if it exists in the set and push it in the queue.
+
+creating a new seq from the old seq and new word also adding it to the queue we are adding these words in the toBeDeleted list, to delete in future if at any level we find the end-word, then we will add that to the answer we know it is the lowest level possible because we are going to the level wise and at last we may loop through the transformed words that are to be deleted if the answer array is not empty, that means there is least one answer exist so we can stop the loop here again we are clearing the toBeDeletedWords list
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String beginWord = "hit";
 		String endWord = "cog";
 		List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
 		List<List<String>> answer = findLadders1(wordList, beginWord, endWord);
 		System.out.println(answer);
 	}
+
 	private static List<List<String>> findLadders1(List<String> wordList, String beginWord, String endWord) {
 		// rather than maintaining a visited set, we will maintain a set
 		// and everytime we encounter any word we will remove that from set
@@ -286,4 +304,6 @@ private static void type1() {
 		}
 		return answer;
 	}
+
+}
 ```

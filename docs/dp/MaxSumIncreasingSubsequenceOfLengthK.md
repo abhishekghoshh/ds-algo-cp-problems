@@ -1,41 +1,45 @@
 # MaxSumIncreasingSubsequenceOfLengthK
 
-**Topic:** `dp` | **File:** `com/problems/dp/MaxSumIncreasingSubsequenceOfLengthK.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/maximum-sum-subsequence_1230547)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find maximum sum increasing subsequence of exactly length K.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-This DP solution has some bug, fix it recursion with the dynamic programming
+this DP solution has some bug, fix it recursion with the dynamic programming
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<Integer> arr = List.of(1, 3, -2, 4, 5);
         int k = 3;
         long ans = maximumSum2(arr, k);
         System.out.println(ans);
     }
+
     public static long maximumSum2(List<Integer> arr, int k) {
         int n = arr.size();
         Long[][][] dp = new Long[n][n + 1][k + 1];
         long ans = maximumSum2(n - 1, n, k, arr, dp);
         return (ans != Long.MIN_VALUE) ? ans : -1;
     }
+
     private static long maximumSum2(int i, int prev, int k, List<Integer> arr, Long[][][] dp) {
         int n = arr.size();
         if (k == 0) return 0;
@@ -52,21 +56,23 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This solution has some bug, fix it with recursion
+this solution has some bug, fix it with recursion
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<Integer> arr = List.of(1, 3, -2, 4, 5);
         int k = 3;
         long ans = maximumSum1(arr, k);
         System.out.println(ans);
     }
+
     public static long maximumSum1(List<Integer> arr, int k) {
         long ans = maximumSum1(arr.size() - 1, Integer.MAX_VALUE, k, arr);
         return (ans != Long.MIN_VALUE) ? ans : -1;
     }
+
     private static long maximumSum1(int i, int prev, int k, List<Integer> arr) {
         if (k == 0) return 0;
         if (i < 0) return Long.MIN_VALUE;
@@ -79,4 +85,5 @@ private static void type1() {
         }
         return sum;
     }
+}
 ```

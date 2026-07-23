@@ -1,28 +1,33 @@
 # FibonacciSeries
 
-**Topic:** `dp` | **File:** `com/problems/dp/FibonacciSeries.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/nth-fibonacci-number_74156)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=tyB0ztf0DNY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=2)
 - [📄 takeUforward](https://takeuforward.org/data-structure/dynamic-programming-introduction/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Return the nth Fibonacci number using DP.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Using tabulation with memory optimization Time complexity O(n) space complexity O(1)
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 4: 🏆 Optimal Solution
+
+using tabulation with memory optimization current is sum of previous and previous to previous after the sum, we will update prev2 and then prev
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type4() {
+    private static void type4() {
         int n = 10;
         int prev2 = 0, prev = 1, curr;
         for (int i = 2; i <= n; i++) {
@@ -38,12 +43,13 @@ private static void type4() {
 
 ### Approach 3
 
-Using tabulation Time complexity O(n) space complexity O(n) for array
+using tabulation same as previous f(i) = f(i-1) + f(i-2) but as it is bottom up approach, we will start from the lowest input possible we will go till n
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int n = 10;
         int[] memo = new int[n + 1];
         Arrays.fill(memo, -1);
@@ -62,18 +68,20 @@ private static void type3() {
 
 ### Approach 2
 
-Using memoization Time complexity O(n) space complexity O(n) for stack space
+using memoization checking if the recursion call is already happened or not before returning, we will also save the answer
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 10;
         int[] memo = new int[n + 1];
         Arrays.fill(memo, -1);
         int answer = fib(n, memo);
         System.out.println(answer);
     }
+
     private static int fib(int n, int[] memo) {
         if (n <= 1) return n;
         // checking if the recursion call is already happened or not
@@ -83,21 +91,25 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using Recursion Time complexity O(2^n) space complexity O(n) for stack space
+using Recursion
 
-**Complexity:** Time: o(2^n) | Space: o(n)
+**Time Complexity:** `O(2^n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 10;
         int answer = fib(n);
         System.out.println(answer);
     }
+
+
     private static int fib(int n) {
         if (n <= 1) return n;
         return fib(n - 1)
                 + fib(n - 2);
     }
+}
 ```

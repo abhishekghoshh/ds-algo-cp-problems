@@ -1,25 +1,29 @@
 # LongestRepeatingSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/LongestRepeatingSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=hbTaCmQGqLg&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=29)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the longest repeating subsequence in a string (same characters, different indices).
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 4
 
-Same as type3 but little optimized rather creating a different array altogether, we can directly copy the array with itself
+same as type3 but little optimized rather creating a different array altogether, we can directly copy the array with itself that extra condition for different position same characters
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String str = "abbccabd";
 		char[] arr = str.toCharArray();
 		int n = arr.length;
@@ -39,10 +43,12 @@ private static void type4() {
 
 ### Approach 3
 
-The intuition is not straight forward here what is the longest repeating subsequence, a subsequence which repeats most in a string. We could think that if we could find the longest subsequence with string with the same string itself, then we would find the longest subsequence, but there is a catch. The entire string would be the matching subsequence then. However, we are going the right way. If we can remind that when we exactly match the characters, then at that position we can add some extra conditions if s1[i] == s2[j] and i != j then essentially matching would occur for different positions
+The intuition is not straight forward here what is the longest repeating subsequence, a subsequence which repeats most in a string. We could think that if we could find the longest subsequence with string with the same string itself, then we would find the longest subsequence, but there is a catch.
+
+The entire string would be the matching subsequence then. However, we are going the right way. If we can remind that when we exactly match the characters, then at that position we can add some extra conditions if s1[i] == s2[j] and i != j then essentially matching would occur for different positions now we will fill uop the entire dp array that extra condition for different position same characters
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String str = "abbccabd";
 		char[] arr1 = str.toCharArray();
 		int n = arr1.length;
@@ -62,4 +68,5 @@ private static void type3() {
 		int count = dp[n][n];
 		System.out.println(count);
 	}
+}
 ```

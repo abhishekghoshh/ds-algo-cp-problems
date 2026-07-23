@@ -1,24 +1,27 @@
 # MaximumPointsYouCanObtainFromCards
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaximumPointsYouCanObtainFromCards.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Array, Dynamic programming, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/maximum-points-from-cards_8391016)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Maximum points from picking K cards from either end.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Study later
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+study later
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] cardPoints = {1, 2, 3, 4, 5, 6, 1};
         int k = 3;
         int n = cardPoints.length;
@@ -41,12 +44,13 @@ private static void type4() {
 
 ### Approach 3
 
-Dynamic programming time complexity O(2k) space complexity O(k)
+dynamic programming
 
-**Complexity:** Time: o(2k) | Space: o(k)
+**Time Complexity:** `O(2k)`
+**Space Complexity:** `O(k)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] cardPoints = {1, 2, 3, 4, 5, 6, 1};
         int k = 3;
         int n = cardPoints.length;
@@ -65,12 +69,13 @@ private static void type3() {
 
 ### Approach 2
 
-Dynamic programming time complexity O(2k) space complexity O(2k)
+dynamic programming
 
-**Complexity:** Time: o(2k) | Space: o(2k)
+**Time Complexity:** `O(2k)`
+**Space Complexity:** `O(2k)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] cardPoints = {1, 2, 3, 4, 5, 6, 1};
         int k = 3;
         int n = cardPoints.length;
@@ -86,11 +91,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

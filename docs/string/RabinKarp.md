@@ -8,6 +8,24 @@
 - [YouTube](https://www.youtube.com/watch?v=qQ8vS2btsxI)
 - [Blog - GeeksforGeeks](https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/)
 
+
+A&nbsp;text&nbsp;string in which you want to search.
+
+
+A&nbsp;pattern&nbsp;string that you are looking for within the&nbsp;text.
+
+
+Return all positions (0-based indexing) where the pattern&nbsp;occurs as a substring in the&nbsp;t
+
+
+A&amp;nbsp;text&amp;nbsp;string in which you want to search.
+
+
+A&amp;nbsp;pattern&amp;nbsp;string that you are looking for within the&amp;nbsp;text.
+
+
+Return all positions (0-based indexing) where the pattern&amp;nbsp;occurs as a substring in the&amp;nbsp;t
+
 ## Approaches
 
 ### Type 1: Brute Force

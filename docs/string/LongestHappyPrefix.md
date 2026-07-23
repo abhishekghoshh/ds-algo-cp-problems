@@ -1,22 +1,26 @@
 # LongestHappyPrefix
 
-**Topic:** `string` | **File:** `com/problems/string/LongestHappyPrefix.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-happy-prefix/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/longest-prefix-which-is-suffix_3146849)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the longest prefix that is also a suffix of a string (KMP LPS).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach Using Z function by definition Z function will give us the answer by z function the lps array or Longest-Prefix-Suffix Array
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach Using Z function by definition Z function will give us the answer by z function the lps array or Longest-Prefix-Suffix Array
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "level";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -38,12 +42,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "level";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -60,4 +64,5 @@ private static void type1() {
         String answer = s.substring(0, max);
         System.out.println(answer);
     }
+}
 ```

@@ -1,14 +1,14 @@
 # EvaluateExpressionToTrue
 
-**Topic:** `dp` | **File:** `com/problems/dp/EvaluateExpressionToTrue.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/boolean-parenthesization5610/1)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/evaluate-expression-to-true/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/problem-name-boolean-evaluation_1214650)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=pGVguAcWX4g&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=38)
 - [▶ YouTube](https://www.youtube.com/watch?v=bzXM1Zond9U&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=39)
@@ -16,16 +16,24 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/evaluate-boolean-expression-to-true-partition-dp-dp-52/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/library/evaluate-expression-to-true)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+As this is the amount of space that the recursion stack will use to store 4 ^ N calls.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Top-down approach O(N ^ 3), where N is the length of the given string. In the worst-case scenario, after performing N ^ 3 calls, all the states will be investigated, and we will be able to use the dp result to find our final answer. O(N^2), where N is the length of the given string. As a 3-D array of size N * N * 2 is being used.
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+top-down approach O(N ^ 3), where N is the length of the given string. In the worst-case scenario, after performing N ^ 3 calls, all the states will be investigated, and we will be able to use the dp result to find our final answer. O(N^2), where N is the length of the given string.
+
+As a 3-D array of size N * N * 2 is being used. last dimension for storing both true and false to result 1 for true and 0 for false initializing for the single length characters if the char is T, then we will keep the 1st cell as 1, or we will keep oth cell as 1 Filling the dp array for all length strings T | T = T, T | F = T, F | T = T, F | F = F.
+
+this is for evaluating the true this is for evaluating the false T & T = T, T & F = F, F & T = F , F | F = F. T ^ T = F, T ^ F = T, F ^ T = T, F ^ F = F
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String expr = "T|T&F^T";
 		int n = expr.length();
 		char[] arr = expr.toCharArray();
@@ -76,10 +84,12 @@ private static void type4() {
 
 ### Approach 3
 
-We can translate the previous recursion into iteration
+we can translate the previous recursion into iteration last dimension for storing both true and false to result 1 for true and 0 for false initializing for the single length characters if the char is T, then we will keep the 1st cell as 1, or we will keep oth cell as 1 T | T = T, T | F = T, F | T = T , F | F = F.
+
+if the operator between left and right side is 'AND' T & T = T, T & F = F, F & T = F , F | F = F. if the operator between left and right side is 'XOR' T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String expr = "T|T&F^T";
 		int n = expr.length();
 		char[] arr = expr.toCharArray();
@@ -134,10 +144,14 @@ private static void type3() {
 
 ### Approach 2
 
-Memoization
+memoization we will require a 3-dimensional array now because other than i and j we will also require to hold answer for true and false if start is greater than the end, which means it is out of bounds start equal to end means it is a single character now we will think what we need, a true or a false checking the dp table if it already has the value we will divide the array into 2 parts and will check how many ways both parts make true and false as to generate true or false we might require both true and false on both sides The number of ways expression left to 'K' will be true.
+
+The number of ways expression left to 'K' will be false. The number of ways expression right to 'K' will be true. The number of ways expression right to 'K' will be false. if the operator between left and right side is 'OR' T | T = T, T | F = T, F | T = T , F | F = F.
+
+if the operator between left and right side is 'AND' T & T = T, T & F = F, F & T = F , F | F = F. if the operator between left and right side is 'XOR' T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F. also setting up dp cell value
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "T|T&F^T";
 		int n = s.length();
 		char[] arr = s.toCharArray();
@@ -152,6 +166,7 @@ private static void type2() {
 		int countWays = countWays(arr, 0, n - 1, 1, dp);
 		System.out.println(countWays);
 	}
+
 	private static int countWays(char[] arr, int start, int end, int trueNeeded, int[][][] dp) {
 		// if start is greater than the end, which means it is out of bounds
 		if (start > end) return 0;
@@ -211,12 +226,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-O(4 ^ N), Where N is the length of the string. At each step, we are making 4 calls and at that particular call, we are making 4 calls again thus, bringing the time complexity to O(4^N). O(4^ N), Where N is the length of the string. As this is the amount of space that the recursion stack will use to store 4 ^ N calls.
+O(4 ^ N), Where N is the length of the string. At each step, we are making 4 calls and at that particular call, we are O(4^ N), Where N is the length of the string. As this is the amount of space that the recursion stack will use to store 4 ^ N calls.
+
+if start is greater than the end, which means it is out of bounds start equal to end means it is a single character now we will think what we need, a true or a false we will divide the array into 2 parts and will check how many ways both parts make true and false as to generate true or false we might require both true and false on both sides The number of ways expression left to 'K' will be true.
+
+The number of ways expression left to 'K' will be false. The number of ways expression right to 'K' will be true. The number of ways expression right to 'K' will be false. if the operator between left and right side is 'OR' T | T = T, T | F = T, F | T = T , F | F = F.
+
+if the operator between left and right side is 'AND' T & T = T, T & F = F, F & T = F , F | F = F. if the operator between left and right side is 'XOR' T ^ T = F, T ^ F = T, F ^ T = T , F ^ F = F.
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "T|T&F^T";
 		int n = s.length();
 		char[] arr = s.toCharArray();
@@ -224,6 +246,7 @@ private static void type1() {
 		int countWays = countWays(arr, 0, n - 1, 1);
 		System.out.println(countWays);
 	}
+
 	private static int countWays(char[] arr, int start, int end, int trueNeeded) {
 		// if start is greater than the end, which means it is out of bounds
 		if (start > end) return 0;
@@ -278,4 +301,6 @@ private static void type1() {
 		}
 		return ans;
 	}
+
+}
 ```

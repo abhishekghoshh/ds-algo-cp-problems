@@ -1,33 +1,40 @@
 # MinimumCostToCutTheStick
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumCostToCutTheStick.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-cost-to-cut-a-stick/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/cost-to-cut-a-chocolate_3208460)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=xwomavsC86c&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=51)
 - [▶ YouTube](https://www.youtube.com/watch?v=EVxTO5I0d7w)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-cost-to-cut-the-stick-dp-50/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a stick and cut positions, find the minimum cost to cut the stick.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Avoid iterative approach in the interview, but if you pull this over then go ahead we can transform the recursion to iteration
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+avoid iterative approach in the interview, but if you pull this over then go ahead we can transform the recursion to iteration we will sort the array, so that cuts will be in order we will modify the cut array create the dp of the same size we want all ranges possible, so to turn recursion into iteration, we will start left from the last, and we will start right just after left to the last index.
+
+so after that we can just copy the recurrence relation from the recursion we will start right left+2 otherwise there will not be any cut between left and right we will cut everywhere between left+1 to right-1 and split the rod new rod will be left to k and k to right
 
 ```java
-private static void type3() {
+    private static void type3() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
         int ans = minCost3(cuts, n);
         System.out.println(ans);
     }
+
     private static int minCost3(int[] cuts, int n) {
         int c = cuts.length;
         int N = c + 2;
@@ -67,15 +74,16 @@ private static void type3() {
 
 ### Approach 2
 
-If you get the recurrence relation from the previous type then this is a cakewalk recursion with memoization
+if you get the recurrence relation from the previous type then this is a cakewalk recursion with memoization we will sort the array, so that cuts will be in order we will modify the cut array create the dp of the same size if there are no cuts possible in between, then we will return cost as 0 the current cost will be right length - left length if the call is already made, then we will return the value we will cut everywhere between left+1 to right-1 and split the rod new rod will be left to k and k to right
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
         int ans = minCost2(cuts, n);
         System.out.println(ans);
     }
+
     private static int minCost2(int[] cuts, int n) {
         int c = cuts.length;
         // we will sort the array, so that cuts will be in order
@@ -91,6 +99,7 @@ private static void type2() {
         for (int[] row : dp) Arrays.fill(row, -1);
         return minCost2(0, c + 1, nums, dp);
     }
+
     private static int minCost2(int left, int right, int[] cuts, int[][] dp) {
         // if there are no cuts possible in between, then we will return cost as 0
         if (left + 1 == right) return 0;
@@ -110,17 +119,22 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using simple recursion. we will construct the recurrence relation here let's say the rod is having the marker is on 0 to n. we want to cut it in all cuts, so the first thing we could do is, sort the cuts. let's say the first cut is on ith index having value k. then the cost is 7-0, and the current rods will be 0 to k and k to n, so we can also cut the array from first index to i and ith index to last. but we are forgetting one thing we still need to use length 0 and length n for future length, so to simplify things we will add 0 and n to the first and last index in the cuts. so the length will be cuts[left] - cuts[right] if we try to break it at ith index, then new lengths will be cuts[k] - cuts[left] and cuts[right] - cuts[k] todo this slightly different from strivers solution but intuition is from his solution
+using simple recursion. we will construct the recurrence relation here let's say the rod is having the marker is on 0 to n. we want to cut it in all cuts, so the first thing we could do is, sort the cuts. let's say the first cut is on ith index having value k.
+
+then the cost is 7-0, and the current rods will be 0 to k and k to n, so we can also cut the array from first index to i and ith index to last. but we are forgetting one thing we still need to use length 0 and length n for future length, so to simplify things we will add 0 and n to the first and last index in the cuts.
+
+so the length will be cuts[left] - cuts[right] if we try to break it at ith index, then new lengths will be cuts[k] - cuts[left] and cuts[right] - cuts[k] this slightly different from strivers solution but intuition is from his solution we will sort the array, so that cuts will be in order we will modify the cut array if there are no cuts possible in between, then we will return cost as 0 the current cost will be right length - left length we will cut everywhere between left+1 to right-1 and split the rod new rod will be left to k and k to right
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 7;
         int[] cuts = {1, 3, 4, 5};
         int ans = minCost1(cuts, n);
         System.out.println(ans);
     }
+
     private static int minCost1(int[] cuts, int n) {
         int c = cuts.length;
         // we will sort the array, so that cuts will be in order
@@ -134,6 +148,7 @@ private static void type1() {
 
         return minCost1(0, c + 1, nums);
     }
+
     private static int minCost1(int left, int right, int[] cuts) {
         // if there are no cuts possible in between, then we will return cost as 0
         if (left + 1 == right) return 0;
@@ -149,4 +164,5 @@ private static void type1() {
             );
         return min + cost;
     }
+}
 ```

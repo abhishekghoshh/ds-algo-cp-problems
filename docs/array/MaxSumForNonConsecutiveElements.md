@@ -1,35 +1,41 @@
 # MaxSumForNonConsecutiveElements
 
-**Topic:** `array` | **File:** `com/problems/array/MaxSumForNonConsecutiveElements.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/house-robber/description/)
 - [📄 NeetCode](https://neetcode.io/problems/house-robber)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/maximum-sum-of-non-adjacent-elements_843261)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=GrMBfJNk_NY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=6)
 - [▶ YouTube](https://www.youtube.com/watch?v=73r3KWiEvyk)
 - [📄 takeUforward](https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+The problem is very similar to a maximum sum of a non-adjacent element in an array
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-The problem is very similar to a maximum sum of a non-adjacent element in an array using tabulation with memory optimization Time complexity O(n) space complexity O(1) we will compute from 0th to n-1 th height it is the same as previous we just need last and 2nd last value to compute the current we can just hold those two values in 2 variable prev and prev2
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 4: 🏆 Optimal Solution
+
+using tabulation with memory optimization we will compute from 0th to n-1 th height it is the same as previous we just need last and 2nd last value to compute the current we can just hold those two values in 2 variable prev and prev2
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {2, 7, 9, 3, 1};
 		int prev = houseRobber4(nums);
 		System.out.println(prev);
 	}
+
 	private static int houseRobber4(int[] nums) {
 		int n = nums.length;
 		int prev2 = nums[0];
@@ -47,17 +53,19 @@ private static void type4() {
 
 ### Approach 3
 
-Using tabulation Time complexity O(k*n) space complexity O(n) for array
+using tabulation
 
-**Complexity:** Time: o(k*n) | Space: o(n)
+**Time Complexity:** `O(k*n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {2, 7, 9, 3, 1};
 		int n = nums.length;
 		int ans = houseRobber3(n, nums);
 		System.out.println(ans);
 	}
+
 	private static int houseRobber3(int n, int[] nums) {
 		int[] dp = new int[n];
 		dp[0] = nums[0];
@@ -73,12 +81,13 @@ private static void type3() {
 
 ### Approach 2
 
-Using memoization Time complexity O(n) space complexity O(2n) for stack space and array
+using memoization taking the current home not taking the current home
 
-**Complexity:** Time: o(n) | Space: o(2n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {2, 7, 9, 3, 1};
 		int n = nums.length;
 		int[] dp = new int[n];
@@ -86,6 +95,7 @@ private static void type2() {
 		int answer = houseRobber(n - 1, nums, dp);
 		System.out.println(answer);
 	}
+
 	private static int houseRobber(int i, int[] nums, int[] dp) {
 		if (i == 0) return nums[i];
 		if (i < 0) return 0;
@@ -98,19 +108,30 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using Recursion Time complexity O(2^n) space complexity O(n) for stack space
+using Recursion for every home we have 2 choices, we can either take the home or not to take it, but if we take it then we cannot take its adjacent element. choice 1 => current home + rob (current-2th home) choice 2 => start rob (current-1th home) when i==0 that means it is the last house; we have no other choice other than taking it.
 
-**Complexity:** Time: o(2^n) | Space: o(n)
+when i<0 that means we were in the 1st index, and now it cannot go to the 0th index, so it went to 1-2 => -1 th index taking the current home not taking the current home returning the max
+
+**Time Complexity:** `O(2^n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {2, 7, 9, 3, 1};
 		int n = nums.length;
 		int answer = houseRobber(n - 1, nums);
 		System.out.println(answer);
 	}
+
+	// for every home we have 2 choices, we can either take the home
+	// or not to take it, but if we take it then we cannot take its adjacent element.
+	// choice 1 => current home + rob (current-2th home)
+	// choice 2 => start rob (current-1th home)
+	// when i==0 that means it is the last house; we have no other choice other than taking it.
+	// when i<0 that means we were in the 1st index, and now it cannot go to the 0th index,
+	// so it went to 1-2 => -1 th index
 	private static int houseRobber(int i, int[] nums) {
 		if (i == 0) return nums[i];
 		if (i < 0) return 0;
@@ -121,4 +142,6 @@ private static void type1() {
 		// returning the max
 		return Math.max(takeCurrentHome, notTakeCurrentHome);
 	}
+
+}
 ```

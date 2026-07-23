@@ -1,27 +1,31 @@
 # AccountsMerge
 
-**Topic:** `graph` | **File:** `com/problems/graph/AccountsMerge.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/accounts-merge/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/merging-details/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FMwpt_aQOGw&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=50)
 - [📄 takeUforward](https://takeuforward.org/data-structure/accounts-merge-dsu-g-50/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Bob, a teacher&nbsp;of St. Joseph School given a task by his principal&nbsp;to merge the details of the students where each element details[i] is a list of strings, where the first element details[i][0] is a name of the student, and the rest of the e
 
-### Implementation
+## 💡 Approaches
 
-We will use a disjoint set for merging accounts
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will use a disjoint set for merging accounts lets first create the parent array and the rank array and initialize it we will map all mail to its index like for johnsmith@mail.com will be mapped to 0. but if we find the mail again in the map that means and ith index means ith index can be mapped to 0th index, they belong to the same person 0th element is for the name, so we will start from 1 if the mail does not exist, then we will set it to k else we will set k to its parent node now we have to merge all the mails, and then we will sort the mails and add the names at last it can be done in multiple ways, but this approach looks easier we will take a array for n size, and the mails to its parent ids list ultimate parent id of the current mail we will initialize that index with an empty arraylist if the account is null, then all the mails are merged with a different index as per the question, we will sort it we can take any mail from the mail list we will find the ultimate parent index of the mail and find the name from the account array list as per the question, we will add the name at the 0th position src == parent[src] means parent of the node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		List<List<String>> accounts = List.of(
 				List.of("John", "johnsmith@mail.com", "john_newyork@mail.com"),
 				List.of("John", "johnsmith@mail.com", "john00@mail.com"),
@@ -32,6 +36,7 @@ private static void type1() {
 		List<List<String>> answer = accountsMerge(accounts);
 		System.out.println(answer);
 	}
+
 	public static List<List<String>> accountsMerge(List<List<String>> accounts) {
 		int n = accounts.size();
 		// lets first create the parent array and the rank array and initialize it
@@ -91,6 +96,7 @@ private static void type1() {
 		}
 		return answer;
 	}
+
 	private static void union(int[] parent, int[] rank, int u, int v) {
 		int baseParentU = find(parent, u);
 		int baseParentV = find(parent, v);
@@ -102,6 +108,7 @@ private static void type1() {
 			rank[baseParentU]++;
 		}
 	}
+
 	private static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
 		if (node == parent[node]) return node;
@@ -109,4 +116,5 @@ private static void type1() {
 		parent[node] = baseParent;
 		return baseParent;
 	}
+}
 ```

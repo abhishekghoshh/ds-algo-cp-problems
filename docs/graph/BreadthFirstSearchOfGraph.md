@@ -1,27 +1,31 @@
 # BreadthFirstSearchOfGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/BreadthFirstSearchOfGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/bfs-in-graph_973002)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-tgVpUgsQ5k&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=5)
 - [📄 takeUforward](https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a&nbsp;connected undirected graph containing V vertices, represented by a 2-d&nbsp;adjacency list&nbsp;adj[][], where each&nbsp;adj[i]&nbsp;represents the list of vertices connected to vertex&nbsp;i. Perform a&nbsp;Breadth First Search (BFS)&nb
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-In an adjacency list
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+in an adjacency list using a visited array to mark the current node is visited or not setting the 0th node as the first node we will go to all connected nodes and store it to the queue. and the queue will make sure that the current level is exhausted first if the start is end or the end node is already visited, then we will not add that into queue
 
 ```java
-private static void type2() {
+	private static void type2() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 		adjList.add(new ArrayList<>(List.of(2, 3, 1)));
 		adjList.add(new ArrayList<>(List.of(0)));
@@ -56,12 +60,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-In an adjacency matrix
+in an adjacency matrix using a visited array to mark the current node is visited or not setting the 0th node as the first node we will go to all connected nodes and store it to the queue. and the queue will make sure that the current level is exhausted first if the start is end or there is no edge or the end node is already visited, then we will not add that into queue
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 5;
 		int[][] graph = {
 				{0, 1, 1, 1, 0},
@@ -95,4 +99,6 @@ private static void type1() {
 		}
 		System.out.println(bfsOfGraph);
 	}
+
+}
 ```

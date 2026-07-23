@@ -1,25 +1,29 @@
 # SortLinkedListOfZeroOneTwo
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/SortLinkedListOfZeroOneTwo.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sort-linked-list-of-0s-1s-2s_1071937)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=gRII7LhdJWc)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Sort a linked list containing only 0s, 1s, and 2s.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will start with three dummy nodes for zero one and two. we are adding dummy because we have to check null otherwise we will keep track of the head and tail of 0, 1 and 2. based on the node value, we will attach the node to the tail of 1 or 2 or 3 we will now connect to tail of 0 to head or 1 or 2 we will now connect to tail of 1 to the head of 2 and lastly tail of two will point to null
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 0, 2, 1, 0, 2, 1);
         // we will start with three dummy nodes for zero one and two.
         // we are adding dummy because we have to check null otherwise
@@ -57,12 +61,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 0, 2, 1, 0, 2, 1);
         Node node = head;
         List<Integer> list = new ArrayList<>();
@@ -78,4 +82,5 @@ private static void type1() {
         }
         print(head);
     }
+}
 ```

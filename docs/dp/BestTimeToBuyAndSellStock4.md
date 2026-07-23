@@ -1,27 +1,31 @@
 # BestTimeToBuyAndSellStock4
 
-**Topic:** `dp` | **File:** `com/problems/dp/BestTimeToBuyAndSellStock4.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/best-time-to-buy-and-sell-stock_1080698)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=IV1dHbk5CDc&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=39)
 - [📄 takeUforward](https://takeuforward.org/data-structure/buy-and-sell-stock-iv-dp-38/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+Max profit with at most K transactions.
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-Optimization from the striver's solution similar to the previous type space optimized version this is very optimized solution
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+similar to the previous type space optimized version this is very optimized solution filling out all the dp cells odd indices for buying and even for selling next = curr; assigning the current to the next for future use
 
 ```java
-private static void type6() {
+    private static void type6() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
         int n = prices.length;
@@ -59,10 +63,10 @@ private static void type6() {
 
 ### Approach 5
 
-Check the solutions from Best time for buy and sell 3 one rows of the dp array will specify buy1, sell1, buy2, sell2,.....buy-k,sell-k if you have done ith transaction then we will find the dp value of next days i+1th transaction. transactions will spread out from 0 to 2k-1 even means you have to buy and odd means to sell
+check the solutions from Best time for buy and sell 3 one rows of the dp array will specify buy1, sell1, buy2, sell2,.....buy-k,sell-k if you have done ith transaction then we will find the dp value of next days i+1th transaction. transactions will spread out from 0 to 2k-1 even means you have to buy and odd means to sell odd indices for buying and even for selling
 
 ```java
-private static void type5() {
+    private static void type5() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
         int n = prices.length;
@@ -94,10 +98,10 @@ private static void type5() {
 
 ### Approach 4
 
-Top-down approach with tabulation with space optimization
+top-down approach with tabulation with space optimization transactions could have 2 values, 0 and 1, -1 means no transactions left we will use 3 loops, we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type4() {
+    private static void type4() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
         int n = prices.length;
@@ -133,10 +137,10 @@ private static void type4() {
 
 ### Approach 3
 
-Top-down approach with tabulation
+top-down approach with tabulation transactions could have 2 values, 0 and 1, -1 means no transactions left we will use 3 loops, we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type3() {
+    private static void type3() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
         int n = prices.length;
@@ -166,15 +170,16 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization
+recursion with memoization transactions could have 2 values, 0 and 1, -1 means no transactions left checking if it is out of bounds or not 0 means we can buy on that day we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type2() {
+    private static void type2() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
         int ans = maxProfit2(k, prices);
         System.out.println(ans);
     }
+
     public static int maxProfit2(int k, int[] prices) {
         int n = prices.length;
         // transactions could have 2 values, 0 and 1, -1 means no transactions left
@@ -184,15 +189,37 @@ private static void type2() {
             for (int[] row : grid) Arrays.fill(row, -1);
         return maxProfit2(0, 0, k - 1, prices, dp);
     }
+
+    static int maxProfit2(int day, int canBuy, int transactions, int[] prices, int[][][] dp) {
+        // checking if it is out of bounds or not
+        if (day == prices.length || transactions == -1) return 0;
+        if (dp[day][canBuy][transactions] != -1) return dp[day][canBuy][transactions];
+        // 0 means we can buy on that day
+        if (canBuy == 0) {
+            // we can either buy or skip for that day
+            return dp[day][canBuy][transactions] = Math.max(
+                    -prices[day] + maxProfit2(day + 1, 1, transactions, prices, dp),
+                    maxProfit2(day + 1, 0, transactions, prices, dp)
+            );
+        } else {
+            // else means we can sell on that day
+            // we can either sell or we can also check for the next day
+            return dp[day][canBuy][transactions] = Math.max(
+                    prices[day] + maxProfit2(day + 1, 0, transactions - 1, prices, dp),
+                    maxProfit2(day + 1, 1, transactions, prices, dp)
+            );
+        }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Checking if it is out of bounds or not 0 means we can buy on that day we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day brute force recursive solution
+brute force recursive solution
 
 ```java
-private static void type1() {
+    private static void type1() {
         int k = 2;
         int[] prices = {3, 2, 6, 5, 0, 3};
     }
+}
 ```

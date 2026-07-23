@@ -1,31 +1,35 @@
 # ReverseWordsInString3
 
-**Topic:** `string` | **File:** `com/problems/string/ReverseWordsInString3.java`
-
+**Topic:** `string`  
 **Tags:** String, two pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/reverse-words-in-a-string-iii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=7kUEwiwwnlA)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+'s' does not contain any leading or trailing spaces.
 
-### Implementation
+## 💡 Approaches
 
-'s' does not contain any leading or trailing spaces. 's' contains printable ASCII characters. All the words in s are separated by a single space.
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will traverse the entire array, and if the next character is a space, or it is the last character in the array, then we will reverse the word either it is the last character or there is a space at the next character
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "Let's take LeetCode contest";
         String ans = reverseWords(s);
         System.out.println(ans);
     }
+
     public static String reverseWords(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -41,6 +45,7 @@ private static void type1() {
         }
         return new String(arr);
     }
+
     public static void reverse(char[] arr, int i, int j) {
         while (i < j) {
             char ch = arr[i];
@@ -50,4 +55,5 @@ private static void type1() {
             j--;
         }
     }
+}
 ```

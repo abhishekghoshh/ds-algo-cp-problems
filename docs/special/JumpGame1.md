@@ -18,6 +18,10 @@ public class JumpGame1 {
 
 ```
 
+## 📝 Problem Statement
+
+Determine if you can reach the last index of the array.
+
 ## Source Code
 
 ```java

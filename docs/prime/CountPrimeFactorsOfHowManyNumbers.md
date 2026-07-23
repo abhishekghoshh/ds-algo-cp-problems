@@ -1,17 +1,19 @@
 # CountPrimeFactorsOfHowManyNumbers
 
-**Topic:** `prime` | **File:** `com/problems/prime/CountPrimeFactorsOfHowManyNumbers.java`
+**Topic:** `prime`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count numbers that have a given number as a prime factor.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Like in range 0-10 2 is the lowest prime factor for 2,4,6,8,10 3 is the lowest prime factor for 3,9 4 is the lowest prime factor for 0 as 4 can be decomposed in to 2*2 optimized modified sieve approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		if (null == primesCount) initializePrimeCount();
 
 		int[] queries = { 1, 2, 3, 101, 17, 41, 85, 11, 53 };
@@ -19,6 +21,7 @@ private static void type2() {
 			System.out.println(query + " is lowest prime factor for " + primesCount[query]);
 		}
 	}
+
 	private static void initializePrimeCount() {
 		primesCount = new int[N + 1];
 		for (int i = 2; i <= N; i++)
@@ -34,12 +37,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

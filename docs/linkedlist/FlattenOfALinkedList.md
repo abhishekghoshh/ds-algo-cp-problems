@@ -1,32 +1,37 @@
 # FlattenOfALinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/FlattenOfALinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/flatten-a-linked-list_1112655)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/1112655)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ykelywHJWLg)
 - [▶ YouTube](https://www.youtube.com/watch?v=ysytSSXpAI0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=39)
 - [📄 takeUforward](https://takeuforward.org/data-structure/flattening-a-linked-list/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/flattening-a-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given a Linked List of size N, where every node represents a sub-linked-list and contains two pointers:
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Given a Linked List of size N, where every node represents a sub-linked-list and contains two pointers: (i) a next pointer to the next node, (ii) a bottom pointer to a linked list where this node is head. Each of the sub-linked-list is in sorted order. Flatten the Link List such that all the nodes appear in a single level while maintaining the sorted order. Note: The flattened list will be printed using the bottom pointer instead of the next pointer. Same as previous just with little optimization using priority queue same approach used in merge K sorted list into one list time complexity O(n*m*log(n)) space complexity O(n) for priority queue
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n*m*log(n) | Space: o(n)
+### Approach 4: 🏆 Optimal Solution
+
+Same as previous just with little optimization using priority queue same approach used in merge K sorted list into one list
+
+**Time Complexity:** `O(n*m*log(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		Node head = new Node(1).bottom(7, 8, 30);
 		head.chain(new Node(19).bottom(22, 50))
 				.chain(new Node(28).bottom(35, 40, 45));
@@ -34,6 +39,7 @@ private static void type4() {
 		head = flattenLinkedList4(head);
 		print(head);
 	}
+
 	private static Node flattenLinkedList4(Node head) {
 		PriorityQueue<Node> heap = new PriorityQueue<>(Comparator.comparingInt(node -> node.data));
 		Node node = head, next, lowest, currentLowest;
@@ -69,12 +75,13 @@ private static void type4() {
 
 ### Approach 3
 
-Using priority queue same approach used in merge K sorted list into one list time complexity O(n*m*log(n)) space complexity O(n) for priority queue
+using priority queue same approach used in merge K sorted list into one list
 
-**Complexity:** Time: o(n*m*log(n) | Space: o(n)
+**Time Complexity:** `O(n*m*log(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		Node head = new Node(1).bottom(7, 8, 30);
 		head.chain(new Node(19).bottom(22, 50))
 				.chain(new Node(28).bottom(35, 40, 45));
@@ -83,6 +90,7 @@ private static void type3() {
 		head = flattenLinkedList3(head);
 		print(head);
 	}
+
 	private static Node flattenLinkedList3(Node head) {
 		PriorityQueue<Node> heap = new PriorityQueue<>(Comparator.comparingInt(node -> node.data));
 		Node node = head, next;
@@ -106,12 +114,13 @@ private static void type3() {
 
 ### Approach 2
 
-Merge approach recursively merge last and second last then merge it to previous and the process goes on let's say there is n right nodes and on each m bottom nodes total time complexity O(n*n*m) space complexity O(1)
+merge approach recursively merge last and second last then merge it to previous and the process goes on let's say there is n right nodes and on each m bottom nodes at this point node1 and node2 are merged in l1's bottom but there is a link between node1.next and node2 so, after merge operation we are breaking the next link as node1 and node2 sorted order and the linked list it also sorted so node1.data < node2.data first pointer will always be node1's
 
-**Complexity:** Time: o(n*n*m) | Space: o(1)
+**Time Complexity:** `O(n*n*m)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node head = new Node(1).bottom(7, 8, 30);
 		head.chain(new Node(19).bottom(22, 50))
 				.chain(new Node(28).bottom(35, 40, 45));
@@ -119,6 +128,7 @@ private static void type2() {
 		head = flatten(head);
 		print(head);
 	}
+
 	private static Node flatten(Node head) {
 		if (null == head || null == head.next) return head;
 		head.next = flatten(head.next);
@@ -129,6 +139,8 @@ private static void type2() {
 		head.next = null;
 		return head;
 	}
+
+	// merge operation
 	private static Node merge(Node node1, Node node2) {
 		// as node1 and node2 sorted order and the linked list it also sorted
 		// so node1.data < node2.data
@@ -151,14 +163,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Merge operation brute force approach let's say there is n right nodes and on each m bottom nodes O(n*m) to put it in array O((n*m)log(n*m)) to sort the array O(n*m) to create new linked list total time complexity O(2*m*n)+O(m*n*log(m*n)) space complexity O(m*n) to store it in array
+brute force approach let's say there is n right nodes and on each m bottom nodes O(n*m) to put it in array O((n*m)log(n*m)) to sort the array O(n*m) to create new linked list
 
-**Complexity:** Time: o(2*m*n) | Space: o(m*n)
+**Time Complexity:** `O(2*m*n)`
+**Space Complexity:** `O(m*n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node head = new Node(1).bottom(7, 8, 30);
 		head.chain(new Node(19).bottom(22, 50))
 				.chain(new Node(28).bottom(35, 40, 45));
@@ -166,6 +179,7 @@ private static void type1() {
 		head = flattenLinkedList1(head);
 		print(head);
 	}
+
 	public static Node flattenLinkedList1(Node head) {
 		Node curr = head, next, bottom;
 		List<Node> list = new ArrayList<>();
@@ -188,4 +202,6 @@ private static void type1() {
 		}
 		return head.bottom;
 	}
+
+}
 ```

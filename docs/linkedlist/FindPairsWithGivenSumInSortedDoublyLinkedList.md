@@ -1,27 +1,35 @@
 # FindPairsWithGivenSumInSortedDoublyLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/FindPairsWithGivenSumInSortedDoublyLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/find-pairs-with-given-sum-in-doubly-linked-list/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-pairs-with-given-sum-in-doubly-linked-list_1164172)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=evxWPp3TI3E)
 - [▶ YouTube](https://www.youtube.com/watch?v=YitR4dQsddE)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a sorted doubly linked list of positive distinct elements, the task is to find pairs in a doubly-linked list whose sum is equal to given value target.
+&nbsp;
+Example 1:
+Input:  
+1 <-> 2 <-> 4 <-> 5 <-> 6 <-> 8 <
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using two pointer approaches
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using two pointer approaches finding the tail node now we have head and tail using two pointer approach, we will add the list in a sorted order
 
 ```java
-private static void type2() {
+    private static void type2() {
         DNode head = new DNode(1, 2, 3, 4, 9);
         int k = 5;
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
@@ -46,12 +54,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach adds the datas in a set
+brute force approach adds the datas in a set
 
 ```java
-private static void type1() {
+    private static void type1() {
         DNode head = new DNode(1, 2, 3, 4, 9);
         int k = 5;
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
@@ -70,4 +78,5 @@ private static void type1() {
         list.sort(Comparator.comparingInt(l -> l.get(0)));
         System.out.println(list);
     }
+}
 ```

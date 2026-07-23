@@ -1,27 +1,31 @@
 # SearchInRowAndColumnSortedMatrix2
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/SearchInRowAndColumnSortedMatrix2.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/search-a-2d-matrix-ii/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/search-in-a-sorted-2d-matrix_6917532)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9ZbB397jU4k)
 - [📄 takeUforward](https://takeuforward.org/arrays/search-in-a-row-and-column-wise-sorted-matrix/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Search in a 2D sorted matrix (variant).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach binary search approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach binary search approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] matrix = {
                 {1, 4, 7, 11, 15},
                 {2, 5, 8, 12, 19},
@@ -45,12 +49,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] matrix = {
                 {1, 4, 7, 11, 15},
                 {2, 5, 8, 12, 19},
@@ -72,4 +76,5 @@ private static void type1() {
         }
         System.out.printf("arr[%d][%d] = %d%n", x, y, matrix[x][y]);
     }
+}
 ```

@@ -1,34 +1,38 @@
 # BestTimeToBuyAndSellStock2
 
-**Topic:** `dp` | **File:** `com/problems/dp/BestTimeToBuyAndSellStock2.java`
-
+**Topic:** `dp`  
 **Tags:** Arrays, Dynamic programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/selling-stock_630282)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=nGJmxkUJQGs&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=37)
 - [▶ YouTube](https://www.youtube.com/watch?v=3SJ3pUkPQMc)
 - [📄 takeUforward](https://takeuforward.org/data-structure/buy-and-sell-stock-ii-dp-36/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **7** approaches, progressing from brute force to optimal:
+0 for can buy and 1 for can sell
 
-### Approach 7 — Optimal
+## 💡 Approaches
 
-Check all the iterative approach recursive approach (in the interview go with this) iterative approach (if possible try to derive it this is the iterative way, but it is easy to explain todo convert other iterative approaches from (n to 0) to (0 to n), so that it become easy to explain here we will calculate from the start todo try to derive this is the interview
+This problem can be solved in **7** different ways, each improving upon the previous:
+
+### Approach 7: 🏆 Optimal Solution
+
+here we will calculate from the start try to derive this is the interview assigning curr to the prev now we are either buying or selling on today's price else we can skip for the day then currSell will be prevSell and currBuy will be prevBuy
 
 ```java
-private static void type7() {
+    private static void type7() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int ans = maxProfit7(prices);
         System.out.println(ans);
     }
+
     public static int maxProfit7(int[] prices) {
         int currSell = 0; // current profit after selling the item
         int currBuy = Integer.MIN_VALUE; // current profit after buying the item
@@ -47,14 +51,15 @@ private static void type7() {
 
 ### Approach 6
 
-Same as previous, we will use 4 variables instead of arrays
+same as previous, we will use 4 variables instead of arrays we will add another day as it was a boundary case in recursion we do not need to initiate for the nth day, as the default value of the int array is we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day update the variables the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type6() {
+    private static void type6() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int ans = maxProfit6(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit6(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -77,10 +82,10 @@ private static void type6() {
 
 ### Approach 5
 
-Same as previous just here we will not use the inner loop of canBuy we will directly use curr[0] and curr[1] we can also use two variables directly to store current and previous buy and sell
+same as previous just here we will not use the inner loop of canBuy we will directly use curr[0] and curr[1] we can also use two variables directly to store current and previous buy and sell we will add another day as it was a boundary case in recursion we do not need to initiate for the nth day, as the default value of the int array is we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type5() {
+    private static void type5() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -103,10 +108,13 @@ private static void type5() {
 
 ### Approach 4
 
-Top-down approach or iterative approach with tabulation with space optimization time complexity is O(2n) everytime we are creating the array with 2 cells. we could also use either System.arrayCopy or use 4 variables instead TODO we can skip the internal canBuy loop and just add that two lines one after another curr[0] = ...... and curr[1] = .....
+top-down approach or iterative approach with tabulation with space optimization everytime we are creating the array with 2 cells. we could also use either System.arrayCopy or use 4 variables instead we can skip the internal canBuy loop and just add that two lines one after another curr[0] = ......
+
+and curr[1] = ..... we will add another day as it was a boundary case in recursion we do not need to initiate for the nth day, as the default value of the int array is true means we can buy on that day and false we can sell on that day the answer is on dp[0][0] for the first day, and the time is to buy
+
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -135,14 +143,15 @@ private static void type4() {
 
 ### Approach 3
 
-Top-down approach or iterative approach with tabulation we are copying the same recurrence relation from the recursion TODO we can skip the internal canBuy loop and just add that two lines one after another dp[day][0] = ...... and dp[day][1] = .....
+top-down approach or iterative approach with tabulation we are copying the same recurrence relation from the recursion we can skip the internal canBuy loop and just add that two lines one after another dp[day][0] = ...... and dp[day][1] = ..... we will add another day as it was a boundary case in recursion true means we can buy on that day and false we can sell on that day the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int ans = maxProfit3(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit3(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -168,18 +177,20 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion brute force we have 2 choices for every index, 1. either to buy or sell on that day 2. skip the current day we will use a boolean variable to check if stock can be bought on that day. if we can buy, then we will subtract the price and if we could sell then we will add the price
+recursion brute force we have 2 choices for every index, 1. either to buy or sell on that day 2. skip the current day we will use a boolean variable to check if stock can be bought on that day. if we can buy, then we will subtract the price and if we could sell then we will add the price we are setting can buy as true as the person can buy the first day even checking if it is out of bounds or not true means we can buy on that day and false we can sell on that day we will return the max
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int ans = maxProfit1(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit1(int[] prices) {
         // we are setting can buy as true as the person can buy the first day even
         return maxProfit1(0, true, prices);
     }
+
     public static int maxProfit1(int i, boolean canBuy, int[] prices) {
         // checking if it is out of bounds or not
         if (i == prices.length) return 0;
@@ -194,18 +205,20 @@ private static void type2() {
         // we will return the max
         return Math.max(profit1, profit2);
     }
+}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursion with memoization lets not use a boolean value for canBuy let's use 0,1 values for canBuy 0 for can buy and 1 for can sell
+recursion with memoization lets not use a boolean value for canBuy let's use 0,1 values for canBuy 0 for can buy and 1 for can sell we are setting can buy as true as the person can buy the first day even checking if it is out of bounds or not true means we can buy on that day and false we can sell on that day
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int ans = maxProfit2(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit2(int[] prices) {
         int n = prices.length;
         int[][] dp = new int[n][2];
@@ -214,6 +227,7 @@ private static void type1() {
         // we are setting can buy as true as the person can buy the first day even
         return maxProfit2(0, 0, prices, dp);
     }
+
     public static int maxProfit2(int i, int canBuy, int[] prices, int[][] dp) {
         // checking if it is out of bounds or not
         if (i == prices.length) return 0;

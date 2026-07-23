@@ -1,36 +1,39 @@
 # PowerGridMaintenance
 
-**Topic:** `graph` | **File:** `com/problems/graph/PowerGridMaintenance.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/power-grid-maintenance/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Using union find to group the power stations then resolve the queries one by one
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using union find to group the power stations then resolve the queries one by one todo this is not the optimal solution, we can use a better approach
+Using union find to group the power stations then resolve the queries one by one this is not the optimal solution, we can use a better approach creating union find structure redoing the union find to get the parent of the node, if the path compression is not done even if the node is removed, we will still need to find the parent node, we will keep a copy of the parent array Process each query copyParent[node] != -1 means it is not removed yet, so the ans will be the same node the node is removed, we need to find the parent node we will remove the node from the power station and update the copyParent Convert the list to an array
 
 ```java
-private static void type1() {
+    private static void type1() {
         int c = 5;
         int[][] connections = {{1, 2}, {2, 3}, {3, 4}, {4, 5}};
         int[][] queries = {{1, 3}, {2, 1}, {1, 1}, {2, 2}, {1, 2}};
         int[] ans = processQueries1(c, connections, queries);
         PrintUtl.print(ans);
     }
+
     public static int[] processQueries1(int c, int[][] connections, int[][] queries) {
         // creating union find structure
         int[] parent = new int[c + 1];
@@ -76,6 +79,7 @@ private static void type1() {
         // Convert the list to an array
         return convertListToArray(ans);
     }
+
     private static void buildUnionFind(int[][] connections, int[] parent, int[] wt) {
         for (int[] edge : connections) {
             int x = edge[0], y = edge[1];
@@ -93,6 +97,7 @@ private static void type1() {
             }
         }
     }
+
     private static int[] convertListToArray(List<Integer> list) {
         int[] arr = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
@@ -100,4 +105,20 @@ private static void type1() {
         }
         return arr;
     }
+
+    static int parent(int[] par, int node) {
+        int pt = node;
+        while (pt != par[pt]) {
+            pt = par[pt];
+        }
+        int root = pt;
+        pt = node;
+        while (pt != par[pt]) {
+            int nextPt = par[pt];
+            par[pt] = root;
+            pt = nextPt;
+        }
+        return root;
+    }
+}
 ```

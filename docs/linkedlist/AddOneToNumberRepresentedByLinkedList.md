@@ -1,25 +1,29 @@
 # AddOneToNumberRepresentedByLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/AddOneToNumberRepresentedByLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/add-one-to-a-number-represented-as-linked-list_920557)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=aXQWhbvT3w0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+store it in the stack then pop
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using recursion, we will go till the last non-null node then we will add 1 to that node
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using recursion, we will go till the last non-null node then we will add 1 to that node carry is 1 means we have to add a node at the start which will be the new node we will assume that +1 is carry 1 it will simplify some logic. we will return 1 if the node is null we don't need to store the carry because it can either be 0 or 1 it is not 0 means it is 1 it means it is 1
 
 ```java
-private static void type3() {
+    private static void type3() {
         Node head = new Node(1, 5, 3);
         print(head);
         int carry = add(head);
@@ -32,6 +36,9 @@ private static void type3() {
         }
         print(head);
     }
+
+    // we will assume that +1 is carry 1
+    // it will simplify some logic.
     private static int add(Node head) {
         // we will return 1 if the node is null
         if (head == null) return 1;
@@ -48,10 +55,10 @@ private static void type3() {
 
 ### Approach 2
 
-We will assume that +1 is carry 1 it will simplify some logic. iterative approach store it in the stack then pop same as previous just some early optimization if in some point the carry is 0 then the carry will never be 1 we can just break the loop from that point
+iterative approach store it in the stack then pop same as previous just some early optimization if in some point the carry is 0 then the carry will never be 1 we can just break the loop from that point
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 5, 3);
         print(head);
         Node node = head;
@@ -78,12 +85,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Iterative approach store it in the stack then pop
+iterative approach store it in the stack then pop
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 5, 3);
         print(head);
         Node node = head;
@@ -106,4 +113,5 @@ private static void type1() {
         }
         print(head);
     }
+}
 ```

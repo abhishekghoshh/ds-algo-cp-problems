@@ -1,30 +1,35 @@
 # PalindromicSubstrings
 
-**Topic:** `string` | **File:** `com/problems/string/PalindromicSubstrings.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/palindromic-substrings/description/)
 - [📄 NeetCode](https://neetcode.io/problems/palindromic-substrings)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=4RACzI5-du8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Practice coding interviews with structured courses, AI-driven interviews, head-to-head Versus mode, and 800+ problems. Free and Pro tiers.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Most optimized approach using 2 pointer we will not use any extra dp array we will choose one index and start looking for palindrome making that index as center, or we can think that it is an even length palindrome, so we will start from i,i+1 and expand till it is a palindrome
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+most optimized approach using 2 pointer we will not use any extra dp array we will choose one index and start looking for palindrome making that index as center, or we can think that it is an even length palindrome, so we will start from i,i+1 and expand till it is a palindrome we will check for all the indices we will check for odd and even length palindromes checking for odd length palindromes and increasing the counter checking for even length palindrome and increasing the counter
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "aaa";
         int ans = countSubstrings3(s);
         System.out.println(ans);
     }
+
     public static int countSubstrings3(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -54,14 +59,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using dynamic programming first we will calculate 1 length palindrome then 2 then subsequently n generally lets take a substring s[i,j] will be palindrome when s[i] == s[j] and s[i+1][j-1] is also palindrome we will use the same formula
+optimized approach using dynamic programming first we will calculate 1 length palindrome then 2 then subsequently n generally lets take a substring s[i,j] will be palindrome when s[i] == s[j] and s[i+1][j-1] is also palindrome we will use the same formula if length is 1 then we will directly return 1 we will use a dp array to check if range is palindrome not all the single length character is palindrome we will initialize the totalCount with 1 as all the single length character is palindrome now we will check 2 length strings now we can generalize the solution we will start with 3 and go till n s[i]==s[j] and s[i+1][j-1] is also palindrome
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "aaa";
         int ans = countSubstrings2(s);
         System.out.println(ans);
     }
+
     public static int countSubstrings2(String s) {
         int n = s.length();
         // if length is 1 then we will directly return 1
@@ -97,11 +103,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

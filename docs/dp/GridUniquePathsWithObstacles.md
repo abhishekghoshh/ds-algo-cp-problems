@@ -1,28 +1,32 @@
 # GridUniquePathsWithObstacles
 
-**Topic:** `dp` | **File:** `com/problems/dp/GridUniquePathsWithObstacles.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/unique-paths-ii/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/maze-obstacles_977241)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=TmhpgXScLyY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=10)
 - [▶ YouTube](https://www.youtube.com/watch?v=d3UOz7zdE4I)
 - [📄 takeUforward](https://takeuforward.org/data-structure/grid-unique-paths-2-dp-9/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Grid with obstacles: count unique paths from top-left to bottom-right.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Same bottom-up approach with some initialization here we will first initialize the first row and column separately then we will calculate for the remaining cells
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same bottom-up approach with some initialization here we will first initialize the first row and column separately then we will calculate for the remaining cells there is always a way for the first cell as we are standing right there for the first column if there is any obstacle in the cell we will break the loop, so remaining values will remain as 0 for the first row if there is any obstacle in the cell we will break the loop, so remaining values will remain as 0 let's fill up the remaining places if there is any obstacle then we will not set the value of the dp else we will have 2 choices to take
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[][] obstacleGrid = {
                 {0, 0, 0},
                 {0, 1, 0},
@@ -31,6 +35,7 @@ private static void type4() {
         int ans = uniquePathsWithObstacles4(obstacleGrid);
         System.out.println(ans);
     }
+
     private static int uniquePathsWithObstacles4(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1) return 0;
         int m = obstacleGrid.length;
@@ -63,10 +68,10 @@ private static void type4() {
 
 ### Approach 3
 
-Tabulation or the bottom-up approach here we are converting the recursion into iterative approach keeping the same recurrence relation
+tabulation or the bottom-up approach here we are converting the recursion into iterative approach keeping the same recurrence relation as there is no initialization, so we will start from (0,0), and go till (n-1,m-1) for the (0,0) cell it is always 1 as it is the base case if there is an obstacle, then we will make dp value as 0 else we have 2 options either up or left
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] obstacleGrid = {
                 {0, 0, 0},
                 {0, 1, 0},
@@ -75,6 +80,7 @@ private static void type3() {
         int ans = uniquePathsWithObstacles3(obstacleGrid);
         System.out.println(ans);
     }
+
     private static int uniquePathsWithObstacles3(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1) return 0;
         int m = obstacleGrid.length;
@@ -103,14 +109,15 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+if it is out of bounds or there is an obstacle, then we will return 0 if we reached the (0,0) then we will return 1 as this is our base case checking if the cell is already calculated or not we have 2 choices, either to go left or go up
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         int ans = uniquePathsWithObstacles2(obstacleGrid);
         System.out.println(ans);
     }
+
     private static int uniquePathsWithObstacles2(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1) return 0;
         int m = obstacleGrid.length;
@@ -119,6 +126,7 @@ private static void type2() {
         for (int[] row : dp) Arrays.fill(row, -1);
         return uniquePathsWithObstacles(obstacleGrid, m - 1, n - 1, dp);
     }
+
     private static int uniquePathsWithObstacles(int[][] obstacleGrid, int m, int n, int[][] dp) {
         // if it is out of bounds or there is an obstacle, then we will return 0
         if (m < 0 || n < 0 || obstacleGrid[m][n] == 1) return 0;
@@ -132,12 +140,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+if it is out of bounds or there is an obstacle, then we will return 0 if we reached the (0,0) then we will return 1 as this is our base case we have 2 choices, either to go left or go up
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] obstacleGrid = {
                 {0, 0, 0},
                 {0, 1, 0},
@@ -146,12 +154,14 @@ private static void type1() {
         int ans = uniquePathsWithObstacles1(obstacleGrid);
         System.out.println(ans);
     }
+
     private static int uniquePathsWithObstacles1(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1) return 0;
         int m = obstacleGrid.length;
         int n = obstacleGrid[0].length;
         return uniquePathsWithObstacles1(obstacleGrid, m - 1, n - 1);
     }
+
     private static int uniquePathsWithObstacles1(int[][] obstacleGrid, int m, int n) {
         // if it is out of bounds or there is an obstacle, then we will return 0
         if (m < 0 || n < 0 || obstacleGrid[m][n] == 1) return 0;
@@ -161,4 +171,5 @@ private static void type1() {
         return uniquePathsWithObstacles1(obstacleGrid, m - 1, n)
                 + uniquePathsWithObstacles1(obstacleGrid, m, n - 1);
     }
+}
 ```

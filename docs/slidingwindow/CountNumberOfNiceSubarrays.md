@@ -1,37 +1,40 @@
 # CountNumberOfNiceSubarrays
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/CountNumberOfNiceSubarrays.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Arrays, Prefix sum, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-number-of-nice-subarrays)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/count-distinct-subarrays-with-at-most-k-odd-elements_1069335)
 
-## Solution Links
+## 🎥 Solution Links
 
 - Aditya Rajiv : https://www.youtube.com/watch?v=atUJS7ArOY0
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Count subarrays with exactly K odd numbers.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Solve it with sliding window problem
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+solve it with sliding window problem
 
 ```java
-private static void type4() {
+    private static void type4() {
     }
 ```
 
 ### Approach 3
 
-Prefix sum approach same as type2
+prefix sum approach same as type2
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 1, 2, 1, 1};
         int k = 3;
         int n = nums.length;
@@ -50,10 +53,10 @@ private static void type3() {
 
 ### Approach 2
 
-Prefix sum approach so the trick here is to change all the number such that odds are 1 and even are 0 the array will be 0 0 1 1 0, something like that now finding k odds number is similar to finding subarrays with sum equal to k
+prefix sum approach so the trick here is to change all the number such that odds are 1 and even are 0 the array will be 0 0 1 1 0, something like that now finding k odds number is similar to finding subarrays with sum equal to k
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 1, 2, 1, 1};
         int k = 3;
         int n = nums.length;
@@ -79,11 +82,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

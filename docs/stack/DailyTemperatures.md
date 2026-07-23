@@ -1,30 +1,36 @@
 # DailyTemperatures
 
-**Topic:** `stack` | **File:** `com/problems/stack/DailyTemperatures.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/daily-temperatures/description/)
 - [📄 NeetCode](https://neetcode.io/problems/daily-temperatures)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cTBiBSnjO3c)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using monotonic increasing stack or we will use a monotonic increasing stack to find the next greater temperature
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using monotonic increasing stack or we will use a monotonic increasing stack to find the next greater temperature we will use an array and a top variable and use that as stack this will be our stack now we will compute from the back (n...0) we will pop from the stack (decrease top) if stack contains lesser or equal temperature checking if the stack is empty or not if empty meaning then there is nothing on the right else we will take the difference of the greater temperature day with the current day adding the current element to the stack
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
         int[] ans = dailyTemperatures2(temperatures);
         print(ans);
     }
+
+    // we will use an array and a top variable and use that as stack
     public static int[] dailyTemperatures2(int[] temperatures) {
         int n = temperatures.length;
         if (n == 1) return new int[]{0};
@@ -47,16 +53,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use an array and a top variable and use that as stack we will brute force approach for this
+we will brute force approach for this for every index we will find its next highest temperature
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
         int[] ans = dailyTemperatures1(temperatures);
         print(ans);
     }
+
+    // for every index we will find its next highest temperature
     public static int[] dailyTemperatures1(int[] temperatures) {
         int n = temperatures.length;
         if (n == 1) return new int[]{0};
@@ -73,4 +81,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

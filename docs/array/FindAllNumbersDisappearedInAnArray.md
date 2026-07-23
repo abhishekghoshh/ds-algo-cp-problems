@@ -1,29 +1,34 @@
 # FindAllNumbersDisappearedInAnArray
 
-**Topic:** `array` | **File:** `com/problems/array/FindAllNumbersDisappearedInAnArray.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=8i-f24YFWC4)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find all numbers disappeared in an array.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will create a boolean array to mark all the elements which are present now we will store all the elements for which the value is false
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
         List<Integer> ans = findDisappearedNumbers(nums);
         System.out.println(ans);
     }
+
     public static List<Integer> findDisappearedNumbers(int[] nums) {
         int n = nums.length;
         // we will create a boolean array to mark all the elements which are present
@@ -36,4 +41,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

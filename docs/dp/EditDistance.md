@@ -1,36 +1,43 @@
 # EditDistance
 
-**Topic:** `dp` | **File:** `com/problems/dp/EditDistance.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/edit-distance/description/)
 - [📄 NeetCode](https://neetcode.io/problems/edit-distance)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/edit-distance_630420)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/shortest-common-supersequence_4244493)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=fJaKO8FbDdo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=35)
 - [▶ YouTube](https://www.youtube.com/watch?v=XYi2-LPrwm4)
 - [📄 takeUforward](https://takeuforward.org/data-structure/edit-distance-dp-33/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given two strings word1 and word2, return the minimum number of operations (insert, delete, replace) required to convert word1 to word2.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Tabulation with space optimization. same as previous with some space optimization. we will only use two arrays for storing current and previous row
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+tabulation with space optimization. same as previous with some space optimization. we will only use two arrays for storing current and previous row Initialize the first row with their respective indices here the first string length is 0, so edit distance will be the length of the second string if both characters are same, then edit distance will be same as (i-1,j-1) If the characters don't match, take the minimum of three possibilities: 1.
+
+Replace the character in S1 with the character in S2 (diagonal). 2. Delete the character in S1 (left). 3. Insert the character from S2 into S1 (up). assigning the curr array to prev
 
 ```java
-private static void type4() {
+    private static void type4() {
         String word1 = "abc";
         String word2 = "efg";
 
         int editDistance = editDistance4(word1, word2);
         System.out.println(editDistance);
     }
+
     private static int editDistance4(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
@@ -73,16 +80,19 @@ private static void type4() {
 
 ### Approach 3
 
-Iterative approach with tabulation Bottom-up approach
+iterative approach with tabulation Bottom-up approach here the second string length is 0, so edit distance will be the length of the first string here the first string length is 0, so edit distance will be the length of the second string if both characters are same, then edit distance will be same as (i-1,j-1) If the characters don't match, take the minimum of three possibilities: 1.
+
+Replace the character in S1 with the character in S2 (diagonal). 2. Delete the character in S1 (left). 3. Insert the character from S2 into S1 (up).
 
 ```java
-private static void type3() {
+    private static void type3() {
         String word1 = "abc";
         String word2 = "efg";
 
         int editDistance = editDistance3(word1, word2);
         System.out.println(editDistance);
     }
+
     private static int editDistance3(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
@@ -123,10 +133,10 @@ private static void type3() {
 
 ### Approach 2
 
-Memoization approach
+memoization approach recursion with memoization if n1 or n2 is at 0, means one of the strings is exhausted completely, then we will return the remaining length of the other string if the current last characters are same, then we don't have to consider that character if that is different, then we have 3 options to replace the last character and search again; that cost 1 operation to remove the last character from the first string and search again, that cost 1 to remove the last character from the second string and search again, that cost 1 and would be minimum from these 3 choices
 
 ```java
-private static void type2() {
+    private static void type2() {
         String word1 = "abc";
         String word2 = "efg";
 
@@ -134,6 +144,9 @@ private static void type2() {
         int editDistance = editDistance2(word1, word2);
         System.out.println(editDistance);
     }
+
+    // recursion with memoization
+    // bottom-up approach
     private static int editDistance2(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
@@ -147,6 +160,7 @@ private static void type2() {
         for (int[] row : dp) Arrays.fill(row, -1);
         return minDistance(n1, n2, w2, w1, dp);
     }
+
     private static int minDistance(int n1, int n2, char[] word2, char[] word1, int[][] dp) {
         // if n1 or n2 is at 0, means one of the strings is exhausted completely,
         // then we will return the remaining length of the other string
@@ -170,18 +184,21 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursion with memoization bottom-up approach recursion and brute force approach we will construct the recurrence relation if the character is same then we will check for editDistance1(n1-1, n2-1) else we have 3 options either remove char from 1st string or from 2nd string or replace last char of the string
+recursion and brute force approach we will construct the recurrence relation if the character is same then we will check for editDistance1(n1-1, n2-1) else we have 3 options either remove char from 1st string or from 2nd string or replace last char of the string if the n1 is 0 then the edit distance will be n2 or n2 is 0 then the edit distance will be n1 if n1 or n2 is at 0, means one of the strings is exhausted completely, then we will return the remaining length of the other string if the character is same then we will directly check for the 1-character small string else we have three cases, 1.
+
+replace last character for both of the strings remove the last character from the first word remove the last character from the second word we will return the min of them and plus 1 for the one operation we did here
 
 ```java
-private static void type1() {
+    private static void type1() {
         String word1 = "abc";
         String word2 = "efg";
 
         int editDistance = editDistance1(word1, word2);
         System.out.println(editDistance);
     }
+
     private static int editDistance1(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
@@ -191,6 +208,7 @@ private static void type1() {
         char[] w2 = word2.toCharArray();
         return minDistance(n1, n2, w1, w2);
     }
+
     private static int minDistance(int n1, int n2, char[] word2, char[] word1) {
         // if n1 or n2 is at 0, means one of the strings is exhausted completely,
         // then we will return the remaining length of the other string
@@ -206,8 +224,10 @@ private static void type1() {
         // we will return the min of them and plus 1 for the one operation we did here
         return 1 + min(ch1, ch3, ch2);
     }
+
     private static int min(int num, int... nums) {
         for (int item : nums) num = Math.min(num, item);
         return num;
     }
+}
 ```

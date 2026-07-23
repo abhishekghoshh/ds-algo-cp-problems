@@ -1,28 +1,34 @@
 # BottomViewOfBinaryTree
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/BottomViewOfBinaryTree.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/893110)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/bottom-view-of-binary-tree_893110)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0FtVY6I4pB8&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=24)
 - [📄 takeUforward](https://takeuforward.org/data-structure/bottom-view-of-a-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+this approach is very naive
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as type2 just we are using the level wise separation of the traversal. Using iteration using bfs or level wise traversal as we are doing the level wise, so we are sure that the top most level is traversed first
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+Same as type2 just we are using the level wise separation of the traversal. Using iteration using bfs or level wise traversal as we are doing the level wise, so we are sure that the top most level is traversed first if there is any value for that axis, then that will be replaced by the later level, unlike the top view where we were adding the node data only when the axis was not in the key.
+
+here we will replace the axis value every time as it we go to level wise, so can directly replace it find the min axis and add the answer from the axis
 
 ```java
-private static void type3() {
+	private static void type3() {
 		TNode root = TNode.withCount(15);
 		List<Integer> answer = new ArrayList<>();
 		Map<Integer, Integer> map = new TreeMap<>();
@@ -56,10 +62,12 @@ private static void type3() {
 
 ### Approach 2
 
-Using BFS or level wise traversal using iteration
+using BFS or level wise traversal using iteration we can also use the treemap to traverse the node in a sorted manner, but using hashmap is more efficient if there is any value for that axis, then that will be replaced by the later level, unlike the top view where we were adding the node data only when the axis was not in the key.
+
+here we will replace the axis value every time as it we go to level wise, so can directly replace it find the min axis and add the answer from the axis
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.withCount(15);
 		List<Integer> answer = new ArrayList<>();
 		// we can also use the treemap to traverse the node in a sorted manner,
@@ -87,14 +95,24 @@ private static void type2() {
 			answer.add(map.get(minAxis++));
 		System.out.println(answer);
 	}
+
+	public static class Pair {
+		public int axis;
+		public TNode node;
+
+		public Pair(TNode node, int axis) {
+			this.axis = axis;
+			this.node = node;
+		}
+	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using DFS almost the same as top view, this approach is very naive
+using DFS almost the same as top view, this approach is very naive just the opposite condition of top view
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withCount(15);
 		Map<Integer, Pair2> map = new HashMap<>();
 		traverse(root, map, 0, 0);
@@ -106,6 +124,7 @@ private static void type1() {
 			answer.add(map.get(minAxis++).val);
 		System.out.println(answer);
 	}
+
 	private static void traverse(TNode root, Map<Integer, Pair2> map, int axis, int level) {
 		if (null == root) return;
 		// just the opposite condition of top view
@@ -114,4 +133,15 @@ private static void type1() {
 		traverse(root.left, map, axis - 1, level + 1);
 		traverse(root.right, map, axis + 1, level + 1);
 	}
+
+	public static class Pair2 {
+		public int level;
+		public int val;
+
+		public Pair2(int val, int level) {
+			this.level = level;
+			this.val = val;
+		}
+	}
+}
 ```

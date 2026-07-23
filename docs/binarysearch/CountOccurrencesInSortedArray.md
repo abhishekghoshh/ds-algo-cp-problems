@@ -1,27 +1,29 @@
 # CountOccurrencesInSortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/CountOccurrencesInSortedArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/occurrence-of-x-in-a-sorted-array_630456)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=hjR1IYVx9lY)
 - [▶ YouTube](https://www.youtube.com/watch?v=Ru_HhBFV3Xo&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=6)
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-occurrences-in-sorted-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 11};
 		int target = 11;
 		int n = nums.length;
@@ -31,6 +33,7 @@ private static void type1() {
 		int count = first != -1 ? last - first + 1 : 0;
 		System.out.println(count);
 	}
+
 	private static int firstOccurrence(int[] nums, int low, int high, int target) {
 		int index = -1;
 		while (low <= high) {
@@ -44,6 +47,7 @@ private static void type1() {
 		}
 		return index;
 	}
+
 	private static int lastOccurrence(int[] nums, int low, int high, int target) {
 		int index = -1;
 		while (low <= high) {
@@ -57,4 +61,5 @@ private static void type1() {
 		}
 		return index;
 	}
+}
 ```

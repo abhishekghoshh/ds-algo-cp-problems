@@ -1,17 +1,21 @@
 # ExtractTheLeftMostSetBit
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/ExtractTheLeftMostSetBit.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Extract the leftmost set bit of a number.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Complexity O(1) suppose our number is 0000010001100 then our ans will be 0000010000000 if somehow we can set all the bits after the left most set bit like 0000011111111 then we can just +1 to that which will give us 0000100000000 then we can just right right shift once
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+complexity O(1) suppose our number is 0000010001100 then our ans will be 0000010000000 if somehow we can set all the bits after the left most set bit like 0000011111111 then we can just +1 to that which will give us 0000100000000 then we can just right right shift once int n = (1 << 30) + 5; we are actually copying the left most set bit and copying that to last if the number is 0000010001100 then after this operation it will become 0000011001100 after this operation it will become 0000011111100 after this operation it will become 0000011111111 as integer is 32 bits thats why we are doing till 16
 
 ```java
-private static void type3() {
+	private static void type3() {
 //		int n = (1 << 30) + 5;
 		int n = 140;
 		if (n >= (1 << 30)) {
@@ -36,12 +40,13 @@ private static void type3() {
 
 ### Approach 2
 
-Binary search approach time complexity O(log(32)) space complexity O(1) TODO complete the remianing there is a issue
+binary search approach complete the remianing there is a issue
 
-**Complexity:** Time: o(log(32) | Space: o(1)
+**Time Complexity:** `O(log(32)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 1;
 		int low = 2;
 		int high = 30;
@@ -59,12 +64,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force apprach from the 30th bit we will check until we find any set bit
+brute force apprach from the 30th bit we will check until we find any set bit we have found our set bit we can break here
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 140;
 		int mask = 1 << 30;
 		int i = 30;
@@ -79,4 +84,6 @@ private static void type1() {
 		}
 		System.out.println("index is " + i + " mask is " + Integer.toBinaryString(mask));
 	}
+
+}
 ```

@@ -1,33 +1,38 @@
 # PascalTriangle
 
-**Topic:** `array` | **File:** `com/problems/array/PascalTriangle.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/pascals-triangle/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1089580)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/print-pascal-s-triangle_6917910)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bR7mQgwQ_o8)
 - [▶ YouTube](https://www.youtube.com/watch?v=6FLvhQjZqvM&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=9)
 - [📄 takeUforward](https://takeuforward.org/data-structure/program-to-generate-pascals-triangle/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+for any row in pascal triangle,
 
-### Implementation
+## 💡 Approaches
 
-For any row in pascal triangle, the sum is 2^(n-1) Create all rows of pascal triangle 1 1 1 1 2 1 1 3 2 3 1
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Create all rows of pascal triangle 1 1 1 1 2 1 1 3 2 3 1 we will use prev and current arraylist to store the rows also we will initialize for the first row for the first and last element in the row it is 1
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int numRows = 5;
 		List<List<Integer>> triangle = generate1(numRows);
 		print2D(triangle);
 	}
+
 	private static List<List<Integer>> generate1(int numRows) {
 		List<List<Integer>> triangle = new ArrayList<>();
 		// we will use prev and current arraylist to store the rows
@@ -48,4 +53,6 @@ private static void type1() {
 		}
 		return triangle;
 	}
+
+}
 ```

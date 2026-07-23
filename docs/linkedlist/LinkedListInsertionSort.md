@@ -1,31 +1,36 @@
 # LinkedListInsertionSort
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/LinkedListInsertionSort.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/insertion-sort-list/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Kk6mXAzqX3Y)
 - [▶ YouTube](https://www.youtube.com/watch?v=gAkRfdtDOaA)
 - [▶ YouTube](https://www.youtube.com/watch?v=gwW8U4exaYs)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+the sorted list to its proper position
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Explain the first type then optimize to the current type in the interview similar to previous type but with the little optimization here we will also store the last value of the sorted list. if the current node value is greater than the last node of the sorted list, then we can directly append to the last node and update the last node
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+explain the first type then optimize to the current type in the interview similar to previous type but with the little optimization here we will also store the last value of the sorted list. if the current node value is greater than the last node of the sorted list, then we can directly append to the last node and update the last node if the current node data value is greater than previous, then we don't need to do anything we will just attach it to the last else we have to insert the node head is the dummy node with Integer.MIN_VALUE so any node whatever is the value will be added after this; we will try to find the node after which the current node should be added attaching the links
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node head = new Node(-1, 5, 3, 4, 0, 5, 7, 2);
 		Node newHead = insertionSortList2(head);
 		print(newHead);
 	}
+
 	private static Node insertionSortList2(Node head) {
 		Node newHead = new Node(Integer.MIN_VALUE); // a sorted list
 		Node last = newHead;
@@ -46,6 +51,7 @@ private static void type2() {
 		}
 		return newHead.next;
 	}
+
 	private static void insert(Node start, Node node) {
 		// head is the dummy node with Integer.MIN_VALUE so any node whatever is the value will be added after this;
 		// we will try to find the node after which the current node should be added
@@ -61,16 +67,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Simple insertion approach first, we will create a dummy node with Integer.MIN_VALUE. we know all our nodes will be bigger than this, so this new head will become the sorted list. we will traverse the list, and then we will add the node into the sorted list to its proper position
+simple insertion approach first, we will create a dummy node with Integer.MIN_VALUE. we know all our nodes will be bigger than this, so this new head will become the sorted list. we will traverse the list, and then we will add the node into the sorted list to its proper position from the start of the list we will check insert the node to its proper position going to the next node return the list from the next of newHead
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node head = new Node(-1, 5, 3, 4, 0, 5, 7, 2);
 		Node newHead = insertionSortList1(head);
 		print(newHead);
 	}
+
 	private static Node insertionSortList1(Node head) {
 		Node newHead = new Node(Integer.MIN_VALUE); // a sorted list
 		Node node = head;
@@ -91,4 +98,7 @@ private static void type1() {
 		// return the list from the next of newHead
 		return newHead.next;
 	}
+
+
+}
 ```

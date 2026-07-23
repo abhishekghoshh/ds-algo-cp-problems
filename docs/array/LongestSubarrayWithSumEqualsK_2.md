@@ -1,15 +1,14 @@
 # LongestSubarrayWithSumEqualsK_2
 
-**Topic:** `array` | **File:** `com/problems/array/LongestSubarrayWithSumEqualsK_2.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/longest-subarray-with-sum-k_5713505)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cyu_nuW5utA&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=7)
 - [▶ YouTube](https://www.youtube.com/watch?v=TfQPoaRDeMQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=8)
@@ -18,16 +17,21 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/)
 - [📄 takeUforward](https://takeuforward.org/arrays/longest-subarray-with-sum-k-postives-and-negatives/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an array arr[] containing integers and an integer k, your task is to find the length of the longest subarray where the sum of its elements is equal to the given value&nbsp;k. If there is no subarray with sum equal to&nbsp;k, return 0.
+Examples:
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+-1 index means there are no items added as of now if we add this index we don't have to check if (sum == k) maxLen = i + 1;
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {3, -5, 8, -14, 2, 4, 0, -1, -3, 4, 12};
 		int k = 5;
 		int maxLen = 0, sum = 0, n = nums.length;
@@ -49,12 +53,13 @@ private static void type3() {
 
 ### Approach 2
 
-Efficient approach works on negative numbers as prefix sum approach Time complexity O(n) space complexity O(n)
+efficient approach works on negative numbers as prefix sum approach up to that point if the sum is 0 then length will be i+1 we are checking that the reminder is present previously or not if present then the sum of in between nums are 0 if reminder is present means the sum of in between elements are k if the sum is already present, then we will not update it sum present means the in between numbers sum is zero so we will update the index as we will lose some in between values
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 3, -5, 8, -14, 2, 4, 0, -1, -3, 4, 12 };
 		int k = 5;
 		int maxLen = 0, sum = 0, n = nums.length;
@@ -80,14 +85,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(n^2) space complexity o(1)
+brute force
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 3, -5, 8, -14, 2, 4, 0, -1, -3, 4, 12 };
 		int k = 5;
 		int length = 0, sum;
@@ -102,4 +107,6 @@ private static void type1() {
 		}
 		System.out.println("max length is " + length);
 	}
+
+}
 ```

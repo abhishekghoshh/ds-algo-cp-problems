@@ -1,25 +1,30 @@
 # MinimumNumberOfPushesToTypeWord2
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/MinimumNumberOfPushesToTypeWord2.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-ii/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Minimum key pushes to type a word (Part 2).
 
-### Implementation
+## 💡 Approaches
 
-Simple greedy approach first we will calculate the frequency and sort the frequencies. we will only need the frequencies. so for the first 8 frequencies we will map the items to the first letters of all 8 keypads then for the second 8 we will do for the 2nd letters of all 8 keypads, and so on
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+simple greedy approach first we will calculate the frequency and sort the frequencies. we will only need the frequencies. so for the first 8 frequencies we will map the items to the first letters of all 8 keypads then for the second 8 we will do for the 2nd letters of all 8 keypads, and so on we will take the frequency and sort the array start with 2nd number and first letter we will start from the reverse if the frequency is 0, then we can stop if key is 10, then we will again reset it back to the 2 and increase the num
 
 ```java
-private static void type1() {
+    private static void type1() {
         String word = "aabbccddeeffgghhiiiiii";
         int ans = minimumPushes(word);
         System.out.println(ans);
     }
+
     public static int minimumPushes(String word) {
         int[] freq = new int[26];
         // we will take the frequency and sort the array
@@ -43,4 +48,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

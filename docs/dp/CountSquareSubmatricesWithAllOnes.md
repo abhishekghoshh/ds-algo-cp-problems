@@ -1,27 +1,37 @@
 # CountSquareSubmatricesWithAllOnes
 
-**Topic:** `dp` | **File:** `com/problems/dp/CountSquareSubmatricesWithAllOnes.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/count-square-submatrices-with-all-ones_3751502)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=auS1fynpnjo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=57)
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-square-submatrices-with-all-1s-dp-on-rectangles-dp-56/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+also, we can do the sum in the same loop where we are calculating the dp matrix
 
-### Implementation
+## 💡 Approaches
 
-We will directly use the tabulation approach this is not intuitive from the start. the intuition is we will try to find that the current cell is right bottom for how many cells, and we will do it for every cell. we will create a dp array of the same size as the matrix. for 0th row and column, we will just copy the matrix value into dp. for those cells, there are no cells on the left side and upper side. for other cells, we will take the minimum of the left, upper and top-left diagonal cell and add 1. let's say on the left,top and on diagonal; the values are x, so there is x length square. so if we could add the current cell, then we can make x+1 length square. but if the values are different, then we can take the minimum out of them and add 1 we could do multiple optimizations in this solution like wer can use the same matrix and store the results on that. also, we can do the sum in the same loop where we are calculating the dp matrix
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will directly use the tabulation approach this is not intuitive from the start. the intuition is we will try to find that the current cell is right bottom for how many cells, and we will do it for every cell. we will create a dp array of the same size as the matrix.
+
+for 0th row and column, we will just copy the matrix value into dp. for those cells, there are no cells on the left side and upper side. for other cells, we will take the minimum of the left, upper and top-left diagonal cell and add 1. let's say on the left,top and on diagonal; the values are x, so there is x length square.
+
+so if we could add the current cell, then we can make x+1 length square. but if the values are different, then we can take the minimum out of them and add 1 we could do multiple optimizations in this solution like wer can use the same matrix and store the results on that.
+
+also, we can do the sum in the same loop where we are calculating the dp matrix we will skip 0th row and column we will calculate for only for the cells having 1 value calculate the sum for all the cells
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] matrix = {
                 {0, 1, 1, 1},
                 {1, 1, 1, 1},
@@ -55,4 +65,5 @@ private static void type1() {
         }
         System.out.println(sum);
     }
+}
 ```

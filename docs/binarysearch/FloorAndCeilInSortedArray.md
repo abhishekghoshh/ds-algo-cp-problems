@@ -1,38 +1,39 @@
 # FloorAndCeilInSortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FloorAndCeilInSortedArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/floor-in-a-sorted-array-1587115620/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/ceiling-in-a-sorted-array_1825401)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=6zhGS79oQ4k&t=1374s)
 - [▶ YouTube](https://www.youtube.com/watch?v=5cx0xerA8XY&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=10)
 - [▶ YouTube](https://www.youtube.com/watch?v=uiz0IxPCUeU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=11)
 - [📄 takeUforward](https://takeuforward.org/arrays/floor-and-ceil-in-sorted-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a sorted array arr[] and an integer x, find the index (0-based) of the largest element in arr[] that is less than or equal to x. This element is called the floor of x. If such an element does not exist, return -1.
+Note: In case of multiple occu
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12};
         int target = 10;
         int floor = floor(arr, target);
@@ -43,6 +44,7 @@ private static void type1() {
         };
         print(answer);
     }
+
     private static int ceil(int[] arr, int target) {
         int n = arr.length;
         int low = 0, high = n - 1;
@@ -59,6 +61,7 @@ private static void type1() {
         }
         return index;
     }
+
     private static int floor(int[] arr, int target) {
         int n = arr.length;
         int low = 0, high = n - 1;
@@ -75,4 +78,5 @@ private static void type1() {
         }
         return index;
     }
+}
 ```

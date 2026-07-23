@@ -1,26 +1,30 @@
 # KruskalAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/KruskalAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=DMnDM_sxVig&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=47)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+this will calculate the minimum path sum but we can also calculate the mst and edges
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Set(); todo this is same as previous but here we will store the mst
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is same as previous but here we will store the mst sorting the edges by weight now we will iterate through edges from least to highest weight if the parent of both the src and dest node are the same then by adding this edge, it will create a loop
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int v = 3;
 		int e = 3;
 		int[][] edges = {
@@ -55,12 +59,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use Disjoint set and Union-find method to join the components first we will sort the edges lowest to highest. we will consider one edge at a time, but we have to check if the adjacent nodes are already in the same component or not if no then only we will add that edge. because if they are in the same component, then addition of this new edge will be unnecessary because we can already go from a to b and this edge also going from a to b todo we are using Disjoint set by rank, but we can also use the Disjoint set by size this will calculate the minimum path sum but we can also calculate the mst and edges
+we will use Disjoint set and Union-find method to join the components first we will sort the edges lowest to highest. we will consider one edge at a time, but we have to check if the adjacent nodes are already in the same component or not if no then only we will add that edge.
+
+because if they are in the same component, then addition of this new edge will be unnecessary because we can already go from a to b and this edge also going from a to b we are using Disjoint set by rank, but we can also use the Disjoint set by size this will calculate the minimum path sum but we can also calculate the mst and edges sorting the edges by weight we will initialize the rank and parent now we will iterate through edges from least to highest weight if the parent of both the src and dest node are the same then by adding this edge, it will create a loop src == parent[src] means parent of the node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 3;
 		int e = 3;
 		int[][] edges = {
@@ -92,6 +98,8 @@ private static void type1() {
 		}
 		System.out.println(minimumPathSum);
 	}
+
+
 	private static void union(int[] parent, int[] rank, int u, int v) {
 		int baseParentU = find(parent, u);
 		int baseParentV = find(parent, v);
@@ -103,6 +111,7 @@ private static void type1() {
 			rank[baseParentU]++;
 		}
 	}
+
 	private static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
 		if (node == parent[node]) return node;
@@ -110,10 +119,12 @@ private static void type1() {
 		parent[node] = baseParent;
 		return baseParent;
 	}
+
 	private static void print(List<int[]> mst) {
 		for (int[] edge : mst) {
 			System.out.println(edge[0] + ", " + edge[1] + ", " + edge[2]);
 		}
 		System.out.println();
 	}
+}
 ```

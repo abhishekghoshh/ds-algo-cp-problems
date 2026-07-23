@@ -1,21 +1,25 @@
 # MinimumXorSumOfTwoArrays
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/MinimumXorSumOfTwoArrays.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-xor-sum-of-two-arrays/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find the minimum XOR sum pairing between two arrays.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

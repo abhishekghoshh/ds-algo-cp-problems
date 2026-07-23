@@ -1,40 +1,43 @@
 # LongestConsecutiveSequence
 
-**Topic:** `array` | **File:** `com/problems/array/LongestConsecutiveSequence.java`
-
+**Topic:** `array`  
 **Tags:** Array, Hashing
 
-## Problem Statement
+## 📝 Problem Statement
 
-Given an unsorted array of integers nums = [100,4,200,1,3,2], return the length of the longest consecutive elements sequence. The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+Given an unsorted array of integers nums = [100,4,200,1,3,2],
+return the length of the longest consecutive elements sequence.
+The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-consecutive-sequence/description/)
 - [📄 NeetCode](https://neetcode.io/problems/longest-consecutive-sequence)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/759408)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=qgizvmgeyUM)
 - [▶ YouTube](https://www.youtube.com/watch?v=oO5uLE7EUlM)
 - [▶ YouTube](https://www.youtube.com/watch?v=P6RZZMu_maU)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **3** approaches, progressing from brute force to optimal:
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-### Approach 3 — Optimal
+### Approach 3: 🏆 Optimal Solution
 
-Special notice : In leetcode type1 approach is taking the least time same as previous type 2 there is a chance of getting memory limit exceeding also playing with indices is tricky sometime
+same as previous type 2 there is a chance of getting memory limit exceeding also playing with indices is tricky sometime in place of set here we will use a boolean array
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
 		int maxLen = longestConsecutive3(nums);
 		System.out.println("max length is " + maxLen);
 	}
+
+	// in place of set here we will use a boolean array
 	private static int longestConsecutive3(int[] nums) {
 		int len, maxLen = 0, start;
 		int min = Integer.MAX_VALUE;
@@ -64,16 +67,18 @@ private static void type3() {
 
 ### Approach 2
 
-In place of set here we will use a boolean array optimal approach finds the least element method time complexity O(3n) space complexity O(n)
+optimal approach finds the least element method we will check if the item is the lowest item or not that means item-1 not present in the set from that we will check that item+1 present or not item-1 not present it is the lowest element in that series we will check
 
-**Complexity:** Time: o(3n) | Space: o(n)
+**Time Complexity:** `O(3n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 100, 4, 200, 1, 3, 2 };
 		int ans = longestConsecutive2(nums);
 		System.out.println("max length is " + ans);
 	}
+
 	private static int longestConsecutive2(int[] nums) {
 		int maxLen = 0;
 		Set<Integer> set = new HashSet<>();
@@ -98,18 +103,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach sort the array then linearly traverse time complexity o(n*log(n)) space complexity o(n) if we copy the original array
+brute force approach sort the array then linearly traverse if the prev is current then we can skip if num is prev+1 then we will update the len and check for max len
 
-**Complexity:** Time: o(n*log(n) | Space: o(n)
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 100, 4, 200, 1, 3, 2 };
 		int ans = longestConsecutive1(nums);
 		System.out.println(ans);
 	}
+
 	public static int longestConsecutive1(int[] nums) {
 		if (nums.length == 0) return 0;
 		Arrays.sort(nums);
@@ -129,4 +134,6 @@ private static void type1() {
 		}
 		return maxLen;
 	}
+
+}
 ```

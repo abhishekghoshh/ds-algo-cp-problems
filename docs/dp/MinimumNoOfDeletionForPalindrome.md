@@ -1,21 +1,27 @@
 # MinimumNoOfDeletionForPalindrome
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumNoOfDeletionForPalindrome.java`
+**Topic:** `dp`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=CFwCCNbRuLY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=27)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find the minimum deletions to make a string a palindrome.
 
-### Implementation
+## 💡 Approaches
 
-This is the intuition if we think closely, then we will find this is exactly the opposite of the longest palindromic subsequence problem if we remove the longest palindromic subsequence from a string. then we will be having the lowest number of uncommon characters. which will be our answer
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this is the intuition if we think closely, then we will find this is exactly the opposite of the longest palindromic subsequence problem if we remove the longest palindromic subsequence from a string. then we will be having the lowest number of uncommon characters.
+
+which will be our answer
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "abcbcxcbe";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -35,4 +41,5 @@ private static void type3() {
 		int count = n - memo[n][n];
 		System.out.println(count);
 	}
+}
 ```

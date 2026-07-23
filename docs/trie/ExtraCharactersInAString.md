@@ -1,32 +1,36 @@
 # ExtraCharactersInAString
 
-**Topic:** `trie` | **File:** `com/problems/trie/ExtraCharactersInAString.java`
-
+**Topic:** `trie`  
 **Tags:** Arrays, String, Recursion, Trie, Dynamic Programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/extra-characters-in-a-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ONstwO1cD7c)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+there are two cases either to consider the character or not
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as previous but here will use trie to match the words here also we have 2 cases, either to consider the character or not but here we can directly use trie to find if the current char is in the dictionary or not because trie has the knowledge of all the words so we do not need to check for any individual words
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as previous but here will use trie to match the words here also we have 2 cases, either to consider the character or not but here we can directly use trie to find if the current char is in the dictionary or not because trie has the knowledge of all the words so we do not need to check for any individual words initializing the dp array with -1 now using trie, do the search not considering the current character if the character is not in the trie, then break else goes to the next node till we do not find a word end if we find any word end, we will start a new recursion call from that point
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "dwmodizxvvbosxxw";
         String[] dictionary = {"ox", "lb", "diz", "gu", "v", "ksv", "o", "nuq", "r", "txhe", "e", "wmo", "cehy", "tskz", "ds", "kzbu"};
         int ans = minExtraChar2(s, dictionary);
         System.out.println(ans);
     }
+
     private static int minExtraChar2(String s, String[] dictionary) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -40,6 +44,7 @@ private static void type2() {
         // now using trie, do the search
         return minExtraChar(arr, 0, dp, trie);
     }
+
     private static int minExtraChar(char[] arr, int start, int[] dp, Node trie) {
         int n = arr.length;
         if (start >= n) return 0;
@@ -60,6 +65,7 @@ private static void type2() {
         }
         return dp[start] = min;
     }
+
     public static void addWord(char[] word, Node trie) {
         Node node = trie;
         for (char ch : word) {
@@ -71,19 +77,25 @@ private static void type2() {
         }
         node.isEnd = true;
     }
+
+    static class Node {
+        boolean isEnd = false;
+        Node[] nodes = new Node[26];
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Simple recursion but it will fail with simple recursion, so we will apply DP here this problem might look complicated but its just time consuming we can just simple recursion with simple dp, we do not need to use trie here there are two cases either to consider the character or not
+simple recursion but it will fail with simple recursion, so we will apply DP here this problem might look complicated but its just time consuming we can just simple recursion with simple dp, we do not need to use trie here there are two cases either to consider the character or not initializing the dp array with -1 creating a cache to store which word starts with which character if the value is already calculated, then return it if there are words with the current character, then we will check for all that words the word is in the original array then we do not need any cost if word length exceeds the original word remaining length, then the word cannot be made the word does not match with the original word, so word length is the cost
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "dwmodizxvvbosxxw";
         String[] dictionary = {"ox", "lb", "diz", "gu", "v", "ksv", "o", "nuq", "r", "txhe", "e", "wmo", "cehy", "tskz", "ds", "kzbu"};
         int ans = minExtraChar1(s, dictionary);
         System.out.println(ans);
     }
+
     public static int minExtraChar1(String s, String[] dictionary) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -100,4 +112,41 @@ private static void type1() {
         }
         return minExtraChar1(arr, 0, map, dp);
     }
+
+    static int minExtraChar1(char[] arr, int i, List<char[]>[] map, int[] dp) {
+        int n = arr.length;
+        if (i >= n) return 0;
+        // if the value is already calculated, then return it
+        if (dp[i] != -1) return dp[i];
+        int pos = arr[i] - 'a';
+        int min = 1 + minExtraChar1(arr, i + 1, map, dp);
+        // if there are words with the current character, then we will check for all that words
+        for (char[] word : map[pos]) {
+            int wLen = word.length;
+            int cost;
+            if (wLen <= (n - i) && match(word, arr, i)) {
+                // the word is in the original array then we do not need any cost
+                cost = minExtraChar1(arr, i + wLen, map, dp);
+            } else if (wLen > (n - i)) {
+                // if word length exceeds the original word remaining length, then the word cannot be made
+                cost = (n - i);
+            } else {
+                // the word does not match with the original word, so word length is the cost
+                cost = wLen + minExtraChar1(arr, i + wLen, map, dp);
+            }
+            min = Math.min(min, cost);
+        }
+        return dp[i] = min;
+    }
+
+    static boolean match(char[] word, char[] arr, int i) {
+        int j = 0;
+        int n = word.length;
+        while (j < n) {
+            if (word[j] != arr[i + j]) return false;
+            j++;
+        }
+        return true;
+    }
+}
 ```

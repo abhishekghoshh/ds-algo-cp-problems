@@ -1,21 +1,25 @@
 # FirstOcurrenceOfOneInInfiniteBinaryArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FirstOcurrenceOfOneInInfiniteBinaryArray.java`
+**Topic:** `binarysearch`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=8x6dmO6XW8k&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=14)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the first occurrence of 1 in an infinite sorted binary array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will find the low and high boundary first once we find the boundary, then we will do binary search in that range
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -34,6 +38,7 @@ private static void type2() {
 		int index = searchOne(arr, low, high, 1);
 		System.out.println(index);
 	}
+
 	private static int searchOne(int[] arr, int low, int high, int target) {
 		int index = -1, mid;
 		while (low <= high) {
@@ -47,12 +52,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+}
 ```

@@ -1,25 +1,28 @@
 # BitManipulation
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/BitManipulation.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/bit-manipulation_8142533)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         int num = 25, i = 3;
         int[] answer = bitManipulation(num, i);
         print(answer);
     }
+
     public static int[] bitManipulation(int num, int i) {
         int mask = 1 << (i - 1);
         int bit = (num & mask) > 0 ? 1 : 0;
@@ -27,4 +30,6 @@ private static void type1() {
         int clearBit = num & (~mask);
         return new int[]{bit, setBit, clearBit};
     }
+
+}
 ```

@@ -1,26 +1,32 @@
 # ParsingABooleanExpression
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/ParsingABooleanExpression.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/parsing-a-boolean-expression/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+so we made the pointer i as public static variable
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Topics: Recursion, Stack todo study the problem and the solution one more time
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this approach is very neat and clean
 
 ```java
-private static void type2() {
+    private static void type2() {
         String expression = "!(&(!(t),!(!(&(f))),&(&(!(&(f)),&(t),|(f,f,t)),&(t),&(t,t,f))))";
         i = 0;
         boolean ans = parseBoolExpr(expression);
         System.out.println(ans);
     }
+
+    // this approach is very neat and clean
     public static boolean parseBoolExpr(String expression) {
         boolean result = true;
 
@@ -57,17 +63,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This approach is very neat and clean using recursion. one thing we understand is we need the pointer move irrespective of the recursion stack, so we made the pointer i as public static variable
+using recursion. one thing we understand is we need the pointer move irrespective of the recursion stack, so we made the pointer i as public static variable
 
 ```java
-private static void type1() {
+    private static void type1() {
         String expression = "!(&(!(t),!(!(&(f))),&(&(!(&(f)),&(t),|(f,f,t)),&(t),&(t,t,f))))";
         i = 0;
         boolean ans = parseBoolExpr(expression.toCharArray()) == 't';
         System.out.println(ans);
     }
+
+    static int i;
+
     public static char parseBoolExpr(char[] arr) {
         char op = arr[i];
         i = i + 2;
@@ -83,6 +92,7 @@ private static void type1() {
         }
         return prev;
     }
+
     public static char parse(char op, char prev, char curr) {
         if (op == '!') return curr == 't' ? 'f' : 't';
         if (prev == '-') return curr;
@@ -92,4 +102,5 @@ private static void type1() {
             return (prev == 't' || curr == 't') ? 't' : 'f';
         }
     }
+}
 ```

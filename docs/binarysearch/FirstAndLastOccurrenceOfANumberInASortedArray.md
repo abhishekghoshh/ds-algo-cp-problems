@@ -1,28 +1,30 @@
 # FirstAndLastOccurrenceOfANumberInASortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FirstAndLastOccurrenceOfANumberInASortedArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/first-and-last-position-of-an-element-in-sorted-array_1082549)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=hjR1IYVx9lY)
 - [▶ YouTube](https://www.youtube.com/watch?v=zr_AoTxzn0Y&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=5)
 - [📄 takeUforward](https://takeuforward.org/data-structure/last-occurrence-in-a-sorted-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given a sorted array and a target, find the first and last position of the target in the array.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 0, 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 11 };
 		int target = 11;
 		int n = nums.length;
@@ -32,6 +34,7 @@ private static void type1() {
 		int[] answer = new int[]{first, last};
 		print(answer);
 	}
+
 	private static int firstOccurrence(int[] nums, int low, int high, int target) {
 		int index = -1;
 		while (low <= high) {
@@ -45,6 +48,7 @@ private static void type1() {
 		}
 		return index;
 	}
+
 	private static int lastOccurrence(int[] nums, int low, int high, int target) {
 		int index = -1;
 		while (low <= high) {
@@ -58,4 +62,5 @@ private static void type1() {
 		}
 		return index;
 	}
+}
 ```

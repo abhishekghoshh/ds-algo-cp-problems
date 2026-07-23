@@ -1,31 +1,36 @@
 # PermutationWithSpaces
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/PermutationWithSpaces.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/permutation-with-spaces3627/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=1cspuQ6qHW0&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=14)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+that is our base condition
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Similar to previous type with 2 optimizations
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+similar to previous type with 2 optimizations here we are calling the 2nd recursion call once the letter is added once the previous recursion is finished we will add the space and call another recursion call now we will remove space as well as the character
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "ABCD";
 		List<String> answer = new ArrayList<>();
 		StringBuilder bucket = new StringBuilder();
 		addSpaces2(s.toCharArray(), 0, bucket, answer);
 		System.out.println(answer);
 	}
+
 	private static void addSpaces2(char[] arr, int i, StringBuilder bucket, List<String> answer) {
 		if (i == arr.length - 1) {
 			bucket.append(arr[i]);
@@ -47,18 +52,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We have two options either to add space after any character or not at the last index we don't have to add anything we can just return from that that is our base condition
+we have two options either to add space after any character or not at the last index we don't have to add anything we can just return from that that is our base condition we are at the last character here we are only choosing character here we are choosing character and space to part of answer
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "ABCD";
 		List<String> answer = new ArrayList<>();
 		StringBuilder bucket = new StringBuilder();
 		addSpaces1(s, 0, bucket, answer);
 		System.out.println(answer);
 	}
+
 	private static void addSpaces1(String s, int i, StringBuilder bucket, List<String> answer) {
 		// we are at the last character
 		if (i == s.length() - 1) {
@@ -81,4 +87,6 @@ private static void type1() {
 		bucket.deleteCharAt(bucket.length() - 1);
 		bucket.deleteCharAt(bucket.length() - 1);
 	}
+
+}
 ```

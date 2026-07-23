@@ -1,27 +1,31 @@
 # JobSchedulingProblem
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/JobSchedulingProblem.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/job-sequencing-problem_1169460)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=LjPx4wQaRIs&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=48)
 - [📄 takeUforward](https://takeuforward.org/data-structure/job-sequencing-problem/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+You are given two arrays: deadline[], and profit[], which represent a set of jobs, where each job is associated with a deadline, and a profit. Each job takes 1 unit of time to complete, and only one job can be scheduled at a time. You will earn the p
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as type1
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as type1
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] jobs = {{1, 1, 30}, {2, 3, 40}, {3, 2, 10}};
 		Arrays.sort(jobs, (job1, job2) -> Integer.compare(job2[2], job1[2]));
 		int maxDeadline = 0;
@@ -43,12 +47,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Time complexity is O(n*log(n))+ O(n^2) space complexity is O(n)
+we will sort the jobs by their profit in descending so the highest-profit job can be taken at the first if the job has a deadline k that means the job can be done at kth time or less than that, but they will try to do that job at kth then 1..k-1 will be vacant which can be filled by the later jobs we are making sure that the higher profit jobs has the better chance of picking than the lower profits out of the all the jobs if a job has T deadline which is greater than all others then at max we can take T jobs for simplicity, we are taking T+1 so that we don't have to think about 0 index we can take the job if that time slot is vacant if false we are checking that from the deadline time to 1st time if there is any vacant slot deadline is in terms of 0 which cannot be 0 so, we will go till 1st day if deadline is not 0 then we have a vacant position to fill in
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Job[] jobs = {
 				new Job(1, 4, 20),
 				new Job(2, 1, 10),
@@ -92,4 +97,20 @@ private static void type1() {
 		System.out.println("Jobs taken " + jobsTaken);
 		System.out.println("profit is " + profit);
 	}
+
+	public static class Job {
+		int jobId, deadline, profit;
+
+		Job(int id, int deadline, int profit) {
+			this.jobId = id;
+			this.deadline = deadline;
+			this.profit = profit;
+		}
+
+		@Override
+		public String toString() {
+			return "Job [jobId=" + jobId + ", profit=" + profit + ", deadline=" + deadline + "]";
+		}
+	}
+}
 ```

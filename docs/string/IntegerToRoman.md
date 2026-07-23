@@ -1,26 +1,30 @@
 # IntegerToRoman
 
-**Topic:** `string` | **File:** `com/problems/string/IntegerToRoman.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/integer-to-roman/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ohBNdSJyLh8)
 - [▶ YouTube](https://www.youtube.com/watch?v=Rsq1ObYg6ak)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Convert an integer to its Roman numeral representation.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we have added all the points and also some of the other points We have some standard values that we will be adding but apart from this we have to think about some other consideration like for 4 the Roman representation is IV not IIII so we have to add some the points in between so for every point we will be adding one less than the number like 4 for 5 40 for 50 90 for 100 400 for 500
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int num = 2994;
 		StringBuilder res = new StringBuilder();
 		for (int i = 0; i < values.length; i++) {
@@ -31,14 +35,58 @@ private static void type2() {
 		}
 		System.out.println(res);
 	}
+
+	// we have added all the points
+	// and also some of the other points
+	// We have some standard values that we will be adding
+	// Symbol Value
+	// I 1
+	// V 5
+	// X 10
+	// L 50
+	// C 100
+	// D 500
+	// M 1000
+	// but apart from this we have to think about some other consideration
+	// like for 4 the Roman representation is IV not IIII
+	// so we have to add some the points in between
+	// so for every point we will be adding one less than the number
+	// like 4 for 5
+	// 40 for 50
+	// 90 for 100
+	// 400 for 500
+	private static final Point[] points = {
+			new Point("I", 1),
+			new Point("IV", 4),
+			new Point("V", 5),
+			new Point("IX", 9),
+			new Point("X", 10),
+			new Point("XL", 40),
+			new Point("L", 50),
+			new Point("XC", 90),
+			new Point("C", 100),
+			new Point("C", 100),
+			new Point("CD", 400),
+			new Point("D", 500),
+			new Point("CM", 900),
+			new Point("M", 1000)
+	};
+
+	private static class Point {
+		public String key;
+		public int value;
+
+		public Point(String key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+	}
 ```
 
-### Approach 1 — Brute Force
-
-We have added all the points and also some of the other points We have some standard values that we will be adding Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1000 but apart from this we have to think about some other consideration like for 4 the Roman representation is IV not IIII so we have to add some the points in between so for every point we will be adding one less than the number like 4 for 5 40 for 50 90 for 100 400 for 500
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int num = 2994;
 		StringBuilder sb = new StringBuilder();
 		for (int i = points.length - 1; i >= 0; i--) {
@@ -51,4 +99,7 @@ private static void type1() {
 		}
 		System.out.println(sb);
 	}
+
+
+}
 ```

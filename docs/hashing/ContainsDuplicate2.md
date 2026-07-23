@@ -1,41 +1,45 @@
 # ContainsDuplicate2
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/ContainsDuplicate2.java`
-
+**Topic:** `hashing`  
 **Tags:** Array, Hashing, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/contains-duplicate-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ypn0aZ0nrL4)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Check if there are two distinct indices with same value within distance k.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-We could also use a sliding window approach. however, that is not the most optimized approach we could first maintain a window of size k using a hashset. and we will slide through the nums array if there is a repetition of any number, then we will return true;
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+we could also use a sliding window approach. however, that is not the most optimized approach we could first maintain a window of size k using a hashset. and we will slide through the nums array if there is a repetition of any number, then we will return true;
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Similar to the previous type, but here we will not store the entire list. we understand one thing we need only prev index for the current num if (i-prev) is lesser than equal to k then we will return true. so we will iterate over the array and store the current index if there is already an index present then that must be the prev index for the current num
+similar to the previous type, but here we will not store the entire list. we understand one thing we need only prev index for the current num if (i-prev) is lesser than equal to k then we will return true. so we will iterate over the array and store the current index if there is already an index present then that must be the prev index for the current num if the num is already present, then we will check (i-prev) value updating the index for the num
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 3, 1};
         int k = 3;
         boolean ans = containsNearbyDuplicate2(nums, k);
         System.out.println(ans);
     }
+
     public static boolean containsNearbyDuplicate2(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         int n = nums.length;
@@ -51,17 +55,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force we can just store a list of indices for a particular number if the indices list size is 1 then we can skip else we will check what is the difference between two adjacent index values. because if the difference between then is greater than k then we any other index combination will not work either. we will take a previous variable and iterate over the list and update the prev variable
+brute force we can just store a list of indices for a particular number if the indices list size is 1 then we can skip else we will check what is the difference between two adjacent index values. because if the difference between then is greater than k then we any other index combination will not work either.
+
+we will take a previous variable and iterate over the list and update the prev variable storing the indices list iterating over the list of indices if the difference is lesser than equal to k, then we will return true
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 3, 1};
         int k = 3;
         boolean ans = containsNearbyDuplicate1(nums, k);
         System.out.println(ans);
     }
+
     public static boolean containsNearbyDuplicate1(int[] nums, int k) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         int n = nums.length;
@@ -85,4 +92,5 @@ private static void type1() {
         }
         return false;
     }
+}
 ```

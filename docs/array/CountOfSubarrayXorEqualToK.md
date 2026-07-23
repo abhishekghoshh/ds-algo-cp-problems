@@ -1,33 +1,36 @@
 # CountOfSubarrayXorEqualToK
 
-**Topic:** `array` | **File:** `com/problems/array/CountOfSubarrayXorEqualToK.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1115652)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/subarrays-with-xor-k_6826258)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/subarray-with-given-xor/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=eZr-6p0B7ME&t=1s)
 - [▶ YouTube](https://www.youtube.com/watch?v=lO9R5CaGRPY&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=26)
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-the-number-of-subarrays-with-given-xor-k/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Prefix xor time complexity o(n) space complexity O(n) suppose in a range of 0..x1..x2 the xor is x2 and in the same range 0..x1 the xor is x1 the xor of in between elements(x1+1..x2) is k we can say that x1 ^ k = x2 we can again xor both of the side by k so x1 ^ k ^ k = x2 ^ k => x1 = x2 ^ k ( given that k ^ k = 0) x1 = x2 ^ k now we have everything just we have to find x1 we will compute xor in every element and store it in map with its count also compute x1 and will check if its present in map or not Please Note prefixXor.put(0, 1); and if(xor==k) count++ has the same purpose if we include prefixXor.put(0, 1) then, at xor==k and previousXor will be 0 then count = count + prefixXor.get(0); it will be automatically added if we add if(xor==k) count++ then we will manually check for k equality at that time prefixXor.containsKey(0) will return false count = count + prefixXor.get(0); will not be executed
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(n)
+### Approach 2: 🏆 Optimal Solution
+
+prefix xor suppose in a range of 0..x1..x2 the xor is x2 and in the same range 0..x1 the xor is x1 the xor of in between elements(x1+1..x2) is k we can say that x1 ^ k = x2 we can again xor both of the side by k so x1 ^ k ^ k = x2 ^ k => x1 = x2 ^ k ( given that k ^ k = 0) x1 = x2 ^ k now we have everything just we have to find x1 we will compute xor in every element and store it in map with its count also compute x1 and will check if its present in map or not Please Note prefixXor.put(0, 1); and if(xor==k) count++ has the same purpose if we include prefixXor.put(0, 1) then, at xor==k and previousXor will be 0 then count = count + prefixXor.get(0); it will be automatically added if we add if(xor==k) count++ then we will manually check for k equality at that time prefixXor.containsKey(0) will return false count = count + prefixXor.get(0); will not be executed
+
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 4, 2, 2, 6, 4 };
 		int k = 6;
 		Map<Integer, Integer> prefixXor = new HashMap<>();
@@ -47,14 +50,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(1)
+brute force approach
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 4, 2, 2, 6, 4 };
 		int k = 6;
 		int count = 0;
@@ -68,4 +72,6 @@ private static void type1() {
 		}
 		System.out.println("count is " + count);
 	}
+
+}
 ```

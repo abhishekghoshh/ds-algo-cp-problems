@@ -1,29 +1,33 @@
 # MaxSumForConsecutiveElements
 
-**Topic:** `array` | **File:** `com/problems/array/MaxSumForConsecutiveElements.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-subarray/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/630526)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/maximum-subarray-sum_630526)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=AHZpyENo7k4)
 - [▶ YouTube](https://www.youtube.com/watch?v=w_KEocd__20&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=5)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Kadane's algorithm: maximum subarray sum.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Kadane's algorithm of o(n) we carry a sub array if its sum is positive else we'll initialize it to 0
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Kadane's algorithm of o(n) we carry a sub array if its sum is positive else we'll initialize it to 0 on each step we will add the element to the sum, but if the item + previous sum is lesser than the item, then we initialize the sum to the current item we will again check the current sum is a max sum or not
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 		int maxSum = nums[0];
 		int sum = nums[0];
@@ -39,12 +43,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for o(n'2)
+brute force approach for o(n'2)
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] array = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 		int maxSum = Integer.MIN_VALUE;
 		for (int i = 0; i < array.length; i++) {
@@ -58,4 +62,6 @@ private static void type1() {
 		}
 		System.out.println("Maximum subarray value is " + maxSum);
 	}
+
+}
 ```

@@ -1,34 +1,39 @@
 # InsertIntoABinarySearchTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/InsertIntoABinarySearchTree.java`
+**Topic:** `binarysearchtree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/insert-into-a-binary-search-tree/description/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/insert-a-node-in-a-bst/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/insert-into-a-binary-search-tree_1279913)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FiFiNvM29ps&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=44)
 - [▶ YouTube](https://www.youtube.com/watch?v=Cpg8f79luEA)
 - [📄 takeUforward](https://takeuforward.org/binary-search-tree/insert-a-given-node-in-binary-search-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+or go to the right side if root-val < target
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-As this is an iterative approach we need to have a track of the parent node as well
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+as this is an iterative approach we need to have a track of the parent node as well iteratively going to the specific node and alsa updating the parent node
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.withNodes(4, 2, 7, 1, 3);
 		int val = 5;
 		root = insertIntoBST2(root, val);
 		PrintUtl.levelOrder(root);
 	}
+
 	private static TNode insertIntoBST2(TNode root, int val) {
 		if (root == null) return new TNode(val);
 		// iteratively going to the specific node and alsa updating the parent node
@@ -47,18 +52,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursive way of adding nodes to the leaf recursively traverse to the specific position each time it will either go to the left side if target < root-val or go to the right side if root-val < target
+recursive way of adding nodes to the leaf recursively traverse to the specific position each time it will either go to the left side if target < root-val or go to the right side if root-val < target if the root is null, then we will assign a new node if the target is lesser than the root, then we will go to the left side we will go until the root is null
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withNodes(4, 2, 7, 1, 3);
 		PrintUtl.levelOrder(root);
 		root = insertIntoBST1(root, 5);
 		PrintUtl.levelOrder(root);
 
 	}
+
 	public static TNode insertIntoBST1(TNode root, int target) {
 		// if the root is null, then we will assign a new node
 		if (root == null) return new TNode(target);
@@ -70,4 +76,5 @@ private static void type1() {
 			root.right = insertIntoBST1(root.right, target);
 		return root;
 	}
+}
 ```

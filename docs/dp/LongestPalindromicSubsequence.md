@@ -1,28 +1,32 @@
 # LongestPalindromicSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/LongestPalindromicSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-palindromic-subsequence/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=wuOOOATz_IA&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=26)
 - [▶ YouTube](https://www.youtube.com/watch?v=bUr8cNWI09Q)
 - [▶ YouTube](https://www.youtube.com/watch?v=6i_T5kkfv4A&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=29)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-palindromic-subsequence-dp-28/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **7** approaches, progressing from brute force to optimal:
+longest subsequence of a string with its reverse
+
+## 💡 Approaches
+
+This problem can be solved in **7** different ways, each improving upon the previous:
 
 ### Approach 8
 
-Longest palindromic subsequence is nothing but longest subsequence of a string with its reverse TODO if we could change the for loop in previous type in such a way that it works in a previous and current dp layer instead of touching all layer in one loop we could directly space optimize the solution we have added 2 solution for that
+if we could change the for loop in previous type in such a way that it works in a previous and current dp layer instead of touching all layer in one loop we could directly space optimize the solution we have added 2 solution for that similar to the previous type, but here we are doing layer wise don't discuss unless you know it clearly space optimized version of the previous block
 
 ```java
-private static void type8() {
+	private static void type8() {
 		String s = "ynabcdbxmn";
 		char[] arr = s.toCharArray();
 		int n = s.length();
@@ -59,16 +63,17 @@ private static void type8() {
 	}
 ```
 
-### Approach 7 — Optimal
+### Approach 7: 🏆 Optimal Solution
 
-This a separate approach lets say the string is aXb then to find the longest palindrome there would be two case if a==b then it would be func(aXb) => 2 + func(x) else func(aXb) = max ( func(aX), func(Xb) ) we will do it for all length of strings let's directly implement in top down approach
+this a separate approach lets say the string is aXb then to find the longest palindrome there would be two case if a==b then it would be func(aXb) => 2 + func(x) else func(aXb) = max ( func(aX), func(Xb) ) we will do it for all length of strings let's directly implement in top down approach this is to handle all single digit characters; they are by default palindrome like the palindromic substring we do not need to compute 2 letter digit here I guess now we will do generalization, we will start from j and j+1, and we will check for all j and j+i
 
 ```java
-private static void type7() {
+	private static void type7() {
 		String s = "ynabcdbxmn";
 		int count = longestPalindromeSubseq7(s);
 		System.out.println(count);
 	}
+
 	private static int longestPalindromeSubseq7(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -96,14 +101,15 @@ private static void type7() {
 
 ### Approach 6
 
-There is another approach of solving this problem, though it might not be that much efficient but we should also that one as well we try to expand from all indices, two times, 1. keeping that index as the center, making the odd length string 2. keeping that index as the first left cell and index+1 as the first right cell, making the even length string
+there is another approach of solving this problem, though it might not be that much efficient but we should also that one as well we try to expand from all indices, two times, 1. keeping that index as the center, making the odd length string 2. keeping that index as the first left cell and index+1 as the first right cell, making the even length string this is the base case or when the left and right are out of boundary we are directly returning from the stored values if left and right values are the same, then we will check for left-1 and right+1 if not then we have two options, left,right+1 and left-1,right for then first time when are checking for (i,i) at that time left and right are same for that time the string length will be 1
 
 ```java
-private static void type6() {
+	private static void type6() {
 		String s = "ynabcdbxmn";
 		int max = longestPalindromeSubseq6(s);
 		System.out.println(max);
 	}
+
 	private static int longestPalindromeSubseq6(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -119,6 +125,7 @@ private static void type6() {
 		}
 		return max;
 	}
+
 	private static int longestPalindromicSubsequence(int l, int r, char[] arr, int[][] dp) {
 		int n = arr.length;
 		// this is the base case or when the left and right are out of boundary
@@ -141,15 +148,18 @@ private static void type6() {
 
 ### Approach 5
 
-From type2() to type5() all have the same approach, just everytime we have done some optimization it is even more optimized than the previous as we are using the same char array for comparing and the same arrays for current and previous dp value
+from type2() to type5() all have the same approach, just everytime we have done some optimization it is even more optimized than the previous as we are using the same char array for comparing and the same arrays for current and previous dp value Create two arrays to store the LCS lengths Base Case: Initialized to 0, as no characters matched yet.
+
+i-1 and n-j is same as (n-1)-(j-1) Update the prev array to store the current values
 
 ```java
-private static void type5() {
+	private static void type5() {
 		String s = "ynabcdbxmn";
 
 		int ans = longestPalindromeSubseq5(s);
 		System.out.println(ans);
 	}
+
 	private static int longestPalindromeSubseq5(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -174,14 +184,15 @@ private static void type5() {
 
 ### Approach 4
 
-It is more optimized than the previous here we have used the same array,
+it is more optimized than the previous here we have used the same array, we should be initializing the 0th cells with 0, but the array is already initialized with 0, so we don't need to do anything extension of the problem
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String s = "ynabcdbxmn";
 		String ans = longestPalindromeSubseq4(s);
 		System.out.println(ans);
 	}
+
 	private static String longestPalindromeSubseq4(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -215,14 +226,15 @@ private static void type4() {
 
 ### Approach 3
 
-Very optimal approach, and we can discuss it in the interview same as previous, but here we are using an array instead of string builder. it will become little optimized from the previous to make it more optimized we can make use of the same array instead of creating the reverse array
+very optimal approach, and we can discuss it in the interview same as previous, but here we are using an array instead of string builder. it will become little optimized from the previous to make it more optimized we can make use of the same array instead of creating the reverse array extension of the problem
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "ynabcdbxmn";
 		String ans = longestPalindromeSubseq3(s);
 		System.out.println(ans);
 	}
+
 	private static String longestPalindromeSubseq3(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -260,14 +272,17 @@ private static void type3() {
 
 ### Approach 2
 
-If we think closely, then we will see that the common subsequence of the string and its reverse will be largest palindromic subsequence
+if we think closely, then we will see that the common subsequence of the string and its reverse will be largest palindromic subsequence now we will fill up the entire dp array this is extension of the problem we will do the same what we have done for printing the longest common subsequence we will start from n1 and n2 and go backtracking till one of the strings is consumed entirely.
+
+as it is a palindromic subsequence, so we do not need to reverse the string string is matched so we decrement both n1 and n2 string is not matched, so we will go to n1 or n2 based on Math.max(dp[i - 1][j], dp[i][j - 1]);
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String str1 = "ynabcdbxmn";
 		String sb = longestPalindromeSubseq2(str1);
 		System.out.println(sb);
 	}
+
 	private static String longestPalindromeSubseq2(String str1) {
 		String str2 = new StringBuilder().append(str1).reverse().toString();
 		int n = str1.length();
@@ -305,4 +320,5 @@ private static void type2() {
 		}
 		return sb.toString();
 	}
+}
 ```

@@ -1,26 +1,30 @@
 # PaintersPartitionProblem
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/PaintersPartitionProblem.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/painter-s-partition-problem_1089557)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=thUd_WJn6wk)
 - [📄 takeUforward](https://takeuforward.org/arrays/painters-partition-problem/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Partition boards among painters to minimize the maximum time.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Binary search on method approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+binary search on method approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<Integer> arr = List.of(2, 1, 5, 6, 2, 3);
         int k = 2;
         int max = 0, sum = 0;
@@ -39,6 +43,7 @@ private static void type2() {
         }
         System.out.println(answer);
     }
+
     private static int countForMid(List<Integer> nums, int mid, int k) {
         int count = 1, sum = 0;
         for (int num : nums) {
@@ -52,11 +57,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

@@ -1,32 +1,38 @@
 # ContinuousSubarraySum
 
-**Topic:** `array` | **File:** `com/problems/array/ContinuousSubarraySum.java`
-
+**Topic:** `array`  
 **Tags:** Array, Hashing, Prefix Sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/continuous-subarray-sum/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=OKcrLfR-8mE)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check for subarray sum multiple of k.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach this is a normal prefix sum problem with a trick we have to check if the subarray sum is a kth multiple or not. However, there can be multiple kth multiple. We cannot account for everything, so we will not save the actual sum, we will save the reminder let's say the sums/reminders are like 0 s1 s2 s3 s4 s5 s1 s3. If there is s1 at any place(i1) and there is s1 at a later index(i2), then the in sum[i1+1,i2] has to be multiple of k otherwise it would not produce s1 reminder again
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Optimized approach this is a normal prefix sum problem with a trick we have to check if the subarray sum is a kth multiple or not. However, there can be multiple kth multiple. We cannot account for everything, so we will not save the actual sum, we will save the reminder let's say the sums/reminders are like 0 s1 s2 s3 s4 s5 s1 s3.
+
+If there is s1 at any place(i1) and there is s1 at a later index(i2), then the in sum[i1+1,i2] has to be multiple of k otherwise it would not produce s1 reminder again as per the question we will only save the [rem,index] for the first time
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {23, 2, 6, 4, 7};
         int k = 6;
         boolean ans = checkSubarraySum2(nums, k);
         System.out.println(ans);
     }
+
     public static boolean checkSubarraySum2(int[] nums, int k) {
         Map<Integer, Integer> prefixSum = new HashMap<>();
         int n = nums.length;
@@ -47,12 +53,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

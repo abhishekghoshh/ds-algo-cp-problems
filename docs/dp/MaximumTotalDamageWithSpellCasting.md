@@ -1,24 +1,27 @@
 # MaximumTotalDamageWithSpellCasting
 
-**Topic:** `dp` | **File:** `com/problems/dp/MaximumTotalDamageWithSpellCasting.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-total-damage-with-spell-casting/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0fCPtBx4lso)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given spells, cast them strategically to maximize total damage.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

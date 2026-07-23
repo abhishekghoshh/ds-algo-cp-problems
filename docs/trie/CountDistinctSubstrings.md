@@ -1,29 +1,33 @@
 # CountDistinctSubstrings
 
-**Topic:** `trie` | **File:** `com/problems/trie/CountDistinctSubstrings.java`
+**Topic:** `trie`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/count-distinct-substrings_985292)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/number-of-distinct-substring_1465938)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=RV0QeTyHZxo&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=4)
 - [📄 takeUforward](https://takeuforward.org/data-structure/number-of-distinct-substrings-in-a-string-using-trie/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count distinct substrings in a string using trie.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Modified trie approach time complexity O(n^2)
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n^2)
+### Approach 2: 🏆 Optimal Solution
+
+modified trie approach 1 for the empty substring This will be trie root we are adding 1 to count every time we have encountered one new children which is null, children is null means by adding the character we can make a
+
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String str = "abab";
 		char[] arr = str.toCharArray();
 		int n = arr.length;
@@ -48,14 +52,19 @@ private static void type2() {
 		}
 		System.out.println(count);
 	}
+
+	public static class Node {
+		Node[] nodes = new Node[26];
+	};
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using trie time complexity is O(n^3)
+using trie 1 for the empty substring we are adding the s.substring(i,j) if the end is already set that means the word is not unique word is unique, so we can set the end and return true
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String str = "abab";
 		char[] arr = str.toCharArray();
 		// 1 for the empty substring
@@ -69,4 +78,34 @@ private static void type1() {
 		}
 		System.out.println(count);
 	}
+
+	public static class Trie {
+		private final Node head;
+
+		public Trie() {
+			head = new Node();
+		}
+
+		public boolean insert(char[] arr, int start, int end) {
+			Node node = head;
+			for (int i = start; i <= end; i++) {
+				int pos = arr[i] - 'a';
+				if (node.nodes[pos] == null)
+					node.nodes[pos] = new Node();
+				node = node.nodes[pos];
+			}
+			// if the end is already set that means the word is not unique
+			if (node.isEnd) return false;
+			// word is unique, so we can set the end
+			// and return true
+			return node.isEnd = true;
+		}
+
+		public static class Node {
+			public final Node[] nodes = new Node[26];
+			public boolean isEnd;
+		}
+	}
+
+}
 ```

@@ -1,21 +1,24 @@
 # HillProblem
 
-**Topic:** `math` | **File:** `com/problems/math/HillProblem.java`
+**Topic:** `math`  
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Solve the Hill cipher/encoding problem.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {4, 5, 11, 10, 21, 3, 1};
         boolean ans = check(arr);
         System.out.println(ans);
     }
+
     private static boolean check(int[] arr) {
         int n = arr.length;
         int prev = Integer.MIN_VALUE;
@@ -38,4 +41,5 @@ private static void type1() {
         }
         return i == n;
     }
+}
 ```

@@ -1,25 +1,29 @@
 # RepeatedStringMatch
 
-**Topic:** `string` | **File:** `com/problems/string/RepeatedStringMatch.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/repeated-string-match/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - SURAJ KUMAR :https://www.youtube.com/watch?v=1WGtcErMPrQ
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the minimum number of times string A must be repeated such that B is a substring of the repeated string.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Complete this method same as previous here we will user custom append and custom contains metho
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+complete this method same as previous here we will user custom append and custom contains metho for (char c : b.toCharArray()) if (!bucket[c - 'a']) return -1;
 
 ```java
-private static void type4() {
+    private static void type4() {
         String a = "aaac", b = "aac";
         boolean[] bucket = new boolean[26];
         char[] arr1 = a.toCharArray();
@@ -30,10 +34,11 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous just we are trying to reduce the time complexity by creating our custom contains array
+same as previous just for (char c : b.toCharArray()) if (!bucket[c - 'a']) return -1; we can create this contains method with either KMP or RabinKarp
+
 
 ```java
-private static void type3() {
+    private static void type3() {
         String a = "aaac", b = "aac";
         boolean[] bucket = new boolean[26];
         for (char c : a.toCharArray()) bucket[c - 'a'] = true;
@@ -50,6 +55,8 @@ private static void type3() {
         }
         System.out.println(answer);
     }
+
+    // we can create this contains method with either KMP or RabinKarp
     private static boolean contains(StringBuilder res, String b) {
         char[] st = (b + "&" + res).toCharArray();
         int n1 = st.length;
@@ -74,10 +81,10 @@ private static void type3() {
 
 ### Approach 2
 
-We can create this contains method with either KMP or RabinKarp same as previous a little optimized
+same as previous a little optimized for (char c : b.toCharArray()) if (!bucket[c - 'a']) return -1;
 
 ```java
-private static void type2() {
+    private static void type2() {
         String a = "abcd", b = "cdabcdab";
         boolean[] bucket = new boolean[26];
         for (char c : a.toCharArray()) bucket[c - 'a'] = true;
@@ -96,12 +103,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach if the pattern is abcd and the text is cdabcdab the text can be thought as => cd + abcd + ab or in general prefix + n*pattern + suffix if it has to match then so if we can divide the length of text by the length of pattern then we will the max possible repetition of the pattern we will add +2 for prefix and suffix
+brute force approach if the pattern is abcd and the text is cdabcdab the text can be thought as => cd + abcd + ab or in general prefix + n*pattern + suffix if it has to match then so if we can divide the length of text by the length of pattern then we will the max possible repetition of the pattern we will add +2 for prefix and suffix
 
 ```java
-private static void type1() {
+    private static void type1() {
         String a = "abcd", b = "cdabcdab";
         int req = b.length() / a.length();
         int answer = -1;
@@ -115,4 +122,7 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+
+
+}
 ```

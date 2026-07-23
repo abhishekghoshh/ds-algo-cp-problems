@@ -1,27 +1,32 @@
 # ConstructStringWithMinimumCost
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/ConstructStringWithMinimumCost.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/construct-string-with-minimum-cost)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Construct a target string with minimum cost using given operations.
 
-### Implementation
+## 💡 Approaches
 
-Solve the problem later this approach is right, but getting TLE for this approach here, we are creating one list of same length words and then store it length wise map also we will sort the lists. then we will use an index to track and match the current string and target
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this approach is right, but getting TLE for this approach here, we are creating one list of same length words and then store it length wise map also we will sort the lists. then we will use an index to track and match the current string and target
 
 ```java
-private static void type1() {
+    private static void type1() {
         String target = "rrhrzfmk";
         String[] words = {"r", "rz", "k", "rhrzfmk"};
         int[] costs = {11, 3, 7, 8};
         int ans = minimumCost(target, words, costs);
         System.out.println(ans);
     }
+
     public static int minimumCost(String target, String[] words, int[] costs) {
         char[] arr = target.toCharArray();
         boolean[] has = new boolean[26];
@@ -43,6 +48,7 @@ private static void type1() {
         for (Pairs p : pairs) if (p != null && p.list != null) p.list.sort(c);
         return traverse(0, bucket, arr, pairs);
     }
+
     private static int traverse(int curr, char[] bucket, char[] target, Pairs[] pairs) {
         int n = target.length;
         if (curr == n) {
@@ -63,4 +69,24 @@ private static void type1() {
         }
         return min != Integer.MAX_VALUE ? min : -1;
     }
+
+    static class Pairs {
+        List<Pair> list;
+
+        void add(Pair pair) {
+            if (list == null) list = new ArrayList<>();
+            list.add(pair);
+        }
+    }
+
+    static class Pair {
+        char[] word;
+        int cost;
+
+        Pair(char[] word, int cost) {
+            this.word = word;
+            this.cost = cost;
+        }
+    }
+}
 ```

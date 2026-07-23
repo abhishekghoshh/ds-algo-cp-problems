@@ -1,29 +1,34 @@
 # RepeatedDNASequences
 
-**Topic:** `string` | **File:** `com/problems/string/RepeatedDNASequences.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/repeated-dna-sequences/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FzTYfsmtOso)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find all 10-letter-long sequences that occur more than once in a DNA molecule.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Most optimized approach using 2 hashsets and with a char to int conversation
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+most optimized approach using 2 hashsets and with a char to int conversation
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
         List<String> ans = findRepeatedDnaSequences3(s);
         System.out.println(ans);
     }
+
     private static List<String> findRepeatedDnaSequences3(String s) {
         int n = s.length();
         if (n < 10) return List.of();
@@ -55,6 +60,7 @@ private static void type3() {
         }
         return ans;
     }
+
     private static long convert(char c) {
         return switch (c) {
             case 'A' -> 1;
@@ -63,6 +69,7 @@ private static void type3() {
             default -> 4;
         };
     }
+
     private static char convert(long i) {
         return switch ((int) i) {
             case 1 -> 'A';
@@ -75,14 +82,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using 2 hashsets
+optimized approach using 2 hashsets
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
         List<String> ans = findRepeatedDnaSequences2(s);
         System.out.println(ans);
     }
+
     public static List<String> findRepeatedDnaSequences2(String s) {
         int n = s.length();
         if (n < 10) return List.of();
@@ -101,16 +109,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force using a hashmap
+brute force using a hashmap
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
         List<String> ans = findRepeatedDnaSequences1(s);
         System.out.println(ans);
     }
+
     public static List<String> findRepeatedDnaSequences1(String s) {
         int n = s.length();
         if (n < 10) return List.of();
@@ -125,4 +134,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

@@ -1,25 +1,31 @@
 # SumOfGoodSubsequences
 
-**Topic:** `dp` | **File:** `com/problems/dp/SumOfGoodSubsequences.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sum-of-good-subsequences/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+this answer would be valid if the question was
 
-### Implementation
+## 💡 Approaches
 
-This answer would be valid if the question was
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this answer would be valid if the question was
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 1};
         int ans = sumOfGoodSubsequences1(nums);
         System.out.println(ans);
     }
+
+
     public static int sumOfGoodSubsequences1(int[] nums) {
         int n = nums.length;
         boolean[][] dp = new boolean[n][n];
@@ -41,4 +47,7 @@ private static void type1() {
         }
         return sum;
     }
+
+
+}
 ```

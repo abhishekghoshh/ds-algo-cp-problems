@@ -1,37 +1,45 @@
 # IntersectionOfTwoLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/IntersectionOfTwoLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/630457)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0DYoPz2Tpt4)
 - [▶ YouTube](https://www.youtube.com/watch?v=u4FWXfgS8jw&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=34)
 - [▶ YouTube](https://www.youtube.com/watch?v=D0X0BONOQhI)
 - [📄 takeUforward](https://takeuforward.org/data-structure/find-intersection-of-two-linked-lists/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Better optimized approach time complexity O(2 * max(n1, n2))) space complexity O(1) if l1 is m1->d and l2 is m2->d where d is the common portion then (l1->l2) will be m1->d->m2->d and (l2->l1) will be (m2->d->m1->d) now if we use 2 pointer h1 and h2 and assign to thr start of (l1->l2) and (l2->l1) and traverse it then after some point it will go to the common potion we need not to create (l1->l2) and (l2->l1), we can do little smart we will start with h1=l1 and h2=l2, once h1.next is null then we will assign it to l2 and h2.next is null we will assign it to l1, then ultimate h1 will be l1l2 and h2 will be l2l1
+This problem can be solved in **4** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(2 * max(n1, n2) | Space: o(1)
+### Approach 4: 🏆 Optimal Solution
+
+better optimized approach if l1 is m1->d and l2 is m2->d where d is the common portion then (l1->l2) will be m1->d->m2->d and (l2->l1) will be (m2->d->m1->d) now if we use 2 pointer h1 and h2 and assign to thr start of (l1->l2) and (l2->l1) and traverse it then after some point it will go to the common potion we need not to create (l1->l2) and (l2->l1), we can do little smart we will start with h1=l1 and h2=l2, once h1.next is null then we will assign it to l2 and h2.next is null we will assign it to l1, then ultimate h1 will be l1l2 and h2 will be l2l1 let say headA = (a + h) and headB = (b + h) h1 will become (h1 + h2) h2 will become (h2 + h1) so let's say if there is no common point then after (n1+n2) both h1 and h2 will go to null and loop will terminate.
+
+if there is some common point then h1 will become (a + h + b + h) and h2 will become (b + h + a + h) still, the loop will terminate when it comes to last h if there is no intersection point, then it h1 will be null
+
+**Time Complexity:** `O(2 * max(n1, n2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
 		Node point = getIntersectionNode4(headA, headB);
 		print(point);
 	}
+
 	private static Node getIntersectionNode4(Node headA, Node headB) {
 		// let say headA = (a + h) and headB = (b + h)
 		Node h1 = headA, h2 = headB;
@@ -50,18 +58,20 @@ private static void type4() {
 
 ### Approach 3
 
-Explain this in the interview very simple approach optimized approach two linked list having common point time complexity O(n) space complexity O(1)
+explain this in the interview very simple approach optimized approach two linked list having common point first we count n1 then we will count n2 we will try to make the longer list equal to the shorter list then we will move (n1 - n2) for the longer linked list, if (n1 > n2) then this while loop will execute if (n2 > n2) then this one will execute, the previous for loop will not execute now we are at the starting point for the both of the linked lists at this point both linked lists have the same number of nodes, we will go till nodes are same
 
-**Complexity:** Time: o(n) | Space: o(1)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
 		Node point = getIntersectionNode3(headA, headB);
 		print(point);
 	}
+
 	private static Node getIntersectionNode3(Node headA, Node headB) {
 		int n1 = 0, n2 = 0;
 		Node h1 = headA, h2 = headB;
@@ -98,18 +108,20 @@ private static void type3() {
 
 ### Approach 2
 
-Hashing approach time complexity  O(n1*log(n1) + n2) space complexity O(n1)
+hashing approach adding all the nodes in the set
 
-**Complexity:** Time: o(n1*log(n1) | Space: o(n1)
+**Time Complexity:** `O(n1*log(n1)`
+**Space Complexity:** `O(n1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
 		Node ans = getIntersectionNode2(headA, headB);
 		print(ans);
 	}
+
 	private static Node getIntersectionNode2(Node headA, Node headB) {
 		Set<Node> set = new HashSet<>();
 		// adding all the nodes in the set
@@ -123,18 +135,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity(O(n1*n2) space complexity (1)
+brute force approach using n^2 loop
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node common = new Node(15, 30);
 		Node headA = new Node(10, 6, 9).next(common);
 		Node headB = new Node(10, 11).next(common);
 		Node ans = getIntersectionNode1(headA, headB);
 		print(ans);
 	}
+
 	private static Node getIntersectionNode1(Node headA, Node headB) {
 		// using n^2 loop
 		for (Node node1 = headA; null != node1; node1 = node1.next) {
@@ -143,4 +157,7 @@ private static void type1() {
 		}
 		return null;
 	}
+
+
+}
 ```

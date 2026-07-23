@@ -1,27 +1,34 @@
 # XorOfARange
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/XorOfARange.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/l-to-r-xor_8160412)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We need to find xor(L..R) we know how to find the xor of xor(n) in O(1) and we know xor(L-1)^xor(L..R)=xor(R) xor(L-1)^xor(L..R)^xor(L-1) = xor(R)^xor(L-1) xor(L..R) = xor(R)^xor(L-1) time complexity O(1) space complexity O(1)
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(1) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+we need to find xor(L..R) we know how to find the xor of xor(n) in O(1) and we know xor(L-1)^xor(L..R)=xor(R) xor(L-1)^xor(L..R)^xor(L-1) = xor(R)^xor(L-1) xor(L..R) = xor(R)^xor(L-1) check for multiple examples
+
+**Time Complexity:** `O(1)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int left = 5, right = 11;
 		int xor = xor(right) ^ xor(left - 1);
 		System.out.println(xor);
 	}
+
+	// check for multiple examples
 	private static int xor(int n) {
 		int rem = n % 4;
 		if (rem == 0) return n;
@@ -31,17 +38,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Check for multiple examples brute force approach time complexity O(n) space complexity O(1)
+brute force approach
 
-**Complexity:** Time: o(n) | Space: o(1)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int left = 5, right = 11;
 		int xor = 0;
 		for (int i = left; i <= right; i++) xor = xor ^ i;
 		System.out.println(xor);
 	}
+}
 ```

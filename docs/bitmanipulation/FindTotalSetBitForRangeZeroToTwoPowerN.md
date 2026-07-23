@@ -1,17 +1,21 @@
 # FindTotalSetBitForRangeZeroToTwoPowerN
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/FindTotalSetBitForRangeZeroToTwoPowerN.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+0 0 0 1 1 ->> till this count of 1 is 4
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-4 3 2 1 0 index 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 1 ->> till this count of 1 is 4 0 0 1 0 0 ->> till this count of 1 is 4+1 0 0 1 0 1 0 0 1 1 0 0 0 1 1 1 ->> till this count of 1 is 12 0 1 0 0 0 ->> till this count of 1 is 12+1 0 1 0 0 1 0 1 0 1 0 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 0 1 1 1 0 0 1 1 1 1 ->> till this count of 1 is 32 1 0 0 0 0 ->> till this count of 1 is 32+1 if we look closely then if the number is 2 to power n then total count is n*2^(n-1)+1
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+4 3 2 1 0 index 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 1 ->> till this count of 1 is 4 0 0 1 0 0 ->> till this count of 1 is 4+1 0 0 1 0 1 0 0 1 1 0 0 0 1 1 1 ->> till this count of 1 is 12 0 1 0 0 0 ->> till this count of 1 is 12+1 0 1 0 0 1 0 1 0 1 0 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 0 1 1 1 0 0 1 1 1 1 ->> till this count of 1 is 32 1 0 0 0 0 ->> till this count of 1 is 32+1 if we look closely then if the number is 2 to power n then total count is n*2^(n-1)+1 find the index of left most set bit at this point we have find the index where bin[index]=1 int count = index * (int) Math.pow(2, index - 1) + 1;
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 128;
 		// find the index of left most set bit
 		int mask = 1 << 30, index = 30;
@@ -29,12 +33,10 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 128;
 		int count = 0;
 		for (int i = 1; i <= n; i++) {
@@ -42,6 +44,7 @@ private static void type1() {
 		}
 		System.out.println(count);
 	}
+
 	private static int countBit(int n) {
 		int count = 0;
 		while (n != 0) {
@@ -50,4 +53,6 @@ private static void type1() {
 		}
 		return count;
 	}
+
+}
 ```

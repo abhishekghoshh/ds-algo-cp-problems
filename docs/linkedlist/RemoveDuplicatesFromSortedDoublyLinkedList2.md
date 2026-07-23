@@ -1,26 +1,30 @@
 # RemoveDuplicatesFromSortedDoublyLinkedList2
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/RemoveDuplicatesFromSortedDoublyLinkedList2.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=R6-PnHODewY)
 - [▶ YouTube](https://www.youtube.com/watch?v=9iJ3UsB9vMo)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+add those nodes which have only one occurrence
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we are checking if the current value is same as the next value or not we will only add current if current.next is the same as next or not in simple words the previous loop executed or not assigning the curr to the next
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 2, 3, 3, 4, 4, 5);
         Node curr = head;
         Node newHead = new Node(Integer.MIN_VALUE);
@@ -45,12 +49,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach stores the frequencies in a map add those nodes which have only one occurrence
+brute force approach stores the frequencies in a map add those nodes which have only one occurrence
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

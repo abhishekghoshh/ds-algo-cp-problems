@@ -1,27 +1,31 @@
 # PrintLongestCommonSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/PrintLongestCommonSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/print-all-lcs-sequences3413/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=x5hQvnUcjiM&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=23)
 - [▶ YouTube](https://www.youtube.com/watch?v=-zI4mrF2Pb4&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=27)
 - [📄 takeUforward](https://takeuforward.org/dynamic-programming/striver-dp-series-dynamic-programming-problems)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+the previous solution only saves one string,
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This solution is quite right but with TreeSet we are getting TLE in gfg, solve it later the previous solution only saves one string, but if there is more than one, then we have to use recursion with backtracking
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this solution is quite right but with TreeSet we are getting TLE in gfg, solve it later the previous solution only saves one string, but if there is more than one, then we have to use recursion with backtracking now we will fill all the cells of the dp array same like previous one but here we will use recursion backtrack to store all the strings
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String str1 = "abaaa";
 		String str2 = "baabaca";
 		char[] arr1 = str1.toCharArray();
@@ -47,6 +51,7 @@ private static void type2() {
 		List<String> ans = new ArrayList<>(answer);
 		System.out.println(ans);
 	}
+
 	private static void backtrack(int n1, int n2, char[] arr1, char[] arr2,
 								  int[][] dp, char[] arr, int n, Set<String> answer) {
 		if (n1 == 0 || n2 == 0) {
@@ -67,12 +72,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+now we will fill all the cells of the dp array now we will backtrack from n1,n2 to 0,0 and along the way we will add the letters if letters match then we will add that to the answer if characters do not match, then we have to go either to n1-1 direction or n2-1 because dp[i][j] came from Math.max(dp[i - 1][j], dp[i][j - 1]);
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String str1 = "abcfe";
 		String str2 = "abcdef";
 		char[] arr1 = str1.toCharArray();
@@ -108,4 +113,5 @@ private static void type1() {
 		String lcs = new String(str);
 		System.out.println(lcs);
 	}
+}
 ```

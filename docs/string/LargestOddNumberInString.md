@@ -1,21 +1,25 @@
 # LargestOddNumberInString
 
-**Topic:** `string` | **File:** `com/problems/string/LargestOddNumberInString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/largest-odd-number-in-string/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the largest odd number that is a substring of the given numeric string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will follow the greedy approach, the largest odd number will always end with odd number, so if we find the first odd number, then the answer will be 0..n
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will follow the greedy approach, the largest odd number will always end with odd number, so if we find the first odd number, then the answer will be 0..n
 
 ```java
-private static void type2() {
+    private static void type2() {
         String num = "35427";
         int n = num.length() - 1;
         while (n >= 0) {
@@ -25,17 +29,18 @@ private static void type2() {
         String answer = n == -1 ? "" : num.substring(0, n + 1);
         System.out.println(answer);
     }
+
     private static boolean isOdd(char ch) {
         return ((ch - '0') & 1) == 1;
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String num = "35427";
         char[] arr = num.toCharArray();
         int n = arr.length;
@@ -54,4 +59,5 @@ private static void type1() {
         String answer = String.valueOf(max);
         System.out.println(answer);
     }
+}
 ```

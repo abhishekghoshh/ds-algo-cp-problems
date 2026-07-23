@@ -1,31 +1,35 @@
 # ConvertAnArrayIntoA2DArrayWithConditions
 
-**Topic:** `array` | **File:** `com/problems/array/ConvertAnArrayIntoA2DArrayWithConditions.java`
-
+**Topic:** `array`  
 **Tags:** Array,
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/convert-an-array-into-a-2d-array-with-conditions/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9pl1QiaGgmI)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Convert array to 2D array with distinct row elements.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Little more optimized than before using the hashing just here we will be doing it differently
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+little more optimized than before using the hashing just here we will be doing it differently here we will go through the nums array and increasing the frequency if the current freq is f, then we will add that item to the f-1 index on the answer list
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 3, 4, 1, 2, 3, 1};
         List<List<Integer>> ans = findMatrix3(nums);
         System.out.println(ans);
     }
+
     private static List<List<Integer>> findMatrix3(int[] nums) {
         int n = nums.length;
         int[] freq = new int[n + 1];
@@ -44,14 +48,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using hashing
+optimized approach using hashing using an array as a frequency amp we will take max freq variable, because the maximum size of answer will be maximum freq of the most frequent number adding lists to our answer list beforehand now we will iterate over (1 to n) and add the elements
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 3, 4, 1, 2, 3, 1};
         List<List<Integer>> ans = findMatrix2(nums);
         System.out.println(ans);
     }
+
     private static List<List<Integer>> findMatrix2(int[] nums) {
         int n = nums.length;
         // using an array as a frequency amp
@@ -75,11 +80,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

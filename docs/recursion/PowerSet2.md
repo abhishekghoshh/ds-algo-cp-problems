@@ -1,15 +1,15 @@
 # PowerSet2
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/PowerSet2.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/subsets-ii/description/)
 - [📄 NeetCode](https://neetcode.io/problems/subsets-ii)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/subsequences-of-string_985087)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/get-all-unique-subsets_624393)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=b7AYbpM5YrE)
 - [▶ YouTube](https://www.youtube.com/watch?v=RIn3gOkbhQE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=54)
@@ -19,20 +19,25 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/subset-sum-sum-of-all-subsets/)
 - [▶ YouTube](https://www.youtube.com/watch?v=Vn2v6ajA7U0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+the algorithms used for no unique elements wil also work on the unique elements
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-The algorithms used for no unique elements wil also work on the unique elements todo best solution, explain this in the interview Given array has duplicate characters here, our intuition is that we will pick one unique item a time from the remaining list first we will make 0 item lists then 1 item then 2 then n items
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+best solution, explain this in the interview Given array has duplicate characters here, our intuition is that we will pick one unique item a time from the remaining list first we will make 0 item lists then 1 item then 2 then n items check the method one more time if it still confuses you let's say we have a list 1,2,2,3 we will start from every index and go till last one every recursion we will add the current list (till this recursion call) the answer we will check if the current item is the same as the previous item or not if it is the same, then we will skip the loop we have to add a condition that i is not we are choosing arr[i] to be part of the bucket computing the remaining after computing again removing it
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 2, 2};
         List<List<Integer>> answer = powerSet3(nums);
         System.out.println(answer);
     }
+
     private static List<List<Integer>> powerSet3(int[] nums) {
         List<List<Integer>> answer = new ArrayList<>();
         Arrays.sort(nums);
@@ -40,6 +45,10 @@ private static void type3() {
         powerSet3(nums, 0, bucket, answer);
         return answer;
     }
+
+    // TODO check the method one more time if it still confuses you
+    //  let's say we have a list 1,2,2,3
+    //  we will start from every index and go till last
     private static void powerSet3(int[] arr, int start, List<Integer> list, List<List<Integer>> answer) {
         int n = arr.length;
         // one every recursion we will add the current list (till this recursion call) the answer
@@ -61,15 +70,16 @@ private static void type3() {
 
 ### Approach 2
 
-Check the method one more time if it still confuses you let's say we have a list 1,2,2,3 we will start from every index and go till last TODO this solution will not work (X) it will contain duplicate sets also
+this solution will not work (X) it will contain duplicate sets also here we are not choosing it to be a part of the answer here we are choosing the number to be an answer
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 1, 3, 2, 4};
         List<List<Integer>> answer = new ArrayList<>();
         powerSet2(answer, new ArrayList<>(), nums, 0);
         System.out.println(answer);
     }
+
     private static void powerSet2(List<List<Integer>> answer, List<Integer> list, int[] nums, int n) {
         if (nums.length == n) {
             answer.add(new ArrayList<>(list));
@@ -86,17 +96,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion with a set duplicate elements with a set, extra computation needed
+using recursion with a set duplicate elements with a set, extra computation needed here we are not choosing it to be a part of the answer here we are choosing the element to a part of the answer as previous is a StringBuilder so we are changing the actual object so we need to delete the last character which we have added previously
 
 ```java
-private static void type1() {
+    private static void type1() {
         String str = "aaa";
         Set<String> answer = new HashSet<>();
         powerSet1(new StringBuilder(), 0, str, answer);
         System.out.println(answer);
     }
+
     private static void powerSet1(StringBuilder sb, int i, String str, Set<String> answer) {
         if (i == str.length()) {
             answer.add(sb.toString());
@@ -111,4 +122,5 @@ private static void type1() {
         // need to delete the last character which we have added previously
         sb.deleteCharAt(sb.length() - 1);
     }
+}
 ```

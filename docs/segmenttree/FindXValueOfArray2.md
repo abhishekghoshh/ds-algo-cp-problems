@@ -1,20 +1,23 @@
 # FindXValueOfArray2
 
-**Topic:** `segmenttree` | **File:** `com/problems/segmenttree/FindXValueOfArray2.java`
+**Topic:** `segmenttree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-x-value-of-array-ii/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Compute X value using segment tree queries.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

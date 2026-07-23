@@ -1,28 +1,32 @@
 # NumberOfEnclave
 
-**Topic:** `graph` | **File:** `com/problems/graph/NumberOfEnclave.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-enclaves/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/number-of-enclaves/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/matrix-traps_8365440)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=rxKcepXQgU4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=15)
 - [📄 takeUforward](https://takeuforward.org/graph/number-of-enclaves/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+and any cell touched by that cell
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as the previous type just here we will change the input data, changing the input is not a good practice though
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as the previous type just here we will change the input data, changing the input is not a good practice though visit the boundaries and change the cell value with 0 first column and last column we will start for all the cells but in the dfs call it will only go deep if the cell is 1 first row and last row essentially, the inner regions have the cell value with 1, so we just have to count how many cells have the 1 value once any cell is visited, we are changing the cell to 1 if the cell is not visited and the cell is having 1, then we can start dfs again mark that is visited by making it 0 from 1
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] grid = {
 				{0, 0, 0, 0},
 				{1, 0, 1, 0},
@@ -55,6 +59,8 @@ private static void type2() {
 
 		System.out.println(count);
 	}
+
+	// once any cell is visited, we are changing the cell to 1
 	private static void dfs(int[][] grid, int i, int j) {
 		// if the cell is not visited and the cell is having 1, then we can start dfs again
 		if (isInBounds(grid, i, j) && grid[i][j] == 1) {
@@ -66,17 +72,18 @@ private static void type2() {
 			dfs(grid, i, j - 1);
 		}
 	}
+
 	private static boolean isNotInBoundary(int i, int j, int[][] grid) {
 		return i < 0 || i >= grid.length || j < 0 || j >= grid[0].length;
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Once any cell is visited, we are changing the cell to 1 one intuition we have found that if in boundary, then we can escape, so boundary can never be our answer. any cell touched with boundary cell with value 1 cannot be the answer as well without changing the input data TODO essentially we have to find all the inner regions which is not touched by any outer cell with 1 value, so first we will mark all the cells of the outer region with value 1 and any cell touched by that cell
+one intuition we have found that if in boundary, then we can escape, so boundary can never be our answer. any cell touched with boundary cell with value 1 cannot be the answer as well without changing the input data essentially we have to find all the inner regions which is not touched by any outer cell with 1 value, so first we will mark all the cells of the outer region with value 1 and any cell touched by that cell visit the boundaries and mark the cells first column and last column we will start for all the cells but in the dfs call it will only go deep if the cell is 1 first row and last row if the cell is not visited and having one, then we cannot go outside from that cell we will only check for the cell which are not in boundary not visited and having cell if the cell is not visited and the cell is having 1, then we can start bfs again
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] grid = {
 				{0, 0, 0, 0},
 				{1, 0, 1, 0},
@@ -114,6 +121,7 @@ private static void type1() {
 
 		System.out.println(count);
 	}
+
 	private static void dfs(int i, int j, boolean[][] visited, int[][] grid) {
 		// if the cell is not visited and the cell is having 1, then we can start bfs again
 		if (isInBounds(grid, i, j) && grid[i][j] == 1 && !visited[i][j]) {
@@ -124,7 +132,9 @@ private static void type1() {
 			dfs(i, j - 1, visited, grid);
 		}
 	}
+
 	private static boolean isInBounds(int[][] grid, int i, int j) {
 		return i >= 0 && i < grid.length && j >= 0 && j < grid[0].length;
 	}
+}
 ```

@@ -1,26 +1,30 @@
 # NumberOfDistinctIsland
 
-**Topic:** `graph` | **File:** `com/problems/graph/NumberOfDistinctIsland.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/number-of-distinct-islands/1)
 - [📄 LeetCode](https://leetcode.com/problems/number-of-distinct-islands-ii/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=7zmgQSJghpo&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=16)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Count the number of distinct islands based on shape.
 
-### Implementation
+## 💡 Approaches
 
-We don't have anything to store the shape, so we will store the points only, but we have to store the distinct shapes, so we will subtract every point to its base point. And thus we will be starting the shape by their absolute point address
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we don't have anything to store the shape, so we will store the points only, but we have to store the distinct shapes, so we will subtract every point to its base point. And thus we will be starting the shape by their absolute point address we will start the dfs for every unvisited cell having value of 1 and along the way we will store the points of the shape in a string builder absolute point address spreading the shape
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] grid = {
 				{1, 1, 0, 0, 0},
 				{1, 1, 0, 0, 0},
@@ -47,6 +51,7 @@ private static void type1() {
 		System.out.println(set);
 		System.out.println(set.size());
 	}
+
 	private static void dfs(int r, int c, int rStart, int cStart,
 							boolean[][] visited, int[][] grid, StringBuilder points) {
 		if (isInBounds(r, c, grid) && !visited[r][c] && grid[r][c] == 1) {
@@ -63,7 +68,10 @@ private static void type1() {
 			dfs(r, c - 1, rStart, cStart, visited, grid, points);
 		}
 	}
+
 	private static boolean isInBounds(int r, int c, int[][] grid) {
 		return r >= 0 && c >= 0 && r < grid.length && c < grid[0].length;
 	}
+
+}
 ```

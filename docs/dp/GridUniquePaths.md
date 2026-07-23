@@ -1,36 +1,41 @@
 # GridUniquePaths
 
-**Topic:** `dp` | **File:** `com/problems/dp/GridUniquePaths.java`
-
+**Topic:** `dp`  
 **Tags:** Arrays, Dynamic Programming, Combination Approach
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/unique-paths/description/)
 - [📄 NeetCode](https://neetcode.io/problems/count-paths)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1081470)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=t_f0nwwdg5o)
 - [▶ YouTube](https://www.youtube.com/watch?v=sdE0A2Oxofw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=9)
 - [📄 takeUforward](https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given an m x n grid, return the number of unique paths from top-left to bottom-right.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Maybe optimal but explain at the last Optimal approach combination approach if m=3 n=2 then sequence can be RRD,RDR,DRR distance traveled is 3 if our starting point is 1,1 and ending point is m,n so distance traveled is (m-1 + n-1) => m+n-2 // one step at a time so out of m+n-2 distance it has to go m-1 distance right and n-1 down it has become a problem of combination out of m+n-2 position how many ways (m-1) times R can be placed or how many ways (n-1) times D can be placed which will be (m+n-2) C (m-1) time complexity is O(min(m,n)) space complexity is O(1) take either float or double or long
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+maybe optimal but explain at the last Optimal approach combination approach if m=3 n=2 then sequence can be RRD,RDR,DRR distance traveled is 3 if our starting point is 1,1 and ending point is m,n so distance traveled is (m-1 + n-1) => m+n-2 // one step at a time so out of m+n-2 distance it has to go m-1 distance right and n-1 down it has become a problem of combination out of m+n-2 position how many ways (m-1) times R can be placed or how many ways (n-1) times D can be placed which will be (m+n-2) C (m-1) take either float or double or long
+
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int m = 19, n = 13;
 		int count = uniquePaths5(m, n);
 		System.out.println("count is " + count);
 	}
+
 	public static int uniquePaths5(int m, int n) {
 		long N = m + n - 2;
 		long R = m < n ? m - 1 : n - 1;
@@ -44,16 +49,18 @@ private static void type4() {
 
 ### Approach 3
 
-Explain this or the memoization in the interview dynamic programming approach iterative way time complexity O(m*n) space complexity O(m*n) + O(max(m,n))
+explain this or the memoization in the interview dynamic programming approach iterative way if we are on first row or first column then there is only one way to go (1,1), so initializing first row and the first column with 1 filling up the remaining cell
 
-**Complexity:** Time: o(m*n) | Space: o(m*n)
+**Time Complexity:** `O(m*n)`
+**Space Complexity:** `O(m*n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int m = 3, n = 2;
 		int ans = uniquePaths3(m, n);
 		System.out.println("count is " + ans);
 	}
+
 	private static int uniquePaths3(int m, int n) {
 		int[][] dp = new int[m + 1][n + 1];
 		// if we are on first row or first column then there is only one way to go (1,1),
@@ -71,20 +78,22 @@ private static void type3() {
 
 ### Approach 2
 
-Explain this dynamic programming approach recursive way time complexity space complexity O(m*n) + O(max(m,n))
+explain this dynamic programming approach recursive way out of bounds we have reached the destination if it is already calculated, then we will directly return the answer we will traverse and also store the result
 
-**Complexity:** Space: o(m*n)
+**Space Complexity:** `O(m*n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int m = 3, n = 2;
 		int count = uniquePaths2(m, n);
 		System.out.println("count is " + count);
 	}
+
 	private static int uniquePaths2(int m, int n) {
 		int[][] dp = new int[m + 1][n + 1];
 		return uniquePaths2(m, n, dp);
 	}
+
 	private static int uniquePaths2(int m, int n, int[][] dp) {
 		// out of bounds
 		if (n == 0 || m == 0) return 0;
@@ -97,16 +106,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using recursion time complexity space complexity
+brute force approach using recursion out of bounds we have reached the destination else we have 2 choices
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int m = 3, n = 2;
 		int count = uniquePaths1(m, n);
 		System.out.println("count is " + count);
 	}
+
 	private static int uniquePaths1(int m, int n) {
 		// out of bounds
 		if (n == 0 || m == 0) return 0;
@@ -115,4 +126,6 @@ private static void type1() {
 		// else we have 2 choices
 		return uniquePaths1(m, n - 1) + uniquePaths1(m - 1, n);
 	}
+
+}
 ```

@@ -1,31 +1,35 @@
 # MakeTheStringGreat
 
-**Topic:** `stack` | **File:** `com/problems/stack/MakeTheStringGreat.java`
-
+**Topic:** `stack`  
 **Tags:** Array, Stack
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/make-the-string-great/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=10tBWNjzvtw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a string, remove adjacent characters that are the same letter but different case.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using an array almost the same as previous. we will use the same array to store the characters, so we will use a prev variable here in place changing
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using an array almost the same as previous. we will use the same array to store the characters, so we will use a prev variable here in place changing instead of stack, we will use a variable we will use a string builder to store the result
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "leEeetcode";
         String ans = makeGood2(s);
         System.out.println(ans);
     }
+
     private static String makeGood2(String s) {
         int diff = 'a' - 'A';
         char[] arr = s.toCharArray();
@@ -44,16 +48,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force using stack we could use an array as stack, though. we will check the last character of stack if the difference is 'a' - 'A' then it is the same letter but different case, so we will pop it
+brute force using stack we could use an array as stack, though. we will check the last character of stack if the difference is 'a' - 'A' then it is the same letter but different case, so we will pop it
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "leEeetcode";
         String ans = makeGood1(s);
         System.out.println(ans);
     }
+
+
     public static String makeGood1(String s) {
         int diff = 'a' - 'A';
         char[] arr = s.toCharArray();
@@ -69,4 +75,5 @@ private static void type1() {
         sb.reverse();
         return sb.toString();
     }
+}
 ```

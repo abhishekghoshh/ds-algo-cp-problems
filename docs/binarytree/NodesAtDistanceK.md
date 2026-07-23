@@ -1,28 +1,32 @@
 # NodesAtDistanceK
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/NodesAtDistanceK.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/nodes-at-given-distance-in-binary-tree/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/print-nodes-at-distance-k-from-a-given-node_842560)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=i9ORlEy6EsI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=31)
 - [📄 takeUforward](https://takeuforward.org/binary-tree/print-nodes-at-distance-k-in-a-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find all nodes at distance K from a target node.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-The solution of Striver is very complex and time-consuming. better follow these 2 approaches this is a problem of the least common ancestor Optimized approach rather storing in the stack and then iterating it we can just find the node with k distances while finding the target
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+Optimized approach rather storing in the stack and then iterating it we can just find the node with k distances while finding the target if k ==0 then we can just add the current root and return -1 -1 is a flag to stop the findNode operation it is the kth distance node from the target node, so we will add this node and return -1 the left distance is less than k, and it is not -1, so we will traverse the opposite side of the child the right distance is less than k, and it is not -1,
 
 ```java
-private static void type3() {
+    private static void type3() {
         TNode root = TNode.withCount(31);
         TNode target = root.search(5);
         int k = 2;
@@ -30,6 +34,7 @@ private static void type3() {
         findTarget(root, target, list, k);
         System.out.println(list);
     }
+
     private static int findTarget(TNode root, TNode target, List<Integer> list, int k) {
         if (null == root) return -1;
         if (root == target) {
@@ -69,16 +74,17 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous just a little optimized
+same as previous just a little optimized we will store all the ancestors in the queue from the target node, we will go both left and right side from the target node we will traverse back to root, and we will traverse the opposite side of children if the target is in left side then we will traverse in the right k == 0 and queue is not empty means the top node on queue is at kth distance from the target node we will just store that specific node into the answer list if this is true means target is in left side if this is true means target is in right side
 
 ```java
-private static void type2() {
+    private static void type2() {
         TNode root = TNode.withCount(31);
         TNode target = root.search(5);
         int k = 2;
         List<Integer> list = distanceK2(root, target, k);
         System.out.println(list);
     }
+
     public static List<Integer> distanceK2(TNode root, TNode target, int k) {
         if (k == 0) return List.of(target.data);
         // we will store all the ancestors in the queue
@@ -105,6 +111,7 @@ private static void type2() {
         if (k == 0 && !queue.isEmpty()) list.add(queue.poll().data);
         return list;
     }
+
     private static boolean traverseTillTarget(TNode root, TNode target, Queue<TNode> queue) {
         if (null == root) return false;
         if (root == target) return true;
@@ -120,6 +127,7 @@ private static void type2() {
         }
         return false;
     }
+
     private static void addNodes(TNode node, int distance, List<Integer> list) {
         if (null == node) return;
         if (distance == 0) {
@@ -131,12 +139,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Replace the stack is queue because in stack we are getting the root then child traversal this is based on the lowest common ancestor. we will store all the ancestors till root with the directions then traverse the stack, and for every node we will find all the equal distance nodes from different child. when we reach the target, we will check all its child level
+replace the stack is queue because in stack we are getting the root then child traversal this is based on the lowest common ancestor. we will store all the ancestors till root with the directions then traverse the stack, and for every node we will find all the equal distance nodes from different child.
+
+when we reach the target, we will check all its child level
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(31);
         TNode target = root.search(5);
         int k = 2;
@@ -164,6 +174,7 @@ private static void type1() {
         }
         System.out.println(list);
     }
+
     private static boolean findPath(TNode root, TNode target, Stack<Pair> stack) {
         if (null == root) return false;
         if (root.data == target.data) {
@@ -176,6 +187,7 @@ private static void type1() {
         if (right) stack.push(new Pair(root, 1));
         return left || right;
     }
+
     private static void findNodes(TNode node, int distance, int level, List<Integer> list) {
         if (null == node) return;
         if (level == distance) {
@@ -185,4 +197,21 @@ private static void type1() {
         findNodes(node.left, distance, level + 1, list);
         findNodes(node.right, distance, level + 1, list);
     }
+
+
+    public static class Pair {
+        public TNode node;
+        public int flag;
+
+        public Pair(TNode node, int flag) {
+            this.node = node;
+            this.flag = flag;
+        }
+
+        @Override
+        public String toString() {
+            return "[=" + node.data + "," + flag + "]";
+        }
+    }
+}
 ```

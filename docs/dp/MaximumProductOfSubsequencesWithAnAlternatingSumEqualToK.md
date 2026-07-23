@@ -1,20 +1,23 @@
 # MaximumProductOfSubsequencesWithAnAlternatingSumEqualToK
 
-**Topic:** `dp` | **File:** `com/problems/dp/MaximumProductOfSubsequencesWithAnAlternatingSumEqualToK.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-product-of-subsequences-with-an-alternating-sum-equal-to-k/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find subsequence with alternating sum K maximizing product.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

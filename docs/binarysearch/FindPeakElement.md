@@ -1,32 +1,38 @@
 # FindPeakElement
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FindPeakElement.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-peak-element/submissions/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-peak-element_1081482)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cXxmbemS6XM)
 - [▶ YouTube](https://www.youtube.com/watch?v=OINnBJTRrMU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=17)
 - [📄 takeUforward](https://takeuforward.org/data-structure/peak-element-in-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+in one array, there can be multiple peaks
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 3
 
-Improved approach
+in one array, there can be multiple peaks
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {5, 25, 20, 15, 2, 23, 90, 67};
 		int index = findPeakElement(nums);
 		System.out.printf("arr[%d] : %d%n", index, nums[index]);
 	}
+
+	// in one array, there can be multiple peaks
 	public static int findPeakElement(int[] nums) {
 		int n = nums.length;
 		if (n == 1 || nums[0] > nums[1]) return 0;
@@ -42,18 +48,19 @@ private static void type3() {
 	}
 ```
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-In one array, there can be multiple peaks A peak element is an element that is strictly greater than its neighbors. nums = [1,2,1,3,5,6,4] Output: 5 Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+A peak element is an element that is strictly greater than its neighbors. nums = [1,2,1,3,5,6,4] Output: 5 Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int nums[] = { 5, 25, 20, 15, 2, 23, 90, 67 };
 		int low = 0;
 		int high = nums.length - 1;
 		int index = findPeak(nums, low, high, nums.length);
 		System.out.printf("arr[%d] : %d%n", index, nums[index]);
 	}
+
 	private static int findPeak(int[] nums, int low, int high, int n) {
 		while (low <= high) {
 			int mid = low + (high - low) / 2;
@@ -73,4 +80,6 @@ private static void type2() {
 		}
 		return -1;
 	}
+
+}
 ```

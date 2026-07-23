@@ -16,6 +16,10 @@ public class SubsetSum {
 
 ```
 
+## 📝 Problem Statement
+
+Given n numbers and sum S, find all subsets whose elements sum to S.
+
 ## Source Code
 
 ```java

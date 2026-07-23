@@ -1,29 +1,32 @@
 # FindMaximumInBitonicArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FindMaximumInBitonicArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/maximum-value-in-a-bitonic-array3001/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=BrrZL1RDMwc&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=18)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the maximum element in a bitonic array.
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 3
 
-Improved approach
-
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr = {1, 15, 25, 45, 42, 21, 17, 12, 11};
 		int item = findMaximum(arr, arr.length);
 		System.out.println(item);
 	}
+
 	private static int findMaximum(int[] arr, int n) {
 		int low = 1, high = n - 2, mid;
 		while (low <= high) {
@@ -36,18 +39,17 @@ private static void type3() {
 	}
 ```
 
-### Approach 2 — Optimal
-
-Optimal approach
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = {1, 15, 25, 45, 42, 21, 17, 12, 11};
 		int low = 0;
 		int high = arr.length - 1;
 		int index = findMaximumInBitonicArray(arr, low, high, arr.length);
 		System.out.printf("arr[%d] : %d%n", index, arr[index]);
 	}
+
 	private static int findMaximumInBitonicArray(int[] arr, int low, int high, int n) {
 		int mid;
 		while (low <= high) {
@@ -61,4 +63,5 @@ private static void type2() {
 		}
 		return -1;
 	}
+}
 ```

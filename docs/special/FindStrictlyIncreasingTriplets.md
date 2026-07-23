@@ -14,6 +14,10 @@ public class FindStrictlyIncreasingTriplets {
 
 ```
 
+## 📝 Problem Statement
+
+Find if there exist three strictly increasing elements in an array using meet-in-the-middle.
+
 ## Source Code
 
 ```java

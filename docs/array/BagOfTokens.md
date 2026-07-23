@@ -1,34 +1,40 @@
 # BagOfTokens
 
-**Topic:** `array` | **File:** `com/problems/array/BagOfTokens.java`
+**Topic:** `array`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-You start with an initial power of power, an initial score of 0, and a bag of tokens given as an integer array tokens, Your goal is to maximize the total score by strategically playing these tokens. In one move, you can play an 'unplayed' token in one of the two ways (but not both for the same token) Face-up: If your current power is at least tokens[i], you may and loose tokens[i] power and gaining 1 score. Face-down: If your current score is at least 1, you may play and gain tokens[i] power and losing 1 score. Return the maximum possible score you can achieve after playing any number of tokens.
+You start with an initial power of power, an initial score of 0, and a bag of tokens given as an integer array tokens,
+Your goal is to maximize the total score by strategically playing these tokens. In one move, you can play an 'unplayed'
+token in one of the two ways (but not both for the same token)
+Face-up: If your current power is at least tokens[i], you may and loose tokens[i] power and gaining 1 score.
+Face-down: If your current score is at least 1, you may play and gain tokens[i] power and losing 1 score.
+Return the maximum possible score you can achieve after playing any number of tokens.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/bag-of-tokens/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=prI82maTivg)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **2** approaches, progressing from brute force to optimal:
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-Classic example of 2 pointers we will be little greedy here first we will sort the array, if we need to score we will hit the lowest token and if we need the power we will try to hit the maximum token possible as score will either increase or decrease by 1 only
+classic example of 2 pointers we will be little greedy here first we will sort the array, if we need to score we will hit the lowest token and if we need the power we will try to hit the maximum token possible as score will either increase or decrease by 1 only if we have the power we will try to score as much as possible if the score has to be at least 1 then we can not hit any token, if 0 then we will break from here if there is any token available on the right side then we will hit that and grab the power
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] tokens = {100, 200, 300, 400};
         int power = 200;
         int ans = bagOfTokensScore2(tokens, power);
         System.out.println(ans);
     }
+
     public static int bagOfTokensScore2(int[] tokens, int power) {
         Arrays.sort(tokens);
         int n = tokens.length;
@@ -53,11 +59,10 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

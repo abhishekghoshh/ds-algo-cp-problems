@@ -1,25 +1,30 @@
 # MakeArrayNonDecreasing
 
-**Topic:** `stack` | **File:** `com/problems/stack/MakeArrayNonDecreasing.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/make-array-non-decreasing/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Return the minimum number of operations to make the array non-decreasing.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Most efficient approach
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+most efficient approach
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] nums = {4, 2, 5, 3, 5};
         int ans = maximumPossibleSize4(nums);
         System.out.println(ans);
     }
+
     private static int maximumPossibleSize4(int[] nums) {
         int count = 0;
         int prev = Integer.MIN_VALUE;
@@ -35,14 +40,15 @@ private static void type4() {
 
 ### Approach 3
 
-Exactly the same as previous type
+exactly the same as previous type
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {4, 2, 5, 3, 5};
         int ans = maximumPossibleSize3(nums);
         System.out.println(ans);
     }
+
     private static int maximumPossibleSize3(int[] nums) {
         int n = nums.length;
         int top = -1;
@@ -59,14 +65,17 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using stack, we need to choose a number such that it is the max of the current subarray. and ultimately, we need to make the array non-decreasing. we know whatever we choose, bigger elements will pop out in the answer sooner or later. if we can choose the array elements so that the chosen elements are non-decreasing, we can make the array non-decreasing. if we examine the next greater element problem, we can see that after the entire loop the stack becomes non-decreasing so that is the ask of this problem also.
+optimized approach using stack, we need to choose a number such that it is the max of the current subarray. and ultimately, we need to make the array non-decreasing. we know whatever we choose, bigger elements will pop out in the answer sooner or later.
+
+if we can choose the array elements so that the chosen elements are non-decreasing, we can make the array non-decreasing. if we examine the next greater element problem, we can see that after the entire loop the stack becomes non-decreasing so that is the ask of this problem also.
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {4, 2, 5, 3, 5};
         int ans = maximumPossibleSize2(nums);
         System.out.println(ans);
     }
+
     public static int maximumPossibleSize2(int[] nums) {
         Stack<Integer> stack = new Stack<>();
         int n = nums.length;
@@ -80,11 +89,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

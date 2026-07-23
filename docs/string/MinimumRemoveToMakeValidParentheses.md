@@ -1,31 +1,36 @@
 # MinimumRemoveToMakeValidParentheses
 
-**Topic:** `string` | **File:** `com/problems/string/MinimumRemoveToMakeValidParentheses.java`
-
+**Topic:** `string`  
 **Tags:** Array, String, Stack
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=mgQ4O9iUEbg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Remove minimum parentheses to make the string valid.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-First we will store all the invalid indices in an array for every opening parenthesis we will store (i+1) and for closing parenthesis if there is already a opening parenthesis or not if yes then we will set the previous index as 0 to remove that (i+1) else there might be 2 conditions either it the first closing parenthesis or there is already closing parenthesis in both we will store -(i+1) to mark it is a closing parenthesis todo we could use a stack but we used array as stack
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+first we will store all the invalid indices in an array for every opening parenthesis we will store (i+1) and for closing parenthesis if there is already a opening parenthesis or not if yes then we will set the previous index as 0 to remove that (i+1) else there might be 2 conditions either it the first closing parenthesis or there is already closing parenthesis in both we will store -(i+1) to mark it is a closing parenthesis we could use a stack but we used array as stack storing all the invalid indices if the current character is ( then we will add it to the invalidParenthesis and later if there is any ) then we will make this cell as 0 again to remove the index if the top is 0 (no opening parenthesis present) or the last parenthesis is also a closing then we will add the index -(i+1) to the invalidParenthesis if skippingIndex is 0, that means the array is now empty we can just add the character getting the actual index from that converted index (i+1) or -(i+1) if the skippingIndex is the current index that means we will not store this character either ( or ) and update the top variable
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "lee(t(c)o)de)";
         String ans = minRemoveToMakeValid2(s);
         System.out.println(ans);
     }
+
+
     public static String minRemoveToMakeValid2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -72,12 +77,11 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

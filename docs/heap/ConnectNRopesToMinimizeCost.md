@@ -1,26 +1,30 @@
 # ConnectNRopesToMinimizeCost
 
-**Topic:** `heap` | **File:** `com/problems/heap/ConnectNRopesToMinimizeCost.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/connect-n-ropes-with-minimum-cost_625783)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_k_c9nqzKN0&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=9)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+There are given N ropes of different lengths, we need to connect these ropes
 
-### Implementation
+## 💡 Approaches
 
-There are given N ropes of different lengths, we need to connect these ropes into one rope. The cost to connect two ropes is equal to sum of their lengths. The task is to connect the ropes with minimum cost. Given N size array arr[] contains the lengths of the ropes. Using Heap the intuition is first connect the lower ropes this way we can minimize the cost
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Using Heap the intuition is first connect the lower ropes this way we can minimize the cost we will use a min heap get the lowest two ropes, then again we will push that into the heap this process will run until there is only one rope
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] ropes = {4, 3, 2, 6};
 		// we will use a min heap get the lowest two ropes,
 		// then again we will push that into the heap
@@ -37,4 +41,5 @@ private static void type1() {
 		}
 		System.out.println(cost);
 	}
+}
 ```

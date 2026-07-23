@@ -1,38 +1,42 @@
 # CherryPickup2
 
-**Topic:** `dp` | **File:** `com/problems/dp/CherryPickup2.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/cherry-pickup-ii/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/ninja-and-his-friends_3125885)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/chocolates-pickup/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=QGfn7JeXK54&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=14)
 - [▶ YouTube](https://www.youtube.com/watch?v=c1stwk2TbNk)
 - [📄 takeUforward](https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+the main thing here is to construct the recurrence relation
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Do not go for more optimization, waste of effort and time see leetcode submission for better solutions
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+do not go for more optimization, waste of effort and time see leetcode submission for better solutions
 
 ```java
-private static void type4() {
+    private static void type4() {
     }
 ```
 
 ### Approach 3
 
-Check it later better go with the recursive solution tabulation or the bottom-up approach
+check it later better go with the recursive solution tabulation or the bottom-up approach Initialize the dp array with values from the last row of the grid it will be convenient to start loop from the last row, then we can use the same relation as recursion Outer nested loops to traverse the DP array from the second last row to the first row Inner nested loops to try out 9 options Check if the indices are valid Update maxi with the maximum result Store the result in the dp array The final result is stored at the top row (first row) of the dp array
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] grid = {
                 {2, 3, 1, 2},
                 {3, 4, 2, 2},
@@ -84,10 +88,10 @@ private static void type3() {
 
 ### Approach 2
 
-Exactly like the previous type recursion with memoization
+exactly like the previous type recursion with memoization the first bot will start from (0,0), and the second one will start from (0,c-1) but as bot bots are going in the same pace in row wise, so we can just keep one (i) and j1 and j2 we could also use Integer[] in place of int[], then we do not need to initialize -1 we could just check if it is null or not we will use 3D array for storing results, as we are using i,j1,j2 if any bot is out of boundary, then we will return INT_MIN checking if the cell is already calculated or not we will check if both the bots are in the same cell or not if same then we will just take once else we will take the twice if it is the last row, then it is the base case otherwise, we have 3 options for both, which makes it 3*3 = 9 options all together -1,0,+1 for both, so we will check for all the options and take the max saving the answer before returning
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {
                 {2, 3, 1, 2},
                 {3, 4, 2, 2},
@@ -96,6 +100,7 @@ private static void type2() {
         int answer = cherryPickup2(grid);
         System.out.println(answer);
     }
+
     private static int cherryPickup2(int[][] grid) {
         int r = 3, c = 4;
         // the first bot will start from (0,0), and the second one will start from (0,c-1)
@@ -110,6 +115,7 @@ private static void type2() {
 
         return maximumChocolates2(0, 0, c - 1, r, c, grid, dp);
     }
+
     public static int maximumChocolates2(int i, int j1, int j2, int r, int c, int[][] grid, int[][][] dp) {
         // if any bot is out of boundary, then we will return INT_MIN
         if (j1 < 0 || j1 >= c || j2 < 0 || j2 >= c) return Integer.MIN_VALUE;
@@ -138,12 +144,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute solution with recursion the main thing here is to construct the recurrence relation
+brute solution with recursion the main thing here is to construct the recurrence relation the first bot will start from (0,0), and the second one will start from (0,c-1) but as bot bots are going in the same pace in row wise, so we can just keep one (i) and j1 and j2 if any bot is out of boundary, then we will return INT_MIN we will check if both the bots are in the same cell or not if same then we will just take once else we will take the twice if it is the last row, then it is the base case otherwise, we have 3 options for both, which makes it 3*3 = 9 options all together -1,0,+1 for both, so we will check for all the options and take the max
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {2, 3, 1, 2},
                 {3, 4, 2, 2},
@@ -152,6 +158,7 @@ private static void type1() {
         int answer = cherryPickup1(grid);
         System.out.println(answer);
     }
+
     private static int cherryPickup1(int[][] grid) {
         int r = 3, c = 4;
         // the first bot will start from (0,0), and the second one will start from (0,c-1)
@@ -159,6 +166,7 @@ private static void type1() {
         // so we can just keep one (i) and j1 and j2
         return maximumChocolates1(0, 0, c - 1, r, c, grid);
     }
+
     public static int maximumChocolates1(int i, int j1, int j2, int r, int c, int[][] grid) {
         // if any bot is out of boundary, then we will return INT_MIN
         if (j1 < 0 || j1 >= c || j2 < 0 || j2 >= c) return Integer.MIN_VALUE;
@@ -180,4 +188,5 @@ private static void type1() {
         }
         return chocolate + max;
     }
+}
 ```

@@ -1,30 +1,33 @@
 # ReverseString
 
-**Topic:** `string` | **File:** `com/problems/string/ReverseString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/reverse-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_d0T_2Lk2qA)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Reverse a string in-place.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "Hello world";
         char[] arr = s.toCharArray();
         reverseString(arr);
         System.out.println(new String(arr));
     }
+
     public static void reverseString(char[] s) {
         int n = s.length;
         int i = 0, j = n - 1;
@@ -36,4 +39,6 @@ private static void type1() {
             j--;
         }
     }
+
+}
 ```

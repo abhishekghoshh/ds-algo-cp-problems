@@ -1,32 +1,36 @@
 # MaximumNumberOfVowelsInASubstringOfGivenLength
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaximumNumberOfVowelsInASubstringOfGivenLength.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Array, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=kEfPSzgL-Ss)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Maximum vowels in any substring of given length.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Sliding window approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+sliding window approach for the first window for the remaining window
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abciiidef";
         int k = 3;
         int ans = maxVowels2(s, k);
         System.out.println(ans);
     }
+
     public static int maxVowels2(String s, int k) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -44,14 +48,22 @@ private static void type2() {
         }
         return max;
     }
+
+    static boolean isVowel(char ch) {
+        return switch (ch) {
+            case 'a', 'e', 'i', 'o', 'u' -> true;
+            default -> false;
+        };
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

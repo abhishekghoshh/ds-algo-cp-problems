@@ -1,31 +1,35 @@
 # OptimalPartitionOfString
 
-**Topic:** `array` | **File:** `com/problems/array/OptimalPartitionOfString.java`
-
+**Topic:** `array`  
 **Tags:** String, Hashing, Greedy, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/optimal-partition-of-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=CKZPdiXiQf0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Partition string into minimum substrings with unique characters.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using sliding window approach we will use a set to mark the character which we have seen already. once there is a character that is already seen, we will reset the set and increment counter as that is the start of a new string
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using sliding window approach we will use a set to mark the character which we have seen already. once there is a character that is already seen, we will reset the set and increment counter as that is the start of a new string the character is already present resetting the set, unmarking the characters 'i' is the start of the new string
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abacaba";
         int count = partitionString2(s);
         System.out.println(count);
     }
+
     public static int partitionString2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -49,11 +53,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

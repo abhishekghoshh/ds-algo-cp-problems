@@ -1,25 +1,29 @@
 # DistributeElementsIntoTwoArrays2
 
-**Topic:** `fenwicktree` | **File:** `com/problems/fenwicktree/DistributeElementsIntoTwoArrays2.java`
+**Topic:** `fenwicktree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=zcwOff4MvbQ&list=PLEL7R4Pm6EmBxBrEq8g2L3MF3W3Shnk58&index=2&pp=iAQB)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Distribute elements into two arrays using BIT.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Complete it later after all the preparation todo this solution is correct but it is getting memory timeout, so we have to optimize the memory usage we will use a fenwick tree to count but here we have to use how many element is greater on that array but with fenwick tree we can easily find how many are lesser than the current element, so to find greater count we will do array size - lesser count including itself we will use simple fenwick tree
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this solution is correct but it is getting memory timeout, so we have to optimize the memory usage we will use a fenwick tree to count but here we have to use how many element is greater on that array but with fenwick tree we can easily find how many are lesser than the current element, so to find greater count we will do array size - lesser count including itself we will use simple fenwick tree first we will be calculating the max number and will create an array for holding all of this as fenwick tree is 1 indexed, so we will use offset and -min+1 not -min we will create 2 fenwick trees and 2 arrays we will use an array, we will add the arr1 from the left side and add arr2 on the right side, so that we do not need to create 2 arrays adding first number to the first tree and first num adding second number to the second tree and first num finding the greater count now we will update the tree and the now we will reverse the arr2 array the final answer will be actual answer
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {5, 14, 3, 1, 2};
         int n = nums.length;
         int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
@@ -78,16 +82,34 @@ private static void type2() {
         }
         PrintUtl.print(ans);
     }
+
+    static int query(int[] tree, int i) {
+        int bit = i;
+        int sum = 0;
+        while (bit > 0) {
+            sum += tree[bit];
+            bit -= (bit & (-bit)); // removing the last set bit
+        }
+        return sum;
+    }
+
+    static void update(int[] tree, int n, int i, int addition) {
+        int bit = i;
+        while (bit <= n) {
+            tree[bit] += addition;
+            bit += (bit & (-bit)); // adding the last set bit
+        }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(n^2)
+brute force
 
-**Complexity:** Time: o(n^2)
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {5, 14, 3, 1, 2};
         int n = nums.length;
         LinkedList<Integer> list1 = new LinkedList<>(), list2 = new LinkedList<>();
@@ -115,10 +137,12 @@ private static void type1() {
         for (int item : list2) ans[i++] = item;
         PrintUtl.print(ans);
     }
+
     private static int greaterCount(LinkedList<Integer> l, int num) {
         int c = 0;
         for (int item : l)
             if (num < item) c++;
         return c;
     }
+}
 ```

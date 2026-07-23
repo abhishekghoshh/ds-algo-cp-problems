@@ -1,32 +1,36 @@
 # CheckIfAStringContainsAllBinaryCodesOfSizeK
 
-**Topic:** `array` | **File:** `com/problems/array/CheckIfAStringContainsAllBinaryCodesOfSizeK.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, String, Bit manipulation, hashing, sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=qU32rTy_kOM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if string contains all binary codes of length K.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach first we will calculate the upper range of bits it will be 0 to 2^k-1 we use a boolean set for 2^k numbers we will use a sliding window and convert the binary array to the decimal number. at last, we will check if all the index has a true or not in the set
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach first we will calculate the upper range of bits it will be 0 to 2^k-1 we use a boolean set for 2^k numbers we will use a sliding window and convert the binary array to the decimal number. at last, we will check if all the index has a true or not in the set (1<<k) is the same as 2^k using a sliding window to compute the sum of first k length binary array now we will compute for the remaining array removing the left most bit and adding the current bit
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "00110110";
         int k = 2;
         boolean ans = hasAllCodes2(s, k);
         System.out.println(ans);
     }
+
     public static boolean hasAllCodes2(String s, int k) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -59,11 +63,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

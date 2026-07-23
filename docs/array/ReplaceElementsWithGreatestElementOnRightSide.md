@@ -1,27 +1,33 @@
 # ReplaceElementsWithGreatestElementOnRightSide
 
-**Topic:** `array` | **File:** `com/problems/array/ReplaceElementsWithGreatestElementOnRightSide.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Replace each element with the greatest element to its right.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach we can do it in one pass, we just need to store the prev max result in a variable time complexity O(n) space complexity O(1)
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we can do it in one pass, we just need to store the prev max result in a variable
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {17, 18, 5, 4, 6, 1};
         int[] ans = replaceElements2(arr);
         print(ans);
     }
+
     public static int[] replaceElements2(int[] arr) {
         int n = arr.length;
         int max = -1;
@@ -34,18 +40,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Simple brute force time complexity O(n^2) space complexity O(n)
+simple brute force checking the max on the right side
 
-**Complexity:** Time: o(n^2) | Space: o(n)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {17, 18, 5, 4, 6, 1};
         int[] ans = replaceElements1(arr);
         print(ans);
     }
+
     public static int[] replaceElements1(int[] arr) {
         int n = arr.length;
         int[] copy = arr.clone();
@@ -59,4 +67,5 @@ private static void type1() {
         }
         return arr;
     }
+}
 ```

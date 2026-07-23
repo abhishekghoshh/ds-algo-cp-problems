@@ -1,29 +1,35 @@
 # MeetingRooms2
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/MeetingRooms2.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 NeetCode](https://neetcode.io/problems/meeting-schedule-ii)
 - [📄 LeetCode](https://leetcode.com/problems/meeting-rooms-ii/)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/meeting-rooms/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/meeting-room-ii_893289)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FdzJmTCVyJU)
 - [https://leetcode.ca/all/253.html](https://leetcode.ca/all/253.html)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find the minimum number of meeting rooms required.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Similar to the previous but here we will not use an extra list to store the meeting timings we will add both of the loop operations in a single loop
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+similar to the previous but here we will not use an extra list to store the meeting timings we will add both of the loop operations in a single loop 2 pointer approach we will sort both of the timings if the current time is for starting time, then we will increment count, if it is for closing, then hypothetically we will close the room and decrement the counter.
+
+as both of the times are sorted, we can easily assume the timings as an indication of the meeting starting or closing
 
 ```java
-private static void type3() {
+    private static void type3() {
         List<List<Integer>> meetings = list(
                 list(1, 18),
                 list(18, 23),
@@ -35,6 +41,9 @@ private static void type3() {
         int ans = minRooms3(meetings);
         System.out.println(ans);
     }
+
+
+    // 2 pointer approach
     public static int minRooms3(List<List<Integer>> meetings) {
         int n = meetings.size();
         int[] startTime = new int[n];
@@ -71,10 +80,12 @@ private static void type3() {
 
 ### Approach 2
 
-2 pointer approach greedy approach we will try to imagine the meetings in a timeline, if the meeting the starting or ending. we will start with counter 0 and go with the timeline. if there is a new meeting started, then we will hypothetically open a room and increment the counter if closed, then we will hypothetically close the room and decrement the counter
+greedy approach we will try to imagine the meetings in a timeline, if the meeting the starting or ending. we will start with counter 0 and go with the timeline. if there is a new meeting started, then we will hypothetically open a room and increment the counter if closed, then we will hypothetically close the room and decrement the counter to place the timings of meetings in a timeline, first we will sort both of the list and add that to the list true if a new meeting started and false if there is no meeting.
+
+the list of booleans will represent that if the meeting is starting or ending in an order first, we will sort both of the arrays we will store the timings in an boolean array based on if it is starting or ending, we will increment or decrement counter
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<List<Integer>> meetings = list(
                 list(1, 18),
                 list(18, 23),
@@ -86,6 +97,11 @@ private static void type2() {
         int ans = minRooms2(meetings);
         System.out.println(ans);
     }
+
+    // to place the timings of meetings in a timeline,
+    // first we will sort both of the list and add that to the list
+    // true if a new meeting started and false if there is no meeting.
+    // the list of booleans will represent that if the meeting is starting or ending in an order
     public static int minRooms2(List<List<Integer>> meetings) {
         int n = meetings.size();
         int[] startTime = new int[n];
@@ -119,12 +135,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-To place the timings of meetings in a timeline, first we will sort both of the list and add that to the list true if a new meeting started and false if there is no meeting. the list of booleans will represent that if the meeting is starting or ending in an order brute force approach using
+brute force approach using sorting the intervals based on their starting time we need a min heap which can return us the meeting with the least time if the current meeting start time is greater than the last meeting end time, then we will allot a new booking else we will accommodate
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<List<Integer>> meetings = list(
                 list(1, 18),
                 list(18, 23),
@@ -136,6 +152,7 @@ private static void type1() {
         int ans = minRooms1(meetings);
         System.out.println(ans);
     }
+
     public static int minRooms1(List<List<Integer>> meetings) {
         // sorting the intervals based on their starting time
         meetings.sort(Comparator.comparingInt(p -> p.get(0)));
@@ -158,4 +175,5 @@ private static void type1() {
         }
         return rooms.size();
     }
+}
 ```

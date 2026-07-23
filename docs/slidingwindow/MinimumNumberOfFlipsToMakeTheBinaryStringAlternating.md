@@ -1,31 +1,35 @@
 # MinimumNumberOfFlipsToMakeTheBinaryStringAlternating
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MinimumNumberOfFlipsToMakeTheBinaryStringAlternating.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Array, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=MOeuK6gaC2A)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Min flips to make a binary string alternating.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Exactly like the prev with minor changes
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+exactly like the prev with minor changes first we will create the window for the first n size if n is even then we do not need to do anything else at this point n is odd updating the min variable
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = "111000";
         int ans = minFlips4(s);
         System.out.println(ans);
     }
+
     private static int minFlips4(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -59,14 +63,15 @@ private static void type4() {
 
 ### Approach 3
 
-Similar intuition like the previous with more optimization todo exactly like the previous but here we are assuming that the string is concatenated we will not attach the strings here we will do it by manipulating the indices if we see the 2nd sliding window loop it started from n and went till 2n left char is arr[i-n] and current char is arr[i] but both are similar characters actually, so we are actually calculating for same char and the main thing is if the indices are even or odd if n is even then if 'i' is even then i-n and i+n are even same for if 'i' is odd if n is odd then  if 'i' is even then i-n and i+n will be odd same for if 'i' is odd, it will toggle so if n is even we do not need to do anything else if n is odd then we need to compute in the 2nd loop
+similar intuition like the previous with more optimization exactly like the previous but here we are assuming that the string is concatenated we will not attach the strings here we will do it by manipulating the indices if we see the 2nd sliding window loop it started from n and went till 2n left char is arr[i-n] and current char is arr[i] but both are similar characters actually, so we are actually calculating for same char and the main thing is if the indices are even or odd if n is even then if 'i' is even then i-n and i+n are even same for if 'i' is odd if n is odd then if 'i' is even then i-n and i+n will be odd same for if 'i' is odd, it will toggle so if n is even we do not need to do anything else if n is odd then we need to compute in the 2nd loop first we will create the window for the first n size if n is even then we do not need to do anything else now we will calculate for the remaining window calculating for the current bit calculating for the left most bit updating the min variable
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "111000";
         int ans = minFlips3(s);
         System.out.println(ans);
     }
+
     private static int minFlips3(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -104,14 +109,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using the sliding window, discuss it in the interview there is a trick for the first type which is if we append the same string in the string, and then we will create 'n' sliding window it will make the string as if some characters of string added in the last if the string is abcde then ss => abcdeabcde if we take a n size window then it will be ab-cdeab-cde the inner cdeab is same as removing then appending 2 characters at the end of the string let's say we are assuming even index for 1 and odd index for 0, so we will keep a counter for required flips if in even index there is no 1 then we will increment the counter similarly for the 0's if that is not on odd index, but we could also assume that even index for 0 and odd index for 1 that also makes the string alternating we do not need to create a separate counter for that as the value will be (n-counter) minimum flips required will be min(counter, n-counter)
+optimized approach using the sliding window, discuss it in the interview there is a trick for the first type which is if we append the same string in the string, and then we will create 'n' sliding window it will make the string as if some characters of string added in the last if the string is abcde then ss => abcdeabcde if we take a n size window then it will be ab-cdeab-cde the inner cdeab is same as removing then appending 2 characters at the end of the string let's say we are assuming even index for 1 and odd index for 0, so we will keep a counter for required flips if in even index there is no 1 then we will increment the counter similarly for the 0's if that is not on odd index, but we could also assume that even index for 0 and odd index for 1 that also makes the string alternating we do not need to create a separate counter for that as the value will be (n-counter) minimum flips required will be min(counter, n-counter) first we will create the window for the first n size calculating for the current bit calculating for the left most bit updating the min variable
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "111000";
         int ans = minFlips2(s);
         System.out.println(ans);
     }
+
+
     public static int minFlips2(String s) {
         s = s + s;
         char[] arr = s.toCharArray();
@@ -146,11 +153,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

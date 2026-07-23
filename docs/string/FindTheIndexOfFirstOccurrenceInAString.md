@@ -1,29 +1,34 @@
 # FindTheIndexOfFirstOccurrenceInAString
 
-**Topic:** `string` | **File:** `com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=JoF0Z7nVSrA)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the index of the first occurrence of a substring (needle) in a string (haystack).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-With kmp algorithm
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+with kmp algorithm
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String haystack = "mississippi", needle = "issip";
 		int index = strStr2(haystack, needle);
 		System.out.println(index);
 	}
+
 	public static int strStr2(String haystack, String needle) {
 		String res = needle + "#" + haystack;
 		int n1 = needle.length();
@@ -46,16 +51,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String haystack = "mississippi", needle = "issip";
 		int index = strStr1(haystack, needle);
 		System.out.println(index);
 	}
+
 	public static int strStr1(String haystack, String needle) {
 		char[] str = haystack.toCharArray(), ptrn = needle.toCharArray();
 		int i = 0, j = 0;
@@ -73,4 +79,6 @@ private static void type1() {
 		}
 		return -1;
 	}
+
+}
 ```

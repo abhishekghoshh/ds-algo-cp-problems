@@ -1,28 +1,34 @@
 # RottenOranges
 
-**Topic:** `graph` | **File:** `com/problems/graph/RottenOranges.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/rotting-oranges/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/701655)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/rotting-oranges_701655)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=yf3oUhkvqA0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=10)
 - [📄 takeUforward](https://takeuforward.org/data-structure/rotten-oranges-min-time-to-rot-all-oranges-bfs/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+2 represents a rotten orange
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-2 represents a rotten orange 1 represents a Fresh orange 0 represents an Empty Cell TODO this is not the most optimized approach here we are visiting one node more than one time only thing is here we are not using any extra spaces other than recursion stack using dfs to traverse the nodes here we are not using any extra queue or stack here we will directly mark on the matrix cell itself
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+this is not the most optimized approach here we are visiting one node more than one time only thing is here we are not using any extra spaces other than recursion stack using dfs to traverse the nodes here we are not using any extra queue or stack here we will directly mark on the matrix cell itself we have to use any marker on cell that is not 0,1 or 2 because these values will already be present on the matrix we use anything greater than 2 we will treat any 2 as the starting time we will start the transform once we find any rotten apple we will start the time with 2 treating as 0 we go as far as possible with a single rotten orange here again we will initialize with time as 2 rather than 0 as the initial rotten oranges were marked as 2 at last we will subtract with 2 with the max time cell is 1 means there is at least one cell that is not traversed we started with time 2 so we will decrease the using dfs with recursion stack updating the rotting time for this cell call all 4 sides with time + 1 essentially, we could use just 1 < grid[i][j] that means anything that already is marked, but we are forgetting one edge condition.
+
+if a cell is already marked by a far rotten cell but there is a close rotten cell. so we have to update this cell value with the lesser value. so that is why we have added this grid[i][j] < time that means the cell is already visited by a nearest rotten oranges, and we do not need to visit this again
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] grid = {
                 {2, 1, 1},
                 {1, 1, 0},
@@ -32,6 +38,11 @@ private static void type3() {
         System.out.println(answer);
 
     }
+
+    // we have to use any marker on cell that is not 0,1 or 2
+    // because these values will already be present on the matrix
+    // we use anything greater than 2
+    // we will treat any 2 as the starting time
     public static int orangesRotting3(int[][] grid) {
         for (int i = 0; i < grid.length; i++)
             for (int j = 0; j < grid[0].length; j++)
@@ -55,6 +66,8 @@ private static void type3() {
         // we started with time 2 so we will decrease the
         return (time - 2);
     }
+
+    // using dfs with recursion stack
     public static void orangesRotting3(int i, int j, int[][] grid, int time) {
         if (isOutOfBounds(i, j, grid)
                 || isCellEmpty(i, j, grid)
@@ -68,12 +81,15 @@ private static void type3() {
         orangesRotting3(i, j - 1, grid, time + 1);
         orangesRotting3(i, j + 1, grid, time + 1);
     }
+
     private static boolean isCellEmpty(int i, int j, int[][] grid) {
         return grid[i][j] == 0;
     }
+
     private static boolean isOutOfBounds(int i, int j, int[][] grid) {
         return i < 0 || i >= grid.length || j < 0 || j >= grid[0].length;
     }
+
     private static boolean isCellAlreadyVisited(int i, int j, int time, int[][] grid) {
         // essentially, we could use just 1 < grid[i][j]
         // that means anything that already is marked, but
@@ -89,14 +105,16 @@ private static void type3() {
 
 ### Approach 2
 
-We have to use any marker on cell that is not 0,1 or 2 because these values will already be present on the matrix we use anything greater than 2 we will treat any 2 as the starting time using dfs with recursion stack We will BFS here we will store the initial rotten oranges in a queue then add the second then third and so on and every time we will increment time variable
+We will BFS here we will store the initial rotten oranges in a queue then add the second then third and so on and every time we will increment time variable we will use level wise traversal Put the position of all rotten oranges in the queue count the number of fresh oranges if the cell is not 0 means there is an orange, either good or bad if the total oranges are 0 then we do not need to do anything rather than manually checking, we had added the dx and dy in an array bfs starting from initially rotten oranges take the current size of the queue because we need to check that for the current set of oranges it is possible to rot new oranges or not finding all 4 side nodes if the index is out of bound and the cell is having fresh oranges then we will set it to 2 to mark it is rotten if queue is not empty that means the previous label successfully added some new rotten oranges which will take one more unit of time
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
         int answer = orangesRotting2(grid);
         System.out.println(answer);
     }
+
+    // we will use level wise traversal
     private static int orangesRotting2(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
@@ -147,17 +165,18 @@ private static void type2() {
         }
         return (totalOranges == orangeCount) ? time : -1;
     }
+
     private static boolean isInBounds(int x, int y, int[][] grid) {
         return x >= 0 && y >= 0 && x < grid.length && y < grid[0].length;
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use level wise traversal using bfs with queue, we will start from the oranges that are rotten we will store the point and apply bfs on them
+using bfs with queue, we will start from the oranges that are rotten we will store the point and apply bfs on them we will count fresh oranges and store rotten oranges in to queue we will also store the time along with the coordinates checking the max time visiting all 4 sides of the cell and reduce the fresh oranges count if the fresh oranges count is not 0 then we will return -1
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {2, 1, 1},
                 {1, 1, 0},
@@ -166,6 +185,7 @@ private static void type1() {
         int answer = orangesRotting1(grid);
         System.out.println(answer);
     }
+
     private static int orangesRotting1(int[][] grid) {
         int r = grid.length;
         int c = grid[0].length;
@@ -212,4 +232,17 @@ private static void type1() {
         // if the fresh oranges count is not 0 then we will return -1
         return (freshOranges == 0) ? max : -1;
     }
+
+    private static class Point {
+        public int x;
+        public int y;
+        public int time;
+
+        public Point(int x, int y, int time) {
+            this.x = x;
+            this.y = y;
+            this.time = time;
+        }
+    }
+}
 ```

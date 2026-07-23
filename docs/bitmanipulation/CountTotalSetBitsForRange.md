@@ -1,22 +1,27 @@
 # CountTotalSetBitsForRange
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/CountTotalSetBitsForRange.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+for reference see count total set bits
 
-### Implementation
+## 💡 Approaches
 
-Most optimized approach for reference see count total set bits
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+most optimized approach for reference see count total set bits
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int start = 0;
 		int end = 100;
 		int answer = countTotalSetBits(end) - countTotalSetBits(start - 1);
 		System.out.println(answer);
 	}
+
 	public static int countTotalSetBits(int n) {
 		if (n <= 0)
 			return 0;
@@ -33,4 +38,6 @@ private static void type1() {
 		}
 		return count;
 	}
+
+}
 ```

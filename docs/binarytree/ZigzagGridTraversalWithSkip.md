@@ -1,21 +1,25 @@
 # ZigzagGridTraversalWithSkip
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/ZigzagGridTraversalWithSkip.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/zigzag-grid-traversal-with-skip/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Traverse a binary tree in zigzag pattern with skip logic.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using iteration same as previous
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using iteration same as previous if it is even row then we will go left to right, if it is red then we will go right to left from left to right from right to left
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {
                 {1, 2, 3},
                 {4, 5, 6},
@@ -24,6 +28,7 @@ private static void type2() {
         List<Integer> ans = zigzagTraversal2(grid);
         System.out.println(ans);
     }
+
     private static List<Integer> zigzagTraversal2(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         List<Integer> ans = new ArrayList<>();
@@ -53,12 +58,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Discuss this in the interview using recursion if it is even row then we will go left to right, if it is red then we will go right to left
+discuss this in the interview using recursion if it is even row then we will go left to right, if it is red then we will go right to left from left to right from right to left
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {1, 2, 3},
                 {4, 5, 6},
@@ -67,9 +72,34 @@ private static void type1() {
         List<Integer> ans = zigzagTraversal1(grid);
         System.out.println(ans);
     }
+
     public static List<Integer> zigzagTraversal1(int[][] grid) {
         List<Integer> ans = new ArrayList<>();
         traverse(0, 0, grid, ans);
         return ans;
     }
+
+    static void traverse(int i, int j, int[][] grid, List<Integer> ans) {
+        int m = grid.length, n = grid[0].length;
+        if (i == m) return;
+        // if it is even row then we will go left to right, if it is red then we will go right to left
+        if ((i % 2) == 0) {
+            // from left to right
+            while (j < n) {
+                ans.add(grid[i][j]);
+                j += 2;
+            }
+            if (j == n) traverse(i + 1, n - 1, grid, ans);
+            else traverse(i + 1, n - 2, grid, ans);
+        } else {
+            // from right to left
+            while (j >= 0) {
+                ans.add(grid[i][j]);
+                j -= 2;
+            }
+            if (j == -1) traverse(i + 1, 0, grid, ans);
+            else traverse(i + 1, 1, grid, ans);
+        }
+    }
+}
 ```

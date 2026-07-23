@@ -1,21 +1,25 @@
 # NumberOfGreaterElementsToTheRight
 
-**Topic:** `stack` | **File:** `com/problems/stack/NumberOfGreaterElementsToTheRight.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/count-of-greater-elements-to-the-right_8365436)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+For each element, count the number of greater elements to its right.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Complete this problem
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+complete this problem
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {5, 2, 10, 4};
         int[] query = {0, 1};
         int n = nums.length;
@@ -27,12 +31,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {5, 2, 10, 4};
         int[] query = {0, 1};
         int n = nums.length;
@@ -47,4 +51,5 @@ private static void type1() {
         }
         PrintUtl.print(answer);
     }
+}
 ```

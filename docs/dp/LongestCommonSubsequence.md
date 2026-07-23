@@ -1,14 +1,14 @@
 # LongestCommonSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/LongestCommonSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-common-subsequence/description/)
 - [📄 NeetCode](https://neetcode.io/problems/longest-common-subsequence)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/longest-common-subsequence_624879)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=4dMlCZTONj8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=18)
 - [▶ YouTube](https://www.youtube.com/watch?v=4Urd0a0BNng&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=19)
@@ -19,21 +19,26 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/)
 - [▶ YouTube](https://www.youtube.com/watch?v=Ua0GhsJSlWM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is a sequence that can be derived from the string by deleting some characters without changing the order of the remaining characters.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-This is not required in the interview Tabulation with a memory optimization two 1D array for storing the current row and previous row
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+this is not required in the interview Tabulation with a memory optimization two 1D array for storing the current row and previous row we are creating 1D array based on s2 length, so if s1 length is lesser by any chance, then we will swap the variables prev is dp[i-1] and curr is dp[i] it is exactly similar to the last type just here we are creating an array everytime for processing the current row assigning the dp array
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String text1 = "abacab";
 		String text2 = "cab";
 		int count = longestCommonSubsequence4(text1, text2);
 		System.out.println(count);
 	}
+
 	public static int longestCommonSubsequence4(String text1, String text2) {
 		// we are creating 1D array based on s2 length,
 		// so if s1 length is lesser by any chance, then we will swap the variables
@@ -68,15 +73,16 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous type but here we will use bottom up approach recurrence relation is same as the recursion
+same as previous type but here we will use bottom up approach recurrence relation is same as the recursion we could fill up all the cell with 0 for n1, and n2 is 0, but it is not needed as all the cells are already 0 if the char is same then we will decrease the length for both of the strings else we take the max from the 2 choices
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String text1 = "abac";
 		String text2 = "cab";
 		int count = longestCommonSubsequence3(text1, text2);
 		System.out.println(count);
 	}
+
 	private static int longestCommonSubsequence3(String text1, String text2) {
 		char[] arr1 = text1.toCharArray();
 		char[] arr2 = text2.toCharArray();
@@ -103,15 +109,16 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization same as previous but here we will introduce a dp array with dimension of (n1+1)*(n2+1)
+recursion with memoization same as previous but here we will introduce a dp array with dimension of (n1+1)*(n2+1) if one of the string len is 0, then we will return 0 if the cell has the value, then we will return the value if the last character is the same, then we will call the recursion with n1-1 and n2-1 else we have two choices, first consider the last char of the first string and then consider the second string and take max among them
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s1 = "xabcmagg";
 		String s2 = "abcdamg";
 		int count = longestCommonSubsequence2(s1, s2);
 		System.out.println(count);
 	}
+
 	public static int longestCommonSubsequence2(String text1, String text2) {
 		int n1 = text1.length();
 		int n2 = text2.length();
@@ -119,6 +126,7 @@ private static void type2() {
 		for (int[] row : memo) Arrays.fill(row, -1);
 		return lcs2(text1, text2, n1, n2, memo);
 	}
+
 	private static int lcs2(String s1, String s2, int n1, int n2, int[][] dp) {
 		// if one of the string len is 0, then we will return 0
 		if (n1 == 0 || n2 == 0) return 0;
@@ -137,20 +145,24 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 We will use simple recursion with an intuition that, if the last char is same, then we will add 1 and check for 1 less character string for both of the strings. If the last character does not match, then we will have 2 choices. 1. s1-1 and s2 and 2. s1 and s2-1 string.
 
+if one of the string len is 0, then we will return 0 if the last character is the same, then we will call the recursion with n1-1 and n2-1 else we have two choices, first consider the last char of the first string and then consider the second string and take max among them
+
 ```java
-private static void type1() {
+	private static void type1() {
 		String s1 = "xabcma";
 		String s2 = "abcda";
 		int count = longestCommonSubsequence1(s1, s2);
 		System.out.println(count);
 	}
+
 	public static int longestCommonSubsequence1(String text1, String text2) {
 		return lcs1(text1, text2, text1.length(), text2.length());
 	}
+
 	private static int lcs1(String s1, String s2, int n1, int n2) {
 		// if one of the string len is 0, then we will return 0
 		if (n1 == 0 || n2 == 0) return 0;
@@ -165,4 +177,5 @@ private static void type1() {
 			);
 
 	}
+}
 ```

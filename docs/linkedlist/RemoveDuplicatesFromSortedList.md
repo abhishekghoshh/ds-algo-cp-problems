@@ -1,31 +1,39 @@
 # RemoveDuplicatesFromSortedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/RemoveDuplicatesFromSortedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/remove-duplicates-from-a-sorted-doubly-linked-list_2420283)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=p10f-VpO4nE)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given the head of a sorted singly linked list, remove all duplicate nodes so that each element appears only once. The resulting linked list should remain sorted.
+Note: Try to solve the problem without using extra space.
+Examples:
+Input: Head: 2->2
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using the prev pointer if the current pointer is same as the prev pointer then we will not add the current pointer we will go to the next
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using the prev pointer if the current pointer is same as the prev pointer then we will not add the current pointer we will go to the next we will use an extra node as dummy head current node is not same as the prev, so we will add the current node to prev and update prev to curr
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node node = new Node(1, 1, 2, 3, 3);
         Node ans = deleteDuplicates(node);
         PrintUtl.print(ans);
     }
+
     public static Node deleteDuplicates(Node head) {
         // we will use an extra node as dummy head
         Node dummyHead = new Node(Integer.MIN_VALUE);
@@ -44,12 +52,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

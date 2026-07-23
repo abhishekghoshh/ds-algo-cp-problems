@@ -1,14 +1,14 @@
 # MinimumNoOfCoinsForCoinChange
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumNoOfCoinsForCoinChange.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/coin-change/description/)
 - [📄 NeetCode](https://neetcode.io/problems/coin-change)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/minimum-elements_3843091)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16)
 - [▶ YouTube](https://www.youtube.com/watch?v=rMfOgY07TFs&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=17)
@@ -16,16 +16,20 @@
 - [▶ YouTube](https://www.youtube.com/watch?v=H9bfqozjoqs)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-coins-dp-20/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+Find the minimum number of coins to make a target amount.
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-Check this problem to have a very good and progressive intuition todo best possible solution check coin change 2 for better understanding similar to a previous type with some little optimization similar to the problem of [no of way possible for creating amount]
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+best possible solution check coin change 2 for better understanding similar to a previous type with some little optimization similar to the problem of [no of way possible for creating amount] assigning all values to max possibility, (theoretically it is not possible) the lowest coin possible is 1 and to create amount k we will k coin only in place of INF we are using amount+1 as with the minimum amount coin(1) also we need [amount] number of coins to make amount, also it will it shows more efficiency in leetcode for amount 0 minimum numbers of coins needed are 0 we will loop through for all the coins and for all the amount we have 2 options either to include the current coin or not if we are using the current coin, then we have to add +1, and we have to take the minimum out of 2 choices ideally dp[amount] should be less than amount, if it greater than then we cannot create amount
 
 ```java
-private static void type6() {
+	private static void type6() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int[] dp = new int[amount + 1];
@@ -55,15 +59,16 @@ private static void type6() {
 
 ### Approach 5
 
-Tabulation or top-down approach
+tabulation or top-down approach with 0 coins, we need infinite coins to make any amount (theoretically it is impossible though) but dp[0] will always be 0, as we can make amount 0 with 0 coins always now we will fill the remaining cells, starting from the 2nd coin and for all the amount we have 2 options either to include the current coin or not if we are using the current coin, then we have to add +1, and we have to take the minimum out of 2 choices
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int minCount = coinChange5(coins, amount);
 		System.out.println(minCount);
 	}
+
 	public static int coinChange5(int[] coins, int amount) {
 		int n = coins.length;
 		int[] dp = new int[amount + 1];
@@ -91,15 +96,16 @@ private static void type5() {
 
 ### Approach 4
 
-Tabulation with space optimization we will use curr and prev array to store the row values
+tabulation with space optimization we will use curr and prev array to store the row values create amount 0 we will need 0 coins with 0 coins, we need infinite coins to make any amount (theoretically it is impossible though). now we will fill the remaining cells, starting from the 2nd coin and for all the amount we have 2 options either to include the current coin or not if we are using the current coin, then we have to add +1, and we have to take the minimum out of 2 choices assigning curr to the prev
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int minCount = coinChange4(coins, amount);
 		System.out.println(minCount);
 	}
+
 	public static int coinChange4(int[] coins, int amount) {
 		int n = coins.length;
 		int[] prev = new int[amount + 1];
@@ -131,15 +137,16 @@ private static void type4() {
 
 ### Approach 3
 
-Tabulation or top-down approach
+tabulation or top-down approach create amount 0 we will need 0 coins with 0 coins, we need infinite coins to make any amount (theoretically it is impossible though) now we will fill the remaining cells, starting from the 2nd coin and for all the amount we have 2 options either to include the current coin or not if we are using the current coin, then we have to add +1, and we have to take the minimum out of 2 choices
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int minCount = coinChange3(coins, amount);
 		System.out.println(minCount);
 	}
+
 	public static int coinChange3(int[] coins, int amount) {
 		int n = coins.length;
 		int[][] dp = new int[n + 1][amount + 1];
@@ -169,15 +176,16 @@ private static void type3() {
 
 ### Approach 2
 
-Starting point of the problem using recursion with the dynamic programming
+starting point of the problem using recursion with the dynamic programming coins needed can never exceed amount even if only coin with value 1 present then also we would need only (amount) number of coins if the amount is 0 at any point, then we will return 0; that means we will need 0 coins only if coin length is 0 then we will return infinity, which means we cannot make any amount if the recursion call is already done, then we will directly return we have two choices, either to take the current coin (if possible) or not take it if we take it, then we have to increase the coin count
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] coins = {1, 2, 3, 4, 5, 9, 11};
 		int amount = 12;
 		int minCount = coinChange2(coins, amount);
 		System.out.println(minCount);
 	}
+
 	private static int coinChange2(int[] coins, int amount) {
 		int n = coins.length;
 		int[][] dp = new int[n + 1][amount + 1];
@@ -189,6 +197,7 @@ private static void type2() {
 		if (coinsNeeded > amount) return -1;
 		return coinsNeeded;
 	}
+
 	private static int coinChange2(int n, int[] coins, int amount, int[][] dp) {
 		// if the amount is 0 at any point, then we will return 0;
 		// that means we will need 0 coins only
@@ -209,11 +218,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion
+using recursion
 
 ```java
-private static void type1() {
+	private static void type1() {
 	}
+
+}
 ```

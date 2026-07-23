@@ -1,25 +1,29 @@
 # CountPalindromicSubsequences
 
-**Topic:** `string` | **File:** `com/problems/string/CountPalindromicSubsequences.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/count-palindromic-subsequences_1062696)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=vlbA8oUxSV0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count the number of palindromic subsequences in a string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Solve this optimized approach using dynamic programming
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+solve this optimized approach using dynamic programming
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abcd";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -28,6 +32,7 @@ private static void type2() {
         int answer = countPalindrome(0, n - 1, arr, dp);
         System.out.println(answer);
     }
+
     private static int countPalindrome(int i, int j, char[] arr, int[][] dp) {
         if (i > j) return 0;
         if (i == j) return 1;
@@ -41,11 +46,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

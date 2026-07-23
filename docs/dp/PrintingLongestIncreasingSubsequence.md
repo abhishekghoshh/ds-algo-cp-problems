@@ -1,26 +1,32 @@
 # PrintingLongestIncreasingSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/PrintingLongestIncreasingSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/printing-longest-increasing-subsequence/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=IFfYfonAFGc&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=43)
 - [📄 takeUforward](https://takeuforward.org/data-structure/printing-longest-increasing-subsequence-dp-42/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+check the intuition of the Longest increasing subsequence type4
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We can use a little optimization
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we can use a little optimization for 0 it is LIS is 1 and prev is -1 we will start from 1 rather, checking all the indices if we can directly check the current index is greater than the maxI, then we can directly increment from maxI from i-1 to 0 we will check if the num is greater than prev or not and max len from all the lesser prev value will be our ans the current num is greater than previous, and either prevMaxI is still the initial value or it is less than the current dp value of prev; then we will update the prevMaxI we can either add <= or < for dp[prevMax] <= dp[prev].
+
+but if they mention Index-wise lexicographically smaller, then we have to add <= len+1 will be the current value of i if there is no lesser previous value then the default len value will be 0 we will calculate the maximum LIS index in the same time we have the index of the longest increasing subsequence and all the previous index
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {10, 9, 2, 5, 3, 7, 11, 18};
         int n = nums.length;
 
@@ -73,12 +79,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Check the intuition of the Longest increasing subsequence type4
+check the intuition of the Longest increasing subsequence type4 for 0 it is LIS is 1 and prev is -1 we will start from 1 from i-1 to 0 we will check if the num is greater than prev or not and max len from all the lesser prev value will be our ans the current num is greater than previous, and either prevMaxI is still the initial value or it is less than the current dp value of prev; then we will update the prevMaxI we can either add <= or < for dp[prevMax] <= dp[prev].
+
+but if they mention Index-wise lexicographically smaller, then we have to add <= len+1 will be the current value of i if there is no lesser previous value then the default len value will be 0 we will calculate the maximum LIS index in the same time we have the index of the longest increasing subsequence and all the previous index
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {10, 9, 2, 5, 3, 7, 11, 18};
         int n = nums.length;
 
@@ -121,4 +129,5 @@ private static void type1() {
         }
         PrintUtl.print(seq);
     }
+}
 ```

@@ -1,22 +1,26 @@
 # SegmentedSieve
 
-**Topic:** `prime` | **File:** `com/problems/prime/SegmentedSieve.java`
+**Topic:** `prime`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/segmented-sieve/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/library/segmented-sieve)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Generate primes in a range [L, R] using segmented sieve.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will be given range L and R and the range is in between 10^6 like 10^8 to 10^8+10^6 we can not make an array of 10^8+10^6 it will give an error while creating array so here segmented sieve will be applied so when the range end is too large rather than creating the sieve array for (0-R) we will compute the prime factors till sqrt(R) as the factors of R will be before sqrt(R) then we will create an array of the range size
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will be given range L and R and the range is in between 10^6 like 10^8 to 10^8+10^6 we can not make an array of 10^8+10^6 it will give an error while creating array so here segmented sieve will be applied so when the range end is too large rather than creating the sieve array for (0-R) we will compute the prime factors till sqrt(R) as the factors of R will be before sqrt(R) then we will create an array of the range size this we make a sieve array for 0-sqrt(r) with this loop we will get all the prime elements till 0-sqrt(r)
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int l = 100000000;// range start
 		int r = 101000000;// range end
 		int bound = (int) Math.sqrt(r);
@@ -46,12 +50,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

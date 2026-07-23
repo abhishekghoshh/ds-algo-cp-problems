@@ -1,29 +1,35 @@
 # CountOfSubsetSum
 
-**Topic:** `dp` | **File:** `com/problems/dp/CountOfSubsetSum.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/number-of-subsets_3952532)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=F7wqWbqYn9g&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=9)
 - [▶ YouTube](https://www.youtube.com/watch?v=ZHyb-A2Mte4&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=18)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/library/count-of-subsets-with-sum-equal-to-x)
 - [📄 takeUforward](https://takeuforward.org/data-structure/count-subsets-with-sum-k-dp-17/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+similar to equal partition sum problem
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-If the zero cases and MOD cases were not there then we could remove this checks slightly optimized from the previous one
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+slightly optimized from the previous one our new n will be here the target is 0, and we have 0 numbers to choose, but we can always choose an empty set we will fill up the spaces one by one if we think closely we need prev as we want the previous row value.
+
+and let's say cur[j] = m + prev[j-x] and we are starting from 0...w, but if we use the one array only in the current iteration, j-x value is already changed but still we need prev[j-x] value we will do a small trick we will start from the last then j-x index will not be changed we will start from n...0 int the question it is asked to do the mod operation as some of the test cases can cause integer overflow
 
 ```java
-private static void type6() {
+	private static void type6() {
 		int[] nums = {1, 1, 1, 1, 1};
 		int target = 3;
 		int n = nums.length;
@@ -58,10 +64,12 @@ private static void type6() {
 
 ### Approach 5
 
-Tabulation with more space optimization we will only use a single array, check knapsack if you do not understand this solution
+tabulation with more space optimization we will only use a single array, check knapsack if you do not understand this solution our new n will be here the target is 0, and we have 0 numbers to choose, but we can always choose an empty set we will fill up the spaces one by one if we think closely we need prev as we want the previous row value.
+
+and let's say cur[j] = m + prev[j-x] and we are starting from 0...w, but if we use the one array only in the current iteration, j-x value is already changed but still we need prev[j-x] value we will do a small trick we will start from the last then j-x index will not be changed we will start from n...0 int the question it is asked to do the mod operation as some of the test cases can cause integer overflow
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] nums = {1, 1, 1, 1, 1};
 		int target = 3;
 		int n = nums.length;
@@ -95,10 +103,10 @@ private static void type5() {
 
 ### Approach 4
 
-Tabulation with space optimization with two 1D arrays using curr and prev array
+tabulation with space optimization with two 1D arrays using curr and prev array our new n will be here the target is 0, and we have 0 numbers to choose, but we can always choose an empty set we will fill up the spaces one by one int the question it is asked to do the mod operation as some of the test cases can cause integer overflow assigning curr to the prev
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {1, 1, 1, 1, 1};
 		int target = 3;
 		int n = nums.length;
@@ -133,10 +141,10 @@ private static void type4() {
 
 ### Approach 3
 
-Similar to equal sum partition using top-down approach
+similar to equal sum partition using top-down approach our new n will be we do not need to initialize this as the default int array value is 0 with n equal to 0, we cannot make any target sum but to make target sum equal to 0, we have always one option, that is an empty set here the target is 0, and we have 0 numbers to choose, but we can always choose an empty set we will fill up the spaces one by one int the question it is asked to do the mod operation as some of the test cases can cause integer overflow
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 1, 1, 1, 1};
 		int target = 3;
 		int n = nums.length;
@@ -175,10 +183,14 @@ private static void type3() {
 
 ### Approach 2
 
-Lets count the zeros separately and separate them from the actual array we will push them at the end of the array, the previous solution will not be accepted in gfg or coding ninjas as it misses an edge case, let's say nums = [0,1,3], and target is 4 we will have 2 solutions 0,1,3 and 1,3. but in recursion, we are going from back to index 0 once it reaches target 0 at nums[i]==1 it will return from that it will not consider the possibility of having any 0 on the left side, so it misses 0,1,3. one simple trick we can do is, we can move all 0s on the right side, and count the zero elements then we can compute for the 0 later. for one 0 there would be 2 choices, either to take or not for m number of 0s then the answer will be count * 2^m
+lets count the zeros separately and separate them from the actual array we will push them at the end of the array, the previous solution will not be accepted in gfg or coding ninjas as it misses an edge case, let's say nums = [0,1,3], and target is 4 we will have 2 solutions 0,1,3 and 1,3.
+
+but in recursion, we are going from back to index 0 once it reaches target 0 at nums[i]==1 it will return from that it will not consider the possibility of having any 0 on the left side, so it misses 0,1,3. one simple trick we can do is, we can move all 0s on the right side, and count the zero elements then we can compute for the 0 later.
+
+for one 0 there would be 2 choices, either to take or not for m number of 0s then the answer will be count * 2^m our new n will be we will create dp with the new N marking all the cells as unvisited now we will add for the zeros this function will push all the zeros to the end of the array then we will count them pushing all the zeros at the last of the array count the zeros from the last
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {0, 1, 3};
 		int target = 4;
 		// preprocessing
@@ -196,6 +208,7 @@ private static void type2() {
 		count *= (1 << zeros);
 		System.out.println(count);
 	}
+
 	private static int pushAndCountZeros(int n, int[] nums) {
 		// this function will push all the zeros to the end of the array then we will count them
 		// pushing all the zeros at the last of the array
@@ -215,14 +228,20 @@ private static void type2() {
 		for (int i = n - 1; i >= 0 && nums[i] == 0; i--) zeros++;
 		return zeros;
 	}
+
+	static void swap(int[] nums, int low, int high) {
+		int temp = nums[low];
+		nums[low] = nums[high];
+		nums[high] = temp;
+	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This will work only when there is no 0 elements in the array this will fail if there is any zero in the array using memoization similar to equal partition sum problem
+This will work only when there is no 0 elements in the array this will fail if there is any zero in the array using memoization similar to equal partition sum problem marking all the cells as unvisited we can always create target 0 in one way i.e., empty subset if n is 0 or the target is less than 0, then we cannot make anything return if recursion is already complete else we have 2 ways either to take it or not int the question it is asked to do the mod operation as some of the test cases can cause integer overflow
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {0, 1, 3};
 		int target = 4;
 		int n = nums.length;
@@ -232,6 +251,7 @@ private static void type1() {
 		int count = countOfSubset1(nums, n, target, dp);
 		System.out.println(count);
 	}
+
 	private static int countOfSubset1(int[] nums, int n, int target, int[][] dp) {
 		// we can always create target 0 in one way i.e., empty subset
 		if (target == 0) return 1;
@@ -245,4 +265,6 @@ private static void type1() {
 		// int the question it is asked to do the mod operation as some of the test cases can cause integer overflow
 		return dp[n][target] = (int) (count % MOD);
 	}
+
+}
 ```

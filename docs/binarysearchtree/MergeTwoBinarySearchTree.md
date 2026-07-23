@@ -1,27 +1,35 @@
 # MergeTwoBinarySearchTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/MergeTwoBinarySearchTree.java`
+**Topic:** `binarysearchtree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/merge-two-bsts_920474)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/merge-two-bst-s/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://youtube.com/watch?v=LY5hbvFSJqM)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+You are given the root of two BSTs, you have to merge this two BST and return&nbsp;the in-order traversal of the new BST.
+Examples:&nbsp;
+Input: root1 = [3, 1, 5], root2 = [4, 2, 6]Output: [1, 2, 3, 4, 5, 6]
+Explanation: After merging and sorting the
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-This is the most optimized and Simple approach explain this in the interview traverses both binary search trees then collect it in separate lists, as we know both of them are sorted list so, we can perform merge two sorted list operations to merge them in linear time, Time complexity is O(2*(m+n))
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+This is the most optimized and Simple approach explain this in the interview traverses both binary search trees then collect it in separate lists, as we know both of them are sorted list so, we can perform merge two sorted list operations to merge them in linear time,
+
 
 ```java
-private static void type3() {
+    private static void type3() {
         TNode root1 = TNode.makeBST(2, 4, 8, 10, 7);
         TNode root2 = TNode.makeBST(1, 5, 0, 3, 6);
 
@@ -32,6 +40,7 @@ private static void type3() {
         List<Integer> inorder = merge(inorder1, inorder2);
         System.out.println(inorder);
     }
+
     private static List<Integer> merge(List<Integer> inorder1, List<Integer> inorder2) {
         List<Integer> inorder = new LinkedList<>();
         int n1 = inorder1.size(), n2 = inorder2.size();
@@ -46,6 +55,7 @@ private static void type3() {
         while (i2 < n2) inorder.add(inorder2.get(i2++));
         return inorder;
     }
+
     private static void inorder(TNode root, List<Integer> inorder) {
         if (root == null) return;
         inorder(root.left, inorder);
@@ -56,12 +66,12 @@ private static void type3() {
 
 ### Approach 2
 
-Linear approach time complexity O(m+n) we can also use a linked list first we will create an inorder sorted list by traversing the first tree, then we will traverse the second tree and add the nodes in between TODO we could use normal recursive inorder instead of iterative inorder but normal inorder is giving StackOverflow error This is also very optimized approach but it is hard to code and little hard to explain
+linear approach we can also use a linked list first we will create an inorder sorted list by traversing the first tree, then we will traverse the second tree and add the nodes in between we could use normal recursive inorder instead of iterative inorder but normal inorder is giving StackOverflow error This is also very optimized approach but it is hard to code and little hard to explain add to the inorder list same as iterative inorder but here we are adding nodes in between
 
-**Complexity:** Time: o(m+n)
+**Time Complexity:** `O(m+n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         TNode root1 = TNode.makeBST(2, 4, 8, 10, 7);
         TNode root2 = TNode.makeBST(1, 5, 0, 3, 6);
 
@@ -76,6 +86,24 @@ private static void type2() {
         }
         System.out.println(list);
     }
+
+    static class Node {
+        public Node next;
+        int val;
+
+        public Node(int val) {
+            this.val = val;
+        }
+
+        public Node addNext(Node node) {
+            Node next = this.next;
+            this.next = node;
+            node.next = next;
+            return node;
+        }
+    }
+
+    // iterative inorder
     private static Node inorder(TNode root) {
         Stack<TNode> stack = new Stack<>();
         Node start = new Node(Integer.MAX_VALUE);
@@ -95,6 +123,8 @@ private static void type2() {
         inorder.addNext(new Node(Integer.MAX_VALUE));
         return start;
     }
+
+    // same as iterative inorder but here we are adding nodes in between
     private static void addInBetween(TNode root, Node inorder) {
         Stack<TNode> stack = new Stack<>();
         TNode node = root;
@@ -114,12 +144,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Iterative inorder same as iterative inorder but here we are adding nodes in between Merge both of the binary search trees first take any of the tree as source tree and take other one tree as the supplier of the new nodes. After merging do a simple inorder traversal time complexity m*log(n) for merging and for inorder is just O(m+n)
+Merge both of the binary search trees first take any of the tree as source tree and take other one tree as the supplier of the new nodes. After merging do a simple inorder traversal
+
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root1 = TNode.makeBST(2, 4, 8, 10, 7);
         TNode root2 = TNode.makeBST(1, 5, 0, 3, 6);
         merge(root1, root2);
@@ -127,6 +158,7 @@ private static void type1() {
         inorder(root1, inorder);
         System.out.println(inorder);
     }
+
     private static void merge(TNode root, TNode node) {
         if (node == null) return;
         addNode(root, node);
@@ -141,6 +173,7 @@ private static void type1() {
             merge(root, right);
         }
     }
+
     private static TNode addNode(TNode root, TNode node) {
         if (root == null) return node;
         if (node.data < root.data)
@@ -149,4 +182,7 @@ private static void type1() {
             root.right = addNode(root.right, node);
         return root;
     }
+
+
+}
 ```

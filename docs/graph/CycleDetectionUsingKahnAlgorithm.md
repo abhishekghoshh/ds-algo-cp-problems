@@ -1,28 +1,32 @@
 # CycleDetectionUsingKahnAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/CycleDetectionUsingKahnAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/detect-cycle-in-a-directed-graph_1062626)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kahns-algorithm-topological-sort-algorithm-bfs-g-22/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given a Directed Graph with&amp;nbsp;V&amp;nbsp;vertices (Numbered from&amp;nbsp;0&amp;nbsp;to&amp;nbsp;V-1) and&amp;nbsp;E&amp;nbsp;edges, check whether it contains any&amp;nbsp;cycle&amp;nbsp;or not.The graph is&amp;nbsp;represented as a 2D vector&amp;nbsp;edges[][], where each entry&amp;nbsp;ed
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+if there is any cycle then there will be scenario that indegree will not be zero for a node it can occur at start like 0->1->2->3->0 for this situation all the nodes will have in degree as 1 so the bfs will have no starting point similarly it can occur at later point of time like 0->1->2->3->1 here 0 has in degree as 0, so we will have starting point but after traversing 0 there will not be any other node for which indegree will be 0 we will increase the current node size everytime we poll node from queue we will add them in queue when the indegree of the specific node become 0 that means we have already discovered all is previous nodes if node size is not v, then that means for some nodes it never went to in degree 0 so we can say that the graph has a cycle
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 10;
 		List<List<Integer>> adjacencyList =
 				graphBuilder()
@@ -68,4 +72,5 @@ private static void type1() {
 		boolean hasCycle = size != v;
 		System.out.println("hasCycle " + hasCycle);
 	}
+}
 ```

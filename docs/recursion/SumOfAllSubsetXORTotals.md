@@ -1,32 +1,38 @@
 # SumOfAllSubsetXORTotals
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/SumOfAllSubsetXORTotals.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sum-of-all-subset-xor-totals/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=LI7YR-bwNYY)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Calculate the sum of XOR of all subsets.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly the same as type2 but with slight difference
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly the same as type2 but with slight difference
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {5, 1, 6};
         int ans = subsetXORSum3(nums);
         System.out.println(ans);
     }
+
     private static int subsetXORSum3(int[] nums) {
         return subset3(0, nums, 0);
     }
+
     private static int subset3(int i, int[] nums, int xor) {
         int n = nums.length;
         if (i == n) return xor;
@@ -37,18 +43,22 @@ private static void type3() {
 
 ### Approach 2
 
-Efficient approach here we will not generate all the subsets rather we will carry a variable called xor and add the xor of the element to the xor variable
+efficient approach here we will not generate all the subsets rather we will carry a variable called xor and add the xor of the element to the xor variable not choosing the element
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {5, 1, 6};
         int ans = subsetXORSum2(nums);
         System.out.println(ans);
     }
+
+    static int sum2 = 0;
+
     private static int subsetXORSum2(int[] nums) {
         subset2(0, nums, 0);
         return sum2;
     }
+
     private static void subset2(int i, int[] nums, int xor) {
         int n = nums.length;
         if (i == n) {
@@ -62,16 +72,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach generate all subsets calculating total xor of each subset choosing the element not choosing the element
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {5, 1, 6};
         int ans = subsetXORSum1(nums);
         System.out.println(ans);
     }
+
     public static int subsetXORSum1(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
         // generate all subsets
@@ -86,4 +97,19 @@ private static void type1() {
         }
         return xorSum;
     }
+
+    static void subset(int i, int[] nums, List<List<Integer>> list, List<Integer> bucket) {
+        int n = nums.length;
+        if (i == n) {
+            list.add(new ArrayList<>(bucket));
+            return;
+        }
+        // choosing the element
+        bucket.add(nums[i]);
+        subset(i + 1, nums, list, bucket);
+        bucket.remove(bucket.size() - 1);
+        // not choosing the element
+        subset(i + 1, nums, list, bucket);
+    }
+}
 ```

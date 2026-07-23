@@ -1,21 +1,23 @@
 # BinarySearchInReverseSortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/BinarySearchInReverseSortedArray.java`
+**Topic:** `binarysearch`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=YbkELwnGRdo&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=3)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Perform binary search in a reverse sorted array.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
 		int target = 2;
 		int low = 0;
@@ -23,6 +25,7 @@ private static void type1() {
 		int index = search(nums, low, high, target);
 		System.out.println(index);
 	}
+
 	private static int search(int[] nums, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -33,4 +36,5 @@ private static void type1() {
 		}
 		return -1;
 	}
+}
 ```

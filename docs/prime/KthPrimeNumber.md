@@ -1,19 +1,21 @@
 # KthPrimeNumber
 
-**Topic:** `prime` | **File:** `com/problems/prime/KthPrimeNumber.java`
+**Topic:** `prime`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the kth prime number.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach Amortized time complexity O(1) first we will compute sieve array then we will create the array of primes one important thing to notice is that we can limit our sieve size by N such that our nth prime will be the last or 2nd last number in sieve so at first take the longest sieve then according to the range of primeCount we will know on which index the largest prime is stored then we will change the range of the sieve accordingly this is only helpful in competitive coding challenges
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+one important thing to notice is that we can limit our sieve size by N such that our nth prime will be the last or 2nd last number in sieve so at first take the longest sieve then according to the range of primeCount we will know on which index the largest prime is stored then we will change the range of the sieve accordingly this is only helpful in competitive coding challenges
 
 ```java
-private static void type2() {
+	private static void type2() {
 		if (null == allPrimes) {
 			boolean[] nonPrimes = new boolean[N + 1];
 			nonPrimes[0] = true;
@@ -41,12 +43,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

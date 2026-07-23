@@ -1,26 +1,30 @@
 # MaximumSumCombination
 
-**Topic:** `heap` | **File:** `com/problems/heap/MaximumSumCombination.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/k-max-sum-combinations_975322)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/maximum-sum-combinations/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=55TeHh37Ly8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Maximum Sum Combinations - Problem Description Given two equally sized 1-D arrays A, B containing N integers each. A sum combination is made by adding one element from array A and another element of array B. Return the maximum C valid sum combinations from all the possible sum combinations. Problem Constraints 1 <= N <= 105 1 <= A[i] <= 105 1 <= C <= N Input Format First argument is an one-dimensional integer array A of size N. Second argument is an one-dimensional integer array B of size N. Third argument is an integer C. Output Format Return a one-dimensional integer array of size C denoting
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Same as previous just we will not store sum here the sum will be calculated in the priority queue itself
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as previous just we will not store sum here the sum will be calculated in the priority queue itself
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] arr1 = {1, 4, 2, 3};
 		int[] arr2 = {2, 5, 1, 6};
 		int k = 4;
@@ -58,10 +62,12 @@ private static void type4() {
 
 ### Approach 3
 
-This will use a max heap we know that the max element from the array will form the max sum we will take that as a starting point. first we will reverse sort both of the arrays, then we will store the 0th index for both of the arrays. as well as the sum of the arr1[ith] + arr2[jth] we know that the next highest pair could be either (i+1,j) or (i,j+1) so we will also store those two indices. we will do the process until there are k largest elements stored in the answer
+this will use a max heap we know that the max element from the array will form the max sum we will take that as a starting point. first we will reverse sort both of the arrays, then we will store the 0th index for both of the arrays. as well as the sum of the arr1[ith] + arr2[jth] we know that the next highest pair could be either (i+1,j) or (i,j+1) so we will also store those two indices.
+
+we will do the process until there are k largest elements stored in the answer sorting both of the arrays in reverse we will also use a visited array to check if the pair is already visited or not because there is a multiple way to go to one point to another point adding (i+1,j) pair adding (i,j+1) th element
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr1 = {1, 4, 2, 3};
 		int[] arr2 = {2, 5, 1, 6};
 		int k = 4;
@@ -99,6 +105,7 @@ private static void type3() {
 		}
 		print(ans);
 	}
+
 	private static void reverseSorted(int[] arr) {
 		Arrays.sort(arr);
 		int bound = arr.length >> 1;
@@ -108,14 +115,26 @@ private static void type3() {
 			arr[arr.length - i - 1] = temp;
 		}
 	}
+
+	private static class Point {
+		public int left;
+		public int right;
+		public int sum;
+
+		public Point(int left, int right, int sum) {
+			this.left = left;
+			this.right = right;
+			this.sum = sum;
+		}
+	}
 ```
 
 ### Approach 2
 
-Using priority queue or a min heap to store only the top k elements
+using priority queue or a min heap to store only the top k elements
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr1 = { 1, 4, 2, 3 };
 		int[] arr2 = { 2, 5, 1, 6 };
 		int k = 4;
@@ -134,12 +153,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity (n^2 + n^2*log(n^2) + c) space complexity O(c
+brute force
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] arr1 = { 1, 4, 2, 3 };
 		int[] arr2 = { 2, 5, 1, 6 };
 		int c = 4;
@@ -152,4 +172,6 @@ private static void type1() {
 		list = list.subList(0, c);
 		System.out.println(list);
 	}
+
+}
 ```

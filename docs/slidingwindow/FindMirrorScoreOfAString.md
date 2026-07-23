@@ -1,25 +1,30 @@
 # FindMirrorScoreOfAString
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/FindMirrorScoreOfAString.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-mirror-score-of-a-string/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Calculate the mirror score of a string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Let's compact the marker array we can have a 26 letter marker array for every character and there we will save the index so then in O(1) time we will get the index of the mirror character but here is a catch if let's say the string is --aa--zz-- for the first z it will get 'a' but for the second z there will be no 'a' but we can clearly see there is 'a' so rather just storing the indices we will store a stack, and we will push the indices into the stack for that character so for every character we will get the closest mirror character from the top of the stack
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+let's compact the marker array we can have a 26 letter marker array for every character and there we will save the index so then in O(1) time we will get the index of the mirror character but here is a catch if let's say the string is --aa--zz-- for the first z it will get 'a' but for the second z there will be no 'a' but we can clearly see there is 'a' so rather just storing the indices we will store a stack, and we will push the indices into the stack for that character so for every character we will get the closest mirror character from the top of the stack there are no mirror character, so we will push the current index else we will get the mirror character index from the stack
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "aczzx";
         long ans = calculateScore2(s);
         System.out.println(ans);
     }
+
     public static long calculateScore2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -42,18 +47,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) and space complexity O(n) we will use a marker array of length for every index character we will try to find mirror character if we find it then we unmark the position by giving value -1 else we will mark the current pos
+brute force approach we will use a marker array of length for every index character we will try to find mirror character if we find it then we unmark the position by giving value -1 else we will mark the current pos marking the current position unmarking the prev position
 
-**Complexity:** Time: o(n^2) | Space: o(n)
+**Time Complexity:** `O(n^2)`  
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "aczzx";
         long ans = calculateScore1(s);
         System.out.println(ans);
     }
+
     public static long calculateScore1(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -76,4 +83,5 @@ private static void type1() {
         }
         return score;
     }
+}
 ```

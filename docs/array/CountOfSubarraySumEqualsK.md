@@ -1,35 +1,39 @@
 # CountOfSubarraySumEqualsK
 
-**Topic:** `array` | **File:** `com/problems/array/CountOfSubarraySumEqualsK.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/subarray-sum-equals-k/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/subarray-sums-i_1467103)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=xvNwoz-ufXA)
 - [▶ YouTube](https://www.youtube.com/watch?v=fFVZt-6sgyo)
 - [📄 takeUforward](https://takeuforward.org/arrays/count-subarray-sum-equals-k/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as the previous but here we will make the code little crisp
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as the previous but here we will make the code little crisp if a reminder exists that mean k also exists the number of prefix sum of a reminder is equals the number prefix sum of k on every index we are updating the prefix sum count
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 2, 3};
 		int k = 3;
 		int count = subarraySum3(nums, k);
 		System.out.println(count);
 	}
+
 	private static int subarraySum3(int[] nums, int k) {
 		int count = 0;
 		int sum = 0;
@@ -50,17 +54,19 @@ private static void type3() {
 
 ### Approach 2
 
-Prefix sum approach time complexity O(n) space complexity O(n) suppose in a range of 0..x1..x2 the sum is x2 and in the same range 0..x1 the xor is x1 the xor of in between elements(x1+1..x2) is k we can say that x1 + k = x2 => x1 = x2 - k now we have everything just we have to find x1 we will compute sum in every element and store it in map with its count Please Note prefixSumMap.put(0, 1); and if(sum==k) count++ has the same purpose if we include prefixSumMap.put(0, 1) then, at sum==k and reminder will be 0 then count = count + prefixSumMap.get(reminder); it will be automatically added if we add if(sum==k) count++ then we will manually check for k equality, at that time prefixSum.containsKey(0) will return false count = count + prefixSumMap.get(0);; will not be executed
+prefix sum approach suppose in a range of 0..x1..x2 the sum is x2 and in the same range 0..x1 the xor is x1 the xor of in between elements(x1+1..x2) is k we can say that x1 + k = x2 => x1 = x2 - k now we have everything just we have to find x1 we will compute sum in every element and store it in map with its count Please Note prefixSumMap.put(0, 1); and if(sum==k) count++ has the same purpose if we include prefixSumMap.put(0, 1) then, at sum==k and reminder will be 0 then count = count + prefixSumMap.get(reminder); it will be automatically added if we add if(sum==k) count++ then we will manually check for k equality, at that time prefixSum.containsKey(0) will return false count = count + prefixSumMap.get(0);; will not be executed if a reminder exists that mean k also exists the number of prefix sum of a reminder is equals the number prefix sum of k on every index we are updating the prefix sum count
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1, 2, 3 };
 		int k = 3;
 		int count = subarraySum2(nums, k);
 		System.out.println(count);
 	}
+
 	private static int subarraySum2(int[] nums, int k) {
 		int sum = 0, count = 0;
 		Map<Integer, Integer> prefixSum = new HashMap<>();
@@ -82,19 +88,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using two loops time complexity O(n^2) space complexity O(1)
+brute force approach using two loops
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 1, 2, 3 };
 		int k = 3;
 		int count = subarraySum1(nums, k);
 		System.out.println(count);
 	}
+
 	private static int subarraySum1(int[] nums, int k) {
 		int count = 0;
 		for (int i = 0; i < nums.length; i++) {
@@ -107,4 +115,5 @@ private static void type1() {
 		}
 		return count;
 	}
+}
 ```

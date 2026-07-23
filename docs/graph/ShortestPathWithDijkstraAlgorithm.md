@@ -1,26 +1,30 @@
 # ShortestPathWithDijkstraAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/ShortestPathWithDijkstraAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/shortest-path-in-weighted-undirected-graph/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=rp1SMw7HSO8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=35)
 - [📄 takeUforward](https://takeuforward.org/data-structure/g-35-print-shortest-path-dijkstras-algorithm/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+You are given a weighted undirected graph having n+1 vertices numbered from 0 to n
 
-### Implementation
+## 💡 Approaches
 
-You are given a weighted undirected graph having n+1 vertices numbered from 0 to n and m edges describing there are edges between a to b with some weight. Find the shortest path between vertex 1 and the vertex n and if a path does not exist, then return a list consisting of only -1. using Dijkstra algorithm and priority queue all indexes are 1 based
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+using Dijkstra algorithm and priority queue all indexes are 1 based edges are 1 based index transforming from edges to adjacency list initializing the distance array initializing the parent array we will directly use the priority queue here as min heap, where pair[1] is the distance, so we will get the edge with minimum distance we will check all its neighbours if any edge can be relaxed then we will add that node into the queue also update the distance and the parent array as this point distance array and parent array are calculated if parent of destination is -1 that means we can not go to src to destination node from destination node we will backtrack to src
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 5;
 		int m = 6;
 		int edges[][] = {
@@ -34,6 +38,7 @@ private static void type1() {
 		List<Integer> answer = shortestPath(n, m, edges);
 		System.out.println(answer);
 	}
+
 	public static List<Integer> shortestPath(int n, int m, int edges[][]) {
 		int src = 1, dest = n;
 		// edges are 1 based index
@@ -93,4 +98,6 @@ private static void type1() {
 		Collections.reverse(answer);
 		return answer;
 	}
+
+}
 ```

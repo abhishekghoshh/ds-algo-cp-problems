@@ -1,19 +1,19 @@
 # Knapsack
 
-**Topic:** `dp` | **File:** `com/problems/dp/Knapsack.java`
+**Topic:** `dp`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Identifying Dynamic programming 1. Recursive problems where max, min, largest, minimum or total count are asked 2. Choices are given 3. Overlapping sub-problems 4. More than one function is called from a function 5. Same function with same arguments is called more than one times
+Given N items, each with a weight and value, determine the maximum total value that can be obtained by selecting a subset of items such that the total weight does not exceed a given capacity W. Each item can be chosen at most once (0/1 Knapsack).
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 InterviewBit](https://www.interviewbit.com/problems/0-1-knapsack/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/0-1-knapsack_920542)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1072980)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=nqowUJzG-iM&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)
 - [▶ YouTube](https://www.youtube.com/watch?v=kvyShbFVaY8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=3)
@@ -23,16 +23,16 @@ Identifying Dynamic programming 1. Recursive problems where max, min, largest, m
 - [▶ YouTube](https://www.youtube.com/watch?v=GqOmJHQZivw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=20)
 - [📄 takeUforward](https://takeuforward.org/data-structure/0-1-knapsack-dp-19/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **6** approaches, progressing from brute force to optimal:
+This problem can be solved in **6** different ways, each improving upon the previous:
 
-### Approach 6 — Optimal
+### Approach 6: 🏆 Optimal Solution
 
-Some more space optimized than the previous
+some more space optimized than the previous we will store all the profits in memo initialization isn't needed as the default value is 0 in an int array starting from last, we will go till the current weight, then we will no longer need to use it in the if else
 
 ```java
-private static void type6() {
+	private static void type6() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 16};
 		int n = val.length;
@@ -57,10 +57,12 @@ private static void type6() {
 
 ### Approach 5
 
-Further space optimization
+further space optimization we will store all the profits in memo we don't need initialization as we are setting everything to 0, the int array default value is already 0 we will do this for all n and all w if we think closely we need prev as we want the previous row value.
+
+and let's say cur[j] = m + prev[j-x] and we are starting from 0...w, but if we use the one array only in the current iteration, j-x value is already changed but still we need prev[j-x] value we will do a small trick we will start from the last then j-x index will not be changed we will start from n...0 starting from last
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 16};
 		int n = val.length;
@@ -95,10 +97,10 @@ private static void type5() {
 
 ### Approach 4
 
-Space optimization using 2 1D arrays
+space optimization using 2 1D arrays we will store all the profits in memo we don't need initialization as we are setting everything to 0, the int array default value is already 0 we will do this for all n and all w setting the curr to previous
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 16};
 		int n = val.length;
@@ -132,10 +134,10 @@ private static void type4() {
 
 ### Approach 3
 
-Top-down approach
+Top-down approach we will store all the profits in memo here weight is 0, for weight 0 there will be no item to take, so our profit will be zero same like the previous one here item count is 0, so we have nothing to take, and our profit is 0 we will do this for all n and all w
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 16};
 		int n = val.length;
@@ -171,10 +173,10 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+initializing with negative value marking all the cells unvisited same as before, but if in any point we see, the recursion is already computed, then we will not call recursion again, rather we will directly return from our memo / this is the base case when no weight and item is remaining if the function is already called, then the cell will have a value now if the weight is lesser than the item, then we will have two choices else one
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 10};
 		int n = val.length;
@@ -190,6 +192,9 @@ private static void type2() {
 		int profit = knapsack(val, wt, w, n, dp);
 		System.out.println(profit);
 	}
+
+	// same as before, but if in any point we see, the recursion is already computed,
+	// then we will not call recursion again, rather we will directly return from our memo
 	public static int knapsack(int[] val, int[] wt, int w, int n, int[][] dp) {
 		/// this is the base case when no weight and item is remaining
 		if (w == 0 || n == 0) return 0;
@@ -209,12 +214,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Same as before, but if in any point we see, the recursion is already computed, then we will not call recursion again, rather we will directly return from our memo simple recursion
+simple recursion this is the base case when no weight and item is remaining if the nth item weight is less than our current capacity, then we have two options, either to choose it or not if it is greater than our current capacity, then we will not include it
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] wt = {1, 3, 4, 5, 9, 12};
 		int[] val = {1, 4, 5, 7, 12, 10};
 		int n = val.length;
@@ -222,6 +227,7 @@ private static void type1() {
 		int profit = knapsack(val, wt, w, n);
 		System.out.println(profit);
 	}
+
 	public static int knapsack(int[] val, int[] wt, int w, int n) {
 		// this is the base case when no weight and item is remaining
 		if (w == 0 || n == 0) return 0;
@@ -236,4 +242,6 @@ private static void type1() {
 		else
 			return knapsack(val, wt, w, n - 1);
 	}
+
+}
 ```

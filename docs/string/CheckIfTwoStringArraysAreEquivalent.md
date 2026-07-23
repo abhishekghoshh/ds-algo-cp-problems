@@ -1,32 +1,36 @@
 # CheckIfTwoStringArraysAreEquivalent
 
-**Topic:** `string` | **File:** `com/problems/string/CheckIfTwoStringArraysAreEquivalent.java`
-
+**Topic:** `string`  
 **Tags:** String, two pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ejBwc2oE7ck)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given two string arrays, check if they represent the same concatenated string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Explain this in the interview we can solve it in one line like return String.join("",word1).equals(String.join("",word2)) but it will create each string every time we could also use 2 sting builder and using 2 arrays we could fill both the string builders but that will also be a brute force going over one word and letter at a time if the current word is completely exhausted then we will go to the next word
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+explain this in the interview we can solve it in one line like return String.join("",word1).equals(String.join("",word2)) but it will create each string every time we could also use 2 sting builder and using 2 arrays we could fill both the string builders but that will also be a brute force going over one word and letter at a time if the current word is completely exhausted then we will go to the next word traversing the string array checking the current character if we have completely exhausted then we will go to the next word in array 1 if we have completely exhausted then we will go to the next word in array 2 if both of the pointer exceed the last word that means the resultant words are same
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] word1 = {"abc", "d", "defg"};
         String[] word2 = {"abcddefg"};
         boolean ans = arrayStringsAreEqual2(word1, word2);
         System.out.println(ans);
     }
+
     public static boolean arrayStringsAreEqual2(String[] word1, String[] word2) {
         int n1 = word1.length, n2 = word2.length;
         int i1 = 0, i2 = 0;
@@ -52,18 +56,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using string join to join the first array and convert into one string same for the 2nd string array then compare the both
+using string join to join the first array and convert into one string same for the 2nd string array then compare the both
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] word1 = {"abc", "d", "defg"};
         String[] word2 = {"abcddefg"};
         boolean ans = arrayStringsAreEqual1(word1, word2);
         System.out.println(ans);
     }
+
     public static boolean arrayStringsAreEqual1(String[] word1, String[] word2) {
         return String.join("", word1).equals(String.join("", word2));
     }
+}
 ```

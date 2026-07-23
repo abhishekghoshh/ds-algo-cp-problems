@@ -1,31 +1,35 @@
 # BackspaceStringCompare
 
-**Topic:** `string` | **File:** `com/problems/string/BackspaceStringCompare.java`
-
+**Topic:** `string`  
 **Tags:** String, two pointers, Stack
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/backspace-string-compare/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=k2qrymM_DOo)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Compare two strings after processing backspace '#' characters.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach, so we will use 2 pointer on each of the string one for traversing the array another for the index of the final every time we see a character we will increment it and for # we will decrement int we can use a different array to store the resultant string but here we are using the same array to store the result string
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimal approach, so we will use 2 pointer on each of the string one for traversing the array another for the index of the final every time we see a character we will increment it and for # we will decrement int we can use a different array to store the resultant string but here we are using the same array to store the result string traversing on the fist array to find the resultant string traversing on the second array to find the resultant string if the length is not same then it is false if the content is not same then also it is false
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "ab##", t = "c#d#";
         boolean ans = backspaceCompare2(s, t);
         System.out.println(ans);
     }
+
     public static boolean backspaceCompare2(String s, String t) {
         char[] arr1 = s.toCharArray();
         char[] arr2 = t.toCharArray();
@@ -62,16 +66,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimal approach using stack here we will store the resultant characters in a stack
+optimal approach using stack here we will store the resultant characters in a stack traversing on the fist array to find the resultant string traversing on the second array to find the resultant string if the length is not same then it is false if the content is not same then also it is false
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "ab##", t = "c#d#";
         boolean ans = backspaceCompare1(s, t);
         System.out.println(ans);
     }
+
     private static boolean backspaceCompare1(String s, String t) {
         char[] arr1 = s.toCharArray();
         char[] arr2 = t.toCharArray();
@@ -100,4 +105,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

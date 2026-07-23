@@ -1,33 +1,38 @@
 # BestTimeToBuyAndSellStockWithCooldown
 
-**Topic:** `dp` | **File:** `com/problems/dp/BestTimeToBuyAndSellStockWithCooldown.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
 - [📄 NeetCode](https://neetcode.io/problems/buy-and-sell-crypto-with-cooldown)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/highway-billboards_3125969)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=IGIe46xw3YY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=41)
 - [▶ YouTube](https://www.youtube.com/watch?v=I7j0F7AHpb8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/buy-and-sell-stocks-with-cooldown-dp-39/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+This is exactly like the best time for buy and sell problem 2.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-This is exactly like the best time for buy and sell problem 2. However, we have to go for i+2 after a successful sell, as there is a cooldown period that is the only change that we need to do for this problem TODO if you are unable to understand the intuition then check buy and sell problem 2 check the leetcode's top solution todo best approach try to think and derive it again
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+best approach try to think and derive it again we need profit after prev sell and prev buy and also profit after prev 2 sell as we can not buy just after the prevSell, we need atleast one day for cooldown, that's why we are maintaining one extra day assigning all 3 variables into some local variables calculating the sell for the current day and directly assigning into prev variables assigning prev Sell to prev 2 sell
 
 ```java
-private static void type5() {
+    private static void type5() {
         int[] prices = {1, 2, 3, 0, 2};
         int ans = maxProfit5(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit5(int[] prices) {
         // we need profit after prev sell and prev buy and also profit after prev 2 sell
         // as we can not buy just after the prevSell, we need atleast one day for cooldown, that's why we are maintaining one extra day
@@ -52,14 +57,15 @@ private static void type5() {
 
 ### Approach 4
 
-Tabulation or top-down approach without the inner CanBuy loop as we are going to day+2, so it will be a little bit complex to do the space optimization
+tabulation or top-down approach without the inner CanBuy loop as we are going to day+2, so it will be a little bit complex to do the space optimization we will add another day as it was a boundary case in recursion as the day can go to day+2, so we are changing the row size to n+2 we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] prices = {1, 2, 3, 0, 2};
         int ans = maxProfit4(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit4(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -86,14 +92,15 @@ private static void type4() {
 
 ### Approach 3
 
-Tabulation or top-down approach
+tabulation or top-down approach we will add another day as it was a boundary case in recursion as the day can go to day+2, so we are changing the row size to n+2 we can either buy or skip for that day else means we can sell on that day, we can either sell or we can also check for the next day the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] prices = {1, 2, 3, 0, 2};
         int ans = maxProfit3(prices);
         System.out.println(ans);
     }
+
     private static int maxProfit3(int[] prices) {
         int n = prices.length;
         // we will add another day as it was a boundary case in recursion
@@ -122,10 +129,10 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization todo check the recurrence relation
+recursion with memoization check the recurrence relation checking if it is out of bounds or not 0 means we can buy on that day else means we can sell on this day we can either sell or we can also check for the next to next day as there is a cooldown period
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] prices = {1, 2, 3, 0, 2};
         int n = prices.length;
         int[][] dp = new int[n][2];
@@ -133,6 +140,7 @@ private static void type2() {
         int ans = maxProfit2(0, 0, prices, dp);
         System.out.println(ans);
     }
+
     public static int maxProfit2(int day, int canBuy, int[] prices, int[][] dp) {
         // checking if it is out of bounds or not
         if (day >= prices.length) return 0;
@@ -150,16 +158,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursion with brute force todo check the recurrence relation
+recursion with brute force check the recurrence relation checking if it is out of bounds or not as we are going to day+2 so the index can be n+1, so we are changing it to >= true means we can buy on that day else means we can sell on this day we can either sell or we can also check for the next to next day as there is a cooldown period
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] prices = {1, 2, 3, 0, 2};
         int ans = maxProfit1(0, true, prices);
         System.out.println(ans);
     }
+
     public static int maxProfit1(int day, boolean canBuy, int[] prices) {
         // checking if it is out of bounds or not
         // as we are going to day+2 so the index can be n+1, so we are changing it to >=
@@ -175,4 +184,5 @@ private static void type1() {
         int profit2 = maxProfit1(day + 1, canBuy, prices); // skipping for the day
         return Math.max(profit1, profit2);
     }
+}
 ```

@@ -1,27 +1,29 @@
 # Stack
 
-**Topic:** `stack` | **File:** `com/problems/stack/Stack.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/stack-implementation-using-array_3210209)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=GYptUgnIM_I)
 - [▶ YouTube](https://www.youtube.com/watch?v=P1bAPZg5uaE&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd)
 - [📄 takeUforward](https://takeuforward.org/data-structure/implement-stack-using-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		StackUsingDynamicArray<Integer> stack = new StackUsingDynamicArray<>(3);
 		stack.push(1);
 		stack.push(2);
@@ -34,14 +36,49 @@ private static void type2() {
 		printException(() -> System.out.println(stack.peek()));
 		printException(() -> System.out.println(stack.pop()));
 	}
+
+	public static class StackUsingDynamicArray<T> {
+		private static final int DEFAULT_CAPACITY = 100;
+		private final List<T> array;
+		private int size = 0;
+
+		StackUsingDynamicArray() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		StackUsingDynamicArray(int initialCapacity) {
+			this.array = new ArrayList<>(initialCapacity);
+		}
+
+		public boolean isEmpty() {
+			return size == 0;
+		}
+
+		public int size() {
+			return size;
+		}
+
+		public void push(T item) {
+			size++;
+			array.add(item);
+		}
+
+		public T pop() {
+			if (size == 0) throw new UnsupportedOperationException("No element present for popping");
+			return array.remove(--size);
+		}
+
+		public T peek() {
+			if (size == 0) throw new UnsupportedOperationException("No element present for peeking");
+			return array.get(size - 1);
+		}
+	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		StackUsingArray<Integer> stack = new StackUsingArray<>(3);
 		stack.push(1);
 		stack.push(2);
@@ -53,4 +90,48 @@ private static void type1() {
 		printException(() -> System.out.println(stack.peek()));
 		printException(() -> System.out.println(stack.pop()));
 	}
+
+	public static class StackUsingArray<T> {
+		private static final int DEFAULT_CAPACITY = 100;
+		private final T[] array;
+		private final int capacity;
+		private int size = 0;
+
+		StackUsingArray() {
+			this(DEFAULT_CAPACITY);
+		}
+
+		@SuppressWarnings("unchecked")
+		StackUsingArray(int capacity) {
+			this.capacity = capacity;
+			this.array = (T[]) new Object[capacity];
+		}
+
+		public boolean isEmpty() {
+			return size == 0;
+		}
+
+		public int size() {
+			return size;
+		}
+
+		public void push(T item) {
+			if (size == capacity) throw new UnsupportedOperationException("Capacity is full");
+			array[size++] = item;
+		}
+
+		public T pop() {
+			if (size == 0) throw new UnsupportedOperationException("No element present for popping");
+			return array[--size];
+		}
+
+		public T peek() {
+			if (size == 0) throw new UnsupportedOperationException("No element present for peeking");
+			return array[size - 1];
+		}
+
+	}
+
+
+}
 ```

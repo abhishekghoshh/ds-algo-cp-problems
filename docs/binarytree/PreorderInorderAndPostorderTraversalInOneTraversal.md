@@ -1,26 +1,30 @@
 # PreorderInorderAndPostorderTraversalInOneTraversal
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/PreorderInorderAndPostorderTraversalInOneTraversal.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/981269)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ySp2epYvgTE&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=14)
 - [📄 takeUforward](https://takeuforward.org/data-structure/preorder-inorder-postorder-traversals-in-one-traversal/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Not so important TODO check it later
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+not so important check it later this is part of preorder increment 1 to 2 push the left side of the tree this is a part of in increment 2 to 3 push right don't push it back again
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withCount(19);
 		List<Integer> preOrder = new ArrayList<>(), inOrder = new ArrayList<>(), postOrder = new ArrayList<>();
 
@@ -51,4 +55,16 @@ private static void type1() {
 		System.out.println(inOrder);
 		System.out.println(postOrder);
 	}
+
+	static class Pair {
+		TNode node;
+		int num;
+
+		Pair(TNode node, int num) {
+			this.num = num;
+			this.node = node;
+		}
+	}
+
+}
 ```

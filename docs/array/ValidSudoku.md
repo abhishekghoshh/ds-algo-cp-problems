@@ -1,28 +1,31 @@
 # ValidSudoku
 
-**Topic:** `array` | **File:** `com/problems/array/ValidSudoku.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-sudoku/description/)
 - [📄 NeetCode](https://neetcode.io/problems/valid-sudoku)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=TjFXEUCMqI8)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+but array is easy to use and takes less space
 
-### Implementation
+## 💡 Approaches
 
-This is very optimized approach we are using rowSet, columnSet and gridSet to track if we can place a number or not we are using boolean array here, but we could also use a HashSet but array is easy to use and takes less space
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this is very optimized approach we are using rowSet, columnSet and gridSet to track if we can place a number or not we are using boolean array here, but we could also use a HashSet but array is easy to use and takes less space checking if the cell is already placed in the same row or column or the grid or not we will place the cell method to determine the grid id
 
 ```java
-private static void type1() {
+    private static void type1() {
         char[][] board = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -37,6 +40,7 @@ private static void type1() {
         boolean ans = isValidSudoku(board);
         System.out.println(ans);
     }
+
     public static boolean isValidSudoku(char[][] board) {
         int n = 9;
         boolean[][] rowSet = new boolean[n][n];
@@ -55,4 +59,12 @@ private static void type1() {
         }
         return true;
     }
+
+    // method to determine the grid id
+    static int gridId(int r, int c) {
+        return 3 * (r / 3) + (c / 3);
+    }
+
+
+}
 ```

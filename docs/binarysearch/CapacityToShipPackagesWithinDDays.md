@@ -1,27 +1,31 @@
 # CapacityToShipPackagesWithinDDays
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/CapacityToShipPackagesWithinDDays.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/capacity-to-ship-packages-within-d-days_1229379)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=MG-Ac4TAvTY)
 - [📄 takeUforward](https://takeuforward.org/arrays/capacity-to-ship-packages-within-d-days/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given weights of packages and days D, find the minimum ship capacity to ship all packages within D days.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous just we are just modifying the code little bit
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous just we are just modifying the code little bit
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] weights = {1, 2, 3, 1, 1};
         int days = 4;
         int high = 0, low = 0;
@@ -49,10 +53,10 @@ private static void type3() {
 
 ### Approach 2
 
-Binary search on method approach
+binary search on method approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] weights = {1, 2, 3, 1, 1};
         int days = 4;
         int answer = Integer.MAX_VALUE, sum = 0;
@@ -69,6 +73,7 @@ private static void type2() {
         }
         System.out.println(answer);
     }
+
     private static boolean isPossible(int[] weights, int mid, int days) {
         int sum = 0, count = 0;
         for (int weight : weights) {
@@ -87,11 +92,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

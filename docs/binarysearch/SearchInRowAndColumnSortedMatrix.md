@@ -1,29 +1,34 @@
 # SearchInRowAndColumnSortedMatrix
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/SearchInRowAndColumnSortedMatrix.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/search-a-2d-matrix/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/980531)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/search-in-a-2d-matrix_980531)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=JXU4Akft7yk)
 - [▶ YouTube](https://www.youtube.com/watch?v=ZYpYur0znng&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=15)
 - [📄 takeUforward](https://takeuforward.org/data-structure/search-in-a-sorted-2d-matrix/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Search for a value in a matrix sorted row-wise and column-wise.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Best approach When integers are sorted row wise and column means a[i][n-1] < a[i+1][0] start element of a row is greater than last element of previous row from there we will go either left side or bottom side we can think of the matrix as a large sorted array stored in a matrix time complexity is o(log(n*m))
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+best approach When integers are sorted row wise and column means a[i][n-1] < a[i+1][0] start element of a row is greater than last element of previous row from there we will go either left side or bottom side we can think of the matrix as a large sorted array stored in a matrix
+
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] matrix = { { 10, 20, 30, 40 }, { 15, 25, 35, 45 }, { 27, 29, 37, 48 }, { 32, 33, 39, 50 } };
 		int target = 50;
 		int row = matrix.length;
@@ -49,10 +54,11 @@ private static void type3() {
 
 ### Approach 2
 
-When integers are sorted row wise and column but that does not mean a[i][n-1] < a[i+1][0] start element of a row may or may not be greater than last element of previous row we will start from [0,last] from there we will go either left side or bottom side time complexity is o(n+m)
+When integers are sorted row wise and column but that does not mean a[i][n-1] < a[i+1][0] start element of a row may or may not be greater than last element of previous row we will start from [0,last] from there we will go either left side or bottom side
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] matrix = { { 10, 15, 17, 20 }, { 22, 23, 25, 27 }, { 28, 29, 32, 35 }, { 37, 39, 45, 50 } };
 		int target = 50;
 		int row = matrix.length;
@@ -67,12 +73,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Search all items complexity o(n*m)
+search all items complexity o(n*m)
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
 		int target = 3;
 		int row = matrix.length;
@@ -89,4 +95,6 @@ private static void type1() {
 		}
 		System.out.printf("arr[%d][%d] = %d%n", x, y, matrix[x][y]);
 	}
+
+}
 ```

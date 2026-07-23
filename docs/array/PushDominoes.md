@@ -1,31 +1,37 @@
 # PushDominoes
 
-**Topic:** `array` | **File:** `com/problems/array/PushDominoes.java`
-
+**Topic:** `array`  
 **Tags:** Array, Two Pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/push-dominoes/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=evUFsOb_iLY)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Simulate dominoes falling after pushing.
 
-### Implementation
+## 💡 Approaches
 
-This is optimized
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this is optimized shrinking the left size, if there is any L in the left then all the left side domino's will fall in the left freely shrinking the right size, if there is any R in the right then all the right side domino's will fall in the right freely now we have a combination of R and L, while R will force in the right and L will force in the left now we will work on only R to L range we will to set all the domino's to R in between R start and End the [.
+
+. . .] between R and L // we will to set all the domino's to L in between L start and End
 
 ```java
-private static void type1() {
+    private static void type1() {
         String dominoes = ".L.R...LR..L..";
         String ans = pushDominoes1(dominoes);
         System.out.println(ans);
     }
+
     public static String pushDominoes1(String dominoes) {
         char[] arr = dominoes.toCharArray();
         int n = arr.length;
@@ -77,4 +83,5 @@ private static void type1() {
         }
         return new String(arr);
     }
+}
 ```

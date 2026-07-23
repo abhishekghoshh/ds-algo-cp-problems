@@ -1,33 +1,37 @@
 # FirstMissingPositive
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/FirstMissingPositive.java`
-
+**Topic:** `hashing`  
 **Tags:** Array, hashset, swap sort
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/first-missing-positive/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=8g78yfzMlao)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find the smallest missing positive integer in O(n) time and O(1) space.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using the swap sort approach time complexity O(n)
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n)
+### Approach 3: 🏆 Optimal Solution
+
+using the swap sort approach
+
+**Time Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 7, 8, 5, 11, 17, 12, 9, 0};
         int ans = firstMissingPositive3(nums);
         System.out.println(ans);
     }
+
     public static int firstMissingPositive3(int[] nums) {
         int i = 0;
         while (i < nums.length) {
@@ -45,6 +49,7 @@ private static void type3() {
         }
         return nums.length + 1;
     }
+
     public static void swap(int[] nums, int first, int second) {
         int tmp = nums[first];
         nums[first] = nums[second];
@@ -54,14 +59,15 @@ private static void type3() {
 
 ### Approach 2
 
-Using sorting, and then binary search
+using sorting, and then binary search finding the first positive number
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 7, 8, 5, 11, 17, 12, 9, 0};
         int ans = firstMissingPositive2(nums);
         System.out.println(ans);
     }
+
     private static int firstMissingPositive2(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -87,16 +93,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using hash-set
+using hash-set adding all the positive values in the set checking from 1
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 7, 8, 5, 11, 17, 12, 9, 0};
         int ans = firstMissingPositive1(nums);
         System.out.println(ans);
     }
+
     public static int firstMissingPositive1(int[] nums) {
         Set<Integer> set = new HashSet<>();
         // adding all the positive values in the set
@@ -110,4 +117,5 @@ private static void type1() {
         }
         return n + 1;
     }
+}
 ```

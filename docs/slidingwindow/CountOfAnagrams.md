@@ -1,34 +1,46 @@
 # CountOfAnagrams
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/CountOfAnagrams.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-all-anagrams-in-a-string/description/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=MW4lJ8Y0xXk&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=5)
 - [▶ YouTube](https://www.youtube.com/watch?v=G8xtZy0fDKg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+Given a word pat&nbsp;and a text txt. Return the count of the occurrences of anagrams of the word in the text.
+Example 1:
+Input: txt = &quot;forxxorfxdofr&quot;, pat = &quot;for&quot;
+Output: 3
+Explanation: for, orf and ofr appears in the txt, hence answer is 3.
 
-### Approach 6 — Optimal
+Exampl
 
-Time complexity O(2n+k) space complexity O(26) constant space complexity for freq array
+## 💡 Approaches
 
-**Complexity:** Time: o(2n+k) | Space: o(26)
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+first, we are storing all the frequency of the pattern on each iteration we are decrementing the frequency array and checking if it is still greater than zero or not if it is still greater than 0 then we need same element more 0 means we have enough of it for both of these cases we will decrement the required char count if the required char count is zero that mean all the character in pattern is found, then we will check what is the size of the window if it is the same as the pattern length then it's an anagram if it is greater than from the left side we will increment the left pointer and also increment the frequency as we are not considering it in our window anymore.We will do this until again hit required> 0 or the window length is
+
+**Time Complexity:** `O(2n+k)`
+**Space Complexity:** `O(26)`
 
 ```java
-private static void type6() {
+	private static void type6() {
 		String s = "mfrxforxxorfxdofr";
 		String p = "for";
 		List<Integer> ret = findAnagrams6(s, p);
 		System.out.println(ret);
 	}
+
 	private static List<Integer> findAnagrams6(String s, String p) {
 		int n1 = s.length();
 		int n2 = p.length();
@@ -69,10 +81,10 @@ private static void type6() {
 
 ### Approach 5
 
-Same as previous one we are using array rather than using map TODO complete later
+same as previous one we are using array rather than using map complete later
 
 ```java
-private static void type5() {
+	private static void type5() {
 		String text = "mfrxforxxorfxdofr";
 		String pattern = "for";
 		char[] textArray = text.toCharArray();
@@ -104,10 +116,11 @@ private static void type5() {
 
 ### Approach 4
 
-Sliding window if the text size is n then time complexity is O(n) Space complexity is O(sizeof(pattern)) so in previous approach we were checking the frequency array on each window we can do better we can use a counter to check TODO complete and optimize it later check it later aditya verma
+sliding window so in previous approach we were checking the frequency array on each window we can do better we can use a counter to check complete and optimize it later check it later aditya verma sliding until it hits the window
+
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String text = "mfrxforxxorfxdofr";
 		String pattern = "for";
 		Map<Character, Integer> frequency = new HashMap<>();
@@ -164,15 +177,16 @@ private static void type4() {
 
 ### Approach 3
 
-Type 2 and type 3 are same just that we are not taking any set Asymptotically it should take more time but in reality it's taking less as it's easy it works on array rather than customized data structure
+type 2 and type 3 are same just that we are not taking any set Asymptotically it should take more time but in reality it's taking less as it's easy it works on array rather than customized data structure
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String text = "mforxxorfxdofr";
 		String pattern = "for";
 		List<Integer> list = findAnagrams3(text, pattern);
 		System.out.println(list);
 	}
+
 	private static List<Integer> findAnagrams3(String text, String pattern) {
 		if (text.length() < pattern.length()) new ArrayList<>();
 		List<Integer> list = new ArrayList<>();
@@ -197,6 +211,7 @@ private static void type3() {
 		}
 		return list;
 	}
+
 	private static boolean equals(int[] patternArray, int[] textArray) {
 		for (int i = 0; i < 26; i++) {
 			if (patternArray[i] != textArray[i]) {
@@ -209,16 +224,18 @@ private static void type3() {
 
 ### Approach 2
 
-Sliding window if the text size is n, and we are looping through 26 letters in every window so time complexity is O(n*k) space complexity is O(2*26+k) for 2 array We can optimize this by using Map
+Sliding window if the text size is n, and we are looping through 26 letters in every window We can optimize this by using Map calculating for the first window at this point left=0 and right=k updating frequency for the current window where left=1 and right=k calculating for the current window
+
 
 ```java
-public static void type2() {
+	public static void type2() {
 		String text = "mforxxorfxdofr";
 		String pattern = "for";
 
 		int count = countAnagrams2(text, pattern);
 		System.out.println(count);
 	}
+
 	private static int countAnagrams2(String text, String pattern) {
 		int n1 = text.length();
 		int n2 = pattern.length();
@@ -249,6 +266,7 @@ public static void type2() {
 		}
 		return count;
 	}
+
 	private static boolean equals(int[] patternArray, int[] textArray, Set<Integer> allUniqueCharacters) {
 		for (int index : allUniqueCharacters) {
 			if (patternArray[index] != textArray[index]) {
@@ -257,17 +275,20 @@ public static void type2() {
 		}
 		return true;
 	}
+
 	public static int index(char ch) {
 		return ch - 'a';
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

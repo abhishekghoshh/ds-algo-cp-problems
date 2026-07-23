@@ -1,36 +1,41 @@
 # FindMissingNumberInAnArray
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/FindMissingNumberInAnArray.java`
-
+**Topic:** `bitmanipulation`  
 **Tags:** Arrays, Hashing, Bit manipulation
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/missing-number/description/)
 - [📄 NeetCode](https://neetcode.io/problems/missing-number)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bYWLJb3vCWY&t=64s)
 - [📄 takeUforward](https://takeuforward.org/arrays/find-the-missing-number-in-an-array/)
 - [▶ YouTube](https://www.youtube.com/watch?v=WnPLSRLSANE)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find the missing number from 0 to n.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Most optimized approach time complexity O(n) Space complexity O(1) find the summation of [0,n] number in O(1) time then subtract the array items one by one, and you will have the exact number
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 3: 🏆 Optimal Solution
+
+most optimized approach find the summation of [0,n] number in O(1) time then subtract the array items one by one, and you will have the exact number
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
 		int sum = missingNumber3(nums);
 		System.out.println(sum);
 	}
+
 	private static int missingNumber3(int[] nums) {
 		int n = nums.length;
 		int sum = (n * (n + 1)) / 2;
@@ -43,16 +48,18 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach as 1^1 = 0, so if we xor all numbers in array and also with the 0-n then we will do xor for 2n+1 number out of which only one number is occurring 1 times time complexity O(2n) Space complexity O(1)
+optimized approach as 1^1 = 0, so if we xor all numbers in array and also with the 0-n then we will do xor for 2n+1 number out of which only one number is occurring 1 times xor1 will contain all the xor of nums xor2 will contain all the xor of 0 to n xor1 ^ xor2 will give the missing number
 
-**Complexity:** Time: o(2n) | Space: o(1)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
 		int res = missingNumber2(nums);
 		System.out.println(res);
 	}
+
 	private static int missingNumber2(int[] nums) {
 		int n = nums.length;
 		// xor1 will contain all the xor of nums
@@ -70,18 +77,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach Using a Set to check if the value exists or not Time complexity O(2n) Space complexity O(n)
+brute force approach Using a Set to check if the value exists or not adding elements to the set checking from the set
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
 		int res = missingNumber1(nums);
 		System.out.println(res);
 	}
+
 	private static int missingNumber1(int[] nums) {
 		int n = nums.length;
 		// adding elements to the set
@@ -95,4 +104,6 @@ private static void type1() {
 		}
 		return -1;
 	}
+
+}
 ```

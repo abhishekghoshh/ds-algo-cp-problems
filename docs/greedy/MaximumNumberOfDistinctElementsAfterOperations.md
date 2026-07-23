@@ -1,27 +1,34 @@
 # MaximumNumberOfDistinctElementsAfterOperations
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/MaximumNumberOfDistinctElementsAfterOperations.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-number-of-distinct-elements-after-operations/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+come in order and no number will intersect
 
-### Implementation
+## 💡 Approaches
 
-We will use a greedy method here rather than changing duplicate elements if we try to change all the elements this sounds more work, but it makes changing safe for other elements. a num can be changed into [num-k, num+k] we will take a side we will try to make a num as low as possible or as big as possible. let's take an example. if the X is the max of nums, if we make X to X+k, then it would not interfere with other numbers. if there are other X then we can change them to [ X+k-1, X+k-2, ... X-k ], so we will keep track of the last converted number and check if we can convert the current num to (lastConverted - 1) if (lastConverted - 1) falls in between (num-k) to (num+k) then we can change the curr num to (lastConverted - 1) but if the num+k <<<< (lastConverted - 1) then we can change the current num to num+k again todo but before everything we need to sort the nums array, so that all the numbers will come one by one in decreasing order and then last converted numbers will also come in order and no number will intersect
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will use a greedy method here rather than changing duplicate elements if we try to change all the elements this sounds more work, but it makes changing safe for other elements. a num can be changed into [num-k, num+k] we will take a side we will try to make a num as low as possible or as big as possible.
+
+let's take an example. if the X is the max of nums, if we make X to X+k, then it would not interfere with other numbers. if there are other X then we can change them to [ X+k-1, X+k-2, ... X-k ], so we will keep track of the last converted number and check if we can convert the current num to (lastConverted - 1) if (lastConverted - 1) falls in between (num-k) to (num+k) then we can change the curr num to (lastConverted - 1) but if the num+k <<<< (lastConverted - 1) then we can change the current num to num+k again but before everything we need to sort the nums array, so that all the numbers will come one by one in decreasing order and then last converted numbers will also come in order and no number will intersect we will convert the last item as a seed value we will start from n-2 and check if we can convert (lastConverted - 1) or (num+k) if curr num is convertible to (lastConverted - 1), then we will convert it num+k <<<< (lastConverted - 1), so we will reset the lastConverted with num+k
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 2, 3, 3, 4};
         int k = 2;
         int ans = maxDistinctElements1(nums, k);
         System.out.println(ans);
 
     }
+
     public static int maxDistinctElements1(int[] nums, int k) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -44,4 +51,5 @@ private static void type1() {
         }
         return count;
     }
+}
 ```

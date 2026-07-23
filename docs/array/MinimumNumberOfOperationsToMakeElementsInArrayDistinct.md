@@ -1,25 +1,30 @@
 # MinimumNumberOfOperationsToMakeElementsInArrayDistinct
 
-**Topic:** `array` | **File:** `com/problems/array/MinimumNumberOfOperationsToMakeElementsInArrayDistinct.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-number-of-operations-to-make-elements-in-array-distinct/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Min operations to make all elements distinct.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Rather going from first if we go from the last if we go from the last till freq of any element is greater than 1
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+rather going from first if we go from the last if we go from the last till freq of any element is greater than 1 checking for the first part individually if there is any reminder this means n has a reminder but that part only contained the unique elements, so we will decrement the part needed checking for the remaining parts which is multiple of length 3
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 2, 3, 4, 2, 3, 3, 5, 7};
         int ans = minimumOperations3(nums);
         System.out.println(ans);
     }
+
     private static int minimumOperations3(int[] nums) {
         int n = nums.length;
         int[] freq = new int[101];
@@ -54,14 +59,15 @@ private static void type3() {
 
 ### Approach 2
 
-Hashing approach we will store the freq of the numbers and as we well as store a variable to keep track the number of non-unique elements. so that we do not need to go through the entire freq map or array every time, to check how many non-unique are left
+hashing approach we will store the freq of the numbers and as we well as store a variable to keep track the number of non-unique elements. so that we do not need to go through the entire freq map or array every time, to check how many non-unique are left if freq 2, that means it is non-unique, we do not need to check for > 2 as once it is non-unique, it will stay as non-unique now we will loop till non-unique count is 0 (non-unique-count > 0) means there should be at least 2 elements in the array decreasing the freq of first and checking if the freq reduced to 1 checking if there is the third element or not, if it has third then only we will check for it
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 3, 4, 2, 3, 3, 5, 7};
         int ans = minimumOperations2(nums);
         System.out.println(ans);
     }
+
     public static int minimumOperations2(int[] nums) {
         int n = nums.length;
         int count = 0;
@@ -97,11 +103,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+
+}
 ```

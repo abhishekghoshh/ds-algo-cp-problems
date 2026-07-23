@@ -1,21 +1,23 @@
 # OrderNotKnownBinarySearch
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/OrderNotKnownBinarySearch.java`
+**Topic:** `binarysearch`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=gY2b-Q6wDEM&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=4)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Perform binary search when the sorting order is unknown.
 
-### Implementation
+## 💡 Approaches
 
-Improved approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		int key = 8;
 		int low = 0, high = arr.length - 1;
@@ -24,6 +26,7 @@ private static void type2() {
 				decreasingOrderSearch(arr, low, high, key);
 		System.out.println(index);
 	}
+
 	private static int increasingOrderSearch(int[] nums, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -34,6 +37,7 @@ private static void type2() {
 		}
 		return -1;
 	}
+
 	private static int decreasingOrderSearch(int[] nums, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -44,4 +48,5 @@ private static void type2() {
 		}
 		return -1;
 	}
+}
 ```

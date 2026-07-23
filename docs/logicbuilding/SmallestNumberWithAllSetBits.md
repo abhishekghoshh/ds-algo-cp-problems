@@ -1,23 +1,30 @@
 # SmallestNumberWithAllSetBits
 
-**Topic:** `logicbuilding` | **File:** `com/problems/logicbuilding/SmallestNumberWithAllSetBits.java`
+**Topic:** `logicbuilding`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-426/problems/smallest-number-with-all-set-bits/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find the smallest number with all set bits greater than or equal to n.
 
-### Implementation
+## 💡 Approaches
 
-Brute force also the simplest solution
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+brute force also the simplest solution if the bits size is b then 2^b-1 has the most set bit we can directly check in the if-clause and return accordingly
 
 ```java
-private static void type1() {
+    private static void type1() {
         int ans = smallestNumber1(10);
     }
+
+    // if the bits size is b then 2^b-1 has the most set bit
+    // we can directly check in the if-clause and return accordingly
     public static int smallestNumber1(int n) {
         if (n <= 1) return 1;
         if (n <= 3) return 3;
@@ -31,4 +38,5 @@ private static void type1() {
         if (n <= 1023) return 1023;
         return -1;
     }
+}
 ```

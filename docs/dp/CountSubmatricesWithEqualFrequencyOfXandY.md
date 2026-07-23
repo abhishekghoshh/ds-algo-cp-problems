@@ -1,21 +1,25 @@
 # CountSubmatricesWithEqualFrequencyOfXandY
 
-**Topic:** `dp` | **File:** `com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-submatrices-with-equal-frequency-of-x-and-y/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count submatrices where X and Y have equal frequency.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimizing from the previous, we do not need the 2-dimension array we can just add the current difference of x and y to the dp array for the current row also we do not need 2 separate leftX and leftY. we could also calculate the differences from the left side and store it in one variable todo we could more optimizations, but that we make it very complex to understand
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+optimizing from the previous, we do not need the 2-dimension array we can just add the current difference of x and y to the dp array for the current row also we do not need 2 separate leftX and leftY. we could also calculate the differences from the left side and store it in one variable we could more optimizations, but that we make it very complex to understand we will only store the current row's value to store the least index of x updating min column for x updating the differences of x and y from the left side storing the total difference from the top and from the left checking if the column is greater than the least index of x or not
 
 ```java
-private static void type3() {
+    private static void type3() {
         char[][] grid = {
                 {'X', 'Y', '.' },
                 {'Y', '.', '.' }
@@ -45,10 +49,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized from previous approach rather storing the total count of x and y, if we can store the difference of the x and y, then we will not need 2 arrays for both dp values. but there is a problem that we also need to track if there is at least one x present or not. we will use a variable to check if there is already x present on the left side of the current cell or not. however, again for the next row the value will be reset, so the question is, can we use the previous row x position to check for the current row, yes we can. for the current row also the previous row's x is a valid x to satisfy at one x condition. so we will use one variable to track the least left side of x position such that before that there will be no x. for the current row, we will check if there is any new x on the left or not. for at least one x condition, we will check if the current column is greater than equal to the left most x or not.
+optimized from previous approach rather storing the total count of x and y, if we can store the difference of the x and y, then we will not need 2 arrays for both dp values. but there is a problem that we also need to track if there is at least one x present or not.
+
+we will use a variable to check if there is already x present on the left side of the current cell or not. however, again for the next row the value will be reset, so the question is, can we use the previous row x position to check for the current row, yes we can.
+
+for the current row also the previous row's x is a valid x to satisfy at one x condition. so we will use one variable to track the least left side of x position such that before that there will be no x. for the current row, we will check if there is any new x on the left or not.
+
+for at least one x condition, we will check if the current column is greater than equal to the left most x or not. dp to store the difference between x and y to store the least index of x updating min column for x finding the difference from the top side finding from the left side and updating it with the current cell value calculating the current difference of total x and y checking if the column is greater than the least index of x or not
 
 ```java
-private static void type2() {
+    private static void type2() {
         char[][] grid = {
                 {'X', 'Y', '.' },
                 {'Y', '.', '.' }
@@ -79,12 +89,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using iterative approach Intution is like if we can find the total x and y for current cell using the left side and top side value, then our work will be simpler. For that, we will use dpX and dpY arrays, which will hold total x and y for finding the total x and y from the left we will use 2 variables leftX and leftY. So for current cell, the value will be left + dp[i-1][j] + current cell value. And in the same iteration, we will also check if at least one X present or not and dpX and dpY value
+Using iterative approach Intution is like if we can find the total x and y for current cell using the left side and top side value, then our work will be simpler. For that, we will use dpX and dpY arrays, which will hold total x and y for finding the total x and y from the left we will use 2 variables leftX and leftY.
+
+So for current cell, the value will be left + dp[i-1][j] + current cell value. And in the same iteration, we will also check if at least one X present or not and dpX and dpY value finding the top values finding from the left side and updating it with the current cell value calculating the current total value of x and y checking if the condition holds or not
 
 ```java
-private static void type1() {
+    private static void type1() {
         char[][] grid = {
                 {'X', 'Y', '.' },
                 {'Y', '.', '.' }
@@ -112,4 +124,5 @@ private static void type1() {
         }
         System.out.println(count);
     }
+}
 ```

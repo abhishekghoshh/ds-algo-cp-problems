@@ -1,27 +1,33 @@
 # MakeALargeIsland
 
-**Topic:** `graph` | **File:** `com/problems/graph/MakeALargeIsland.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/making-a-large-island/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/maximum-connected-group/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=lgiz0Oup6gM&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=52)
 - [📄 takeUforward](https://takeuforward.org/data-structure/making-a-large-island-dsu-g-52/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+You are given a square&nbsp;binary grid. A grid is considered binary if every value in the grid is either&nbsp;1 or 0.&nbsp;You can change&nbsp;at most one&nbsp;cell in the grid from&nbsp;0 to 1.&nbsp;You need to find the largest group of connected&n
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Exactly like the previous one but here we have used an array as set and stack for clearing the set array we will use union by size this time in previous type we have used a set, but we know the size, so we can use a visited array and one stack to remove the visited position. we will not use a set here
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+exactly like the previous one but here we have used an array as set and stack for clearing the set array we will use union by size this time in previous type we have used a set, but we know the size, so we can use a visited array and one stack to remove the visited position.
+
+we will not use a set here by this union find we have gathered the size of the individual components if noOfOnes == n*n that means there is no zero, we cannot place any 1 in place of 0 now we will loop through the grid and find 0 and check if we can find unique surrounding component or not then the size will be 1+all surrounding unique component adding the node to the set adding node to stack so that we don't have to create a visited array all the time which will save some memory clearing the set array using the stack
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] grid = {
 				{1, 1, 0, 1, 1, 0},
 				{1, 1, 0, 1, 1, 0},
@@ -33,6 +39,7 @@ private static void type2() {
 		int ans = largestIsland2(grid);
 		System.out.println(ans);
 	}
+
 	public static int largestIsland2(int[][] grid) {
 		int n = grid.length;
 		int N = n * n;
@@ -108,12 +115,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use a Disjoint set here we will use union by size this time
+We will use a Disjoint set here we will use union by size this time first, we will create an initialize parent and size arrays this is the direction array by this union find we have gathered the size of the individual components we will traverse all the nodes and create components if this is 0, then we can skip we will create a unique node id for all the cells if there are adjacent cells with value 1, then we will unify the components if noOfOnes == n*n that means there is no zero, we cannot place any 1 in place of 0 now we will loop through the grid and find 0, and check if we can find unique surrounding component or not, then the size will be 1+all surrounding unique part.
+
+we have used the set to check all the unique components which are neighbors to the current cell we will store the parent nodes of the components in the set checking if the component is in the set or not if then, we will add that into the set, and also we will add size and at last we will check the total size src == parent[src] means parent of the node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] grid = {
 				{1, 1, 0, 1, 1, 0},
 				{1, 1, 0, 1, 1, 0},
@@ -125,6 +134,7 @@ private static void type1() {
 		int ans = largestIsland1(grid);
 		System.out.println(ans);
 	}
+
 	public static int largestIsland1(int[][] grid) {
 		int n = grid.length;
 		int N = n * n;
@@ -197,9 +207,11 @@ private static void type1() {
 		}
 		return largestIsland;
 	}
+
 	private static boolean isInBounds(int x, int y, int n) {
 		return x >= 0 && x < n && y >= 0 && y < n;
 	}
+
 	public static void union(int[] parent, int[] size, int u, int v) {
 		int baseParentU = find(parent, u);
 		int baseParentV = find(parent, v);
@@ -211,6 +223,7 @@ private static void type1() {
 			size[baseParentU] += size[baseParentV];
 		}
 	}
+
 	public static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
 		if (node == parent[node]) return node;
@@ -218,4 +231,5 @@ private static void type1() {
 		parent[node] = baseParent;
 		return baseParent;
 	}
+}
 ```

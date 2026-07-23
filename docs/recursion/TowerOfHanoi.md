@@ -1,38 +1,36 @@
 # TowerOfHanoi
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/TowerOfHanoi.java`
+**Topic:** `recursion`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top, and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules: (1)Only one disk can be moved at a time. (2)Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. (3)a disk can only be moved if it is the uppermost disk on a stack. (4)No disk may be placed on top of a smaller disk.
+Solve the Tower of Hanoi puzzle: move n disks from source to destination using an auxiliary rod. Only smaller disks can be placed on larger disks.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=tZELBt_y50o)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **3** approaches, progressing from brute force to optimal:
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-### Approach 3 — Optimal
-
-Optimal approach
+### Approach 3: 🏆 Optimal Solution
 
 ```java
-private static void type3() {
+	private static void type3() {
 	}
 ```
 
 ### Approach 2
 
-This is not an optimal approach
+this is not an optimal approach
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int totalDisks = 3;
 		char fromDisk = 'A';
 		char toDisk = 'B';
@@ -41,12 +39,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Our job is to move n disk from A disk to B disk, and we have one extra C disk we can divide the task in three parts first move the n-1 from A -> C then move nth disk from A-> B then move that n-1 disks from C->B time complexity is O(2^n)
+Our job is to move n disk from A disk to B disk, and we have one extra C disk we can divide the task in three parts first move the n-1 from A -> C then move nth disk from A-> B then move that n-1 disks from C->B if there is no disk to move move the n-1 from A -> C move nth disk from A-> B move that n-1 disks from C->B
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int totalDisks = 2;
 		int fromDisk = 1;
 		int toDisk = 2;
@@ -54,6 +53,7 @@ private static void type1() {
 		long count = toh(totalDisks, fromDisk, toDisk, extraDisk);
 		System.out.println(count);
 	}
+
 	private static long toh(int n, int fromDisk, int toDisk, int extraDisk) {
 		// if there is no disk to move
 		if (n == 1) {
@@ -70,6 +70,7 @@ private static void type1() {
 
 		return count;
 	}
+
 	private static void shift(int totalDisks, char fromDisk, char toDisk, char extraDisk) {
 		// if there is no disk to move
 		if (totalDisks == 0) return;
@@ -80,4 +81,6 @@ private static void type1() {
 		// move that n-1 disks from C->B
 		shift(totalDisks - 1, extraDisk, toDisk, fromDisk);
 	}
+
+}
 ```

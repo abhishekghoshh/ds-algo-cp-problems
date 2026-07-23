@@ -1,31 +1,36 @@
 # DeleteMiddleElementOfStack
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/DeleteMiddleElementOfStack.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/delete-middle-element-of-a-stack/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=oCcUNRMl7dA&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+recursively reach to the n/2 +1 th element and pop it
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Recursive type2
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+recursive type2 we will pass three-parameter stack, current index,stack size
 
 ```java
-private static void type3() {
+	private static void type3() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
 		// we will pass three-parameter
 		// stack, current index,stack size
 		deleteMiddle2(stack, 1, stack.size());
 		System.out.println(stack);
 	}
+
 	private static void deleteMiddle2(Stack<Integer> stack, int current, int size) {
 		if (stack.isEmpty()) return;
 		int item = stack.pop();
@@ -36,10 +41,10 @@ private static void type3() {
 
 ### Approach 2
 
-Iteratively
+Iteratively we will add the top n/2 elements to the temporary stack popping the middle element again adding the elements from the temp stack to the original stack
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
 		int n = stack.size();
 		Stack<Integer> temp = new Stack<>();
@@ -54,17 +59,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursive recursively reach to the n/2 +1 th element and pop it
+recursive recursively reach to the n/2 +1 th element and pop it we will pass three-parameter stack, current index,stack size if current index == size/2 +1, so it is the element that we have to pop we will first pop the last, and we will assume the function will delete the middle element then we will again add the element
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Stack<Integer> stack = stack(5, 2, 7, 1, 6, 9, 8, 3, 4);
 		// we will pass three-parameter stack, current index,stack size
 		deleteMiddle1(stack, stack.size(), stack.size());
 		System.out.println(stack);
 	}
+
 	private static void deleteMiddle1(Stack<Integer> stack, int i, int n) {
 		// if current index == size/2 +1, so it is the element that we have to pop
 		if (i == (n / 2) + 1) {
@@ -77,6 +83,7 @@ private static void type1() {
 		deleteMiddle1(stack, i - 1, n);
 		stack.push(item);
 	}
+
 	private static Stack<Integer> stack(int... arr) {
 		Stack<Integer> stack = new Stack<>();
 		for (int item : arr) {
@@ -84,4 +91,6 @@ private static void type1() {
 		}
 		return stack;
 	}
+
+}
 ```

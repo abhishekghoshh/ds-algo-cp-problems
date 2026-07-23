@@ -1,21 +1,25 @@
 # ThreeSumClosest
 
-**Topic:** `array` | **File:** `com/problems/array/ThreeSumClosest.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/3sum-closest/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Return the sum of three integers closest to target.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+if (tempSum == target) return tempSum;
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 1, 1, 0};
 		int target = 2;
 		int sum = Integer.MAX_VALUE >> 1;
@@ -40,10 +44,8 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
-
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1,1,1,0 };
 		int target = 100;
 		Arrays.sort(nums);
@@ -85,12 +87,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

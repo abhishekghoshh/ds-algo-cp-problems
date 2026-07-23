@@ -1,39 +1,44 @@
 # DecodeWays
 
-**Topic:** `dp` | **File:** `com/problems/dp/DecodeWays.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/decode-ways/description/)
 - [📄 NeetCode](https://neetcode.io/problems/decode-ways)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=6aEyTjOwlJU)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+only take it and take it and take the next index as well
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Check again we will use the iterative approach here todo complete it later
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+we will use the iterative approach here complete it later
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Same approach here we will use a dp array to store the results we will use one dimensional dp array dp[i] means count of decoding from i to n
+same approach here we will use a dp array to store the results we will use one dimensional dp array dp[i] means count of decoding from i to n if i == n means we have exhausted the entire string, so we can use this decoding, hence returning 1 if 'i' is calculated then we will return return 0 if the current index on 0 going to the next character checking if we can take the next character or not if the num is in range [1,26] then only we will consider it
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "226";
         int ans = numDecodings2(s);
         System.out.println(ans);
     }
+
     public static int numDecodings2(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -41,6 +46,7 @@ private static void type2() {
         Arrays.fill(dp, -1);
         return numDecodings2(0, n, arr, dp);
     }
+
     public static int numDecodings2(int i, int n, char[] arr, int[] dp) {
         // if i == n means we have exhausted the entire string, so we can use this decoding, hence returning 1
         if (i == n) return 1;
@@ -63,21 +69,23 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion intuition is very simple if the current index has the '0' so we will not be able to make any string we will return 0 directly so there is possibility with the current index only take it and take it and take the next index as well
+using recursion intuition is very simple if the current index has the '0' so we will not be able to make any string we will return 0 directly so there is possibility with the current index only take it and take it and take the next index as well if i == n means we have exhausted the entire string, so we can use this decoding, hence returning 1 return 0 if the current index on 0 checking if we can take the next character or not if the num is in range [1,26] then only we will consider it
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "226";
         int ans = numDecodings1(s);
         System.out.println(ans);
     }
+
     public static int numDecodings1(String s) {
         char[] arr = s.toCharArray();
         int n = arr.length;
         return numDecodings1(0, n, arr);
     }
+
     public static int numDecodings1(int i, int n, char[] arr) {
         // if i == n means we have exhausted the entire string, so we can use this decoding, hence returning 1
         if (i == n) return 1;
@@ -95,4 +103,5 @@ private static void type1() {
         }
         return count;
     }
+}
 ```

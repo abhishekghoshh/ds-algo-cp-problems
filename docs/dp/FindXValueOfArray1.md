@@ -1,20 +1,23 @@
 # FindXValueOfArray1
 
-**Topic:** `dp` | **File:** `com/problems/dp/FindXValueOfArray1.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-x-value-of-array-i/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Apply operations to compute the X value of an array.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

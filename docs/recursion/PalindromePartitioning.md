@@ -1,8 +1,8 @@
 # PalindromePartitioning
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/PalindromePartitioning.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/palindrome-partitioning/description/)
 - [📄 NeetCode](https://neetcode.io/problems/palindrome-partitioning)
@@ -10,26 +10,32 @@
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/palindrome-partitioning_626181)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/palindrome-partitioning/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=WBgsABoClE0)
 - [📄 takeUforward](https://takeuforward.org/data-structure/palindrome-partitioning/)
 - [▶ YouTube](https://www.youtube.com/watch?v=3jvWodd7ht0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a string s, return all possible palindrome partitioning of s.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Main concept is same for all the approaches todo again with dynamic programming but here we will precompute the palindromes
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+again with dynamic programming but here we will precompute the palindromes for one character, it is always a palindrome now we will do for the 2 length strings now we will do generalization for the strings of length 3 and more then it is not palindrome
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "aabc";
         List<List<String>> answer = partition3(s);
         System.out.println(answer);
     }
+
+
     private static List<List<String>> partition3(String s) {
         List<List<String>> answer = new ArrayList<>();
         List<String> bucket = new ArrayList<>();
@@ -62,6 +68,7 @@ private static void type3() {
         partition3(0, n, new ArrayList<>(), answer, palindromes);
         return answer;
     }
+
     private static void partition3(int start, int n, List<String> bucket, List<List<String>> answer, String[][] palindromes) {
         if (start == n) {
             answer.add(new ArrayList<>(bucket));
@@ -79,14 +86,15 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous with little optimization here we will use a dp table to store if a substring is palindrome or not
+same as previous with little optimization here we will use a dp table to store if a substring is palindrome or not from the start of the index, we will check for every substring that it is a palindrome or not. if it is a palindrome then we will add the substring into the buckets do the next recursion call from the next index if the (start,i) is not a palindrome, then we will skip that if its already calculated then return the result else we will calculate for the current range
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "aabc";
         List<List<String>> answer = partition2(s);
         System.out.println(answer);
     }
+
     private static List<List<String>> partition2(String s) {
         List<List<String>> answer = new ArrayList<>();
         List<String> bucket = new ArrayList<>();
@@ -97,6 +105,7 @@ private static void type2() {
         partition2(s, 0, bucket, answer, dp);
         return answer;
     }
+
     private static void partition2(String str, int start, List<String> bucket, List<List<String>> answer, int[][] dp) {
         int n = str.length();
         if (start == n) {
@@ -113,6 +122,7 @@ private static void type2() {
             bucket.remove(bucket.size() - 1);
         }
     }
+
     private static boolean isPalindrome2(String s, int l, int r, int[][] dp) {
         // if its already calculated then return the result
         if (dp[l][r] != 0) return (dp[l][r] == 1);
@@ -130,22 +140,24 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-With basic recursion and backtracking
+with basic recursion and backtracking from the start of the index, we will check for every substring that it is a palindrome or not. if it is a palindrome, then we will add that substring into the bucket do the next recursion call from the next index
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "aabc";
         List<List<String>> answer = partition1(s);
         System.out.println(answer);
     }
+
     private static List<List<String>> partition1(String s) {
         List<List<String>> answer = new ArrayList<>();
         List<String> bucket = new ArrayList<>();
         partition1(s, 0, bucket, answer);
         return answer;
     }
+
     private static void partition1(String str, int start, List<String> bucket, List<List<String>> answer) {
         int n = str.length();
         if (start == n) {
@@ -164,6 +176,7 @@ private static void type1() {
             }
         }
     }
+
     private static boolean isPalindrome(String s, int l, int r) {
         while (l < r) {
             if (s.charAt(l++) != s.charAt(r--))
@@ -171,4 +184,6 @@ private static void type1() {
         }
         return true;
     }
+
+}
 ```

@@ -1,26 +1,31 @@
 # AssignElementsToGroupsWithConstraints
 
-**Topic:** `prime` | **File:** `com/problems/prime/AssignElementsToGroupsWithConstraints.java`
+**Topic:** `prime`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/assign-elements-to-groups-with-constraints/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+and check if the divisor is present or not in the element map and check their indices
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Complete it later create a sieve first check the hint of the problem
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+complete it later create a sieve first check the hint of the problem
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] groups = {8, 4, 3, 2, 4};
         int[] elements = {4, 2};
         int[] ans = assignElements2(groups, elements);
         PrintUtl.print(ans);
     }
+
     private static int[] assignElements2(int[] groups, int[] elements) {
         int n = groups.length;
         int[] ans = new int[n];
@@ -28,17 +33,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute force approach creates a map of elements now for iterate over the group elements and find the divisors and check if the divisor is present or not in the element map and check their indices
+using brute force approach creates a map of elements now for iterate over the group elements and find the divisors and check if the divisor is present or not in the element map and check their indices creating a map now iterate over the groups and find the divisors if the number is not divisible by the divisor, then skip
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] groups = {8, 4, 3, 2, 4};
         int[] elements = {4, 2};
         int[] ans = assignElements1(groups, elements);
         PrintUtl.print(ans);
     }
+
     public static int[] assignElements1(int[] groups, int[] elements) {
         int n = groups.length;
         int[] ans = new int[n];
@@ -74,4 +80,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

@@ -1,26 +1,30 @@
 # LetterCasePermutation
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/LetterCasePermutation.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/letter-case-permutation/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=J2Er5XceU_I&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=15)
 - [▶ YouTube](https://www.youtube.com/watch?v=4eOPYDOiwFo&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=16)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+we are using a bucket to store the previous results
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-If it is a letter, in place changes Here, we have two choices either to use a lower case or upper here we are directly changing the character case
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+If it is a letter, in place changes Here, we have two choices either to use a lower case or upper here we are directly changing the character case we are just making the string to char array so the char array will have all the elements we don't have to add anything later first, we will consider the lower case so changing the case to lower whatever the case was previously now will change the case to upper as this is a digit, so we don't have to add anything
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "a1b2";
 		List<String> answer = new ArrayList<>();
 		// we are just making the string to char array
@@ -29,6 +33,7 @@ private static void type2() {
 		permutation2(0, s.toCharArray(), answer);
 		System.out.println(answer);
 	}
+
 	private static void permutation2(int i, char[] bucket, List<String> answer) {
 		if (i == bucket.length) {
 			answer.add(new String(bucket));
@@ -50,18 +55,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-If it is a letter Here, we have two choices either to use a lower case or upper we are using a bucket to store the previous results
+If it is a letter Here, we have two choices either to use a lower case or upper we are using a bucket to store the previous results if the character is a letter, then only we can change its case first, we will consider the lower case, and after the computation, we will remove it now will use the upper case, and after the computation, we will remove it if its index then we don't have anything to do, just add it and increase the index
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "a1b2";
 		List<String> answer = new ArrayList<>();
 		StringBuilder bucket = new StringBuilder();
 		permutation1(s, 0, bucket, answer);
 		System.out.println(answer);
 	}
+
 	private static void permutation1(String s, int i, StringBuilder bucket, List<String> answer) {
 		if (i == s.length()) {
 			answer.add(bucket.toString());
@@ -87,4 +93,6 @@ private static void type1() {
 			bucket.deleteCharAt(bucket.length() - 1);
 		}
 	}
+
+}
 ```

@@ -18,6 +18,10 @@ public class PartitionArrayIntoTwoEqualSizeArraysToMinimizeSumDifference {
 
 ```
 
+## 📝 Problem Statement
+
+Partition an array into two equal-sized subsets to minimize the absolute difference of their sums using meet-in-the-middle.
+
 ## Source Code
 
 ```java

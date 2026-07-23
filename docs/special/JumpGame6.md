@@ -17,6 +17,10 @@ public class JumpGame6 {
 
 ```
 
+## 📝 Problem Statement
+
+Maximum score achievable (with jump length <= K) using DP + deque.
+
 ## Source Code
 
 ```java

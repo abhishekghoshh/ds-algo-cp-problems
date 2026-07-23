@@ -1,29 +1,33 @@
 # TransformArrayToAllEqualElements
 
-**Topic:** `array` | **File:** `com/problems/array/TransformArrayToAllEqualElements.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, two pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-453/problems/transform-array-to-all-equal-elements/description/)
 - [📄 LeetCode](https://leetcode.com/problems/transform-array-to-all-equal-elements/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+O(2n) or O(3n) based on the number negative and positive elements
 
-### Implementation
+## 💡 Approaches
 
-It is very optimized approach O(2n) or O(3n) based on the number negative and positive elements
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+it is very optimized approach O(2n) or O(3n) based on the number negative and positive elements both are in odd numbers both are even, so we can either make all positive or all negative if positive is even, then we can have to those positive numbers to negative if negative is even, then we can have to those negative numbers to positive if it is already equal to pivot, then we can skip it
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, -1, 1, -1, 1};
         int k = 3;
         boolean ans = canMakeEqual1(nums, k);
         System.out.println(ans);
     }
+
     public static boolean canMakeEqual1(int[] nums, int k) {
         int n = nums.length;
         int neg = 0, pos = 0;
@@ -46,6 +50,7 @@ private static void type1() {
             return checkAllEqualPivot(nums, k, 1);
         }
     }
+
     public static boolean checkAllEqualPivot(int[] nums, int k, int pivot) {
         int n = nums.length;
         int cost = 0;
@@ -64,4 +69,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

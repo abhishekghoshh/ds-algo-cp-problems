@@ -17,6 +17,10 @@ public class FrogJump1 {
 
 ```
 
+## 📝 Problem Statement
+
+Frog crossing river with stone positions.
+
 ## Source Code
 
 ```java

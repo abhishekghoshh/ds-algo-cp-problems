@@ -1,38 +1,43 @@
 # CombinationSum2
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/CombinationSum2.java`
+**Topic:** `recursion`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target. Each number in candidates may only be used once in the combination. Note: The solution set must not contain duplicate combinations. The output will be in lexicographical order
+Given a collection of candidate numbers (candidates) and a target number
+(target), find all unique combinations in candidates where the candidate
+numbers sum to target. Each number in candidates may only be used once in the
+combination. Note: The solution set must not contain duplicate combinations.
+The output will be in lexicographical order
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/combination-sum-ii/description/)
 - [📄 NeetCode](https://neetcode.io/problems/combination-target-sum-ii)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1112622)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=G1fRTGRxXU8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/combination-sum-ii-find-all-unique-combinations/)
 - [▶ YouTube](https://www.youtube.com/watch?v=FOyRpNUSFeA)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **2** approaches, progressing from brute force to optimal:
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-This is inspired from permutations and 4-sum problem todo As there are some repeat elements in given an array we have to follow this subsequence approach, we will only pick unique elements in a loop
+this is inspired from permutations and 4-sum problem As there are some repeat elements in given an array we have to follow this subsequence approach, we will only pick unique elements in a loop we will sort the array then all the duplicate elements will come one after another if the remaining is 0, then we do not have to check it further, we can directly return we will check if the current element is the same as the previous element or not if the current element is greater than the target, then there is no point to check index + 1 elements as the array is sorted
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 10, 1, 2, 7, 6, 1, 5 };
 		int target = 8;
 		List<List<Integer>> answer = combinationSum2(nums, target);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> combinationSum2(int[] nums, int target) {
 		// we will sort the array then all the duplicate elements will come one after another
 		Arrays.sort(nums);
@@ -41,6 +46,7 @@ private static void type2() {
 		combinationSum2(nums, 0, target, bucket, answer);
 		return answer;
 	}
+
 	private static void combinationSum2(int[] nums, int start, int remaining, List<Integer> bucket, List<List<Integer>> answer) {
 		// if the remaining is 0, then we do not have to check it further, we can directly return
 		if (remaining == 0) {
@@ -60,17 +66,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-If there is no duplicate value in a given array
+If there is no duplicate value in a given array for early computation, we will sort the array if index is length and target is not zero, so we are not capable to make target we will add the element if it is less than the current target, and we know that if the item is not capable, then index+1 element will also unable to make it not choosing the element choosing the element
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] candidates = { 10, 1, 2, 7, 6, 5 };
 		int target = 8;
 		List<List<Integer>> answer = combinationSum1(candidates, target);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> combinationSum1(int[] candidates, int target) {
 		// for early computation, we will sort the array
 		Arrays.sort(candidates);
@@ -79,6 +86,7 @@ private static void type1() {
 		combinationSum1(candidates, 0, target, bucket, answer);
 		return answer;
 	}
+
 	private static void combinationSum1(int[] candidates, int i, int target, List<Integer> bucket, List<List<Integer>> answer) {
 		if (target == 0) answer.add(new ArrayList<>(bucket));
 		// if index is length and target is not zero, so we are not capable to make target
@@ -94,4 +102,5 @@ private static void type1() {
 			bucket.remove(bucket.size() - 1);
 		}
 	}
+}
 ```

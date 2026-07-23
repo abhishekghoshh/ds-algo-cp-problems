@@ -1,27 +1,35 @@
 # PathWithMinimumEffort
 
-**Topic:** `graph` | **File:** `com/problems/graph/PathWithMinimumEffort.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/path-with-minimum-effort/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/path-with-minimum-effort/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0ytpZyiZFhA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=39)
 - [📄 takeUforward](https://takeuforward.org/data-structure/g-37-path-with-minimum-effort/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+You are a hiker preparing for an upcoming hike. You are given heights, a 2D
 
-### Implementation
+## 💡 Approaches
 
-You are a hiker preparing for an upcoming hike. You are given heights, a 2D array of size rows x columns, where heights[row][col] represents the height of cell (row, col). You are situated in the top-left cell, (0, 0), and you hope to travel to the bottom-right cell, (rows-1, columns-1) (i.e.,0-indexed). You can move up, down, left, or right, and you wish to find a route that requires the minimum effort. A route's effort is the maximum absolute difference in heights between two consecutive cells of the route. Return the minimum effort required to travel from the top-left cell to the bottom-right cell. We will use a priority queue and apply Dijkstra algorithm here on every iteration we will store the new Min Effort into the queue for a particular node once we reach the final node we will return the  answer as we know it will have the minimum effort value
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+We will use a priority queue and apply Dijkstra algorithm here on every iteration we will store the new Min Effort into the queue for a particular node once we reach the final node we will return the answer as we know it will have the minimum effort value Create a distance matrix with initially all the cells marked as unvisited and the dist for source cell (0,0) as 0.
+
+The following delta rows and delta columns array are created such that each index represents each adjacent node that a cell may have in a direction. p[0] is for distance Iterate through the matrix by popping the elements out of the queue and pushing whenever a shorter distance to a cell is found.
+
+if we reach the destination then we will return the answer we will traverse all its 4 neighbours we will check if it is in bounds Effort can be calculated as the max value of differences between the heights of the node and its adjacent nodes. we will take the max difference on that path If the new diff is less than the prev diff we update as we need the min effort
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] heights = {
 				{1, 2, 2},
 				{3, 8, 2},
@@ -31,6 +39,7 @@ private static void type1() {
 		System.out.println(ans);
 
 	}
+
 	public static int minimumEffortPath1(int[][] heights) {
 		int row = heights.length;
 		int column = heights[0].length;
@@ -79,7 +88,10 @@ private static void type1() {
 		}
 		return 0;
 	}
+
 	private static boolean isInBounds(int r, int c, int row, int column) {
 		return r >= 0 && r < row && c >= 0 && c < column;
 	}
+
+}
 ```

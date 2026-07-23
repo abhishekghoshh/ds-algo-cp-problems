@@ -1,25 +1,30 @@
 # FindTheSequenceOfStringsAppearedOnTheScreen
 
-**Topic:** `string` | **File:** `com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-sequence-of-strings-appeared-on-the-screen/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Simulate a typing sequence and return the strings that appeared on screen.
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach we will start with 'a' and go till 'ch' once it is reached 'ch' we will go to the next letter
 
 ```java
-private static void type1() {
+    private static void type1() {
         String target = "abc";
         List<String> ans = stringSequence1(target);
         System.out.println(ans);
     }
+
     public static List<String> stringSequence1(String target) {
         List<String> answer = new ArrayList<>();
         StringBuilder bucket = new StringBuilder();
@@ -33,4 +38,5 @@ private static void type1() {
         }
         return answer;
     }
+}
 ```

@@ -1,13 +1,13 @@
 # EggDropping
 
-**Topic:** `dp` | **File:** `com/problems/dp/EggDropping.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/super-egg-drop/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/egg-dropping-puzzle-1587115620/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=S49zeUjeUL0&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=42)
 - [▶ YouTube](https://www.youtube.com/watch?v=gr2NtY-2QUY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=43)
@@ -15,21 +15,26 @@
 - [▶ YouTube](https://www.youtube.com/watch?v=UvksR0hR9nA -> best explanation)
 - [▶ YouTube](https://www.youtube.com/watch?v=ypz_aflDqBo -> for binary search approach)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+You are given k identical eggs, and you have access to a building with n
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-A tricky hard problem You are given k identical eggs, and you have access to a building with n floors labeled from 1 to n. You know that there exists a floor f where 0 <= f <= n such that any egg dropped at a floor higher than f will break, and any egg dropped at or below floor f will not break. Each move, you may take an unbroken egg and drop it from any floor x (where 1 <= x <= n). If the egg breaks, you can no longer use it. However, if the egg does not break, you may reuse it in future moves. Return the minimum number of moves that you need to determine with certainty what the value of f is. TODO check this problem again TODO check the logic, similar to the previous type just here we are using the 1D array
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+check the logic, similar to the previous type just here we are using the 1D array
 
 ```java
-private static void type6() {
+	private static void type6() {
 		int floors = 10;
 		int eggs = 2;
 		int minAttempts = eggDropping6(eggs, floors);
 		System.out.println(minAttempts);
 	}
+
 	private static int eggDropping6(int k, int n) {
 		int[] dp = new int[k + 1];
 		int m;
@@ -44,15 +49,16 @@ private static void type6() {
 
 ### Approach 5
 
-Check the logic
+check the logic
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int floors = 10;
 		int eggs = 2;
 		int minAttempts = eggDropping5(eggs, floors);
 		System.out.println(minAttempts);
 	}
+
 	private static int eggDropping5(int k, int n) {
 		int[][] dp = new int[k + 1][n + 1];
 		for (int i = 1; i <= n; i++) {
@@ -67,16 +73,17 @@ private static void type5() {
 
 ### Approach 4
 
-Similar to previous approach but here we will be using the binary search along with the dp
+similar to previous approach but here we will be using the binary search along with the dp we will loop until both the attempts are minimized we will check between 1 to n floors here egg break here egg didn't break
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int floors = 10;
 		int eggs = 2;
 		int[][] dp = new int[eggs + 1][floors + 1];
 		int minAttempts = eggDropping4(eggs, floors, dp);
 		System.out.println(minAttempts);
 	}
+
 	public static int eggDropping4(int k, int n, int[][] dp) {
 		if (k == 1 || n <= 1) return n;
 
@@ -108,15 +115,16 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous here we will top-down approach instead of bottom-up approach in simple we will be using the simple iterative approach here
+same as previous here we will top-down approach instead of bottom-up approach in simple we will be using the simple iterative approach here
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int floors = 10;
 		int eggs = 2;
 		int minAttempts = eggDropping3(eggs, floors);
 		System.out.println(minAttempts);
 	}
+
 	private static int eggDropping3(int k, int n) {
 		int[][] dp = new int[k + 1][n + 1];
 		for (int i = 1; i <= k; i++) {
@@ -143,10 +151,10 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+initialize all the cell with -1
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int floors = 10;
 		int eggs = 2;
 		int[][] dp = new int[eggs + 1][floors + 1];
@@ -154,6 +162,7 @@ private static void type2() {
 		int minAttempts = eggDropping(eggs, floors, dp);
 		System.out.println(minAttempts);
 	}
+
 	private static int eggDropping(int k, int n, int[][] dp) {
 		if (dp[k][n] != 0) return dp[k][n];
 
@@ -172,17 +181,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+if the egg amount is 1, then we have to check for all the floors to find the critical floor if the floor size is less than 1 then we will have to choose 1 floor to check +1 for the current attempt
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int floors = 10;
 		int eggs = 2;
 		int minAttempts = eggDropping(eggs, floors);
 		System.out.println(minAttempts);
 	}
+
 	private static int eggDropping(int k, int n) {
 		// if the egg amount is 1, then we have to check for all the floors to find the critical floor
 		// if the floor size is less than 1 then we will have to choose 1 floor to check
@@ -199,4 +209,5 @@ private static void type1() {
 		// +1 for the current attempt
 		return min + 1;
 	}
+}
 ```

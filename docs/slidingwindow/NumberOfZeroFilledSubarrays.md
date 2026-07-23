@@ -1,31 +1,35 @@
 # NumberOfZeroFilledSubarrays
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/NumberOfZeroFilledSubarrays.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** array, sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-zero-filled-subarrays/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=G-EWVGCcL_w)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count subarrays filled entirely with zeros.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly the same as the previous but here we will see this as an array problem
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly the same as the previous but here we will see this as an array problem once we see any non-zero, we will reset the count, else increase the count this new zero will introduce (count) number of subarrays
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 3, 0, 0, 2, 0, 0, 4};
         long ans = zeroFilledSubarray3(nums);
         System.out.println(ans);
     }
+
     public static long zeroFilledSubarray3(int[] nums) {
         long ans = 0;
         int count = 0;
@@ -42,14 +46,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using the sliding window now we will add one 0 at a time. let's say the current string is 0 0 0, and if we add another 0. it will create 4 substring which ends with the last 0. which is nothing but the new length of the string (basic substring pre-knowledge)
+optimized approach using the sliding window now we will add one 0 at a time. let's say the current string is 0 0 0, and if we add another 0. it will create 4 substring which ends with the last 0. which is nothing but the new length of the string (basic substring pre-knowledge) skipping the non zero elements
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 3, 0, 0, 2, 0, 0, 4};
         long ans = zeroFilledSubarray2(nums);
         System.out.println(ans);
     }
+
     public static long zeroFilledSubarray2(int[] nums) {
         int n = nums.length;
         long count = 0L;
@@ -72,11 +77,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using 2 loops
+brute force approach using 2 loops
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

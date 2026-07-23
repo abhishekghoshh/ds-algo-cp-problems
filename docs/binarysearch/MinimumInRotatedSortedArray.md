@@ -1,33 +1,39 @@
 # MinimumInRotatedSortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/MinimumInRotatedSortedArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)
 - [📄 NeetCode](https://neetcode.io/problems/find-minimum-in-rotated-sorted-array)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/rotated-array_1093219)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=nhEMDKMB44g)
 - [▶ YouTube](https://www.youtube.com/watch?v=4WmTRFZilj8&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=7)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-in-rotated-sorted-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the minimum in a rotated sorted array.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Binary search similar to the type 2 with some additional if-clause todo explain type2 in the interview
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+binary search similar to the type 2 with some additional if-clause explain type2 in the interview binary search approach search space is already sorted then arr[low] will always be the minimum in that search space: if left part is sorted: keep the minimum: Eliminate left half: if right part is sorted:= Eliminate right half:
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] arr = {4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3};
         int ans = findMin4(arr);
         System.out.println(ans);
     }
+
+    // binary search approach
     private static int findMin4(int[] arr) {
         int low = 0, high = arr.length - 1;
         int ans = Integer.MAX_VALUE;
@@ -60,14 +66,16 @@ private static void type4() {
 
 ### Approach 3
 
-Binary search approach binary search similar to the type 2 with some additional if-clause todo explain type2 in the interview
+binary search similar to the type 2 with some additional if-clause explain type2 in the interview binary search approach if the mid is less than its next and prev, that means it is the starting element low to high portion is sorted, so the answer will be low we can break here it is on the left side low to mid-elements are sorted it is on the right side mid to high elements are sorted
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {4, 5, 6, 7, 0, 1, 2, 3};
         int low = findMin3(nums);
         System.out.println(low);
     }
+
+    // binary search approach
     private static int findMin3(int[] nums) {
         int n = nums.length;
         int low = 0, high = n - 1;
@@ -102,14 +110,15 @@ private static void type3() {
 
 ### Approach 2
 
-Binary search approach binary search approach todo explain this in the interview
+binary search approach explain this in the interview if left part is sorted, the subarray is like [...2,4,5,6..] keep the minimum: Eliminate left half: if right part is sorted, the subarray is like [...8,9,10,11..] Eliminate right half:
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {4, 5, 6, 7, 0, 1, 2, 3};
         int ans = findMin2(arr);
         System.out.println(ans);
     }
+
     private static int findMin2(int[] arr) {
         int low = 0, high = arr.length - 1;
         int ans = Integer.MAX_VALUE;
@@ -133,16 +142,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6};
         int ans = findMin1(nums);
         System.out.println(ans);
     }
+
     private static int findMin1(int[] nums) {
         int n = nums.length, next, prev, index = -1;
         for (int i = 0; i < n; i++) {
@@ -154,10 +164,13 @@ private static void type1() {
         }
         return index;
     }
+
     private static int prev(int i, int n) {
         return (i - 1 + n) % n;
     }
+
     private static int next(int i, int n) {
         return (i + 1) % n;
     }
+}
 ```

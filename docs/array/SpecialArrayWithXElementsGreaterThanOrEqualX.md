@@ -1,31 +1,35 @@
 # SpecialArrayWithXElementsGreaterThanOrEqualX
 
-**Topic:** `array` | **File:** `com/problems/array/SpecialArrayWithXElementsGreaterThanOrEqualX.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, sorting, binary search
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Z51jYCeBLVI)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Check if array is 'special' based on value-range criteria.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Most optimized approach using freq array we know one thing that the answer will lie between 1 and n even if nums[i] > n because if there is n elements then we can have at max n elements which can be greater than the special element, we will count the freq of the array and for the elements > n we will increment freq[n]
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+most optimized approach using freq array we know one thing that the answer will lie between 1 and n even if nums[i] > n because if there is n elements then we can have at max n elements which can be greater than the special element, we will count the freq of the array and for the elements > n we will increment freq[n] creating the freq array if the array is greater than n then we will take the n now we will go from the last, and count the numbers which are greater than num count is the cumulative freq
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {3, 9, 7, 8, 3, 8, 6, 6};
         int ans = specialArray3(nums);
         System.out.println(ans);
     }
+
     public static int specialArray3(int[] nums) {
         int n = nums.length;
         // creating the freq array
@@ -50,14 +54,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using sort lets sort it and count the elements from right to left lets say numbers are 1 2 4 5 6, and we are now currently 4 so that means on right there is 3 numbers is 3 is in between 2 and 4, which is yes, so we will return 3 we will go till to start
+optimized approach using sort lets sort it and count the elements from right to left lets say numbers are 1 2 4 5 6, and we are now currently 4 so that means on right there is 3 numbers is 3 is in between 2 and 4, which is yes, so we will return 3 we will go till to start checking from the last skipping all the duplicates finding the count on the right side here we are checking the actual condition
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {3, 9, 7, 8, 3, 8, 6, 6};
         int ans = specialArray2(nums);
         System.out.println(ans);
     }
+
     private static int specialArray2(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -78,16 +83,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {3, 9, 7, 8, 3, 8, 6, 6};
         int ans = specialArray1(nums);
         System.out.println(ans);
     }
+
     public static int specialArray1(int[] nums) {
         int n = nums.length;
         for (int i = 1; i <= n; i++) {
@@ -99,4 +105,5 @@ private static void type1() {
         }
         return -1;
     }
+}
 ```

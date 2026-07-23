@@ -1,30 +1,35 @@
 # RangeSumOfBST
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/RangeSumOfBST.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/range-sum-of-bst/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=uLVG45n4Sbg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Sum values in a BST within a given range.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using binary search property
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using binary search property if the root is null then we will return 0 if the root val is in the range then we will add to the sum rather blindly calling the function for left and right subtree we will check if the root is greater than val or not if it is then there might be some numbers in the left subtree similar condition on the right side
 
 ```java
-private static void type2() {
+    private static void type2() {
         TNode root = TNode.withCount(25);
         int low = 7, high = 15;
         int ans = rangeSumBST2(root, low, high);
         System.out.println(ans);
     }
+
     public static int rangeSumBST2(TNode root, int low, int high) {
         // if the root is null then we will return 0
         if (root == null) return 0;
@@ -44,17 +49,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach if the root is null then we will return 0 if the root val is in the range then we will add to the sum now we will get the sum from left and the right
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(25);
         int low = 7, high = 15;
         int ans = rangeSumBST1(root, low, high);
         System.out.println(ans);
     }
+
     public static int rangeSumBST1(TNode root, int low, int high) {
         // if the root is null then we will return 0
         if (root == null) return 0;
@@ -68,4 +74,5 @@ private static void type1() {
         sum += rangeSumBST1(root.right, low, high);
         return sum;
     }
+}
 ```

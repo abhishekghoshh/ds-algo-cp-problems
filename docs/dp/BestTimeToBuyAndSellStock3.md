@@ -1,31 +1,36 @@
 # BestTimeToBuyAndSellStock3
 
-**Topic:** `dp` | **File:** `com/problems/dp/BestTimeToBuyAndSellStock3.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/buy-and-sell-stock_1071012)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-uQGzhYj8BQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=38)
 - [📄 takeUforward](https://takeuforward.org/data-structure/buy-and-sell-stock-iii-dp-37/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **9** approaches, progressing from brute force to optimal:
+Max profit with at most 2 transactions.
 
-### Approach 9 — Optimal
+## 💡 Approaches
 
-These 2 are my own solutions2 striver solutions are starting optimized from striver's solution top solution from the leetcode
+This problem can be solved in **9** different ways, each improving upon the previous:
+
+### Approach 9: 🏆 Optimal Solution
+
+top solution from the leetcode
 
 ```java
-private static void type9() {
+    private static void type9() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int answer = maxProfit9(prices);
         System.out.println(answer);
     }
+
     public static int maxProfit9(int[] prices) {
         int best_time_to_buy1 = Integer.MAX_VALUE, reInvestMentCost = Integer.MAX_VALUE;
         int best_profit_1 = 0, finalProfit = 0;
@@ -43,10 +48,10 @@ private static void type9() {
 
 ### Approach 8
 
-Similar to the previous type just a optimization from previous
+similar to the previous type just a optimization from previous odd indices for buying and even for selling assigning the current to the next for future use
 
 ```java
-private static void type8() {
+    private static void type8() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int n = prices.length;
         int[] next = new int[5];
@@ -79,10 +84,12 @@ private static void type8() {
 
 ### Approach 7
 
-We are using a fix size 2D array, and out of that we need 4 cells only if we can use 4 variables instead of 2d array let's introduce 4 variables, though it is not intuitive at all, so do not tell this in the interview TODO check striver solution and leetcode top solutions one more time another approach is use a 1D array with 4 elements trans1-buy trans1-sell trans2-buy trans2-sell This solution is not also very intuitive check it later one more time one rows of the dp array will specify buy1, sell1, buy2, sell2,.....buy-k,sell-k if you have done ith transaction then we will find the dp value of next days i+1th transaction. transactions will spread out from 0 to 2k-1 even means you have to buy and odd means to sell
+we are using a fix size 2D array, and out of that we need 4 cells only if we can use 4 variables instead of 2d array let's introduce 4 variables, though it is not intuitive at all, so do not tell this in the interview check striver solution and leetcode top solutions one more time another approach is use a 1D array with 4 elements trans1-buy trans1-sell trans2-buy trans2-sell This solution is not also very intuitive check it later one more time one rows of the dp array will specify buy1, sell1, buy2, sell2,.....buy-k,sell-k if you have done ith transaction then we will find the dp value of next days i+1th transaction.
+
+transactions will spread out from 0 to 2k-1 even means you have to buy and odd means to sell odd indices for buying and even for selling
 
 ```java
-private static void type7() {
+    private static void type7() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int n = prices.length;
         int[][] dp = new int[n + 1][5];
@@ -113,10 +120,11 @@ private static void type7() {
 
 ### Approach 6
 
-Top-down approach or iterative approach with tabulation with space optimization time complexity is O(4n) we could also use either System.arrayCopy instead of creating a new array
+top-down approach or iterative approach with tabulation with space optimization we could also use either System.arrayCopy instead of creating a new array transactions could have 2 values, 0 and 1, -1 means no transactions left we will use 3 loops, we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day assigning curr to the next copying current to the next for (int i = 0; i < 2; i++) System.arraycopy(curr[i], 0, next[i], 0, 3);
+
 
 ```java
-private static void type6() {
+    private static void type6() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int n = prices.length;
         // transactions could have 2 values, 0 and 1, -1 means no transactions left
@@ -153,10 +161,10 @@ private static void type6() {
 
 ### Approach 5
 
-Tabulation form of the previous type
+tabulation form of the previous type transactions could have 2 values, 0 and 1, -1 means no transactions left we will use 3 loops, we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type5() {
+    private static void type5() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int n = prices.length;
         // transactions could have 2 values, 0 and 1, -1 means no transactions left
@@ -188,10 +196,10 @@ private static void type5() {
 
 ### Approach 4
 
-Similar to the previous type recursion with memoization
+similar to the previous type recursion with memoization transactions could have 2 values, 0 and 1, -1 means no transactions left checking if it is out of bounds or not 0 means we can buy on that day we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int n = prices.length;
         // transactions could have 2 values, 0 and 1, -1 means no transactions left
@@ -202,6 +210,7 @@ private static void type4() {
         int ans = maxProfit4(0, 0, 1, prices, dp);
         System.out.println(ans);
     }
+
     public static int maxProfit4(int day, int canBuy, int transactions, int[] prices, int[][][] dp) {
         // checking if it is out of bounds or not
         if (day == prices.length || transactions == -1) return 0;
@@ -226,16 +235,17 @@ private static void type4() {
 
 ### Approach 3
 
-Recursion with brute force this is very similar to the buy and sell stock 2 problem there we did not have any limit on how many transactions we can do but here, we have a strict boundary
+recursion with brute force this is very similar to the buy and sell stock 2 problem there we did not have any limit on how many transactions we can do but here, we have a strict boundary transactions could have 2 values, 0 and 1, -1 means no transactions left checking if it is out of bounds or not true means we can buy on that day we will decrement the transaction only if there is a buy we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         // transactions could have 2 values, 0 and 1, -1 means no transactions left
         int ans = maxProfit3(0, true, 1, prices);
         System.out.println(ans);
 
     }
+
     public static int maxProfit3(int day, boolean canBuy, int transactions, int[] prices) {
         // checking if it is out of bounds or not
         if (day == prices.length || transactions == -1) return 0;
@@ -260,14 +270,18 @@ private static void type3() {
 
 ### Approach 2
 
-Below 3 solutions are my own solution for the previous type, the only thing we are computing again and again is o..i-1 profit which is making the time complexity as O(n^2) if we can calculate and store the value of the profits, then we can query the profit in O(1) time we will store the max profits from left side(0..i) and right side(i+1,n-1) both then we will simply run a loop and query the profits in that range and return the total profit
+below 3 solutions are my own solution for the previous type, the only thing we are computing again and again is o..i-1 profit if we can calculate and store the value of the profits, then we can query the profit in O(1) time we will store the max profits from left side(0..i) and right side(i+1,n-1) both then we will simply run a loop and query the profits in that range and return the total profit finding for all 0..i profits we are not storing the profit on that day, we are storing the max profit till the day.
+
+as we are going from left to right, our action will be choosing lowest for buying and then sell. starting from 1 as we can only buy in that day storing the max profit finding for all i+1 to n-1 profits. as we are going from right to left, our action will be choosing the highest day for selling and then find the day for buying starting from n-2 as n-1 th day, we can only sell now finding left max profit and right max profit simultaneously profit in the range of 0..i we are considering i+1 as the starting point of the next array we will need at least 2 days in the next array last two indices are n-2 and n-1, we want i+1 <= n-2 or i<=n-3
+
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int answer = maxProfit2(prices);
         System.out.println(answer);
     }
+
     private static int maxProfit2(int[] prices) {
         int n = prices.length;
         if (n == 1) return 0;
@@ -322,16 +336,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Let's do it in a simple way we will loop through O to n-1 and take one pointer i and will calculate the max profit of the range 0..i and i+1 to n-1 we will split the array and try to find the profit separately
+let's do it in a simple way we will loop through O to n-1 and take one pointer i and will calculate the max profit of the range 0..i and i+1 to n-1 we will split the array and try to find the profit separately looping through the range we are considering i+1 as the starting point of the next array we will need at least 2 days in the next array last two indices are n-2 and n-1, we want i+1 <= n-2 or i<=n-3
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int answer = maxProfit1(prices);
         System.out.println(answer);
     }
+
     public static int maxProfit1(int[] prices) {
         int n = prices.length;
         if (n == 1) return 0;
@@ -347,6 +362,7 @@ private static void type1() {
         }
         return max;
     }
+
     public static int maxProfit1(int[] prices, int start, int end) {
         int max = 0;
         int highest = 0;
@@ -359,4 +375,6 @@ private static void type1() {
         }
         return max;
     }
+
+}
 ```

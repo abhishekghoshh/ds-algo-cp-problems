@@ -1,30 +1,35 @@
 # PalindromeNumber
 
-**Topic:** `math` | **File:** `com/problems/math/PalindromeNumber.java`
+**Topic:** `math`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/palindrome-number/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=1xNbjMdbjug&t=1230s)
 - [📄 takeUforward](https://takeuforward.org/data-structure/check-if-a-number-is-palindrome-or-not/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an integer x, return true if x is a palindrome.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Rather saving it in list if we can reverse the number and still the number is same then it will be palindrome
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+rather saving it in list if we can reverse the number and still the number is same then it will be palindrome reversing the number
 
 ```java
-private static void type2() {
+    private static void type2() {
         int x = 121;
         boolean ans = isPalindrome2(x);
         System.out.println(ans);
     }
+
     public static boolean isPalindrome2(int x) {
         if (x < 0) return false;
         int num = x, rev = 0;
@@ -37,16 +42,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using extra list to save all the digits first then we will check on the list
+using extra list to save all the digits first then we will check on the list saving the digits in a list now checking from the list
 
 ```java
-private static void type1() {
+    private static void type1() {
         int x = 121;
         boolean ans = isPalindrome1(x);
         System.out.println(ans);
     }
+
     public static boolean isPalindrome1(int x) {
         if (x < 0) return false;
         if (x == 0) return true;
@@ -65,4 +71,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

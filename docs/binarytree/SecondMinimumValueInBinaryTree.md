@@ -1,32 +1,41 @@
 # SecondMinimumValueInBinaryTree
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/SecondMinimumValueInBinaryTree.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find the second minimum value in a special binary tree.
 
-### Implementation
+## 💡 Approaches
 
-If it was a binary search tree then we could do some optimization we could just search from the right side as that side holds the larger elements this brute force but it is still efficient
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this brute force but it is still efficient we are setting it Long max as the upper range of root value can be (2^31 - 1) checking the current values
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = new TNode(8)
                 .left(new TNode(5))
                 .right(new TNode(6));
         int ans = findSecondMinimumValue(root);
         System.out.println(ans);
     }
+
+    // we are setting it Long max as the upper range of root value can be (2^31 - 1)
+    static long first = Long.MAX_VALUE, second = Long.MAX_VALUE;
+
     public static int findSecondMinimumValue(TNode root) {
         traverse(root);
         return second != Long.MAX_VALUE ?
                 (int) second : -1;
     }
+
     public static void traverse(TNode root) {
         if (null != root) {
             traverse(root.left);
@@ -41,4 +50,5 @@ private static void type1() {
             traverse(root.right);
         }
     }
+}
 ```

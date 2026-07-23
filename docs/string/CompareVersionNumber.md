@@ -1,24 +1,29 @@
 # CompareVersionNumber
 
-**Topic:** `string` | **File:** `com/problems/string/CompareVersionNumber.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/compare-version-numbers/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/1062582)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+splitting using regex with built method
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as the previous one just here we are using character array instead of string
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as the previous one just here we are using character array instead of string calculating the first number skipping the dot(.) character if it does not hit the length calculating the second number checking the conditions
 
 ```java
-private static void type2() {
+	private static void type2() {
 		System.out.println(compareVersion2("1.01", "1.001"));
 	}
+
 	private static int compareVersion2(String version1, String version2) {
 		char[] arr1 = version1.toCharArray();
 		char[] arr2 = version2.toCharArray();
@@ -43,14 +48,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach splitting using regex with built method
+optimized approach splitting using regex with built method
 
 ```java
-private static void type1() {
+	private static void type1() {
 		System.out.println(compareVersion1("1.01", "1.001"));
 	}
+
 	public static int compareVersion1(String version1, String version2) {
 		String[] arr1 = version1.split("[.]"), arr2 = version2.split("[.]");
 		int i = 0, n1 = arr1.length, n2 = arr2.length;
@@ -64,4 +70,5 @@ private static void type1() {
 		}
 		return 0;
 	}
+}
 ```

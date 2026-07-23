@@ -1,39 +1,43 @@
 # LongestDuplicateSubstring
 
-**Topic:** `trie` | **File:** `com/problems/trie/LongestDuplicateSubstring.java`
+**Topic:** `trie`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-duplicate-substring/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FQ8hcOOzQMU -> Tech dose)
 - [▶ YouTube](https://www.youtube.com/watch?v=dcOSQjhfBcQ -> Pepcoding)
 - [https://gist.github.com/SuryaPratapK/bb3a2235634af464a493ee44d2240faf](https://gist.github.com/SuryaPratapK/bb3a2235634af464a493ee44d2240faf)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the longest duplicate substring in a string.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Complete this solution later using Rabin karp's rolling hash algorithm
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+using Rabin karp's rolling hash algorithm
 
 ```java
-private static void type4() {
+	private static void type4() {
 
 	}
 ```
 
 ### Approach 3
 
-Using trie approach this solution is optimized but time complexity O(n^2) also space complexity is little high it is giving TLE in leetcode
+using trie approach it is giving TLE in leetcode (n-i > len) is an early optimization if we already found a maxLen and all the later starting i can not beat this maxLen the can just break the loop
 
-**Complexity:** Time: o(n^2)
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "abcd";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -62,24 +66,31 @@ private static void type3() {
 		String ans = s.substring(start, end + 1);
 		System.out.println(ans);
 	}
+
+	static class Node {
+		final Node[] nodes = new Node[26];
+		int endsWith = 0;
+	}
 ```
 
 ### Approach 2
 
-Using dynamic programming
+using dynamic programming
 
 ```java
-private static void type2() {
+	private static void type2() {
 
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

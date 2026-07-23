@@ -1,14 +1,14 @@
 # LongestIncreasingSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/LongestIncreasingSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-increasing-subsequence/description/)
 - [📄 NeetCode](https://neetcode.io/problems/longest-increasing-subsequence)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/longest-increasing-subsequence_630459)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ekcwMsSIzVc&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=42)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-increasing-subsequence-dp-41/)
@@ -16,20 +16,31 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-increasing-subsequence-binary-search-dp-43/)
 - [▶ YouTube](https://www.youtube.com/watch?v=cjWnW0hdF1Y)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+Given an integer array nums, return the length of the longest strictly increasing subsequence.
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-Intuition is a little bit different, it uses 1D array to store all the list if the n = 10^5 then for previous approaches, the time taken will be O(n^10) that's why this is the best approach todo best approach but don't start with this in the interview start with type1 or type4 maybe We will not store lengths in the indexes, rather we will store the nums in a lisLen array let's think about the brute force solution. We will have to find all the increasing subsequence and find the longest among them. However, that will take time and space, so if we can store all the sequences in the same array. Now if the new element is greater than the last element, then we will push the element in the lisLen array, else will try to find where it can be placed. We will always try to minimize the array elements let's say the array of lengths is like [-INF, 2, 4, 6, 10] so 1 len subsequence ends with 2, 2 length 4, 3 length 6 and 4 length 10 now the current num is 7, so there is a num 6 in previous with the length 3. if we can add 7 then it will make 4 length subsequences, but we already have it that is 10, now our question is should we change it? yes, we have to because in later stage if we find 8 or 9 then it will also compete for length 4, but it should be considered as length 5. so if the new element is lesser than the previous same length element, then only we will update we can find the place either linearly or with the binary search approach
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+best approach but don't start with this in the interview start with type1 or type4 maybe We will not store lengths in the indexes, rather we will store the nums in a lisLen array let's think about the brute force solution. We will have to find all the increasing subsequence and find the longest among them.
+
+However, that will take time and space, so if we can store all the sequences in the same array. Now if the new element is greater than the last element, then we will push the element in the lisLen array, else will try to find where it can be placed. We will always try to minimize the array elements let's say the array of lengths is like [-INF, 2, 4, 6, 10] so 1 len subsequence ends with 2, 2 length 4, 3 length 6 and 4 length 10 now the current num is 7, so there is a num 6 in previous with the length 3.
+
+if we can add 7 then it will make 4 length subsequences, but we already have it that is 10, now our question is should we change it? yes, we have to because in later stage if we find 8 or 9 then it will also compete for length 4, but it should be considered as length 5.
+
+so if the new element is lesser than the previous same length element, then only we will update we can find the place either linearly or with the binary search approach max length of LIS can be n for length 0 there will be nothing, so we have initialized it to -INF if the current num is greater than the last number on LIS, then we will add the num to len(LIS) + 1 we could either use linear approach or binary search approach here i+1 will be the suitable place for num, but we need to check if it is smaller or not
 
 ```java
-private static void type6() {
+    private static void type6() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int len = lengthOfLIS6(nums);
         System.out.println(len);
     }
+
     private static int lengthOfLIS6(int[] nums) {
         int n = nums.length;
         // max length of LIS can be n
@@ -55,14 +66,15 @@ private static void type6() {
 
 ### Approach 5
 
-Similar to the previous one with some optimization we will also use a prevMax index variable just to check if the current num is greater than nums[prevMax], that means dp[prevMax] had the max dp value and nums[prevMax] < num, so we could directly assign dp[i] = dp[prevMax] + 1 and prevMax = i todo this can be a optimization from the previous approach
+similar to the previous one with some optimization we will also use a prevMax index variable just to check if the current num is greater than nums[prevMax], that means dp[prevMax] had the max dp value and nums[prevMax] < num, so we could directly assign dp[i] = dp[prevMax] + 1 and prevMax = i this can be a optimization from the previous approach rather, checking all the indices if we can directly check the current index is greater than the maxI, then we can directly increment from maxI from i-1 to 0 we will check if the num is greater than prev or not, and max len from all the lesser prev value will be our ans len+1 will be the current value of i if there is no lesser previous value then the default len value will be 0
 
 ```java
-private static void type5() {
+    private static void type5() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int max = lengthOfLIS5(nums);
         System.out.println(max);
     }
+
     private static int lengthOfLIS5(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -95,14 +107,15 @@ private static void type5() {
 
 ### Approach 4
 
-Tell this in the interview this is also tabulation, but the intuition is different dp[i] signifies longest increasing subsequence ends at index i we will use 1D array and store dp value for every index starting from index-1 to 0 this is helpfully for printing the longest sequence
+tell this in the interview this is also tabulation, but the intuition is different dp[i] signifies longest increasing subsequence ends at index i we will use 1D array and store dp value for every index starting from index-1 to 0 this is helpfully for printing the longest sequence from i-1 to 0 we will check if the num is greater than prev or not and max len from all the lesser prev value will be our ans len+1 will be the current value of i if there is no lesser previous value then the default len value will be 0
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int max = lengthOfLIS4(nums);
         System.out.println(max);
     }
+
     private static int lengthOfLIS4(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -127,14 +140,15 @@ private static void type4() {
 
 ### Approach 3
 
-Top-down approach tabulation TODO check this approach once again
+top-down approach tabulation check this approach once again n+1 as prev can be -1, so we have to do the coordinate shifting just like the recursive approach, for iterative also the 2nd parameter will be in +1 state following the recurrence relation from the recursive approach, i will be in reverse approach from the intuition at least we can understand the prev will be starting from i-1 otherwise it would make no sense we will do i+1 and i+1 +1 for the 2nd i prev+1 for shifting same for dp, the answer will be the max
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int ans = lengthOfLIS3(nums);
         System.out.println(ans);
     }
+
     private static int lengthOfLIS3(int[] nums) {
         int n = nums.length;
         // n+1 as prev can be -1, so we have to do the coordinate shifting
@@ -165,14 +179,15 @@ private static void type3() {
 
 ### Approach 2
 
-Nice optimization from previous, can be demonstrated in the interview using memoization technique with recursion bottom-up approach. it is not that efficient as we are using nXn and n can be pretty higher
+nice optimization from previous, can be demonstrated in the interview using memoization technique with recursion bottom-up approach. it is not that efficient as we are using nXn and n can be pretty higher n+1 as prev can be -1, so we have to do the coordinate shifting the second parameter will always be +1 state it means i is out of boundary using prev+1 for dp value here again we have 2 options, either to consider the current index or not but we can only consider the current element when it is greater the previous element or the previous is -1, (-1 means we have not started the sequence yet) here we are not taking the current item returning the max out of them
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int ans = lengthOfLIS2(nums);
         System.out.println(ans);
     }
+
     private static int lengthOfLIS2(int[] nums) {
         int n = nums.length;
         // n+1 as prev can be -1, so we have to do the coordinate shifting
@@ -180,6 +195,7 @@ private static void type2() {
         int[][] dp = new int[n][n + 1];
         return lengthOfLIS2(0, -1, n, nums, dp);
     }
+
     public static int lengthOfLIS2(int i, int prev, int n, int[] nums, int[][] dp) {
         // it means i is out of boundary
         if (i >= n) return 0;
@@ -199,20 +215,22 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute approach with recursion and recurrence relation
+using brute approach with recursion and recurrence relation it means index is out of boundary here again we have 2 options, either to consider the current index or not but we can only consider the current element when it is greater the previous element or the previous is -1, (-1 means we have not started the sequence yet) here we are not taking the current item returning the max out of them
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         int ans = lengthOfLIS1(nums);
         System.out.println(ans);
     }
+
     private static int lengthOfLIS1(int[] nums) {
         int n = nums.length;
         return lengthOfLIS1(0, -1, n, nums);
     }
+
     public static int lengthOfLIS1(int i, int prev, int n, int[] nums) {
         // it means index is out of boundary
         if (i >= n) return 0;
@@ -228,4 +246,6 @@ private static void type1() {
         // returning the max out of them
         return Math.max(taking, notTaking);
     }
+
+}
 ```

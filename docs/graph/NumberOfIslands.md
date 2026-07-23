@@ -1,29 +1,33 @@
 # NumberOfIslands
 
-**Topic:** `graph` | **File:** `com/problems/graph/NumberOfIslands.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-islands/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/distinct-islands_630460)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/find-the-number-of-islands/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=muncqlKJrH0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/number-of-islands/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/number-of-distinct-islands/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using dfs we are not using the visited array here, we will mark the visited cells in the existing array we will change the input data, which is not appreciated
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using dfs we are not using the visited array here, we will mark the visited cells in the existing array we will change the input data, which is not appreciated if the cell is 1 then we can start our dfs traversal from here either out of bound or that place is not land we are not using the visited array,so we will change the cell value to 0 marking the cell as visited, as we do not have the visited array so changing the value in place
 
 ```java
-private static void type3() {
+	private static void type3() {
 		char[][] grid = {
 				{'1', '1', '0', '0', '0'},
 				{'1', '1', '0', '0', '0'},
@@ -42,6 +46,7 @@ private static void type3() {
 		}
 		System.out.println(noOfIsland);
 	}
+
 	private static void dfs(char[][] grid, int i, int j) {
 		// either out of bound or that place is not land
 		if (isOutOfBounds(grid, i, j) || grid[i][j] == '0') return;
@@ -53,6 +58,7 @@ private static void type3() {
 		dfs(grid, i, j + 1);
 		dfs(grid, i, j - 1);
 	}
+
 	private static boolean isOutOfBounds(char[][] grid, int i, int j) {
 		return i < 0 || j < 0 || i >= grid.length || j >= grid[i].length;
 	}
@@ -60,10 +66,10 @@ private static void type3() {
 
 ### Approach 2
 
-Using the bfs we are not using the visited array here, we will mark the visited cells in the existing array we will change the input data, which is not appreciated
+using the bfs we are not using the visited array here, we will mark the visited cells in the existing array we will change the input data, which is not appreciated for every un visited node if there is 1 then we will start the BFS we will use queue for storing the positions marking the cell as visited, as we do not have the visited array so changing the value in place checking the new indices are in bounds and not visited and have cell value as 1 marking the cell as visited
 
 ```java
-private static void type2() {
+	private static void type2() {
 		char[][] grid = {
 				{'1', '1', '0', '0', '0'},
 				{'1', '1', '0', '0', '0'},
@@ -85,6 +91,7 @@ private static void type2() {
 		}
 		System.out.println(noOfIsland);
 	}
+
 	private static void bfs(int i, int j, char[][] grid, int[] dx, int[] dy) {
 		// we will use queue for storing the positions
 		Queue<int[]> queue = new LinkedList<>();
@@ -107,12 +114,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using the bfs Using a boolean visited array without changing the input
+using the bfs Using a boolean visited array without changing the input for every un visited node if there is 1 then we will start the BFS we will use queue for storing the positions marking the cell as visited we will traverse until the queue is empty checking the new indices are in bounds and not visited and have cell value as 1
 
 ```java
-private static void type1() {
+	private static void type1() {
 		char[][] grid = {
 				{'1', '1', '0', '0', '0'},
 				{'1', '1', '0', '0', '0'},
@@ -134,6 +141,7 @@ private static void type1() {
 		}
 		System.out.println(noOfIsland);
 	}
+
 	private static void bfs(int i, int j, boolean[][] visited, char[][] grid, int[] dx, int[] dy) {
 		// we will use queue for storing the positions
 		Queue<int[]> queue = new LinkedList<>();
@@ -155,7 +163,10 @@ private static void type1() {
 			}
 		}
 	}
+
 	private static boolean isInOfBounds(char[][] grid, int x, int y) {
 		return x >= 0 && x < grid.length && y >= 0 && y < grid[0].length;
 	}
+
+}
 ```

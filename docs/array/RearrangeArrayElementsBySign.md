@@ -1,34 +1,40 @@
 # RearrangeArrayElementsBySign
 
-**Topic:** `array` | **File:** `com/problems/array/RearrangeArrayElementsBySign.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/rearrange-array-elements-by-sign/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/alternate-numbers_6783445)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=h4aBagy4Uok)
 - [▶ YouTube](https://www.youtube.com/watch?v=SoPmcGzz9-E)
 - [📄 takeUforward](https://takeuforward.org/arrays/rearrange-array-elements-by-sign/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Time complexity O(n) space complexity O(n)
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(n)
+### Approach 2: 🏆 Optimal Solution
+
+we will use 2 pointer one for positive and one for negative positive will start from 0 and negative will start from 1 if we find positive then increment pIndex by 2 and for negative we will increment nIndex by 2
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {3, 1, -2, -5, 2, -4};
         int[] result = rearrangeArray2(nums);
         PrintUtl.print(result);
     }
+
     private static int[] rearrangeArray2(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
@@ -50,18 +56,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Time complexity O(2n) space complexity O(n)
+using 2 different array for
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {3, 1, -2, -5, 2, -4};
         int[] ans = rearrangeArray1(nums);
         PrintUtl.print(nums);
     }
+
     private static int[] rearrangeArray1(int[] nums) {
         int n = nums.length;
         int n2 = n / 2;
@@ -81,4 +89,5 @@ private static void type1() {
         }
         return nums;
     }
+}
 ```

@@ -1,31 +1,36 @@
 # ArmstrongNumbers
 
-**Topic:** `math` | **File:** `com/problems/math/ArmstrongNumbers.java`
+**Topic:** `math`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/check-armstrong_589)
 - [📄 LeetCode](https://leetcode.com/problems/armstrong-number/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=1xNbjMdbjug)
 - [📄 takeUforward](https://takeuforward.org/maths/check-if-a-number-is-armstrong-number-or-not/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+let's find the digit count first we will find the armstrong value then, and check both are same or not
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 371;
         boolean ans = checkArmstrong(n);
         System.out.println(ans);
     }
+
     private static boolean checkArmstrong(int n) {
         if (n == 0) return true;
         int copy = n;
@@ -45,4 +50,5 @@ private static void type1() {
         }
         return (n == num);
     }
+}
 ```

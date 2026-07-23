@@ -1,32 +1,36 @@
 # RodCutting
 
-**Topic:** `dp` | **File:** `com/problems/dp/RodCutting.java`
+**Topic:** `dp`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Given a rod of length N inches and an array of prices, price[]. price[i] denotes the value of a piece of length i. Determine the maximum value obtainable by cutting up the rod and selling the pieces.
+Given a rod of length N inches and an array of prices, price[].
+price[i] denotes the value of a piece of length i.
+Determine the maximum value obtainable by cutting up the rod and selling the pieces.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/rod-cutting0840/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/rod-cutting-problem_800284)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=SZqAQLjDsag&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=14)
 - [▶ YouTube](https://www.youtube.com/watch?v=mO8XpGoJwuo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=25)
 - [📄 takeUforward](https://takeuforward.org/data-structure/rod-cutting-problem-dp-24/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **5** approaches, progressing from brute force to optimal:
+This problem can be solved in **5** different ways, each improving upon the previous:
 
-### Approach 5 — Optimal
+### Approach 5: 🏆 Optimal Solution
 
-Similar to the unbounded knapsack problem further space optimization
+further space optimization if the length is not given, then we will create an array of size n and put there 1..N we don't need initialization as we are setting everything to 0, the int array default value is already 0 similar to the knapsack problem, we can use a single dp array.
+
+but here is a catch, in knapsack we were dependent on the previous row that's why we were starting from the n..0 otherwise we would get the modified value of dp[j-x]. but here we need the j-x th index of the current row, so we can start iteration from 0 if we can accommodate the current length
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] prices = {3, 5, 7, 8, 15, 20};
 		int[] lengths = {2, 3, 4, 5, 9, 12};
 		int total = 14;
@@ -60,10 +64,10 @@ private static void type5() {
 
 ### Approach 4
 
-Using two 1D arrays for storing current and previous row
+using two 1D arrays for storing current and previous row if the length is not given, then we will create an array of size n and put there 1..N we do not need any initiation for the problem, because we are setting 0th row and column to be 0 if we can accommodate the current rod if it is less than the length
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] prices = {3, 5, 7, 8, 15, 20};
 		int[] length = {2, 3, 4, 5, 9, 12};
 		int total = 14;
@@ -93,10 +97,10 @@ private static void type4() {
 
 ### Approach 3
 
-Top-down approach or iterative memoization
+top-down approach or iterative memoization if the length is not given, then we will create an array of size n and put there 1..N initialization for every i and j equal 0 if we can accommodate the current rod if it is less than the length
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] prices = {3, 5, 7, 8, 15, 20};
 		int[] lengths = {2, 3, 4, 5, 9, 12};
 		int total = 14;
@@ -126,10 +130,10 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization
+recursion with memoization if the length is not given, then we will create an array of size n and put there 1..N if either n or total length is 0, then we cannot accommodate anything if recursion is already done, then dp will have a non-zero value otherwise we would have 2 choices, either to take the current element or not take it unlike regular knapsack here we can take the same element more than once
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] prices = {3, 5, 7, 8, 15, 20};
 		int[] lengths = {2, 3, 4, 5, 9, 12};
 		int total = 14;
@@ -139,6 +143,7 @@ private static void type2() {
 		int profit = rodCut2(n, prices, lengths, total, dp);
 		System.out.println(profit);
 	}
+
 	private static int rodCut2(int n, int[] prices, int[] lengths, int total, int[][] dp) {
 		// if either n or total length is 0, then we cannot accommodate anything
 		if (n == 0 || total == 0) return 0;
@@ -157,12 +162,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-With recursion
+with recursion
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+
+}
 ```

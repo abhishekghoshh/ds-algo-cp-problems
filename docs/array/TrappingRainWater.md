@@ -1,36 +1,42 @@
 # TrappingRainWater
 
-**Topic:** `array` | **File:** `com/problems/array/TrappingRainWater.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, two pointers, Stack, Dynamic Programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/trapping-rain-water/description/)
 - [📄 NeetCode](https://neetcode.io/problems/trapping-rain-water)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/630519)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=43)
 - [▶ YouTube](https://www.youtube.com/watch?v=FbGG2qpNp4U&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=10)
 - [▶ YouTube](https://www.youtube.com/watch?v=ZI2z5pq0TqA)
 - [📄 takeUforward](https://takeuforward.org/data-structure/trapping-rainwater/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Updating from the brute force one by one using 2 pointer intuition from the previous types using stack todo study one more time using stack Let's think the water is something like this X X   X     X X X   X X   X X X X X X X X X 1 2 4 2 3 2 1 3 todo the intuition is something like this, we will try to maintain a decreasing stack we store water part by part if the series is like 11 10 6 2 5 9 2 lets say we are on 6 and mid is 2, so we will take the minimum height which is 5 so water on height 2 is (5-2) now on the stack is 11 10 6 5 and we are on 9 so, we will calculate for 6 as left start, 5 mid height and 9 as the right height now on the stack is 11 10 6 and we are on 9 so, we will calculate for 10 as left start, 6 mid height and 9 as the right height now on the stack 11 10 9, so the stack become decreasing one thing that we have noticed is we are adding water level by level
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+study one more time using stack Let's think the water is something like this X X X X X X X X X X X X X X X X X 1 2 4 2 3 2 1 3 the intuition is something like this, we will try to maintain a decreasing stack we store water part by part if the series is like 11 10 6 2 5 9 2 lets say we are on 6 and mid is 2, so we will take the minimum height which is 5 so water on height 2 is (5-2) now on the stack is 11 10 6 5 and we are on 9 so, we will calculate for 6 as left start, 5 mid height and 9 as the right height now on the stack is 11 10 6 and we are on 9 so, we will calculate for 10 as left start, 6 mid height and 9 as the right height now on the stack 11 10 9, so the stack become decreasing one thing that we have noticed is we are adding water level by level it means there is a bar in the left which is lower than the current bar where the water could be stored if there is nothing more in the left then water could not be stored like we are on 4 and the series is 2 4 .....
+
+so water could not store there is something in the left, and we are on 5 and the series is like 4 2 5.... this will be the width from the current range we will take the lesser height if we consider only current height and the left start height then water level which will be added is (height - middleHeight) * width
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] height = {1, 2, 4, 1, 3, 2, 1, 3};
 		int ans = trap5(height);
 		System.out.println(ans);
 	}
+
 	private static int trap5(int[] height) {
 		int total = 0;
 		int n = height.length;
@@ -64,17 +70,21 @@ private static void type5() {
 
 ### Approach 4
 
-Check it later one more time 2 pointer approach time complexity O(n) space complexity O(1) We need a minimum of leftMax and rightMax.So if we take the case when height[l]<=height[r] we increase l++, so we can surely say that there is a block with a height more than height[l] to the right of l. And for the same reason when height[r]<=height[l] we can surely say that there is a block to the left of r which is at least of height[r]. So by traversing these cases and using two pointers approach, the time complexity can be decreased without using extra space TODO study it one more time
+check it later one more time 2 pointer approach We need a minimum of leftMax and rightMax.So if we take the case when height[l]<=height[r] we increase l++, so we can surely say that there is a block with a height more than height[l] to the right of l.
 
-**Complexity:** Time: o(n) | Space: o(1)
+And for the same reason when height[r]<=height[l] we can surely say that there is a block to the left of r which is at least of height[r]. So by traversing these cases using extra space study it one more time int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 }; find the lower bound among height[left] or height[right] water label will always be equal to the lowest among left and right height height[left] is lower, so water is trapper on the left side, update leftmax or ans height[i] is less than leftmax so water can be stored height[right] is lower, so water is trapper on the right side, update rightmax or ans height[i] is less than rightmax so water can be stored
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
 		int area = trap4(height);
 		System.out.println("water collected " + area);
 	}
+
 	private static int trap4(int[] height) {
 		int n = height.length;
 		int left = 0, right = n - 1;
@@ -108,17 +118,19 @@ private static void type4() {
 
 ### Approach 3
 
-Time complexity O(2n) space complexity O(n) exactly similar to the previous solution just for we are not creating any rightMax array instead on that loop we are calculating the are
+exactly similar to the previous solution just for we are not creating any rightMax array instead on that loop we are calculating the are int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 }; start from index 1 we will go till now we will calculate the right side boundary and also calculate the water on each height we will go from n-2 to 1 calculating the right max if the current height is either greater than or equal to left boundary or right boundary then we will skip water level will be min height of the left side and right side we will add the water
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
 		int areaSum = trap3(height);
 		System.out.println("water collected " + areaSum);
 	}
+
 	private static int trap3(int[] height) {
 		int n = height.length;
 		int max, water = 0;
@@ -149,18 +161,20 @@ private static void type3() {
 
 ### Approach 2
 
-Prefix and suffix max array time complexity O(3n) space complexity O(2n) on every index we are calculating it left the highest wall and right highest wall the water height on each block will be equal to the minimum of left highest and right highest wall there will be no water on 0th wall and n-1th wall
+prefix and suffix max array on every index we are calculating it left the highest wall and right highest wall the water height on each block will be equal to the minimum of left highest and right highest wall there will be no water on 0th wall and n-1th wall int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 }; calculating the left side boundary for every i calculating the right side boundary if the current height is either greater than or equal to left boundary or right boundary then we will skip
 
-**Complexity:** Time: o(3n) | Space: o(2n)
+**Time Complexity:** `O(3n)`
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
 
 		int areaSum = trap2(height);
 		System.out.println("water collected " + areaSum);
 	}
+
 	private static int trap2(int[] height) {
 		int n = height.length;
 		int water = 0;
@@ -191,17 +205,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for every wall we are calculating its left max height and right max height there will be no water on 0th wall and n-1th wall O(n^2) time complexity
+brute force approach for every wall we are calculating its left max height and right max height there will be no water on 0th wall and n-1th wall int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 }; we will start from 1 and end on n-2 calculating the left side max height calculating right side max height water stored will be min height * current height
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
 		// int[] height = { 1, 2, 4, 1, 3, 2, 1, 3 };
 		int areaSum = trap1(height);
 		System.out.println("water collected " + areaSum);
 	}
+
 	private static int trap1(int[] height) {
 		int n = height.length;
 		int water = 0;
@@ -228,4 +244,6 @@ private static void type1() {
 		}
 		return water;
 	}
+
+}
 ```

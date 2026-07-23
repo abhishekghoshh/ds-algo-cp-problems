@@ -1,26 +1,31 @@
 # AdjacentIncreasingSubarraysDetection1
 
-**Topic:** `array` | **File:** `com/problems/array/AdjacentIncreasingSubarraysDetection1.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/adjacent-increasing-subarrays-detection-i/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Detect adjacent increasing subarrays (Part 1).
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-More optimized but inspired from the previous type
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+more optimized but inspired from the previous type using prev and current for storing previous indices here we will use 0th index as prev value else we have to treat with null values (0, -1) seq means it has size 0 if current is greater than prev then we will extend the current seq else we will create a new seq assigning current to previous initializing new current seq if curr seq itself can make 2 k length seq then we will return true if the prev and current both sequences has at least k elements then we know than we will be able to make k
 
 ```java
-private static void type3() {
+    private static void type3() {
         List<Integer> nums = List.of(2, 5, 7, 8, 9, 2, 3, 4, 3, 1);
         int k = 3;
         boolean ans = hasIncreasingSubarrays3(nums, k);
         System.out.println(ans);
     }
+
     private static boolean hasIncreasingSubarrays3(List<Integer> nums, int k) {
         int n = nums.size();
         // using prev and current for storing previous indices
@@ -53,15 +58,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach we will store all the indices of the increasing subsequences in a list
+optimized approach we will store all the indices of the increasing subsequences in a list storing the increasing sequences index now we will check from the consequent Seq and check their size if equal to k if curr seq itself can make 2 k length seq then we will return true if the prev and current both sequences has at least k elements then we know than we will be able to make k
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<Integer> nums = List.of(2, 5, 7, 8, 9, 2, 3, 4, 3, 1);
         int k = 3;
         boolean ans = hasIncreasingSubarrays2(nums, k);
         System.out.println(ans);
     }
+
     private static boolean hasIncreasingSubarrays2(List<Integer> nums, int k) {
         int n = nums.size();
         List<Seq> seqList = new ArrayList<>();
@@ -91,19 +97,38 @@ private static void type2() {
         }
         return false;
     }
+
+    static class Seq {
+        int start, end;
+
+        public Seq(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        int size() {
+            return end - start + 1;
+        }
+
+        @Override
+        public String toString() {
+            return "[" + start + "," + end + "]";
+        }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force solution we are checking 1st k window and 2nd k window if both window satisfies increasing condition then we will return true
+brute force solution we are checking 1st k window and 2nd k window if both window satisfies increasing condition then we will return true initializing the window checking for the window
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<Integer> nums = List.of(2, 5, 7, 8, 9, 2, 3, 4, 3, 1);
         int k = 3;
         boolean ans = hasIncreasingSubarrays1(nums, k);
         System.out.println(ans);
     }
+
     public static boolean hasIncreasingSubarrays1(List<Integer> nums, int k) {
         int n = nums.size();
         int end = n - 2 * k;
@@ -123,4 +148,5 @@ private static void type1() {
         }
         return false;
     }
+}
 ```

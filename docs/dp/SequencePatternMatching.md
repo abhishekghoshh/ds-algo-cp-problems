@@ -1,21 +1,25 @@
 # SequencePatternMatching
 
-**Topic:** `dp` | **File:** `com/problems/dp/SequencePatternMatching.java`
+**Topic:** `dp`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=QVntmksK2es&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=30)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if string A is a subsequence of string B.
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 3
 
-This is a very optimized approach we can directly use two pointers for pattern matching we will take two variables i and j for each string. and every time characters match we increment the j at the end if the j is the length of the pattern, then we can say the pattern is matched
+this is a very optimized approach we can directly use two pointers for pattern matching we will take two variables i and j for each string. and every time characters match we increment the j at the end if the j is the length of the pattern, then we can say the pattern is matched going till anyone of them is consumed checking j is same as length
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String string = "abcdefgha";
 		String pattern = "bcfgh";
 		int n1 = string.length();
@@ -30,12 +34,14 @@ private static void type3() {
 	}
 ```
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-What is a pattern matching if a sequence is present in a string, then we will say it is a match. We do not need consecutive characters; However, the order is needed what is the longest common subsequence, it is the maximum length common subsequence present in two strings, what if the max length is a length of the smaller string. In this scenario, we can say the smaller string is present in the larger string. Now our problem became easier. So if we can find the length of the longest common subsequence for the string and the pattern and the length is the same as the length of the pattern, then we can say the pattern is matched
+What is a pattern matching if a sequence is present in a string, then we will say it is a match. We do not need consecutive characters; However, the order is needed what is the longest common subsequence, it is the maximum length common subsequence present in two strings, what if the max length is a length of the smaller string.
+
+In this scenario, we can say the smaller string is present in the larger string. Now our problem became easier. So if we can find the length of the longest common subsequence for the string and the pattern and the length is the same as the length of the pattern, then we can say the pattern is matched if the length of the pattern is same of lcs
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String string = "abcdefgh";
 		String pattern = "bcfgh";
 		int n1 = string.length();
@@ -52,4 +58,5 @@ private static void type2() {
 		boolean isPossible = memo[n1][n2] == n2;
 		System.out.println(isPossible);
 	}
+}
 ```

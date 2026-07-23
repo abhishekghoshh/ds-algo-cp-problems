@@ -1,28 +1,32 @@
 # UnionOfTwoSortedArrays
 
-**Topic:** `array` | **File:** `com/problems/array/UnionOfTwoSortedArrays.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sorted-array_6613259)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=wvcQg43_V8U&t=2584s)
 - [📄 takeUforward](https://takeuforward.org/data-structure/union-of-two-sorted-arrays/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Time complexity O(2(m+n))
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(2(m+n)
+### Approach 2: 🏆 Optimal Solution
+
+
+
+**Time Complexity:** `O(2(m+n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr1 = {1, 3, 4, 5};
         int[] arr2 = {2, 4, 7};
         List<Integer> answer = new ArrayList<>();
@@ -46,14 +50,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Time complexity O((m+n)log(m+n)) + (m+n))
 
-**Complexity:** Time: o((m+n)
+
+**Time Complexity:** `O((m+n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr1 = {1, 3, 4, 5};
         int[] arr2 = {2, 4, 7};
         Set<Integer> set = new TreeSet<>();
@@ -64,4 +68,5 @@ private static void type1() {
         List<Integer> answer = new ArrayList<>(set);
         PrintUtl.print(answer);
     }
+}
 ```

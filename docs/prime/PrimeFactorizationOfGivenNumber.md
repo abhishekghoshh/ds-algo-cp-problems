@@ -1,21 +1,27 @@
 # PrimeFactorizationOfGivenNumber
 
-**Topic:** `prime` | **File:** `com/problems/prime/PrimeFactorizationOfGivenNumber.java`
+**Topic:** `prime`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/prime-factorisation_1760849)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the prime factorization of a given number n.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-For 12 it is 2*2*3
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+the most optimized approach for any number maximum prime factor is log(n) base 2 because the lowest prime factor is 2 first we will have to create the modified sieve array
+
+**Time Complexity:** `O(log(n)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int n = 124;
 		primeFactor = null;
 		initiateSieveArray();
@@ -27,16 +33,22 @@ private static void type4() {
 		}
 		System.out.println(list);
 	}
+
+	// the most optimized approach
+	// for any number maximum prime factor is log(n) base 2
+	// because the lowest prime factor is 2
+	// time complexity O(log(n))
+	// first we will have to create the modified sieve array
+	private static int[] primeFactor = null;
+	private static final int N = 1000000;// 10^6
 ```
 
 ### Approach 3
 
-The most optimized approach for any number maximum prime factor is log(n) base 2 because the lowest prime factor is 2 time complexity O(log(n)) first we will have to create the modified sieve array
-
-**Complexity:** Time: o(log(n)
+that means j is not marked with any prime factor
 
 ```java
-private static void type3() {
+	private static void type3() {
 		if (null == primeFactor) initiateSieveArray();
 		int[] queries = {12, 25, 8, 456, 122587, 128, 367};
 		for (int query : queries) {
@@ -49,6 +61,7 @@ private static void type3() {
 			System.out.println(q + " : " + list);
 		}
 	}
+
 	private static void initiateSieveArray() {
 		primeFactor = new int[N + 1];
 		for (int i = 0; i <= N; i++) primeFactor[i] = i;
@@ -61,12 +74,12 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized modified approach but it will also give TLE if query size is 10^6 time complexity O(sqrt(n))
+optimized modified approach but it will also give TLE if query size is 10^6 we know that for any number its factors can be found before sqrt(n) so we can run till sqrt(n) at the end if n is not 1 then there current n is prime that can not be divided further in range of sqrt(n)
 
-**Complexity:** Time: o(sqrt(n)
+**Time Complexity:** `O(sqrt(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 629;
 		List<Integer> answer = new ArrayList<>();
 		// we know that for any number its factors can be found before sqrt(n)
@@ -85,14 +98,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(n)
+brute force
 
-**Complexity:** Time: o(n)
+**Time Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 48;
 		List<Integer> answer = new ArrayList<>();
 		for (int i = 2; i <= n; i++) {
@@ -103,4 +116,5 @@ private static void type1() {
 		}
 		System.out.println(answer);
 	}
+}
 ```

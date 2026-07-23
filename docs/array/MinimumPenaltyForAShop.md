@@ -1,29 +1,37 @@
 # MinimumPenaltyForAShop
 
-**Topic:** `array` | **File:** `com/problems/array/MinimumPenaltyForAShop.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-penalty-for-a-shop/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0d7ShRoOFVE)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find shop closing time with minimum penalty.
 
-### Implementation
+## 💡 Approaches
 
-There are two rules that we need to follow For every hour when the shop is open and no customers come, the penalty increases by 1. For every hour when the shop is closed and customers come, the penalty increases by 1 optimized approach first we will count Y if we know Y then the value of the N will be simply n - Y. but we will calculate the N along the way when we traverse the array
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach first we will count Y if we know Y then the value of the N will be simply n - Y. but we will calculate the N along the way when we traverse the array this is easier to explain if there is a customer on every day, then we need to close it on the last day if there is no customer on any day, then we will close the first day now will traverse the array and calculate the index with the minimum penalty.
+
+let's say we close on ith day, then the penalty would be total N on the left side of i and total Y on the right side of 'i'. so we will take a variable N which will calculate the prefix sum of N, and along the way we will decrease the Y we will close after that day
 
 ```java
-private static void type1() {
+    private static void type1() {
         String customers = "YYNY";
         int ans = bestClosingTime1(customers);
         System.out.println(ans);
     }
+
+    // this is easier to explain
     public static int bestClosingTime1(String customers) {
         char[] arr = customers.toCharArray();
         int n = arr.length;
@@ -53,4 +61,7 @@ private static void type1() {
         }
         return idx;
     }
+
+
+}
 ```

@@ -1,30 +1,34 @@
 # MergeKSortedLists
 
-**Topic:** `heap` | **File:** `com/problems/heap/MergeKSortedLists.java`
-
+**Topic:** `heap`  
 **Tags:** Linked list, Heap
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/merge-k-sorted-lists/description/)
 - [📄 NeetCode](https://neetcode.io/problems/merge-k-sorted-linked-lists)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/merge-k-sorted-lists_992772)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=l8CuET0jlDU)
 - [▶ YouTube](https://www.youtube.com/watch?v=q5a5OiGbT6Q)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+add everything to a list, then sort then
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-If there is total n lists and k items on each list so time complexity is n*k*log(n) using the merge technique in the merge sort
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+if there is total n lists and k items on each list using the merge technique in the merge sort if there is only one element if there are 2 elements else we will divide the list then merge
+
 
 ```java
-private static void type4() {
+    private static void type4() {
         Node[] lists = {
                 new Node(1, 4, 5),
                 new Node(1, 3, 4),
@@ -34,11 +38,13 @@ private static void type4() {
         Node answer = mergeKLists4(lists);
         print(answer);
     }
+
     private static Node mergeKLists4(Node[] lists) {
         int n = lists.length;
         if (n == 0) return null;
         return mergeKLists(lists, 0, n - 1);
     }
+
     private static Node mergeKLists(Node[] lists, int start, int end) {
         // if there is only one element
         if (start == end)
@@ -52,6 +58,7 @@ private static void type4() {
         Node right = mergeKLists(lists, mid + 1, end);
         return merge(left, right);
     }
+
     private static Node merge(Node l1, Node l2) {
         Node dummyHead = new Node();
         Node prev = dummyHead;
@@ -72,10 +79,11 @@ private static void type4() {
 
 ### Approach 3
 
-If there is total n lists and k items on each list so time complexity is n*k*log(n) todo same as type 2 with some little optimizations here we are checking with the next node in the min heap adding till current node has the next nodes lesser than next node in the heap
+if there is total n lists and k items on each list same as type 2 with some little optimizations here we are checking with the next node in the min heap adding till current node has the next nodes lesser than next node in the heap we will store all the linked list reference for getting the current lowest value we will store all the reference of the linked list because the linked list is stored increasingly if there is no node in the heap then we will add the current node and break
+
 
 ```java
-private static void type3() {
+    private static void type3() {
         Node[] lists = {
                 new Node(1, 4, 5),
                 new Node(1, 3, 4),
@@ -85,6 +93,7 @@ private static void type3() {
 
         print(answer);
     }
+
     private static Node mergeKLists3(Node[] lists) {
         if (lists == null || lists.length == 0) {
             return null;
@@ -120,10 +129,10 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach we will use min heap here
+optimized approach we will use min heap here we will store all the linked list reference for getting the current lowest value we will store all the reference of the linked list because the linked list is stored increasingly
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node[] lists = {
                 new Node(1, 4, 5),
                 new Node(1, 3, 4),
@@ -132,6 +141,7 @@ private static void type2() {
         Node answer = mergeKLists2(lists);
         print(answer);
     }
+
     private static Node mergeKLists2(Node[] lists) {
         if (lists == null || lists.length == 0) {
             return null;
@@ -160,12 +170,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach add everything to a list, then sort then
+brute force approach add everything to a list, then sort then
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node[] lists = {
                 new Node(1, 4, 5),
                 new Node(1, 3, 4),
@@ -175,6 +185,7 @@ private static void type1() {
         Node answer = mergeKLists1(lists);
         print(answer);
     }
+
     private static Node mergeKLists1(Node[] lists) {
         List<Node> list = new ArrayList<>();
         for (Node head : lists) {
@@ -193,4 +204,5 @@ private static void type1() {
         }
         return dummyHead.next;
     }
+}
 ```

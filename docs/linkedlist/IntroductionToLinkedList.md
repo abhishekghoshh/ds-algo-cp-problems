@@ -1,25 +1,29 @@
 # IntroductionToLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/IntroductionToLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/introduction-to-linked-list_8144737)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/linked-list/linked-list-introduction/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will use a dummy node
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will use a dummy node we will add random data to the head; we will traverse the array and add the number to the linked list lastly, we will remove that random data
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {4, 2, 5, 1};
         // we will add random data to the head;
         Node head = new Node(-1);
@@ -36,12 +40,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+we will use two pointer one for traversal and one for returning the answer
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {4, 2, 5, 1};
         Node head = null, node = null;
 
@@ -58,4 +62,6 @@ private static void type1() {
         }
         print(head);
     }
+
+}
 ```

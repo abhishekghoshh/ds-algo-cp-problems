@@ -1,30 +1,36 @@
 # BinaryTreePaths
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/BinaryTreePaths.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/binary-tree-paths/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find all root-to-leaf paths in a binary tree.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+adding the node preparing the string add it to the ans go to the left and right removing the item
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(5);
         List<String> ans = binaryTreePaths(root);
         System.out.println(ans);
     }
+
     public static List<String> binaryTreePaths(TNode root) {
         List<String> ans = new ArrayList<>();
         binaryTreePaths(root, new ArrayList<>(), ans);
         return ans;
     }
+
     private static void binaryTreePaths(TNode root, List<Integer> list, List<String> ans) {
         if (null == root) return;
         // adding the node
@@ -44,4 +50,5 @@ private static void type1() {
         // removing the item
         list.remove(list.size() - 1);
     }
+}
 ```

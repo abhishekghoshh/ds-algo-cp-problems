@@ -1,34 +1,39 @@
 # FenwickTreePrerequisites
 
-**Topic:** `fenwicktree` | **File:** `com/problems/fenwicktree/FenwickTreePrerequisites.java`
+**Topic:** `fenwicktree`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=DPiY9wFxGIw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Prerequisites and theory for Fenwick Tree.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Remove the last set bit
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+remove the last set bit
 
 ```java
-private static void type3() {
+    private static void type3() {
         int num = 710;
         System.out.println("710 in binary is " + Integer.toBinaryString(num));
         int ans = num - (num & (-num));
         System.out.println("after extracting last bit the binary is " + Integer.toBinaryString(ans));
     }
+}
 ```
 
 ### Approach 2
 
-Extract the first set bit from left
+extract the first set bit from left
 
 ```java
-private static void type2() {
+    private static void type2() {
         int num = 710;
         System.out.println("710 in binary is " + Integer.toBinaryString(num));
         int lastBit = num & (-num);
@@ -36,12 +41,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Check bit is set or not
+check bit is set or not
 
 ```java
-private static void type1() {
+    private static void type1() {
         int num = 710;
         int i = 3; // 0 indexed 3rd place means actually it is 2nd
         System.out.println("710 in binary is " + Integer.toBinaryString(num));

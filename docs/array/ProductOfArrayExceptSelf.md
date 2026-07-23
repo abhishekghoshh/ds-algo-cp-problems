@@ -1,34 +1,40 @@
 # ProductOfArrayExceptSelf
 
-**Topic:** `array` | **File:** `com/problems/array/ProductOfArrayExceptSelf.java`
-
+**Topic:** `array`  
 **Tags:** Array, Hashing, Prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/product-of-array-except-self/description/)
 - [📄 NeetCode](https://neetcode.io/problems/products-of-array-discluding-self)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bNvIQI2wAjk)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Product of all elements except self without division.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Prefix sum approach but optimized time complexity O(2n) space complexity O(1)
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(2n) | Space: o(1)
+### Approach 3: 🏆 Optimal Solution
+
+prefix sum approach but optimized rather than having 2 arrays we will just need 2 variable, left and right everytime we will calculate the left multiplication and save it to the ans also update the left at the 2nd loop we will start from last and calculate and right multiplication and save that to the ans and also update the right
+
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {-1, 1, 0, -3, 3};
         int[] ans = productExceptSelf3(nums);
         PrintUtl.print(ans);
     }
+
+    // rather than having 2 arrays we will just need 2 variable, left and right
     public static int[] productExceptSelf3(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
@@ -51,16 +57,20 @@ private static void type3() {
 
 ### Approach 2
 
-We will use 2 prefix-mul array just like prefix sum array to store the prefix multiplication we need it from left and right so if the index is i then mul[i] = left-prefix-mul[i-1] * right-prefix-mul[i+1] we will compute both left and right prefix multiplication first in another loop we will calculate the ans brute force approach time complexity O(2n) if there is no 0 element in nums array O(n) if there is atleast one zero element space complexity O(1) its not bad approach though
+brute force approach O(n) if there is atleast one zero element its not bad approach though we will count the frequencies of 0 and also we will start we will find the zero frequency and zero index we have 3 cases to think about if there are more than one 0 then we the ans will be the array of all zeros of there is only one zero then all the indices will be 0 only then index which has that 0 will have the multiplication value if we do not have any 0 then ans[i] = mul / nums[i]
 
-**Complexity:** Time: o(2n) | Space: o(1)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {-1, 1, 0, -3, 3};
         int[] ans = productExceptSelf1(nums);
         PrintUtl.print(ans);
     }
+
+    // we will count the frequencies of 0
+    // and also we will start
     public static int[] productExceptSelf1(int[] nums) {
         int n = nums.length;
         long mul = 1;
@@ -90,20 +100,27 @@ private static void type2() {
         }
         return res;
     }
+}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Rather than having 2 arrays we will just need 2 variable, left and right prefix sum approach same time complexity is O(3n) space complexity O(2n)
+prefix sum approach same we will use 2 prefix-mul array just like prefix sum array to store the prefix multiplication we need it from left and right so if the index is i then mul[i] = left-prefix-mul[i-1] * right-prefix-mul[i+1] we will compute both left and right prefix multiplication first in another loop we will calculate the ans calculating the left prefix mul calculating the left right mul calculating the ans multiplying the both side
 
-**Complexity:** Space: o(2n)
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {-1, 1, 0, -3, 3};
         int[] ans = productExceptSelf2(nums);
         PrintUtl.print(ans);
     }
+
+    // we will use 2 prefix-mul array just like prefix sum array to store the prefix multiplication
+    // we need it from left and right
+    // so if the index is i then mul[i] = left-prefix-mul[i-1] * right-prefix-mul[i+1]
+    // we will compute both left and right prefix multiplication first
+    // in another loop we will calculate the ans
     public static int[] productExceptSelf2(int[] nums) {
         int n = nums.length;
         int[] left = new int[n], right = new int[n];

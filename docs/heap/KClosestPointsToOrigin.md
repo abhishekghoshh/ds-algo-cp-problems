@@ -1,36 +1,40 @@
 # KClosestPointsToOrigin
 
-**Topic:** `heap` | **File:** `com/problems/heap/KClosestPointsToOrigin.java`
-
+**Topic:** `heap`  
 **Tags:** Array, Heap
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/k-closest-points-to-origin/description/)
 - [📄 NeetCode](https://neetcode.io/problems/k-closest-points-to-origin)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=XC4EotTewro&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=8)
 - [▶ YouTube](https://www.youtube.com/watch?v=rI2EBUEMfTk)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/)
 - [https://www.techiedelight.com/quick-sort-using-hoares-partitioning-scheme/](https://www.techiedelight.com/quick-sort-using-hoares-partitioning-scheme/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+to sort the array then return only k elements
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-This is good in leetcode but in interview it has the higher time complexity discuss these 2 in the interview same as previous just a little optimized
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as previous just a little optimized
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[][] points = {{3, 3}, {5, -1}, {-2, 4}, {-3, 3}, {1, 3}};
 		int k = 3;
 		int[][] answer = kClosest4(points, k);
 		print(answer);
 	}
+
 	private static int[][] kClosest4(int[][] points, int k) {
 		PriorityQueue<int[]> maxHeap = new PriorityQueue<>((p1, p2) -> distance(p2) - distance(p1));
 
@@ -44,15 +48,16 @@ private static void type4() {
 
 ### Approach 3
 
-Optimized using maxHeap
+optimized using maxHeap
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] points = {{3, 3}, {5, -1}, {-2, 4}, {-3, 3}, {1, 3}};
 		int k = 3;
 		int[][] answer = kClosest3(points, k);
 		print(answer);
 	}
+
 	private static int[][] kClosest3(int[][] points, int k) {
 		PriorityQueue<int[]> maxHeap = new PriorityQueue<>((p1, p2) -> (p2[2] - p1[2]));
 		for (int[] point : points) {
@@ -76,15 +81,17 @@ private static void type3() {
 
 ### Approach 2
 
-Not best approach but it is not required to explain it in the interview Use quick select algorithm with hoarse partition that is more complicated than lomuto but more efficient. time complexity is nlog(n) using heap it was nlog(k)
+not best approach but it is not required to explain it in the interview Use quick select algorithm with hoarse partition that is more complicated than lomuto but more efficient. this mean in right there is closer point, so we will swap that and decrement right after this we will have (0 to left) elements which are closest to origin
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] points = {{3, 3}, {5, -1}, {-2, 4}, {-3, 3}, {1, 3}};
 		int k = 3;
 		int[][] answer = kClosest2(points, k);
 		print(answer);
 	}
+
 	private static int[][] kClosest2(int[][] points, int k) {
 		int left = 0, right = points.length - 1;
 		int length = points.length;
@@ -97,6 +104,7 @@ private static void type2() {
 		}
 		return Arrays.copyOf(points, k);
 	}
+
 	private static int partition(int[][] points, int left, int right) {
 		int mid = left + (right - left) / 2;
 		int distance = distance(points[mid]);
@@ -116,19 +124,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using normal sort to sort the array then return only k elements
+brute force approach using normal sort to sort the array then return only k elements
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] points = {{3, 3}, {5, -1}, {-2, 4}, {-3, 3}, {1, 3}};
 		int k = 3;
 		int[][] answer = kClosest1(points, k);
 		print(answer);
 	}
+
 	private static int[][] kClosest1(int[][] points, int k) {
 		Arrays.sort(points, Comparator.comparingInt(KClosestPointsToOrigin::distance));
 		return Arrays.copyOf(points, k);
 	}
+}
 ```

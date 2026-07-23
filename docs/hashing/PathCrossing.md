@@ -1,43 +1,75 @@
 # PathCrossing
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/PathCrossing.java`
-
+**Topic:** `hashing`  
 **Tags:** Array, Hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/path-crossing/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=VWRJBNP7uH8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if a path crosses itself.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is an optimized approach same as previous but here we will not use the custom class for the hashCode here we will calculate the hash code for (x,y) and store it in the Set of integer abd check if the hash is already present in the set or not
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is an optimized approach same as previous but here we will not use the custom class for the hashCode here we will calculate the hash code for (x,y) and store it in the Set of integer abd check if the hash is already present in the set or not we will start (0,0) and depending on the direction we will increment or decrement the value of x or y
 
 ```java
-private static void type2() {
+    private static void type2() {
         String path = "NES";
         boolean ans = isPathCrossing2(path);
         System.out.println(ans);
     }
+
+    static boolean isPathCrossing2(String path) {
+        Set<Integer> set = new HashSet<>();
+        // we will start (0,0)
+        int x = 0, y = 0;
+        set.add(hash(x, y));
+        for (char d : path.toCharArray()) {
+            // and depending on the direction we will increment or decrement the value of x or y
+            if (d == 'E') {
+                x++;
+            } else if (d == 'W') {
+                x--;
+            } else if (d == 'N') {
+                y++;
+            } else {
+                y--;
+            }
+            int hash = hash(x, y);
+            if (!set.add(hash)) return true;
+        }
+        return false;
+    }
+
+    static int hash(int x, int y) {
+        int prime1 = 31;
+        int prime2 = 37;
+        return prime1 * x + prime2 * y;
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will start (0,0) and depending on the direction we will increment or decrement the value of x or y todo this should come at first to your mind we will start with (0,0) and then we go to each direction one by one increment and decrement x and y coordinate accordingly we will add the coordinates into a set of Coordinates
+this should come at first to your mind we will start with (0,0) and then we go to each direction one by one increment and decrement x and y coordinate accordingly we will add the coordinates into a set of Coordinates (0,0) is the starting point based on the direction we are choosing dx and dy
 
 ```java
-private static void type1() {
+    private static void type1() {
         String path = "NES";
         boolean ans = isPathCrossing1(path);
         System.out.println(ans);
     }
+
     private static boolean isPathCrossing1(String path) {
         Set<Pair> set = new HashSet<>();
         // (0,0) is the starting point
@@ -60,4 +92,31 @@ private static void type1() {
         }
         return false;
     }
+
+    static class Pair {
+        int x, y;
+
+        Pair(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public Pair clone(int dx, int dy) {
+            return new Pair(x + dx, y + dy);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return x == pair.x && y == pair.y;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
+    }
+}
 ```

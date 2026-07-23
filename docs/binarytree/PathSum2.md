@@ -1,30 +1,37 @@
 # PathSum2
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/PathSum2.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/path-sum-ii/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find all root-to-leaf paths that sum to target.
 
-### Implementation
+## 💡 Approaches
 
-Normal dfs traversal
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+normal dfs traversal normal dfs preorder traversal adding current node to the bucket and the sum if it is the terminal node then only we will add the list to the ans now we will traverse both of its left and right subtree if it is there
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(15);
         List<List<Integer>> ans = pathSum(root, 15);
         System.out.println(ans);
     }
+
+    // normal dfs preorder traversal
     public static List<List<Integer>> pathSum(TNode root, int targetSum) {
         List<List<Integer>> ans = new ArrayList<>();
         pathSum(root, 0, targetSum, new ArrayList<>(), ans);
         return ans;
     }
+
     private static void pathSum(TNode root, int sum, int targetSum, List<Integer> bucket, List<List<Integer>> ans) {
         if (null == root) return;
         // adding current node to the bucket and the sum
@@ -38,4 +45,5 @@ private static void type1() {
         if (null != root.right) pathSum(root.right, sum, targetSum, bucket, ans);
         bucket.remove(bucket.size() - 1);
     }
+}
 ```

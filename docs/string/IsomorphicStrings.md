@@ -1,28 +1,32 @@
 # IsomorphicStrings
 
-**Topic:** `string` | **File:** `com/problems/string/IsomorphicStrings.java`
-
+**Topic:** `string`  
 **Tags:** String, hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/isomorphic-strings)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/isomorphic-strings-_1117636)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+so that there will be only one to one mapping from ch1 to ch2
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-This is also same as previous but here we have organized the if else here we will check one edge first
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+this is also same as previous but here we have organized the if else here we will check one edge first from ch1->ch2, if there is no edge then we will set the edge if there is already an edge then we will check if its ch1->ch2 or not from ch2->ch1, if there is no edge then we will set the edge if there is already an edge then we will check if its ch2->ch1 or not
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "paper", t = "title";
         boolean ans = isIsomorphic3(s, t);
         System.out.println(ans);
     }
+
     private static boolean isIsomorphic3(String s, String t) {
         char[] arr1 = s.toCharArray();
         char[] arr2 = t.toCharArray();
@@ -52,14 +56,15 @@ private static void type3() {
 
 ### Approach 2
 
-Little optimized from previous approach we will use array instead of map
+little optimized from previous approach we will use array instead of map if there is no mapping as of now then we will add the mapping from ch1->ch2 and ch2->ch1 else if there is any mapping for one of the character already then we will return true
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "paper", t = "title";
         boolean ans = isIsomorphic2(s, t);
         System.out.println(ans);
     }
+
     private static boolean isIsomorphic2(String s, String t) {
         char[] arr1 = s.toCharArray();
         char[] arr2 = t.toCharArray();
@@ -84,16 +89,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force here we will use 2 map of [character,character] first map => arr1 char , arr2 char second map => arr2 char , arr1 char so that there will be only one to one mapping from ch1 to ch2
+Brute force here we will use 2 map of [character,character] first map => arr1 char , arr2 char second map => arr2 char , arr1 char so that there will be only one to one mapping from ch1 to ch2 this is for holding the mappings if there is no mapping as of now then we will add the mapping from ch1->ch2 and ch2->ch1 else if there is any mapping for one of the character already then we will return true
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "paper", t = "title";
         boolean ans = isIsomorphic1(s, t);
         System.out.println(ans);
     }
+
     private static boolean isIsomorphic1(String s, String t) {
         char[] arr1 = s.toCharArray();
         char[] arr2 = t.toCharArray();
@@ -116,4 +122,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

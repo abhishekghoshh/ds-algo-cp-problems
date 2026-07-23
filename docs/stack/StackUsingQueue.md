@@ -1,28 +1,32 @@
 # StackUsingQueue
 
-**Topic:** `stack` | **File:** `com/problems/stack/StackUsingQueue.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/implement-stack-using-queues/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/stack-using-queue_795152)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=jDZQKzEtbYQ)
 - [▶ YouTube](https://www.youtube.com/watch?v=tqQ5fTamIN4)
 - [📄 takeUforward](https://takeuforward.org/data-structure/implement-stack-using-single-queue/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Implement a stack using two queues.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+we will use the same queue we will add all previous elements one by one to the queue the last added element will be in the front of the queue front element added to the back
 
 ```java
-private static void type3() {
+	private static void type3() {
 		MyStack3 stack = new MyStack3();
 		System.out.println("adding 1,2,3 to stack");
 		stack.push(1);
@@ -34,14 +38,49 @@ private static void type3() {
 		System.out.println("popped element " + stack.pop());
 		System.out.println("stack is empty " + stack.empty());
 	}
+
+	private static class MyStack3 {
+		Queue<Integer> queue;
+
+		public MyStack3() {
+			queue = new LinkedList<>();
+		}
+
+		// we will use the same queue
+		// we will add all previous elements one by one to the queue
+		//  the last added element will be in the front of the queue
+		public void push(int x) {
+			int size = queue.size();
+			queue.offer(x);
+			// front element added to the back
+			while (size-- != 0) queue.offer(queue.poll());
+		}
+
+		public int pop() {
+			if (queue.isEmpty()) return -1;
+			return queue.poll();
+		}
+
+		public int top() {
+			if (queue.isEmpty()) return -1;
+			return queue.peek();
+		}
+
+		public boolean empty() {
+			return queue.isEmpty();
+		}
+	}
 ```
 
 ### Approach 2
 
-We will use the same queue we will add all previous elements one by one to the queue the last added element will be in the front of the queue front element added to the back
+same as the stack1 just we are switching one queue to another in previous the primary queue will always be source off data and secondary queue will always be a temp variable here when the primary is empty then secondary will be source of data and vice versa, via this we will skip the last swapping from secondary to primary
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		MyStack2 stack = new MyStack2();
 		System.out.println("adding 1,2,3 to stack");
 		stack.push(1);
@@ -53,16 +92,58 @@ private static void type2() {
 		System.out.println("popped element " + stack.pop());
 		System.out.println("stack is empty " + stack.empty());
 	}
+
+	private static class MyStack2 {
+		Queue<Integer> primary;
+		Queue<Integer> secondary;
+
+		public MyStack2() {
+			primary = new LinkedList<>();
+			secondary = new LinkedList<>();
+		}
+
+		// same as the stack1
+		// just we are switching one queue to another
+		// in previous the primary queue will always be source off data and secondary
+		// queue will always be a temp variable
+		// here when the primary is empty then secondary will be source of data and vice
+		// versa, via this we will skip the last swapping from secondary to primary
+		// time complexity O(n)
+		// space complexity O(2n)
+		public void push(int x) {
+			Queue<Integer> primary = secondary.isEmpty() ? this.primary : this.secondary;
+			Queue<Integer> secondary = primary == this.primary ? this.secondary : this.primary;
+			secondary.offer(x);
+			while (!primary.isEmpty()) secondary.offer(primary.poll());
+		}
+
+		public int pop() {
+			if (!primary.isEmpty()) return primary.poll();
+			if (!secondary.isEmpty()) return secondary.poll();
+			return -1;
+		}
+
+		public int top() {
+			if (!primary.isEmpty()) return primary.peek();
+			if (!secondary.isEmpty()) return secondary.peek();
+			return -1;
+		}
+
+		public boolean empty() {
+			return primary.isEmpty() && secondary.isEmpty();
+		}
+	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Same as the stack1 just we are switching one queue to another in previous the primary queue will always be source off data and secondary queue will always be a temp variable here when the primary is empty then secondary will be source of data and vice versa, via this we will skip the last swapping from secondary to primary time complexity O(n) space complexity O(2n)
+we will use the secondary queue as a temp variable we are basically performing 3 operation here first add the item to secondary queue item by item move all the element from primary to secondary so at the secondary queue the last added item will be on the front item by item move all the element from secondary to primary now all the elements are now again in primary and secondary is empty
 
-**Complexity:** Time: o(n) | Space: o(2n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(2n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		MyStack1 stack = new MyStack1();
 		System.out.println("adding 1,2,3 to stack");
 		stack.push(1);
@@ -74,4 +155,44 @@ private static void type1() {
 		System.out.println("popped element " + stack.pop());
 		System.out.println("stack is empty " + stack.empty());
 	}
+
+	private static class MyStack1 {
+		Queue<Integer> primary;
+		Queue<Integer> secondary;
+
+		public MyStack1() {
+			primary = new LinkedList<>();
+			secondary = new LinkedList<>();
+		}
+
+		// we will use the secondary queue as a temp variable
+		// we are basically performing 3 operation here
+		// first add the item to secondary queue
+		// item by item move all the element from primary to secondary
+		// so at the secondary queue the last added item will be on the front
+		// item by item move all the element from secondary to primary
+		// now all the elements are now again in primary and secondary is empty
+		// time complexity O(2n)
+		// space complexity O(2n)
+		public void push(int x) {
+			secondary.offer(x);
+			while (!primary.isEmpty()) secondary.offer(primary.poll());
+			while (!secondary.isEmpty()) primary.offer(secondary.poll());
+		}
+
+		public int pop() {
+			if (primary.isEmpty()) return -1;
+			return primary.poll();
+		}
+
+		public int top() {
+			if (primary.isEmpty()) return -1;
+			return primary.peek();
+		}
+
+		public boolean empty() {
+			return primary.isEmpty();
+		}
+	}
+}
 ```

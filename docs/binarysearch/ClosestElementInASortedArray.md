@@ -1,21 +1,25 @@
 # ClosestElementInASortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/ClosestElementInASortedArray.java`
+**Topic:** `binarysearch`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3RhGdmoF_ac&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=15)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+in the last iteration if the value is not in the array then low and high
 
-### Implementation
+## 💡 Approaches
+
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 This is a trick question in the last iteration if the value is not in the array then low and high index represents the ceiling and floor of the key at the last iteration at this point low > high that's why the loop got terminated where high element is the floor and low element is the ceiling
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 10, 20, 30, 50, 60, 80, 110, 130, 140, 170 };
 		int target = 60;
 		int[] triplets = search(arr, target);
@@ -24,6 +28,7 @@ private static void type2() {
 		if (index != -1) minDifference = Math.min(arr[low] - target, target - arr[high]);
 		System.out.println("The value of minimum difference is " + minDifference);
 	}
+
 	private static int[] search(int[] arr, int target) {
 		int low = 0, high = arr.length - 1, mid;
 		while (low <= high) {
@@ -34,4 +39,6 @@ private static void type2() {
 		}
 		return new int[]{-1, low, high};
 	}
+
+}
 ```

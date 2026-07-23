@@ -1,25 +1,29 @@
 # IntroductionToDoublyLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/IntroductionToDoublyLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/introduction-to-doubly-linked-list_8160413)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/binary-search/introduction-to-doubly-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will add a random node
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will add a random node lastly, we remove the first dummy pointer
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {4, 2, 5, 1};
         DNode head = new DNode(-1);
         DNode node = head;
@@ -36,12 +40,10 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {4, 2, 5, 1};
         DNode node = null, head = null;
         for (int num : arr) {
@@ -57,4 +59,5 @@ private static void type1() {
         }
         print(head);
     }
+}
 ```

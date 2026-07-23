@@ -1,17 +1,19 @@
 # MinimumXorInArray
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/MinimumXorInArray.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the minimum XOR of any two numbers in an array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 3, 10, 5, 25, 2, 8 };
 		Arrays.sort(nums);
 		int xor = Integer.MAX_VALUE;
@@ -22,12 +24,10 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 3, 10, 5, 25, 2, 8 };
 		int xor = Integer.MAX_VALUE;
 		for (int i = 0; i < nums.length; i++) {
@@ -39,4 +39,6 @@ private static void type1() {
 		}
 		System.out.println(xor);
 	}
+
+}
 ```

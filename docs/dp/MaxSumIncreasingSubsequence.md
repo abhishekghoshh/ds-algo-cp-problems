@@ -1,26 +1,32 @@
 # MaxSumIncreasingSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/MaxSumIncreasingSubsequence.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/maximum-sum-increasing-subsequence4749/1)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array of positive integers arr[], find the maximum sum of a subsequence such that the elements of the subsequence form a strictly increasing sequence.In other words, among all strictly increasing subsequences of the array, return the one wit
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will directly use the optimized approach using iterative approach using a sum array
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will directly use the optimized approach using iterative approach using a sum array we will save the max sum till the current index in the sum array we will start from index 1 we will take the max sum from all left side indices if the value of array is lesser than the current index value
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {1, 101, 2, 3, 100};
         int n = arr.length;
         int ans = maxSumIS2(arr, n);
         System.out.println(ans);
     }
+
+    // we will save the max sum till the current index in the sum array
     public static int maxSumIS2(int[] arr, int n) {
         int[] sum = new int[n];
         sum[0] = arr[0];
@@ -41,13 +47,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will save the max sum till the current index in the sum array brute force approach using recursion/iteration
+brute force approach using recursion/iteration
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {1, 101, 2, 3, 100};
         int n = arr.length;
     }
+}
 ```

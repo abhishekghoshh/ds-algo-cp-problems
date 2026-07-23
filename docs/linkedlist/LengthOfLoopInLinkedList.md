@@ -1,21 +1,25 @@
 # LengthOfLoopInLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/LengthOfLoopInLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-length-of-loop_8160455)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+no cycle is present early break to reduce extra computation we have found the collision again we will traverse from start, and the slow pointer will also go as it is, and we know that after x distance start and the slow pointer will collide
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 2, 3, 4, 5);
         Node node1 = new Node(6);
         Node node2 = new Node(7, 8, 9);
@@ -54,12 +58,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Using brute force approach Using a set to get the starting point
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 2, 3, 4, 5);
         Node node1 = new Node(6);
         Node node2 = new Node(7, 8, 9);
@@ -81,4 +85,5 @@ private static void type1() {
         }
         System.out.println("list length " + n);
     }
+}
 ```

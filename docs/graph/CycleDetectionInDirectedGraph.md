@@ -1,12 +1,12 @@
 # CycleDetectionInDirectedGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/CycleDetectionInDirectedGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/course-schedule-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/detect-cycle-in-a-directed-graph-_920545)
@@ -15,16 +15,20 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-cycle-in-a-directed-graph-using-dfs-g-19/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-a-cycle-in-directed-graph-topological-sort-kahns-algorithm-g-23/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check one more time if it still confuses you
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-It will use DFS and single visited array instead of two arrays we will use 0 as not visited, 1 as visited and 2 as the path visited
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+It will use DFS and single visited array instead of two arrays we will use 0 as not visited, 1 as visited and 2 as the path visited check for all the component which is not visited yet visited and path visited if the node has been previously visited, but it has to be visited on the same path when the node is not visited, then we call dfs from that node resetting the path visited setting only visited
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int v = 10;
 		List<List<Integer>> adjacencyList = List.of(
 				List.of(1),
@@ -41,6 +45,7 @@ private static void type2() {
 		boolean hasCycle = isCyclic2(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
+
 	private static boolean isCyclic2(int v, List<List<Integer>> adjacencyList) {
 		// we will use 0 as not visited, 1 as visited and 2 as the path visited
 		int[] visited = new int[v];
@@ -51,6 +56,7 @@ private static void type2() {
 		}
 		return false;
 	}
+
 	private static boolean hasCycle(int start, int[] visited, List<List<Integer>> adjacencyList) {
 		// visited and path visited
 		visited[start] = 2;
@@ -67,12 +73,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-It will use DFS and two boolean array mark visited and path visited Check one more time if it still confuses you
+It will use DFS and two boolean array mark visited and path visited Check one more time if it still confuses you path visited is to track the nodes in a single path because visited array will not be sufficed if 1 points to 2 and 3 , 2 and 3 both points to 4 so 1 to 4 will from a cycle if we consider the visited array only, and we will choose dfs here because we want to as deep as possible and in this path if we come to any of the previous visited point then that will form a cycle, check for all the component which is not visited yet at the start, we set visited and path visited to true path visited to true because we are keeping the track which path our dfs is following traverse for adjacent nodes if the node has been previously visited, but it has to be visited on the same path when the node is not visited, then we call dfs from that node before returning false, we are setting a path visited to false as dfs call is completed so the path from this node is traversed and no cycle found
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 10;
 		List<List<Integer>> adjacencyList = List.of(
 				List.of(1),
@@ -89,6 +95,7 @@ private static void type1() {
 		boolean hasCycle = isCyclic1(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
+
 	private static boolean isCyclic1(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		// path visited is to track the nodes in a single path
@@ -105,6 +112,7 @@ private static void type1() {
 		}
 		return false;
 	}
+
 	private static boolean hasCycle(int start, boolean[] visited, boolean[] pathVisited,
 									List<List<Integer>> adjacencyList) {
 		// at the start, we set visited and path visited to true
@@ -124,4 +132,7 @@ private static void type1() {
 		pathVisited[start] = false;
 		return false;
 	}
+
+
+}
 ```

@@ -1,33 +1,38 @@
 # NQueenProblem
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/NQueenProblem.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/n-queens/description/)
 - [📄 NeetCode](https://neetcode.io/problems/n-queens)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/759332)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/n-queens_696453)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=i05Ju7AftcM)
 - [▶ YouTube](https://www.youtube.com/watch?v=Ph95IHmRp5M)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Place n queens on an n x n chessboard such that no two queens attack each other. Return all distinct solutions.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is a nice problem todo It is the same as the previous type. However, if we see closely the time to check if the queen placement is safe or not is taking O(3n), so if we can check in O(1) time that the left row and both left upper and  lower diagonal has any queen or not, then we the code will be optimized we can check row very easily by using one array of size n to check left upper diagonal let's see some cells in a diagonal (0,1)(2,3)(3,4) or (0,2)(1,3)(2,4) or (1,0)(2,1)(3,2) if we see the difference of the cell, it will go from -n to +n so if we take a map or an array of 2n+1 and store r-c values then we can check in O(1) time arr[r-c] will be the array but the r-c can be negative so will add it to (n-1) for left lower diagonal, if we check the cell (5,0)(4,1)(3,2) or (5,2)(4,3)(3,4) if the see closely the for one diagonal r+c is unique which can vary from 0 to 2n, so we will take an array of 2n+1
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+It is the same as the previous type. However, if we see closely the time to check if the queen placement is safe or not is taking O(3n), so if we can check in O(1) time that the left row and both left upper and lower diagonal has any queen or not, then we the code will be optimized we can check row very easily by using one array of size n to check left upper diagonal let's see some cells in a diagonal (0,1)(2,3)(3,4) or (0,2)(1,3)(2,4) or (1,0)(2,1)(3,2) if we see the difference of the cell, it will go from -n to +n so if we take a map or an array of 2n+1 and store r-c values then we can check in O(1) time arr[r-c] will be the array but the r-c can be negative so will add it to (n-1) for left lower diagonal, if we check the cell (5,0)(4,1)(3,2) or (5,2)(4,3)(3,4) if the see closely the for one diagonal r+c is unique which can vary from 0 to 2n, so we will take an array of 2n+1 these arrays will be used to validate if there is any queen present in row to check the intuition behind it check the striver solution this will act as cache we will start with the 1st column like the previous type, we will try to place it in a row we will mark that this row, left lower diagonal and left upper diagonal is visited we will go to the next column now we will unset the visited cells O(1) time to check if there is any queen in the same row or left upper diagonal and left lower diagonal
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 4;
 		List<List<String>> boards = solveNQueens2(n);
 		print(boards);
 	}
+
 	public static List<List<String>> solveNQueens2(int n) {
 		List<List<String>> boards = new ArrayList<>();
 		char[][] board = new char[n][n];
@@ -42,6 +47,7 @@ private static void type2() {
 		placeQueen2(0, board, boards, leftRow, lowerDiagonal, upperDiagonal);
 		return boards;
 	}
+
 	public static void placeQueen2(int c, char[][] board, List<List<String>> boards,
 								   int[] leftRow, int[] lowerDiagonal, int[] upperDiagonal) {
 		int n = board.length;
@@ -67,6 +73,8 @@ private static void type2() {
 			}
 		}
 	}
+
+	// O(1) time to check if there is any queen in the same row or left upper diagonal and left lower diagonal
 	private static boolean isSafeToPlace2(int r, int c, int n,
 										  int[] leftRow, int[] lowerDiagonal, int[] upperDiagonal) {
 		return (leftRow[r] == 0)
@@ -75,16 +83,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-O(1) time to check if there is any queen in the same row or left upper diagonal and left lower diagonal todo normal solution using recursion and backtracking. we will go column wise, and try to place the queen in every row for a particular column we will try to place a queen in every row, we can also do the otherwise, for a particular row we will try to place the queen in column. once a queen is placed into a column we will go to the next column, also we will check is it safe to place or not if we go column wise we don't need to check right side of the current column
+normal solution using recursion and backtracking. we will go column wise, and try to place the queen in every row for a particular column we will try to place a queen in every row, we can also do the otherwise, for a particular row we will try to place the queen in column.
+
+once a queen is placed into a column we will go to the next column, also we will check is it safe to place or not if we go column wise we don't need to check right side of the current column we will fill the entire board with separator character we will start from 0th column if c == n that means all queens have been placed, so we can now construct the board and return in each column we will try to place it in every row before placing any queen, we are checking that on that row and diagonally backwards if there is any other queen placed or not checking if there is any queen placed in this row previously or not checking left diagonally upwards checking left diagonally downwards we do not need to check the right because there are no cells with queen currently
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 4;
 		List<List<String>> boards = solveNQueens1(n);
 		print(boards);
 	}
+
 	public static List<List<String>> solveNQueens1(int n) {
 		List<List<String>> boards = new ArrayList<>();
 		char[][] board = new char[n][n];
@@ -94,6 +105,7 @@ private static void type1() {
 		placeQueen1(0, board, boards);
 		return boards;
 	}
+
 	private static void placeQueen1(int c, char[][] board, List<List<String>> boards) {
 		int n = board.length;
 		// if c == n that means all queens have been placed, so we can now construct the board and return
@@ -112,6 +124,7 @@ private static void type1() {
 			}
 		}
 	}
+
 	private static boolean isSafeToPlace(char[][] board, int row, int column) {
 		int n = board.length;
 		// checking if there is any queen placed in this row previously or not
@@ -128,11 +141,13 @@ private static void type1() {
 		// todo we do not need to check the right because there are no cells with queen currently
 		return true;
 	}
+
 	private static List<String> construct(char[][] board) {
 		List<String> list = new ArrayList<>();
 		for (char[] row : board) list.add(new String(row));
 		return list;
 	}
+
 	private static void print(List<List<String>> answer) {
 		for (List<String> board : answer) {
 			for (String row : board) System.out.println(row);
@@ -140,4 +155,6 @@ private static void type1() {
 		}
 		System.out.println("-------------------------");
 	}
+
+}
 ```

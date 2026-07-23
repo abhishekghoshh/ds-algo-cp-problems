@@ -1,34 +1,41 @@
 # FrequencyOfTheMostFrequentElement
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/FrequencyOfTheMostFrequentElement.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/frequency-of-the-most-frequent-element/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=vgBrQ0NM5vE)
 - [▶ YouTube](https://www.youtube.com/watch?v=e0AFPpKcjw0)
 - [📄 takeUforward](https://takeuforward.org/arrays/find-the-highest-lowest-frequency-element/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Maximize the frequency of one element with at most K increments.
 
-### Implementation
+## 💡 Approaches
 
-Using the sliding window approach time complexity O(nlog(n) + 2n) the intuition is kind of greedy lets say if the nums array is [1,1,1,3,3,5] and we are operating on 5 currently, and we need to choose other numbers to convert them into 5, if we change 1 into 5 it will take 4 unit whereas for 3 it will take only 2, so we will try to change the closest element possible only lets first sort the array then now we will apply sliding window on this. let's say we are on j th element, we will assume that the left side numbers will be converted into this, if the left point is on i so the total range is (j-i+1) and our criteria will be (nums[j] * (j - i + 1)) - range-sum(j - i + 1) <= k if it is less than equal to k then it is possible to convert all the numbers in that range else we have to increment left till it does not fit into the criteria we will also need to carry the range sum
+This problem can be solved in **1** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(nlog(n)
+### Approach: Implementation
+
+using the sliding window approach the intuition is kind of greedy lets say if the nums array is [1,1,1,3,3,5] and we are operating on 5 currently, and we need to choose other numbers to convert them into 5, if we change 1 into 5 it will take 4 unit whereas for 3 it will take only 2, so we will try to change the closest element possible only lets first sort the array then now we will apply sliding window on this.
+
+let's say we are on j th element, we will assume that the left side numbers will be converted into this, if the left point is on i so the total range is (j-i+1) and our criteria will be (nums[j] * (j - i + 1)) - range-sum(j - i + 1) <= k if it is less than equal to k then it is possible to convert all the numbers in that range else we have to increment left till it does not fit into the criteria we will also need to carry the range sum we need to sort at first we will go from 0 to n and choose current number to be target number for all the left side numbers adding the current element in the range sum if num * range - range sum > k then we can not transform all the numbers to the current num so we will decrease from left and shrink the window decrementing the left most element from that range checking the max frequency
+
+**Time Complexity:** `O(nlog(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 4, 8, 13};
         int k = 5;
         int ans = maxFrequency1(nums, k);
         System.out.println(ans);
     }
+
     public static int maxFrequency1(int[] nums, int k) {
         // we need to sort at first
         Arrays.sort(nums);
@@ -52,4 +59,5 @@ private static void type1() {
         }
         return max;
     }
+}
 ```

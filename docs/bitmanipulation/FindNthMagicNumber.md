@@ -1,21 +1,25 @@
 # FindNthMagicNumber
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/FindNthMagicNumber.java`
+**Topic:** `bitmanipulation`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/find-nth-magic-number/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+A magic number is defined as a number which can be expressed as a power of 5
 
-### Implementation
+## 💡 Approaches
 
-A magic number is defined as a number which can be expressed as a power of 5 or sum of unique powers of 5. First few magic numbers are 5, 25, 30(5 + 25), 125, 130(125 + 5), �.
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Go through every bit of n If last bit of n is set proceed to next bit or n = n/2
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 8;
 		int pow = 1, answer = 0;
 		// Go through every bit of n
@@ -29,4 +33,6 @@ private static void type1() {
 		}
 		System.out.println(answer);
 	}
+
+}
 ```

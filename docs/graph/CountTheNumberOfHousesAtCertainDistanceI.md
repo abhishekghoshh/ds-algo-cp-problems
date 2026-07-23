@@ -1,34 +1,39 @@
 # CountTheNumberOfHousesAtCertainDistanceI
 
-**Topic:** `graph` | **File:** `com/problems/graph/CountTheNumberOfHousesAtCertainDistanceI.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count houses reachable within a certain distance.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Please check the leetcode top solutions for the optimized code
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+please check the leetcode top solutions for the optimized code
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Exactly like the previous type, but here we will not create the adjacency list. rather we will individually check for the next house and the previous house and if the start node is either x or y then we will calculate for y or x
+exactly like the previous type, but here we will not create the adjacency list. rather we will individually check for the next house and the previous house and if the start node is either x or y then we will calculate for y or x we will initialize distances with INF finally, we will take a queue and will relax all the edges and create the distance matrix we will individually check for the next and the previous array if x and y is same, then we will not consider that edge because that will be a self loop else we will check if the start node is either of x or y we will take the distance matrix and calculate the array
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 3, x = 1, y = 3;
         int[] ans = countOfPairs2(n, x, y);
         PrintUtl.print(ans);
     }
+
     public static int[] countOfPairs2(int n, int x, int y) {
         int[] ans = new int[n];
         int[][] dis = new int[n + 1][n + 1];
@@ -77,16 +82,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-First, we will create a graph from all the houses, then we will compute the distances from all the nodes to all the nodes. we will create a 2D array of n X n matrix for that then finally we will take the distances from the matrix and put it in the array
+first, we will create a graph from all the houses, then we will compute the distances from all the nodes to all the nodes. we will create a 2D array of n X n matrix for that then finally we will take the distances from the matrix and put it in the array we will initialize distances with INF we will create a adjacency list from all the houses if x!=y then we will create that edge finally, we will take a queue and will relax all the edges and create the distance matrix we will take the distance matrix and calculate the array
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 3, x = 1, y = 3;
         int[] ans = countOfPairs1(n, x, y);
         PrintUtl.print(ans);
     }
+
+    static int INF = (int) 1e9;
+
     public static int[] countOfPairs1(int n, int x, int y) {
         int[] ans = new int[n];
         int[][] dis = new int[n + 1][n + 1];
@@ -134,4 +142,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

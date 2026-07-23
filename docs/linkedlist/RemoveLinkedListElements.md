@@ -1,30 +1,35 @@
 # RemoveLinkedListElements
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/RemoveLinkedListElements.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-linked-list-elements/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=JI71sxtHTng)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Remove all nodes with a given value from a linked list.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach we will use a previous pointer
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will use a previous pointer we will create a dummy node and assign that to the prev traversing the linked list going to the next
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 2, 6, 3, 4, 5, 6);
         int val = 6;
         Node ans = removeElements(head, val);
         PrintUtl.print(ans);
     }
+
     public static Node removeElements(Node head, int val) {
         // we will create a dummy node and assign that to the prev
         Node dummyHead = new Node();
@@ -44,12 +49,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach we will use a list, if the node val is not equal to val then we will add it to the list
+brute force approach we will use a list, if the node val is not equal to val then we will add it to the list
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

@@ -1,24 +1,53 @@
 # Largest3SameDigitNumberInString
 
-**Topic:** `string` | **File:** `com/problems/string/Largest3SameDigitNumberInString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/largest-3-same-digit-number-in-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=vcrOpJQHsSE)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+and take variable for prev char, curr char, max same character count
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach this is very easy to implement we will go through all the characters one by one and take variable for prev char, curr char, max same character count
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach this is very easy to implement we will go through all the characters one by one and take variable for prev char, curr char, max same character count if prev and curr are not same then we will reinitialize the counter again if the character count reaches to 3 then we will quickly check xxx becomes the ans or not 000 int value is not possible that's why we are manually writing the if-clause to return "000"
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+
+    static String largestGoodInteger(String num) {
+        int count = 0, prev = -1;
+        int ans = -1;
+        for (char ch : num.toCharArray()) {
+            int curr = ch - '0';
+            // if prev and curr are not same then we will reinitialize the counter again
+            if (prev != curr) {
+                count = 1;
+                prev = curr;
+            } else {
+                count++;
+                // if the character count reaches to 3 then we will quickly check xxx becomes the ans or not
+                if (count == 3) {
+                    int sum = curr * 100 + curr * 10 + curr;
+                    ans = Math.max(ans, sum);
+                }
+            }
+        }
+        if (ans == -1) return "";
+        // 000 int value is not possible that's why we are manually writing the if-clause to return "000"
+        if (ans == 0) return "000";
+        return String.valueOf(ans);
+    }
+}
 ```

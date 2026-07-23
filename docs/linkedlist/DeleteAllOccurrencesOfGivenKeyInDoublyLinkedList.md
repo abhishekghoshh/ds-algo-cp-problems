@@ -1,25 +1,29 @@
 # DeleteAllOccurrencesOfGivenKeyInDoublyLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/DeleteAllOccurrencesOfGivenKeyInDoublyLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/delete-all-occurrences-of-a-given-key-in-a-doubly-linked-list_8160461)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Mh0NH_SD92k)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+store it in an array then create a doubly linked list from that array
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly the same as the previous just here we will not remove the previous pointer
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly the same as the previous just here we will not remove the previous pointer this is a dummy head node we will only add the node if the data is not equal to k deleting the last pointer as the head had dummy so skipping the first node
 
 ```java
-private static void type3() {
+    private static void type3() {
         DNode head = new DNode(10, 4, 10, 3, 5, 20, 10);
         int k = 10;
         DNode node = head;
@@ -45,10 +49,10 @@ private static void type3() {
 
 ### Approach 2
 
-Explain this in the interview optimized approach rather saving it to the array then again creating the linked list from the array we can directly just reuse the existing pointer
+explain this in the interview optimized approach rather saving it to the array then again creating the linked list from the array we can directly just reuse the existing pointer this is a dummy head node we will only add the node if the data is not equal to k we can also simply do the prev.next=null but to remove the prev pointer, we have to do this
 
 ```java
-private static void type2() {
+    private static void type2() {
         DNode head = new DNode(10, 4, 10, 3, 5, 20, 10);
         int k = 10;
         DNode node = head;
@@ -76,12 +80,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach store it in an array then create a doubly linked list from that array
+brute force approach store it in an array then create a doubly linked list from that array this is a dummy head node attaching the pointer changing the previous the pointer removing the dummy node and also the removing the previous pointer pointing to dummy
 
 ```java
-private static void type1() {
+    private static void type1() {
         DNode head = new DNode(10, 4, 10, 3, 5, 20, 10);
         int k = 10;
         DNode node = head;
@@ -106,4 +110,5 @@ private static void type1() {
         if (head != null) head.prev = null;
         print(head);
     }
+}
 ```

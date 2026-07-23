@@ -1,31 +1,38 @@
 # CycleDetectionInUndirectedGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/CycleDetectionInUndirectedGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/detect-cycle-in-an-undirected-graph-_758967)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1)
 - [📄 LeetCode](https://leetcode.com/problems/course-schedule/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=BPlrALf1LDU&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=11)
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/)
 - [▶ YouTube](https://www.youtube.com/watch?v=zQ3zgFypzX4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=12)
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+we just have to make a graph of courses before hand
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Course schedule problem can also also be done with this approach we just have to make a graph of courses before hand then we can use this hasCycle on that graph using dfs but recursion stack
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using dfs but recursion stack for every node we will start the hasCycle method if it is not visited if hasCycle is true then we will return true as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time.
+
+It means the vertex is visited. However, it's not the parent of the current node. [the parent node was visited in the previous recursion], so it means it is visited by some other node, but again we are trying to visit this node that makes this a loop if the adjacent point is not visited, then we will start dfs from this node
+
 
 ```java
-private static void type3() {
+	private static void type3() {
 		List<List<Integer>> adjacencyList = adjacencyList(
 				new int[][]{
 						{1},
@@ -39,6 +46,7 @@ private static void type3() {
 		boolean hasCycle = detectCycle3(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
+
 	private static boolean detectCycle3(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		// for every node we will start the hasCycle method if it is not visited
@@ -48,6 +56,11 @@ private static void type3() {
 				return true;
 		return false;
 	}
+
+	// Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees
+	// as we traverse all adjacent nodes. In the case of connected components of a
+	// graph, it will take another O(N) time.
+	// Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array.
 	private static boolean hasCycle3(int start, int parent, List<List<Integer>> adjacencyList, boolean[] visited) {
 		visited[start] = true;
 		for (int end : adjacencyList.get(start)) {
@@ -66,10 +79,13 @@ private static void type3() {
 
 ### Approach 2
 
-Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time. Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array. using DFS
+using DFS for every node we will start the hasCycle method if it is not visited if hasCycle is true then we will return true as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time. we will store the pair of current node and its parent node as we are using dfs, we will be adding the vertices in the reverse order It means the vertex is visited.
+
+However, it's not the parent of the current node. [the parent node was visited in the previous loop], so it means it is visited by some other node, but again we are trying to visit this node that makes this a loop if the adjacent point is not visited, then we are push it the stack, and setting visited to true
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		List<List<Integer>> adjacencyList = adjacencyList(
 				new int[][]{
 						{1},
@@ -83,6 +99,7 @@ private static void type2() {
 		boolean hasCycle = detectCycle2(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
+
 	private static boolean detectCycle2(int v, List<List<Integer>> adjacencyList) {
 		boolean[] visited = new boolean[v];
 		// for every node we will start the hasCycle method if it is not visited
@@ -92,6 +109,11 @@ private static void type2() {
 				return true;
 		return false;
 	}
+
+	// Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees
+	// as we traverse all adjacent nodes. In the case of connected components of a
+	// graph, it will take another O(N) time.
+	// Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array.
 	private static boolean hasCycle2(int node, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Stack<int[]> stack = new Stack<>();
 		// we will store the pair of current node and its parent node
@@ -121,12 +143,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time. Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visit the array. todo using BFS
+using BFS for every node we will start the hasCycle method if it is not visited if hasCycle is true then we will return true as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time. we will store the pair of current node and its parent node we will start BFS traversal It means the vertex is visited.
+
+However, it's not the parent of the current node. [the parent node was visited in the previous loop], so it means it is visited by some other node, but again we are trying to visit this node that makes this a loop if the adjacent point is not visited, then we are adding it the queue, and setting visited to true
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		List<List<Integer>> adjacencyList = adjacencyList(
 				new int[][]{
 						{1},
@@ -140,6 +165,21 @@ private static void type1() {
 		boolean hasCycle = detectCycle1(v, adjacencyList);
 		System.out.println(hasCycle);
 	}
+
+	static boolean detectCycle1(int v, List<List<Integer>> adjacencyList) {
+		boolean[] visited = new boolean[v];
+		// for every node we will start the hasCycle method if it is not visited
+		// if hasCycle is true then we will return true
+		for (int node = 0; node < v; node++)
+			if (!visited[node] && hasCycle1(node, adjacencyList, visited))
+				return true;
+		return false;
+	}
+
+	// Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees
+	// as we traverse all adjacent nodes.
+	// In the case of connected components of a graph, it will take another O(N) time.
+	// Space Complexity: O(N) + O(N) ~ O(N), Space for queue data structure and visit the array.
 	private static boolean hasCycle1(int node, List<List<Integer>> adjacencyList, boolean[] visited) {
 		Queue<int[]> queue = new LinkedList<>();
 		// we will store the pair of current node and its parent node
@@ -166,4 +206,6 @@ private static void type1() {
 		}
 		return false;
 	}
+
+}
 ```

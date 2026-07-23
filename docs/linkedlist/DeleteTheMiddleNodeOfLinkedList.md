@@ -1,30 +1,35 @@
 # DeleteTheMiddleNodeOfLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/DeleteTheMiddleNodeOfLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/delete-middle-node_763267)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ePpV-_pfOeI)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing,
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x. optimized approach using a slow and a fast pointer to calculate the mid-pointer slight optimization from the previous. we will not start fast from the head pointer, and instead of the slow pointer we will keep track of the prev pointer
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+optimized approach using a slow and a fast pointer to calculate the mid-pointer slight optimization from the previous. we will not start fast from the head pointer, and instead of the slow pointer we will keep track of the prev pointer we will keep track of the previous pointer, we are shifting the fast by one iteration
 
 ```java
-private static void type3() {
+    private static void type3() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = deleteMiddle3(head);
         print(head);
     }
+
     private static Node deleteMiddle3(Node head) {
         if (head.next == null) return null;
         // we will keep track of the previous pointer,
@@ -41,14 +46,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using a slow and a fast pointer to calculate the mid-pointer
+optimized approach using a slow and a fast pointer to calculate the mid-pointer this loop will work for all length linked lists slow is the middle pointer
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = deleteMiddle2(head);
         print(head);
     }
+
     private static Node deleteMiddle2(Node head) {
         if (head.next == null) return null;
         Node prev = null, slow = head, fast = head;
@@ -64,16 +70,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach store it in an array list find the mid then detach the pointer
+brute force approach store it in an array list find the mid then detach the pointer by the question logic mid is
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = deleteMiddle1(head);
         print(head);
     }
+
     public static Node deleteMiddle1(Node head) {
         if (head.next == null) return null;
         List<Node> list = new ArrayList<>();
@@ -89,4 +96,5 @@ private static void type1() {
         prev.next = node.next;
         return head;
     }
+}
 ```

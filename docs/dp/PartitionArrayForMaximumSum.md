@@ -1,33 +1,38 @@
 # PartitionArrayForMaximumSum
 
-**Topic:** `dp` | **File:** `com/problems/dp/PartitionArrayForMaximumSum.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/partition-array-for-maximum-sum/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/minimum-elements_3843091)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=PhWWJmaKfMc&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=55)
 - [▶ YouTube](https://www.youtube.com/watch?v=kWhy4ZUBdOY)
 - [📄 takeUforward](https://takeuforward.org/data-structure/partition-array-for-maximum-sum-front-partition-dp-54/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Partition array into subarrays of max length K, replace each with max element, maximize sum.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Do not try to discuss it in the interview, focus on the memoization tabulation approach or the bottom-up approach we will just convert the recursion into iteration
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+do not try to discuss it in the interview, focus on the memoization tabulation approach or the bottom-up approach we will just convert the recursion into iteration we will start from last so that we can copy the recurrence relation we will take the min of i+k and n, so that do not go out of bounds increase the length and calculate the current max of that range check the partition value of the j+1
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] arr = {1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3};
         int k = 4;
         int ans = partition3(arr, k);
         System.out.println(ans);
     }
+
     private static int partition3(int[] arr, int k) {
         int n = arr.length;
         int[] dp = new int[n + 1];
@@ -53,32 +58,80 @@ private static void type3() {
 
 ### Approach 2
 
-Discuss it in the interview recursion with memoization similar to the previous type
+discuss it in the interview recursion with memoization similar to the previous type if we are going out of bounds, then the sum will be 0 if cell is computed then we will directly return the answer we will take the min of i+k and n, so that do not go out of bounds Iterate through the next 'k' elements or remaining elements if less than 'k'.
+
+increase the length and calculate the current max of that range length of the current seq is (j-i+1) start a new partition from j+1
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3};
         int k = 4;
         int ans = partition2(arr, k);
         System.out.println(ans);
     }
+
     public static int partition2(int[] arr, int k) {
         int n = arr.length;
         int[] dp = new int[n + 1];
         Arrays.fill(dp, -1);
         return partition2(0, arr, k, dp);
     }
+
+    static int partition2(int i, int[] num, int k, int[] dp) {
+        int n = num.length;
+        // if we are going out of bounds, then the sum will be 0
+        if (i == n) return 0;
+        // if cell is computed then we will directly return the answer
+        if (dp[i] != -1) return dp[i];
+        int maxNum = 0, maxSum = 0;
+        // we will take the min of i+k and n, so that do not go out of bounds
+        int bound = Math.min(i + k, n);
+        // Iterate through the next 'k' elements or remaining elements if less than 'k'.
+        for (int j = i; j < bound; j++) {
+            // increase the length and calculate the current max of that range
+            maxNum = Math.max(maxNum, num[j]);
+            // length of the current seq is (j-i+1)
+            int currSum = (j - i + 1) * maxNum;
+            // start a new partition from j+1
+            int partSum = partition2(j + 1, num, k, dp);
+            maxSum = Math.max(maxSum, currSum + partSum);
+        }
+        return dp[i] = maxSum;
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-If we are going out of bounds, then the sum will be 0 if cell is computed then we will directly return the answer we will take the min of i+k and n, so that do not go out of bounds Iterate through the next 'k' elements or remaining elements if less than 'k'. increase the length and calculate the current max of that range length of the current seq is (j-i+1) start a new partition from j+1 using brute force approach with recursion, the intuition is pretty straightforward we will start from i and go to i+k for every j in that range we will check the new partition from j+1
+using brute force approach with recursion, the intuition is pretty straightforward we will start from i and go to i+k for every j in that range we will check the new partition from j+1 if we are going out of bounds, then the sum will be 0 we will take the min of i+k and n, so that do not go out of bounds Iterate through the next 'k' elements or remaining elements if less than 'k'.
+
+increase the length and calculate the current max of that range length of the current seq is (j-i+1) start a new partition from j+1
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3};
         int k = 4;
         int ans = partition1(0, arr, k);
         System.out.println(ans);
     }
+
+    static int partition1(int i, int[] num, int k) {
+        int n = num.length;
+        // if we are going out of bounds, then the sum will be 0
+        if (i == n) return 0;
+        int maxNum = 0, maxSum = 0;
+        // we will take the min of i+k and n, so that do not go out of bounds
+        int bound = Math.min(i + k, n);
+        // Iterate through the next 'k' elements or remaining elements if less than 'k'.
+        for (int j = i; j < bound; j++) {
+            // increase the length and calculate the current max of that range
+            maxNum = Math.max(maxNum, num[j]);
+            // length of the current seq is (j-i+1)
+            int currSum = (j - i + 1) * maxNum;
+            // start a new partition from j+1
+            int partSum = partition1(j + 1, num, k);
+            maxSum = Math.max(maxSum, currSum + partSum);
+        }
+        return maxSum;
+    }
+}
 ```

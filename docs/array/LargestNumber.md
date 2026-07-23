@@ -1,31 +1,35 @@
 # LargestNumber
 
-**Topic:** `array` | **File:** `com/problems/array/LargestNumber.java`
-
+**Topic:** `array`  
 **Tags:** Arrays
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/largest-number/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=WDx6Y4i4xJ8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Arrange numbers to form the largest number.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+it will sort in reverse checking which combination is greater either num1-num2 or num2-num1 or in simple words num1 > num2 if yes we will return true else false comparator will return
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {3, 30};
         String ans = largestNumber2(nums);
         System.out.println(ans);
     }
+
     public static String largestNumber2(int[] nums) {
         int n = nums.length;
         String[] arr = new String[n];
@@ -36,6 +40,10 @@ private static void type2() {
         String res = String.join("", arr);
         return res.charAt(0) == '0' ? "0" : res;
     }
+
+    // checking which combination is greater either num1-num2 or num2-num1
+    // or in simple words num1 > num2 if yes we will return true else false
+    // comparator will return
     private static boolean isGreater(String num1, String num2) {
         int n1 = num1.length();
         int n2 = num2.length();
@@ -51,16 +59,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Checking which combination is greater either num1-num2 or num2-num1 or in simple words num1 > num2 if yes we will return true else false comparator will return brute force approach sorting the array
+brute force approach sorting the array
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {3, 30, 34, 5, 9};
         String ans = largestNumber1(nums);
         System.out.println(ans);
     }
+
     public static String largestNumber1(int[] nums) {
         Integer[] copy = Arrays.stream(nums).boxed().toArray(Integer[]::new);
         Arrays.sort(copy, (n1, n2) -> isGreater(n1, n2));
@@ -73,6 +82,7 @@ private static void type1() {
         if (sum == 0) return "0";
         return sb.toString();
     }
+
     private static int isGreater(Integer n1, Integer n2) {
         if (Objects.equals(n1, n2)) return 0;
         if (n1 == 0) return 1;
@@ -81,4 +91,14 @@ private static void type1() {
         long num2 = n2 * base(n1) + n1;
         return (num1 > num2) ? -1 : 1;
     }
+
+    static long base(int n) {
+        long base = 1L;
+        while (n > 0) {
+            base *= 10;
+            n = n / 10;
+        }
+        return base;
+    }
+}
 ```

@@ -1,43 +1,49 @@
 # NumberOfLongestIncreasingSubsequence
 
-**Topic:** `dp` | **File:** `com/problems/dp/NumberOfLongestIncreasingSubsequence.java`
-
+**Topic:** `dp`  
 **Tags:** Array, Dynamic Programming, Binary Indexed Tree, Segment Tree
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/number-of-longest-increasing-subsequence_3751627)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cKVl1TFdNXg&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=48)
 - [▶ YouTube](https://www.youtube.com/watch?v=Tuc-rjJbsXU)
 - [📄 takeUforward](https://takeuforward.org/dynamic-programming/striver-dp-series-dynamic-programming-problems/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an integer array nums, return the number of longest increasing subsequences.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given an integer array nums, return the number of longest increasing subsequences. Notice that the sequence has to be strictly increasing. nums = [1,3,5,4,7] Output: 2 Explanation: The two longest increasing subsequences are [1, 3, 4, 7] and [1, 3, 5, 7]. todo check the leetcode top submissions for segment tree and binary search implementations
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+check the leetcode top submissions for segment tree and binary search implementations
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Optimized approach, took the intuition from the longest increasing subsequence, but here along with dp array we will also use another array todo check the striver video is you do not understand the solution we could use n^2 solution as n <= 2000
+optimized approach, took the intuition from the longest increasing subsequence, but here along with dp array we will also use another array check the striver video is you do not understand the solution we could use n^2 solution as n <= 2000 we will initialize everything with 1, as this will be the default value if in any case in the inner loop does not execute or (nums[prev] < nums[i]) do not hold every number is itself an increasing sequence we will iterate over the array The intuition is the same as LIS.
+
+However, here we will use some extra computations if the current is greater than previous, and dp[prev]+1 is also greater than the dp[i], so it is the time that we have found a new longer LIS, so we will update the dp[i]. we will update the dp[i] but now we will assign the count value with the count value of longest prev subsequence if the dp[prev]+1 is the same as dp[i], then we have found another LIS, so we will add that count value in the current counts[i] only when we find any new longer subsequence, we will add assign the counts[i] with counts[prev] max is the longest increasing subsequence length we will loop through the array and take the index for which dp[i]=max, and we will take their count[i] value
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {50, 3, 90, 60, 80};
         int ans = findNumberOfLIS2(nums);
         System.out.println(ans);
     }
+
     private static int findNumberOfLIS2(int[] nums) {
         int n = nums.length;
 
@@ -83,12 +89,11 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

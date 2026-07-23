@@ -1,21 +1,23 @@
 # MinimumOperationsToMakeColumnsStrictlyIncreasing
 
-**Topic:** `array` | **File:** `com/problems/array/MinimumOperationsToMakeColumnsStrictlyIncreasing.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-operations-to-make-columns-strictly-increasing/submissions/1491257200/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Min operations for strictly increasing columns.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {3, 2, 1},
                 {2, 1, 0},
@@ -24,6 +26,7 @@ private static void type1() {
         int ans = minimumOperations(grid);
         System.out.println(ans);
     }
+
     public static int minimumOperations(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -42,4 +45,5 @@ private static void type1() {
         }
         return total;
     }
+}
 ```

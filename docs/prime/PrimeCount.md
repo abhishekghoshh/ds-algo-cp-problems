@@ -1,31 +1,40 @@
 # PrimeCount
 
-**Topic:** `prime` | **File:** `com/problems/prime/PrimeCount.java`
+**Topic:** `prime`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-primes/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count prime numbers less than or equal to N.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+make a global array to store all prime count first compute all the primes index then from that compute primeCount array return in O(1) every time
 
 ```java
-private static void type3() {
+	private static void type3() {
 		
 	}
+
+	// better approach
+	// make a global array to store all prime count
+	// first compute all the primes index then from that compute primeCount array
+	// return in O(1) every time
+	private static int[] primeCount = null;
+	private static int N = 5 * 1000000;
 ```
 
 ### Approach 2
 
-Better approach make a global array to store all prime count first compute all the primes index then from that compute primeCount array return in O(1) every time
-
 ```java
-private static void type2() {
+	private static void type2() {
 		if (null == primeCount) {
 			boolean[] nonPrimes = new boolean[N + 1];
 			primeCount = new int[N + 1];
@@ -49,12 +58,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 12;
 		if (n == 0 || n == 1)
 			return;
@@ -78,4 +87,6 @@ private static void type1() {
 		}
 		System.out.println(count);
 	}
+
+}
 ```

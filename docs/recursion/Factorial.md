@@ -1,17 +1,21 @@
 # Factorial
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/Factorial.java`
+**Topic:** `recursion`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Calculate factorial of a number using recursion.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Using dp with tabulation without using any extra space, we don't need to save anything other than the last factorial
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+using dp with tabulation without using any extra space, we don't need to save anything other than the last factorial
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int n = 10;
 		long fact = 1;
 		for (int i = 1; i <= n; i++) {
@@ -23,10 +27,10 @@ private static void type4() {
 
 ### Approach 3
 
-Using dp with tabulation with extra spaces
+using dp with tabulation with extra spaces
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int n = 10;
 		long[] dp = new long[n + 1];
 		dp[0] = 1;
@@ -39,32 +43,36 @@ private static void type3() {
 
 ### Approach 2
 
-Using dp with memoization
+using dp with memoization
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 10;
 		long[] dp = new long[n + 1];
 		dp[0] = 1;
 		System.out.println(fact(n, dp));
 	}
+
 	private static long fact(int n, long[] dp) {
 		if (dp[n] != 0) return dp[n];
 		return dp[n] = n * fact(n - 1);
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion
+using recursion
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 10;
 		System.out.println(fact(n));
 	}
+
 	private static long fact(int n) {
 		if (n == 0) return 1;
 		return n * fact(n - 1);
 	}
+
+}
 ```

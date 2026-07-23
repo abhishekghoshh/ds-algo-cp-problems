@@ -1,40 +1,47 @@
 # FruitsIntoBaskets
 
-**Topic:** `array` | **File:** `com/problems/array/FruitsIntoBaskets.java`
+**Topic:** `array`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-these 2 problems are similar just the constraints are different <p> 1 <= n <= 100 <br> 1 <= fruits[i], baskets[i] <= 1000 <p> 1 <= n <= 105 <br> 1 <= fruits[i], baskets[i] <= 109
+these 2 problems are similar just the constraints are different
+<p>
+1 <= n <= 100 <br>
+1 <= fruits[i], baskets[i] <= 1000
+<p>
+1 <= n <= 105 <br>
+1 <= fruits[i], baskets[i] <= 109
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/fruits-into-baskets-ii/description/)
 - [📄 LeetCode](https://leetcode.com/problems/fruits-into-baskets-iii/description/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **2** approaches, progressing from brute force to optimal:
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-Check it later
+check it later
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-When the input is small, then we can apply brute force directly
+when the input is small, then we can apply brute force directly
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] fruits = {4, 2, 5};
         int[] baskets = {3, 5, 4};
         int ans = numOfUnplacedFruits1(fruits, baskets);
         System.out.println(ans);
     }
+
     public static int numOfUnplacedFruits1(int[] fruits, int[] baskets) {
         int count = 0;
         int n1 = fruits.length, n2 = baskets.length;
@@ -52,4 +59,5 @@ private static void type1() {
 
         return count;
     }
+}
 ```

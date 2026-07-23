@@ -1,25 +1,29 @@
 # ReplaceElementsByItsRankInArray
 
-**Topic:** `heap` | **File:** `com/problems/heap/ReplaceElementsByItsRankInArray.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/replace-each-element-of-array-with-its-corresponding-rank_975384)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/replace-elements-by-its-rank-in-the-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Replace each element by its rank in the sorted array.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimized approach here first we will store all the element in the heap we have an advantage here even if there is no guarantee that all the items will be distinct but the two same items will have the same rank
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+optimized approach here first we will store all the element in the heap we have an advantage here even if there is no guarantee that all the items will be distinct but the two same items will have the same rank first we will store all the element in the heap then one by one we will poll from the heap and compute its rank heap can have duplicate elements
 
 ```java
-private static void type3() {
+    private static void type3() {
         List<Integer> arr = List.of(1, 2, 6, 9, 2);
 
         List<Integer> ans = new ArrayList<>();
@@ -44,10 +48,10 @@ private static void type3() {
 
 ### Approach 2
 
-Using min heap
+using min heap as there might be more than one item with the same rank
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<Integer> arr = List.of(1, 2, 6, 9, 2);
         int n = arr.size();
         PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparing(pair -> pair[1]));
@@ -71,13 +75,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<Integer> arr = List.of(1, 2, 6, 9, 2);
 
     }
+}
 ```

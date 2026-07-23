@@ -19,6 +19,10 @@ public class JumpGame2 {
 
 ```
 
+## 📝 Problem Statement
+
+Find the minimum number of jumps to reach the last index.
+
 ## Source Code
 
 ```java

@@ -1,13 +1,13 @@
 # MatrixChainMultiplication
 
-**Topic:** `dp` | **File:** `com/problems/dp/MatrixChainMultiplication.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/matrix-chain-multiplication_975344)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=D7AFvtnDeMU&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=32)
 - [▶ YouTube](https://www.youtube.com/watch?v=kMK148J9qEE&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=33)
@@ -17,16 +17,20 @@
 - [📄 takeUforward](https://takeuforward.org/dynamic-programming/matrix-chain-multiplication-dp-48/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/matrix-chain-multiplication-tabulation-method-dp-49/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a sequence of matrices, find the most efficient way to multiply these
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given a sequence of matrices, find the most efficient way to multiply these matrices together. The efficient way is the one that involves the least number of multiplications. The dimensions of the matrices are given in an array arr[] of size N (such that N = number of matrices + 1) where the ith matrix has the dimensions (arr[i-1] x arr[i]). using tabulation technique todo do not try tabulation first, it is little bit complex to understand check striver video for this approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using tabulation technique do not try tabulation first, it is little bit complex to understand check striver video for this approach If we want to follow the recursion, then we have to do it from the last so that all the smaller dp[i][j] will be completed before the bigger one to follow the same recurrence relation, we will start the i from n-1 to 1 the j value will be starting just after i, so j will be from i+1 to n-1 then we will follow the same recurrence of the recursion code
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr = {40, 20, 30, 10, 30, 25};
 		int n = arr.length;
 		int[][] dp = new int[n][n];
@@ -58,10 +62,12 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization
+recursion with memoization initializing the array returning from the cache out of boundary we are doing k<j because we want the partition to end before the last cell so the last iteration it will be mat[i-1] * mat[j-1] * mat[j] total cost of doing matrix multiplication in each i to k and k+1 to j after mcm(i,k) and mcm(k+1,j) we will have two matrices.
+
+now, the multiplication cost for multiplying those two matrices will be mat[i-1] * mat[k] * mat[j], we are using i-1 because ith matrix is (i-1,i) updating the min saving the answer before returning
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] matrices = {40, 20, 30, 10, 30, 25};
 		int n = matrices.length;
 		int[][] dp = new int[n + 1][n + 1];
@@ -71,6 +77,7 @@ private static void type2() {
 		int minCost = mcm(matrices, 1, n - 1, dp);
 		System.out.println(minCost);
 	}
+
 	private static int mcm(int[] matrices, int i, int j, int[][] dp) {
 		// returning from the cache
 		if (dp[i][j] != -1) return dp[i][j];
@@ -95,12 +102,16 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach lets say the input array is 40, 20, 30, 10, 30, 25 that means we have matrices with (40x20), (20x30), (30x10), (10,30), (30,25) and we have to multiply all the matrices and produce single resultant matrix. it can be done in multiple ways, but we have to do it in a way that has the minimal multiplication cost. the cost of multiplying 2 matrices would be => (AxB)x(BxC)=> A*B*C
+brute force approach lets say the input array is 40, 20, 30, 10, 30, 25 that means we have matrices with (40x20), (20x30), (30x10), (10,30), (30,25) and we have to multiply all the matrices and produce single resultant matrix. it can be done in multiple ways, but we have to do it in a way that has the minimal multiplication cost.
+
+the cost of multiplying 2 matrices would be => (AxB)x(BxC)=> A*B*C since we are taking as (i-1,i) as the matrix, so we cannot start from 0, we have to we are starting from 1 as we are multiplying i-1 out of boundary we are doing k<j because we want the partition to end before the last cell so the last iteration it will be mat[i-1] * mat[j-1] * mat[j] total cost of doing matrix multiplication in each i to k and k+1 to j after mcm(i,k) and mcm(k+1,j) we will have two matrices.
+
+now, the multiplication cost for multiplying those two matrices will be mat[i-1] * mat[k] * mat[j], we are using i-1 because ith matrix is (i-1,i) updating the min
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] matrices = {40, 20, 30, 10, 30, 25};
 		int n = matrices.length;
 		// since we are taking as (i-1,i) as the matrix,
@@ -108,6 +119,8 @@ private static void type1() {
 		int minCost = mcm(matrices, 1, n - 1);
 		System.out.println(minCost);
 	}
+
+	// we are starting from 1 as we are multiplying i-1
 	private static int mcm(int[] matrices, int i, int j) {
 		// out of boundary
 		if (i >= j) return 0;
@@ -128,4 +141,5 @@ private static void type1() {
 		}
 		return min;
 	}
+}
 ```

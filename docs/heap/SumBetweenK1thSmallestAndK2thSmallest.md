@@ -1,26 +1,32 @@
 # SumBetweenK1thSmallestAndK2thSmallest
 
-**Topic:** `heap` | **File:** `com/problems/heap/SumBetweenK1thSmallestAndK2thSmallest.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/sum-of-elements-between-k1th-and-k2th-smallest-elements3133/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3ioQQQrnw4Q&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=10)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/sum-elements-k1th-k2th-smallest-elements/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an array arr[] of positive integers and two integers k1 and k2, find the sum of all array elements whose values lie between the k1-th smallest and the k2-th smallest (both k1th and k2th smallest are not included) of the array.
+Examples :
+Input:
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-We will only maintain one heap here intuition is coming from the type2
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+we will only maintain one heap here intuition is coming from the type2 we will maintain a max heap to maintain k2 smallest values we are also excluding the k2'th smallest now we will exclude one by one till there is only k1 elements in the heap
 
 ```java
-private static void type3() {
+	private static void type3() {
 		long k1 = 3;
 		long k2 = 6;
 		long[] nums = {20, 8, 22, 4, 12, 10, 14};
@@ -41,10 +47,10 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+we will maintain two max heap to maintain k1 and k2 smallest values we are also excluding the k2'th smallest from k2-1 th to k1+1 th smallest values are added here
 
 ```java
-private static void type2() {
+	private static void type2() {
 		long k1 = 3;
 		long k2 = 6;
 		long[] nums = {20, 8, 22, 4, 12, 10, 14};
@@ -66,12 +72,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		long k1 = 3;
 		long k2 = 6;
 		long[] nums = {20, 8, 22, 4, 12, 10, 14};
@@ -81,4 +87,5 @@ private static void type1() {
 			sum += nums[(int) (i - 1)];
 		System.out.println(sum);
 	}
+}
 ```

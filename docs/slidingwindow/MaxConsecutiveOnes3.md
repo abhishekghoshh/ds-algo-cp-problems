@@ -1,22 +1,26 @@
 # MaxConsecutiveOnes3
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaxConsecutiveOnes3.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/max-consecutive-ones-iii/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/maximum-consecutive-ones_892994)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+we can change k zeros to make the biggest consecutive 1
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-There is no brute force solution for this problem TODO study later
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+study later
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1};
         int k = 2;
         int n = nums.length;
@@ -33,10 +37,10 @@ private static void type3() {
 
 ### Approach 2
 
-We will count the continuous k zeros if we find that then max count will
+we will count the continuous k zeros if we find that then max count will
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 2;
         int max = 0;
@@ -53,12 +57,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Let's say we have a series of 0's and 1's we can change k zeros to make the biggest consecutive 1
+let's say we have a series of 0's and 1's we can change k zeros to make the biggest consecutive 1 if (size - 2 <= k) return n;
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
         int k = 1;
         int max = Integer.MIN_VALUE;
@@ -79,4 +83,6 @@ private static void type1() {
         }
         System.out.println(max);
     }
+
+}
 ```

@@ -1,27 +1,33 @@
 # KahnAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/KahnAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/topological-sort/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/topological-sorting_973003)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=73sneFXuTEg&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=22)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kahns-algorithm-topological-sort-algorithm-bfs-g-22/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given a&amp;nbsp;Directed Acyclic Graph (DAG)&amp;nbsp;of&amp;nbsp;V&amp;nbsp;(0 to V-1)&amp;nbsp;vertices and&amp;nbsp;E&amp;nbsp;edges represented as a 2D list of&amp;nbsp;edges[][], where each entry&amp;nbsp;edges[i] = [u, v] denotes a&amp;nbsp;directed&amp;nbsp;edge&amp;nbsp;u -&amp;gt; v. Return
 
-### Implementation
+## 💡 Approaches
 
-Check one more time if it still confuses you
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+check one more time if it still confuses you first, we will calculate indegree of all the nodes, if any node has no indegree then it is the starting nodes, and we can assume that from these nodes there are edges to other nodes if the in degree of a node is 0, that means that is the starting node so, we will add it to the queue, as our starting point of the BFS everytime we will decrease the indegree of the adjacent node,let's say node 5 has edge from 2 and 4, so indegree[5] = 2 indegree[5] will 0 when we have discovered 2 and 4 successfully indegree denotes there is an edge between start -> end, and as we are traversing it, we will decrease it we will add them in queue when the indegree of the specific node become 0 that means we have already discovered all is previous nodes.
+
+and it was that last edge to end node, so now we will add it to the queue so the queue will eventually have the nodes in sorted manner
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 6;
 		List<List<Integer>> adjacencyList = graphBuilder()
 				.nodes(v)
@@ -66,4 +72,6 @@ private static void type1() {
 		}
 		print(answer);
 	}
+
+}
 ```

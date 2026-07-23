@@ -1,27 +1,34 @@
 # LargestSubstringWithKUniqueCharacters
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/LargestSubstringWithKUniqueCharacters.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/longest-substring-with-at-most-k-distinct-characters_2221410)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1)
 - [📄 LeetCode](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Lav6St0W_pQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=10)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+You are given a string s consisting only lowercase alphabets and an integer k. Your task is to find the length of the longest substring that contains exactly k distinct characters.
+Note : If no such substring exists, return -1.&nbsp;
+Examples:
+Input:
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimize approach but, same as using a hashmap
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+optimize approach but, same as using a hashmap
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "aabacbebebe";
 		int k = 2;
 		int max = -1;
@@ -46,10 +53,10 @@ private static void type3() {
 
 ### Approach 2
 
-Sliding window
+sliding window
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "aabacbebebe";
 		int k = 2;
 		int max = -1;
@@ -72,12 +79,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

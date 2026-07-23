@@ -1,30 +1,36 @@
 # BinaryTreeTraversal
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/BinaryTreeTraversal.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/preorder-traversal/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=jmy0LaGET1I&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=5)
 - [📄 takeUforward](https://takeuforward.org/binary-tree/binary-tree-traversal-inorder-preorder-postorder/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given the root of a binary tree, your task is to return its Preorder traversal.
+Note:&nbsp;A preorder traversal first visits the node, then visits the left child (including its entire subtree), and finally visits the right child (including its entire
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 4
 
 Level order traversal
 
 ```java
-private static void type4() {
+	private static void type4() {
 		TNode root = TNode.withCount(10);
 		List<List<Integer>> answer = levelOrder(root);
 		System.out.println(answer);
 	}
+
 	public static List<List<Integer>> levelOrder(TNode root) {
 		List<List<Integer>> wrapList = new LinkedList<>();
 		if (root == null) return wrapList;
@@ -46,12 +52,12 @@ private static void type4() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 In order traversal Pre order traversal Post-order traversal
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withCount(10);
 		List<Integer> inOrder = new ArrayList<>();
 		inOrder(root, inOrder);
@@ -63,4 +69,28 @@ private static void type1() {
 		PrintUtl.print(root);
 		PrintUtl.print(inOrder, preOrder, postOrder);
 	}
+
+
+	static void inOrder(TNode root, List<Integer> inOrder) {
+		if (root == null) return;
+		inOrder(root.left, inOrder);
+		inOrder.add(root.data);
+		inOrder(root.right, inOrder);
+	}
+
+	static void preOrder(TNode root, List<Integer> preOrder) {
+		if (root == null) return;
+		preOrder.add(root.data);
+		preOrder(root.left, preOrder);
+		preOrder(root.right, preOrder);
+	}
+
+	static void postOrder(TNode root, List<Integer> postOrder) {
+		if (root == null) return;
+		postOrder(root.left, postOrder);
+		postOrder(root.right, postOrder);
+		postOrder.add(root.data);
+	}
+
+}
 ```

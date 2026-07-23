@@ -1,29 +1,34 @@
 # RemoveDuplicatesFromSortedDoublyLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/RemoveDuplicatesFromSortedDoublyLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=YJKVTnOJXSY)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Using a tree set to store all the unique element in a sorted manner
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach we will do place we will compare with previous if it is not the same then only we will add the link
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will do place we will compare with previous if it is not the same then only we will add the link unlinking the next and prev if the prev data is not equal to the current data then we will add the current node going to the next node unlinking the dummy head
 
 ```java
-private static void type2() {
+    private static void type2() {
         DNode head = new DNode(1, 2, 2, 2, 3);
         DNode ans = uniqueSortedList2(head);
         print(ans);
     }
+
     private static DNode uniqueSortedList2(DNode head) {
         DNode dummyHead = new DNode(-1);
         DNode prev = dummyHead, node = head;
@@ -49,16 +54,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach Using a tree set to store all the unique element in a sorted manner
+brute force approach Using a tree set to store all the unique element in a sorted manner unlinking the dummy head
 
 ```java
-private static void type1() {
+    private static void type1() {
         DNode head = new DNode(1, 2, 2, 2, 3);
         DNode ans = uniqueSortedList1(head);
         print(ans);
     }
+
     private static DNode uniqueSortedList1(DNode head) {
         TreeSet<Integer> set = new TreeSet<>();
         DNode node = head;
@@ -80,4 +86,5 @@ private static void type1() {
         }
         return dummyHead.next;
     }
+}
 ```

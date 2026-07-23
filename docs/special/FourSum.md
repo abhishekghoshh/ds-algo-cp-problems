@@ -1,6 +1,11 @@
 # FourSum
 
 **Topic:** `special` | **File:** `com/problems/special/meetinthemiddle/FourSum.java`
+## 📝 Problem Statement
+
+Given an array nums of n integers, return all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that a, b, c, d are distinct indices and nums[a] + nums[b] + nums[c] + nums[d] == target.
+
+
 
 ## Problem / Solution Links
 ```

@@ -1,31 +1,36 @@
 # UpperBound
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/UpperBound.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/implement-upper-bound_8165383)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=6zhGS79oQ4k)
 - [📄 takeUforward](https://takeuforward.org/arrays/implement-upper-bound/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the upper bound (first position where element > target).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+maybe an answer look for smaller index on the left
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {3, 5, 8, 9, 15, 19};
         int x = 9;
         int answer = upperBound(arr, x);
         System.out.println(answer);
     }
+
     public static int upperBound(int[] arr, int x) {
         int n = arr.length;
         int low = 0, high = n - 1;
@@ -45,12 +50,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {3, 5, 8, 9, 15, 19};
         int n = arr.length, x = 9;
         int answer = n;
@@ -63,4 +68,5 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+}
 ```

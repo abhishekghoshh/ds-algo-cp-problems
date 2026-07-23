@@ -1,17 +1,19 @@
 # PrintingKnapsack
 
-**Topic:** `dp` | **File:** `com/problems/dp/PrintingKnapsack.java`
+**Topic:** `dp`  
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Print the items included in the optimal 0/1 Knapsack solution.
 
-### Implementation
+## 💡 Approaches
 
-Improved approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-public static void type2() {
+	public static void type2() {
 		int[][] items = {
 				{1, 2},
 				{4, 3},
@@ -59,4 +61,5 @@ public static void type2() {
 		System.out.println(answer);
 
 	}
+}
 ```

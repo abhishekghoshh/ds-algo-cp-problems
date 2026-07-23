@@ -1,35 +1,39 @@
 # KMostFrequentElements
 
-**Topic:** `heap` | **File:** `com/problems/heap/KMostFrequentElements.java`
-
+**Topic:** `heap`  
 **Tags:** Array, Heap, Hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/top-k-frequent-elements/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/k-most-frequent-elements_3167808)
 - [📄 NeetCode](https://neetcode.io/problems/top-k-elements-in-list)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=7VoJn544QrM&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=6)
 - [▶ YouTube](https://www.youtube.com/watch?v=YPTqKIgVk-k)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+and store this pair into an array and
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Check type 1->4 one by one and remember the steps same as previous just here we will not store the frequency in the heap it will be in the comparator -104 <= nums[i] <= 104
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as previous just here we will not store the frequency in the heap it will be in the comparator -104 <= nums[i] <= 104 we are using a frequency array instead of a map adding to the ans array from the back
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
 		int[] answer = topKFrequent4(nums, k);
 		print(answer);
 	}
+
 	private static int[] topKFrequent4(int[] nums, int k) {
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
@@ -55,15 +59,16 @@ private static void type4() {
 
 ### Approach 3
 
-Same as the previous type just here we are using the frequency array to store the count this has some disadvantages like if one number is if the min is -99999 and max 99999 but most of the elements belongs to -100 to 100 then will waste multiple spaces by creating a large frequency array
+Same as the previous type just here we are using the frequency array to store the count this has some disadvantages like if one number is if the min is -99999 and max 99999 but most of the elements belongs to -100 to 100 then will waste multiple spaces by creating a large frequency array we are using a frequency array instead of a map we will use a min heap, so that element with lower frequency will be popped out adding to the ans array from the back
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
 		int[] answer = topKFrequent3(nums, k);
 		print(answer);
 	}
+
 	private static int[] topKFrequent3(int[] nums, int k) {
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
@@ -90,15 +95,16 @@ private static void type3() {
 
 ### Approach 2
 
-Using heap optimized approach
+Using heap optimized approach first we will calculate all the frequency we will use a min heap, so that element with lower frequency will be popped out now we will store the num and its count to the minHeap to get the k highest frequent numbers adding to the ans array from the back
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
 		int[] answer = topKFrequent2(nums, k);
 		print(answer);
 	}
+
 	private static int[] topKFrequent2(int[] nums, int k) {
 		Map<Integer, Integer> freq = new HashMap<>();
 		// first we will calculate all the frequency
@@ -119,17 +125,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach first we will create a frequency map with [num, freq[num]] and store this pair into an array and
+Brute force approach first we will create a frequency map with [num, freq[num]] and store this pair into an array and at first, we will calculate all the frequency creating a pair list of num and frequency of the num sorting the pair array based on the frequency in decreasing order now taking only the first k items from the pairs array
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {1, 1, 1, 2, 2, 3};
 		int k = 2;
 		int[] answer = topKFrequent1(nums, k);
 		print(answer);
 	}
+
 	private static int[] topKFrequent1(int[] nums, int k) {
 		Map<Integer, Integer> freq = new HashMap<>();
 		// at first, we will calculate all the frequency
@@ -148,4 +155,19 @@ private static void type1() {
 		for (i = 0; i < k; i++) answer[i] = pairs[i].num;
 		return answer;
 	}
+
+	static class Pair {
+		public int num, f;
+
+		public Pair(int num, int f) {
+			this.num = num;
+			this.f = f;
+		}
+
+		public String toString() {
+			return "[" + num + "," + f + "]";
+		}
+	}
+
+}
 ```

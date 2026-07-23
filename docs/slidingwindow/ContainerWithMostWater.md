@@ -1,35 +1,41 @@
 # ContainerWithMostWater
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/ContainerWithMostWater.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Array, Two pointer, greedy
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/container-with-most-water/description/)
 - [📄 NeetCode](https://neetcode.io/problems/max-water-container)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=UuiTKBwPgAo)
 - [▶ YouTube](https://www.youtube.com/watch?v=B-RAGAcNA24)
 - [▶ YouTube](https://www.youtube.com/watch?v=Uj3gJjg6SXc)
 - [▶ YouTube](https://www.youtube.com/watch?v=6PrIRPpTI9Q)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find two lines that hold the most water.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is exactly same as the type1, but here we are just simplifying the code a bit so the logic remains the same, we will take two pointers left and right and then we will calculate the water in between, and then we will shrink the container size, on every 2 pointers we will calculate the water, and then we will take the max of that water and the previous max so there is height on left and right pointer both. We will increase the left pointer if the height of left is less than or equal to the height of right, else we will decrease the right pointer because if left is smaller than by shilfting the left pointer we might get a bigger height and hence bigger water, We will move the shorter wall, as the area is limited by the shorter wall, so we need to find a taller wall to increase the area.
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+This is exactly same as the type1, but here we are just simplifying the code a bit so the logic remains the same, we will take two pointers left and right and then we will calculate the water in between, and then we will shrink the container size, on every 2 pointers we will calculate the water, and then we will take the max of that water and the previous max so there is height on left and right pointer both.
+
+We will increase the left pointer if the height of left is less than or equal to the height of right, else we will decrease the right pointer because if left is smaller than by shilfting the left pointer we might get a bigger height and hence bigger water, We will move the shorter wall, as the area is limited by the shorter wall, so we need to find a taller wall to increase the area.
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
 		int max = maxArea2(height);
 		System.out.println(max);
 	}
+
 	private static int maxArea2(int[] height) {
 		int n = height.length;
 		int left = 0, right = n - 1;
@@ -49,17 +55,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Two pointer approach if there is a bar in the left and another one in the right, the resultant height will be lesser height among them in that way if the left is chosen then we will increment left else we will decrement right The idea is to calculate most watered single container we don't meed to find it for using multiple containers with different height lets say the heights are 1 5 4 6 2 if we consider start at 1 and end at 1 then max water can be stored is 1 to 5 -> 1 unit, 5 to 6 -> 10 unit, 6 to 2 -> 2 unit but we will only take that continuous water so we will assume from 5 to 6 it it 1 and from 6 to 2 it is also 1 we will take the minimum height of the left and right side, and make that as the overall height so we will now take two pointer left and right and we will try to calculate the water in between and then we will shrink the container size
+two pointer approach if there is a bar in the left and another one in the right, the resultant height will be lesser height among them in that way if the left is chosen then we will increment left else we will decrement right The idea is to calculate most watered single container we don't meed to find it for using multiple containers with different height lets say the heights are 1 5 4 6 2 if we consider start at 1 and end at 1 then max water can be stored is 1 to 5 -> 1 unit, 5 to 6 -> 10 unit, 6 to 2 -> 2 unit but we will only take that continuous water so we will assume from 5 to 6 it it 1 and from 6 to 2 it is also 1 we will take the minimum height of the left and right side, and make that as the overall height so we will now take two pointer left and right and we will try to calculate the water in between and then we will shrink the container size water in that area would be height * width
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] height = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
 		int max = maxArea1(height);
 		System.out.println(max);
 
 	}
+
 	private static int maxArea1(int[] height) {
 		int n = height.length;
 		int max = 0;
@@ -80,4 +87,6 @@ private static void type1() {
 		}
 		return max;
 	}
+
+}
 ```

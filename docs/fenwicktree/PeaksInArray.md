@@ -1,33 +1,38 @@
 # PeaksInArray
 
-**Topic:** `fenwicktree` | **File:** `com/problems/fenwicktree/PeaksInArray.java`
+**Topic:** `fenwicktree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/peaks-in-array/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=B12cOUwooTc&list=PLEL7R4Pm6EmBxBrEq8g2L3MF3W3Shnk58&index=6)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Track peaks in an array using BIT.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Complete it using the fenwick tree
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+complete it using the fenwick tree
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Complete it using the brute force approach
+complete it using the brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

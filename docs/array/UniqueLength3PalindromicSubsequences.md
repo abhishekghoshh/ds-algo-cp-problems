@@ -1,31 +1,35 @@
 # UniqueLength3PalindromicSubsequences
 
-**Topic:** `array` | **File:** `com/problems/array/UniqueLength3PalindromicSubsequences.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix sum
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/unique-length-3-palindromic-subsequences/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3THUt0vAFLU)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Count unique palindromic subsequences of length 3.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-It is also optimized it uses the min and the max index of any character then for every character we will check how many distinct characters are present in the min and max
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+it is also optimized it uses the min and the max index of any character then for every character we will check how many distinct characters are present in the min and max setting the default value finding the min max array if the value is -1, then that is not present, or the max and min value are same then the character is present only for one time now we will check for all the character if they are present in between of the first and the last occurrence of the current character or not if the pivot character's min is greater than the max of the character or the max is lesser than the min of the character, then we could skip checking the first index of pivot character from the (minI + 1) if pivot characters first index lesser than the maxI then the character is present
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = "bbcbaba";
         int ans = countPalindromicSubsequence4(s);
         System.out.println(ans);
     }
+
     public static int countPalindromicSubsequence4(String s) {
         int n = s.length();
         int[] max = new int[26];
@@ -65,14 +69,15 @@ private static void type4() {
 
 ### Approach 3
 
-Explain this in the interview same as type 2, but here we have used array as set everywhere optimized approach using hashing and prefix sum we will maintain first and last occurrence of a character if we see there is a character which has the value in first array, that means we have already seen it so there might be some characters from the first[i] to the current index which we can find from the last array, as it holds the latest indices of the characters so from a to z we will check the last value of each character if the value/index falls in between of first[ch] and curr index that mean we could use that letter we also have to maintain a set to remove duplicates
+explain this in the interview same as type 2, but here we have used array as set everywhere optimized approach using hashing and prefix sum we will maintain first and last occurrence of a character if we see there is a character which has the value in first array, that means we have already seen it so there might be some characters from the first[i] to the current index which we can find from the last array, as it holds the latest indices of the characters so from a to z we will check the last value of each character if the value/index falls in between of first[ch] and curr index that mean we could use that letter we also have to maintain a set to remove duplicates the first time we are seeing the character setting first and last as i+1 we have already seen the character firstI is the first occurrence lastI is the current index string was char[pos] char[mid] char[pos], we will create the hash like it if string hash is already present in the set then we do not need to increment adding string to the
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "bbcbaba";
         int ans = countPalindromicSubsequence3(s);
         System.out.println(ans);
     }
+
     public static int countPalindromicSubsequence3(String s) {
         int N = (31 * 31 * 26) + (31 * 26) + 26;
         boolean[] set = new boolean[N + 1];
@@ -111,30 +116,31 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
-
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "bbcbaba";
         int ans = countPalindromicSubsequence2(s);
         System.out.println(ans);
     }
+
     private static int countPalindromicSubsequence2(String s) {
         return 0;
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "bbcbaba";
         int ans = countPalindromicSubsequence1(s);
         System.out.println(ans);
     }
+
     private static int countPalindromicSubsequence1(String s) {
         return 0;
     }
+}
 ```

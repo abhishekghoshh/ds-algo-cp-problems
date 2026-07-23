@@ -1,43 +1,48 @@
 # NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold
 
-**Topic:** `array` | **File:** `com/problems/array/NumberOfSubArraysOfSizeKAndAverageGreaterThanOrEqualToThreshold.java`
-
+**Topic:** `array`  
 **Tags:** Array, Sliding-Window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=D8B4tKxMTnY)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+then slide the window one by one and check the average
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Brute force
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+brute force
 
 ```java
-private static void type2() {
+    private static void type2() {
 
     }
+}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using the sliding window approach first calculate for the first window then slide the window one by one and check the average
+using the sliding window approach first calculate for the first window then slide the window one by one and check the average calculating the first window shifting the window checking if the average is greater than the threshold or not
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {11, 13, 17, 23, 29, 31, 7, 5, 2, 3};
         int k = 5;
         int threshold = 5;
         int ans = numOfSubarrays2(arr, k, threshold);
         System.out.println(ans);
     }
+
     public static int numOfSubarrays2(int[] arr, int k, int threshold) {
         int sum = 0;
         int n = arr.length;

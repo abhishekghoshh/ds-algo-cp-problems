@@ -1,29 +1,34 @@
 # MinimumChangesToMakeAlternatingBinaryString
 
-**Topic:** `string` | **File:** `com/problems/string/MinimumChangesToMakeAlternatingBinaryString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9vAQdmVU2ds)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Minimum changes to make a binary string alternating (0101... or 1010...).
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly same as the previous just here we will use one iteration but the checks are same here also
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly same as the previous just here we will use one iteration but the checks are same here also we are choosing the first bit to be 0 if the bit is already b then we need to change, and we will increment the counter toggle the bit we will take the minimum
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "0100";
         int ans = minOperations3(s);
         System.out.println(ans);
     }
+
     public static int minOperations3(String s) {
         char[] arr = s.toCharArray();
         // we are choosing the first bit to be 0
@@ -45,14 +50,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach here we will check how many changes required to make it some like 101010101... and then we will check how many changes required to make it like 010101010....
+optimized approach here we will check how many changes required to make it some like 101010101... and then we will check how many changes required to make it like 010101010.... we are choosing the first bit to be 0 if the bit is already b then we need to change, and we will increment the counter toggle the bit if the bit is already b then we need to change and we will increment the counter we will take the minimum
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "0100";
         int ans = minOperations2(s);
         System.out.println(ans);
     }
+
     public static int minOperations2(String s) {
         char[] arr = s.toCharArray();
         // we are choosing the first bit to be 0
@@ -79,12 +85,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

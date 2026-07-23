@@ -17,6 +17,10 @@ public class JumpGame7 {
 
 ```
 
+## 📝 Problem Statement
+
+Check if reachable with jump range [minJump, maxJump] on a binary string.
+
 ## Source Code
 
 ```java

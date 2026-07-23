@@ -1,30 +1,35 @@
 # ReverseOfLinkedList2
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/ReverseOfLinkedList2.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=RF_M9tX4Eag)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Reverse nodes of a linked list from position left to right.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-In place reversal
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+in place reversal we have added one more node at the start to make it 1 index we will go till left index now we will do the in place reversal study this or memorize this by any way we will link the nodes now
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 2, 3, 4, 5);
         int left = 2, right = 4;
         Node ans = reverseBetween(head, left, right);
         print(ans);
     }
+
     public static Node reverseBetween(Node head, int left, int right) {
         if (left == right) return head;
         // we have added one more node at the start to make it 1 index
@@ -53,17 +58,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using extra array for reversal first we will put everything in the array then we will find the indices and reverse
+using extra array for reversal first we will put everything in the array then we will find the indices and reverse add a dummy node at the start of the array list as left and right is 1 indexed adding all the items to the buffer list reversing the nodes from [left,right]
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 2, 3, 4, 5);
         int left = 2, right = 4;
         Node ans = reverseBetween1(head, left, right);
         print(ans);
     }
+
     private static Node reverseBetween1(Node head, int left, int right) {
         if (left == right) return head;
         List<Node> list = new ArrayList<>();
@@ -92,4 +98,5 @@ private static void type1() {
         }
         return list.get(0).next;
     }
+}
 ```

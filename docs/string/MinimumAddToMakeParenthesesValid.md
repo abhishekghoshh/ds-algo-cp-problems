@@ -1,22 +1,26 @@
 # MinimumAddToMakeParenthesesValid
 
-**Topic:** `string` | **File:** `com/problems/string/MinimumAddToMakeParenthesesValid.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/minimum-cost-to-make-string-valid_1115770)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+that means in the right there need to be closing bracket
 
-### Implementation
+## 💡 Approaches
 
-The optimized approach we will go through from left to right if open is less than one, means in the left there need to be added in the left we will also set to zero once open is negative at the last we will check if open is more than 1 or not that means in the right there need to be closing bracket
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+the optimized approach we will go through from left to right if open is less than one, means in the left there need to be added in the left we will also set to zero once open is negative at the last we will check if open is more than 1 or not that means in the right there need to be closing bracket
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "())";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -32,4 +36,5 @@ private static void type1() {
         count += open;
         System.out.println(count);
     }
+}
 ```

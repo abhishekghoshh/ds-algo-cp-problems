@@ -1,10 +1,9 @@
 # BestTimeToBuyAndSellStock1
 
-**Topic:** `array` | **File:** `com/problems/array/BestTimeToBuyAndSellStock1.java`
-
+**Topic:** `array`  
 **Tags:** Two-Pointers,Sliding-Window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 - [📄 NeetCode](https://neetcode.io/problems/buy-and-sell-crypto)
@@ -12,7 +11,7 @@
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/best-time-to-buy-and-sell-stock_6194560)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/stocks-are-profitable_893405)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=eMSfBgbiEjk)
 - [▶ YouTube](https://www.youtube.com/watch?v=excAOvwF_Wk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=36)
@@ -20,20 +19,25 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/stock-buy-and-sell/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/stock-buy-and-sell-dp-35/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given stock prices, find maximum profit from one buy-sell transaction.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using dynamic programming, don't say it in the interview here we are storing all profits for all days not necessarily required here, but it is a good practice to do a solution in a different way
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using dynamic programming, don't say it in the interview here we are storing all profits for all days not necessarily required here, but it is a good practice to do a solution in a different way finding for all (0..i) profits for the first day the profit will be 0 we will treat 0th day price as the lowest price if the current price is less than lowest
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] prices = {7, 11, 4, 1, 2};
 		int ans = maxProfit3(prices);
 		System.out.println(ans);
 	}
+
 	private static int maxProfit3(int[] prices) {
 		int n = prices.length;
 		int maxProfit = 0;
@@ -59,15 +63,16 @@ private static void type3() {
 
 ### Approach 2
 
-Discuss in the interview optimized approach traverse from the last keeps track of the previous highest selling day
+discuss in the interview optimized approach traverse from the last keeps track of the previous highest selling day storing the previous highest selling price the current price is greater than the previous price then the current price is lower than the previous price then we can set the current index as the buying day as previous highest as the selling day and calculate the profit
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] prices = { 7, 1, 5, 3, 6, 4 };
 		int max = maxProfit2(prices);
 		System.out.println(max);
 
 	}
+
 	private static int maxProfit2(int[] prices) {
 		int n = prices.length;
 		int maxProfit = 0;
@@ -90,16 +95,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for everyday we are checking its next highest day and calculate temporary profits try to check for all i,j where (i < j) and (arr[i] < arr[j]) o(n^2) time complexity
+brute force approach for everyday we are checking its next highest day and calculate temporary profits try to check for all i,j where (i < j) and (arr[i] < arr[j]) we will go from the last index and check for each day starting from 0th day to i-1 th day and if jth price < ith price then we can buy at jth and sell at ith day now for ith day we will check for all day starting from 0th to i-1th day the lowest value of max it 0 so the profit has to be greater than 0, to update tha max
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] prices = { 7, 1, 5, 3, 6, 4 };
 		int max = maxProfit1(prices);
 		System.out.println(max);
 	}
+
 	private static int maxProfit1(int[] prices) {
 		int max = 0;
 		int n = prices.length;
@@ -116,4 +123,5 @@ private static void type1() {
 		}
 		return max;
 	}
+}
 ```

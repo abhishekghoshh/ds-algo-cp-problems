@@ -1,21 +1,23 @@
 # FrogPositionAfterTSeconds
 
-**Topic:** `graph` | **File:** `com/problems/graph/FrogPositionAfterTSeconds.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/frog-position-after-t-seconds/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Find the probability that a frog is at a given vertex after t seconds.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 7;
 		int[][] edges = {{1, 2}, {1, 3}, {1, 7}, {2, 4}, {2, 6}, {3, 5}};
 		int t = 2;
@@ -34,6 +36,7 @@ private static void type1() {
 		double answer = traverse(1, t, target, graph, visited);
 		System.out.println(answer);
 	}
+
 	private static double traverse(int curr, int t, int target, List<Integer>[] graph, boolean[] visited) {
 		if (t < 0) return 0;
 		if (curr == target) return 1;
@@ -52,4 +55,6 @@ private static void type1() {
 		if (minProbability != 2) return minProbability * probability;
 		return 0;
 	}
+
+}
 ```

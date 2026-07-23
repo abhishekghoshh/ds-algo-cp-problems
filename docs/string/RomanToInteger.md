@@ -1,27 +1,29 @@
 # RomanToInteger
 
-**Topic:** `string` | **File:** `com/problems/string/RomanToInteger.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/roman-to-integer/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/981308)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=dlATMslQ6Uc)
 - [▶ YouTube](https://www.youtube.com/watch?v=3jdxYj3DD98)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Convert a Roman numeral to an integer.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
 
 ```java
-private static void type5() {
+	private static void type5() {
 		String s = "MCMXCIV";
 		char[] c = s.toCharArray();
 		int[] n = new int[c.length];
@@ -36,10 +38,8 @@ private static void type5() {
 
 ### Approach 4
 
-Improved approach
-
 ```java
-private static void type4() {
+	private static void type4() {
 		String s = "MCMXCIV";
 		int ans = 0, num = 0;
 		for (int i = s.length() - 1; i >= 0; i--) {
@@ -53,10 +53,8 @@ private static void type4() {
 
 ### Approach 3
 
-Improved approach
-
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "MCMXCIV";
 		int n = s.length();
 		int ans = 0;
@@ -74,10 +72,10 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+if the number is IV so result = V - I if the number is VI so result = V + I greater than equal to
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "MCMXCIV";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -100,12 +98,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+if the number is IV so result = V - I
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "MCMXCIV";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -120,6 +118,7 @@ private static void type1() {
 		}
 		System.out.println(seed);
 	}
+
 	private static int get(char ch) {
 		return switch (ch) {
 			case 'I' -> 1;
@@ -132,4 +131,5 @@ private static void type1() {
 			default -> 0;
 		};
 	}
+}
 ```

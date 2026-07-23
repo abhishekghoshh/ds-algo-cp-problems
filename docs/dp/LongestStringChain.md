@@ -1,43 +1,47 @@
 # LongestStringChain
 
-**Topic:** `dp` | **File:** `com/problems/dp/LongestStringChain.java`
-
+**Topic:** `dp`  
 **Tags:** Array, Hash Table, Two Pointers, String, Dynamic Programming, Sorting
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-string-chain/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/longest-string-chain_3752111)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=YY8iBaYcc4g&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=46)
 - [▶ YouTube](https://www.youtube.com/watch?v=7b0V1gT_TIk)
 - [📄 takeUforward](https://takeuforward.org/data-structure/longest-string-chain-dp-45/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the longest chain of words where each word is formed by adding exactly one character.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Check other submissions from the leetcode
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+check other submissions from the leetcode
 
 ```java
-private static void type4() {
+    private static void type4() {
     }
 ```
 
 ### Approach 3
 
-Explain this approach in the interview exactly like the previous, but here we will use some clever optimizations
+explain this approach in the interview exactly like the previous, but here we will use some clever optimizations we will convert everything into a char array, for faster checking we will sort the array with their length, so that the lesser string comes at the left as the array is sorted, so we will start from i-1 and go till i>=0 if the prevWord is smaller than currWord.len-1 then we can make answer from that word
 
 ```java
-private static void type3() {
+    private static void type3() {
         String[] words = {"bdca", "bda", "ca", "dca", "a"};
         int ans = longestStrChain2(words);
         System.out.println(ans);
     }
+
     public static int longestStrChain2(String[] words) {
         int n = words.length;
         if (n == 1) return 1;
@@ -71,14 +75,15 @@ private static void type3() {
 
 ### Approach 2
 
-Copying the logic from the longest increasing subsequence where we are using a single dp array to store the longest increasing subsequence for the current index
+copying the logic from the longest increasing subsequence where we are using a single dp array to store the longest increasing subsequence for the current index we will convert everything into a char array, for faster checking we will sort the array with their length, so that the lesser string comes at the left we will check if the current word is a one-letter extra word or not to compare two strings and check if they form a valid chain if the length different is not 1, then we will directly return false we will increase j if the character matches if j is n2 then it is a match
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] words = {"xbc", "pcxbcf", "xb", "cxbc", "pcxbc"};
         int ans = longestStrChain1(words);
         System.out.println(ans);
     }
+
     public static int longestStrChain1(String[] words) {
         int n = words.length;
         if (n == 1) return n;
@@ -103,6 +108,8 @@ private static void type2() {
         }
         return max;
     }
+
+    // to compare two strings and check if they form a valid chain
     public static boolean hasOneExtraLetter(char[] w1, char[] w2) {
         int j = 0, n1 = w1.length, n2 = w2.length;
         // if the length different is not 1, then we will directly return false
@@ -115,12 +122,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-To compare two strings and check if they form a valid chain simple recursive brute force approach
+simple recursive brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

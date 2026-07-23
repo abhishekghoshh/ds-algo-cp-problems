@@ -1,28 +1,32 @@
 # VerticalOrderTraversal
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/VerticalOrderTraversal.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/vertical-order-traversal_920533)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/vertical-order-traversal_3622711)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=q_a6lpbKJdw&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=22)
 - [📄 takeUforward](https://takeuforward.org/data-structure/vertical-order-traversal-of-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+store it in the final answer
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-This approach is also optimized it is using priority queue to store and retrieve level wise and column wise nodes
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+this approach is also optimized it is using priority queue to store and retrieve level wise and column wise nodes
 
 ```java
-private static void type3() {
+	private static void type3() {
 		TNode root = TNode.withNodes(1, 2, 3, 4, 6, 5, 7);
 		List<List<Integer>> result = new ArrayList<>();
 		PriorityQueue<Point> pq = new PriorityQueue<>();
@@ -37,14 +41,42 @@ private static void type3() {
 		}
 		System.out.println(result);
 	}
+
+	static private void dfs(TNode root, PriorityQueue<Point> pq, int row, int col) {
+		if (root == null) return;
+		pq.offer(new Point(row, col, root.data));
+		dfs(root.left, pq, row + 1, col - 1);
+		dfs(root.right, pq, row + 1, col + 1);
+	}
+
+	static class Point implements Comparable<Point> {
+		int row;
+		int col;
+		int data;
+
+		public Point(int row, int col, int data) {
+			this.row = row;
+			this.col = col;
+			this.data = data;
+		}
+
+		@Override
+		public int compareTo(Point point) {
+			if (this.col != point.col) return this.col - point.col;
+			if (this.row != point.row) return this.row - point.row;
+			return this.data - point.data;
+		}
+	}
+
+	static int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
 ```
 
 ### Approach 2
 
-Improved approach
+we have to add this condition as per the question
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.withNodes(1, 2, 3, 4, 6, 5, 7);
 		Map<Integer, List<Pair>> map = new HashMap<>();
 		verticalTraversal2(root, map, 0, 0);
@@ -59,6 +91,7 @@ private static void type2() {
 		}
 		System.out.println(answer);
 	}
+
 	private static void verticalTraversal2(TNode root, Map<Integer, List<Pair>> map, int axis, int level) {
 		if (null == root) return;
 		if (axis > max) max = axis;
@@ -70,12 +103,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will do any dfs traversal and also keep track of the level and axis. And based on that, we will store it in a map, and at last we will sort it and store it in the final answer
+We will do any dfs traversal and also keep track of the level and axis. And based on that, we will store it in a map, and at last we will sort it and store it in the final answer we have to add this condition as per the question
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withNodes(1, 2, 3, 4, 6, 5, 7);
 		Map<Integer, List<Pair>> map = new HashMap<>();
 		verticalTraversal1(root, map, 0, 0);
@@ -93,6 +126,7 @@ private static void type1() {
 		}
 		System.out.println(answer);
 	}
+
 	private static void verticalTraversal1(TNode root, Map<Integer, List<Pair>> map, int axis, int level) {
 		if (null == root) return;
 		if (!map.containsKey(axis)) map.put(axis, new ArrayList<>());
@@ -100,4 +134,27 @@ private static void type1() {
 		verticalTraversal1(root.left, map, axis - 1, level + 1);
 		verticalTraversal1(root.right, map, axis + 1, level + 1);
 	}
+
+	public static class Pair implements Comparable<Pair> {
+		public int level;
+		public int val;
+
+		public Pair(int level, int val) {
+			this.level = level;
+			this.val = val;
+		}
+
+		// we have to add this condition as per the question
+		@Override
+		public int compareTo(Pair pair) {
+			if (this.level != pair.level) return this.level - pair.level;
+			return this.val - pair.val;
+		}
+
+		@Override
+		public String toString() {
+			return "[" + level + "," + val + "]";
+		}
+	}
+}
 ```

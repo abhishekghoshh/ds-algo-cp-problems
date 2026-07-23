@@ -1,33 +1,38 @@
 # CountTotalSetBits
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/CountTotalSetBits.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/counting-bits/description/)
 - [📄 NeetCode](https://neetcode.io/problems/counting-bits)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/count-total-set-bits-1587115620/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ZzZcFXDcbJw)
 - [▶ YouTube](https://www.youtube.com/watch?v=kU5G5-6xEF4)
 - [▶ YouTube](https://www.youtube.com/watch?v=RyBM56RIWrM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count total set bits from 1 to n.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach for a number like 6 has the same bit count as 6/2=>3 for 3 and 6 has the same bit count now lets think reverse if the number is 3 then 3*2 and 3*2+1 can be derived from 3 3*2 has the same bit count as 3 and 7 has just exactly one bit more than 3 so for a number n the count of bit is the same as n/2 if n is positive and count(n/2)+1 if n is negative, so we can store the previous results in array (i / 2) and (i >> 1) is same and (i & 1 == 1) is same as (i % 2 == 1)
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach for a number like 6 has the same bit count as 6/2=>3 for 3 and 6 has the same bit count now lets think reverse if the number is 3 then 3*2 and 3*2+1 can be derived from 3 3*2 has the same bit count as 3 and 7 has just exactly one bit more than 3 so for a number n the count of bit is the same as n/2 if n is positive and count(n/2)+1 if n is negative, so we can store the previous results in array (i / 2) and (i >> 1) is same and (i & 1 == 1) is same as (i % 2 == 1) 6 and 7 both derived from 3 but if the number is odd, then there will be another bit at the end
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 7;
 		int[] arr = countBits2(n);
 		print(arr);
 	}
+
 	private static int[] countBits2(int n) {
 		int[] arr = new int[n + 1];
 		for (int num = 1; num <= n; num++) {
@@ -42,16 +47,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for each number we are counting the bits for each number the average complexity is O(log(n/2)) there are n numbers so total time complexity is O(n*log(n)) but we can do better
+brute force approach for each number we are counting the bits for each number the average complexity is O(log(n/2)) there are n numbers but we can do better
+
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 7;
 		int[] arr = countBits1(n);
 		print(arr);
 	}
+
 	private static int[] countBits1(int n) {
 		int[] arr = new int[n + 1];
 		for (int i = 0; i <= n; i++) {
@@ -59,6 +66,7 @@ private static void type1() {
 		}
 		return arr;
 	}
+
 	private static int count(int num) {
 		int ones = 0;
 		while (num != 0) {
@@ -69,4 +77,6 @@ private static void type1() {
 		}
 		return ones;
 	}
+
+}
 ```

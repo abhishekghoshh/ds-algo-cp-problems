@@ -1,27 +1,31 @@
 # DepthFirstSearchOfGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/DepthFirstSearchOfGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/dfs-traversal_630462)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Qzf1a--rhp8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=6)
 - [📄 takeUforward](https://takeuforward.org/data-structure/depth-first-search-dfs/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a connected undirected graph&nbsp;containing V vertices represented by a 2-d adjacency list&nbsp;adj[][], where each adj[i]&nbsp;represents the list of vertices connected to vertex&nbsp;i. Perform a Depth First Search (DFS) traversal starting f
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-For adjacency list but using recursion stack
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+for adjacency list but using recursion stack the recursion stack will make sure that we will go as deep as possible we will set the visited true when operating on it we will add it to stack only if start is not the end and the node is not visited
 
 ```java
-private static void type3() {
+	private static void type3() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 		adjList.add(new ArrayList<>(List.of(2, 3, 1)));
 		adjList.add(new ArrayList<>(List.of(0)));
@@ -36,6 +40,7 @@ private static void type3() {
 		dfs(0, dfsOfGraph, visited, adjList);
 		System.out.println(dfsOfGraph);
 	}
+
 	private static void dfs(int start, ArrayList<Integer> dfsOfGraph, boolean[] visited,
 			ArrayList<ArrayList<Integer>> adjList) {
 		dfsOfGraph.add(start);
@@ -51,10 +56,12 @@ private static void type3() {
 
 ### Approach 2
 
-For adjacency list using stack data structure
+for adjacency list using stack data structure unlike bfs, in bfs we will store the nodes in stack so that the last node added will be popped first, so rather going to level wise, it will go as deep as possible adding 0 to the stack at the time of visiting only we will make it visited and add it to the answer we will set the visited true when operating on it traverse in reverse as we are adding it to the stack, though it does not matter much.
+
+the idea is we will go as deep as possible we will add it to stack only if start is not the end and the node is not visited
 
 ```java
-private static void type2() {
+	private static void type2() {
 		ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 		adjList.add(new ArrayList<>(List.of(2, 3, 1)));
 		adjList.add(new ArrayList<>(List.of(0)));
@@ -93,12 +100,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-For adjacency matrix using stack data structure
+for adjacency matrix using stack data structure unlike bfs, in bfs we will store the nodes in stack so that the last node added will be popped first, so rather going to level wise, it will go as deep as possible adding 0 to the stack at the time of visiting only we will make it visited and add it to the answer we will set the visited true when operating on it we will only add it the node to the stack if the node is not the start node, there is an edge in between start and end, and the end node is not yet visited
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 5;
 		int[][] graph = {
 				{0, 1, 1, 1, 0},
@@ -134,4 +141,6 @@ private static void type1() {
 		}
 		System.out.println(dfsOfGraph);
 	}
+
+}
 ```

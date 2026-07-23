@@ -1,31 +1,38 @@
 # LowerBound
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/LowerBound.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/lower-bound_8165382)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=6zhGS79oQ4k)
 - [📄 takeUforward](https://takeuforward.org/arrays/implement-lower-bound-bs-2/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the lower bound (first position where element >= target).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+This condition means that the index mid may be an answer. So, we will update the ‘ans’ variable with mid and search in the left half if there is any smaller index that satisfies the same condition. Here, we are eliminating the right half look for smaller index on the left In this case, mid cannot be our answer, and we need to find some bigger element.
+
+So, we will eliminate the left half and search in the right half for the answer.
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] arr = {3, 5, 8, 15, 19};
         int x = 9;
         int answer = lowerBound(arr, x);
         System.out.println(answer);
     }
+
     public static int lowerBound(int[] arr, int x) {
         int n = arr.length;
         int low = 0, high = n - 1, mid;
@@ -51,12 +58,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach lower bound found
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] arr = {3, 5, 8, 15, 19};
         int n = arr.length, x = 9;
         int answer = n;
@@ -69,4 +76,5 @@ private static void type1() {
 
         System.out.println(answer);
     }
+}
 ```

@@ -1,21 +1,26 @@
 # CountSubstringsWithKFrequencyCharacters1
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/CountSubstringsWithKFrequencyCharacters1.java`
+**Topic:** `slidingwindow`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count substrings where any character appears exactly K times.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Sliding window approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+sliding window approach we will continue till freq of any character is less than k count will be increased by (n - r + 1) not 1 because if the current string we are considering is <abc> and there is x letters more in the string in right so starting from <abc> we can make len(<abc>) + x number of strings once it is k we will try to shift the left side of the window and try to maintain the freq of the character same reason as previous
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abacb";
         int k = 2;
 
     }
+
     public static int numberOfSubstrings2(String s, int k) {
         int count = 0;
         char[] arr = s.toCharArray();
@@ -45,11 +50,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

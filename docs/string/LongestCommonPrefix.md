@@ -1,46 +1,50 @@
 # LongestCommonPrefix
 
-**Topic:** `string` | **File:** `com/problems/string/LongestCommonPrefix.java`
-
+**Topic:** `string`  
 **Tags:** String, Array, trie
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-common-prefix/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/2090383)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/longest-common-prefix_628874)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=0sWShKIJoo4)
 - [▶ YouTube](https://www.youtube.com/watch?v=VTr3Nh7BadI)
 - [▶ YouTube](https://www.youtube.com/watch?v=bl8ue-dTxgs)
 - [▶ YouTube](https://www.youtube.com/watch?v=fhyIORFDD0k)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an array of strings strs, find the longest common prefix string.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using trie method not best approach it will take same time but will take some extra space
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using trie method not best approach it will take same time but will take some extra space
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String[] strs = { "flower", "flow", "flight" };
 	}
 ```
 
 ### Approach 2
 
-Not so optimized here we are sorting the strings by their length first then we are taking the first element as pivot like the last time then checking the remaining string one at a time and update the pivot len accordingly
+not so optimized here we are sorting the strings by their length first then we are taking the first element as pivot like the last time then checking the remaining string one at a time and update the pivot len accordingly if the character do not match then we will stop and update len
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String[] strs = { "flower", "flow", "flight" };
 		String ans = longestCommonPrefix2(strs);
 		System.out.println(ans);
 	}
+
 	private static String longestCommonPrefix2(String[] strs) {
 		int n = strs.length;
 		if (n == 1) return strs[0];
@@ -60,16 +64,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach we will take the first string as the pivot element from the remaining string we will check if it matches with the current character or not
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String[] strs = { "flower", "flow", "flight" };
 		String ans = longestCommonPrefix1(strs);
 		System.out.println(ans);
 	}
+
 	public static String longestCommonPrefix1(String[] strs) {
 		int n = strs.length;
 		if (n == 1) return strs[0];
@@ -86,4 +91,6 @@ private static void type1() {
 		}
 		return pivot;
 	}
+
+}
 ```

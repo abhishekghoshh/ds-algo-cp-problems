@@ -1,25 +1,29 @@
 # FindElementInBitonicArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FindElementInBitonicArray.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 InterviewBit](https://www.interviewbit.com/problems/search-in-bitonic-array/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=IjaP8qt1IYI&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=19)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Search for an element in a bitonic array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-A Bitonic Sequence is a sequence of numbers which is first strictly increasing then after a point strictly decreasing. we will split the array and, we will check if the low to mid or mid to high is sorted.We will check if the target present in the sorted part or not else we will go to the other side
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will split the array and, we will check if the low to mid or mid to high is sorted.We will check if the target present in the sorted part or not else we will go to the other side
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11};
 		int target = 12;
 		int low = 0, high = arr.length - 1, mid;
@@ -28,12 +32,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-First we will find the peak, then we will find the in two partitions 3 <= N <= 105
+first we will find the peak, then we will find the in two partitions 3 <= N <= 105
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11};
 		int target = 12;
 		int n = arr.length;
@@ -47,6 +51,7 @@ private static void type1() {
 			System.out.printf("key %d found in rightIndex %d%n", target, rightIndex);
 		}
 	}
+
 	private static int findMaximum(int[] arr, int n) {
 		int low = 1, high = n - 2, mid;
 		while (low <= high) {
@@ -57,6 +62,7 @@ private static void type1() {
 		}
 		return low;
 	}
+
 	private static int increasing(int[] arr, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -67,6 +73,7 @@ private static void type1() {
 		}
 		return -1;
 	}
+
 	private static int decreasing(int[] arr, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -77,4 +84,6 @@ private static void type1() {
 		}
 		return -1;
 	}
+
+}
 ```

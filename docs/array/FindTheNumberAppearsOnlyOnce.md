@@ -1,10 +1,9 @@
 # FindTheNumberAppearsOnlyOnce
 
-**Topic:** `array` | **File:** `com/problems/array/FindTheNumberAppearsOnlyOnce.java`
-
+**Topic:** `array`  
 **Tags:** Hashing, Bit Manipulation
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/single-number/description/)
 - [📄 NeetCode](https://neetcode.io/problems/single-number)
@@ -12,26 +11,31 @@
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/find-the-single-element_6680465)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/one-odd-occurring_4606074)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bYWLJb3vCWY&t=1369s)
 - [📄 takeUforward](https://takeuforward.org/arrays/find-the-number-that-appears-once-and-the-other-numbers-twice/)
 - [▶ YouTube](https://www.youtube.com/watch?v=qMPX1AOa83k)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the element that appears exactly once (others appear twice).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimize approach as all the numbers appear twice, and we know that a^a =0 we can use this property
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimize approach as all the numbers appear twice, and we know that a^a =0 we can use this property
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 4, 1, 2, 1, 2 };
 		int xor = singleNumber2(nums);
 		System.out.println(xor);
 	}
+
 	private static int singleNumber2(int[] nums) {
 		int xor = 0;
 		for (int num : nums)
@@ -40,18 +44,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n) space complexity O(n)
+brute force approach
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 4, 1, 2, 1, 2 };
 		int ans = singleNumber1(nums);
 		System.out.println(ans);
 	}
+
 	private static int singleNumber1(int[] nums) {
 		Map<Integer, Integer> freq = new HashMap<>();
 		for (int num : nums) {
@@ -65,4 +71,5 @@ private static void type1() {
 		}
 		return -1;
 	}
+}
 ```

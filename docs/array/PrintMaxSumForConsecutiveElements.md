@@ -1,26 +1,30 @@
 # PrintMaxSumForConsecutiveElements
 
-**Topic:** `array` | **File:** `com/problems/array/PrintMaxSumForConsecutiveElements.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/maximum-subarray_893296)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=AHZpyENo7k4&t=1209s)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Kadane's Algorithm we carry a sub array if its sum is positive else we'll initialize it to 0
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Kadane's Algorithm we carry a sub array if its sum is positive else we'll initialize it to 0 If sum < 0: discard the sum calculated
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int n = nums.length;
         List<Integer> answer = new ArrayList<>();
@@ -45,14 +49,15 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(n)
+brute force approach
 
-**Complexity:** Time: o(n^2) | Space: o(n)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] array = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int maxSum = Integer.MIN_VALUE;
         int n = array.length;
@@ -71,4 +76,5 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+}
 ```

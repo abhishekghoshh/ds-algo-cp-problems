@@ -1,31 +1,39 @@
 # ValidTriangleNumber
 
-**Topic:** `array` | **File:** `com/problems/array/ValidTriangleNumber.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, Two Pointers, Sorting, Greedy, Binary Search
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-triangle-number/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [https://www.hellointerview.com/learn/code/two-pointers/valid-triangle-number](https://www.hellointerview.com/learn/code/two-pointers/valid-triangle-number)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+check (a+b) > c and (b+c) > a and (a+c) > b
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Taking the intuition of the type2 approach but, here instead of finding one pair at a time we will find sequence of numbers which satisfy the condition. again, we will start with sorting the number array, and we will start with this point. let's say a and b are the two smallest sides and c is the largest side. so basically we need to find which numbers hold this (a + b) > c we will fix c which will be nums.length - 1 now lets we are at ith and jth index (i < j) and this condition holds (nums[i] + nums[j]) > c. and if we go to right from ith index and towards the jth index so nums[i] will only increase. so (nums[i] + nums[j]) > c this condition will hold for all the numbers from i to j. so we will do the same for all the c starting from the last index.
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+taking the intuition of the type2 approach but, here instead of finding one pair at a time we will find sequence of numbers which satisfy the condition. again, we will start with sorting the number array, and we will start with this point. let's say a and b are the two smallest sides and c is the largest side.
+
+so basically we need to find which numbers hold this (a + b) > c we will fix c which will be nums.length - 1 now lets we are at ith and jth index (i < j) and this condition holds (nums[i] + nums[j]) > c. and if we go to right from ith index and towards the jth index so nums[i] will only increase.
+
+so (nums[i] + nums[j]) > c this condition will hold for all the numbers from i to j. so we will do the same for all the c starting from the last index. this condition holds (nums[i] + nums[j]) > nums[k], means we found our range of triplets we will add (j-i) range to our answer now we will test with j-1, as this is the only way to decrease the value of (nums[i] + nums[j]) else means (nums[i] + nums[j]) <= nums[k], this condition holds, so we will increase the value of (nums[i] + nums[j]) and only way to increase it is by increasing i
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {2, 2, 3, 4};
         int answer = triangleNumber3(nums);
         System.out.println(answer);
     }
+
     private static int triangleNumber3(int[] nums) {
         int count = 0;
         Arrays.sort(nums);
@@ -52,14 +60,16 @@ private static void type3() {
 
 ### Approach 2
 
-Time Complexity : O(n^2 * log(n)) Here we will sort the array, now in the left we have smaller number and in the right we have larger numbers, and we will follow this rule (a + b > c) => b > (c - a) so will fix the left side(a) and right side(c) and we need to find the middle(b) which is greater than (c - a) and we can find it using binary search, as the array is sorted
+Here we will sort the array, now in the left we have smaller number and in the right we have larger numbers, and we will follow this rule (a + b > c) => b > (c - a) so will fix the left side(a) and right side(c) and we need to find the middle(b) which is greater than (c - a) and we can find it using binary search, as the array is sorted we will fix the left side and right side and find the middle
+
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {2, 2, 3, 4};
         int answer = triangleNumber2(nums);
         System.out.println(answer);
     }
+
     private static int triangleNumber2(int[] nums) {
         int count = 0;
         int n = nums.length;
@@ -74,6 +84,7 @@ private static void type2() {
         }
         return count;
     }
+
     public static int greaterCount(int[] nums, int start, int end, int seed) {
         if (start == end) return (nums[start] > seed) ? 1 : 0;
         if (nums[start] > seed) return end - start + 1;
@@ -93,17 +104,21 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute Force Approach Time Complexity : O(n^3) Space Complexity : O(1) Find all the triplets in the array and check if they can form a triangle or not check (a+b) > c and (b+c) > a and (a+c) > b
+Brute Force Approach Find all the triplets in the array and check if they can form a triangle or not check (a+b) > c and (b+c) > a and (a+c) > b
+
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {2, 2, 3, 4};
         int answer = triangleNumber1(nums);
         System.out.println(answer);
     }
+
     private static int triangleNumber1(int[] nums) {
         return 0;
     }
+
+}
 ```

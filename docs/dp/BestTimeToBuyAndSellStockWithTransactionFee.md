@@ -1,27 +1,31 @@
 # BestTimeToBuyAndSellStockWithTransactionFee
 
-**Topic:** `dp` | **File:** `com/problems/dp/BestTimeToBuyAndSellStockWithTransactionFee.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/rahul-and-his-chocolates_3118974)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=k4eK-vEmnKg&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=41)
 - [📄 takeUforward](https://takeuforward.org/data-structure/buy-and-sell-stocks-with-transaction-fees-dp-40/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+This is exactly like the best time for buy and sell problem 2.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-This is exactly like the best time for buy and sell problem 2. However, we have add a fee either while buying or selling that is the only change that we need to do for this problem TODO if you are unable to understand the intuition then check buy and sell problem 2 tabulation or top-down approach with space optimization, using 4 variables, and here we will also remove the inner canBuy loop. we have 2 optimizations here, if you have any issues to follow the intuition then check the best time for buy and sell 2
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+tabulation or top-down approach with space optimization, using 4 variables, and here we will also remove the inner canBuy loop. we have 2 optimizations here, if you have any issues to follow the intuition then check the best time for buy and sell 2 we will add another day as it was a boundary case in recursion we do not need to initiate for the nth day, as the default value of the int array is we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day but we are adding a fee here update the variables the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] prices = {1, 3, 2, 8, 4, 9};
         fee = 2;
         int n = prices.length;
@@ -47,10 +51,10 @@ private static void type4() {
 
 ### Approach 3
 
-Tabulation or top-down approach
+tabulation or top-down approach we will add another day as it was a boundary case in recursion we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day but we are adding a fee here the answer is on dp[0][0] for the first day, and the time is to buy
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] prices = {1, 3, 2, 8, 4, 9};
         fee = 2;
         int n = prices.length;
@@ -84,10 +88,10 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization
+recursion with memoization checking if it is out of bounds or not true means we can buy on that day we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day but we are adding a fee here
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] prices = {1, 3, 2, 8, 4, 9};
         fee = 2;
         int n = prices.length;
@@ -96,6 +100,7 @@ private static void type2() {
         int ans = maxProfit2(0, 0, prices, dp);
         System.out.println(ans);
     }
+
     public static int maxProfit2(int day, int canBuy, int[] prices, int[][] dp) {
         // checking if it is out of bounds or not
         if (day == prices.length) return 0;
@@ -119,17 +124,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursion with brute force
+recursion with brute force checking if it is out of bounds or not true means we can buy on that day we can either buy or skip for that day else means we can sell on that day we can either sell or we can also check for the next day, but we are adding a fee here
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] prices = {1, 3, 2, 8, 4, 9};
         fee = 2;
         int ans = maxProfit1(0, true, prices);
         System.out.println(ans);
     }
+
     public static int maxProfit1(int day, boolean canBuy, int[] prices) {
         // checking if it is out of bounds or not
         if (day == prices.length) return 0;
@@ -150,4 +156,5 @@ private static void type1() {
             );
         }
     }
+}
 ```

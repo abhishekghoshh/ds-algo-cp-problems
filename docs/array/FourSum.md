@@ -1,39 +1,44 @@
 # FourSum
 
-**Topic:** `array` | **File:** `com/problems/array/FourSum.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, Two Pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/4sum/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/4sum_5713771)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/983605)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=eD95WRfh81c)
 - [▶ YouTube](https://www.youtube.com/watch?v=4ggF3tXIAp0&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=22)
 - [▶ YouTube](https://www.youtube.com/watch?v=EYeR-_1NRlQ)
 - [📄 takeUforward](https://takeuforward.org/data-structure/4-sum-find-quads-that-add-up-to-a-target-value/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Better than the previous as the array is sorted we can skip one iteration at least also the array is sorted we can easily skip the duplicates 2 pointer approach time complexity O(n^3) + O(n*log(n)) space complexity O(1)
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n^3) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+better than the previous as the array is sorted we can skip one iteration at least also the array is sorted we can easily skip the duplicates 2 pointer approach if previous num is also same then we will skip for the number in the current series i, i+1, i+2 and i+3 is lowest if the sum of then is greater than target, then any number on the right side will be able to make the target as well, so we will break the loop, as there will be no more answer in the current series n-1, n-2 and n-3 is the highest if the num + the sum of them is lesser than target then num will not able to make sum with others also, so we will skip for the current num here we will choose the 2nd number in the four sum series here we are checking with (i+1) as j is starting from (i+1), so has to be atleast i+2 to has a prev num in the current series i, j, j+1 and j+1 is lowest in the current series n-1, n-2 is the highest if the num1 + num2 + the sum of them is lesser than target then num will not able to make sum with others also, now will start 2 pointer from here, it is similar to the three sum increasing left and skipping duplicates from the left decreasing right and skipping duplicates from the right
+
+**Time Complexity:** `O(n^3)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1, 0, -1, 0, -2, 2 };
 		int target = 0;
 		List<List<Integer>> answer = fourSum2(nums, target);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> fourSum2(int[] nums, int target) {
 		Arrays.sort(nums); // so that we can get the numbers one by one in increasing manner
 		int n = nums.length;
@@ -91,17 +96,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach creating a custom data structure so that duplicates will get ruled out
+brute force approach creating a custom data structure so that duplicates will get ruled out now we will use 2 pointer approach here and try to find the remaining one number
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 1, 0, -1, 0, -2, 2 };
 		int target = 0;
 		List<List<Integer>> answer = fourSum1(nums, target);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> fourSum1(int[] nums, int target) {
 		int n = nums.length, low, high, mid;
 		Arrays.sort(nums); // so that we can get the numbers one by one in increasing manner
@@ -135,4 +141,31 @@ private static void type1() {
 		for (FourPoint p : set) ans.add(List.of(p.x1, p.x2, p.x3, p.x4));
 		return ans;
 	}
+
+	private record FourPoint(int x1, int x2, int x3, int x4) {
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			FourPoint other = (FourPoint) obj;
+			if (x1 != other.x1)
+				return false;
+			if (x2 != other.x2)
+				return false;
+			if (x3 != other.x3)
+				return false;
+			return x4 == other.x4;
+		}
+
+		public List<Integer> list() {
+			return List.of(x1, x2, x3, x4);
+		}
+	}
+
+}
 ```

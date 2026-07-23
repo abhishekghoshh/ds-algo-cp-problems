@@ -1,13 +1,13 @@
 # IntroductionToBinaryTree
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/IntroductionToBinaryTree.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/introduction-to-trees/1)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/binary-tree-representation/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_ANrF3FJm7I&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=2)
 - [▶ YouTube](https://www.youtube.com/watch?v=ctCpP0RFDFc&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=3)
@@ -16,16 +16,18 @@
 - [📄 takeUforward](https://takeuforward.org/binary-tree/binary-tree-representation-in-c/)
 - [📄 takeUforward](https://takeuforward.org/binary-tree/binary-tree-representation-in-java/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Introduction and terminology of binary trees.
 
-### Implementation
+## 💡 Approaches
 
-Check these types later as well Types of binary tree 1. Full binary tree 2. Complete binary tree 3. Perfect binary tree 4. Balanced binary tree 5. Degenerate tree
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		List<Integer> v = List.of(1, 2, 3, 4, 5, 6, 7);
 		TNode root0 = new TNode(v.get(0));
 		TNode root1 = new TNode(v.get(1));
@@ -43,4 +45,6 @@ private static void type1() {
 
 		PrintUtl.print(root0);
 	}
+
+}
 ```

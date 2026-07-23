@@ -1,31 +1,35 @@
 # DeleteAndEarn
 
-**Topic:** `dp` | **File:** `com/problems/dp/DeleteAndEarn.java`
-
+**Topic:** `dp`  
 **Tags:** Array, hashing, Dynamic Programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/delete-and-earn/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=7FCemBxvGw0 => Too complex)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+we have also added dynamic programming in this
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Same as type 3 we will use prev and prev2 instead a dp array on each iteration we will update that
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as type 3 we will use prev and prev2 instead a dp array on each iteration we will update that collect prev and prev2 if nums[i-1] == num-1 then we have 2 choices either to take the prev2 + current point or take the prev point update prev2 and prev
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] nums = {1, 2, 3, 15, 16, 17, 18};
         int ans = deleteAndEarn4(nums);
         System.out.println(ans);
     }
+
     private static int deleteAndEarn4(int[] nums) {
         int max = 0;
         for (int num : nums) max = Math.max(max, num);
@@ -65,14 +69,15 @@ private static void type4() {
 
 ### Approach 3
 
-Iterative approach same as type2, here we will go from 0 to n and collect value for (i-1) and (i-2) and compute the value with the same condition
+iterative approach same as type2, here we will go from 0 to n and collect value for (i-1) and (i-2) and compute the value with the same condition collect prev and prev2 if nums[i-1] == num-1 then we have 2 choices either to take the prev2 + current point or take the prev point
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 2, 3, 15, 16, 17, 18};
         int ans = deleteAndEarn3(nums);
         System.out.println(ans);
     }
+
     private static int deleteAndEarn3(int[] nums) {
         int max = 0;
         for (int num : nums) max = Math.max(max, num);
@@ -108,14 +113,15 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous type but here we are using array rather list or map
+same as previous type but here we are using array rather list or map calculating the frequency array collecting all the distinct elements if nums[i-1] == num-1 then we have 2 choices either to take the prev2 + current point or take the prev point else we can include the prev with the current point
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 3, 15, 16, 17, 18};
         int ans = deleteAndEarn2(nums);
         System.out.println(ans);
     }
+
     private static int deleteAndEarn2(int[] nums) {
         // calculating the frequency array
         int max = 0;
@@ -135,6 +141,7 @@ private static void type2() {
         int[] dp = new int[n];
         return deleteAndEarn2(n - 1, list, dp, freq);
     }
+
     private static int deleteAndEarn2(int i, int[] list, int[] dp, int[] freq) {
         if (i < 0) return 0;
         if (dp[i] != 0) return dp[i];
@@ -154,16 +161,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using dynamic programming before doing anything lets make the intuition if are choosing num then we could delete num-1 and num+1, and we have multiple occurrences of the same numbers, so we can just group the elements using a map because if we consider num then we have to delete num-1 and nums+1, and after deleting all the occurrences of num-1 and num+1, there might be some remaining num and we will not have any other choice other than taking num, so why to take late we can just take all of num at the first place the keys of the map will be distinct elements of the array we can just sort that in order to get all the elements arranged todo now here is the actual intuition we can think of the problem as collect points for n elements we will start with 1 elements then go for 2,3,4,5...n if we are currently on i we can think of only nums[i]-1 we do not need to think about nums[i]+1 as that will treated in future so now the problem boils down to a simple condition either to take num-1 and do not take it if i-1 th element is num-1 then we will not take that if we have to think it otherwise we can think dp[i] as max point till index i which may or may not include i we have also added dynamic programming in this
+using dynamic programming before doing anything lets make the intuition if are choosing num then we could delete num-1 and num+1, and we have multiple occurrences of the same numbers, so we can just group the elements using a map because if we consider num then we have to delete num-1 and nums+1, and after deleting all the occurrences of num-1 and num+1, there might be some remaining num and we will not have any other choice other than taking num, so why to take late we can just take all of num at the first place the keys of the map will be distinct elements of the array we can just sort that in order to get all the elements arranged now here is the actual intuition we can think of the problem as collect points for n elements we will start with 1 elements then go for 2,3,4,5...n if we are currently on i we can think of only nums[i]-1 we do not need to think about nums[i]+1 as that will treated in future so now the problem boils down to a simple condition either to take num-1 and do not take it if i-1 th element is num-1 then we will not take that if we have to think it otherwise we can think dp[i] as max point till index i which may or may not include i we have also added dynamic programming in this calculating the frequency array collecting the distinct elements and sort that by default the dp will have 0 value, we will treat that as uninitialized calculating the point for current i if nums[i-1] == num-1 then we have 2 choices either to take the prev2 + current point or take the prev point else we can include the prev with the current point
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 3, 15, 16, 17, 18};
         int ans = deleteAndEarn1(nums);
         System.out.println(ans);
     }
+
     public static int deleteAndEarn1(int[] nums) {
         // calculating the frequency array
         Map<Integer, Integer> freq = new HashMap<>();
@@ -177,6 +185,7 @@ private static void type1() {
         int[] dp = new int[n];
         return deleteAndEarn1(n - 1, list, dp, freq);
     }
+
     private static int deleteAndEarn1(int i, List<Integer> list, int[] dp, Map<Integer, Integer> freq) {
         if (i < 0) return 0;
         if (dp[i] != 0) return dp[i];
@@ -195,4 +204,5 @@ private static void type1() {
         }
         return dp[i];
     }
+}
 ```

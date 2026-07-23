@@ -1,26 +1,30 @@
 # InsertInterval
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/InsertInterval.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/insert-interval/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/-insert-interval_285893)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/insert-new-interval/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Insert and merge a new interval into a sorted interval list.
 
-### Implementation
+## 💡 Approaches
 
-Using a linked list
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+using a linked list first we go till the interval which will be merged with the newInterval we can perform this using the binary search as well as the intervals are in sorted order we will merge the interval with the newInterval till there is a discrete interval we will add the interval if there is any remaining
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] intervals = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
         int[] newInterval = {4, 8};
         int n = intervals.length;
@@ -46,4 +50,5 @@ private static void type1() {
         for (i = 0; i < n1; i++) mergedList[i] = list.get(i);
         PrintUtl.print2D(mergedList);
     }
+}
 ```

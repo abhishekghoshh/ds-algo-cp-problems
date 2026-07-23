@@ -1,32 +1,37 @@
 # ExpressionAddOperators
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/ExpressionAddOperators.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/expression-add-operators/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-x-raised-to-power-n-_626560)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=S6OG5pGWxIw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+check both solution one more time
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check the solution one more time also there is one constraint Note that operands in the returned expressions should not contain leading zeros. that means 10*5 is valid but 1*05 is not valid check both solution one more time same as previous here we are using the char array instead of raw string
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as previous here we are using the char array instead of raw string
 
 ```java
-private static void type2() {
+    private static void type2() {
         String num = "105";
         int target = 5;
 
         List<String> answer = addOperators2(num, target);
         System.out.println(answer);
     }
+
     public static List<String> addOperators2(String num, int target) {
         char[] arr = num.toCharArray();
         List<String> res = new ArrayList<>();
@@ -42,6 +47,7 @@ private static void type2() {
         }
         return res;
     }
+
     private static void addOperators2(int n, int len, long sum, long pre, char[] num,
                                       char[] bucket, int idx, List<String> res, long target) {
         if (idx == n) {
@@ -65,12 +71,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+If we've reached the end of the string, check if the currentTotal equals the target value Try all possible splits of the remainder of the string Skip numbers with leading zeros (unless the number itself is zero) Parse the current number substring If this is the first operand (no operator before it) Try adding the '+' operator Try adding the '-' operator Try adding the '*' operator if the seq is 2+2*3,so the prev is 2 and the total is 4, but according to the bodmas rule, multiplication has higher precedence we can do (2+2)*3 => we need to do like this 2+(2*3)
 
 ```java
-private static void type1() {
+    private static void type1() {
         String num = "105";
         int target = 5;
 
@@ -78,6 +84,7 @@ private static void type1() {
         addOperators1(0, 0, 0, "", num, target, answer);
         System.out.println(answer);
     }
+
     private static void addOperators1(int start, long prev, long total,
                                       String expr, String num, int target, List<String> answer) {
         // If we've reached the end of the string, check if the currentTotal equals the target value
@@ -114,4 +121,8 @@ private static void type1() {
             }
         }
     }
+
+
+
+}
 ```

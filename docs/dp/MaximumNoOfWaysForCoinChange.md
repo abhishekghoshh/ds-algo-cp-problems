@@ -1,30 +1,38 @@
 # MaximumNoOfWaysForCoinChange
 
-**Topic:** `dp` | **File:** `com/problems/dp/MaximumNoOfWaysForCoinChange.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/coin-change-ii/description/)
 - [📄 NeetCode](https://neetcode.io/problems/coin-change-ii)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/ways-to-make-coin-change_630471)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=15)
 - [▶ YouTube](https://www.youtube.com/watch?v=HgyouUi11zk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=23)
 - [📄 takeUforward](https://takeuforward.org/data-structure/coin-change-2-dp-22/)
 - [▶ YouTube](https://www.youtube.com/watch?v=Mjy4hd2xgrs)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+Count the number of combinations to make a target amount with given coin denominations.
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-With a recurrence relation common for all best approach till now TODO this is similar to the previous optimization we have not only optimized the previous solution, also we have added a new intuition for supporting the current solution Let's say we have only 1 coin [2] we can only make zero amounts with no coins, and we can make amounts of 2,4,6,8,10,12 if we have can 3 then we can make 3,6,9,12 we see there might be some overlapping. But if we have 2 coins [2,3], then we can make 2,3,4,5,6,7... and so on ok lets create a dp array of amount+1 items. To create amount of 0, we will always have one option. So dp[0] is always 1, now we will create the recurrence relation if we add 2 with amount 0 then we will have 1 option to create amount 2. DP[2] = dp[2-2] and simultaneously dp[6]=d[[4]=dp[2]=dp[0] but if we have more than 1 coin, coin 3 will also make amount 6 so dp[6] is also dp[3], so rather using = we will us += that means we will take contributions dp[6] += dp[6-3] and dp[6] += dp[6-2] we will loop through for all the coins and for all the amount
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+this is similar to the previous optimization we have not only optimized the previous solution, also we have added a new intuition for supporting the current solution Let's say we have only 1 coin [2] we can only make zero amounts with no coins, and we can make amounts of 2,4,6,8,10,12 if we have can 3 then we can make 3,6,9,12 we see there might be some overlapping.
+
+But if we have 2 coins [2,3], then we can make 2,3,4,5,6,7... and so on ok lets create a dp array of amount+1 items. To create amount of 0, we will always have one option. So dp[0] is always 1, now we will create the recurrence relation if we add 2 with amount 0 then we will have 1 option to create amount 2.
+
+DP[2] = dp[2-2] and simultaneously dp[6]=d[[4]=dp[2]=dp[0] but if we have more than 1 coin, coin 3 will also make amount 6 so dp[6] is also dp[3], so rather using = we will us += that means we will take contributions dp[6] += dp[6-3] and dp[6] += dp[6-2] we will loop through for all the coins and for all the amount to make zero amounts, we always have one option which is to consider the zero subset we have to start with coin otherwise i-coin will be less than 0, we will increment till amount
 
 ```java
-private static void type6() {
+	private static void type6() {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int[] dp = new int[amount + 1];
@@ -44,10 +52,10 @@ private static void type6() {
 
 ### Approach 5
 
-Tabulation or top-down approach it is most space optimized where we are only using one 1D array
+tabulation or top-down approach it is most space optimized where we are only using one 1D array for amount 0 there is always one way that is to take no coins now we will fill upo the remaining cells we have two choices, to take this coin or not to take it, but if we are taking it then, we can use the same coin again
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] coins = {3, 5, 7, 8, 9, 10, 11};
 		int amount = 500;
 		int n = coins.length;
@@ -71,15 +79,16 @@ private static void type5() {
 
 ### Approach 4
 
-Tabulation or top-down approach, but it is more space optimized, we will use 2 array
+tabulation or top-down approach, but it is more space optimized, we will use 2 array for amount 0 there is always one way that is to take no coins now we will fill upo the remaining cells we have two choices, to take this coin or not to take it, but if we are taking it then, we can use the same coin again assigning the curr to the prev
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] coins = {3, 5, 7, 8, 9, 10, 11};
 		int amount = 500;
 		int ways = change4(coins, amount);
 		System.out.println(ways);
 	}
+
 	private static int change4(int[] coins, int amount) {
 		int n = coins.length;
 
@@ -108,15 +117,16 @@ private static void type4() {
 
 ### Approach 3
 
-Tabulation or top-down approach we could discuss this approach also but first discuss the recurrence relation
+tabulation or top-down approach we could discuss this approach also but first discuss the recurrence relation for amount 0 there is always one way that is to take no coins now we will fill upo the remaining cells we have two choices, to take this coin or not to take it, but if we are taking it then, we can use the same coin again
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int ways = change3(coins, amount);
 		System.out.println(ways);
 	}
+
 	private static int change3(int[] coins, int amount) {
 		int n = coins.length;
 
@@ -140,15 +150,16 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+if the n is 0, then we have considered all the coins, we have no coin to think about if the amount is 0 then we have a way if n is 0 but the amount is not 0 then if the recursion call is already done, then we will directly return the answer if the current coin is less than the amount then we have two choices, to take this coin or not to take it, and if we are taking it then, we can use the same coin again
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 500;
 		int ways = change2(coins, amount);
 		System.out.println(ways);
 	}
+
 	private static int change2(int[] coins, int amount) {
 		int n = coins.length;
 		int[][] dp = new int[n + 1][amount + 1];
@@ -156,6 +167,7 @@ private static void type2() {
 
 		return change2(coins, amount, n, dp);
 	}
+
 	private static int change2(int[] coins, int amount, int n, int[][] dp) {
 		// if the n is 0, then we have considered all the coins, we have no coin to think about
 		// if the amount is 0 then we have a way
@@ -178,22 +190,24 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force problem with the
+brute force problem with the if the n is 0, then we have considered all the coins, we have no coin to think about if the amount is 0 then we have a way if n is 0 but the amount is not 0 then if the current coin is less than the amount then we have two choices, to take this coin or not to take it, and if we are taking it then, we can use the same coin again
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] coins = { 3, 5, 7, 8, 9, 10, 11 };
 		int amount = 50;
 		int ways = change1(coins, amount);
 		System.out.println(ways);
 
 	}
+
 	private static int change1(int[] coins, int amount) {
 		int n = coins.length;
 		return change1(coins, amount, n);
 	}
+
 	private static int change1(int[] coins, int amount, int n) {
 		// if the n is 0, then we have considered all the coins, we have no coin to think about
 		// if the amount is 0 then we have a way
@@ -209,4 +223,5 @@ private static void type1() {
 			return change1(coins, amount, n - 1);
 
 	}
+}
 ```

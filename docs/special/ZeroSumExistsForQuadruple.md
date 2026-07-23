@@ -14,6 +14,10 @@ public class ZeroSumExistsForQuadruple {
 
 ```
 
+## 📝 Problem Statement
+
+Check if there exist four elements in the array that sum to zero using meet-in-the-middle.
+
 ## Source Code
 
 ```java

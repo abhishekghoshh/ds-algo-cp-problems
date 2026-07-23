@@ -1,28 +1,35 @@
 # CountSpecialTriplets
 
-**Topic:** `array` | **File:** `com/problems/array/CountSpecialTriplets.java`
-
+**Topic:** `array`  
 **Tags:** Array
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-454/problems/count-special-triplets/)
 - [📄 LeetCode](https://leetcode.com/problems/count-special-triplets/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+right freq will freq[2x] - currFreq[2x]
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Very efficient solution we could use a map to store the count of each number, but here we are using an array to store the count of each number, which is more efficient in terms of time complexity Time Complexity: O(2n) Space Complexity: O(2*(max(nums) - min(nums) + 1)) for space optimization, we are checking the min and max of the array and then creating an array of size (max - min + 1) we are using 2 freq array, one for current freq as we traverse the array and other for the overall freq of the numbers so for the solution, we are considering each number x in the array and checking how many 2x is present in left and how many 2x is present in right every time we are incrementing the current freq of the number x we will know the left freq of 2x from currFreq but how do we know the right freq? right freq will freq[2x] - currFreq[2x]
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+very efficient solution we could use a map to store the count of each number, but here we are using an array for space optimization, we are checking the min and max of the array and then creating an array of size (max - min + 1) we are using 2 freq array, one for current freq as we traverse the array and other for the overall freq of the numbers so for the solution, we are considering each number x in the array and checking how many 2x is present in left and how many 2x is present in right every time we are incrementing the current freq of the number x we will know the left freq of 2x from currFreq but how do we know the right freq?
+
+right freq will freq[2x] - currFreq[2x] counting the min and max of the array adjusting the number to the offset if seedDouble is not out of bounds and present in the both freq arrays for num 0, 2*num will also be 0, so the right count will also hold the current 0 we need to decrement the right count by 1 calculating the number of special triplets for each seed, we can form leftC * rightC special triplets
+
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {8, 4, 2, 8, 4};
         int ans = specialTriplets2(nums);
         System.out.println(ans);
     }
+
     private static int specialTriplets2(int[] nums) {
         long total = 0;
         int MOD = 1000000007;
@@ -61,16 +68,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-So for the solution, we are considering each number x in the array and checking how many 2x is present in left and how many 2x is present in right every time we are incrementing the current freq of the number x. we will know the left freq of 2x from currFreq but how do we know the right freq? right freq will freq[2x] - currFreq[2x]
+so for the solution, we are considering each number x in the array and checking how many 2x is present in left and how many 2x is present in right every time we are incrementing the current freq of the number x. we will know the left freq of 2x from currFreq but how do we know the right freq?
+
+right freq will freq[2x] - currFreq[2x] adjusting the number to the offset if seedDouble is not out of bounds and present in the both freq arrays for num 0, 2*num will also be 0, so the right count will also hold the current 0 we need to decrement the right count by 1 calculating the number of special triplets for each seed, we can form leftC * rightC special triplets
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {8, 4, 2, 8, 4};
         int ans = specialTriplets1(nums);
         System.out.println(ans);
     }
+
     public static int specialTriplets1(int[] nums) {
         long total = 0;
         int MOD = 1000000007;
@@ -98,4 +108,5 @@ private static void type1() {
         }
         return (int) (total % MOD);
     }
+}
 ```

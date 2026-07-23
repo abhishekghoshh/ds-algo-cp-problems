@@ -1,32 +1,36 @@
 # ValidPalindrome
 
-**Topic:** `string` | **File:** `com/problems/string/ValidPalindrome.java`
-
+**Topic:** `string`  
 **Tags:** String, Array, Two pointer
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-palindrome/description/)
 - [📄 NeetCode](https://neetcode.io/problems/is-palindrome)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=jJXJ16kPFWg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Practice coding interviews with structured courses, AI-driven interviews, head-to-head Versus mode, and 800+ problems. Free and Pro tiers.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We will directly check it from the array two pointer approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will directly check it from the array two pointer approach skipping left and right until we find any digit or letter checking both the character on left and right sides
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "A man, a plan, a canal: Panama";
 		boolean isPalindrome = isPalindrome2(s);
 		System.out.println(isPalindrome);
 	}
+
 	private static boolean isPalindrome2(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -46,16 +50,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+if it is letter then add it if it is digit then add it
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "A man, a plan, a canal: Panama";
 		boolean isPalindrome = isPalindrome(s);
 		System.out.println(isPalindrome);
 	}
+
 	public static boolean isPalindrome(String s) {
 		StringBuilder sb = new StringBuilder();
 		for (char ch : s.toCharArray()) {
@@ -69,4 +74,6 @@ private static void type1() {
 		StringBuilder reversed = new StringBuilder(sb).reverse();
 		return sb.compareTo(reversed) == 0;
 	}
+
+}
 ```

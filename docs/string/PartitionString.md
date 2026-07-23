@@ -1,36 +1,38 @@
 # PartitionString
 
-**Topic:** `string` | **File:** `com/problems/string/PartitionString.java`
-
+**Topic:** `string`  
 **Tags:** Array, String
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/partition-string/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Partition the string into as many parts as possible so that each letter appears in at most one part.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force solution using set
+brute force solution using set
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abbccccd";
         List<String> ans = partitionString1(s);
         System.out.println(ans);
     }
+
     public static List<String> partitionString1(String s) {
         int n = s.length();
         Set<String> seen = new HashSet<>();
@@ -46,4 +48,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

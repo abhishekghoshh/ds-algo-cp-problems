@@ -1,26 +1,30 @@
 # ShortestPathInDirectedAcyclicGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/ShortestPathInDirectedAcyclicGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ZUFQfFaU-8U&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=28)
 - [📄 takeUforward](https://takeuforward.org/data-structure/shortest-path-in-directed-acyclic-graph-topological-sort-g-27/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given a Directed Acyclic Graph of N vertices from 0 to N-1 and a 2D Integer
 
-### Implementation
+## 💡 Approaches
 
-With path weight Given a Directed Acyclic Graph of N vertices from 0 to N-1 and a 2D Integer array(or vector) edges[ ][ ] of length M, where there is a directed edge from edge[i][0] to edge[i][1] with a distance of edge[i][2] for all i, 0<=i Find the shortest path from src(0) vertex to all the vertices and if it is impossible to reach any vertex, then return -1 for that vertex. todo we will use the topo sort to arrange the nodes we are given edges and nodes first we have to transform it to adjacency list we will find the shortest path in a directed acyclic graph, so we will use topo sort using dfs so in stack the ordered vertex will be stored now our task is simple use a distance array and set all the node value to infinity and src node value to 0 pop from the stack until we find the source so once we find the source node in stack then we will start popping one by one go to its adjacent nodes update the distance value
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will use the topo sort to arrange the nodes we are given edges and nodes first we have to transform it to adjacency list we will find the shortest path in a directed acyclic graph, so we will use topo sort using dfs so in stack the ordered vertex will be stored now our task is simple use a distance array and set all the node value to infinity and src node value to 0 pop from the stack until we find the source so once we find the source node in stack then we will start popping one by one go to its adjacent nodes update the distance value transforming the edges to adjacent list doing the topo sort and after this loop the stack will be prepared while we find the source node, we will pop just in case if node 0 is not the starting node of the graph initializing the distance array to infinity now we will pop from the stack one by one prevDistance is the minimum distance from src now we will check all its adjacent node it means distance[end] is greater than start distance + edge weight, which means if we go to end node via the start node, that will be shorter in distance, so we will update the distance value and add it to stack again replacing the infinity value to -1
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 6;
 		int m = 7;
 		int[][] edges = {
@@ -83,6 +87,7 @@ private static void type1() {
 
 		PrintUtl.print(distance);
 	}
+
 	private static void dfs(int start, boolean[] visited, Stack<Integer> stack, List<List<int[]>> adjList) {
 		visited[start] = true;
 		for (int[] node : adjList.get(start))
@@ -90,4 +95,5 @@ private static void type1() {
 				dfs(node[0], visited, stack, adjList);
 		stack.push(start);
 	}
+}
 ```

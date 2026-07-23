@@ -1,31 +1,38 @@
 # StringToInteger
 
-**Topic:** `string` | **File:** `com/problems/string/StringToInteger.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/string-to-integer-atoi/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/981270)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FyTpsuWAoc8)
 - [▶ YouTube](https://www.youtube.com/watch?v=gLW6DD59ZaM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Implement the atoi function: convert a string to a 32-bit integer.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using recursion
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using recursion exactly the same as previous, here we have converted the inner loop into recursion 1. Read in and ignore any leading whitespace 2. Check the sign we are checking if it is returning the exceeding integer or not else we will apply sign and return if the char is not digit, then we will break checking that if by adding this char we are exceeding INT MAX value or not also setting the integerExceed variable
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "   -91283472332 with words";
 		int num = atoi3(s);
 		System.out.println(num);
 	}
+
+	// exactly the same as previous, here we have converted the inner loop into recursion
+	static int integerExceeds = 0;
 	private static int atoi3(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -42,6 +49,7 @@ private static void type3() {
 		// else we will apply sign and return
 		return isPositive ? result : -result;
 	}
+
 	private static int atoi3(int i, int result, char[] arr, boolean isPositive) {
 		if (i == arr.length) return result;
 		int digit = arr[i] - '0';
@@ -57,14 +65,16 @@ private static void type3() {
 
 ### Approach 2
 
-Exactly the same as previous, here we have converted the inner loop into recursion TODO explain this in the interview
+explain this in the interview 0. Check invalid string 1. Read in and ignore any leading whitespace 2. Check the sign 3. Convert to integer and avoid overflow if the char is not digit, then we will break checking that if by adding this char we are exceeding INT MAX value or not
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "-91283472332";
 		int num = atoi2(s);
 		System.out.println(num);
 	}
+
+	// optimized approach
 	private static int atoi2(String s) {
 		int n = s.length();
 		// 0. Check invalid string
@@ -92,16 +102,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach
+0. Check invalid string
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "42";
 		int num = atoi(s);
 		System.out.println(num);
 	}
+
 	private static int atoi(String s) {
 		s = s.trim();
 		int n = s.length();
@@ -121,4 +132,6 @@ private static void type1() {
 		}
 		return (int) sum * sign;
 	}
+
+}
 ```

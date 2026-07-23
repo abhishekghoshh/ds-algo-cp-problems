@@ -1,31 +1,32 @@
 # MergeOverlappingSubIntervals
 
-**Topic:** `array` | **File:** `com/problems/array/MergeOverlappingSubIntervals.java`
-
+**Topic:** `array`  
 **Tags:** Array, Greedy
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/merge-intervals/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/merge-all-overlapping-intervals_6783452)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/699917)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=IexN60k62jo)
 - [▶ YouTube](https://www.youtube.com/watch?v=2JzRBPFYbKE&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=7)
 - [📄 takeUforward](https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] intervals = {{1, 3}, {2, 6}, {8, 11}, {9, 10}, {15, 18}};
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
@@ -60,12 +61,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach
+optimized approach int[][] intervals = { { 1, 4 }, { 3, 5 }, { 0, 2 } }; given than intervals are sorted by their starting time else we have to sort it manually
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] intervals = {{1, 3}, {2, 6}, {8, 11}, {9, 10}, {15, 18}};
 //		int[][] intervals = { { 1, 4 }, { 3, 5 }, { 0, 2 } };
 		// given than intervals are sorted by their starting time
@@ -88,4 +89,6 @@ private static void type1() {
 		}
 		PrintUtl.print2D(answer);
 	}
+
+}
 ```

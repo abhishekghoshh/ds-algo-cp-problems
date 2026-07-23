@@ -1,40 +1,44 @@
 # ChampagneTower
 
-**Topic:** `dp` | **File:** `com/problems/dp/ChampagneTower.java`
-
+**Topic:** `dp`  
 **Tags:** Array, Dynamic programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/champagne-tower/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=LQ8TuG_QADM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+this is a problem of dynamic programming, but it seems like an array problem
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-This is a problem of dynamic programming, but it seems like an array problem dynamic programming with space optimization
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+dynamic programming with space optimization
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Optimized approach using dynamic programming here we will just mimic the tower like if we put x amount of champagne and if it is greater than 1 then (amount-1)/2 will fall into its left and right (0,0) => (1,0) (1,1) (1,0) => (2,0) (2,1) (1,1) => (2,1) (2,2) so (i,j) will fall its extras into (i+1,j) and (i+1,j+1) we will go till the last row or till there is any extra Champagne to be added in the next row
+optimized approach using dynamic programming here we will just mimic the tower like if we put x amount of champagne and if it is greater than 1 then (amount-1)/2 will fall into its left and right (0,0) => (1,0) (1,1) (1,0) => (2,0) (2,1) (1,1) => (2,1) (2,2) so (i,j) will fall its extras into (i+1,j) and (i+1,j+1) we will go till the last row or till there is any extra Champagne to be added in the next row we will create a tower we will traverse throw all the row we will traverse through all the glasses of each row if the current glass is less, than equal to 1, then it cannot add extra to the next row has extra to add in the next row if it is the last row, then we cannot update the next row
 
 ```java
-private static void type2() {
+    private static void type2() {
         int poured = 100000009;
         int query_row = 33;
         int query_glass = 17;
     }
+
     public static double champagneTower2(int poured, int query_row, int query_glass) {
         if (poured == 0) return 0;
         int n = query_row + 1;
@@ -64,11 +68,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute force
+using brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

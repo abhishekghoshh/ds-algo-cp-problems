@@ -1,34 +1,39 @@
 # MorrisPreorderTraversal
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/MorrisPreorderTraversal.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/preorder-traversal/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/preorder-binary-tree_5948)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/preorder-traversal_3838888)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=80Zug6D1_r4&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=38)
 - [📄 takeUforward](https://takeuforward.org/data-structure/morris-preorder-traversal-of-a-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+that means no link is set yet
 
-### Implementation
+## 💡 Approaches
 
-Check the explanation from Morris inorder traversal preorder traversal without using any extra space same as inorder, but here we are adding the root at the first time when we are seeing this that means no link is set yet
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+preorder traversal without using any extra space same as inorder, but here we are adding the root at the first time when we are seeing this that means no link is set yet like the inorder we are going as a left as possible we will establish the link from the left subtree to the root this is the first time we are visiting the node as this is the preorder traversal, we will add the node when we first visit the node this is the second time we are visiting the node
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(15);
         PrintUtl.preOrder(root);
         List<Integer> answer = preorderTraversal(root);
         System.out.println(answer);
     }
+
     private static List<Integer> preorderTraversal(TNode root) {
         List<Integer> answer = new ArrayList<>();
         while (null != root) {
@@ -56,4 +61,6 @@ private static void type1() {
         }
         return answer;
     }
+
+}
 ```

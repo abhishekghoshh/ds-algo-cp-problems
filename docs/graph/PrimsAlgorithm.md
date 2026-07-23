@@ -1,26 +1,30 @@
 # PrimsAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/PrimsAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=mJcZjjKzeqk&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=45)
 - [📄 takeUforward](https://takeuforward.org/data-structure/prims-algorithm-minimum-spanning-tree-c-and-java-g-45/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the Minimum Spanning Tree of a weighted, undirected, connected graph using Prim's algorithm with a priority queue.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Exactly like the previous type, but here we will not store the mst we will only store the total edge-distance of the mst hence we will also not store the parent of the node in the min heap
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+exactly like the previous type, but here we will not store the mst we will only store the total edge-distance of the mst hence we will also not store the parent of the node in the min heap first, we will create an adjacency list it will be an undirected graph we will use a visited array to store the visited nodes we will use a priority queue to store the pair of { edge , current node}, and everytime we will take the minimum edge and add the nodes in the visited array we will start with the 0 if the node is already visited, then we can skip set the node to the visited we will add the edge weight if visited[adjacentNode] is true, then, if we add the edge, then it will create a loop if the nodes are visited, then we will skip we will add the edge distance, node and its parent node
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int v = 3;
 		int e = 3;
 		int[][] edges = {
@@ -71,12 +75,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use a hard min heap to store the edge distance and nodes, and every time we will take the least edge-distance and add that nodes the mst if they are unvisited
+we will use a hard min heap to store the edge distance and nodes, and every time we will take the least edge-distance and add that nodes the mst if they are unvisited first, we will create an adjacency list it will be an undirected graph we will use a visited array to store the visited nodes we will use a priority queue to store the pair of { edge , current node and its parent}, and everytime we will take the minimum edge and add the nodes in the visited array we will start with the 0 we will not add the node to a visited array while traversing we will only add when we are polling from the heap if the node is already visited, then we can skip set the node to the visited we will the edge to the mst, parent = -1 means, it is the starting node or 0 now we will traverse all its adjacent nodes if visited[adjacentNode] is true, then, if we add the edge, then it will create a loop if the nodes are visited, then we will skip we will add the edge distance, node and its parent node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 3;
 		int e = 3;
 		int[][] edges = {
@@ -128,10 +132,13 @@ private static void type1() {
 		}
 		print(mst);
 	}
+
 	private static void print(List<int[]> mst) {
 		for (int[] edge : mst) {
 			System.out.println(edge[0] + ", " + edge[1] + ", " + edge[2]);
 		}
 		System.out.println();
 	}
+
+}
 ```

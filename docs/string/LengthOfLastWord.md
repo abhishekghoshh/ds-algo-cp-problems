@@ -1,29 +1,33 @@
 # LengthOfLastWord
 
-**Topic:** `string` | **File:** `com/problems/string/LengthOfLastWord.java`
-
+**Topic:** `string`  
 **Tags:** Array, String
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/length-of-last-word/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Return the length of the last word in a string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach time complexity O(n) we will start from the last and skip till there is a character from that point we will start again and go till there is a space or till the start
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n)
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will start from the last and skip till there is a character from that point we will start again and go till there is a space or till the start skip all the trailing spaces going till we encounter a space
+
+**Time Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "Hello World";
         int ans = lengthOfLastWord2(s);
         System.out.println(ans);
     }
+
     public static int lengthOfLastWord2(String s) {
         int n = s.length();
         int c = 0, i = n - 1;
@@ -38,11 +42,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

@@ -1,8 +1,8 @@
 # CourseSchedule
 
-**Topic:** `graph` | **File:** `com/problems/graph/CourseSchedule.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/course-schedule/)
 - [📄 LeetCode](https://leetcode.com/problems/course-schedule-ii/)
@@ -10,22 +10,26 @@
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/course-schedule/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/course-schedule-ii_1069243)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23)
 - [▶ YouTube](https://www.youtube.com/watch?v=WAOfKpxYHR8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=24)
 - [📄 takeUforward](https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+the pair [0, 1], indicates that to take course 0 you have to first take course 1.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Exactly the same as the type2
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+exactly the same as the type2 this is the problem of the course schedule 1 create the adjacency list and add the nodes we will loop through all the nodes and check if there is any cycle or not the visited value of end is 2, means we have started with end node in a previous dfs call, but again we are getting the end node; that means it is a cycle if end value is 0 means we can start dfs with this node but if we are getting true from the dfs call of the end after all the dfs calls we are setting it to 1 means we have completely visited the start node and explored all its connected nodes
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int numCourses = 4;
 		int[][] prerequisites = {
 				{1, 0},
@@ -36,6 +40,8 @@ private static void type3() {
 		boolean answer = canFinish(numCourses, prerequisites);
 		System.out.println(answer);
 	}
+
+	// this is the problem of the course schedule 1
 	public static boolean canFinish(int numCourses, int[][] prerequisites) {
 		// create the adjacency list and add the nodes
 		List<List<Integer>> adjacencyList = new ArrayList<>();
@@ -53,6 +59,7 @@ private static void type3() {
 				return false;
 		return true;
 	}
+
 	private static boolean hasCycle2(int start, int[] visited, List<List<Integer>> adjacencyList) {
 		visited[start] = 2;
 		for (int end : adjacencyList.get(start)) {
@@ -72,10 +79,10 @@ private static void type3() {
 
 ### Approach 2
 
-This is the problem of the course schedule 1 using dfs we will just create the adjacency list
+using dfs we will just create the adjacency list create the adjacency list and add the nodes we will use normal hasCycle method to find if there is any cycle or not and will use a stack to add th nodes same as the topological sort we will loop through all the nodes and check if there is any cycle or not we will add the nodes in the stack nodes at the top of the stack means they are visited last they have a least dependency we can add that into the first in the answer the visited value of end is 2, means we have started with end node in a previous dfs call, but again we are getting the end node; that means it is a cycle if end value is 0 means we can start dfs with this node but if we are getting true from the dfs call of the end after all the dfs calls we are setting it to 1 means we have completely visited the start node and explored all its connected nodes also we will add it to the stack, just like topological sort
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int numCourses = 4;
 		int[][] prerequisites = {
 				{1, 0},
@@ -86,6 +93,7 @@ private static void type2() {
 		int[] answer = findOrder2(numCourses, prerequisites);
 		print(answer);
 	}
+
 	public static int[] findOrder2(int numCourses, int[][] prerequisites) {
 		// create the adjacency list and add the nodes
 		List<List<Integer>> adjacencyList = new ArrayList<>();
@@ -115,6 +123,7 @@ private static void type2() {
 		while (!stack.isEmpty()) answer[i++] = stack.pop();
 		return answer;
 	}
+
 	private static boolean hasCycle(int start, int[] visited, List<List<Integer>> adjacencyList, Stack<Integer> stack) {
 		visited[start] = 2;
 		for (int end : adjacencyList.get(start)) {
@@ -134,12 +143,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Course can be scheduled or not and print the sequence There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai the pair [0, 1], indicates that to take course 0 you have to first take course 1.
 
+creating the adjacency list and in degree at the same place if pair is [a,b] then a is dependent on b so b -> a if in degree is 0 that means there is no incoming edge, so we can start with that course, we will start bfs from that node queue is empty means there is no starting point if there is a cycle, then at some point indegree will never 0 for some nodes everytime we come across start -> end, we decrease inDegree[end] in degree is 0 means we have covered all its previous nodes
+
 ```java
-private static void type1() {
+	private static void type1() {
 		int numCourses = 4;
 		int[][] prerequisites = {
 				{1, 0},
@@ -150,6 +161,7 @@ private static void type1() {
 		int[] answer = findOrder1(numCourses, prerequisites);
 		print(answer);
 	}
+
 	public static int[] findOrder1(int numCourses, int[][] prerequisites) {
 		List<List<Integer>> adjacencyList = new ArrayList<>();
 		for (int i = 0; i < numCourses; i++)
@@ -188,4 +200,6 @@ private static void type1() {
 		if (size != numCourses) return new int[]{};
 		return answer;
 	}
+
+}
 ```

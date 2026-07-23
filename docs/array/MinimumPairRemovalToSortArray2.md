@@ -1,20 +1,23 @@
 # MinimumPairRemovalToSortArray2
 
-**Topic:** `array` | **File:** `com/problems/array/MinimumPairRemovalToSortArray2.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-pair-removal-to-sort-array-ii/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Minimum pair removal to sort array (advanced variant).
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

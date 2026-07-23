@@ -1,26 +1,31 @@
 # Candy
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/Candy.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/candy/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/candies_893290)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given ratings of n children, distribute candies such that each child gets at least 1 candy and children with higher ratings get more than neighbors.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Greedy approach
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+greedy approach we are assigning 1 candy to everyone first, we will go from left to right, and every time we are checking the next rating is greater than the current or not if it is then we are adding one candies to the next now we will go from the last to first every time we will check if the previous rating is greater than the current rating or not and also if the previous candy assignment is already greater than the current or not
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] ratings = {1, 2, 2};
         int candies = candy4(ratings);
         System.out.println(candies);
     }
+
     private static int candy4(int[] ratings) {
         int n = ratings.length;
         int total = 0;
@@ -46,14 +51,15 @@ private static void type4() {
 
 ### Approach 3
 
-Using a normal array to sort ratings
+using a normal array to sort ratings sort the array by the ratings picking the least rating we are giving at least one candy to everyone then we are checking its left and right
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] ratings = {1, 2, 2};
         int candies = candy3(ratings);
         System.out.println(candies);
     }
+
     public static int candy3(int[] ratings) {
         int n = ratings.length;
         int[][] arr = new int[n][2];
@@ -81,14 +87,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using heap finds the least rating and then assigns the candies
+optimized approach using heap finds the least rating and then assigns the candies picking the least rating we are giving at least one candy to everyone then we are checking its left and right
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] ratings = {1, 2, 2};
         int candies = candy2(ratings);
         System.out.println(candies);
     }
+
     public static int candy2(int[] ratings) {
         int n = ratings.length;
         PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(p -> p[0]));
@@ -111,12 +118,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

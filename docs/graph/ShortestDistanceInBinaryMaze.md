@@ -1,27 +1,31 @@
 # ShortestDistanceInBinaryMaze
 
-**Topic:** `graph` | **File:** `com/problems/graph/ShortestDistanceInBinaryMaze.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/shortest-path-in-a-binary-maze-1655453161/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=U5Mw4eyUmw4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=36)
 - [📄 takeUforward](https://takeuforward.org/data-structure/g-36-shortest-distance-in-a-binary-maze/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an n x n binary matrix grid, return the length of the shortest clear
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1. A clear path in a binary matrix is a path from the top-left cell (i.e., (0, 0)) to the bottom-right cell (i.e., (n - 1, n - 1)) such that: All the visited cells of the path are 0. All the adjacent cells of the path are 8-directionally connected (i.e., they are different, and they share an edge or a corner). The length of a clear path is the number of the visited cells in this path. here we are not using the direction matrix also
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+here we are not using the direction matrix also we will do a bfs and traverse level by level once we reach the destination we will stop our destination, we surely know it is the closest path we will go to all 8 direction using a loop as we are checking level wise, so we don't have to check dist + 1 < grid[x][y] the first index to reach here will be the shortest
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] grid = {
 				{0, 0, 0},
 				{1, 1, 0},
@@ -30,6 +34,7 @@ private static void type3() {
 		int ans = shortestPathBinaryMatrix3(grid);
 		System.out.println(ans);
 	}
+
 	public static int shortestPathBinaryMatrix3(int[][] grid) {
 		int n = grid.length;
 		if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) return -1;
@@ -66,10 +71,10 @@ private static void type3() {
 
 ### Approach 2
 
-Without distance array, same as previous but here we will store the distances in the grid directly
+without distance array, same as previous but here we will store the distances in the grid directly if the source and the destination are 1 then we can not go we will start from 0,0, we will add it to the queue we will poll the nodes from queue and take the distance if we go to the n-1,n-1 then we will directly return the answer now we will go to all 8 directions grid[x][y] == 0 means there is a path but not discovered yet grid[x][y] != 1 means there is a path which is discovered dist + 1 < grid[x][y] means there is a better path
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] grid = {
 				{0, 0, 0},
 				{1, 1, 0},
@@ -79,6 +84,7 @@ private static void type2() {
 		System.out.println(ans);
 
 	}
+
 	public static int shortestPathBinaryMatrix2(int[][] grid) {
 		int n = grid.length;
 		// if the source and the destination are 1 then we can not go
@@ -112,12 +118,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-With distance array the intuition is, we will start from 0,0 and distance 1 we will use Dijkstra algorithm, but here we are using Queue not priorityQueue because here we can go level wise, we are starting from 0,0, and we are trying to visit all its neighbours the distance is increasing eventually with every layer, so we do not need the priority queue
+with distance array the intuition is, we will start from 0,0 and distance 1 we will use Dijkstra algorithm, but here we are using Queue not priorityQueue because here we can go level wise, we are starting from 0,0, and we are trying to visit all its neighbours the distance is increasing eventually with every layer, so we do not need the priority queue if the source and the destination are 1 then we can not go we will take e n*n distance array and will initialize all the nodes with INF we will start from 0,0, we will add it to the queue we will poll the nodes from queue and take the distance we will go all 8 directions of a starting node then we will check if the distance can be minimized if the distance is still MAX_VALUE then the node can not be reached
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] grid = {
 				{0, 0, 0},
 				{1, 1, 0},
@@ -126,6 +132,8 @@ private static void type1() {
 		int ans = shortestPathBinaryMatrix1(grid);
 		System.out.println(ans);
 	}
+
+
 	public static int shortestPathBinaryMatrix1(int[][] grid) {
 		int n = grid.length;
 		// if the source and the destination are 1 then we can not go
@@ -156,7 +164,10 @@ private static void type1() {
 		// if the distance is still MAX_VALUE then the node can not be reached
 		return (dis[n - 1][n - 1] != Integer.MAX_VALUE) ? dis[n - 1][n - 1] : -1;
 	}
+
 	private static boolean isInBounds(int x, int y, int n) {
 		return x >= 0 && x < n && y >= 0 && y < n;
 	}
+
+}
 ```

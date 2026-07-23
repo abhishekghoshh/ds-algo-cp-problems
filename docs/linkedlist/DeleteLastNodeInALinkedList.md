@@ -1,26 +1,31 @@
 # DeleteLastNodeInALinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/DeleteLastNodeInALinkedList.java`
+**Topic:** `linkedlist`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/delete-last-node-of-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Check if the linked list is empty or has only one node
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Check if the linked list is empty or has only one node Create a temporary pointer for traversal Traverse the list until the second-to-last node detach the connection from the second-to-last node to delete the last node Return the updated head of the linked list
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node node = new Node(2, 5, 8, 7);
         print(node);
         node = deleteTail(node);
         print(node);
     }
+
     private static Node deleteTail(Node head) {
         // Check if the linked list is empty or has only one node
         if (head == null || head.next == null) return null;
@@ -34,4 +39,6 @@ private static void type1() {
         // Return the updated head of the linked list
         return head;
     }
+
+}
 ```

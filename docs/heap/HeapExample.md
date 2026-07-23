@@ -1,17 +1,21 @@
 # HeapExample
 
-**Topic:** `heap` | **File:** `com/problems/heap/HeapExample.java`
+**Topic:** `heap`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Basic example and usage of a heap.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Using a normal array Using priority Queue
 
 ```java
-private static void type2() {
+	private static void type2() {
 		// Using a normal array
 		int[] array = {10, 5, 7, 30, 9};
 		MaxHeap maxHeap = new MaxHeap(array);
@@ -43,12 +47,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+Using normal array Using priority Queue
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 		// Using normal array
 
@@ -81,4 +85,5 @@ private static void type1() {
 		System.out.println("Head value using peek function: " + priorityQueue.peek());
 		System.out.println("remove value using remove function: " + priorityQueue.remove());
 	}
+}
 ```

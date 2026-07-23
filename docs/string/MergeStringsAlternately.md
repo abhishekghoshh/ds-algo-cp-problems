@@ -1,32 +1,36 @@
 # MergeStringsAlternately
 
-**Topic:** `string` | **File:** `com/problems/string/MergeStringsAlternately.java`
-
+**Topic:** `string`  
 **Tags:** String, Array, Merge sort
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/merge-strings-alternately/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=LECWOvTo-Sc)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Merge two strings by alternating characters starting with the first string.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach using 2 pointers simple 2 pointer problem take 2 pointer on 2 words and a flag and now toggle the flag and take each character from the strings
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimal approach using 2 pointers simple 2 pointer problem take 2 pointer on 2 words and a flag and now toggle the flag and take each character from the strings taking the characters from the strings if there are any character remaining in the string1 if there are any character remaining in the string2
 
 ```java
-private static void type2() {
+    private static void type2() {
         String word1 = "abcd";
         String word2 = "pq";
         String ans = mergeAlternately2(word1, word2);
         System.out.println(ans);
     }
+
     public static String mergeAlternately2(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
         int n1 = word1.length(), n2 = word2.length();
@@ -47,11 +51,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

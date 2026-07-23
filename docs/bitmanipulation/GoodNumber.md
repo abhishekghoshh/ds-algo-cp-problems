@@ -1,17 +1,21 @@
 # GoodNumber
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/GoodNumber.java`
+**Topic:** `bitmanipulation`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Check if a number is a 'good number' based on bit criteria.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-A number z is good when it can be divided in two numbers x,y such that x^y=z x&y=0 x or y will be 0 only if in z we have only one 1 bit then it will have only 1 bit to distribute among x and y example 0,2,4,8,16
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+x or y will be 0 only if in z we have only one 1 bit then it will have only 1 bit to distribute among x and y example 0,2,4,8,16
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr = { 6, 11, 0, 8, 4, 32, 11 };
 		int count = 0;
 		int num, numberOfOne, reminder;
@@ -33,12 +37,12 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach with extra space time complexity n*log(k+1)) space complexity O(1) In previous type we have seen everything is dependent on z bit we don't need to create x and y, we just need to know if x or y is 0 or not x, y bit only got any value when z bit is 1 so ultimately we need to divide the 1 bits to x and y then count x and y 1th bit's
+Optimized approach with extra space In previous type we have seen everything is dependent on z bit we don't need to create x and y, we just need to know if x or y is 0 or not x, y bit only got any value when z bit is 1 so ultimately we need to divide the 1 bits to x and y then count x and y 1th bit's
 
-**Complexity:** Space: o(1)
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 6, 11, 0, 8, 4, 32 };
 		int count = 0;
 		int num, leftSum, rightSum, reminder;
@@ -65,14 +69,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach with extra space time complexity n*log(k+1)) space complexity O(3*log(k+1))
+Optimized approach with extra space make the binary of z let's say z is 101 in binary we can divide this bits we can see one thing if the z bit is 1 then we can assign x and y bits as either 1,0 or 0,1 and x^y=z x&y=0 condition satisfies if the z bit is 0 then we can assign x and y bits as either 0,0 and x^y=z x&y=0 condition satisfies lastly we are checking if anu number is 0 or not
 
-**Complexity:** Space: o(3*log(k+1)
+**Space Complexity:** `O(3*log(k+1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] arr = { 6, 11, 0, 8, 4, 32 };
 		int count = 0;
         for (int num : arr) {
@@ -83,6 +87,8 @@ private static void type1() {
         }
 		System.out.println(count);
 	}
+
+	// make the binary of z
 	private static int[] inBinary(int num) {
 		int length = 0, num_ = num, id;
 		while (num_ > 0) {
@@ -99,6 +105,15 @@ private static void type1() {
 		}
 		return binary;
 	}
+
+	// let's say z is 101 in binary
+	// we can divide this bits
+	// we can see one thing
+	// if the z bit is 1 then we can assign x and y bits as either 1,0 or 0,1 and
+	// x^y=z x&y=0 condition satisfies
+	// if the z bit is 0 then we can assign x and y bits as either 0,0 and x^y=z
+	// x&y=0 condition satisfies
+	// lastly we are checking if anu number is 0 or not
 	private static boolean ifGoodNumber(int[] bin) {
 		int[] left = new int[bin.length];
 		int[] right = new int[bin.length];
@@ -126,4 +141,5 @@ private static void type1() {
 		}
 		return leftSum != 0 && rightSum != 0;
 	}
+}
 ```

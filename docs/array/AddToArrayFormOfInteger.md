@@ -1,30 +1,36 @@
 # AddToArrayFormOfInteger
 
-**Topic:** `array` | **File:** `com/problems/array/AddToArrayFormOfInteger.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/add-to-array-form-of-integer/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=eBTZQt1TWfk)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Add an integer to array form of the number.
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach adding the last digit of the sum to the result if the sum is greater than 9, then carry will be 1, otherwise 0 reversing again as we had added from the last
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] num = {2, 1, 5};
         int k = 806;
         List<Integer> ans = addToArrayForm(num, k);
         System.out.println(ans);
     }
+
+
     private static List<Integer> addToArrayForm(int[] num, int k) {
         int n = num.length;
         List<Integer> res = new ArrayList<>(n + 1);
@@ -44,4 +50,5 @@ private static void type1() {
         Collections.reverse(res);
         return res;
     }
+}
 ```

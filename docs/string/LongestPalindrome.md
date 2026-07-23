@@ -1,25 +1,29 @@
 # LongestPalindrome
 
-**Topic:** `string` | **File:** `com/problems/string/LongestPalindrome.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-palindrome/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://youtube.com/watch?v=J_Di2LmeLBQ)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Out of all single digit characters, only one of them will add to palindrome
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach all even number characters will add into palindrome, but out of all odd numbers characters first we have to make it into an even number character and treat the single character separately. Out of all single digit characters, only one of them will add to palindrome
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Optimized approach all even number characters will add into palindrome, but out of all odd numbers characters first we have to make it into an even number character and treat the single character separately. Out of all single digit characters, only one of them will add to palindrome we will keep both small and cap frequency side by side also will keep the array size as minimal as possible first 26 for small and 2nd 26 for capital letters 97 is for small a 65 is for capital A, but as we are keeping the capitals in the 2nd half so adding 26 it means f is even number decrementing that odd character
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abccccdd";
         char[] arr = s.toCharArray();
         // we will keep both small and cap frequency side by side
@@ -47,4 +51,5 @@ private static void type1() {
         if (hasOddLengthCharacter) totalCount++;
         System.out.println(totalCount);
     }
+}
 ```

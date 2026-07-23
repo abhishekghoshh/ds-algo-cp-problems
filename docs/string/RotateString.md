@@ -1,22 +1,26 @@
 # RotateString
 
-**Topic:** `string` | **File:** `com/problems/string/RotateString.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/rotate-string/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/check-if-one-string-is-a-rotation-of-another-string_1115683)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+if (s.length() != goal.length()) return false;
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+if (s.length() != goal.length()) return false;
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abcde", goal = "cdeab";
 //        if (s.length() != goal.length()) return false;
         char[] sArr = s.toCharArray(), gArr = goal.toCharArray();
@@ -34,4 +38,5 @@ private static void type1() {
         boolean answer = counter == n;
         System.out.println(answer);
     }
+}
 ```

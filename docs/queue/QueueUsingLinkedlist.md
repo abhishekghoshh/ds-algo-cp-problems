@@ -1,35 +1,84 @@
 # QueueUsingLinkedlist
 
-**Topic:** `queue` | **File:** `com/problems/queue/QueueUsingLinkedlist.java`
+**Topic:** `queue`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/implement-queue-using-linked-list_8161235)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/implement-queue-using-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
 
+    }
+
+    static class Node {
+        public int data;
+        public Node next;
+
+        Node() {
+            this.data = 0;
+            this.next = null;
+        }
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
+        }
+    }
+
+    public static class Queue {
+        Node front;
+        Node rear;
+        private int size = 0;
+
+        Queue() {
+            front = rear = null;
+        }
+
+        public void push(int item) {
+            size++;
+            Node node = new Node(item);
+            if (front == null) front = rear = node;
+            else {
+                rear.next = node;
+                rear = node;
+            }
+        }
+
+        public int pop() {
+            if (size == 0) return -1;
+            size--;
+            Node node = front;
+            if (front == rear) front = rear = null;
+            else front = node.next;
+            return node.data;
+        }
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
         QueueUsingLinkedList<Integer> queue = new QueueUsingLinkedList<>();
         queue.offer(7);
         queue.offer(14);
@@ -41,4 +90,57 @@ private static void type1() {
         System.out.println("The peek of the queue after deleting an element " + queue.peek());
         System.out.println("The size of the queue after deleting an element " + queue.size());
     }
+
+    public static class QueueUsingLinkedList<T> {
+        private Node<T> front;
+        private Node<T> rear;
+        private int size = 0;
+
+        private static class Node<T> {
+            T data;
+            Node<T> next;
+
+            Node(T data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        QueueUsingLinkedList() {
+            front = rear = null;
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public void offer(T item) {
+            size++;
+            Node<T> node = new Node<>(item);
+            if (front == null) front = rear = node;
+            else {
+                rear.next = node;
+                rear = node;
+            }
+        }
+
+        public T poll() {
+            if (size == 0) throw new UnsupportedOperationException("No element present for popping");
+            size--;
+            Node<T> node = front;
+            if (front == rear) front = rear = null;
+            else front = node.next;
+            return node.data;
+        }
+
+        public T peek() {
+            if (size == 0) throw new UnsupportedOperationException("No element present for peeking");
+            return front.data;
+        }
+    }
+}
 ```

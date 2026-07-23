@@ -1,28 +1,34 @@
 # UnboundedKnapsack
 
-**Topic:** `dp` | **File:** `com/problems/dp/UnboundedKnapsack.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/unbounded-knapsack_1215029)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=aycn9KO8_Ls&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13)
 - [▶ YouTube](https://www.youtube.com/watch?v=OgvOZ6OrJoY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=24)
 - [📄 takeUforward](https://takeuforward.org/data-structure/unbounded-knapsack-dp-23/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given a set of items, each with a weight and a value, represented by the array wt[] and&amp;nbsp;val[] respectively. Also, a knapsack with a weight limit capacity.Your task is to fill the knapsack in such a way that we can get the maximum profit. Return
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Further space optimization most space optimized
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+further space optimization most space optimized as the default value for int array is 0 so we do not need the initialization for this problem these 2 are for initialization, for both n and w equal to 0, then cell value will be 0 though we do not need to do it as the default value in an int array is already 0 similar to the knapsack problem, we can use a single dp array.
+
+but here is a catch, in knapsack we were dependent on the previous row that's why we were starting from the n..0 otherwise we would get the modified value of dp[j-x]. but here we need the j-x th index of the current row, so we can start iteration from 0 we have 2 choices, either to take it or not, but we can take it only if the current item weight is lesser than w
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] wt = {2, 3, 4, 5, 9, 12};
 		int[] val = {3, 5, 7, 8, 15, 20};
 		int n = val.length;
@@ -56,10 +62,10 @@ private static void type5() {
 
 ### Approach 4
 
-Using two 1D arrays for storing current and previous row
+using two 1D arrays for storing current and previous row as the default value for int array is 0 so we do not need the initialization for this problem these 2 are for initialization, for both n and w equal to 0, then cell value will be 0 though we do not need to do it as the default value in an int array is already 0 we have 2 choices, either to take it or not, but we can take it only if the current item weight is lesser than w assigning the curr to prev
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] wt = {2, 3, 4, 5, 9, 12};
 		int[] val = {3, 5, 7, 8, 15, 20};
 		int n = val.length;
@@ -94,10 +100,10 @@ private static void type4() {
 
 ### Approach 3
 
-We could optimize the space by using a 1D array
+we could optimize the space by using a 1D array as the default value for int array is 0 so we do not need the initialization for this problem these 2 are for initialization, for both n and w equal to 0, then cell value will be 0 though we do not need to do it as the default value in an int array is already 0 we have 2 choices, either to take it or not, but we can take it only if the current item weight is lesser than w
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] wt = {2, 3, 4, 5, 9, 12};
 		int[] val = {3, 5, 7, 8, 15, 20};
 		int n = val.length;
@@ -130,10 +136,12 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
+as the default value for int array is 0 so we do not need the initialization for this problem these 2 are for initialization, for both n and w equal to 0, then cell value will be 0 though we do not need to do it as the default value in an int array is already 0 similar to 0/1 knapsack if n or w is 0, then the answer is 0 we are checking if the current recursion call is already made then we will not call it again if we can incorporate the current weight, then we have 2 choices, either to take it or not.
+
+but here is a catch, unlike 0/1 knapsack, we can take a single item as much as possible. that's why we are just decreasing the remaining weight, not the item count (n)
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] wt = {2, 3, 4, 5, 9, 12};
 		int[] val = {3, 5, 7, 8, 15, 20};
 		int n = val.length;
@@ -148,6 +156,7 @@ private static void type2() {
 		int profit = knapsack(wt, val, n, w, memo);
 		System.out.println(profit);
 	}
+
 	private static int knapsack(int[] wt, int[] val, int n, int w, int[][] memo) {
 		// similar to 0/1 knapsack if n or w is 0, then the answer is 0
 		if (n == 0 || w == 0) return 0;
@@ -168,12 +177,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+similar to 0/1 knapsack if n or w is 0, then the answer is 0 if we can incorporate the current weight, then we have 2 choices, either to take it or not. but here is a catch, unlike 0/1 knapsack, we can take a single item as much as possible. that's why we are just decreasing the remaining weight, not the item count (n)
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] wt = {2, 3, 4, 5, 9, 12};
 		int[] val = {3, 5, 7, 8, 15, 20};
 		int n = val.length;
@@ -181,6 +190,7 @@ private static void type1() {
 		int profit = knapsack(wt, val, n, w);
 		System.out.println(profit);
 	}
+
 	private static int knapsack(int[] wt, int[] val, int n, int w) {
 		// similar to 0/1 knapsack if n or w is 0, then the answer is 0
 		if (n == 0 || w == 0) return 0;
@@ -196,4 +206,5 @@ private static void type1() {
 			return knapsack(wt, val, n - 1, w);
 
 	}
+}
 ```

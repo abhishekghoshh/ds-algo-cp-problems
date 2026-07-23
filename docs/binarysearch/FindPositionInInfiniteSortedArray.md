@@ -1,22 +1,26 @@
 # FindPositionInInfiniteSortedArray
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FindPositionInInfiniteSortedArray.java`
+**Topic:** `binarysearch`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FzvK5uuaki8&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=13)
 - [📄 LeetCode](https://leetcode.com/discuss/interview-experience/1979273/infinite-sorted-array)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the position of an element in an infinite sorted array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+first, we will find the low and high boundary
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 		int target = 13;
 		int low = 0, high = 1, n = arr.length;
@@ -29,6 +33,7 @@ private static void type2() {
 		int index = search(arr, low, high, target);
 		System.out.println(index);
 	}
+
 	private static int search(int[] arr, int low, int high, int target) {
 		int mid;
 		while (low <= high) {
@@ -41,12 +46,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+}
 ```

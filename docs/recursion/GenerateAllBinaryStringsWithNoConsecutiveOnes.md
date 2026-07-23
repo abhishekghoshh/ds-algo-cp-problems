@@ -1,26 +1,31 @@
 # GenerateAllBinaryStringsWithNoConsecutiveOnes
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/GenerateAllBinaryStringsWithNoConsecutiveOnes.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/-binary-strings-with-no-consecutive-1s._893001)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Generate all binary strings of length n with no consecutive 1s.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous we will also carry a flag for the last char so that we do not need to check the last character from the string itself
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous we will also carry a flag for the last char so that we do not need to check the last character from the string itself if n is 0 then we will add the string to the answer like previous we have added everytime we will add 1 only if the last character is not 1
 
 ```java
-private static void type3() {
+    private static void type3() {
         int n = 3;
         List<String> answer = new LinkedList<>();
         generateString3(n, new StringBuilder(), answer, '-');
         System.out.println(answer);
     }
+
     public static void generateString3(int n, StringBuilder sb, List<String> answer, char last) {
         // if n is 0 then we will add the string to the answer
         if (n == 0) {
@@ -43,15 +48,16 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous approach here we have minified the condition
+same as previous approach here we have minified the condition if the n is 0 then we will add the string into the answer everytime, we will add 0 into the string and go to the next recursion we will only add 1 if the string is empty or the last character is 0 and go to the next recursion
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 3;
         List<String> answer = new LinkedList<>();
         generateString2(n, new StringBuilder(), answer);
         System.out.println(answer);
     }
+
     public static void generateString2(int n, StringBuilder sb, List<String> answer) {
         // if the n is 0 then we will add the string into the answer
         if (n == 0) {
@@ -73,17 +79,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion, we will use backtracking here everytime we will add 0, but we will add 1 if the last character is not 1. we will start with n, and after every addition we will reduce the n by 1 if n is 0 then we will add the string into the answer list
+using recursion, we will use backtracking here everytime we will add 0, but we will add 1 if the last character is not 1. we will start with n, and after every addition we will reduce the n by 1 if n is 0 then we will add the string into the answer list adding into the answer list if last char is 0 then we will add 0 and 1 both if the last char is 1, then we will add only 0
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 3;
         List<String> answer = new LinkedList<>();
         generateString1(n, new StringBuilder(), answer);
         System.out.println(answer);
     }
+
     public static void generateString1(int n, StringBuilder sb, List<String> answer) {
         // adding into the answer list
         if (n == 0) {
@@ -106,4 +113,5 @@ private static void type1() {
             sb.deleteCharAt(sb.length() - 1);
         }
     }
+}
 ```

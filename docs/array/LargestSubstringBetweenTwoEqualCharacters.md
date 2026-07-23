@@ -1,31 +1,35 @@
 # LargestSubstringBetweenTwoEqualCharacters
 
-**Topic:** `array` | **File:** `com/problems/array/LargestSubstringBetweenTwoEqualCharacters.java`
-
+**Topic:** `array`  
 **Tags:** Prefix Sum, Array, Hashing, String
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/range-sum-query-immutable/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=2pndAmo_sMA)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Largest substring between two equal characters.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous but here we wil use an int array as map because it is easy to use an array rather than map as the character range is limited
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous but here we wil use an int array as map because it is easy to use an array rather than map as the character range is limited if the length is 1 then there will be no occurrence of same character here we will store the index of the character, and we will mark everything as -1 we will store the character only first time we have seen it if the character exists then we will retrieve its index and find the length of in between characters
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "abca";
         int ans = maxLengthBetweenEqualCharacters3(s);
         System.out.println(ans);
     }
+
     public static int maxLengthBetweenEqualCharacters3(String s) {
         int n = s.length();
         // if the length is 1 then there will be no occurrence of same character
@@ -53,14 +57,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimize approach so all we need the index of the character so we can just store the first occurrence of a character
+optimize approach so all we need the index of the character so we can just store the first occurrence of a character if the length is 1 then there will be no occurrence of same character here we will store the index of the character we will store the character only first time we have seen it if the character exists then we will retrieve its index and find the length of in between characters
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abca";
         int ans = maxLengthBetweenEqualCharacters2(s);
         System.out.println(ans);
     }
+
     public static int maxLengthBetweenEqualCharacters2(String s) {
         int n = s.length();
         // if the length is 1 then there will be no occurrence of same character
@@ -85,16 +90,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for every character we will check if the same character is present previously or not
+brute force approach for every character we will check if the same character is present previously or not if the length is 1 then there will be no occurrence of same character
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abca";
         int ans = maxLengthBetweenEqualCharacters1(s);
         System.out.println(ans);
     }
+
     public static int maxLengthBetweenEqualCharacters1(String s) {
         int n = s.length();
         // if the length is 1 then there will be no occurrence of same character
@@ -109,4 +115,5 @@ private static void type1() {
         }
         return max;
     }
+}
 ```

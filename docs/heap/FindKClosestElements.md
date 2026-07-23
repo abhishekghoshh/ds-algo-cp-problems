@@ -1,32 +1,37 @@
 # FindKClosestElements
 
-**Topic:** `heap` | **File:** `com/problems/heap/FindKClosestElements.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-k-closest-elements/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=J8yLD-x7fBI&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=5)
 - [▶ YouTube](https://www.youtube.com/watch?v=o-YDQzHoaKM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find K closest integers to a given value in a sorted array.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Explain this approach int he interview or explain the heap approach first todo best approach using binary search technique find the start of the list where the partition will be started
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+explain this approach int he interview or explain the heap approach first best approach using binary search technique find the start of the list where the partition will be started Binary search against the criteria described we are considering mid to be the start of the range Create output in correct format
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] arr = {-2, -1, 1, 2, 3, 4, 5};
 		int k = 7;
 		int x = 3;
 		List<Integer> answer = findClosestElements4(arr, k, x);
 		print(answer);
 	}
+
 	public static List<Integer> findClosestElements4(int[] arr, int k, int x) {
 		int n = arr.length;
 		int left = 0, right = n - k;
@@ -51,16 +56,15 @@ private static void type4() {
 
 ### Approach 3
 
-Improved approach
-
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr = {-2, -1, 1, 2, 3, 4, 5};
 		int k = 7;
 		int x = 3;
 		List<Integer> answer = findClosestElements3(arr, k, x);
 		print(answer);
 	}
+
 	private static List<Integer> findClosestElements3(int[] arr, int k, int x) {
 		List<Integer> list = new ArrayList<>();
 
@@ -70,16 +74,17 @@ private static void type3() {
 
 ### Approach 2
 
-Same as type1
+same as type1
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = {-2, -1, 1, 2, 3, 4, 5};
 		int k = 7;
 		int x = 3;
 		List<Integer> answer = findClosestElements2(arr, x, k);
 		print(answer);
 	}
+
 	private static List<Integer> findClosestElements2(int[] arr, int x, int k) {
 		PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
 				(p1, p2) -> {
@@ -100,18 +105,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-A very optimized approach Using max heap we will create a max heap but we will only store k elements once there is k+1 element then we will pop the top most element which is the highest among them
+a very optimized approach Using max heap we will create a max heap but we will only store k elements once there is k+1 element then we will pop the top most element which is the highest among them
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] arr = {-2, -1, 1, 2, 3, 4, 5};
 		int k = 7;
 		int x = 3;
 		int[] answer = findClosestElements1(k, arr, x);
 		print(answer);
 	}
+
 	private static int[] findClosestElements1(int k, int[] arr, int x) {
 		PriorityQueue<Pair> maxHeap = new PriorityQueue<>(
 				(p1, p2) -> {
@@ -132,4 +138,15 @@ private static void type1() {
 		Arrays.sort(ans);
 		return ans;
 	}
+
+	static class Pair {
+		int num, d;
+
+		public Pair(int num, int d) {
+			this.num = num;
+			this.d = d;
+		}
+	}
+
+}
 ```

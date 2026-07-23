@@ -1,29 +1,33 @@
 # MinimumInsertionDeletionForStringConversion
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumInsertionDeletionForStringConversion.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/delete-operation-for-two-strings/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/can-you-make_4244510)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-fx6aDxcWyg&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=25)
 - [▶ YouTube](https://www.youtube.com/watch?v=yMnH0jrir0Q&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=31)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-insertions-deletions-to-convert-string-dp-30/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given two strings, find min insertions and deletions to convert string A to B.
+
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
 
 ### Approach 4
 
-Tabulation with space optimization
+tabulation with space optimization first, we will fill up all the cells assigning curr to the prev dp[n1][n2] is the common part from the two strings, so now our work is to delete the uncommon characters from the first string and add the uncommon part of the second string to the final string this is the total work
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String str1 = "abcdef";
 		String str2 = "xbcdmn";
 		char[] arr1 = str1.toCharArray();
@@ -55,10 +59,10 @@ private static void type4() {
 
 ### Approach 3
 
-For changing one string to another if we do not touch the common parts and only change the places where it is different, then our work is done. so now our work is to delete the uncommon characters from the first string and add the uncommon part of the second string to the final string
+for changing one string to another if we do not touch the common parts and only change the places where it is different, then our work is done. so now our work is to delete the uncommon characters from the first string and add the uncommon part of the second string to the final string first, we will fill up all the cells dp[n1][n2] is the common part from the two strings, this is the total work
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String str1 = "abcdef";
 		String str2 = "xbcdmn";
 		char[] arr1 = str1.toCharArray();
@@ -83,4 +87,5 @@ private static void type3() {
 		int n = needToBeDeleted + needToBeAdded;
 		System.out.println(n);
 	}
+}
 ```

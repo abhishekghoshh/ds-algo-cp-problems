@@ -1,21 +1,25 @@
 # SortMatrixByDiagonals
 
-**Topic:** `array` | **File:** `com/problems/array/SortMatrixByDiagonals.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sort-matrix-by-diagonals/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Sort each diagonal of a matrix independently.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We can make the previous one little simple let's find the diagonal points (0,0), (1,1), (2,2), (3,3), (4,4), (5,5) (2,0), (3,1), (4,2), (5,3) (0,3), (1,4), (2,5) if we look closely then we will find that the difference between the points is same it will range from -(n-1) to (n-1)
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we can make the previous one little simple let's find the diagonal points (0,0), (1,1), (2,2), (3,3), (4,4), (5,5) (2,0), (3,1), (4,2), (5,3) (0,3), (1,4), (2,5) if we look closely then we will find that the difference between the points is same it will range from -(n-1) to (n-1)
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {
                 {1, 7, 3},
                 {9, 8, 2},
@@ -24,18 +28,19 @@ private static void type2() {
         int[][] ans = sortMatrix2(grid);
         PrintUtl.print2D(ans);
     }
+
     private static int[][] sortMatrix2(int[][] grid) {
         int n = grid.length;
         return grid;
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute force approach
+using brute force approach from main diagonal now row wise now column wise
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {1, 7, 3},
                 {9, 8, 2},
@@ -44,6 +49,7 @@ private static void type1() {
         int[][] ans = sortMatrix1(grid);
         PrintUtl.print2D(ans);
     }
+
     public static int[][] sortMatrix1(int[][] grid) {
         int n = grid.length;
         List<Integer> list = new ArrayList<>();
@@ -83,4 +89,5 @@ private static void type1() {
 
         return grid;
     }
+}
 ```

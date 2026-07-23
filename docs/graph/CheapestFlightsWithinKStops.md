@@ -1,27 +1,33 @@
 # CheapestFlightsWithinKStops
 
-**Topic:** `graph` | **File:** `com/problems/graph/CheapestFlightsWithinKStops.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/cheapest-flights-within-k-stops/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9XybHVqTHcQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=38)
 - [📄 takeUforward](https://takeuforward.org/data-structure/g-38-cheapest-flights-within-k-stops/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+so, are getting stops as 1,2,3,4.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as type1, we will not store the stops in the queue we will apply bfs traverse all the flights in same stop
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as type1, we will not store the stops in the queue we will apply bfs traverse all the flights in same stop let's create the adjacency list first we will add the edge and the cost we don't need to store it in the priority queue as we are operating on stops, and it is increasing by one in every iteration Create a queue which stores the node and their cost from the source in the form of {node, cost} with stops indicating the no of nodes between src and current node.
+
+We stop the process as soon as the limit for the stops reaches. We only update the queue if the new calculated dist is less than the previous
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 4;
 		int[][] flights = {
 				{0, 1, 100},
@@ -34,6 +40,7 @@ private static void type2() {
 		int ans = findCheapestPrice2(n, flights, src, dst, k);
 		System.out.println(ans);
 	}
+
 	public static int findCheapestPrice2(int n, int[][] flights, int src, int dst, int k) {
 		// let's create the adjacency list first
 		List<List<int[]>> adj = new ArrayList<>();
@@ -77,12 +84,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use Dijkstra here, but we will not need to use the Priority Queue, we can directly the queue only as we are going layer wise, everytime we are increasing stops by 1 so, are getting stops as 1,2,3,4.
+We will use Dijkstra here, but we will not need to use the Priority Queue, we can directly the queue only as we are going layer wise, everytime we are increasing stops by 1 so, are getting stops as 1,2,3,4. let's create the adjacency list first we will add the edge and the cost we don't need to store it in the priority queue as we are operating on stops, and it is increasing by one in every iteration Create a queue which stores the node and their distances from the source in the form of {stops, node, dist} with stops indicating the no of nodes between src and current node.
+
+We stop the process as soon as the limit for the stops reaches. We only update the queue if the new calculated dist is less than the previous and the stops are also within limits.
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 4;
 		int[][] flights = {
 				{0, 1, 100},
@@ -95,6 +104,7 @@ private static void type1() {
 		int ans = findCheapestPrice1(n, flights, src, dst, k);
 		System.out.println(ans);
 	}
+
 	public static int findCheapestPrice1(int n, int[][] flights, int src, int dst, int k) {
 		// let's create the adjacency list first
 		List<List<int[]>> adj = new ArrayList<>();
@@ -136,4 +146,6 @@ private static void type1() {
 		}
 		return costs[dst] != Integer.MAX_VALUE ? costs[dst] : -1;
 	}
+
+}
 ```

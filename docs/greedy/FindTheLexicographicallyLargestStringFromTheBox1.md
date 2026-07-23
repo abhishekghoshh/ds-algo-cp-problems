@@ -1,28 +1,32 @@
 # FindTheLexicographicallyLargestStringFromTheBox1
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/FindTheLexicographicallyLargestStringFromTheBox1.java`
-
+**Topic:** `greedy`  
 **Tags:** Array, Greedy, String
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-lexicographically-largest-string-from-the-box-i/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+split string every possible way then return the max
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous but here we will use character array we will use start and end pointer
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous but here we will use character array we will use start and end pointer initializing for the first window we will start from 1 for the sub string at the ending
 
 ```java
-private static void type3() {
+    private static void type3() {
         String word = "dbca";
         int numFriends = 2;
         String ans = answerString3(word, numFriends);
         System.out.println(ans);
     }
+
     private static String answerString3(String word, int numFriends) {
         if (numFriends == 1) return word;
         char[] arr = word.toCharArray();
@@ -50,6 +54,7 @@ private static void type3() {
         }
         return word.substring(start, end + 1);
     }
+
     private static boolean isLess(char[] arr, int i1, int j1, int i2, int j2) {
         int n1 = j1 - i1 + 1;
         int n2 = j2 - i2 + 1;
@@ -63,15 +68,16 @@ private static void type3() {
 
 ### Approach 2
 
-Previous type is not optimal by any chance because we are creating every possible string so lets see the criteria of the question we have to split the string into numFriends todo we can be greedy here we can give 1 letter to all the friends and give the max len string to one friend if the string len is n and number of friends is k then so we will give 1 letter to everyone except 1 friend so max len would be n - (k-1) so if we do a sliding window of this size then we will get string max which has the max count and also lexicographically bigger but there might be some lesser length string which is at the ending side like aaaabbb and maxLen is 4 so in the sliding window we will get abbb but the ans would be bbb so we will use another loop which will test (i,n) and we will increment i it will test all string in the ending
+previous type is not optimal by any chance because we are creating every possible string so lets see the criteria of the question we have to split the string into numFriends we can be greedy here we can give 1 letter to all the friends and give the max len string to one friend if the string len is n and number of friends is k then so we will give 1 letter to everyone except 1 friend so max len would be n - (k-1) so if we do a sliding window of this size then we will get string max which has the max count and also lexicographically bigger but there might be some lesser length string which is at the ending side like aaaabbb and maxLen is 4 so in the sliding window we will get abbb but the ans would be bbb so we will use another loop which will test (i,n) and we will increment i it will test all string in the ending for the sub string at the ending
 
 ```java
-private static void type2() {
+    private static void type2() {
         String word = "dbca";
         int numFriends = 2;
         String ans = answerString2(word, numFriends);
         System.out.println(ans);
     }
+
     public static String answerString2(String word, int numFriends) {
         if (numFriends == 1) return word;
         int n = word.length();
@@ -96,14 +102,26 @@ private static void type2() {
         }
         return maxStr;
     }
+
+    static boolean isLess(String a, String b) {
+        int n1 = a.length(), n2 = b.length();
+        for (int i = 0; i < n1 && i < n2; i++) {
+            char a1 = a.charAt(i), b1 = b.charAt(i);
+            if (a1 != b1) return (a1 < b1);
+        }
+        return (n1 < n2);
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force split string every possible way then return the max
+brute force split string every possible way then return the max
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+
+
+}
 ```

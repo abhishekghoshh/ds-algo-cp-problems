@@ -1,32 +1,37 @@
 # SubtreeOfAnotherTree
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/SubtreeOfAnotherTree.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/subtree-of-another-tree/description/)
 - [📄 NeetCode](https://neetcode.io/problems/subtree-of-a-binary-tree)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=E36O5SWp-LE)
 - [📄 takeUforward](https://takeuforward.org/data-structure/reorder-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Check if one tree is a subtree of another.
 
-### Implementation
+## 💡 Approaches
 
-This is the simple approach using dfs we will dfs till we find the same value once we find the same value we will check from this node if both of the tree is identical or not
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this is the simple approach using dfs we will dfs till we find the same value once we find the same value we will check from this node if both of the tree is identical or not if both values are same, then we will check if both tree are identical else we will go for left and right child if both are null means both are identical if anyone of them is non-null then, it is not identical then we will check if the values are same and its left and right child is also same or not
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.withCount(15);
         TNode subRoot = TNode.withNodes(7, 14, 15);
         boolean ans = isSubtree(root, subRoot);
         System.out.println(ans);
     }
+
     public static boolean isSubtree(TNode root, TNode subRoot) {
         if (null == root) return false;
         // if both values are same, then we will check if both tree are identical
@@ -35,6 +40,7 @@ private static void type1() {
         return isSubtree(root.left, subRoot)
                 || isSubtree(root.right, subRoot);
     }
+
     public static boolean isSame(TNode root1, TNode root2) {
         // if both are null means both are identical
         if (null == root1 && null == root2) return true;
@@ -45,4 +51,5 @@ private static void type1() {
                 && isSame(root1.left, root2.left)
                 && isSame(root1.right, root2.right);
     }
+}
 ```

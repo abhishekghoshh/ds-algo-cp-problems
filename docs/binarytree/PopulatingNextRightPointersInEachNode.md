@@ -1,25 +1,30 @@
 # PopulatingNextRightPointersInEachNode
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/PopulatingNextRightPointersInEachNode.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Populate the next right pointers of a perfect binary tree.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is based on the assumption is the tree is a perfect binary tree left height is always bigger or equal to the right height. here we will be doing it in place the intuition is we will go only to the left of the tree and every time we will connect nodes of the next level, so the first connection will be parent.left.next = parent.right but for how to check it for parent.right.next so for that we need parent's sibling nodes left parent's sibling node will be parent.next so parent.right.next will be paren.next.left so we have connected parent's left and right children now we will go to parent's sibling node and will connect all its child nodes
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is based on the assumption is the tree is a perfect binary tree left height is always bigger or equal to the right height. here we will be doing it in place the intuition is we will go only to the left of the tree and every time we will connect nodes of the next level, so the first connection will be parent.left.next = parent.right but for how to check it for parent.right.next so for that we need parent's sibling nodes left parent's sibling node will be parent.next so parent.right.next will be paren.next.left so we have connected parent's left and right children now we will go to parent's sibling node and will connect all its child nodes
 
 ```java
-private static void type2() {
+    private static void type2() {
         TNode root = withCount(6);
         root = connect2(root);
         print(root);
     }
+
     public static TNode connect2(TNode root) {
         if (root == null) return null;
         TNode node = root;
@@ -36,16 +41,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use a map to store all the nodes in level wise we are using DFS, but we could also use BFS here for level wise traversal and storing the nodes
+we will use a map to store all the nodes in level wise we are using DFS, but we could also use BFS here for level wise traversal and storing the nodes
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = withCount(6);
         root = connect1(root);
         print(root);
     }
+
     public static TNode connect1(TNode root) {
         Map<Integer, List<TNode>> floors = new HashMap<>();
         traverse(root, floors, 0);
@@ -59,6 +65,7 @@ private static void type1() {
         }
         return root;
     }
+
     private static void traverse(TNode root, Map<Integer, List<TNode>> floors, int rank) {
         if (null != root) {
             if (!floors.containsKey(rank)) {
@@ -69,4 +76,5 @@ private static void type1() {
             traverse(root.left, floors, rank + 1);
         }
     }
+}
 ```

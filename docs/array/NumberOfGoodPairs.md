@@ -1,31 +1,35 @@
 # NumberOfGoodPairs
 
-**Topic:** `array` | **File:** `com/problems/array/NumberOfGoodPairs.java`
-
+**Topic:** `array`  
 **Tags:** Array, Hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-good-pairs/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=BqhDFUo1rjs&t=1s)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count good pairs where nums[i] == nums[j] and i < j.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-This is exactly like the previous but here we will use array instead of map, as we know the range of the numbers also the default value of the int array is 0
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+this is exactly like the previous but here we will use array instead of map, as we know the range of the numbers also the default value of the int array is 0 checking the previous count of num updating the count of num
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 2, 3, 1, 1, 3};
         int ans = numIdenticalPairs3(nums);
         System.out.println(ans);
     }
+
     public static int numIdenticalPairs3(int[] nums) {
         int[] freq = new int[101];
         int total = 0;
@@ -41,14 +45,15 @@ private static void type3() {
 
 ### Approach 2
 
-This optimized approach using hashmap lets say we are currently on num = 5, now we need how many 5 we had in previous we could store that easily in a hashmap for the first time we see any element there will be 0 times we have seen this element previously, so we will have a default value in hashmap
+this optimized approach using hashmap lets say we are currently on num = 5, now we need how many 5 we had in previous we could store that easily in a hashmap for the first time we see any element there will be 0 times we have seen this element previously, so we will have a default value in hashmap checking the previous count of num updating the count of num
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 3, 1, 1, 3};
         int ans = numIdenticalPairs2(nums);
         System.out.println(ans);
     }
+
     public static int numIdenticalPairs2(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int total = 0;
@@ -62,16 +67,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach for every index we will check if the previous elements if there are same elements we will increment the total
+brute force approach for every index we will check if the previous elements if there are same elements we will increment the total
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 3, 1, 1, 3};
         int ans = numIdenticalPairs1(nums);
         System.out.println(ans);
     }
+
     public static int numIdenticalPairs1(int[] nums) {
         int total = 0;
         int n = nums.length;
@@ -82,4 +88,5 @@ private static void type1() {
         }
         return total;
     }
+}
 ```

@@ -1,27 +1,32 @@
 # FindKPairsWithSmallestSums
 
-**Topic:** `heap` | **File:** `com/problems/heap/FindKPairsWithSmallestSums.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given two integer arrays nums1 and nums2 sorted in ascending order and an integer k, return the k pairs with the smallest sums.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Check it later
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+check it later there is a problem of duplicate pairs that's why we have used a set but if we use this i1==0 then it's getting succeeded check why i1 == 0 is the main condition
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums1 = {1, 2, 4, 5, 6};
         int[] nums2 = {3, 5, 7, 9};
         int k = 20;
         List<List<Integer>> ans = kSmallestPairs3(nums1, nums2, k);
         System.out.println(ans);
     }
+
     public static List<List<Integer>> kSmallestPairs3(int[] nums1, int[] nums2, int k) {
         int n1 = nums1.length, n2 = nums2.length;
         List<List<Integer>> ans = new ArrayList<>();
@@ -43,20 +48,31 @@ private static void type3() {
         }
         return ans;
     }
+
+    static class IndexPair {
+        int i1, i2;
+
+        IndexPair(int i1, int i2) {
+            this.i1 = i1;
+            this.i2 = i2;
+        }
+    }
 ```
 
 ### Approach 2
 
-We will use a min heap to fetch the minimum element we will start with (0,0) and poll the minimum element everytime then we will offer (i+1,j) and (i+j+1) which can be the next minimum element
+we will use a min heap to fetch the minimum element we will start with (0,0) and poll the minimum element everytime then we will offer (i+1,j) and (i+j+1) which can be the next minimum element along with heap we have also used a set just to remove the duplicate pairs we will use this max heap with our custom comparator we will start with the minimum element, which will be (0,0) element
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums1 = {1, 2, 4, 5, 6};
         int[] nums2 = {3, 5, 7, 9};
         int k = 20;
         List<List<Integer>> ans = kSmallestPairs2(nums1, nums2, k);
         System.out.println(ans);
     }
+
+    // along with heap we have also used a set just to remove the duplicate pairs
     private static List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
         int n1 = nums1.length, n2 = nums2.length;
         // we will use this max heap with our custom comparator
@@ -90,20 +106,50 @@ private static void type2() {
         }
         return ans;
     }
+
+    static class Pair implements Comparable<Pair> {
+        int i1, i2;
+        int sum;
+
+        public Pair(int i1, int i2, int sum) {
+            this.i1 = i1;
+            this.i2 = i2;
+            this.sum = sum;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return i1 == pair.i1 && i2 == pair.i2;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(i1, i2);
+        }
+
+        @Override
+        public int compareTo(Pair o) {
+            return sum - o.sum;
+        }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Along with heap we have also used a set just to remove the duplicate pairs brute force approach we will calculate all the pair and sort them
+brute force approach we will calculate all the pair and sort them let's calculate the pairs first we will sort the pairs with their pair multiplication we will take the sublist
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums1 = {1, 2, 4, 5, 6};
         int[] nums2 = {3, 5, 7, 9};
         int k = 20;
         List<List<Integer>> ans = kSmallestPairs1(nums1, nums2, k);
         System.out.println(ans);
     }
+
     private static List<List<Integer>> kSmallestPairs1(int[] nums1, int[] nums2, int k) {
         // let's calculate the pairs first
         List<List<Integer>> list = new ArrayList<>();
@@ -116,4 +162,6 @@ private static void type1() {
         // we will take the sublist
         return list.subList(0, k);
     }
+
+}
 ```

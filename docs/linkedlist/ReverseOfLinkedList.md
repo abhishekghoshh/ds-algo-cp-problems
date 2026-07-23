@@ -1,36 +1,43 @@
 # ReverseOfLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/ReverseOfLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/reverse-linked-list/description/)
 - [📄 NeetCode](https://neetcode.io/problems/reverse-a-linked-list)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/799897)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/reverse-linked-list_920513)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=D2vI2DNJGd8)
 - [▶ YouTube](https://www.youtube.com/watch?v=iRtLEoL-r-g)
 - [▶ YouTube](https://www.youtube.com/watch?v=G0_I-ZF0S38)
 - [📄 takeUforward](https://takeuforward.org/data-structure/reverse-a-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Reverse a singly linked list.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Using array or stack would be very lame todo we can also discuss this in the interview this is a recursive approach where we store the recursion stack to store the pointer after each recursion we reverse the pointer direction
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+we can also discuss this in the interview this is a recursive approach where we store the recursion stack to store the pointer after each recursion we reverse the pointer direction If the linked list is empty or has only one node, return the head as it is already reversed.
+
+Reverse the linked list starting from the next node (head.next). so we will break the link between current and next and save the next node now the [next..last] is reversed, so now we can reverse the pointer of [head->next]
 
 ```java
-private static void type4() {
+	private static void type4() {
 		Node head = new Node(10, 6, 9, 15, 30);
 		print(head);
 		head = reverseLinkedList(head);
 		print(head);
 	}
+
 	public static Node reverseLinkedList(Node head) {
 		// If the linked list is empty or has only one node, return the head as it is already reversed.
 		if (head == null || head.next == null) return head;
@@ -47,16 +54,17 @@ private static void type4() {
 
 ### Approach 3
 
-Explain this in the interview In place reverse without extra space
+explain this in the interview In place reverse without extra space new head is the new head, at first it is assigned to null next pointer is to store the next pointer until we do the intermediate while(null!=head){next = head.next;head = next;} the upper code snippet will traverse the linkedlist newHead actually keeps track of the previous element at first we are assigning next element to next pointer otherwise we will lose the next pointer, then we are attaching the next pointer to previous here we are breaking the forward link and establishes a reverse link then we are assigning current node to previous, which will help in the next iteration
 
 ```java
-private static void type3() {
+	private static void type3() {
 		Node head = new Node(10, 6, 9, 15, 30);
 		print(head);
 		Node ans = reverseList3(head);
 		print(ans);
 
 	}
+
 	private static Node reverseList3(Node head) {
 		// new head is the new head, at first it is assigned to null
 		// next pointer is to store the next pointer until we do the intermediate
@@ -81,15 +89,16 @@ private static void type3() {
 
 ### Approach 2
 
-We will use a stack to store the pointer's data in reverse Create a temporary pointer to traverse the linked list Create a stack to temporarily store the data values Step 1: Push the values of the linked list onto the stack Push the current node's data onto the stack Move to the next node in the linked list Reset the temporary pointer to the head of the linked list Step 2: Pop values from the stack and update the linked list Set the current node's data to the value at the top of the stack Move to the next node in the linked list Return the new head of the reversed linked list
+We will use a stack to store the pointer's data in reverse Create a temporary pointer to traverse the linked list Create a stack to temporarily store the data values Step 1: Push the values of the linked list onto the stack Push the current node's data onto the stack Move to the next node in the linked list Reset the temporary pointer to the head of the linked list Step 2: Pop values from the stack and update the linked list Set the current node's data to the value at the top of the stack Move to the next node in the linked list Return the new head of the reversed linked list storing all the nodes into the stack reading from the stack
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node head = new Node(10, 6, 9, 15, 30);
 		print(head);
 		Node ans = reverseList1(head);
 		print(ans);
 	}
+
 	private static Node reverseList1(Node head) {
 		Node node = head;
 		// storing all the nodes into the stack
@@ -108,12 +117,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force approach we will store the pointers in an array then we will attach the pointer links in reverse
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+}
 ```

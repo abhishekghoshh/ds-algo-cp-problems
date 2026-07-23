@@ -1,25 +1,31 @@
 # FindTheMinimumAreaToCoverAllOnes1
 
-**Topic:** `array` | **File:** `com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Minimum rectangular area to cover all 1s in a grid.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will try to squeeze the all 4 sides shrink the top side first shrink the left side then we will change the boundary of (i,j) accordingly shrink the bottom side then we will change the boundary of (i,j) accordingly shrink the right side then we will change the boundary of (i,j) accordingly
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {{0, 1, 0}, {1, 0, 1}};
         int ans = minimumArea(grid);
         System.out.println(ans);
     }
+
+    // we will try to squeeze the all 4 sides
     public static int minimumArea(int[][] grid) {
         int r = grid.length, c = grid[0].length;
 
@@ -77,4 +83,5 @@ private static void type1() {
         }
         return (bottom - top + 1) * (right - left + 1);
     }
+}
 ```

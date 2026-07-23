@@ -1,28 +1,32 @@
 # MinimumNoOfInsertionForPalindrome
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumNoOfInsertionForPalindrome.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/minimum-insertions-to-make-palindrome_985293)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=AEcRW4ylm_c&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=31)
 - [▶ YouTube](https://www.youtube.com/watch?v=xPBLEj41rFU&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=30)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-insertions-to-make-string-palindrome-dp-29/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find the minimum insertions to make a string a palindrome.
+
+## 💡 Approaches
+
+This problem can be solved in **3** different ways, each improving upon the previous:
 
 ### Approach 5
 
-Same approach for all three types another way to create the longest palindromic subsequence TODO check it later one more time
+same approach for all three types another way to create the longest palindromic subsequence check it later one more time
 
 ```java
-private static void type5() {
+    private static void type5() {
         String s = "abcbcxcbe";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -46,10 +50,10 @@ private static void type5() {
 
 ### Approach 4
 
-Same as previous here we will count the longest palindromic subsequence in a different way this type is derived from the longest palindromic substring solution
+same as previous here we will count the longest palindromic subsequence in a different way this type is derived from the longest palindromic substring solution it will handle all 1 length characters it will handle all the characters starting from 2 if start and end are the same character, then we will check for 1 less character on both sides
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = "abcbcxcbe";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -74,12 +78,14 @@ private static void type4() {
     }
 ```
 
-### Approach 3 — Optimal
+### Approach 3: 🏆 Optimal Solution
 
-Let's say the string is aaxbaa, here the longest palindromic subsequence is aabaa, if we can insert x after b, then it will be aaxbxaa. that means if we can add the characters in the string which is not part of the longest palindromic subsequence in their proper place in the actual string, then the string will become palindrome. so the answer will be the len(string) - len(longest palindromic substring)
+let's say the string is aaxbaa, here the longest palindromic subsequence is aabaa, if we can insert x after b, then it will be aaxbxaa. that means if we can add the characters in the string which is not part of the longest palindromic subsequence in their proper place in the actual string, then the string will become palindrome.
+
+so the answer will be the len(string) - len(longest palindromic substring) rather creating another array, we could directly use the same array and in place of this condition arr[i - 1] == reversed[j - 1] we could use arr[i - 1] == arr[n - j], which is same essentially so use could save some space and computation
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "abcbcxcbe";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -103,4 +109,5 @@ private static void type3() {
         int count = n - dp[n][n];
         System.out.println(count);
     }
+}
 ```

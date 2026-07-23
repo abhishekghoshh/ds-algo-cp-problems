@@ -1,21 +1,25 @@
 # NetworkDelayTime
 
-**Topic:** `graph` | **File:** `com/problems/graph/NetworkDelayTime.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/network-delay-time/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given n nodes and travel times as directed edges, find the time for a signal to reach all nodes from source node k.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as previous without int array in the Queue
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Same as previous without int array in the Queue first, we will create a directed adjacency list we will use a distance array and fill INF other than the source node we will use a normal queue for storing we will apply the dijkstra we will check all its neighbors check the maximum time for the farthest node
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] times = {
                 {2, 1, 1},
                 {2, 3, 1},
@@ -25,6 +29,8 @@ private static void type2() {
         int ans = networkDelayTime2(times, n, k);
         System.out.println(ans);
     }
+
+
     public static int networkDelayTime2(int[][] times, int n, int k) {
         // first, we will create a directed adjacency list
         List<List<int[]>> adj = new ArrayList<>();
@@ -65,12 +71,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using Dijkstra technique, but here we will not use the Priority Queue as we will go level wise from the previous nodes we will not early return from any position we will gradually create the distance array
+using Dijkstra technique, but here we will not use the Priority Queue as we will go level wise from the previous nodes we will not early return from any position we will gradually create the distance array first, we will create a directed adjacency list we will use a distance array and fill INF other than the source node we will use a normal queue for storing we will apply the dijkstra we will check all its neighbors check the maximum time for the farthest node
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] times = {
                 {2, 1, 1},
                 {2, 3, 1},
@@ -80,6 +86,7 @@ private static void type1() {
         int ans = networkDelayTime1(times, n, k);
         System.out.println(ans);
     }
+
     public static int networkDelayTime1(int[][] times, int n, int k) {
         // first, we will create a directed adjacency list
         List<List<int[]>> adj = new ArrayList<>();
@@ -119,4 +126,5 @@ private static void type1() {
         }
         return maxTime;
     }
+}
 ```

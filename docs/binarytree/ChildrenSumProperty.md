@@ -1,32 +1,42 @@
 # ChildrenSumProperty
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/ChildrenSumProperty.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/children-sum-parent/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/children-sum-property_8357239)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=fnmisPM6cVo&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=30)
 - [📄 takeUforward](https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a binary tree, find if it satisfies the&nbsp;Children Sum Property which has the following rules
 
-### Approach 2 — Optimal
+Each non-leaf node must have a value equal to the&nbsp;sum&nbsp;of its&nbsp;left&nbsp;and&nbsp;right&nbsp;children&#x27;s values. 
+A NULL child is cons
 
-Given a Binary Tree. Check whether all of its nodes have the data equal to the sum of their child nodes. NOTE this is taken from striver video this problem is not in the geekforgeeks link
+## 💡 Approaches
+
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+NOTE this is taken from striver video this problem is not in the geekforgeeks link study it later it will change the dynamics of the tree
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.withNodes(2, 35, 10, 2, 3, 5, 2);
 		PrintUtl.print(root);
 		reorder(root);
 		PrintUtl.print(root);
 	}
+
+	// TODO study it later
+	// it will change the dynamics of the tree
 	private static void reorder(TNode root) {
 		if (root == null) return;
 		int child = 0;
@@ -45,16 +55,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Study it later it will change the dynamics of the tree
+this is a leaf node, and we will return its data only if the left data is -1 then in the left branch the already broken so, we will return -1 directly if the right data is -1 then in the right branch the already broken
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.withNodes(10, 10);
 		boolean isSumProperty = isSumProperty(root) != -1;
 		System.out.println(isSumProperty);
 	}
+
 	public static int isSumProperty(TNode root) {
 		if (null == root) return 0;
 		// this is a leaf node, and we will return its data only
@@ -69,4 +80,6 @@ private static void type1() {
 		if (right == -1) return -1;
 		return (left + right == root.data) ? root.data : -1;
 	}
+
+}
 ```

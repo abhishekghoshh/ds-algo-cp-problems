@@ -1,32 +1,35 @@
 # SearchInsertPosition
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/SearchInsertPosition.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/search-insert-position/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/algorithm-to-find-best-insert-position-in-sorted-array_839813)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=6zhGS79oQ4k&t=1187s)
 - [📄 takeUforward](https://takeuforward.org/arrays/search-insert-position/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the position to insert a target in a sorted array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 3, 5, 6};
         int target = 5;
         int answer = searchInsert(nums, target);
         System.out.println(answer);
     }
+
     public static int searchInsert(int[] nums, int target) {
         int n = nums.length;
         int answer = n;
@@ -45,12 +48,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 3, 5, 6};
         int target = 5;
         int n = nums.length;
@@ -63,4 +66,6 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+
+}
 ```

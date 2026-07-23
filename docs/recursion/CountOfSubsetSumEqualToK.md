@@ -1,23 +1,28 @@
 # CountOfSubsetSumEqualToK
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/CountOfSubsetSumEqualToK.java`
+**Topic:** `recursion`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+count the number of subsets when we can use one number infinite times
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Count the number of subsets when we can use one number in just one time
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+count the number of subsets when we can use one number in just one time if the current num is less than equal to target, then we have 2 condition either to add it or ignore it, so if we add it then we will increase the index as we will also check for the same index if num then is not capable then there is no point that next element will also able to make it, as we have sorted the array
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {3, 1, 4, 2};
         int target = 7;
         Arrays.sort(nums);
         int count = count2(nums, 0, target);
         System.out.println(count);
     }
+
     private static int count2(int[] nums, int n, int remaining) {
         if (remaining == 0) return 1;
         if (n == nums.length) return 0;
@@ -33,18 +38,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Count the number of subsets when we can use one number infinite times
+count the number of subsets when we can use one number infinite times if the current num is less than equal to target, then we have 2 condition either to add it or ignore it, so if we add it then we will not increase the index as we will also check for the same index if num then is not capable then there is no point that next element will also able to make it, as we have sorted the array
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {3, 1, 4, 2};
         int target = 7;
         Arrays.sort(nums);
         int count = count1(nums, 0, target);
         System.out.println(count);
     }
+
     private static int count1(int[] nums, int n, int remaining) {
         if (remaining == 0) return 1;
         if (n == nums.length) return 0;
@@ -59,4 +65,5 @@ private static void type1() {
                     + count1(nums, n + 1, remaining);
         return 0;
     }
+}
 ```

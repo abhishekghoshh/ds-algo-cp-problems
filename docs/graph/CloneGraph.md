@@ -1,27 +1,33 @@
 # CloneGraph
 
-**Topic:** `graph` | **File:** `com/problems/graph/CloneGraph.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/clone-graph/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+and set the new adjacent nodes from the newNodes map
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-This problem is very hard to test in local but both the problem accepted in the leetcode instead of map we will use an array exactly like the previous type
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+instead of map we will use an array exactly like the previous type if we have already computed the node then we will return it iterating over all the neighbor nodes of the actual node and find the new neighbor nodes
 
 ```java
-private static void type4() {
+    private static void type4() {
     }
+
     public static Node cloneGraph4(Node node) {
         if (node == null) return null;
         Node[] map = new Node[101];
         return dfs(node, map);
     }
+
     private static Node dfs(Node node, Node[] map) {
         // if we have already computed the node then we will return it
         if (map[node.val] != null) return map[node.val];
@@ -39,16 +45,18 @@ private static void type4() {
 
 ### Approach 3
 
-We have used DFS here this is simplest of all the previous approaches we are also using a map to store the new nodes with the corresponding values
+we have used DFS here this is simplest of all the previous approaches we are also using a map to store the new nodes with the corresponding values if we have already computed the node then we will return it iterating over all the neighbor nodes of the actual node and find the new neighbor nodes
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
+
     public static Node cloneGraph3(Node node) {
         if (node == null) return null;
         Map<Integer, Node> map = new HashMap<>();
         return dfs(node, map);
     }
+
     private static Node dfs(Node node, Map<Integer, Node> map) {
         // if we have already computed the node then we will return it
         if (map.containsKey(node.val)) return map.get(node.val);
@@ -66,11 +74,12 @@ private static void type3() {
 
 ### Approach 2
 
-Same as the previous but here we have use integer array as map
+same as the previous but here we have use integer array as map we will use a map to mark if the new nodes are already created and added to queue or not we will start with the root if already computed then we will skip we will add the nodes and add to the queue adding neighbors to the queue iterating over the map and not we will compute all the neighbors from the map
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
+
     public static Node cloneGraph2(Node root) {
         if (null == root) return null;
         Queue<Node> queue = new LinkedList<>();
@@ -104,13 +113,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use BFS we have used a queue to traverse all the nodes we have used a map to store all the new nodes after the nodes are stored then we have again iterated on the new nodes and set the new adjacent nodes from the newNodes map
+we will use BFS we have used a queue to traverse all the nodes we have used a map to store all the new nodes after the nodes are stored then we have again iterated on the new nodes and set the new adjacent nodes from the newNodes map we will use a map to mark if the new nodes are already created and added to queue or not we will start with the root if already computed then we will skip we will add the nodes and add to the queue adding neighbors to the queue iterating over the map and not we will compute all the neighbors from the map
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+
     public static Node cloneGraph1(Node root) {
         if (null == root) return null;
         Queue<Node> queue = new LinkedList<>();
@@ -143,4 +153,25 @@ private static void type1() {
         }
         return newNodes.get(root.val);
     }
+
+    static class Node {
+        public int val;
+        public List<Node> neighbors;
+
+        public Node() {
+            val = 0;
+            neighbors = new ArrayList<>();
+        }
+
+        public Node(int _val) {
+            val = _val;
+            neighbors = new ArrayList<>();
+        }
+
+        public Node(int _val, ArrayList<Node> _neighbors) {
+            val = _val;
+            neighbors = _neighbors;
+        }
+    }
+}
 ```

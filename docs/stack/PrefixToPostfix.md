@@ -1,25 +1,27 @@
 # PrefixToPostfix
 
-**Topic:** `stack` | **File:** `com/problems/stack/PrefixToPostfix.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/convert-prefix-to-postfix_8391014)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=jZxII0guwUo)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "-/A+BC*DE";
         char[] arr = s.toCharArray();
         reverse(arr);
@@ -35,6 +37,7 @@ private static void type1() {
         }
         System.out.println(stack.peek());
     }
+
     private static void reverse(char[] arr) {
         int i = 0, j = arr.length - 1;
         char ch;
@@ -46,4 +49,5 @@ private static void type1() {
             j--;
         }
     }
+}
 ```

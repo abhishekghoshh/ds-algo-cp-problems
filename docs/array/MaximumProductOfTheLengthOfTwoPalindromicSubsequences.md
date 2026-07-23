@@ -1,31 +1,35 @@
 # MaximumProductOfTheLengthOfTwoPalindromicSubsequences
 
-**Topic:** `array` | **File:** `com/problems/array/MaximumProductOfTheLengthOfTwoPalindromicSubsequences.java`
-
+**Topic:** `array`  
 **Tags:** Array, String, Bit masking, Bit Manipulation, Dynamic programming,
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-product-of-the-length-of-two-palindromic-subsequences/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=aoHbYlO8vDg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+if the result is 0 that means there are no common indices
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We can do a little optimization from the previous approach rather computing for all mask1 * mask2 we can check for mask1 with (mask1 + 1 ... N) lets take an example of 1, we will compute with (2 ... N) it will be a waste to do 2,3,4,5 to do with 1 again in their iteration todo we can use another optimization here, we could use an array instead of the hashmap
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we can do a little optimization from the previous approach rather computing for all mask1 * mask2 we can check for mask1 with (mask1 + 1 ... N) lets take an example of 1, we will compute with (2 ... N) it will be a waste to do 2,3,4,5 to do with 1 again in their iteration we can use another optimization here, we could use an array instead of the hashmap
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "leetcodecom";
         int ans = maxProduct2(s);
         System.out.println(ans);
     }
+
     private static int maxProduct2(String s) {
         int n = s.length();
         int N = 1 << n;
@@ -57,16 +61,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach, though it is also very good, so for every letter we have two choices, either to take it or not. so we will try to create all the strings and check if it is a palindrome, or not we can check two strings palindrome by comparing their indices. an optimized approach would be to use bitmask a bit while creating the string, and we can compare 2 bitmasks with a simple & operator if the result is 0 that means there are no common indices
+brute force approach, though it is also very good, so for every letter we have two choices, either to take it or not. so we will try to create all the strings and check if it is a palindrome, or not we can check two strings palindrome by comparing their indices.
+
+an optimized approach would be to use bitmask a bit while creating the string, and we can compare 2 bitmasks with a simple & operator if the result is 0 that means there are no common indices
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "leetcodecom";
         int ans = maxProduct1(s);
         System.out.println(ans);
     }
+
     public static int maxProduct1(String s) {
         int n = s.length();
         char[] arr = s.toCharArray();
@@ -95,6 +102,7 @@ private static void type1() {
         }
         return max;
     }
+
     private static boolean isPalindrome(StringBuilder s) {
         int i = 0, j = s.length() - 1;
         while (i < j) {
@@ -105,4 +113,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

@@ -1,32 +1,37 @@
 # MinimumPathSum
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumPathSum.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-path-sum/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/minimum-path-sum_985349)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_rgTlyky1uQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=11)
 - [▶ YouTube](https://www.youtube.com/watch?v=pGMsrvt0fpk)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-path-sum-in-a-grid-dp-10/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given a grid, find a path from top-left to bottom-right with minimum sum.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-We can space optimize by using a single dimensional dp array, but I feel that is unnecessary exactly like the previous type just here we are initializing the 0th row and column so that we do not need to check fot the out of bounds we will start from (0,0) and go till (m-1,n-1)
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+we can space optimize by using a single dimensional dp array, but I feel that is unnecessary exactly like the previous type just here we are initializing the 0th row and column so that we do not need to check fot the out of bounds we will start from (0,0) and go till (m-1,n-1) we will initialize dp[0][0] with grid[0][0] prefix sum for first column prefix sum for first row we will go from the 1 to n-1, so we do not have to check for the out of bounds
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
         int ans = minPathSum4(grid);
         System.out.println(ans);
     }
+
     private static int minPathSum4(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -53,14 +58,15 @@ private static void type4() {
 
 ### Approach 3
 
-Bottom-up approach
+bottom-up approach we will go from the 0 to n-1 same as the recursion also checking if i-1 or j-1 is not out of bounds
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
         int ans = minPathSum3(grid);
         System.out.println(ans);
     }
+
     private static int minPathSum3(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -84,14 +90,15 @@ private static void type3() {
 
 ### Approach 2
 
-Recursion with memoization
+recursion with memoization n or m is out of bounds if we reach to the 0,0 then we will return the answer if the cell value is already calculated, then we will return else we have 2 choices, to go up or left, and take the minimum among them also store the result
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
         int ans = minPathSum2(grid);
         System.out.println(ans);
     }
+
     private static int minPathSum2(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -99,6 +106,7 @@ private static void type2() {
         for (int[] row : dp) Arrays.fill(row, -1);
         return minPathSum(grid, m - 1, n - 1, dp);
     }
+
     private static int minPathSum(int[][] grid, int m, int n, int[][] dp) {
         // n or m is out of bounds
         if (m < 0 || n < 0) return Integer.MAX_VALUE;
@@ -115,12 +123,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force with recursion intuition is very simple we will start from m-1,n-1 and go till 0,0 for every cell we have 2 options either to go left or up and we will take the min
+brute force with recursion intuition is very simple we will start from m-1,n-1 and go till 0,0 for every cell we have 2 options either to go left or up and we will take the min n or m is out of bounds if we reach to the 0,0 then we will return the answer else we have 2 choices, to go up or left, and take the minimum among them
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {1, 3, 1},
                 {1, 5, 1},
@@ -129,11 +137,13 @@ private static void type1() {
         int ans = minPathSum1(grid);
         System.out.println(ans);
     }
+
     private static int minPathSum1(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
         return minPathSum(grid, m - 1, n - 1);
     }
+
     private static int minPathSum(int[][] grid, int m, int n) {
         // n or m is out of bounds
         if (m < 0 || n < 0) return Integer.MAX_VALUE;
@@ -145,4 +155,5 @@ private static void type1() {
                 minPathSum(grid, m, n - 1)
         );
     }
+}
 ```

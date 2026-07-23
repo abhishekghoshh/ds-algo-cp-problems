@@ -1,29 +1,48 @@
 # LargestBinarySearchTreeInBinaryTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/LargestBinarySearchTreeInBinaryTree.java`
+**Topic:** `binarysearchtree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/largest-bst/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=X0oXMdtUDwo&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=54)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+You&#x27;re given a binary tree. Your task is to find the size of the largest subtree within this binary tree that also satisfies the properties of a Binary Search Tree (BST). The size of a subtree is defined as the number of nodes it contains.
+Note: A su
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check this approach one more time later and check striver's video
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+check this approach one more time later and check striver's video check this method one more time An empty tree is a BST of size 0. Get values from the left and right subtree of the current tree. The Current node is greater than max in the left and smaller than min in the right it is a BST.
+
+It is a BST. Otherwise, return [-inf, inf] so that parent can't be valid BST
 
 ```java
-private static void type2() {
+	private static void type2() {
 		TNode root = TNode.makeBST(35);
 		Node node = largestBSTSubtree2(root);
 		System.out.println(node.n);
 	}
+
+	private static class Node {
+		public int max, min, n;
+
+		Node(int min, int max, int n) {
+			this.max = max;
+			this.min = min;
+			this.n = n;
+		}
+	};
+
+	// check this method one more time
 	private static Node largestBSTSubtree2(TNode root) {
 		// An empty tree is a BST of size 0.
 		if (root == null) return new Node(Integer.MAX_VALUE, Integer.MIN_VALUE, 0);
@@ -39,34 +58,39 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Check this method one more time Brute force approach [It is also pretty efficient] for every node in Tree, find if starting from that node if it is BST or not. if it is BST find the count of nodes in that else go left and right
+Brute force approach [It is also pretty efficient] for every node in Tree, find if starting from that node if it is BST or not. if it is BST find the count of nodes in that else go left and right we have optimized a little by counting the nodes earlier and saved that to a hashmap
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.makeBST(35);
 		Map<TNode, Integer> count = new HashMap<>();
 		count(root, count);
 		int n = largestBSTSubtree1(root, count);
 		System.out.println(n);
 	}
+
 	private static int count(TNode root, Map<TNode, Integer> count) {
 		if (root == null) return 0;
 		int total = 1 + count(root.left, count) + count(root.right, count);
 		count.put(root, total);
 		return total;
 	}
+
 	private static int largestBSTSubtree1(TNode root, Map<TNode, Integer> count) {
 		if (root == null) return 0;
 		// we have optimized a little by counting the nodes earlier and saved that to a hashmap
 		if (isValidBst(root, Long.MIN_VALUE, Long.MAX_VALUE)) return count.get(root);
 		return Math.max(largestBSTSubtree1(root.left, count), largestBSTSubtree1(root.right, count));
 	}
+
 	private static boolean isValidBst(TNode root, long min, long max) {
 		if (null == root) return true;
 		if (root.data <= min || root.data >= max) return false;
 		return isValidBst(root.left, min, root.data)
 				&& isValidBst(root.right, root.data, max);
 	}
+
+}
 ```

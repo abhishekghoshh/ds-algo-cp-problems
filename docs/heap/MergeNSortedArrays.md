@@ -1,25 +1,30 @@
 # MergeNSortedArrays
 
-**Topic:** `heap` | **File:** `com/problems/heap/MergeNSortedArrays.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/merge-k-sorted-arrays_975379)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=l8CuET0jlDU)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Merge N sorted arrays into one sorted array.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as type2 just a little more efficient optimized approach using min heap lets say there is k arrays the total size of elements is n worst time complexity will be O(n*log(k)) O(n*log(k)) for removal and O(n*log(k)) for inserting next smallest element space complexity is O(k) for min heap
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as type2 just a little more efficient optimized approach using min heap lets say there is k arrays the total size of elements is n O(n*log(k)) for removal and O(n*log(k)) for inserting next smallest element we will store all the array index from the array for getting the current lowest value we will save the array index and the 0 because in 0th position we will get the lowest element we will poll the lowest element but here we will do the optimization, we will check the top value of the next top element from heap we will add from the current array while it is lesser equal to than the second top if the array has reached to length, then there is no point of add the array back to heap else means there is nop other array left in the heap, so we will add all the array element to the array
+
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] arrays = {
 				{2, 6, 12, 34},
 				{3},
@@ -75,10 +80,11 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using min heap lets say there is k arrays the total size of elements is n worst time complexity will be O(n*log(k)) O(n*log(k)) for removal and O(n*log(k)) for inserting next smallest element space complexity is O(k) for min heap
+optimized approach using min heap lets say there is k arrays the total size of elements is n O(n*log(k)) for removal and O(n*log(k)) for inserting next smallest element we will store all the array index from the array for getting the current lowest value we will save the array index and the 0 because in 0th position we will get the lowest element we will poll the lowest element and add to the answer if the array has reached to length, then there is no point of add the array back to heap
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] arrays = {
 				{2, 6, 12, 34},
 				{3},
@@ -115,16 +121,27 @@ private static void type2() {
 		}
 		print(answer);
 	}
+
+	private static class Pair {
+		int arrI;
+		int i;
+
+		public Pair(int arrI, int i) {
+			this.arrI = arrI;
+			this.i = i;
+		}
+	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(size*log(size)) space complexity O(size)
+brute force approach
 
-**Complexity:** Time: o(size*log(size) | Space: o(size)
+**Time Complexity:** `O(size*log(size)`
+**Space Complexity:** `O(size)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] arrays = {
 				{2, 6, 12, 34},
 				{3},
@@ -143,4 +160,6 @@ private static void type1() {
 		Arrays.sort(answer);
 		print(answer);
 	}
+
+}
 ```

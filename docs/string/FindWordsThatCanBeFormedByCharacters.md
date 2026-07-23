@@ -1,31 +1,35 @@
 # FindWordsThatCanBeFormedByCharacters
 
-**Topic:** `string` | **File:** `com/problems/string/FindWordsThatCanBeFormedByCharacters.java`
-
+**Topic:** `string`  
 **Tags:** String, hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=EQ5jTZdEn8Y)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Count words that can be formed using given characters (each char used at most once per word).
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach use either hashmap or int array as freq map both will act same we use int array as it is easy to handle
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach use either hashmap or int array as freq map both will act same we use int array as it is easy to handle first we will create freq map for the seed text we will use freq2 to calculate the freq for the other text calculating freq for the individual word now check if freq2 can be fitted into seed text character freq cleaning up the freq2
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] words = {"cat", "bt", "hat", "tree"};
         String chars = "atach";
         int ans = countCharacters(words, chars);
     }
+
     public static int countCharacters(String[] words, String chars) {
         int[] freq = new int[26];
         // first we will create freq map for the seed text
@@ -43,4 +47,11 @@ private static void type1() {
         }
         return total;
     }
+
+    static boolean canFit(int[] freq2, int[] freq) {
+        for (int i = 0; i < 26; i++)
+            if (freq2[i] > freq[i]) return false;
+        return true;
+    }
+}
 ```

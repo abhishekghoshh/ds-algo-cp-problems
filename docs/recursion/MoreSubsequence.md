@@ -1,26 +1,31 @@
 # MoreSubsequence
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/MoreSubsequence.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/more-subsequence_8842355)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check the solution one more time we will use dynamic programming to count all the subsequences and return the answer
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+we will use dynamic programming to count all the subsequences and return the answer if the characters are unique then total number of subsequences is 2^n by 2^n logic, we will multiply with 2 everytime, but there might be some repeating characters if the indices of ch is not -1, then this character is a repeating character if the character is repeating, then we will decrement the number of subsequences for this character when it was added last time everytime we will update the indices array
 
 ```java
-private static void type2() {
+    private static void type2() {
         String a = "ab";
         String b = "dd";
         String answer = moreSubsequence2(a, b);
         System.out.println(answer);
     }
+
     public static String moreSubsequence2(String a, String b) {
         if (count2(a.toCharArray()) >= count2(b.toCharArray())) {
             return a;
@@ -28,6 +33,7 @@ private static void type2() {
             return b;
         }
     }
+
     private static int count2(char[] str) {
         int n = str.length;
         int[] dp = new int[n + 1];
@@ -51,12 +57,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use normal recursion to create all the distinct subsequence and will check which has more
+we will use normal recursion to create all the distinct subsequence and will check which has more
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

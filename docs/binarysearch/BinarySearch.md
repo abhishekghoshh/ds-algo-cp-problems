@@ -1,33 +1,36 @@
 # BinarySearch
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/BinarySearch.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/binary-search)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/binary-search_972)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=MHf6awe89xw&t=1s)
 - [▶ YouTube](https://www.youtube.com/watch?v=j7NodO9HIbk&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2)
 - [📄 takeUforward](https://takeuforward.org/data-structure/binary-search-explained/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
 		int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10};
 		int target = 1;
         int index = search(nums, target);
         System.out.println(index);
 	}
+
     private static int search(int[] nums, int target) {
         int n = nums.length;
         if (n == 1) return nums[0] == target ? 0 : -1;
@@ -41,4 +44,5 @@ private static void type1() {
         }
         return -1;
     }
+}
 ```

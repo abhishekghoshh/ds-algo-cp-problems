@@ -1,30 +1,34 @@
 # DetectLoopInLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/DetectLoopInLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/linked-list-cycle/description/)
 - [📄 NeetCode](https://neetcode.io/problems/linked-list-cycle-detection)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/628974)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=wiOo4DC5GGA)
 - [▶ YouTube](https://www.youtube.com/watch?v=354J83hX7RI)
 - [▶ YouTube](https://www.youtube.com/watch?v=gBTe7lFR3vc)
 - [📄 takeUforward](https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Detect if a linked list has a cycle.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Tortoise method efficient approach without any extra space but it can go more than O(n) as it will here we have a slow node and fast node slow node goes one node at a time, fast node goes two nodes if there is any loop then slow and fast will travel with different speed and after some they will reach the same node if there is no cycle then fast will exhaust automatically
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+tortoise method efficient approach without any extra space but it can go more than O(n) as it will here we have a slow node and fast node slow node goes one node at a time, fast node goes two nodes if there is any loop then slow and fast will travel with different speed and after some they will reach the same node if there is no cycle then fast will exhaust automatically traversing the linked list
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node head = new Node(1, 2, 3, 4, 5);
 		Node node1 = new Node(6);
 		Node node2 = new Node(7, 8, 9);
@@ -35,6 +39,7 @@ private static void type2() {
 		boolean hasCycle = hasCycle2(head);
 		System.out.println("cycle present : " + hasCycle);
 	}
+
 	private static boolean hasCycle2(Node head) {
 		Node slow = head;
 		Node fast = head;
@@ -48,14 +53,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity o(n) space complexity o(n)
+brute force approach
 
-**Complexity:** Time: o(n) | Space: o(n)
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node head = new Node(1, 2, 3, 4, 5);
 		Node node1 = new Node(6);
 		Node node2 = new Node(7, 8, 9);
@@ -66,6 +70,7 @@ private static void type1() {
 		boolean hasCycle = hasCycle1(head);
 		System.out.println("cycle present : " + hasCycle);
 	}
+
 	private static boolean hasCycle1(Node head) {
 		Set<Node> set = new HashSet<>();
 		while (null != head) {
@@ -75,4 +80,5 @@ private static void type1() {
 		}
 		return false;
 	}
+}
 ```

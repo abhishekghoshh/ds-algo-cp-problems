@@ -1,28 +1,32 @@
 # WordSearch1
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/WordSearch1.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/word-search/description/)
 - [📄 NeetCode](https://neetcode.io/problems/search-for-word)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/word-search---l_892986)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=pfiQ_PS1g8E)
 - [📄 takeUforward](https://takeuforward.org/data-structure/word-search-leetcode/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an m x n grid of characters and a string word, return true if word exists in the grid via sequential adjacent cells.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as previous here we will not use any visited array here we will change the input array to mark the cell as visited. also we will use a freq array to check if the characters in the word are present on the board or not
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as previous here we will not use any visited array here we will change the input array to mark the cell as visited. also we will use a freq array to check if the characters in the word are present on the board or not if the cell count is less than the word length, then we can return false this is the little optimization that we have done we will check if the characters in that word are present in the board or not if the frequency is less than 0 means this character is not present in the board now we will traverse the array if we go to nth index, that means we have already found 0..n-1 indexes we can return true from here if the coordinate is out of bound or the cell value is not arr[i] or the cell is already visited then we will return false we will change the cell value to an arbitrary character to mark it as visited we will explore all directions at last, we will again set the cell value to its original char
 
 ```java
-private static void type2() {
+    private static void type2() {
         char[][] board = {
                 {'A', 'B', 'C', 'E'},
                 {'S', 'F', 'C', 'S'},
@@ -32,6 +36,7 @@ private static void type2() {
         boolean exist = exist3(board, word);
         System.out.println(exist);
     }
+
     private static boolean exist3(char[][] board, String word) {
         int m = board.length, n = board[0].length;
         // if the cell count is less than the word length, then we can return false
@@ -58,6 +63,7 @@ private static void type2() {
         }
         return false;
     }
+
     private static boolean hasWord2(char[][] board, int i, int j, int idx, char[] arr) {
         // if we go to nth index, that means we have already found 0..n-1 indexes
         // we can return true from here
@@ -88,12 +94,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion and backtracking and a visited array
+using recursion and backtracking and a visited array we will start the traversal for every cell if its value is the word's first character if the traversal returns true, then we will also return true if it is the last index on the string, then we can return true if the coordinate is out of bound or the cell value is not arr[i] or the cell is already visited, then we will return false marking the index we will go to all four directions and try to explore at last, we will again set the visited cell value to false
 
 ```java
-private static void type1() {
+    private static void type1() {
         char[][] board = {
                 {'A', 'B', 'C', 'E'},
                 {'S', 'F', 'C', 'S'},
@@ -103,6 +109,23 @@ private static void type1() {
         boolean exist = exist1(board, word);
         System.out.println(exist);
     }
+
+    static boolean exist1(char[][] board, String word) {
+        char[] arr = word.toCharArray();
+        int m = board.length, n = board[0].length;
+        boolean[][] visited = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                // we will start the traversal for every cell if its value is the word's first character
+                // if the traversal returns true, then we will also return true
+                if (board[i][j] == arr[0]
+                        && hasWord1(board, i, j, 0, arr, visited))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     private static boolean hasWord1(char[][] board, int i, int j, int idx, char[] arr, boolean[][] visited) {
         // if it is the last index on the string, then we can return true
         if (idx == arr.length) return true;
@@ -125,7 +148,9 @@ private static void type1() {
         visited[i][j] = false;
         return false;
     }
+
     private static boolean isOutOfBound(int i, int j, char[][] board) {
         return i < 0 || i >= board.length || j < 0 || j >= board[0].length;
     }
+}
 ```

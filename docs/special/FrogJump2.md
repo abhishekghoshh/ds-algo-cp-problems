@@ -15,6 +15,10 @@ public class FrogJump2 {
 
 ```
 
+## 📝 Problem Statement
+
+Frog crossing with minimum cost.
+
 ## Source Code
 
 ```java

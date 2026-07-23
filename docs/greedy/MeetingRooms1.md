@@ -1,37 +1,39 @@
 # MeetingRooms1
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/MeetingRooms1.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/meeting-rooms/description/)
 - [https://www.lintcode.com/problem/920/](https://www.lintcode.com/problem/920/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=PaJxqZVPhbg)
 - [https://leetcode.ca/all/252.html](https://leetcode.ca/all/252.html)
 - [https://nwthomas.medium.com/meeting-rooms-leetcode-920-7e9d06f38a23](https://nwthomas.medium.com/meeting-rooms-leetcode-920-7e9d06f38a23)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if a person can attend all meetings.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force but efficient approach
+brute force but efficient approach sorting the intervals based on their starting time we will initialize the end time with -inf we will check if the last meeting end time is greater than the current meeting starting time so there is a conflict else we will set the current meeting end time to the end time
 
 ```java
-private static void type1() {
+    private static void type1() {
         List<List<Integer>> intervals = new ArrayList<>(List.of(
                 List.of(0, 30),
                 List.of(5, 10),
@@ -40,6 +42,7 @@ private static void type1() {
         boolean ans = canAttendMeetings(intervals);
         System.out.println(ans);
     }
+
     public static boolean canAttendMeetings(List<List<Integer>> intervals) {
         // sorting the intervals based on their starting time
         intervals.sort(Comparator.comparingInt(p -> p.get(0)));
@@ -58,4 +61,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

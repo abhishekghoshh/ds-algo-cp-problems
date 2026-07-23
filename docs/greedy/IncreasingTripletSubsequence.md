@@ -1,30 +1,38 @@
 # IncreasingTripletSubsequence
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/IncreasingTripletSubsequence.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/increasing-triplet-subsequence)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-tqUs4Qt9TU)
 - [▶ YouTube](https://www.youtube.com/watch?v=yEFlGWOVH8g)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if an increasing triplet subsequence exists.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+see the youtube video
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 5, 0, 6, 4};
         boolean answer = increasingTriplet(nums);
         System.out.println(answer);
     }
+
+    //TODO
+    // see the youtube video
+    // explain yourself
     public static boolean increasingTriplet(int[] nums) {
         if (nums.length < 3) return false;
         int minOne = Integer.MAX_VALUE, minTwo = Integer.MAX_VALUE;
@@ -37,12 +45,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-See the youtube video explain yourself brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

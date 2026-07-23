@@ -1,21 +1,25 @@
 # LongestContinuousIncreasingSubsequence
 
-**Topic:** `array` | **File:** `com/problems/array/LongestContinuousIncreasingSubsequence.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Longest continuous increasing subsequence.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as type2 method just here we will reduce the line number
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as type2 method just here we will reduce the line number
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 3, 5, 4, 7};
         int max = 0, count = 0;
         int prev = Integer.MIN_VALUE;
@@ -31,10 +35,10 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach
+optimized approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 3, 5, 4, 7};
         int max = 0, count = 0;
         int prev = Integer.MIN_VALUE;
@@ -52,12 +56,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach using 2 loops
+brute force approach using 2 loops
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 3, 5, 4, 7};
     }
+}
 ```

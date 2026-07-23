@@ -1,30 +1,34 @@
 # ConstructBinaryTreeFromInorderAndPreorder
 
-**Topic:** `binarytree` | **File:** `com/problems/binarytree/ConstructBinaryTreeFromInorderAndPreorder.java`
+**Topic:** `binarytree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
 - [📄 NeetCode](https://neetcode.io/problems/binary-tree-from-preorder-and-inorder-traversal)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/construct-tree-1/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/construct-binary-tree-from-inorder-and-preorder-traversal_920539)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=aZNaLrVebKQ&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=35)
 - [▶ YouTube](https://www.youtube.com/watch?v=ihj4IQGZ2zc)
 - [📄 takeUforward](https://takeuforward.org/data-structure/construct-a-binary-tree-from-inorder-and-preorder-traversal/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given the preorder and inorder traversal arrays of a binary tree, construct and return the tree.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Recursively here we will maintain two index one for preOrder and one for inOrder TODO study later one more time
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+recursively here we will maintain two index one for preOrder and one for inOrder study later one more time makeTree method will recursively create the tree
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] preorder = {3, 9, 20, 15, 7};
 		int[] inorder = {9, 3, 15, 20, 7};
 		// makeTree method will recursively create the tree
@@ -32,6 +36,10 @@ private static void type3() {
 		PrintUtl.preOrder(root);
 		PrintUtl.inOrder(root);
 	}
+
+	private static int inOrderIndex = 0;
+	private static int preOrderIndex = 0;
+
 	private static TNode buildTree3(int[] preorder, int[] inorder, int stop) {
 		if (preOrderIndex >= preorder.length) return null;
 
@@ -48,16 +56,17 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous but here we are using a class level variable rather than passing the preorder pos everytime as we are going we are incrementing the pos
+same as previous but here we are using a class level variable rather than passing the preorder pos everytime as we are going we are incrementing the pos we are building a map to find the inOrder index in O(1) makeTree method will recursively create the tree if start and end are same, then it has only one node, so we can directly return that first, we will find the root node from the post-order index and decrement the post order index for the next right subtree we have the left tree count, so we can easily construct the right tree recursion preOrder root will be current preOrder root position + left subtree count + 1 as in the pre-order the sequence will be like root <- left <- right
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] preorder = {3, 9, 20, 15, 7};
 		int[] inorder = {9, 3, 15, 20, 7};
 		TNode root = buildTree2(preorder, inorder);
 		PrintUtl.preOrder(root);
 		PrintUtl.inOrder(root);
 	}
+
 	private static TNode buildTree2(int[] preorder, int[] inorder) {
 		int n = preorder.length;
 		// we are building a map to find the inOrder index in O(1)
@@ -67,6 +76,10 @@ private static void type2() {
 		// makeTree method will recursively create the tree
 		return makeTree1(0, n - 1, preorder, map);
 	}
+
+
+	static int pos = 0;
+
 	private static TNode makeTree1(int start, int end, int[] preorder, Map<Integer, Integer> map) {
 		if (start > end) return null;
 		// if start and end are same, then it has only one node, so we can directly return that
@@ -84,18 +97,23 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursively todo same as postorder question, here we get root from preorder[0] element preorder and inorder consist of unique values. so we can make a map to find the inorder index in O(1) we will start from the preOrder because in preOrder we get the root node in 0th element, then from that node we will get the left tree size and right tree size from the inOrder
+recursively same as postorder question, here we get root from preorder[0] element preorder and inorder consist of unique values. so we can make a map to find the inorder index in O(1) we will start from the preOrder because in preOrder we get the root node in 0th element, then from that node we will get the left tree size and right tree size from the inOrder we are building a map to find the inOrder index in O(1) makeTree method will recursively create the tree so we have to maintain three indices, one for preOrder root position, another from start node position of the inorder, and another is for end node position of the inorder.
+
+first, we will get the root node value from the preOrder traversal if start and end are same, then it has only one node, so we can directly return that finding the root node value from the map we are getting the node's position in the inorder traversal again, we will recursively construct it's left and right child.
+
+for the left tree preOrder root index will be (current preOrder root index + 1) inorder start will be the same, but the ending node will be (current inorderRootIndex - 1) because in inorder left tree will be previous to the root node we have the left tree count, so we can easily construct the right tree recursion preOrder root will be current preOrder root position + left subtree count + 1 as in the pre-order the sequence will be like root <- left <- right
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] preorder = { 3, 9, 20, 15, 7 };
 		int[] inorder = { 9, 3, 15, 20, 7 };
 		TNode root = buildTree1(preorder, inorder);
 		PrintUtl.preOrder(root);
 		PrintUtl.inOrder(root);
 	}
+
 	private static TNode buildTree1(int[] preorder, int[] inorder) {
 		int n = preorder.length;
 		// we are building a map to find the inOrder index in O(1)
@@ -105,6 +123,12 @@ private static void type1() {
 		// makeTree method will recursively create the tree
 		return makeTree1(0, n - 1, 0, preorder, map);
 	}
+
+
+	// so we have to maintain three indices,
+	// one for preOrder root position,
+	// another from start node position of the inorder, and another is for end node position of the inorder.
+	// first, we will get the root node value from the preOrder traversal
 	private static TNode makeTree1(int start, int end, int pos, int[] preorder, Map<Integer, Integer> map) {
 		if (start > end) return null;
 		// if start and end are same, then it has only one node, so we can directly return that
@@ -126,4 +150,6 @@ private static void type1() {
 		TNode right = makeTree1(rootI + 1, end, pos + leftCount + 1, preorder, map);
 		return new TNode(root, left, right);
 	}
+
+}
 ```

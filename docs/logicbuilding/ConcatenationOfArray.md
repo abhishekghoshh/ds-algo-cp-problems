@@ -1,27 +1,31 @@
 # ConcatenationOfArray
 
-**Topic:** `logicbuilding` | **File:** `com/problems/logicbuilding/ConcatenationOfArray.java`
-
+**Topic:** `logicbuilding`  
 **Tags:** Array, Logic building
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/concatenation-of-array/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Return the concatenation of an array with itself.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using library function
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using library function
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 1};
         int[] ans = getConcatenation2(nums);
         print(ans);
     }
+
     public static int[] getConcatenation2(int[] nums) {
         int n = nums.length;
         int[] ans = new int[2 * n];
@@ -31,16 +35,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 1};
         int[] ans = getConcatenation1(nums);
         print(ans);
     }
+
     public static int[] getConcatenation1(int[] nums) {
         int n = nums.length;
         int[] ans = new int[2 * n];
@@ -49,4 +54,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

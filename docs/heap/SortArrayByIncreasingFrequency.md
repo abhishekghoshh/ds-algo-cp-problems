@@ -1,25 +1,29 @@
 # SortArrayByIncreasingFrequency
 
-**Topic:** `heap` | **File:** `com/problems/heap/SortArrayByIncreasingFrequency.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sort-array-by-increasing-frequency/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=hLR5aMzYGGk&list=PL_z_8CaSLPWdtY9W22VjnPxG30CXNZpI9&index=7)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given an array of integers nums, sort the array in increasing order based on
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Given an array of integers nums, sort the array in increasing order based on the frequency of the values. If multiple values have the same frequency, sort them in decreasing order. 1 <= nums.length <= 100 -100 <= nums[i] <= 100 so we could use this
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+1 <= nums.length <= 100 -100 <= nums[i] <= 100 so we could use this as the range is given as -100 <= nums[i] <= 100
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9};
 		int n = nums.length;
 		// as the range is given as -100 <= nums[i] <= 100
@@ -36,10 +40,10 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous just we are using array instead of map
+same as previous just we are using array instead of map
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9};
 		int[] freq = new int[201];
 		int offset = 100;
@@ -62,10 +66,10 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous just a little compact
+same as previous just a little compact
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9};
 		Map<Integer, Integer> freq = new HashMap<>();
 		for (int num : nums) freq.put(num, freq.getOrDefault(num, 0) + 1);
@@ -82,12 +86,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9};
 		Map<Integer, Integer> freq = new HashMap<>();
 		for (int num : nums) freq.put(num, freq.getOrDefault(num, 0) + 1);
@@ -107,4 +111,6 @@ private static void type1() {
 		}
 		print(answer);
 	}
+
+}
 ```

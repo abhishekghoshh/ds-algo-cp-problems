@@ -1,25 +1,30 @@
 # FindMinimumTimeToReachLastRoom2
 
-**Topic:** `heap` | **File:** `com/problems/heap/FindMinimumTimeToReachLastRoom2.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-minimum-time-to-reach-last-room-ii/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+check the question, it has an extra condition
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check the question, it has an extra condition Moving between adjacent rooms takes one second for one move and two seconds for the next, alternating between the two using heap
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using heap we will store the coordinate and time to reach to the current cell also we will store the if x and y is in bounds or x,y is not already visited Moving between adjacent rooms takes one second for one move and two seconds for the next, alternating between the two
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] moveTime = {{0, 0, 0, 0}, {0, 0, 0, 0}};
         int ans = minTimeToReach2(moveTime);
         System.out.println(ans);
     }
+
     public static int minTimeToReach2(int[][] moveTime) {
         int n = moveTime.length, m = moveTime[0].length;
         PriorityQueue<Point> heap = new PriorityQueue<>(Comparator.comparingInt(p -> p.t));
@@ -46,14 +51,27 @@ private static void type2() {
         }
         return -1;
     }
+
+    static class Point {
+        int x, y, t;
+        int d;
+
+        Point(int x, int y, int t, int d) {
+            this.x = x;
+            this.y = y;
+            this.t = t;
+            this.d = d;
+        }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

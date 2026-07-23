@@ -1,27 +1,31 @@
 # FindTheCityWithTheSmallestNumberOfNeighbors
 
-**Topic:** `graph` | **File:** `com/problems/graph/FindTheCityWithTheSmallestNumberOfNeighbors.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/)
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/0)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=PwMVNSJ5SLI&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=43)
 - [📄 takeUforward](https://takeuforward.org/data-structure/find-the-city-with-the-smallest-number-of-neighbours-at-a-threshold-distance-g-43/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+There are n cities labeled from 0 to n-1 with m edges connecting them. Given the array edges&nbsp;where edges[i] = [fromi&nbsp;, toi ,weighti]&nbsp;&nbsp;represents a bidirectional and weighted edge between cities fromi&nbsp;and toi, and given the in
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Similar to the previous one Using the floyd warshall technique to find minimum distance from all nodes to all node
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+similar to the previous one Using the floyd warshall technique to find minimum distance from all nodes to all node let's create the matrix first for simplicity, we will use 10^5 as INF for i==j it will always be 0, so we will skip it floyd warshall technique floyd warshall technique of [i][j] => [i][k]+[k][j] for every city, there will be +1 for including itself, as it will be added for all the cities, so it will not affect our answer
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 5;
         int[][] edges = {
                 {0, 1, 2},
@@ -72,12 +76,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using the floyd warshall technique to find minimum distance from all nodes to all node
+Using the floyd warshall technique to find minimum distance from all nodes to all node let's create the matrix first, we will replace cell with 0 value with -1, which means there is no edge floyd warshall technique [i][j] => [i][k]+[k][j] i == k means we do not need to check anything similarly we can skip for [i,j] and [j,[k] if [i,k] and [k,j] has not connected, yet then we can skip the current iteration if [i,j] is not yet connected or [i][j] > [i][k]+[k][j] then we will update for every point we will traverse the row if i == j that means it is the same city if the value is -1, then we cannot go from i to j
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 5;
         int[][] edges = {
                 {0, 1, 2},
@@ -135,4 +139,6 @@ private static void type1() {
         }
         System.out.println(city);
     }
+
+}
 ```

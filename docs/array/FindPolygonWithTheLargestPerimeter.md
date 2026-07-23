@@ -1,31 +1,35 @@
 # FindPolygonWithTheLargestPerimeter
 
-**Topic:** `array` | **File:** `com/problems/array/FindPolygonWithTheLargestPerimeter.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, Prefix Sum, Priority Queue, Greedy, Sorting
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Yk9Mor-Y488)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the largest perimeter polygon from array.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using priority queue here we are doing it in a reverse way here we will calculate the total sum and using a max heap we are saving all the num now we are polling sides from heap one by one if we subtract side from the sum we will get sum[a1..ak-1] now we will check if sum[a1..ak-1] > ak or not if yes then return the sum else remove ak from the sum continue this till the side is atleast 3
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using priority queue here we are doing it in a reverse way here we will calculate the total sum and using a max heap we are saving all the num now we are polling sides from heap one by one if we subtract side from the sum we will get sum[a1..ak-1] now we will check if sum[a1..ak-1] > ak or not if yes then return the sum else remove ak from the sum continue this till the side is atleast 3
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 12, 1, 2, 5, 50, 3};
         long ans = largestPerimeter2(nums);
         System.out.println(ans);
     }
+
     private static long largestPerimeter2(int[] nums) {
         long sum = 0;
         PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);
@@ -45,16 +49,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Explain this in the interview this is a greedy approach so there are 2 conditions A polygon is a closed plane figure that has at least 3 sides a1 + a2 + a3 + ... + ak-1 > ak here we will sort the array first, so lower sides will come first so if we just use a loop and iterate over the array and get the side total then we can just check sum(a1..ak-1) > a[k] or not if yes we can just include the a[k] to our polygon and we don't need to check for other combination as a[k] is highest among others if sum(a1..ak-1) > a[k] satisfies then sum(a1..ak) > a[i] will be satisfied so if total is greater than num then we will think that [a1..ak] will be our current largest polygon we will update the total in every iteration
+explain this in the interview this is a greedy approach so there are 2 conditions A polygon is a closed plane figure that has at least 3 sides a1 + a2 + a3 + ... + ak-1 > ak here we will sort the array first, so lower sides will come first so if we just use a loop and iterate over the array and get the side total then we can just check sum(a1..ak-1) > a[k] or not if yes we can just include the a[k] to our polygon and we don't need to check for other combination as a[k] is highest among others if sum(a1..ak-1) > a[k] satisfies then sum(a1..ak) > a[i] will be satisfied so if total is greater than num then we will think that [a1..ak] will be our current largest polygon we will update the total in every iteration
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 12, 1, 2, 5, 50, 3};
         long ans = largestPerimeter1(nums);
         System.out.println(ans);
     }
+
     public static long largestPerimeter1(int[] nums) {
         Arrays.sort(nums);
         long perimeter = -1;
@@ -67,4 +72,5 @@ private static void type1() {
         }
         return perimeter;
     }
+}
 ```

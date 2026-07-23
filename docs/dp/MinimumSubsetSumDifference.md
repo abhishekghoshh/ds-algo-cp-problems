@@ -1,27 +1,31 @@
 # MinimumSubsetSumDifference
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumSubsetSumDifference.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum_842494)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-GtpxG6l_Mc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=10)
 - [▶ YouTube](https://www.youtube.com/watch?v=GS_OqZb2CWc)
 - [📄 takeUforward](https://takeuforward.org/data-structure/partition-set-into-2-subsets-with-min-absolute-sum-diff-dp-16/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Partition a set into two subsets with minimum absolute sum difference.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-If we consider only positive number then it is just a problem of DP target sum but if we have negative numbers to consider then we will need man in the middle algorithm You are given an integer array nums of 2 * n integers. You must partition nums into two arrays of length n to minimize the absolute difference of the sum of the arrays. To partition nums, put each element of nums into one of the two arrays. Return the minimum possible absolute difference. TODO similar to previous type, only works with positive integer same as the previous type but with space and time optimization
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+similar to previous type, only works with positive integer same as the previous type but with space and time optimization we have taken till half we can always create zero sums with the empty subset, remaining cells will be false we can always create empty subset for sum 0 there will be two sets s1 and s2, then difference will be abs(s2-s1) s2 can be represented by (sum-s1), so abs(s2-s1) => abs(sum-2*s1)
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {76, 8, 45, 20, 74, 84, 28, 1};
 		int n = nums.length;
 
@@ -57,10 +61,10 @@ private static void type4() {
 
 ### Approach 3
 
-Only works with positive integer intuition for this solution we will follow the is sum possible solution and try to produce all the sum possible here is the trick, the last row of the memo can give us all the sum possible we will start with the total sum possible which is sum of all the elements TODO also we could do 2 optimizations here as we see we only need half elements only so we can use the array to sum/2 +1 and we only need one row to compute answer, we could use two 1D array like dp[] and prev[] to store current row and hold previous row
+only works with positive integer intuition for this solution we will follow the is sum possible solution and try to produce all the sum possible here is the trick, the last row of the memo can give us all the sum possible we will start with the total sum possible which is sum of all the elements also we could do 2 optimizations here as we see we only need half elements only so we can use the array to sum/2 +1 and we only need one row to compute answer, we could use two 1D array like dp[] and prev[] to store current row and hold previous row here n is 0, and for n equal to 0 we cannot make any element here the target sum is 0, so even with zero elements we can create an empty set now we will fill up individual place there will be two sets s1 and s2, then difference will be abs(s2-s1) s2 can be represented by (sum-s1), so abs(s2-s1) => abs(sum-2*s1)
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {76, 8, 45, 20, 74, 84, 28, 1};
 		int n = nums.length;
 
@@ -95,18 +99,19 @@ private static void type3() {
 
 ### Approach 2
 
-With memoization
+with memoization
 
 ```java
-private static void type2() {
+	private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-With normal recursion
+with normal recursion
 
 ```java
-private static void type1() {
+	private static void type1() {
 	}
+}
 ```

@@ -1,26 +1,28 @@
 # NonOverlappingIntervals
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/NonOverlappingIntervals.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/non-overlapping-intervals/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/non-overlapping-intervals_3169341)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=nONCGxWoUfM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find minimum intervals to remove to make the rest non-overlapping.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check the solutions one more time
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] intervals = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
         int max = intervals[0][1];
         int min = max;
@@ -50,12 +52,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force intervals are sorted by their starting time and then to the ending time
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] intervals = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
         // intervals are sorted by their starting time and then to the ending time
         Arrays.sort(intervals, (i1, i2) -> {
@@ -78,4 +80,5 @@ private static void type1() {
         }
         System.out.println(count);
     }
+}
 ```

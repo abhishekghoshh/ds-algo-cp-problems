@@ -1,38 +1,43 @@
 # CloneLinkedListWithRandomPointer
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/CloneLinkedListWithRandomPointer.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/copy-list-with-random-pointer/description/)
 - [📄 NeetCode](https://neetcode.io/problems/copy-linked-list-with-random-pointer)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/873376)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/clone-a-linked-list-with-random-pointers_983604)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=q570bKdrnlw)
 - [▶ YouTube](https://www.youtube.com/watch?v=VNf6VynfpdM)
 - [▶ YouTube](https://www.youtube.com/watch?v=5Y2EiZST97Y)
 - [📄 takeUforward](https://takeuforward.org/data-structure/clone-linked-list-with-random-and-next-pointer/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Deep clone a linked list with random pointers.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach time complexity o(3n) space complexity O(1) we will place the new duplicate pointers in between of the exiting linked list nodes in the first loop on the second loop we will assign random pointers on the third loop we will remove the duplicate nodes
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(3n) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach we will place the new duplicate pointers in between of the exiting linked list nodes in the first loop on the second loop we will assign random pointers on the third loop we will remove the duplicate nodes duplicate nodes will be made Add duplicate node in actual list node creating duplicate node now we will place the copy node to the next of the current node // goes to next element of the actual list So we have created a kind of map where actualNode.next = copyNode we will use this to assign the random pointers at this point list size is 2n, so we don't have to check node.next node.next.next will give us the next pointer of the actual list random pointers will be allocated at this point we will create a dummy node for storing the duplicate nodes at this point also node size is 2n so, we will separate two list in this loop pointing in between duplicate node to duplicate list's next previous moves to current duplicate node at this point duplicate node is pointing to next element of actual list, so we will assign actual list's next pointer to duplicate's next so actual list will restore again goes to next element of the actual list as there was a dummy node at first, so we will remove it
+
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		Node head = buildRandom();
 		Node copy = copyRandomList2(head);
 		print(head);
 		print(copy);
 	}
+
 	public static Node copyRandomList2(Node head) {
 		Node node = head;
 		Node copy, next;
@@ -84,19 +89,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach first we will copy the entire list and along the way we will store (old-list-node, copy-list-node) into a map after creating the list we will again traverse check if the old list node has any random node or not if yes then we will get the copy list node from the map and assign it to the random node of current copy-list-node time complexity O(2n) space complexity O(n)
+brute force approach first we will copy the entire list and along the way we will store (old-list-node, copy-list-node) into a map after creating the list we will again traverse check if the old list node has any random node or not if yes then we will get the copy list node from the map and assign it to the random node of current copy-list-node creating a dummy node for head at last we will remove it we will create a pointer of old list node -> new list node creating a node creating the mapping we are moving the copy list we are moving the actual list as newHead has an extra dummy pointer now we will traverse the list and attach the random pointer as there was a dummy node at first, so we will remove it
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		Node head = buildRandom();
 		Node copy = copyRandomList1(head);
 		print(head);
 		print(copy);
 	}
+
 	public static Node copyRandomList1(Node head) {
 		Node node1 = head;
 		// creating a dummy node for head at last we will remove it
@@ -128,6 +135,7 @@ private static void type1() {
 		// as there was a dummy node at first, so we will remove it
 		return newHead.next;
 	}
+
 	private static Node buildRandom() {
 		Node node1 = new Node(1);
 		Node node2 = new Node(2);
@@ -147,4 +155,6 @@ private static void type1() {
 		node4.next = node5;
 		return node1;
 	}
+
+}
 ```

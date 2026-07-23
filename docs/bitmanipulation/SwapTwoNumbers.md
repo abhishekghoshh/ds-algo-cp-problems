@@ -1,21 +1,23 @@
 # SwapTwoNumbers
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/SwapTwoNumbers.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/swap-two-numbers_1380853)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+swap two variables without using third variable
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int x = 5;
 		int y = 8;
 		x = x ^ y;
@@ -26,12 +28,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Let's day a =5 b=7 a = 5^7 b= 5^7^7 => 5 a = 5^7^5 => 7 swap two variables without using third variable
+let's day a =5 b=7 a = 5^7 b= 5^7^7 => 5 a = 5^7^5 => 7 swap two variables without using third variable
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int a = 5, b = 7;
 		System.out.println("a = " + a + " b = " + b);
 		a = a ^ b;
@@ -39,4 +41,6 @@ private static void type1() {
 		a = a ^ b;
 		System.out.println("a = " + a + " b = " + b);
 	}
+
+}
 ```

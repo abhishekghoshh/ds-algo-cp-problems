@@ -1,30 +1,35 @@
 # TwoSum2InputArrayIsSorted
 
-**Topic:** `array` | **File:** `com/problems/array/TwoSum2InputArrayIsSorted.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cQ1Oz4ckceM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Two sum on a sorted array using two pointers.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach if the array is already sorted then we can just use 2 pointer on the start and the end and take the sum of numbers[end] and numbers[start] and then take the difference if the difference is less than 0 that means we have to increase the sum, which can only be achieved by increasing start pointer, if the diff is greater than 0 then we need to decrease the sum if the diff is 0 then we will return the ans
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimal approach if the array is already sorted then we can just use 2 pointer on the start and the end and take the sum of numbers[end] and numbers[start] and then take the difference if the difference is less than 0 that means we have to increase the sum, which can only be achieved by increasing start pointer, if the diff is greater than 0 then we need to decrease the sum if the diff is 0 then we will return the ans If the diff is 0 then we have found the answer, and we will return the ans if diff is greater than 0 then we need to decrease the sum, which can only be achieved by decreasing end pointer if diff is less than 0 then we need to increase the sum, which can only be achieved by increasing start pointer
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] numbers = {2, 7, 11, 15};
         int target = 9;
         int[] ans = twoSum2(numbers, target);
         print(ans);
     }
+
     public static int[] twoSum2(int[] numbers, int target) {
         int start = 0;
         int end = numbers.length - 1;
@@ -47,11 +52,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

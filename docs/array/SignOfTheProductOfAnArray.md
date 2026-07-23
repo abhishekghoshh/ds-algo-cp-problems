@@ -1,31 +1,35 @@
 # SignOfTheProductOfAnArray
 
-**Topic:** `array` | **File:** `com/problems/array/SignOfTheProductOfAnArray.java`
-
+**Topic:** `array`  
 **Tags:** Arrays
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sign-of-the-product-of-an-array/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ILDLM86jNow)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+if the count is odd then the final product will be negative else positive
 
-### Implementation
+## 💡 Approaches
 
-If num is 0, then the multiple will always be 0 otherwise we will count the number of negatives if the count is odd then the final product will be negative else positive
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+if num is 0, then the multiple will always be 0 otherwise we will count the number of negatives if the count is odd then the final product will be negative else positive
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {-1, -2, -3, -4, 3, 2, 1};
         int ans = arraySign(nums);
         System.out.println(ans);
     }
+
     public static int arraySign(int[] nums) {
         int ne = 0;
         for (int num : nums) {
@@ -34,4 +38,5 @@ private static void type1() {
         }
         return (ne % 2 == 1) ? -1 : 1;
     }
+}
 ```

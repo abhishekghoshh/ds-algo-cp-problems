@@ -1,28 +1,32 @@
 # MaxRectangularAreaOfBinaryMatrix
 
-**Topic:** `stack` | **File:** `com/problems/stack/MaxRectangularAreaOfBinaryMatrix.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximal-rectangle)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/maximum-size-rectangle-sub-matrix-with-all-1's_893017)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=St0Jf_VmG_g&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=8)
 - [▶ YouTube](https://www.youtube.com/watch?v=tOylVCugy9k&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=56)
 - [📄 takeUforward](https://takeuforward.org/data-structure/maximum-rectangle-area-with-all-1s-dp-on-rectangles-dp-55/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Given a binary matrix, find the largest rectangle containing only 1s.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Topics: Stack, Dynamic Programming TODO study later
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+study later update height cache update left cache update right cache
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 		int row = matrix.length;
 		int col = matrix[0].length;
@@ -37,6 +41,7 @@ private static void type4() {
 		}
 		System.out.println(max);
 	}
+
 	private static int dp(int r, int col, int[] left, int[] right, int height[], int[][] matrix) {
 		int currentLeft = 0;
 		int currentRight = col;
@@ -77,10 +82,10 @@ private static void type4() {
 
 ### Approach 3
 
-Explain this solution in the interview
+explain this solution in the interview we will update the histogram on each iteration and add the current row to the histogram if the cell is zero then it has no point of adding previous, so we set it to 0 else we will add 1 to the height
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 		int m = matrix.length, n = matrix[0].length;
 		int[] histogram = new int[n];
@@ -98,6 +103,7 @@ private static void type3() {
 		}
 		System.out.println(maxArea);
 	}
+
 	private static int maxAreaOfHistogramOptimized(int[] histogram, int n) {
 		int max = 0;
 		int[] stack = new int[n + 1];
@@ -116,10 +122,10 @@ private static void type3() {
 
 ### Approach 2
 
-Simple solution to explain in the interview
+simple solution to explain in the interview we will update the histogram on each iteration and add the current row to the histogram if the cell is zero then it has no point of adding previous, so we set it to 0 else we will add 1 to the height
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] matrix = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 		int m = matrix.length, n = matrix[0].length;
 		int[] histogram = new int[n];
@@ -137,6 +143,7 @@ private static void type2() {
 		}
 		System.out.println(maxArea);
 	}
+
 	private static int maxAreaOfHistogram(int[] histogram, int n) {
 		int max = 0, area, right;
 		int[] left = new int[n];
@@ -161,12 +168,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

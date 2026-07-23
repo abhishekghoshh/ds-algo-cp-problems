@@ -1,30 +1,35 @@
 # LastStoneWeight
 
-**Topic:** `heap` | **File:** `com/problems/heap/LastStoneWeight.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/last-stone-weight/description/)
 - [📄 NeetCode](https://neetcode.io/problems/last-stone-weight)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=B-QCq79-Vfw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Smash the two heaviest stones repeatedly. Return the weight of the last stone.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using heap
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using heap
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] stones = {2, 7, 4, 1, 8, 1};
         int ans = lastStoneWeight2(stones);
         System.out.println(ans);
     }
+
     public static int lastStoneWeight2(int[] stones) {
         int n = stones.length;
         if (n == 1) return stones[0];
@@ -41,16 +46,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using brute force approach
+using brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] stones = {2, 7, 4, 1, 8, 1};
         int ans = lastStoneWeight1(stones);
         System.out.println(ans);
     }
+
     public static int lastStoneWeight1(int[] stones) {
         int n = stones.length;
         while (n > 1) {
@@ -60,4 +66,5 @@ private static void type1() {
         }
         return stones[0];
     }
+}
 ```

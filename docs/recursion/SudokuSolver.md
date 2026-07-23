@@ -1,28 +1,32 @@
 # SudokuSolver
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/SudokuSolver.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sudoku-solver/)
 - [📄 Coding Ninjas](https://codingninjas.com/codestudio/problems/758961)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sudoku-solver_8416969)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=FWAIf_EVUKE)
 - [📄 takeUforward](https://takeuforward.org/data-structure/sudoku-solver/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+this is a very simple naive approach using recursion and backtracking
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Rematch the solution this approach is efficient, but it is taking some constant memory to find if the number existed in that specific row or column or that box
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this approach is efficient, but it is taking some constant memory to find if the number existed in that specific row or column or that box if it already placed then we will skip it if the placement is not valid, then we will skip and go to the next num
 
 ```java
-private static void type2() {
+	private static void type2() {
 		char[][] board = {
 				{'9', '5', '7', '.', '1', '3', '.', '8', '4'},
 				{'4', '8', '3', '.', '5', '7', '1', '.', '6'},
@@ -40,6 +44,7 @@ private static void type2() {
 		System.out.println(isPossible);
 		printBoard(board);
 	}
+
 	private static boolean solveSudoku2(char[][] board) {
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
@@ -59,6 +64,7 @@ private static void type2() {
 		}
 		return true;
 	}
+
 	private static void initialize(char[][] board) {
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
@@ -71,21 +77,25 @@ private static void type2() {
 			}
 		}
 	}
+
 	private static int boxNumber(int row, int col) {
 		return 3 * (row / 3) + col / 3;
 	}
+
 	public static boolean isValid2(int row, int col, char ch) {
 		int num = ch - '0';
 		return !rowSet[row][num]
 				&& !colSet[col][num]
 				&& !boxSet[boxNumber(row, col)][num];
 	}
+
 	public static void insert(char ch, int row, int col) {
 		int num = ch - '0';
 		rowSet[row][num] = true;
 		colSet[col][num] = true;
 		boxSet[boxNumber(row, col)][num] = true;
 	}
+
 	public static void remove(char ch, int row, int col) {
 		int num = ch - '0';
 		rowSet[row][num] = false;
@@ -94,12 +104,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This is a very simple naive approach using recursion and backtracking
+this is a very simple naive approach using recursion and backtracking if it already placed then we will skip it if the placement is not valid then we will skip and go to the next num check the row wise check the column wise check in the box
 
 ```java
-private static void type1() {
+	private static void type1() {
 		char[][] board = {
 				{'9', '5', '7', '.', '1', '3', '.', '8', '4'},
 				{'4', '8', '3', '.', '5', '7', '1', '.', '6'},
@@ -116,6 +126,7 @@ private static void type1() {
 		System.out.println(isPossible);
 		printBoard(board);
 	}
+
 	private static boolean solveSudoku1(char[][] board) {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -133,6 +144,7 @@ private static void type1() {
 		}
 		return true;
 	}
+
 	private static boolean isValid(char[][] board, int row, int col, char num) {
 		for (int i = 0; i < 9; i++) {
 			// check the row wise
@@ -145,6 +157,7 @@ private static void type1() {
 		}
 		return true;
 	}
+
 	private static void printBoard(char[][] board) {
 		System.out.println("Board starting -------------------");
 		for (int row = 0; row < GRIDS; row++) {
@@ -157,4 +170,5 @@ private static void type1() {
 		}
 		System.out.println("Board ending -------------------");
 	}
+}
 ```

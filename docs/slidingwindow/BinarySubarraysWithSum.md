@@ -1,37 +1,42 @@
 # BinarySubarraysWithSum
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/BinarySubarraysWithSum.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Arrays, Prefix sum, Sliding window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/binary-subarrays-with-sum/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/count-substrings-with-k-ones_3128698)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=-DNN2Xk7Xb8)
 - [▶ YouTube](https://www.youtube.com/watch?v=j4JDr4-jvo4)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Count binary subarrays with given sum.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Heavily inspired for SubarrayWithExactlyKDifferentIntegers we know how to find count of the subarray whose sum is less than equal to target but we need exactly how many subarrays whose sum is equal to target if we do a trick, if we find the count for target and subtract to the count of target-1 then we will get subarrays count whose sum is equal to target
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+Heavily inspired for SubarrayWithExactlyKDifferentIntegers we know how to find count of the subarray whose sum is less than equal to target but we need exactly how many subarrays whose sum is equal to target if we do a trick, if we find the count for target and subtract to the count of target-1 then we will get subarrays count whose sum is equal to target if sum is greater than target then we need to shrink form the left side
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] nums = {1, 0, 1, 0, 1};
         int goal = 2;
         int count = numSubarraysWithSum4(nums, goal);
         System.out.println(count);
     }
+
     private static int numSubarraysWithSum4(int[] nums, int goal) {
         return getCount(nums, goal) - getCount(nums, goal - 1);
     }
+
     private static int getCount(int[] nums, int target) {
         int n = nums.length;
         int sum = 0;
@@ -52,16 +57,17 @@ private static void type4() {
 
 ### Approach 3
 
-Optimized approach prefix sum approach but here we will use array as map
+optimized approach prefix sum approach but here we will use array as map adding 0 sum to the prefix sum as empty array has prefix sum as 0 now we will traverse the nums array
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 0, 1, 0, 1};
         int goal = 2;
         int count = numSubarraysWithSum3(nums, goal);
         System.out.println(count);
 
     }
+
     private static int numSubarraysWithSum3(int[] nums, int goal) {
         int N = 0;
         for (int num : nums) N += num;
@@ -82,15 +88,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach prefix sum using a hashmap we will use a count variable to return the answer and sum to calculate the prefix sum and we will store the prefix sum and count of prefix sums if current prefix is the sum and prefix sum - goal is in the map then then goal is there in between so we will take the count of the sum-goal and add that in the answer
+optimized approach prefix sum using a hashmap we will use a count variable to return the answer and sum to calculate the prefix sum and we will store the prefix sum and count of prefix sums if current prefix is the sum and prefix sum - goal is in the map then then goal is there in between so we will take the count of the sum-goal and add that in the answer adding 0 sum to the prefix sum as empty array has prefix sum as 0 now we will traverse the nums array
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 0, 1, 0, 1};
         int goal = 2;
         int count = numSubarraysWithSum2(nums, goal);
         System.out.println(count);
     }
+
     private static int numSubarraysWithSum2(int[] nums, int goal) {
         Map<Integer, Integer> prefixSum = new HashMap<>();
         int count = 0;
@@ -108,11 +115,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

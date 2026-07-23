@@ -1,28 +1,32 @@
 # SubsetSum
 
-**Topic:** `dp` | **File:** `com/problems/dp/SubsetSum.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/subset-sum_630213)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_gPcYovP7wc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=7)
 - [▶ YouTube](https://www.youtube.com/watch?v=fWX9xDmIzRI&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=15)
 - [📄 takeUforward](https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+this is a simple recursion
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
++1 to accommodate the zero elements target equal 0 is always possible if we num is less than the target, then we will have 2 possibilities either to take it or not assigning the current row to prev for future iterations
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] nums = {1, 3, 4, 5, 9, 12};
 		int n = nums.length;
 		int k = 25;
@@ -51,10 +55,10 @@ private static void type5() {
 
 ### Approach 4
 
-Similar to knapsack problem here we have to say a subset sum is possible or not
+similar to knapsack problem here we have to say a subset sum is possible or not +1 to accommodate the zero elements if we have 0 items then it not possible to create any subset sum if our target sum is zero, it is possible to create that as we can anytime consider the empty set so even with zero elements, we can create target sum 0 if we num is less than the target, then we will have 2 possibilities either to take it or not
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {1, 3, 4, 5, 9, 12};
 		int n = nums.length;
 		int k = 25;
@@ -81,10 +85,10 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous but it will help us to derive the tabulation format
+same as previous but it will help us to derive the tabulation format Create a DP table with dimensions [n][k+1] we will consider zero as unmarked and 1 as true and -1 as false If the target sum is achieved, return true If we have considered all elements but haven't reached the target, return false If the result for this sub-problem has already been calculated, return it Try taking the current element if it doesn't exceed the target Store the result in the DP table and return whether either option was successful
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 3, 4, 5, 9, 12};
 		int n = nums.length;
 		int k = 25;
@@ -94,14 +98,39 @@ private static void type3() {
 		boolean isPossible = isSubsetPresent3(n - 1, k, nums, dp);
 		System.out.println(isPossible);
 	}
+
+	static boolean isSubsetPresent3(int i, int target, int[] nums, int[][] dp) {
+		// If the target sum is achieved, return true
+		if (target == 0) return true;
+
+		// If we have considered all elements but haven't reached the target, return false
+		if (i == 0) return nums[0] == target;
+
+		// If the result for this sub-problem has already been calculated, return it
+		if (dp[i][target] != 0) return (dp[i][target] == 1);
+
+		boolean isPresent;
+		// Try taking the current element if it doesn't exceed the target
+		if (nums[i] <= target)
+			isPresent = isSubsetPresent3(i - 1, target - nums[i], nums, dp)
+					|| isSubsetPresent3(i - 1, target, nums, dp);
+		else // Try not taking the current element
+			isPresent = isSubsetPresent3(i - 1, target, nums, dp);
+
+		// Store the result in the DP table and return whether either option was successful
+		dp[i][target] = isPresent ? 1 : -1;
+		return isPresent;
+	}
 ```
 
 ### Approach 2
 
-If the target sum is achieved, return true If we have considered all elements but haven't reached the target, return false If the result for this sub-problem has already been calculated, return it Try taking the current element if it doesn't exceed the target Store the result in the DP table and return whether either option was successful this is the same as the previous type, but here we will use memoization
+this is the same as the previous type, but here we will use memoization we will create a memo array of int we will consider zero as unmarked and 1 as true and -1 as false if the remaining is 0, that means we are capable of creating the sum if the rem is negative or the index is out of bound, then we will return false.
+
+we are checking rem is lesser than 0 or not, we are doing it here because otherwise we have to check the same before spawning a new recursion call check if the recursion call is already made else we have 2 options, either to use the current number or not
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {1, 3, 4, 5, 9, 12};
 		int n = nums.length;
 		int k = 25;
@@ -112,6 +141,7 @@ private static void type2() {
 		System.out.println(isPossible);
 
 	}
+
 	public static boolean isSubsetPresent2(int i, int[] nums, int rem, int[][] dp) {
 		// if the remaining is 0, that means we are capable of creating the sum
 		if (rem == 0) return true;
@@ -129,17 +159,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-This is a simple recursion
+this is a simple recursion if the remaining is 0, that means we are capable of creating the sum if the rem is negative or the index is out of bound, then we will return false. we could check here if rem is less than 0, or we can check while calling the recursion if we can accommodate the number or not or nums[n-1] < rem else we have 2 options, either to use the current number or not
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {1, 3, 4, 5, 9, 12};
 		int k = 25;
 		boolean isPossible = isSubsetPresent1(0, nums, k);
 		System.out.println(isPossible);
 	}
+
 	public static boolean isSubsetPresent1(int i, int[] nums, int rem) {
 		// if the remaining is 0, that means we are capable of creating the sum
 		if (rem == 0) return true;
@@ -151,4 +182,5 @@ private static void type1() {
 		return isSubsetPresent1(i + 1, nums, rem - nums[i])
 				|| isSubsetPresent1(i + 1, nums, rem);
 	}
+}
 ```

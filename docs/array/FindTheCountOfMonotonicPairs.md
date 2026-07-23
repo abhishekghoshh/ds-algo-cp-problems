@@ -1,26 +1,31 @@
 # FindTheCountOfMonotonicPairs
 
-**Topic:** `array` | **File:** `com/problems/array/FindTheCountOfMonotonicPairs.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-the-count-of-monotonic-pairs-i/description/)
 - [📄 LeetCode](https://leetcode.com/problems/find-the-count-of-monotonic-pairs-ii/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Count monotonic pairs in an array.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {2, 3, 2};
         int ans = countOfPairs(nums);
         System.out.println(ans);
     }
+
+    static int mod = 100000007;
+
     public static int countOfPairs(int[] nums) {
         long ans = 0;
         for (int num = 0; num <= nums[0]; num++) {
@@ -29,6 +34,7 @@ private static void type1() {
         }
         return (int) ans;
     }
+
     public static long countOfPairs(int i, int num1, int num2, int[] nums) {
         if (i == nums.length) return 1;
         long ans = 0;
@@ -40,4 +46,5 @@ private static void type1() {
         }
         return ans;
     }
+}
 ```

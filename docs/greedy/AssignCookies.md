@@ -1,34 +1,38 @@
 # AssignCookies
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/AssignCookies.java`
-
+**Topic:** `greedy`  
 **Tags:** Array, Greedy
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/assign-cookies/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/assign-cookies_8390826)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=DIX2p7vb9co)
 - [▶ YouTube](https://www.youtube.com/watch?v=JW8fgvoxPTg)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Assign cookies to maximize content children.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach first we will sort the entire array now we will use two pointers one on children another on the cookies now we will go through all the cookies, we have cookies and children both sorted from lowest to highest, we can only give a cookie to a child if cookie size <= student greed
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach first we will sort the entire array now we will use two pointers one on children another on the cookies now we will go through all the cookies, we have cookies and children both sorted from lowest to highest, we can only give a cookie to a child if cookie size <= student greed going through all the cookies increment the greed only the cookie can satisfy that
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] g = {1, 2, 3};
         int[] s = {1, 1};
         int count = findContentChildren2(g, s);
         System.out.println(count);
     }
+
     private static int findContentChildren2(int[] g, int[] s) {
         Arrays.sort(s);
         Arrays.sort(g);
@@ -46,12 +50,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

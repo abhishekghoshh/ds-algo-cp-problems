@@ -1,29 +1,34 @@
 # MaximumNumberOfBalloons
 
-**Topic:** `array` | **File:** `com/problems/array/MaximumNumberOfBalloons.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-number-of-balloons/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=G9xeB2-7PqY)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Maximum instances of the word 'balloon'.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+first we will store the freq for the text in balloon frequencies a -> 1, b -> 1, l -> 2, o -> 2, n -> 1 so in the freq of the text we will check how many 1 times 'a', 1 times 'b',2 times 'l', 2 times 'o', 1 times 'n' are present so their minimum will be total number of times we can make "balloon" word
 
 ```java
-private static void type1() {
+    private static void type1() {
         String text = "nlaebolko";
         int ans = maxNumberOfBalloons(text);
         System.out.println(ans);
     }
+
     public static int maxNumberOfBalloons(String text) {
         int[] freq = new int[26];
         // first we will store the freq for the text
@@ -42,4 +47,15 @@ private static void type1() {
                 freq[index('n')]
         );
     }
+
+    static int min(int... freq) {
+        int min = Integer.MAX_VALUE;
+        for (int f : freq) min = Math.min(min, f);
+        return min;
+    }
+
+    static int index(char ch) {
+        return ch - 'a';
+    }
+}
 ```

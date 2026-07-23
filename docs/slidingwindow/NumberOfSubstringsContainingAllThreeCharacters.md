@@ -1,31 +1,33 @@
 # NumberOfSubstringsContainingAllThreeCharacters
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/NumberOfSubstringsContainingAllThreeCharacters.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-substrings-containing-all-three-characters)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/count-substring-with-abc_8160465)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Count substrings containing all of a, b, c.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
 
 ```java
-private static void type3() {
+    private static void type3() {
     }
 ```
 
 ### Approach 2
 
-Best possible solution found an optimized approach at the first attempt so, we are starting from one index, and we are looping until types == 3 once we find types is 3 we surely know any character appended after that will also have types is 3, so the substring string with index i1 and let's say we get types is 3 at i2, then (n-i2) will be total number of substring possible for the substring starting with i1 like for abcaba -> substring will be abc,abca,abcab,abcaba for i1 = 0 and i2 = 2 the substring count will be n-i2 => 6-2 => 4 once we find the types == 3 then we will try to shrink the window from left until type is less than 3
+best possible solution found an optimized approach at the first attempt so, we are starting from one index, and we are looping until types == 3 once we find types is 3 we surely know any character appended after that will also have types is 3, so the substring string with index i1 and let's say we get types is 3 at i2, then (n-i2) will be total number of substring possible for the substring starting with i1 like for abcaba -> substring will be abc,abca,abcab,abcaba for i1 = 0 and i2 = 2 the substring count will be n-i2 => 6-2 => 4 once we find the types == 3 then we will try to shrink the window from left until type is less than 3
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s = "abcabc";
         char[] arr = s.toCharArray();
         int n = arr.length;
@@ -48,11 +50,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

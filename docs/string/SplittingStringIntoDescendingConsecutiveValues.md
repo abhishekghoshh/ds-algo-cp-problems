@@ -1,35 +1,37 @@
 # SplittingStringIntoDescendingConsecutiveValues
 
-**Topic:** `string` | **File:** `com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java`
+**Topic:** `string`  
 
-## Problem Statement
-
-The Problem is: Check if we can split s into two or more non-empty substrings such that the numerical values of the substrings are in descending order and the difference between numerical values of every two adjacent substrings is equal to 1
-
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=eDtMmysldaw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if a numeric string can be split into consecutive decreasing values.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-We are using iteration here time complexity O(n^2) iteratively space complexity O(1) first, we will need a seed sum for starting so from left to right we are adding number one number is calculating the value as of now, like for 0098 -> value is 98 once we find any non-zero number we will check that if value-1 item is present on the right side, if present then we are initializing the sum again then we are checking value value-2 present or not, we are checking until left!=n if the currentSum + 1 > previousSum then there will be no value afterward as we are adding current sum for each element
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+### Approach 2: 🏆 Optimal Solution
+
+we are using iteration here iteratively first, we will need a seed sum for starting so from left to right we are adding number one number is calculating the value as of now, like for 0098 -> value is 98 once we find any non-zero number we will check that if value-1 item is present on the right side, if present then we are initializing the sum again then we are checking value value-2 present or not, we are checking until left!=n if the currentSum + 1 > previousSum then there will be no value afterward as we are adding current sum for each element now we will traverse the remaining string if prev is lesser than (curr+1), then we will return false if curr is 0 but this is not the last element, then we will skip we will wait for more 0s at the end if we are at the end, then we will return true else we will reinitialize the prev and curr
+
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "919089088";
 		boolean ans = splitString2(s);
 		System.out.println(ans);
 	}
+
 	private static boolean splitString2(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -60,16 +62,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Most optimized approach using the backtracking same as type1 we will not stack here, we will the recursion stack here if we want to store the results then we can just store it in a list
+most optimized approach using the backtracking same as type1 we will not stack here, we will the recursion stack here if we want to store the results then we can just store it in a list we are starting from the first element we will start once there is any non-zero sum if prev is lesser than (curr+1), then we will return false either we have reached to the ending of the string or we will start the next traverse call from here
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "21474836482147483647";
 		boolean ans = splitString1(s);
 		System.out.println(ans);
 	}
+
 	private static boolean splitString1(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -83,6 +86,7 @@ private static void type1() {
 		}
 		return false;
 	}
+
 	private static boolean splitString1(long prev, int start, int n, char[] arr) {
 		long curr = 0;
 		for (int i = start; i < n; i++) {
@@ -96,4 +100,6 @@ private static void type1() {
 		}
 		return false;
 	}
+
+}
 ```

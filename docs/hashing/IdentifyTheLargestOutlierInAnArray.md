@@ -1,25 +1,30 @@
 # IdentifyTheLargestOutlierInAnArray
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/IdentifyTheLargestOutlierInAnArray.java`
+**Topic:** `hashing`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-426/problems/identify-the-largest-outlier-in-an-array/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Identify the element that cannot be part of the sum.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach very good example of hashing the numbers are like [a,b,c,d, sum, outlier] if we count the total and subtract outlier then we will get 2*sum, so we will use a set, store all the numbers and then check if (total-outlier)/2 present in the set or not but there can but some edge cases like total-outlier is not even also outlier can be equal to the computed sum, at that time we have to check if the freq of the outlier is >= 2 then there might be more than one answer, so we will store all the numbers in an array and then return the max
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach very good example of hashing the numbers are like [a,b,c,d, sum, outlier] if we count the total and subtract outlier then we will get 2*sum, so we will use a set, store all the numbers and then check if (total-outlier)/2 present in the set or not but there can but some edge cases like total-outlier is not even also outlier can be equal to the computed sum, at that time we have to check if the freq of the outlier is >= 2 then there might be more than one answer, so we will store all the numbers in an array and then return the max
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {-2, -1, -3, -6, 4};
         int ans = getLargestOutlier2(nums);
         System.out.println(ans);
     }
+
     public static int getLargestOutlier2(int[] nums) {
         int total = 0;
         Map<Integer, Integer> freq = new HashMap<>();
@@ -40,12 +45,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

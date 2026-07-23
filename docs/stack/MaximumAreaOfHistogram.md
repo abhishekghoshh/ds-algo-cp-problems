@@ -1,14 +1,14 @@
 # MaximumAreaOfHistogram
 
-**Topic:** `stack` | **File:** `com/problems/stack/MaximumAreaOfHistogram.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
 - [📄 NeetCode](https://neetcode.io/problems/largest-rectangle-in-histogram)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1058184)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=J2X70jj_I1o&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=7)
 - [▶ YouTube](https://www.youtube.com/watch?v=X0X6G-eWgQ8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=82)
@@ -16,16 +16,20 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/)
 - [▶ YouTube](https://www.youtube.com/watch?v=zx5Sw9130L0)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-For every index, we will check how much the current height can spread out let's take the heights as 1 4 2 6 3 1, and we are at 2 so in the left will spread till 4 and in right till 3, which make the total are 2 * 4 => 8 creating left range and right range so that we can find how much spread the current index height can have on a single pass here we are counting the range for the current index Same as the previous one instead of using stack here we are using the array as stack
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+Same as the previous one instead of using stack here we are using the array as stack
 
 ```java
-private static void type5() {
+	private static void type5() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int n = histogram.length;
 		int max = 0;
@@ -45,16 +49,18 @@ private static void type5() {
 
 ### Approach 4
 
-Time complexity O(2n) space complexity O(n) intuition is When we traverse the array by finding the next greater element, we found that some elements were inserted into the stack which signifies that after them the smallest element is themselves
+intuition is When we traverse the array by finding the next greater element, we found that some elements were inserted into the stack which signifies that after them the smallest element is themselves our basic approach was to find the barrier for each index that means if we current height is 4 then on left and right we will find a height lesser than 4 so we will loop from 0 to n if we look closely in stack we are storing the heights(index) increasingly suppose the heights in stack is 1 4 6 8 so for height 8 left barrier is 6 for height 6 the bound is 4 and so on now the current height is 7 and top of the stack is 8 so we will pop here as we have found the boundary for 8 left boundary is 6 and right boundary is 7 so for height 8 the width will be (7th index - 6th index -1) we will pop the top of the stack so now the stack have 1 4 6 and current height is 7 we can push the height we will only push to the stack when histogram[stack.peek()] <= histogram[i] when it reaches to n then we will pop from the stack and compute the area the current considered height is histogram[stack.pop()] as histogram[stack.peek()] > histogram[i]) so the right height barrier is i and the left height barrier is top of the stack if the stack is empty then that mean in left there is no barrier that means in left there is either all elements greater than or equal to current height so width will be i
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int max = largestRectangleArea3(histogram);
 		System.out.println("Max area of histogram is " + max);
 	}
+
 	private static int largestRectangleArea3(int[] histogram) {
 		int n = histogram.length;
 		int max = 0, height, width;
@@ -97,24 +103,26 @@ private static void type4() {
 
 ### Approach 3
 
-Same as previous just here we will use array the stack
+same as previous just here we will use array the stack
 
 ```java
-private static void type3() {
+	private static void type3() {
 
 	}
 ```
 
 ### Approach 2
 
-We will find previous smaller index and an height can spread in left and right till the heights in left or right are greater than equal to the current height so we will find left and right smaller index with the help of stack
+we will find previous smaller index and an height can spread in left and right till the heights in left or right are greater than equal to the current height so we will find left and right smaller index with the help of stack to compute left smaller index to compute right smaller index O(n) to compute this
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int max = largestRectangleArea2(histogram);
 		System.out.println("Max area of histogram is " + max);
 	}
+
 	private static int largestRectangleArea2(int[] histogram) {
 		int n = histogram.length, max = 0, area;
 		// time complexity o(2n) and space complexity o(2n)
@@ -146,16 +154,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach with 2 loops
+brute force approach with 2 loops
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] histogram = { 1, 3, 2, 4, 3, 5, 3 };
 		int max = largestRectangleArea1(histogram);
 		System.out.println("Max area of histogram is " + max);
 	}
+
 	private static int largestRectangleArea1(int[] histogram) {
 		int length = histogram.length;
 		int max = 0, area, left, right;
@@ -170,4 +179,5 @@ private static void type1() {
 		}
 		return max;
 	}
+}
 ```

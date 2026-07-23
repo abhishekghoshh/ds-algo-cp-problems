@@ -1,32 +1,37 @@
 # HandsOfStraights
 
-**Topic:** `heap` | **File:** `com/problems/heap/HandsOfStraights.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/hand-of-straights/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/groups-in-ninja-land._1459215)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=amnrMCVd2YI)
 - [▶ YouTube](https://www.youtube.com/watch?v=K7n_BQihPCM)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Check if an array can be divided into consecutive groups of size k.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-We can do the previous type using linkedList then it will not get any memory error TODO we can also use TreeMap instead of priority queue and hashMap, check nick white youtube video same as previous but here we are giving multiple persons at a time so it is slight optimized from the last type
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+we can do the previous type using linkedList then it will not get any memory error we can also use TreeMap instead of priority queue and hashMap, check nick white youtube video same as previous but here we are giving multiple persons at a time so it is slight optimized from the last type it means there cannot be any even distribution the next line only for leetcode memory error first, we will count all the card frequency we will also count the persons every time we will give one group deck to one person, we will basically decrease the card count initializing the count with frequency with the first card we will give cards to k persons at a time if the card is out of range or the card frequency is 0 then we can say that we cannot give the card
 
 ```java
-private static void type5() {
+    private static void type5() {
         int[] hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
         int groupSize = 3;
         boolean isPossible = isNStraightHand5(hand, groupSize);
         System.out.println(isPossible);
     }
+
     private static boolean isNStraightHand5(int[] hand, int groupSize) {
         if (hand.length == 1) return true;
         // it means there cannot be any even distribution
@@ -68,15 +73,16 @@ private static void type5() {
 
 ### Approach 4
 
-Best approach in leetcode here we will distribute the cards to persons one by one. we will keep track of the frequency of the card then remove the cards from the frequency We can also use linked-list for this approach
+best approach in leetcode here we will distribute the cards to persons one by one. we will keep track of the frequency of the card then remove the cards from the frequency We can also use linked-list for this approach it means there cannot be any even distribution the next line only for leetcode first, we will count all the card frequency we will also count the persons every time we will give one group deck to one person, we will basically decrease the card count if the card is out of range or the card frequency is 0 then we can say that we cannot give the card
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
         int groupSize = 3;
         boolean isPossible = isNStraightHand(hand, groupSize);
         System.out.println(isPossible);
     }
+
     public static boolean isNStraightHand(int[] hand, int groupSize) {
         if (hand.length == 1) return true;
         // it means there cannot be any even distribution
@@ -113,15 +119,16 @@ private static void type4() {
 
 ### Approach 3
 
-Check it later
+check it later
 
 ```java
-public static void type3() {
+    public static void type3() {
         int[] hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
         int groupSize = 3;
         boolean isPossible = isNStraightHand3(hand, groupSize);
         System.out.println(isPossible);
     }
+
     public static boolean isNStraightHand3(int[] hand, int groupSize) {
         if (hand.length == 1) return true;
         if (hand.length % groupSize != 0) return false;
@@ -149,15 +156,16 @@ public static void type3() {
 
 ### Approach 2
 
-Optimized approach slightly better than previous TODO check it later
+optimized approach slightly better than previous check it later it means there cannot be any even distribution
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
         int groupSize = 3;
         boolean isPossible = isNStraightHand2(hand, groupSize);
         System.out.println(isPossible);
     }
+
     public static boolean isNStraightHand2(int[] hand, int groupSize) {
         if (hand.length == 1) return true;
         // it means there cannot be any even distribution
@@ -180,17 +188,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using heap
+Using heap it means there cannot be any even distribution adding all the unique cards here we are giving one card at one instant but wer can give k cards at a glance where k is the number of the first card card in the series in not present every time we take a card we decrement the card number by one freq is 0 meaning it should be the lowest card in the series while distributing increasingly the lowest card will be exhausted at first
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] hand = {1, 2, 3, 6, 2, 3, 4, 7, 8};
         int groupSize = 3;
         boolean isPossible = isNStraightHand1(hand, groupSize);
         System.out.println(isPossible);
     }
+
     public static boolean isNStraightHand1(int[] hand, int groupSize) {
         if (hand.length == 1) return true;
         // it means there cannot be any even distribution
@@ -222,4 +231,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

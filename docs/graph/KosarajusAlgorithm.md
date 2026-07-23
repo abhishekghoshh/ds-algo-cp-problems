@@ -1,26 +1,32 @@
 # KosarajusAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/KosarajusAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=R6uoSjZ2imo&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=54)
 - [📄 takeUforward](https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find Strongly Connected Components (SCC) using Kosaraju's algorithm.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-A directed graph is strongly connected if there is a path between any two pair of vertices. Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, Find the number of strongly connected components in the graph. todo check the video again todo exactly like the previous but here we will also store the strongly connected component
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+exactly like the previous but here we will also store the strongly connected component now we will reverse the entire graph unsetting the visited array, otherwise we have to create another array if we also want the components, then we can just pass one arraylist to store all the components.
+
+now from the stack we will pop elements and start the dfs as the graph is reversed, so it will only roam around in its strongly connected component, it cannot go outside
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int v = 5;
 		List<List<Integer>> adj = List.of(
 				List.of(2, 3),
@@ -61,6 +67,7 @@ private static void type2() {
 		}
 		System.out.println(ans);
 	}
+
 	private static void dfs(int start, boolean[] visited, List<List<Integer>> adj, List<List<Integer>> ans) {
 		visited[start] = true;
 		ans.get(ans.size() - 1).add(start);
@@ -70,12 +77,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-In a strongly connected component from one node all other nodes can be reached, suppose in a graph there is 4 strongly connected component i.e. sc1 -> sc2 -> sc3 -> sc4 if we reverse all the edges then in one sc it will not change anything sc1 <- sc2 <- sc3 <- sc4 so by somehow if we store the dfs traversal for the first graph it will store the node time when it was visited again on the second time we will apply the same dfs but with some simple tweak
+in a strongly connected component from one node all other nodes can be reached, suppose in a graph there is 4 strongly connected component i.e. sc1 -> sc2 -> sc3 -> sc4 if we reverse all the edges then in one sc it will not change anything sc1 <- sc2 <- sc3 <- sc4 so by somehow if we store the dfs traversal for the first graph it will store the node time when it was visited again on the second time we will apply the same dfs but with some simple tweak now we will reverse the entire graph unsetting the visited array, otherwise we have to create another array if we also want the components, then we can just pass one arraylist to store all the components.
+
+now from the stack we will pop elements and start the dfs as the graph is reversed, so it will only roam around in its strongly connected component, it cannot go outside this is exactly the same dfs as other just here we are storing the nodes in the stack starting nodes comes at the top and deepest nodes come at the bottom a normal dfs function
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 5;
 		List<List<Integer>> adj = List.of(
 				List.of(2, 3),
@@ -116,6 +125,9 @@ private static void type1() {
 		}
 		System.out.println(count);
 	}
+
+	// this is exactly the same dfs as other just here we are storing the nodes in the stack
+	// starting nodes comes at the top and deepest nodes come at the bottom
 	private static void dfs(int i, List<List<Integer>> adj, boolean[] visited, Stack<Integer> stack) {
 		visited[i] = true;
 		for (int node : adj.get(i))
@@ -123,10 +135,15 @@ private static void type1() {
 				dfs(node, adj, visited, stack);
 		stack.add(i);
 	}
+
+	// a normal dfs function
 	private static void dfs(int i, boolean[] visited, List<List<Integer>> adj) {
 		visited[i] = true;
 		for (int node : adj.get(i))
 			if (!visited[node])
 				dfs(node, visited, adj);
 	}
+
+
+}
 ```

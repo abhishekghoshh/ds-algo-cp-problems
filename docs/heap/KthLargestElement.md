@@ -1,36 +1,42 @@
 # KthLargestElement
 
-**Topic:** `heap` | **File:** `com/problems/heap/KthLargestElement.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/kth-largest-element-in-an-array)
 - [📄 NeetCode](https://neetcode.io/problems/kth-largest-element-in-an-array)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/k-largest-elements_796005)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/kth-smallest-and-largest-element-of-array_1115488)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=XEmy13g1Qxc)
 - [▶ YouTube](https://www.youtube.com/watch?v=yAs3tONaf3s)
 - [▶ YouTube](https://www.youtube.com/watch?v=aXJ-p3Qa4TY)
 - [📄 takeUforward](https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+and only store the k largest elements in the heap
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Best approach using min heap we will use min heap and only store the k largest elements in the heap after all the iteration we will return the heap top element min heap will bubble up the minimum elements, and will maintain k size heap lower elements will bubble up and we will remove that total time complexity nlog(k) and size O(k)
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+best approach using min heap we will use min heap and only store the k largest elements in the heap after all the iteration we will return the heap top element min heap will bubble up the minimum elements, and will maintain k size heap lower elements will bubble up and we will remove that if the current item is greater than
+
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = {1, 4, 6, 2, 8, 5, 3, 9, 0, 7};
 		int k = 3;
 		int answer = findKthLargest2(nums, k);
 		System.out.println(answer);
 	}
+
 	private static int findKthLargest2(int[] nums, int k) {
 		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 		for (int num : nums) {
@@ -50,15 +56,16 @@ private static void type4() {
 
 ### Approach 3
 
-Best solution int the leetcode using the count sort but don't do it in the interview it is very much dependent on the input range
+best solution int the leetcode using the count sort but don't do it in the interview it is very much dependent on the input range
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;
 		int answer = findKthLargest4(nums, k);
 		System.out.println(answer);
 	}
+
 	private static int findKthLargest4(int[] nums, int k) {
 		int min = Integer.MAX_VALUE;
 		int max = Integer.MIN_VALUE;
@@ -81,15 +88,16 @@ private static void type3() {
 
 ### Approach 2
 
-Using quick sort, don't ever discuss it in the interview partition mechanism, So in quick sort we partition the array, and on every iteration we place one item to its original position, so after each iteration we will check that if it is a kth element or not
+using quick sort, don't ever discuss it in the interview partition mechanism, So in quick sort we partition the array, and on every iteration we place one item to its original position, so after each iteration we will check that if it is a kth element or not we will use the partition technique used is quick sort after one partition the one item will be placed in its place and all lesser elements will be placed in it's left and all larger elements will be placed in its right if idx == k-1 then we can just return the idx element else depending upon the idx value we will shrink the array size quick sort partition mechanism after this, all elements before r will be greater than arr[r] and all elements after r will be less than arr[r]
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1, 4, 6, 2, 8, 5, 3, 9, 0, 7 };
 		int k = 3;
 		int answer = findKthLargest3(nums, k);
 		System.out.println(answer);
 	}
+
 	private static int findKthLargest3(int[] nums, int k) {
 		int n = nums.length;
 		int low = 0, high = n - 1;
@@ -111,6 +119,8 @@ private static void type2() {
 		}
 		return ans;
 	}
+
+	// quick sort partition mechanism
 	private static int partition(int[] nums, int low, int high) {
 		int pivot = nums[low];
 		int left = low + 1;
@@ -131,20 +141,22 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Quick sort partition mechanism todo brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {1, 4, 6, 2, 8, 5, 3, 9, 0, 7};
 		int k = 3;
 		int answer = findKthLargest1(nums, k);
 		System.out.println(answer);
 	}
+
 	private static int findKthLargest1(int[] nums, int k) {
 		int n = nums.length;
 		Arrays.sort(nums);
 		return nums[n - k];
 	}
+}
 ```

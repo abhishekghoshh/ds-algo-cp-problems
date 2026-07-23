@@ -1,22 +1,29 @@
 # SequentialDigits
 
-**Topic:** `array` | **File:** `com/problems/array/SequentialDigits.java`
+**Topic:** `array`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Generate sequential digit numbers in a range.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Tell this is the interview the intuition is very simple if the low = 1000, high = 33000 we will start from 1234 then will add 1111 till 6789 (the last is not 0) so it will generate 1234, 2345, 3456, 4567, 5678, 6789 then on next iteration we will start 12345 and add 11111 if the previous base was 1234 then we will multiply with 10 and add (lastBit + 1) 1234*10 + 5 => 12345 for the adder we will do like this 1111*10 + 1 => 11111
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+tell this is the interview the intuition is very simple if the low = 1000, high = 33000 we will start from 1234 then will add 1111 till 6789 (the last is not 0) so it will generate 1234, 2345, 3456, 4567, 5678, 6789 then on next iteration we will start 12345 and add 11111 if the previous base was 1234 then we will multiply with 10 and add (lastBit + 1) 1234*10 + 5 => 12345 for the adder we will do like this 1111*10 + 1 => 11111 count will return how many digits low and high has we will first calculate for n1 then in the loop we will increment the base and the adder base will be like 1234....
+
+and the adder will be like 1111.... moving till the last digit is not equal to 0; generating all the sequential digits updating the base 1234 to 12345 updating the adder 1111 to 11111
 
 ```java
-private static void type2() {
+    private static void type2() {
         int low = 100;
         int high = 300;
         List<Integer> ans = sequentialDigits2(low, high);
         System.out.println(ans);
     }
+
     public static List<Integer> sequentialDigits2(int low, int high) {
         // count will return how many digits low and high has
         int n1 = count(low), n2 = count(high);
@@ -44,13 +51,23 @@ private static void type2() {
         }
         return list;
     }
+
+    static int count(int num) {
+        int n = 0;
+        while (num > 0) {
+            num /= 10;
+            n++;
+        }
+        return n;
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

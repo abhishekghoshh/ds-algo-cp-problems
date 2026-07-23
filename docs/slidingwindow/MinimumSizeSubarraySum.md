@@ -1,29 +1,34 @@
 # MinimumSizeSubarraySum
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MinimumSizeSubarraySum.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=aYqYMIqZx5s)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Minimum size subarray with sum >= target.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Tags : sliding window approach we will use 2 pointer, one for the starting index and one for the current index we will traverse the array with the current index. once the sum has reached to target, we will slowly shrink the window
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+sliding window approach we will use 2 pointer, one for the starting index and one for the current index we will traverse the array with the current index. once the sum has reached to target, we will slowly shrink the window traversing the array if the sum is less than target, then we will skip now we will shrink the window
 
 ```java
-private static void type2() {
+    private static void type2() {
         int target = 7;
         int[] nums = {2, 3, 1, 2, 4, 3};
         int ans = minSubArrayLen2(target, nums);
     }
+
     public static int minSubArrayLen2(int target, int[] nums) {
         int min = Integer.MAX_VALUE;
         int n = nums.length;
@@ -44,11 +49,10 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

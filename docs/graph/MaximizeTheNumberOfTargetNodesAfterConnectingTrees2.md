@@ -1,29 +1,30 @@
 # MaximizeTheNumberOfTargetNodesAfterConnectingTrees2
 
-**Topic:** `graph` | **File:** `com/problems/graph/MaximizeTheNumberOfTargetNodesAfterConnectingTrees2.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-426/problems/maximize-the-number-of-target-nodes-after-connecting-trees-ii/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Connect two trees to maximize reachable nodes (Part 2).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

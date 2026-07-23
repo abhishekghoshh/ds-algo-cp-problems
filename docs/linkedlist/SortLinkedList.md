@@ -1,31 +1,36 @@
 # SortLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/SortLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sort-list/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sort-linked-list_625193)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=8ocB7a_c-Cc)
 - [▶ YouTube](https://www.youtube.com/watch?v=TGveA1oFhrc)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Sort a linked list using merge sort.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Do not discuss it in the interview TODO study this quick sort one more time using quick sort
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+do not discuss it in the interview study this quick sort one more time using quick sort if it is greater that pivot but less than right(greater or equal to pivot)
 
 ```java
-private static void type4() {
+    private static void type4() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = quickSort(head, null);
         print(head);
     }
+
     public static Node quickSort(Node head, Node tail) {
         if (head == null || head.next == null || head == tail)
             return head;
@@ -55,14 +60,17 @@ private static void type4() {
 
 ### Approach 3
 
-Optimized approach using merge sort discuss it in the interview using a merge sort idea
+optimized approach using merge sort discuss it in the interview using a merge sort idea as this is not an array, so we have to find out the middle pointer by traversing the entire array. but we could do one thing we could use the tortoise approach of finding the middle node at this point, we have two lists one is head to mid another is mid.next ...
+
+last
 
 ```java
-private static void type3() {
+    private static void type3() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = mergeSort(head);
         print(head);
     }
+
     public static Node mergeSort(Node head) {
         if (head == null || head.next == null)
             return head;
@@ -76,6 +84,7 @@ private static void type3() {
         head2 = mergeSort(head2);
         return merge(head, head2);
     }
+
     public static Node mid(Node head) {
         Node slow = head, fast = head;
         while (fast.next != null && fast.next.next != null) {
@@ -84,6 +93,7 @@ private static void type3() {
         }
         return slow;
     }
+
     public static Node merge(Node list1, Node list2) {
         Node dummyHead = new Node(-1);
         Node prev = dummyHead;
@@ -104,14 +114,15 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using insertion sort
+optimized approach using insertion sort here we will also store the last value of the sorted list. if the current node value is greater than the last node of the sorted list, then we can directly append to the last node and update the last node if the current node data value is greater than previous, then we don't need to do anything we will just attach it to the previous else we have to insert the node head is the dummy node with Integer.MIN_VALUE so any node whatever is the value will be added after this; we will try to find the node after which the current node should be added we all always check with the nxt value data if next value data is also lesser than current node data then we go to the next again, continue so we have find out the position node will be placed inside prev and prev.next
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         head = insertionSortList(head);
         print(head);
     }
+
     private static Node insertionSortList(Node head) {
         Node newHead = new Node(Integer.MIN_VALUE);
         // here we will also store the last value of the sorted list.
@@ -136,6 +147,7 @@ private static void type2() {
         last.next = null;
         return newHead.next;
     }
+
     private static void insert(Node node, Node head) {
         // head is the dummy node with Integer.MIN_VALUE
         // so any node whatever is the value will be added after this;
@@ -154,16 +166,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         Node ans = sortList1(head);
         print(ans);
     }
+
     private static Node sortList1(Node head) {
         Node node = head;
         List<Integer> list = new ArrayList<>();
@@ -179,4 +192,5 @@ private static void type1() {
         }
         return head;
     }
+}
 ```

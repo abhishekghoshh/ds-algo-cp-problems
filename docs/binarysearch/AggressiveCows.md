@@ -1,29 +1,33 @@
 # AggressiveCows
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/AggressiveCows.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/aggressive-cows_1082559)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/chess-tournament_981299)
 - [https://www.spoj.com/problems/AGGRCOW/](https://www.spoj.com/problems/AGGRCOW/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=R_Mfw4ew-Vo)
 - [▶ YouTube](https://www.youtube.com/watch?v=wSOfYesTBRk&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=71)
 - [📄 LeetCode](https://leetcode.com/discuss/general-discussion/1302335/aggressive-cows-spoj-fully-explained-c)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array of length ?N?, where each element denotes the position of a
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Given an array of length ?N?, where each element denotes the position of a stall. Now you have ?N? Stalls and an integer ?K? Which denotes the number of cows that are aggressive. To prevent the cows from hurting each other, you need to assign the cows to the stalls, such that the minimum distance between any two of them is as large as possible. Return the largest minimum distance.
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+if the input is not sorted, then we will sort the input increasing order low will be zero as at the minimum we can place two cows in same stall high will be difference between first and last stall number of cows that can be possible with this distance
 
 ```java
-private static void type2() {
+	private static void type2() {
 		List<Integer> stalls = new ArrayList<>(List.of(18, 27, 44, 77, 69, 19, 35, 83, 9, 64));
 		int n = stalls.size();
 		// if the input is not sorted, then we will sort the input increasing order
@@ -44,6 +48,7 @@ private static void type2() {
 		System.out.println(answer);
 
 	}
+
 	private static boolean allocationPossible(List<Integer> stalls, int k, int distance) {
 		// number of cows that can be possible with this distance
 		int cows = 1;
@@ -58,12 +63,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach sort the stalls[]:
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] stalls = {0, 3, 4, 7, 10, 9};
 		int k = 4;
 		int n = stalls.length; //size of array
@@ -78,6 +83,7 @@ private static void type1() {
 		}
 		System.out.println(limit);
 	}
+
 	public static boolean canWePlace(int[] stalls, int dist, int cows) {
 		int n = stalls.length; //size of array
 		int cntCows = 1; //no. of cows placed
@@ -91,4 +97,5 @@ private static void type1() {
 		}
 		return false;
 	}
+}
 ```

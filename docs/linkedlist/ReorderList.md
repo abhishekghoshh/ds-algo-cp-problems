@@ -1,31 +1,36 @@
 # ReorderList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/ReorderList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/reorder-list/description/)
 - [📄 NeetCode](https://neetcode.io/problems/reorder-linked-list)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=S5bfdUTrKLM)
 - [📄 takeUforward](https://takeuforward.org/data-structure/reorder-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Reorder a linked list L0->Ln->L1->Ln-1->...
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Most optimized approach, discuss it in the interview first we will use a fast and slow pointer to go to the middle of the linked list now we have 2 list [start, mid] [mid+1, end] now if we reverse the 2nd list [end, mid+1] we we will do a merge on both list, taking one from each linked list at a time
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+most optimized approach, discuss it in the interview first we will use a fast and slow pointer to go to the middle of the linked list now we have 2 list [start, mid] [mid+1, end] now if we reverse the 2nd list [end, mid+1] we we will do a merge on both list, taking one from each linked list at a time if there is only one node then we do not need to check anything we will find the middle node with this approach now we will manipulate the pointers adding links to head1 and head2 and updating prev updating head1 and head2 if node count is odd then there could be one extra node at head
 
 ```java
-private static void type4() {
+    private static void type4() {
         Node head = new Node(1, 2, 3, 4, 5, 6, 7);
         reorderList4(head);
         PrintUtl.print(head);
     }
+
     private static void reorderList4(Node head) {
         // if there is only one node then we do not need to check anything
         if (null == head.next) return;
@@ -54,6 +59,7 @@ private static void type4() {
         // if node count is odd then there could be one extra node at head
         if (head != null) prev.next = head;
     }
+
     private static Node reverse(Node node) {
         Node prev = null;
         while (null != node) {
@@ -68,14 +74,15 @@ private static void type4() {
 
 ### Approach 3
 
-Do not try to discuss it in the interview this is the same approach as previous, but here we have used recursion in place of stack
+do not try to discuss it in the interview this is the same approach as previous, but here we have used recursion in place of stack if there is only one node then we do not need to check anything we will find the middle node with this approach we will break the list and the middle-node.next to null manipulate the pointers as per the question this recursion call is to mimic the stack behavior we are carrying the head and when the next is null, then only we will return head return value will be the current head next.next = nextHead.next; nextHead.next = next; now next.next will be the new next head which we will return which will be used by the previous recursion call
 
 ```java
-private static void type3() {
+    private static void type3() {
         Node head = new Node(1, 2, 3, 4, 5, 6, 7);
         reorderList3(head);
         PrintUtl.print(head);
     }
+
     public static void reorderList3(Node head) {
         // if there is only one node then we do not need to check anything
         if (null == head.next) return;
@@ -91,6 +98,14 @@ private static void type3() {
         // manipulate the pointers as per the question
         dfs(next, head);
     }
+
+    // this recursion call is to mimic the stack behavior
+    // we are carrying the head and when the next is null, then only we will return head
+    // return value will be the current head
+    // next.next = nextHead.next;
+    // nextHead.next = next;
+    // now next.next will be the new next head which we will return
+    // which will be used by the previous recursion call
     private static Node dfs(Node next, Node head) {
         if (null == next) return head;
         Node nextHead = dfs(next.next, head);
@@ -102,14 +117,15 @@ private static void type3() {
 
 ### Approach 2
 
-This recursion call is to mimic the stack behavior we are carrying the head and when the next is null, then only we will return head return value will be the current head next.next = nextHead.next; nextHead.next = next; now next.next will be the new next head which we will return which will be used by the previous recursion call todo this is better approach than the previous we will use first and slow pointer to find the mid-node once found, then we will store the last half nodes in a stack  because we need the nth node at first
+this is better approach than the previous we will use first and slow pointer to find the mid-node once found, then we will store the last half nodes in a stack because we need the nth node at first if there is only one node then we do not need to check anything we will find the middle node with this approach we will break the list and the middle-node.next to null we will save the last half-nodes in stack now we will pop from the stack and manipulate the pointers as per the question
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node head = new Node(1, 2, 3, 4, 5, 6, 7);
         reorderList2(head);
         PrintUtl.print(head);
     }
+
     public static void reorderList2(Node head) {
         // if there is only one node then we do not need to check anything
         if (null == head.next) return;
@@ -139,16 +155,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach store all the nodes in a list then operate from that list once the nodes are saved then we will manipulate the nodes by indices
+brute force approach store all the nodes in a list then operate from that list once the nodes are saved then we will manipulate the nodes by indices if there is only one node then we do not need to check anything we will store the nodes in the array list find we will set the next node of the mid to null now we will manipulate the pointers as per the question now we will use two pointer and traverse the list if i==j then node count is odd, so there will be one node that was not added in the prev loop we will add it here
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 2, 3, 4, 5, 6, 7);
         reorderList1(head);
         PrintUtl.print(head);
     }
+
     public static void reorderList1(Node head) {
         // if there is only one node then we do not need to check anything
         if (null == head.next) return;
@@ -175,4 +192,6 @@ private static void type1() {
         // we will add it here
         if (i == j) prev.next = list.get(i);
     }
+
+}
 ```

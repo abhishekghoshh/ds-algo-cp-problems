@@ -1,30 +1,35 @@
 # AsteroidCollision
 
-**Topic:** `stack` | **File:** `com/problems/stack/AsteroidCollision.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/asteroid-collision/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/asteroid-collision_977232)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=LN7KjRszjk4)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array of integers representing asteroids in a row, find out the state of the asteroids after all collisions.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach as previous using stack, here we are using int array as stack
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach as previous using stack, here we are using int array as stack current asteroid is less than 0 and there is a positive asteroid in the stack polling from the stack to test it with the current asteroid the last asteroid is same as the current, so we will destroy both and set the current asteroid as 0 the last is bigger than the current then we will destroy the current and assign the last to current not equal to 0 means it's a valid asteroid adding to the ans
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] asteroids = {10, 2, -5};
         int[] answer = asteroidCollision2(asteroids);
         PrintUtl.print(answer);
     }
+
     private static int[] asteroidCollision2(int[] asteroids) {
         int n = asteroids.length;
         int[] st = new int[n];
@@ -53,16 +58,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach using stack, we will only check the condition if current asteroid is less than 0 and there is a positive asteroid in the stack then we will poll from the stack to test it with the current asteroid if the last asteroid is same as the current, so we will destroy both and set the current asteroid as 0 if the last is bigger than the current then we will destroy the current and assign the last to current if current asteroid is bigger then we do not need to do anything, as the last is already popped
+optimized approach using stack, we will only check the condition if current asteroid is less than 0 and there is a positive asteroid in the stack then we will poll from the stack to test it with the current asteroid if the last asteroid is same as the current, so we will destroy both and set the current asteroid as 0 if the last is bigger than the current then we will destroy the current and assign the last to current if current asteroid is bigger then we do not need to do anything, as the last is already popped current asteroid is less than 0 and there is a positive asteroid in the stack polling from the stack to test it with the current asteroid the last asteroid is same as the current, so we will destroy both and set the current asteroid as 0 the last is bigger than the current then we will destroy the current and assign the last to current not equal to 0 means it's a valid asteroid adding to the ans
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] asteroids = {10, 2, -5};
         int[] ans = asteroidCollision1(asteroids);
         PrintUtl.print(ans);
     }
+
     private static int[] asteroidCollision1(int[] asteroids) {
         Stack<Integer> st = new Stack<>();
         for (int asteroid : asteroids) {
@@ -88,4 +94,5 @@ private static void type1() {
         while (!st.isEmpty()) ans[--n] = st.pop();
         return ans;
     }
+}
 ```

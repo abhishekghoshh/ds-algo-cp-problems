@@ -1,21 +1,25 @@
 # MaximumSumOfDistinctSubarraysWithLengthK
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaximumSumOfDistinctSubarraysWithLengthK.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+as we are using only boolean array
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Best approach like previous one slightly less memory saving as we are using only boolean array
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+best approach like previous one slightly less memory saving as we are using only boolean array
 
 ```java
-private static void type4() {
+    private static void type4() {
         int[] nums = {1, 5, 4, 2, 9, 9, 9};
         int k = 3;
         boolean[] freq = new boolean[100001]; // 1<=nums[i]<=10^5=100000
@@ -39,10 +43,10 @@ private static void type4() {
 
 ### Approach 3
 
-Best approach
+best approach
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {1, 5, 4, 2, 9, 9, 9};
         int k = 3;
         int n = nums.length;
@@ -69,18 +73,15 @@ private static void type3() {
 
 ### Approach 2
 
-Improved approach
-
 ```java
-private static void type2() {
+    private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

@@ -1,25 +1,29 @@
 # DesignUndergroundSystem
 
-**Topic:** `array` | **File:** `com/problems/array/DesignUndergroundSystem.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/design-underground-system/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=W5QOLqXskZM)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Design an underground railway check-in/check-out system.
 
-### Implementation
+## 💡 Approaches
 
-Optimized solution
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized solution we will use two maps one for storing users check in from which station he had onboarded another map for [source-destination] → total time and total number of passengers updating check in for the passenger while check out we will remove the entry from 'check in' map and update avgTime map
 
 ```java
-private static void type1() {
+    private static void type1() {
         UndergroundSystem undergroundSystem = new UndergroundSystem();
         undergroundSystem.checkIn(45, "Leyton", 3);
         undergroundSystem.checkIn(32, "Paradise", 8);
@@ -34,4 +38,53 @@ private static void type1() {
         undergroundSystem.checkOut(10, "Waterloo", 38); // Customer 10 "Leyton" → "Waterloo" in 38-24 = 14
         undergroundSystem.getAverageTime("Leyton", "Waterloo");             // Return 12.00000. Three trips "Leyton" → "Waterloo", (10 + 12 + 14) / 3 = 12
     }
+
+    static class UndergroundSystem {
+        // we will use two maps
+        // one for storing users check in from which station he had onboarded
+        Map<Integer, Pair<String, Integer>> checkIn = new HashMap<>();
+        // another map for [source-destination] → total time and total number of passengers
+        Map<String, Pair<Double, Double>> avgTime = new HashMap<>();
+
+        public UndergroundSystem() {
+
+        }
+
+        public void checkIn(int id, String stationName, int t) {
+            // updating check in for the passenger
+            checkIn.put(id, new Pair<>(stationName, t));
+        }
+
+        public void checkOut(int id, String stationName, int t) {
+            // while check out we will remove the entry from 'check in' map and update avgTime map
+            Pair<String, Integer> checkInTime = checkIn.remove(id);
+            String key = checkInTime.first + "::" + stationName;
+            double time = t - checkInTime.second;
+            if (!avgTime.containsKey(key)) {
+                avgTime.put(key, new Pair<>(time, 1.0));
+            } else {
+                Pair<Double, Double> pair = avgTime.get(key);
+                pair.first += time;
+                pair.second++;
+            }
+        }
+
+        public double getAverageTime(String startStation, String endStation) {
+            String key = startStation + "::" + endStation;
+            Pair<Double, Double> avgTimePair = avgTime.get(key);
+            return (avgTimePair.first / avgTimePair.second);
+        }
+
+        static class Pair<T, R> {
+            T first;
+            R second;
+
+            Pair(T first, R second) {
+                this.first = first;
+                this.second = second;
+            }
+        }
+    }
+
+}
 ```

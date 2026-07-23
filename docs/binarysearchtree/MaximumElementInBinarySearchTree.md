@@ -1,21 +1,26 @@
 # MaximumElementInBinarySearchTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/MaximumElementInBinarySearchTree.java`
+**Topic:** `binarysearchtree`  
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+for a valid BST the max will be in the right most node
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-For a valid BST the max will be in the right most node iterative way
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+iterative way
 
 ```java
-private static void type2() {
+    private static void type2() {
         TNode root = TNode.makeBST(10001);
         TNode max = getMax2(root);
         System.out.println(max.data);
     }
+
     private static TNode getMax2(TNode root) {
         while (root.right != null)
             root = root.right;
@@ -23,18 +28,20 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursive way
+recursive way
 
 ```java
-private static void type1() {
+    private static void type1() {
         TNode root = TNode.makeBST(10001);
         TNode max = getMax1(root);
         System.out.println(max.data);
     }
+
     private static TNode getMax1(TNode root) {
         if (root.right == null) return root;
         return getMax1(root.right);
     }
+}
 ```

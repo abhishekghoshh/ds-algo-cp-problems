@@ -1,31 +1,35 @@
 # MinimumNumberOfOperationsToMakeArrayEmpty
 
-**Topic:** `array` | **File:** `com/problems/array/MinimumNumberOfOperationsToMakeArrayEmpty.java`
-
+**Topic:** `array`  
 **Tags:** Array, sorting, hashing, two pointer
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=_AcO35R0fss)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+There are two types of operations that you can apply on the array any number of times:
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-There are two types of operations that you can apply on the array any number of times: Choose two elements with equal values and delete them from the array. Choose three elements with equal values and delete them from the array. todo it is not possible if the frequency is 1 we will return -1 in that case we will use sort then use a 2 pointer to count the frequency of the same elements then the remaining operations are same
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+we will use sort then use a 2 pointer to count the frequency of the same elements then the remaining operations are same if it is 1 then we will directly return -1 if it is divisible by 3 then we will divide it by 3 else for reminder 1 or 2 the number of operation will be (f/3 + 1).
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {2, 3, 3, 2, 2, 4, 2, 3, 4};
         int ans = minOperations3(nums);
         System.out.println(ans);
     }
+
     private static int minOperations3(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -52,14 +56,17 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach using hashing first we will use a frequency map to store counts then we will check if it is 1 or not if 1 then return -1. then first, we will check if it is divided by 3 or not if yes we divide it by 3 else we will check what is the reminder either 1 or 2. if 2 then we can directly remove that in one operation ⇒ (f/3 + 1). if 1 then we will borrow 3 and make the remaining count as 1+3 as 4, and we can remove 4 by operation 2 of remove two and total operations will be ((f/3)-1)+2 => (f/3 + 1).
+optimized approach using hashing first we will use a frequency map to store counts then we will check if it is 1 or not if 1 then return -1. then first, we will check if it is divided by 3 or not if yes we divide it by 3 else we will check what is the reminder either 1 or 2.
+
+if 2 then we can directly remove that in one operation ⇒ (f/3 + 1). if 1 then we will borrow 3 and make the remaining count as 1+3 as 4, and we can remove 4 by operation 2 of remove two and total operations will be ((f/3)-1)+2 => (f/3 + 1). counting the frequencies iterating over the frequencies if it is 1 then we will directly return -1 if it is divisible by 3 then we will divide it by 3 else for reminder 1 or 2 the number of operation will be (f/3 + 1).
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {2, 3, 3, 2, 2, 4, 2, 3, 4};
         int ans = minOperations2(nums);
         System.out.println(ans);
     }
+
     public static int minOperations2(int[] nums) {
         int count = 0;
         Map<Integer, Integer> freq = new HashMap<>();
@@ -82,11 +89,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

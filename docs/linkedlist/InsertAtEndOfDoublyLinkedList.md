@@ -1,30 +1,35 @@
 # InsertAtEndOfDoublyLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/InsertAtEndOfDoublyLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/insert-at-end-of-doubly-linked-list_8160464)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/insert-at-end-of-doubly-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Insert a node at the end of a doubly linked list.
 
-### Implementation
+## 💡 Approaches
 
-Iterative way we will find the last nonNull node then attach the new node
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+iterative way we will find the last nonNull node then attach the new node Traverse to the end of the doubly linked list
 
 ```java
-private static void type1() {
+    private static void type1() {
         DNode node = new DNode(4, 10, 3, 5);
         int k = 9;
         DNode head = insertAtTail1(node, k);
         print(head);
     }
+
     private static DNode insertAtTail1(DNode head, int k) {
         DNode node = new DNode(k);
         if (head == null) return node;
@@ -36,4 +41,5 @@ private static void type1() {
         node.prev = current;
         return head;
     }
+}
 ```

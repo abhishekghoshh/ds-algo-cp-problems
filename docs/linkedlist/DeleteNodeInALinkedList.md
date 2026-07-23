@@ -1,30 +1,35 @@
 # DeleteNodeInALinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/DeleteNodeInALinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/delete-node-in-a-linked-list/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1105578)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/delete-node-of-linked-list_8160463)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=icnp4FJdZ_c&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=32)
 - [📄 takeUforward](https://takeuforward.org/data-structure/delete-given-node-in-a-linked-list-o1-approach/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Delete a given node in a linked list (without access to head).
 
-### Implementation
+## 💡 Approaches
 
-You are given the node to be deleted node.You will not be given access to the first node of head. All the values of the linked list are unique, and it is guaranteed that the given node is not the last node in the linked list. Time complexity O(1) space complexity O(1)
+This problem can be solved in **1** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(1) | Space: o(1)
+### Approach: Implementation
+
+You will not be given access to the head of the list, instead you will be given access to the node to be deleted directly. It is guaranteed that the node to be deleted is not a tail node in the list.
+
+**Time Complexity:** `O(1)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		// You will not be given access to the head of the list,
 		// instead you will be given access to the node to be deleted directly.
 		// It is guaranteed that the node to be deleted is not a tail node in the list.
@@ -37,4 +42,5 @@ private static void type1() {
 		node.next = node.next.next;
 		print(head);
 	}
+}
 ```

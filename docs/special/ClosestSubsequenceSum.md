@@ -16,6 +16,10 @@ public class ClosestSubsequenceSum {
 
 ```
 
+## 📝 Problem Statement
+
+Given an array and a goal, find the subsequence sum closest to the goal using meet-in-the-middle.
+
 ## Source Code
 
 ```java

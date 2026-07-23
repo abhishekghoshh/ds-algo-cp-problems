@@ -1,32 +1,35 @@
 # NMeetingsInOneRoom
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/NMeetingsInOneRoom.java`
+**Topic:** `greedy`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-There is one meeting room in a firm. There are N meetings in the form of (start[i], end[i]) where start[i] is start time of meeting i and end[i] is finish time of meeting i.What is the maximum number of meetings that can be accommodated in the meeting room when only one meeting can be held in the meeting room at a particular time? Note: Start time of one chosen meeting can't be equal to the end time of the other chosen meeting.
+There is one meeting room in a firm. There are N meetings in the form of (start[i], end[i]) where start[i]
+is start time of meeting i and end[i] is finish time of meeting i.What is the maximum number of meetings
+that can be accommodated in the meeting room when only one meeting can be held in the meeting room at a particular time?
+Note: Start time of one chosen meeting can't be equal to the end time of the other chosen meeting.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/meeting-rooms/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1062658)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=II6ziNnub1Q&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=46)
 - [📄 takeUforward](https://takeuforward.org/data-structure/n-meetings-in-one-room/)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **2** approaches, progressing from brute force to optimal:
+This problem can be solved in **2** different ways, each improving upon the previous:
 
-### Approach 2 — Optimal
+### Approach 2: 🏆 Optimal Solution
 
-We will sort the meeting by its ending time because once we know that the meeting ends, then only we can add another meeting
+we will sort the meeting by its ending time because once we know that the meeting ends, then only we can add another meeting
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] start = {1, 3, 0, 5, 8, 5};
 		int[] end = {2, 4, 6, 7, 9, 9};
 		int n = start.length;
@@ -55,12 +58,10 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
-
-Brute force approach
+### Approach 1: 🔨 Brute Force
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] start = {1, 3, 0, 5, 8, 5};
 		int[] end = {2, 4, 6, 7, 9, 9};
 		int n = start.length;
@@ -82,4 +83,23 @@ private static void type1() {
 		System.out.println("Total meeting count is " + count);
 		System.out.println("Total meetings is " + meetingIndexes);
 	}
+
+	private static class Meeting {
+		public int position;
+		public int start;
+		public int end;
+
+		public Meeting(int position, int start, int end) {
+			this.position = position;
+			this.start = start;
+			this.end = end;
+		}
+
+		@Override
+		public String toString() {
+			return "Meeting [position=" + position + ", start=" + start + ", end=" + end + "]";
+		}
+
+	}
+}
 ```

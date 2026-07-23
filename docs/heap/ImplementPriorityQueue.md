@@ -1,25 +1,31 @@
 # ImplementPriorityQueue
 
-**Topic:** `heap` | **File:** `com/problems/heap/ImplementPriorityQueue.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/implement-a-priority-queue-_1743878)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Implement a priority queue data structure.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+Write you code here. Code Snippet of the push function: Position of the current inserted element. Shifting the element up until it reaches the topmost node if it is larger than its parent. Swapping the elements. As the parent is larger, the element is now in its correct position.
 
 ```java
-private static void type2() {
+    private static void type2() {
         List<Integer> heap = new ArrayList<>();
         Heap.push(heap, 3);
         System.out.println(Heap.pop(heap));
     }
+
+    static class Heap {
         public static int pop(List<Integer> heap) {
             // Write you code here.
             if (heap.isEmpty()) return -1;
@@ -32,6 +38,7 @@ private static void type2() {
             heapify(heap, 0);
             return item;
         }
+
         private static void heapify(List<Integer> heap, int index) {
             int item = heap.get(index);
             int size = heap.size();
@@ -46,6 +53,8 @@ private static void type2() {
                 heapify(heap, targetIndex);
             }
         }
+
+        // Code Snippet of the push function:
         public static void push(List<Integer> heap, int x) {
             heap.add(x);
             // Position of the current inserted element.
@@ -66,14 +75,16 @@ private static void type2() {
                 }
             }
         }
+    }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Code Snippet of the push function: brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

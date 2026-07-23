@@ -1,36 +1,41 @@
 # BinarySearchOnRotatedArray1
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/BinarySearchOnRotatedArray1.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
 - [📄 NeetCode](https://neetcode.io/problems/find-target-in-rotated-sorted-array)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/630450)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=5qGrJbHhqFs)
 - [▶ YouTube](https://www.youtube.com/watch?v=r3pMQ8-Ad5s&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=65)
 - [▶ YouTube](https://www.youtube.com/watch?v=Id-DdcWb5AU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+linearly finds the target element
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Find in the single search it will find the mid then it will check which portion is sorted it and if the target is in that portion, then it will search else it will go to another way
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+find in the single search it will find the mid then it will check which portion is sorted it and if the target is in that portion, then it will search else it will go to another way arr[low] < arr[mid] means we are on the left side and low to mid all the elements are sorted now if the key is in low to mid-range, then we can apply binary search on that key is not in the range of low to mid, so our new range will be started from mid+1 arr[low]>arr[mid] means we are on the right side and mid to high all the elements are sorted now if the key is in mid to high range then we can apply binary search key is not in the range of mid to high, so our new range will be started from mid-1
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = { 7, 8, 9, 10, 11, 12, 0, 1, 2, 3, 4, 5, 6 };
 		int target = 1;
 		int index = rotatedSearch(nums, target);
 		System.out.println(index);
 	}
+
 	private static int rotatedSearch(int[] nums, int target) {
 		int n = nums.length;
 		int low = 0, high = n - 1;
@@ -64,15 +69,16 @@ private static void type3() {
 
 ### Approach 2
 
-First it will split the array, then it will search on the partitions individually binary search first search the rotation time so we will get the first and 2nd half then we can find in the appropriate side
+first it will split the array, then it will search on the partitions individually binary search first search the rotation time so we will get the first and 2nd half then we can find in the appropriate side 0th element is less than the n-1th element so the array is not rotated the array is rotated, so we will find the rotation index of the starting element System.out.println("rotation number is " + rotationNumber); if the item is in rotationIndex, then we will return it if it is in left half then we will apply binary search on the left it is in the right half then we will apply binary search on the right
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {3, 1};
 		int key = 3;
 		int answer = search(nums, key);
 		System.out.println(answer);
 	}
+
 	private static int search(int[] nums, int target) {
 		int n = nums.length;
 		if (n == 1) return nums[0] == target ? 0 : -1;
@@ -91,6 +97,7 @@ private static void type2() {
 			else return search(nums, rotationIndex + 1, high, target);
 		}
 	}
+
 	private static int rotationIndex(int[] nums, int low, int high, int n) {
 		while (low <= high) {
 			int mid = low + ((high - low) >> 1);
@@ -102,6 +109,7 @@ private static void type2() {
 		}
 		return low;
 	}
+
 	private static int search(int[] nums, int low, int high, int target) {
 		while (low <= high) {
 			int mid = low + ((high - low) >> 1);
@@ -113,12 +121,13 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach linearly finds the target element
+brute force approach linearly finds the target element
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+}
 ```

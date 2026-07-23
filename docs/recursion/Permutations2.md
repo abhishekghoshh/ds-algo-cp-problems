@@ -1,34 +1,42 @@
 # Permutations2
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/Permutations2.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/permutations-ii/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=qhBVWf0YafA)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+digits are strictly in this range -10 <= d <= 10
 
-### Implementation
+## 💡 Approaches
 
-It is from the permutation1 problem check all the solutions of permutation1 digits are strictly in this range -10 <= d <= 10
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+it is from the permutation1 problem check all the solutions of permutation1 digits are strictly in this range -10 <= d <= 10 as there is limit -10 <= nums[i] <= 10 we will set the size of the set to 21, and we will use offset as 10 swapping the element swapping again to retain the nums array
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 1, 2};
         List<List<Integer>> ans = permuteUnique(nums);
         System.out.println(ans);
     }
+
     public static List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         permuteUnique(0, nums, ans);
         return ans;
     }
+
+    // as there is limit -10 <= nums[i] <= 10
+    // we will set the size of the set to 21, and we will use offset as 10
     private static void permuteUnique(int start, int[] nums, List<List<Integer>> ans) {
         int n = nums.length;
         if (start == n) {
@@ -49,14 +57,17 @@ private static void type1() {
             }
         }
     }
+
     private static List<Integer> toList(int[] nums) {
         List<Integer> list = new ArrayList<>();
         for (int item : nums) list.add(item);
         return list;
     }
+
     private static void swap(int[] nums, int left, int right) {
         int num = nums[left];
         nums[left] = nums[right];
         nums[right] = num;
     }
+}
 ```

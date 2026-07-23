@@ -1,26 +1,28 @@
 # LeadersInAnArray
 
-**Topic:** `array` | **File:** `com/problems/array/LeadersInAnArray.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/superior-elements_6783446)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=cHrH9CQ8pmY)
 - [📄 takeUforward](https://takeuforward.org/data-structure/leaders-in-an-array/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 2, 3, 2};
         int n = nums.length;
         List<Integer> answer = new ArrayList<>();
@@ -35,14 +37,15 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(1)
+brute force approach
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {1, 2, 3, 2};
         int n = nums.length;
         List<Integer> answer = new ArrayList<>();
@@ -58,4 +61,5 @@ private static void type1() {
         }
         System.out.println(answer);
     }
+}
 ```

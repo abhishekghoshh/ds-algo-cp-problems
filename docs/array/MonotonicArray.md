@@ -1,29 +1,34 @@
 # MonotonicArray
 
-**Topic:** `array` | **File:** `com/problems/array/MonotonicArray.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/monotonic-array/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=sqWOFIZ9Z0U)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+finding the next unique element
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+if it has only one item then it is already monotonic first we will check if the first 2 unique follows increasing or decreasing then we will follow the same for the remaining numbers finding the next unique element if start == n means all the numbers are same, and we have reach to the end now we will check for the remaining items
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {6, 5, 4, 4};
         boolean ans = isMonotonic(nums);
         System.out.println(ans);
     }
+
     public static boolean isMonotonic(int[] nums) {
         int n = nums.length;
         // if it has only one item then it is already monotonic
@@ -46,4 +51,5 @@ private static void type1() {
         }
         return true;
     }
+}
 ```

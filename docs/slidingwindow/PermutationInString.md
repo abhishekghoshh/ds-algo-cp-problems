@@ -1,30 +1,35 @@
 # PermutationInString
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/PermutationInString.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/permutation-in-string/description/)
 - [📄 NeetCode](https://neetcode.io/problems/permutation-string)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=UbyhOgBN834)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Check if s2 contains a permutation of s1.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach using the sliding window now we have added all the characters of string1 to the freq array we will decrement the characters of the string 2 from the freq array so at any point if the freq array is all 0 then we will return 0
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach using the sliding window now we have added all the characters of string1 to the freq array we will decrement the characters of the string 2 from the freq array so at any point if the freq array is all 0 then we will return 0 now we will use sliding window for all the n1 size window in the str2, but first we will start for the first window for the remaining window computing for the current char computing for the left char now we have calculated for the current window if all 0 then we will return true
 
 ```java
-private static void type2() {
+    private static void type2() {
         String s1 = "ab", s2 = "eidbaooo";
         boolean ans = checkInclusion2(s1, s2);
         System.out.println(ans);
     }
+
     public static boolean checkInclusion2(String s1, String s2) {
         char[] arr1 = s1.toCharArray();
         char[] arr2 = s2.toCharArray();
@@ -56,6 +61,7 @@ private static void type2() {
         }
         return false;
     }
+
     private static boolean isAllZero(int[] freq) {
         System.out.println(concat(freq));
         for (int f : freq) {
@@ -63,6 +69,7 @@ private static void type2() {
         }
         return true;
     }
+
     private static String concat(int[] freq) {
         StringBuilder sb = new StringBuilder();
         for (int f : freq) sb.append(f).append(" ");
@@ -70,12 +77,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

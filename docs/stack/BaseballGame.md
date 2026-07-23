@@ -1,23 +1,27 @@
 # BaseballGame
 
-**Topic:** `stack` | **File:** `com/problems/stack/BaseballGame.java`
-
+**Topic:** `stack`  
 **Tags:** Stack, Array
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Optimized approach using stack
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using an array same as the previous type
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using an array same as the previous type
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] ops = {"5", "2", "C", "D", "+"};
         int ans = calPoints2(ops);
         System.out.println(ans);
     }
+
     private static int calPoints2(String[] ops) {
         int n = ops.length;
         int top = -1;
@@ -42,17 +46,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Optimized approach using stack
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] ops = {"5", "2", "C", "D", "+"};
         int ans = calPoints1(ops);
         System.out.println(ans);
 
     }
+
     public static int calPoints1(String[] ops) {
         Stack<Integer> st = new Stack<>();
         for (String op : ops) {
@@ -73,4 +78,5 @@ private static void type1() {
         while (!st.isEmpty()) sum += st.pop();
         return sum;
     }
+}
 ```

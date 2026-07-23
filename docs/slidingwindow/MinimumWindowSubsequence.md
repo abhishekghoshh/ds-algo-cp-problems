@@ -1,27 +1,31 @@
 # MinimumWindowSubsequence
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MinimumWindowSubsequence.java`
+**Topic:** `slidingwindow`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/minimum-window-subsequence_2181133)
 - [📄 LeetCode](https://leetcode.com/problems/minimum-window-subsequence/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - CodeByVansh : https://www.youtube.com/watch?v=B6scRxy_Zwo
 - Happy Coding : https://www.youtube.com/watch?v=PYEb5UFwz2M
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Find the minimum window in S containing T as a subsequence.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Same as before but it is slightly better as we are not looping backwards to find the start of the window instead setting the start once the counter == 0
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as before but it is slightly better as we are not looping backwards to find the start of the window instead setting the start once the counter == 0
 
 ```java
-private static void type4() {
+    private static void type4() {
         String s = "abcdebdde";
         String t = "bde";
         char[] sArr = s.toCharArray();
@@ -53,10 +57,10 @@ private static void type4() {
 
 ### Approach 3
 
-Best solution to explain once the counter == n then we going back track to find the start of the window
+best solution to explain once the counter == n then we going back track to find the start of the window
 
 ```java
-private static void type3() {
+    private static void type3() {
         String s = "abcdebdde";
         String t = "bde";
         char[] sArr = s.toCharArray();
@@ -89,22 +93,23 @@ private static void type3() {
 
 ### Approach 2
 
-Dynamic programming approach time complexity O(n*m) Space complexity O(n*m) TODO study it later
+Dynamic programming approach study it later
 
-**Complexity:** Time: o(n*m) | Space: o(n*m)
+**Time Complexity:** `O(n*m)`
+**Space Complexity:** `O(n*m)`
 
 ```java
-private static void type2() {
+    private static void type2() {
 
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
 Brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "abcdebdde";
         String t = "bde";
         char[] sArr = s.toCharArray();
@@ -129,4 +134,5 @@ private static void type1() {
         String answer = min == Integer.MAX_VALUE ? "" : s.substring(start, start + min);
         System.out.println(answer);
     }
+}
 ```

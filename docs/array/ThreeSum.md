@@ -1,37 +1,41 @@
 # ThreeSum
 
-**Topic:** `array` | **File:** `com/problems/array/ThreeSum.java`
-
+**Topic:** `array`  
 **Tags:** array, sorting, two pointers
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/3sum/description/)
 - [📄 NeetCode](https://neetcode.io/problems/three-integer-sum)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/three-sum_6922132)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/893028)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=DhFh8Kw7ymk)
 - [▶ YouTube](https://www.youtube.com/watch?v=onLoX6Nhvmg)
 - [▶ YouTube](https://www.youtube.com/watch?v=jzZsG8n2R9A)
 - [📄 takeUforward](https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Return all unique triplets summing to 0.
 
-### Approach 3 — Optimal
+## 💡 Approaches
+
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
 
 Exactly same as previous, just here we are not skipping some optimization in the first loop but here
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {-1, 0, 1, 2, -1, -4};
 		List<List<Integer>> answer = threeSum3(nums);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> threeSum3(int[] nums) {
 		List<List<Integer>> ans = new ArrayList<>();
 		Arrays.sort(nums);
@@ -62,16 +66,18 @@ private static void type3() {
 
 ### Approach 2
 
-Two pointer approach time complexity O(n*log(n)) + O(n^2) first we will sort the array, so all the numbers will come increasing manner and duplicates will come together space complexity O(1)
+two pointer approach first we will sort the array, so all the numbers will come increasing manner and duplicates will come together if previous num is also same then we will skip for the number num[n-2] and num[n-1] are the highest number in that array if num + num[n-2] and num[n-1] is less than 0, then num will not able create sum with any other elements as well skipping num as num is too small nums[i] + nums[i + 1] + nums[i + 2] will be the smallest in this series if the sum of first 3 is greater than 0 then the sum for remaining items will also be greater than 0, so we will break the loop al together as there will be no answer in future skipping the duplicates from the left side skipping the duplicates from the right side finding the next start and skipping the duplicates find the next end skipping duplicates
 
-**Complexity:** Time: o(n*log(n) | Space: o(1)
+**Time Complexity:** `O(n*log(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { -1, 0, 1, 2, -1, -4 };
 		List<List<Integer>> answer = threeSum2(nums);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> threeSum2(int[] nums) {
 		int n = nums.length;
 		Arrays.sort(nums);
@@ -115,18 +121,19 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach answer will contain duplicate and to remove duplicates again we have to use a set time complexity O(n^3)
+brute force approach answer will contain duplicate and to remove duplicates again we have to use a set
 
-**Complexity:** Time: o(n^3)
+**Time Complexity:** `O(n^3)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { -1, 0, 1, 2, -1, -4 };
 		List<List<Integer>> answer = threeSum1(nums);
 		System.out.println(answer);
 	}
+
 	private static List<List<Integer>> threeSum1(int[] nums) {
 		int n = nums.length;
 		List<List<Integer>> answer = new ArrayList<>();
@@ -149,4 +156,6 @@ private static void type1() {
 		}
 		return answer;
 	}
+
+}
 ```

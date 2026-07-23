@@ -1,31 +1,39 @@
 # CheckIfArrayIsSortedAndRotated
 
-**Topic:** `array` | **File:** `com/problems/array/CheckIfArrayIsSortedAndRotated.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/ninja-and-the-sorted-check_6581957)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=37E9ckMDdTk&t=1722s)
 - [📄 takeUforward](https://takeuforward.org/data-structure/check-if-an-array-is-sorted/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given an array nums, return true if the array was originally sorted in non-decreasing order,
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false. if the first < last, then we just have to check if there is any out-of-order element in between or not i th item is greater than an i+1 th element that means an out-of-order element else part means the array is rotated already, so we will try to find the first out-of-order element i+1 is the starting of the start of the rotated array find the out-of-order element order for the 2nd part array j th item is greater than j+1 th element that means an out-of-order element
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {3, 4, 5, 1, 2};
 		System.out.println(check(nums));
 
 	}
+
+	// Given an array nums, return true if the array was originally sorted in non-decreasing order,
+	// then rotated some number of positions (including zero).
+	// Otherwise, return false.
 	public static boolean check(int[] nums) {
 		int n = nums.length;
 		if (n == 1 || n == 2) return true;
@@ -50,4 +58,5 @@ private static void type1() {
 		}
 		return true;
 	}
+}
 ```

@@ -1,30 +1,34 @@
 # AllocateMinimumNumberOfPages
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/AllocateMinimumNumberOfPages.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/allocate-books_1090540)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/ayush-gives-ninjatest_1097574)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/allocate-books/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Z0hwjftStI4)
 - [▶ YouTube](https://www.youtube.com/watch?v=gYmWHvRHu-s&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=70)
 - [▶ YouTube](https://www.youtube.com/watch?v=2JSQIhPcHQg)
 - [📄 takeUforward](https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+binary search on answer approach
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Binary search on answer approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+binary search on answer approach book allocation impossible if (m > n) return -1; add pages to the current student add pages to the next student
 
 ```java
-private static void type3() {
+	private static void type3() {
 		List<Integer> arr = List.of(97, 26, 12, 67, 10, 33, 79, 49, 79, 21, 67, 72, 93, 36, 85, 45, 28, 91, 94, 57, 1, 53,
 				8, 44, 68, 90, 24);
 		int m = 26;
@@ -45,6 +49,7 @@ private static void type3() {
 		}
 		System.out.println(low);
 	}
+
 	public static int countStudents(List<Integer> arr, int pages) {
 		int n = arr.size(); // size of array
 		int students = 1;
@@ -64,10 +69,10 @@ private static void type3() {
 
 ### Approach 2
 
-Binary search on answer approach
+binary search on answer approach we don't have enough book to give one book to every person if (m > n) return -1; at max one can take all the books so high will be sum of pages of all books at min one can take only one book but if anyone is taking one book then also one has to take the book with highest number of pages, so our low will be we are checking that if mid-number of pages can be allocated to all the students or not, if possible, then we are reducing our search space, but mid is also one answer if mid-number pages cannot be allocated, then we have to increase the number of pages, so we are changing our low to mid+1 the answer is -1 means we can not allocate low number of pages to everyone but we have more books than students so we can allocate one book to every person, so can give books to every person at least but the sum of the pages of any individual will not exceed 97, otherwise answer will not be -1 we can give the book with 97 pages to anyone and rest of the books to give simultaneously, so the maximum number of pages,that can be allocated will be 97 (highest number of books or low variable) we are initializing our students as 1 as we are starting with our first student if the student is able to take the book then we are giving the student is unable to take the book, so we are giving the book to a new student
 
 ```java
-private static void type2() {
+	private static void type2() {
 		List<Integer> arr = List.of(97, 26, 12, 67, 10, 33, 79, 49, 79, 21, 67, 72, 93, 36, 85, 45, 28, 91, 94, 57, 1, 53,
 				8, 44, 68, 90, 24);
 		int m = 26;
@@ -110,6 +115,7 @@ private static void type2() {
 		if (answer == -1) answer = low;
 		System.out.println(answer);
 	}
+
 	private static int bookAllocationPossible(List<Integer> arr, int m, int maxPages) {
 		// we are initializing our students as 1 as we are starting with our first student
 		int students = 1;
@@ -128,12 +134,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+book allocation impossible if (m > n) return -1;
 
 ```java
-private static void type1() {
+	private static void type1() {
 		ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(25, 46, 28, 49, 24));
 		int n = 5;
 		int m = 4;
@@ -152,4 +158,6 @@ private static void type1() {
 		}
 		System.out.println(answer);
 	}
+
+}
 ```

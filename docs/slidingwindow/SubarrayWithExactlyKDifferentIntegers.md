@@ -1,31 +1,43 @@
 # SubarrayWithExactlyKDifferentIntegers
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/SubarrayWithExactlyKDifferentIntegers.java`
+**Topic:** `slidingwindow`  
 
-## Problem Statement
+## 📝 Problem Statement
 
-Now, let's walk through the code with the example: Initialize the variables: result: Initially set to 0, it will store the count of subarrays with k distinct elements. size: Set to the length of the input array nums, which is 5 in this example. count: An array to count the occurrences of elements. It is initialized to all zeros. Enter a loop to iterate through the elements of nums. The loop uses three pointers: left, mid, and right. As we iterate through the array: We increment the count of the current element in the count array. If a new distinct element is encountered (its count becomes 1), we reduce k. If k becomes negative, it means we have more than k distinct elements, so we move the left and mid pointers and reset the counts until we have exactly k distinct elements. After ensuring that we have k distinct elements, we count subarrays by calculating mid - left + 1 and add this count to the result. Continue this process until we've gone through all the elements in the array. In the example with [1, 2, 1, 2, 3] and k = 2, the code will find and count subarrays with exactly 2 distinct elements. The result will be the count of such subarrays, which is 6.
+Now, let's walk through the code with the example:
+Initialize the variables:
+result: Initially set to 0, it will store the count of subarrays with k distinct elements.
+size: Set to the length of the input array nums, which is 5 in this example.
+count: An array to count the occurrences of elements. It is initialized to all zeros.
+Enter a loop to iterate through the elements of nums. The loop uses three pointers: left, mid, and right.
+As we iterate through the array:
+We increment the count of the current element in the count array.
+If a new distinct element is encountered (its count becomes 1), we reduce k.
+If k becomes negative, it means we have more than k distinct elements, so we move the left and mid pointers and reset the counts until we have exactly k distinct elements.
+After ensuring that we have k distinct elements, we count subarrays by calculating mid - left + 1 and add this count to the result.
+Continue this process until we've gone through all the elements in the array.
+In the example with [1, 2, 1, 2, 3] and k = 2, the code will find and count subarrays with exactly 2 distinct elements. The result will be the count of such subarrays, which is 6.
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/subarrays-with-k-different-integers/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=akwRFY2eyXs)
 - [▶ YouTube](https://www.youtube.com/watch?v=CBSeilNvZHs)
 - [▶ YouTube](https://www.youtube.com/watch?v=etI6HqWVa8U)
 
-## Approaches
+## 💡 Approaches
 
-This problem has **3** approaches, progressing from brute force to optimal:
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-### Approach 3 — Optimal
+### Approach 3: 🏆 Optimal Solution
 
-Please check the problem SubarrayWithAtMostKDifferentIntegers first TODO best solution in the leetcode
+If a new distinct element is encountered, reduce k. Decrease the count for elements until only one occurrence is left. Add the count of subarrays with k distinct elements to the result.
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = {1, 2, 1, 2, 3};
 		int k = 2;
 		int result = 0; // Initialize the result variable.
@@ -55,20 +67,22 @@ private static void type3() {
 
 ### Approach 2
 
-Explain this in the interview time complexity O(2n) sliding window if we know how to calculate Subarrays with at most K Different Integers then our work is pretty easy we will calculate Subarrays with at most K Different Integers for k and k-1 and if we subtract SubarrayWithAtMostKDifferentIntegers of k and k-1 then we will find Subarrays with exactly K Different Integers todo we know how to find count of the subarray whose sum is less than equal to target but we need exactly how many subarrays whose sum is equal to target if we find the count for target and subtract to the count of target-1 then we will get subarrays count whose sum is equal to target
+explain this in the interview sliding window if we know how to calculate Subarrays with at most K Different Integers then our work is pretty easy we will calculate Subarrays with at most K Different Integers for k and k-1 and if we subtract SubarrayWithAtMostKDifferentIntegers of k and k-1 then we will find Subarrays with exactly K Different Integers we know how to find count of the subarray whose sum is less than equal to target but we need exactly how many subarrays whose sum is equal to target if we find the count for target and subtract to the count of target-1 then we will get subarrays count whose sum is equal to target if f is 0 then it is a new number in the range if distinct count is greater thatz
 
-**Complexity:** Time: o(2n)
+**Time Complexity:** `O(2n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = {1, 2, 1, 2, 3};
 		int k = 2;
 		int count = subarraysWithKDistinct2(nums, k);
 		System.out.println(count);
 	}
+
 	private static int subarraysWithKDistinct2(int[] nums, int k) {
 		return getCount(nums, k) - getCount(nums, k - 1);
 	}
+
 	private static int getCount(int[] nums, int k) {
 		int n = nums.length;
 		int[] freq = new int[n + 1];
@@ -91,19 +105,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(n^2)
+brute force
 
-**Complexity:** Time: o(n^2)
+**Time Complexity:** `O(n^2)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {1, 2, 1, 2, 3};
 		int k = 2;
 		int count = subarraysWithKDistinct1(nums, k);
 		System.out.println(count);
 	}
+
 	private static int subarraysWithKDistinct1(int[] nums, int k) {
 		int count = 0, n = nums.length;
 		Set<Integer> set = new HashSet<>();
@@ -117,4 +132,6 @@ private static void type1() {
 		}
 		return count;
 	}
+
+}
 ```

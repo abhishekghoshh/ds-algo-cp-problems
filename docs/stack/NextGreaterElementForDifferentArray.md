@@ -1,34 +1,38 @@
 # NextGreaterElementForDifferentArray
 
-**Topic:** `stack` | **File:** `com/problems/stack/NextGreaterElementForDifferentArray.java`
-
+**Topic:** `stack`  
 **Tags:** Array, Stack
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/next-greater-element-i/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/next-greater-element_670312)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Du881K7Jtk8)
 - [📄 takeUforward](https://takeuforward.org/data-structure/next-greater-element-using-stack/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given two arrays, find the Next Greater Element of nums1 elements in nums2.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as type2 just to make it leetcode optimized we will replace map to array as we know the boundary we will replace the stack with array
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as type2 just to make it leetcode optimized we will replace map to array as we know the boundary we will replace the stack with array first, we will store the item and index in the map we could store the indices into a hashmap, but as we know the range, so we could use an array now we will calculate next greater element using a stack and store it in another array this part is for finding the greater element from the stack if the num is not present in the num1 then we will skip for this num and store the result in the array
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums1 = {4, 1, 2};
         int[] nums2 = {1, 3, 4, 2};
         int[] nge = nextGreaterElement3(nums1, nums2);
         print(nge);
     }
+
     private static int[] nextGreaterElement3(int[] nums1, int[] nums2) {
         int n1 = nums1.length;
         int n2 = nums2.length;
@@ -66,15 +70,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized solution we can find the next greater element using the monotonic increasing stack
+Optimized solution we can find the next greater element using the monotonic increasing stack first, we will store the item and index in the map we could store the indices into a hashmap, but as we know the range, so we could use an array now we will calculate next greater element using a stack and store it in another array this part is for finding the greater element from the stack if the num is not present in the num1 then we will skip for this num and store the result in the array
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums1 = {4, 1, 2};
         int[] nums2 = {1, 3, 4, 2};
         int[] nge = nextGreaterElement2(nums1, nums2);
         print(nge);
     }
+
     private static int[] nextGreaterElement2(int[] nums1, int[] nums2) {
         int n1 = nums1.length;
         int n2 = nums2.length;
@@ -108,19 +113,21 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(1)
+brute force approach first, we will store the item and index in the map we could store the indices into a hashmap, but as we know the range, so we could use an array we will find the max if the num is not present in the num1 then we will skip for this num we will find the next greater element for the num and store the result in the array
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-public static void type1() {
+    public static void type1() {
         int[] nums1 = {4, 1, 2};
         int[] nums2 = {1, 3, 4, 2};
         int[] nge = nextGreaterElement1(nums1, nums2);
         print(nge);
     }
+
     private static int[] nextGreaterElement1(int[] nums1, int[] nums2) {
         int n1 = nums1.length;
         int n2 = nums2.length;
@@ -153,4 +160,5 @@ public static void type1() {
         }
         return nge;
     }
+}
 ```

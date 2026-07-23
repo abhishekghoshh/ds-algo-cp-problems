@@ -1,21 +1,25 @@
 # MinimumCostForCuttingCakeI
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumCostForCuttingCakeI.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/contest/weekly-contest-406/problems/minimum-cost-for-cutting-cake-i/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+check the question first then the intuition
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is incomplete
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is incomplete
 
 ```java
-private static void type2() {
+    private static void type2() {
         int m = 3, n = 2;
         int[] horizontalCut = {1, 3}, verticalCut = {5};
         int[][][][] dp = new int[m + 1][m + 1][n + 1][n + 1];
@@ -40,18 +44,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Recursion with memoization check the question first then the intuition
+recursion with memoization check the question first then the intuition
 
 ```java
-private static void type1() {
+    private static void type1() {
         int m = 3, n = 2;
         int[] horizontalCut = {1, 3}, verticalCut = {5};
         int[][][][] dp = new int[m + 1][m + 1][n + 1][n + 1];
         int ans = minimumCost(0, m, 0, n, horizontalCut, verticalCut, dp);
         System.out.println(ans);
     }
+
     public static int minimumCost(int i, int m, int j, int n, int[] horizontalCut, int[] verticalCut, int[][][][] dp) {
         if (i == m - 1 && j == n - 1) return 0;
         if (dp[i][m][j][n] != 0) return dp[i][m][j][n];
@@ -77,4 +82,5 @@ private static void type1() {
 
         return dp[i][m][j][n] = min;
     }
+}
 ```

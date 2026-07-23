@@ -1,26 +1,31 @@
 # CanPlaceFlowers
 
-**Topic:** `array` | **File:** `com/problems/array/CanPlaceFlowers.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/can-place-flowers/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Check if n flowers can be planted without violating adjacency rule.
 
-### Implementation
+## 💡 Approaches
 
-Optimized approach for every 0th cell we will check its previous and next cell if in both places there is not 1 then we will place 1 to that
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+optimized approach for every 0th cell we will check its previous and next cell if in both places there is not 1 then we will place 1 to that if the cell is 1 then we will continue if both places are not 1 then we will place 1 to the current cell and increment the total
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] flowerbed = {1, 0, 0, 0, 1};
         int n = 1;
         boolean ans = canPlaceFlowers1(flowerbed, n);
         System.out.println(ans);
     }
+
     public static boolean canPlaceFlowers1(int[] flowerbed, int n) {
         int len = flowerbed.length;
         int total = 0;
@@ -37,4 +42,5 @@ private static void type1() {
         }
         return n <= total;
     }
+}
 ```

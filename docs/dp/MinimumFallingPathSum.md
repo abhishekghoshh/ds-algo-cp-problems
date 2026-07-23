@@ -1,32 +1,39 @@
 # MinimumFallingPathSum
 
-**Topic:** `dp` | **File:** `com/problems/dp/MinimumFallingPathSum.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-falling-path-sum/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/maximum-path-sum-in-the-matrix_797998)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=N_aJ5qQbYA0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=13)
 - [▶ YouTube](https://www.youtube.com/watch?v=b_F3mz9l-uQ)
 - [📄 takeUforward](https://takeuforward.org/data-structure/minimum-maximum-falling-path-sum-dp-12/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+let alone the answer has n * n options, we have also the recursion tree time and space
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Bottom up or iterative approach we will use the same recurrence relation
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+bottom up or iterative approach we will use the same recurrence relation from the question, it is clear that we could either go from the start or go from the n-1 and the choices will be the same. copying the first row as the initial value of the dp array we could go from n-2 to 0, but here for simplicity we chose the 1 to n-1
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] matrix = {{2, 1, 3}, {6, 5, 4}, {7, 8, 9}};
         int answer = minFallingPathSum3(matrix);
         System.out.println(answer);
     }
+
+    // from the question, it is clear that we could either go from the start or go from the n-1
+    // and the choices will be the same.
     public static int minFallingPathSum3(int[][] matrix) {
         int n = matrix.length;
         if (n == 1) return matrix[0][0];
@@ -51,14 +58,15 @@ private static void type3() {
 
 ### Approach 2
 
-From the question, it is clear that we could either go from the start or go from the n-1 and the choices will be the same. same as previous but here we will use memoization
+same as previous but here we will use memoization instead of int[] we will use Integer[] we will start from all the cells in the first row if we are out of bounds then we will max value it means it has reached to the last row; column can be anything it means cell is already calculated we have 3 options to choose from we will take the min out of these
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] matrix = {{2, 1, 3}, {6, 5, 4}, {7, 8, 9}};
         int answer = minFallingPathSum2(matrix);
         System.out.println(answer);
     }
+
     private static int minFallingPathSum2(int[][] matrix) {
         int n = matrix.length;
         if (n == 1) return matrix[0][0];
@@ -71,6 +79,7 @@ private static void type2() {
             min = Math.min(min, minFallingPathSum2(0, j, n, matrix, dp));
         return min;
     }
+
     private static int minFallingPathSum2(int i, int j, int n, int[][] matrix, int[][] dp) {
         // if we are out of bounds then we will max value
         if (j < 0 || j >= n) return Integer.MAX_VALUE;
@@ -87,16 +96,19 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-It is very time-consuming to do it in recursion from the first row we will go to three direction (left-down, down, right-down) as answer could lie on n * n options n for the first any cell on the first row, and n for any cell on the last row. todo the memoization will come automatically in our mind. let alone the answer has n * n options, we have also the recursion tree time and space
+it is very time-consuming to do it in recursion from the first row we will go to three direction (left-down, down, right-down) as answer could lie on n * n options n for the first any cell on the first row, and n for any cell on the last row. the memoization will come automatically in our mind.
+
+let alone the answer has n * n options, we have also the recursion tree time and space we will start from all the cells in the first row if we are out of bounds then we will max value it means it has reached to the last row; column can be anything we have 3 options to choose from we will take the min out of these
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] matrix = {{2, 1, 3}, {6, 5, 4}, {7, 8, 9}};
         int answer = minFallingPathSum1(matrix);
         System.out.println(answer);
     }
+
     private static int minFallingPathSum1(int[][] matrix) {
         int n = matrix.length;
         if (n == 1) return matrix[0][0];
@@ -106,6 +118,7 @@ private static void type1() {
             min = Math.min(min, minFallingPathSum1(0, j, n, matrix));
         return min;
     }
+
     private static int minFallingPathSum1(int i, int j, int n, int[][] matrix) {
         // if we are out of bounds then we will max value
         if (j < 0 || j >= n) return Integer.MAX_VALUE;
@@ -118,4 +131,5 @@ private static void type1() {
         // we will take the min out of these
         return matrix[i][j] + Math.min(down, Math.min(dig1, dig2));
     }
+}
 ```

@@ -1,27 +1,31 @@
 # NumberOfIslandOnlineQueries
 
-**Topic:** `graph` | **File:** `com/problems/graph/NumberOfIslandOnlineQueries.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/number-of-islands-ii/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/number-of-islands/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Rn6B-Q4SNyA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
 - [📄 takeUforward](https://takeuforward.org/graph/number-of-islands-ii-online-queries-dsu-g-51/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+it can also happen that after adding this 1 more than 1 component will be connected
 
-### Implementation
+## 💡 Approaches
 
-This is a continuation of the number of island problem where we use dfs to track number of islands but here we are constantly adding the edges and along the ways we have to calculate the answer so dfs will be very time consuming for this problem so we will use Disjoint set for this problem after every node added we will check all its neighbors if they are added or not and will check they belong to the same parent or not if they belong to the same then its within the same component, no need to do anything if they are not that means after adding this point two components got connected so we will decrease the number of components so this is n x m size matrix, and we will be adding one point at time our answer will be number of island presents on that specific time after adding one point, we will check all its 4 side neighbors, if those cells are 1 then we will add this current 1 to the existing components, it can also happen that after adding this 1 more than 1 component will be connected
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+so this is n x m size matrix, and we will be adding one point at time our answer will be number of island presents on that specific time after adding one point, we will check all its 4 side neighbors, if those cells are 1 then we will add this current 1 to the existing components, it can also happen that after adding this 1 more than 1 component will be connected we will create a n X m matrix to store the points from the queries we will create rank and parent arrays for Disjoint set we will traverse all the queries and add the points and connect the component one by one we will get row and column from the query, but we will convert to a unique node number the cell is already 1 means it is a duplicate query we will set the cell as 1 currently this cell will be a single node component, so we will add 1 to the component size now we will check all its 4 side neighbors checking if the neighbor is a valid cell, and it is having value as 1 as they are adjacent nodes, so they should be in same components, so if they have different parent we will unify them, also decrease the number of components src == parent[src] means parent of the node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 4, m = 5;
 		int[][] queries = {
 				{0, 0},
@@ -40,6 +44,7 @@ private static void type1() {
 		List<Integer> answer = numOfIslands(n, m, queries);
 		System.out.println(answer);
 	}
+
 	public static List<Integer> numOfIslands(int n, int m, int[][] queries) {
 		// we will create a n X m matrix to store the points from the queries
 		int[][] matrix = new int[n][m];
@@ -90,9 +95,11 @@ private static void type1() {
 		}
 		return answer;
 	}
+
 	private static boolean isInBounds(int x, int y, int n, int m) {
 		return x >= 0 && x < n && y >= 0 && y < m;
 	}
+
 	private static void union(int[] parent, int[] rank, int u, int v) {
 		int baseParentU = find(parent, u);
 		int baseParentV = find(parent, v);
@@ -104,6 +111,7 @@ private static void type1() {
 			rank[baseParentU]++;
 		}
 	}
+
 	private static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
 		if (node == parent[node]) return node;
@@ -111,4 +119,6 @@ private static void type1() {
 		parent[node] = baseParent;
 		return baseParent;
 	}
+
+}
 ```

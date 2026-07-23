@@ -1,16 +1,15 @@
 # LongestSubstringWithoutRepeatingCharacters
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/LongestSubstringWithoutRepeatingCharacters.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** String, Variable length Sliding Window
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)
 - [📄 NeetCode](https://neetcode.io/problems/longest-substring-without-duplicates)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/630418)
 
-## Solution Links
+## 🎥 Solution Links
 
 - new Striver : https://www.youtube.com/watch?v=-zSxTJkcdAo
 - Striver : https://www.youtube.com/watch?v=qtVh-XEpsJo&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=27
@@ -18,30 +17,35 @@
 - Neetcode : https://www.youtube.com/watch?v=wiGpQwVHdE0
 - [📄 takeUforward](https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Find the length of the longest substring without repeating characters.
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Previous approach uses a boolean array for checking if the character exists or not but we can also use an integer as a set/ boolean array, it has 32 bits, and we can use the bits and the bit position as a set if the bit is 1 then the index is set if 0 then it is empty todo complete it but not necessary for the interview
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+previous approach uses a boolean array for checking if the character exists or not but we can also use an integer as a set/ boolean array, it has 32 bits, and we can use the bits and the bit position as a set if the bit is 1 then the index is set if 0 then it is empty complete it but not necessary for the interview
 
 ```java
-private static void type5() {
+	private static void type5() {
 
 	}
 ```
 
 ### Approach 4
 
-Best possible solution for leetcode but not for the interview discuss 1->2->3 in the interview
+best possible solution for leetcode but not for the interview discuss 1->2->3 in the interview
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String s = "abcabcbb";
 		int max = lengthOfLongestSubstring4(s);
 		System.out.println("max length is " + max);
 	}
+
 	private static int lengthOfLongestSubstring4(String s) {
 		int n = s.length();
 		boolean[] set = new boolean[128];
@@ -59,16 +63,18 @@ private static void type4() {
 
 ### Approach 3
 
-This is more optimized approach here we do not need to remove the character, so we will store character as well as their indices so now if we find any duplicate character we will check if the index is lesser than the starting of the window or not if yes then start is a valid character for the current window, else we will initialize the window from the character's last index + 1 two pointer approach time complexity O(n) space complexity O(n) here instead of set we are taking map and storing character and its latest position we can also use an int array for storing indices but, then we have to initialize that array with -1
+this is more optimized approach here we do not need to remove the character, so we will store character as well as their indices so now if we find any duplicate character we will check if the index is lesser than the starting of the window or not if yes then start is a valid character for the current window, else we will initialize the window from the character's last index + 1 two pointer approach here instead of set we are taking map and storing character and its latest position we can also use an int array for storing indices but, then we have to initialize that array with -1 if it's a new character then it's we are just adding it to map or if the character is present, but its index is less than the start of the current series when we encounter any duplicate character then we again start the series from that character index + 1 suppose series is "cabdac", index of 'a' is 1 and 4 when we again found 'a' it 4 then we start the series at 2 then on next iteration in map we will found c = 0, but it's less than left, so it will treat c as a new character and update its index
 
-**Complexity:** Time: o(n) | Space: o(n)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "abcabcbb";
 		int max = lengthOfLongestSubstring3(s);
 		System.out.println("max length is " + max);
 	}
+
 	private static int lengthOfLongestSubstring3(String s) {
 		int n = s.length();
 		Map<Character, Integer> map = new HashMap<>();
@@ -98,16 +104,18 @@ private static void type3() {
 
 ### Approach 2
 
-Explain this in the interview optimized approach using two pointer approach time complexity O(2*n) space complexity O(n)
+explain this in the interview optimized approach using two pointer approach we will add a new character till we find any duplicate once we find any duplicate character we will shrink the window from the left side and remove characters from the set also
 
-**Complexity:** Time: o(2*n) | Space: o(n)
+**Time Complexity:** `O(2*n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "abcabcbb";
 		int max = getMax2(s);
 		System.out.println("max length is " + max);
 	}
+
 	private static int getMax2(String s) {
 		int n = s.length();
 		char[] arr = s.toCharArray();
@@ -132,18 +140,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(n) we will check for every substring possible
+brute force approach we will check for every substring possible we will use a set to store the unique characters if the character is already exists then we will break
 
-**Complexity:** Time: o(n^2) | Space: o(n)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "abcabcbb";
 		int max = lengthOfLongestSubstring1(s);
 		System.out.println(max);
 	}
+
 	private static int lengthOfLongestSubstring1(String s) {
 		int n = s.length();
 		char[] arr = s.toCharArray();
@@ -163,4 +173,6 @@ private static void type1() {
 		}
 		return max;
 	}
+
+}
 ```

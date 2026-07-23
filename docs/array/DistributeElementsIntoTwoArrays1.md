@@ -1,25 +1,31 @@
 # DistributeElementsIntoTwoArrays1
 
-**Topic:** `array` | **File:** `com/problems/array/DistributeElementsIntoTwoArrays1.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/distribute-elements-into-two-arrays-i/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Distribute elements into two arrays (Part 1).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-In place
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+in place study it one more time
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {5, 4, 3, 8};
         int[] ans = resultArray2(nums);
         PrintUtl.print(ans);
     }
+
+    // todo study it one more time
     private static int[] resultArray2(int[] nums) {
         int idx = 0;
         for (int i = 2; i < nums.length; i++) {
@@ -36,16 +42,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Study it one more time using extra space
+using extra space
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {5, 4, 3, 8};
         int[] ans = resultArray1(nums);
         PrintUtl.print(ans);
     }
+
     public static int[] resultArray1(int[] nums) {
         int n = nums.length;
         List<Integer> list1 = new ArrayList<>();
@@ -65,4 +72,5 @@ private static void type1() {
 
         return ans;
     }
+}
 ```

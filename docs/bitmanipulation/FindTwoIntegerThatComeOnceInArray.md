@@ -1,33 +1,41 @@
 # FindTwoIntegerThatComeOnceInArray
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/FindTwoIntegerThatComeOnceInArray.java`
+**Topic:** `bitmanipulation`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/single-number-iii/description/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/two-numbers-with-odd-occurrences5846/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/two-numbers-with-odd-occurrences_8160466)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=faoVORjd-T8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an unsorted array, arr[] of positive numbers that contains even number of occurrences for all numbers except two numbers. Return that two numbers in decreasing order which has odd occurrences.Examples:
+Input: arr = [4, 2, 4, 5, 2, 3, 3, 1]
+Outp
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimized approach time complexity O(2n) space complexity O(1) suppose our array is 1, 1, 2, 2, 3, 4, 4, 5 in xor it will be 3^5 => 011 ^ 101 and remaining num will be cancelled 011 ^ 101 => 110 if we look closely then we will find there should be some 1 bit in xor result any bit will be 1 only when one of the bit is 1 and other one is 0 suppose in ith bit there is 1 so we can create a mask where all the bit is 0 except the ith bit and will create two bucket some element will fall in the first and some will fall in the second bucket but if the single elements are x and y then we will surely know that they will not fall in the same bucket remaining elements are in twice, so it does not matter they fall in which bucket eventually they will become 0 as num^num = 0 and 0 is identity in xor operation
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(2n) | Space: o(1)
+### Approach 3: 🏆 Optimal Solution
+
+optimized approach suppose our array is 1, 1, 2, 2, 3, 4, 4, 5 in xor it will be 3^5 => 011 ^ 101 and remaining num will be cancelled 011 ^ 101 => 110 if we look closely then we will find there should be some 1 bit in xor result any bit will be 1 only when one of the bit is 1 and other one is 0 suppose in ith bit there is 1 so we can create a mask where all the bit is 0 except the ith bit and will create two bucket some element will fall in the first and some will fall in the second bucket but if the single elements are x and y then we will surely know that they will not fall in the same bucket remaining elements are in twice, so it does not matter they fall in which bucket eventually they will become 0 as num^num = 0 and 0 is identity in xor operation xor will hold the xor value of all the elements we will extract the right most set bit which will also act as the mask ~(xor - 1) can be written as -xor
+
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = { 1, 1, 2, 2, 3, 4, 4, 5 };
 		int[] ans = singleNumber3(nums);
 		PrintUtl.print(ans);
 	}
+
 	private static int[] singleNumber3(int[] nums) {
 		// xor will hold the xor value of all the elements
 		int xor = 0;
@@ -50,14 +58,15 @@ private static void type3() {
 
 ### Approach 2
 
-Brute force approach using set
+brute force approach using set
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = {2, 4, 1, 3, 2, 4};
 		int[] ans = singleNumber2(arr);
 		print(ans);
 	}
+
 	private static int[] singleNumber2(int[] nums) {
 		Set<Integer> set = new HashSet<>();
 		for (int num : nums) {
@@ -73,18 +82,20 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force time complexity O(2n) space complexity O(n)
+brute force
 
-**Complexity:** Time: o(2n) | Space: o(n)
+**Time Complexity:** `O(2n)`
+**Space Complexity:** `O(n)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 1, 1, 2, 2, 3, 4, 4, 5 };
 		int[] list = singleNumber1(nums);
 		PrintUtl.print(list);
 	}
+
 	private static int[] singleNumber1(int[] nums) {
 		Map<Integer, Integer> freq = new HashMap<>();
 		for (int num : nums) {
@@ -98,4 +109,6 @@ private static void type1() {
 
 		return ans;
 	}
+
+}
 ```

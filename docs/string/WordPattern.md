@@ -1,29 +1,34 @@
 # WordPattern
 
-**Topic:** `string` | **File:** `com/problems/string/WordPattern.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/word-pattern/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=W_akoecmCbM)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+we could make a map of (Character,String) but as we know the character size beforehand which is 26,
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will split the words by space check if the length is not same then it not possible to create the mapping we could make a map of (Character,String) but as we know the character size beforehand which is 26, so we will use a string array of size 26 also if we use an array we could also check the reverse mapping very easily which string maps to which character if map[pos] is null but the word is already mapped to a different position then we will return false directly if the map position has some word already and which is not the current word then we will return false create the mapping of character -> word
 
 ```java
-private static void type1() {
+    private static void type1() {
         String pattern = "abba", s = "dog cat cat dog";
         boolean ans = wordPattern(pattern, s);
         System.out.println(ans);
     }
+
     public static boolean wordPattern(String pattern, String s) {
         // we will split the words by space
         String[] words = s.split(" ");
@@ -47,4 +52,12 @@ private static void type1() {
         }
         return true;
     }
+
+    static boolean hasKey(String[] map, String val) {
+        for (String word : map) {
+            if (val.equals(word)) return true;
+        }
+        return false;
+    }
+}
 ```

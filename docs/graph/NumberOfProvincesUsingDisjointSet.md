@@ -1,26 +1,30 @@
 # NumberOfProvincesUsingDisjointSet
 
-**Topic:** `graph` | **File:** `com/problems/graph/NumberOfProvincesUsingDisjointSet.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/number-of-provinces/1)
 - [📄 LeetCode](https://leetcode.com/problems/number-of-provinces/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=ZGr5nX-Gi6Y&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=48)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count provinces using Disjoint Set Union.
 
-### Approach 1 — Brute Force
+## 💡 Approaches
 
-We have already solved this problem using BFS/DFS it is the same problem as find the number of components we will do it using the DisjointSet here we can also use a Disjoint set for this
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 1: 🔨 Brute Force
+
+we can also use a Disjoint set for this we will traverse the entire matrix if [i,j] is 1 then i and j is connected. if i and j is connected and if they are currently in the different component, then we will put them into the same component if i and j same that means it is the same node if both are in different component, then we will unify them number of provinces equals to number of unique parents src == parent[src] means parent of the node
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 3;
 		ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
 		matrix.add(new ArrayList<>(List.of(1, 0, 1)));
@@ -54,6 +58,7 @@ private static void type1() {
 
 		System.out.println(numberOfProvinces);
 	}
+
 	private static void union(int[] parent, int[] rank, int u, int v) {
 		int baseParentU = find(parent, u);
 		int baseParentV = find(parent, v);
@@ -65,6 +70,7 @@ private static void type1() {
 			rank[baseParentU]++;
 		}
 	}
+
 	private static int find(int[] parent, int node) {
 		// src == parent[src] means parent of the node
 		if (node == parent[node]) return node;
@@ -76,10 +82,10 @@ private static void type1() {
 
 ### Approach 0
 
-We will use dfs from every unvisited node
+we will use dfs from every unvisited node first, we will convert matrix to the adjacency list we will also use a visited array to store the visited cells from every unvisited node will start the DFS we will set the visited true when operating on it if the adjacent node of the source is unvisited, then we will start the bfs
 
 ```java
-private static void type0() {
+	private static void type0() {
 		int v = 3;
 		ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
 		matrix.add(new ArrayList<>(List.of(1, 0, 1)));
@@ -107,6 +113,7 @@ private static void type0() {
 		}
 		System.out.println(component);
 	}
+
 	private static void dfs(int src, boolean[] visited, List<List<Integer>> adj) {
 		// we will set the visited true when operating on it
 		visited[src] = true;
@@ -115,4 +122,5 @@ private static void type0() {
 			if (!visited[end]) dfs(end, visited, adj);
 		}
 	}
+}
 ```

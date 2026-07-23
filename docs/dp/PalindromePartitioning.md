@@ -1,14 +1,14 @@
 # PalindromePartitioning
 
-**Topic:** `dp` | **File:** `com/problems/dp/PalindromePartitioning.java`
+**Topic:** `dp`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/palindrome-partitioning-ii/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/palindrome-partitioning_873266)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/palindromic-patitioning4845/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=35)
 - [▶ YouTube](https://www.youtube.com/watch?v=fOUlNlawdAU&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=36)
@@ -16,20 +16,27 @@
 - [▶ YouTube](https://www.youtube.com/watch?v=_H8V5hJUGd0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=54)
 - [📄 takeUforward](https://takeuforward.org/data-structure/palindrome-partitioning-ii-front-partition-dp-53/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **5** approaches, progressing from brute force to optimal:
+Given a string s,&nbsp;a partitioning of the string is a&nbsp;palindrome partitioning&nbsp;if every sub-string of the partition is a palindrome.&nbsp;Determine the fewest cuts needed for palindrome partitioning of the given string.
+Examples:
+Input: s
 
-### Approach 5 — Optimal
+## 💡 Approaches
 
-Similar to the previous type, but here we will precompute all the palindrome possible beforehand. we will use simple trick to calculate that string(i,j) will be palindrome when arr[i] == arr[j] and string(i+1,j-1) will be palindrome
+This problem can be solved in **5** different ways, each improving upon the previous:
+
+### Approach 5: 🏆 Optimal Solution
+
+similar to the previous type, but here we will precompute all the palindrome possible beforehand. we will use simple trick to calculate that string(i,j) will be palindrome when arr[i] == arr[j] and string(i+1,j-1) will be palindrome we will pre-calculate all the palindrome before the actual computation Fill the palindrome table first all single characters then two length characters then we will check for all length characters strings from 3 finding the last character index string(i,j) will be palindrome when arr[i] == arr[j] and string(i+1,j-1) will be palindrome now this portion is exactly same as the previous Calculate minimum cuts now with O(n^2) loop we will try to find all the cuts possible checking if i to n-1 is palindrome or not if not, then we will break it
 
 ```java
-private static void type5() {
+	private static void type5() {
 		String str = "xnitinjk";
 		int minCost = minCut5(str);
 		System.out.println(minCost);
 	}
+
 	public static int minCut5(String s) {
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -81,14 +88,16 @@ private static void type5() {
 
 ### Approach 4
 
-Optimizing from the previous type same as the recursive code
+optimizing from the previous type same as the recursive code converting the recursive code into iterative checking if i to n-1 is palindrome or not if not then we will break it
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String str = "xnitinjk";
 		int minCost = minCut4(str);
 		System.out.println(minCost);
 	}
+
+	// converting the recursive code into iterative
 	private static int minCut4(String str) {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
@@ -116,20 +125,22 @@ private static void type4() {
 
 ### Approach 3
 
-Converting the recursive code into iterative recursion with memoization
+recursion with memoization if it is already a palindrome, then we do not need to partition it we will also save if it is a palindrome in the memo otherwise we will split the string from the start we will check if it is a palindrome or not if yes, then only we will check for the remaining string which is valid because why should we waste recursion calls
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String str = "xnitinjk";
 		int minCost = minCut3(str);
 		System.out.println(minCost);
 	}
+
 	public static int minCut3(String str) {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
 		int[] dp = new int[n];
 		return minCost3(arr, 0, n, dp);
 	}
+
 	private static int minCost3(char[] arr, int i, int n, int[] dp) {
 		if (i == n) return 0;
 		// if it is already a palindrome, then we do not need to partition it
@@ -154,19 +165,21 @@ private static void type3() {
 
 ### Approach 2
 
-It is called front partition We know that in the worst case, total cuts=(n-1) i.e., size -1. checking only if the 1st part is Palindrome (then it gives zero cuts, else gives k-1 cuts at that particular point), then check for the other part by calling solve function
+it is called front partition We know that in the worst case, total cuts=(n-1) i.e., size -1. checking only if the 1st part is Palindrome (then it gives zero cuts, else gives k-1 cuts at that particular point), then check for the other part by calling solve function if it is already a palindrome, then we do not need to partition it we will also save if it is a palindrome in the memo otherwise we will split the string from the start we will check if it is a palindrome or not if yes, then only we will check for the remaining string which is valid because why should we waste recursion calls
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String str = "xnitinjk";
 		int minCost = minCut2(str);
 		System.out.println(minCost);
 	}
+
 	public static int minCut2(String str) {
 		char[] arr = str.toCharArray();
 		int n = arr.length;
 		return minCost2(arr, 0, n);
 	}
+
 	private static int minCost2(char[] arr, int i, int n) {
 		if (i == n) return 0;
 		// if it is already a palindrome, then we do not need to partition it
@@ -187,18 +200,21 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Using recursion brute force approach
+using recursion brute force approach we will try to split the string by every index but before that we will check if the current if it is a single character, then it is always a palindrome if it is already a palindrome, then we do not need to partition it on every character we will try to break the string and find the cost we will update the min checking that the current string is palindrome or not
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String str = "xnitinjk";
 		char[] arr = str.toCharArray();
 		int n = arr.length;
 		int minCost = minCost1(arr, 0, n - 1);
 		System.out.println(minCost);
 	}
+
+	// we will try to split the string by every index
+	// but before that we will check if the current
 	private static int minCost1(char[] str, int i, int j) {
 		// if it is a single character, then it is always a palindrome
 		if (i >= j) return 0;
@@ -214,10 +230,13 @@ private static void type1() {
 		}
 		return min;
 	}
+
+	// checking that the current string is palindrome or not
 	private static boolean isPalindrome(char[] str, int i, int j) {
 		while (i < j)
 			if (str[i++] != str[j--])
 				return false;
 		return true;
 	}
+}
 ```

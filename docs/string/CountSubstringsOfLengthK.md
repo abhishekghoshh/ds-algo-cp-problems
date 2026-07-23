@@ -1,27 +1,32 @@
 # CountSubstringsOfLengthK
 
-**Topic:** `string` | **File:** `com/problems/string/CountSubstringsOfLengthK.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/count-with-k-different-characters_1214627)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Count substrings of exact length K with distinct characters.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Sliding window approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+sliding window approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         String str = "aacfssa";
         int k = 2;
         int n = str.length();
         char[] arr = str.toCharArray();
         System.out.println(getCount(arr, n, k) - getCount(arr, n, k - 1));
     }
+
     private static int getCount(char[] arr, int n, int k) {
         int[] freq = new int[26];
         int left = 0, ch, leftItem, distinct = 0;
@@ -41,11 +46,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

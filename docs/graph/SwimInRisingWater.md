@@ -1,26 +1,30 @@
 # SwimInRisingWater
 
-**Topic:** `graph` | **File:** `com/problems/graph/SwimInRisingWater.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/swim-in-rising-water/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=Wq1NibUMrNU)
 - [▶ YouTube](https://www.youtube.com/watch?v=z-6f0KkSbvU)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find the minimum time to swim from top-left to bottom-right.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is more optimized approach we will use the DFS and the binary search here
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is more optimized approach we will use the DFS and the binary search here we will use a clever approach here we know that value of cell will range from 0 to n^2 -1 if we can apply binary search on time and see what is the lowest time that we can attain for every [time] we will check if we can reach to the end we will check that if we need to wait on any cell for time t we will use binary search on time we will check if we can reach from (0,0) to (n-1,n-1) with time with value of mid if yes then we will shrink the upper limit If not reachable, then we will increase the lower limit Base case: if we reach the bottom-right corner Mark the current cell as visited Explore all possible directions if the current cell and the adjacent cell is lesser than the time then we do not have to wait to go to the other cell, so our way will not be blocked Recursively check if we can reach the destination If we can't reach the destination
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] grid = {
                 {0, 2},
                 {1, 3}
@@ -28,6 +32,14 @@ private static void type2() {
         int ans = swimInWater2(grid);
         System.out.println(ans);
     }
+
+    static int[][] dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    // we will use a clever approach here
+    // we know that value of cell will range from 0 to n^2 -1
+    // if we can apply binary search on time and see what is the lowest time that we can attain
+    // for every [time] we will check if we can reach to the end
+    // we will check that if we need to wait on any cell for time t
     public static int swimInWater2(int[][] grid) {
         int n = grid.length;
         int low = 0, high = n * n - 1;
@@ -46,6 +58,7 @@ private static void type2() {
         }
         return low;
     }
+
     private static boolean reachableOrNot(int r, int c, int n, int t, int[][] grid, boolean[][] visited) {
         // Base case: if we reach the bottom-right corner
         if (r == n - 1 && c == n - 1) return true;
@@ -67,12 +80,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use a clever approach here we know that value of cell will range from 0 to n^2 -1 if we can apply binary search on time and see what is the lowest time that we can attain for every [time] we will check if we can reach to the end we will check that if we need to wait on any cell for time t todo this is easy approach we will use Dijkstra here
+this is easy approach we will use Dijkstra here our intuition is the answer will be maximum time on a certain path because once we reach to the cell which have the maximum value. all the other grid cells had the lesser value but if we wait till the max cell value eventually we do not have to wait for any other cell on that path so we will use a priority queue for storing all the adjacent cells and out of that we will choose the minimum adjacent cell once we start operating on any cell at that time only we will calculate the max variable as we are choosing that cell as a part of our path min heap starting with 0,0 we will check till we reach the n-1,n-1 cell we will traverse all the adjacent unvisited nodes
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] grid = {
                 {0, 2},
                 {1, 3}
@@ -80,6 +93,16 @@ private static void type1() {
         int ans = swimInWater1(grid);
         System.out.println(ans);
     }
+
+    // our intuition is the answer will be maximum time on a certain path
+    // because once we reach to the cell which have the maximum value.
+    // all the other grid cells had the lesser value but if we wait till the max cell value
+    // eventually we do not have to wait for any other cell on that path
+
+    // so we will use a priority queue for storing all the adjacent cells
+    // and out of that we will choose the minimum adjacent cell
+    // once we start operating on any cell at that time only we will calculate the max variable
+    // as we are choosing that cell as a part of our path
     public static int swimInWater1(int[][] grid) {
         int n = grid.length;
         if (n == 1) return 0;
@@ -106,4 +129,20 @@ private static void type1() {
         }
         return -1;
     }
+
+    static boolean isInBounds(int x, int y, int n) {
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    static class Point {
+        int height;
+        int x, y;
+
+        Point(int height, int x, int y) {
+            this.height = height;
+            this.x = x;
+            this.y = y;
+        }
+    }
+}
 ```

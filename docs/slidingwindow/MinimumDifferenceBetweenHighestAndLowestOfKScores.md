@@ -1,32 +1,36 @@
 # MinimumDifferenceBetweenHighestAndLowestOfKScores
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MinimumDifferenceBetweenHighestAndLowestOfKScores.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** array, sliding window, Sorting, Greedy
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=JU5XdBZZtlk)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Minimum difference between max and min among K scores.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach using sorting and then sliding window we have to compute the difference so if the numbers are close then only the difference will be less, but again it has to be between the lowest and the highest simple solution is to sort the array, so the similar numbers will come then use 2 pointer on 0 and k-1 index and increment both the pointers then the subarray size will be k, and we will only be taking the lowest on the left and highest on the right side
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimal approach using sorting and then sliding window we have to compute the difference so if the numbers are close then only the difference will be less, but again it has to be between the lowest and the highest simple solution is to sort the array, so the similar numbers will come then use 2 pointer on 0 and k-1 index and increment both the pointers then the subarray size will be k, and we will only be taking the lowest on the left and highest on the right side
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {9, 4, 1, 7};
         int k = 2;
         int ans = minimumDifference2(nums, k);
         System.out.println(ans);
     }
+
     public static int minimumDifference2(int[] nums, int k) {
         int n = nums.length;
         if (n == 1) return 0;
@@ -40,13 +44,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {9, 4, 1, 7};
         int k = 2;
     }
+}
 ```

@@ -1,28 +1,34 @@
 # NearestCellHavingZero
 
-**Topic:** `graph` | **File:** `com/problems/graph/NearestCellHavingZero.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/01-matrix/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/distance-of-nearest-cell-having-1-in-a-binary-matrix_1169913)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=edXdVwkYHF8&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=14)
 - [📄 takeUforward](https://takeuforward.org/graph/distance-of-nearest-cell-having-1/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given a binary grid[][],&nbsp;where each cell contains either 0 or 1, find the distance of the nearest 1&nbsp;for every cell in the grid.The distance between two cells (i1, j1)&nbsp; and (i2, j2) is calculated as |i1 - i2| + |j1 - j2|.&nbsp;You need
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This is not exactly BFS rather it is using a smart linear traversal while taking account of the previous 0 cells TODO we could also directly operate on the given matrix but it is not a good practice
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+this is not exactly BFS rather it is using a smart linear traversal while taking account of the previous 0 cells we could also directly operate on the given matrix but it is not a good practice first, we will set all the cell to MAX-1 not MAX first, we will traverse from the start if the cell is 0, then we put the distance as 0 if the cell is not 0, then we are trying to minimize the cell value will its top and left cells.
+
+we will compare with (i-1,j) and (i,j-1) as we are doing +1 with the previous cell value, that is why we have initialized with INT_MAX - 1 otherwise it would cause an integer overflow and make the distance negative so we have already traversed from the start, but if some of the point comes at the end then for that points the neighbors are not minimized, so we will now traverse from the last now again we will check with the previous two diagonal cells as we are traversing from the back, so we will do it with (i+1,j) and (i,j+1)
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[][] mat = {
 				{0, 1, 0, 0},
 				{0, 0, 1, 1},
@@ -66,12 +72,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Explain this in the interview using BFS, rather searching nearest 0 from all cells have 1, we will start from all the 0 cells we will store all the nodes having 0, and then we will do a level wise traversal
+explain this in the interview using BFS, rather searching nearest 0 from all cells have 1, we will start from all the 0 cells we will store all the nodes having 0, and then we will do a level wise traversal if cell is 0, we will add it to the queue as the starting point for the 4 directions we have defined 4 delta coordinates we will initiate the distance value with 0 and one each level we will increase it currently queue only holds the points with cell value equal to 1.
+
+for that point, the nearest cell having 1 distance is 0 so initialize a variable d with 0 are we are applying BFS, so we are evenly spreading out, so after each iteration we will increment d value first, it will check the size of the queue we will apply BFS from those many points and add to the queue we will poll all the current level elements from the queue and add for next level
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[][] mat = {
 				{0, 1, 0, 0},
 				{0, 0, 1, 1},
@@ -124,4 +132,5 @@ private static void type1() {
 		}
 		print(distance);
 	}
+}
 ```

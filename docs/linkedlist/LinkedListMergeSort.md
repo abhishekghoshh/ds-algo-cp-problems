@@ -1,26 +1,33 @@
 # LinkedListMergeSort
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/LinkedListMergeSort.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sort-list/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+as this is not an array, so we have to find out the
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+using a merge sort idea as this is not an array, so we have to find out the middle pointer by traversing the entire array. but we could do one thing we could use the tortoise approach of finding the middle node detaching the middle pointer at this point, we have two lists one is head to mid another is mid.next ...
+
+last
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node head = new Node(1, 3, 4, 7, 1, 2, 6);
         print(head);
         head = partition(head);
         print(head);
     }
+
     public static Node partition(Node head) {
         // using a merge sort idea
         if (head == null || head.next == null) return head;
@@ -39,6 +46,7 @@ private static void type1() {
         head2 = partition(head2);
         return merge(head, head2);
     }
+
     public static Node findMid(Node head) {
         Node slow = head, fast = head;
         while (fast.next != null && fast.next.next != null) {
@@ -47,6 +55,7 @@ private static void type1() {
         }
         return slow;
     }
+
     public static Node merge(Node list1, Node list2) {
         Node head = new Node(-1);
         Node prev = head;
@@ -63,4 +72,5 @@ private static void type1() {
         prev.next = (null != list1) ? list1 : list2;
         return head.next;
     }
+}
 ```

@@ -1,29 +1,34 @@
 # MaxConsecutiveOnes
 
-**Topic:** `array` | **File:** `com/problems/array/MaxConsecutiveOnes.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/max-consecutive-ones/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/traffic_6682625)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=bYWLJb3vCWY)
 - [▶ YouTube](https://www.youtube.com/watch?v=Mo33MjjMlyA&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=45)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Code 360 by Coding Ninjas
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Optimized approach on every 0 we are checking the previous 1's series is the largest or not if the array is ended with 1 then we are also checking the largest once again time complexity O(n) space complexity O(1)
+This problem can be solved in **3** different ways, each improving upon the previous:
 
-**Complexity:** Time: o(n) | Space: o(1)
+### Approach 3: 🏆 Optimal Solution
+
+optimized approach on every 0 we are checking the previous 1's series is the largest or not if the array is ended with 1 then we are also checking the largest once again
+
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
 		int max = 0, length = 0;
 		for (int num : nums) {
@@ -41,12 +46,13 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach on every 1 we are calculating length from its start time complexity O(n) space complexity O(1)
+optimized approach on every 1 we are calculating length from its start
 
-**Complexity:** Time: o(n) | Space: o(1)
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
 		int n = nums.length, length = 0, start = 0;
 		for (int i = 0; i < n; i++) {
@@ -59,14 +65,15 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach time complexity O(n^2) space complexity O(1)
+brute force approach
 
-**Complexity:** Time: o(n^2) | Space: o(1)
+**Time Complexity:** `O(n^2)`
+**Space Complexity:** `O(1)`
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = { 1, 1, 0, 1, 1, 1 };
 		int n = nums.length, length = 0;
 		for (int i = 0; i < n; i++)
@@ -76,4 +83,6 @@ private static void type1() {
 			}
 		System.out.println("max length is " + length);
 	}
+
+}
 ```

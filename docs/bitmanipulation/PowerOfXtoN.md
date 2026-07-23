@@ -1,21 +1,25 @@
 # PowerOfXtoN
 
-**Topic:** `bitmanipulation` | **File:** `com/problems/bitmanipulation/PowerOfXtoN.java`
+**Topic:** `bitmanipulation`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/fast-exponention-using-bit-manipulation/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Calculate x^n using bit manipulation.
 
-### Implementation
+## 💡 Approaches
 
-Ans = n^b TODO check later
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+ans = n^b check later Stores final answer
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 2, b = 8;
 		// Stores final answer
 		int answer = 1;
@@ -26,4 +30,6 @@ private static void type1() {
 		}
 		System.out.println("answer is " + answer);
 	}
+
+}
 ```

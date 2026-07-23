@@ -1,34 +1,39 @@
 # CheckIfTreeIsBinarySearchTree
 
-**Topic:** `binarysearchtree` | **File:** `com/problems/binarysearchtree/CheckIfTreeIsBinarySearchTree.java`
+**Topic:** `binarysearchtree`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/validate-binary-search-tree/description/)
 - [📄 NeetCode](https://neetcode.io/problems/valid-binary-search-tree)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/problems/check-for-bst/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/check-bst_5975)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=f-sj7I5oXEI&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=47)
 - [▶ YouTube](https://www.youtube.com/watch?v=s6ATEkipzow)
 - [📄 takeUforward](https://takeuforward.org/binary-search-tree/check-if-a-tree-is-a-binary-search-tree-or-binary-tree/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Given the root of a binary tree, determine if it is a valid binary search tree (BST).
 
-### Implementation
+## 💡 Approaches
 
-We know one logic of a binary search tree left side will be lower than the root and right side will be higher than the root. so, we will create an imaginary boundary any lowest number and any highest number, and every node we visit we will change shrink the boundary
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we know one logic of a binary search tree left side will be lower than the root and right side will be higher than the root. so, we will create an imaginary boundary any lowest number and any highest number, and every node we visit we will change shrink the boundary if the root is null, then we do not need to check if the root is lesser equal to min or higher equal to max, then it broke the condition now for the left subtree root is the upper limit for the right subtree, root is the lower limit
 
 ```java
-private static void type1() {
+	private static void type1() {
 		TNode root = TNode.makeBST(15);
 		boolean isValidBst = isValidBst(root, Long.MIN_VALUE, Long.MAX_VALUE);
 		System.out.println(isValidBst);
 	}
+
 	private static boolean isValidBst(TNode root, long min, long max) {
 		// if the root is null, then we do not need to check
 		if (null == root) return true;
@@ -39,4 +44,6 @@ private static void type1() {
 		return isValidBst(root.left, min, root.data)
 				&& isValidBst(root.right, root.data, max);
 	}
+
+}
 ```

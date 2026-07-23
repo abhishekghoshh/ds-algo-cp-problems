@@ -1,27 +1,31 @@
 # MinimumDaysToMakeMBouquets
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/MinimumDaysToMakeMBouquets.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/rose-garden_2248080)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=TXAuxeYBTdg)
 - [📄 takeUforward](https://takeuforward.org/arrays/minimum-days-to-make-m-bouquets/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Find minimum days to make m bouquets.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Binary search on answer approach we will find min and max and we will apply binary search on that for every mid we will check if the day allocation possible or not
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+binary search on answer approach we will find min and max and we will apply binary search on that for every mid we will check if the day allocation possible or not if (bloomDay.length < m * k) return -1;
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] bloomDay = {1, 10, 3, 10, 2};
         int m = 3, k = 1;
 //        if (bloomDay.length < m * k) return -1;
@@ -42,6 +46,7 @@ private static void type2() {
         }
         System.out.println(answer);
     }
+
     private static boolean canCreateBouquets(int[] bloomDay, int day, int m, int k) {
         int count = 0, adjacent = 0;
         for (int oneBloomDay : bloomDay) {
@@ -58,12 +63,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

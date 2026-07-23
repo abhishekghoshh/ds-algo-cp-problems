@@ -1,30 +1,34 @@
 # MaximumOfAllSubarraysOfSizeK
 
-**Topic:** `slidingwindow` | **File:** `com/problems/slidingwindow/MaximumOfAllSubarraysOfSizeK.java`
-
+**Topic:** `slidingwindow`  
 **Tags:** Array, Sliding window, queue
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/sliding-window-maximum/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=xFJXtB5vSmM&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=6)
 - [▶ YouTube](https://www.youtube.com/watch?v=CZQGRp93K4k&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=83)
 - [📄 takeUforward](https://takeuforward.org/data-structure/sliding-window-maximum/)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+Return the maximum element in every subarray of size K.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-Study later space complexity is O(2n) for storing max from the right and max from the left time complexity is (2n+k)
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+study later for storing max from the right and max from the left
+
 
 ```java
-private static void type4() {
+	private static void type4() {
 		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 2;
 		int n = nums.length;
@@ -60,10 +64,10 @@ private static void type4() {
 
 ### Approach 3
 
-Study later
+study later
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 3;
 		int n = nums.length;
@@ -90,6 +94,7 @@ private static void type3() {
 		print(answer);
 
 	}
+
 	public static int findMaxIndex(int[] arr, int left, int right) {
 		int ans = left;
 		for (int i = left + 1; i < right; i++) {
@@ -102,12 +107,12 @@ private static void type3() {
 
 ### Approach 2
 
-Sliding window time complexity O(2n)
+sliding window we will store items in a decreasing manner, so every time the queue peek will have the maximum value remove numbers out-of-range k i-k th element is from the last window as the current range is from i-k+1 to i remove smaller numbers in k range as they are useless if there is any greater number encountered then there is no point of store previous smaller number as we are storing in a decreasing manner to peek will give the highest element
 
-**Complexity:** Time: o(2n)
+**Time Complexity:** `O(2n)`
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] nums = { 1, 3, -1, -3, 5, 3, 6, 7 };
 		int k = 3;
 		int n = nums.length;
@@ -135,12 +140,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach size of the result array
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
 		int k = 2;
 		int n = nums.length;
@@ -157,4 +162,6 @@ private static void type1() {
 		print(nums);
 		print(answer);
 	}
+
+}
 ```

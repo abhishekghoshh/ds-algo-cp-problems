@@ -1,28 +1,32 @@
 # AlienDictionary
 
-**Topic:** `graph` | **File:** `com/problems/graph/AlienDictionary.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/alien-dictionary/1)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/alien-dictionary_630423)
 - [📄 LeetCode](https://leetcode.com/problems/alien-dictionary)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=U3N_je7tWAs&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=26)
 - [📄 takeUforward](https://takeuforward.org/data-structure/alien-dictionary-topological-sort-g-26/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+This a classic problem of topological sort.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-This a classic problem of topological sort. We just have to create a graph of letters and for that, we need to know which letter is bigger than which letter.We can derive from the given words then after that we can create a graph our last work will be to know the topo sort of the graph todo using dfs and topological sort
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using dfs and topological sort all the strings are in lexicographic order, so the first string has lower value than the second, so we need to find the characters for which the difference arises we will increment the j till there is a different character we will convert the character to a zero-index integer as the words are in lexicographical order, so character in the first word will be lesser than the second word, and we will draw edge from first[j] to second[j] we will start the dfs for all unvisited nodes and after this the stack will be prepared we will loop through the stack and add the letters into the ans we need to translate the node value to character again simple topological sort using dfs we will loop through all its unvisited adjacent nodes and after that we will add that to the stack
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String[] dict = {
 				"baa",
 				"abcd",
@@ -74,6 +78,8 @@ private static void type2() {
 
 		System.out.println(dictionary);
 	}
+
+	// simple topological sort using dfs
 	private static void dfs(int start, boolean[] visited, List<List<Integer>> adjList, Stack<Integer> stack) {
 		visited[start] = true;
 		// we will loop through all its unvisited adjacent nodes
@@ -85,12 +91,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Simple topological sort using dfs todo using bfs and kahn algorithm
+using bfs and kahn algorithm all the strings are in lexicographic order, so the first string has lower value than the second, so we need to find the characters for which the difference arises we will increment the j till there is a different character we will convert the character to a zero-index integer as the words are in lexicographical order, so character in the first word will be lesser than the second word, and we will draw edge from first[j] to second[j] we will calculate all the indegree from the adjacency list and add starting nodes to the queue we will poll from the queue and store it to the string builder we need to translate the node value to character again we will loop through all its adjacent nodes
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String[] dict = {
 				"baa",
 				"abcd",
@@ -148,4 +154,6 @@ private static void type1() {
 		}
 		System.out.println(dictionary);
 	}
+
+}
 ```

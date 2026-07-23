@@ -1,35 +1,39 @@
 # CheckForAnagrams
 
-**Topic:** `string` | **File:** `com/problems/string/CheckForAnagrams.java`
-
+**Topic:** `string`  
 **Tags:** Array, String, Hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/valid-anagram/description/)
 - [📄 NeetCode](https://neetcode.io/problems/is-anagram)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1172164)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/anagram-pairs_626517)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/check-if-two-strings-are-anagrams-of-each-other/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+here we are using the freq array as map
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Same as previous here we are using the freq array as map
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+same as previous here we are using the freq array as map adding freq to the map decreasing frequency to the map
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "anagram";
 		String t = "nagaram";
 		boolean isAnagram = isAnagram2(s, t);
 		System.out.println(isAnagram);
 	}
+
 	private static boolean isAnagram2(String s, String t) {
 		if (s.length() != t.length()) return false;
 		char[] arr1 = s.toCharArray();
@@ -48,17 +52,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+adding freq to the map decreasing frequency to the map checking if any character has any value other than 0
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "anagram";
 		String t = "nagaram";
 		boolean isAnagram = isAnagram1(s, t);
 		System.out.println(isAnagram);
 	}
+
 	private static boolean isAnagram1(String s, String t) {
 		if (s.length() != t.length()) return false;
 		Map<Character, Integer> freq = new HashMap<>();
@@ -73,4 +78,5 @@ private static void type1() {
 			if (entry.getValue() != 0) return false;
 		return true;
 	}
+}
 ```

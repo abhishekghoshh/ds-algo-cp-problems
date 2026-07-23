@@ -1,30 +1,35 @@
 # FindPeakElementII
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/FindPeakElementII.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/find-a-peak-element-ii/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-peak-element_7449073)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=nGGp5XBzC4g)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find a peak element in a 2D matrix.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using binary search approach
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using binary search approach
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[][] mat = {{10, 20, 15}, {21, 30, 14}, {7, 16, 32}};
         int[] answer = findPeakGrid(mat);
         print(answer);
     }
+
     public static int[] findPeakGrid(int[][] mat) {
         int n = mat.length;
         int m = mat[0].length;
@@ -41,6 +46,7 @@ private static void type3() {
         }
         return new int[]{-1, -1};
     }
+
     public static int maxRowForCol(int[][] mat, int n, int col) { 
         int ind = -1;
         int max = -1;
@@ -56,15 +62,19 @@ private static void type3() {
 
 ### Approach 2
 
-Using dfs
+using dfs
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[][] mat = {{10, 20, 15}, {21, 30, 14}, {7, 16, 32}};
         int[][] dp = new int[mat.length][mat[0].length];
         dfs(dp, mat, 0, 0);
         print(answer);
     }
+
+    static int min = Integer.MIN_VALUE;
+    static int[] answer = new int[2];
+
     public static void dfs(int[][] dp, int[][] mat, int i, int j) {
         if (i < 0 || j < 0 || i > mat.length - 1 || j > mat[0].length - 1) return;
         if (dp[i][j] == 1) return;
@@ -81,12 +91,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[][] mat = {{10, 20, 15}, {21, 30, 14}, {7, 16, 32}};
         int n = mat.length;
         int m = mat[0].length;
@@ -108,4 +118,5 @@ private static void type1() {
         }
         print(answer);
     }
+}
 ```

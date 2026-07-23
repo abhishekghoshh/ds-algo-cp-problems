@@ -1,21 +1,23 @@
 # ConvertMinHeapToMaxHeap
 
-**Topic:** `heap` | **File:** `com/problems/heap/ConvertMinHeapToMaxHeap.java`
+**Topic:** `heap`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/implement-a-priority-queue-_1743878)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Code 360 by Coding Ninjas
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] minHeap = {1, 2, 3, 6, 7, 8};
         int n = minHeap.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -23,6 +25,7 @@ private static void type1() {
         }
         PrintUtl.print(minHeap);
     }
+
     private static void maxHeapify(int[] minHeap, int index) {
         int item = minHeap[index];
         int targetIndex = index;
@@ -37,4 +40,5 @@ private static void type1() {
             maxHeapify(minHeap, targetIndex);
         }
     }
+}
 ```

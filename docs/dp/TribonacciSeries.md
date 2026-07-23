@@ -1,31 +1,35 @@
 # TribonacciSeries
 
-**Topic:** `dp` | **File:** `com/problems/dp/TribonacciSeries.java`
-
+**Topic:** `dp`  
 **Tags:** Recursion, Dynamic programming
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/n-th-tribonacci-number/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=3lpNp5Ojvrw)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **4** approaches, progressing from brute force to optimal:
+T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
 
-### Approach 4 — Optimal
+## 💡 Approaches
 
-T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0. same as previous bottom up approach but here we will use 3 prev variable and update on every iteration
+This problem can be solved in **4** different ways, each improving upon the previous:
+
+### Approach 4: 🏆 Optimal Solution
+
+same as previous bottom up approach but here we will use 3 prev variable and update on every iteration T0 = 0, T1 = 1, T2 = 1 n is greater than 2 copying prev1,prev2 and prev3 into local variables updating prev1,prev2 and prev3
 
 ```java
-private static void type4() {
+    private static void type4() {
         int n = 25;
         int ans = tribonacci4(n);
         System.out.println(ans);
     }
+
     private static int tribonacci4(int n) {
         // T0 = 0, T1 = 1, T2 = 1
         if (n <= 1) return n;
@@ -46,14 +50,15 @@ private static void type4() {
 
 ### Approach 3
 
-Bottom up approach
+bottom up approach T0 = 0, T1 = 1, T2 = 1 n is greater than 2
 
 ```java
-private static void type3() {
+    private static void type3() {
         int n = 25;
         int ans = tribonacci3(n);
         System.out.println(ans);
     }
+
     private static int tribonacci3(int n) {
         // T0 = 0, T1 = 1, T2 = 1
         if (n <= 1) return n;
@@ -71,18 +76,20 @@ private static void type3() {
 
 ### Approach 2
 
-Same as previous with a memoization
+same as previous with a memoization T0 = 0, T1 = 1, T2 = 1 returning from the dp table Tn+3 = Tn + Tn+1 + Tn+2
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 25;
         int ans = tribonacci2(n);
         System.out.println(ans);
     }
+
     private static int tribonacci2(int n) {
         int[] dp = new int[n + 1];
         return tribonacci2(n, dp);
     }
+
     private static int tribonacci2(int n, int[] dp) {
         // T0 = 0, T1 = 1, T2 = 1
         if (n <= 1) return n;
@@ -94,16 +101,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force solution using the recursion
+brute force solution using the recursion T0 = 0, T1 = 1, T2 = 1 Tn+3 = Tn + Tn+1 + Tn+2
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 25;
         int ans = tribonacci1(n);
         System.out.println(ans);
     }
+
     public static int tribonacci1(int n) {
         // T0 = 0, T1 = 1, T2 = 1
         if (n <= 1) return n;
@@ -111,4 +119,5 @@ private static void type1() {
         // Tn+3 = Tn + Tn+1 + Tn+2
         return tribonacci1(n - 1) + tribonacci1(n - 2) + tribonacci1(n - 3);
     }
+}
 ```

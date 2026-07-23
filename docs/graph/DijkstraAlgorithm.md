@@ -1,12 +1,12 @@
 # DijkstraAlgorithm
 
-**Topic:** `graph` | **File:** `com/problems/graph/DijkstraAlgorithm.java`
+**Topic:** `graph`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 GeeksforGeeks](https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=V6H1qAeB-l4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=32)
 - [▶ YouTube](https://www.youtube.com/watch?v=PATgNiuTP20&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=33)
@@ -14,16 +14,20 @@
 - [📄 takeUforward](https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/)
 - [📄 takeUforward](https://takeuforward.org/data-structure/dijkstras-algorithm-using-set-g-33/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a weighted, undirected and connected graph of V vertices and an adjacency list adj.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Given a weighted, undirected and connected graph of V vertices and an adjacency list adj. In that the adj[i] is a list of lists containing two integers where the first integer of each list j denotes there is edge between 'i' and 'j' and second integers corresponds to the weight of that edge. You are given the source vertex S and You to Find the shortest distance of all the vertex's from the source vertex S. You have to return a list of integers denoting the shortest distance between each node and Source vertex S. Note: The Graph doesn't contain any negative weight cycle. this is a little update from the previous one we will not store index and distance in the queue we will only store the index because we can derive the distance from the distance array
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+this is a little update from the previous one we will not store index and distance in the queue we will only store the index because we can derive the distance from the distance array setting all the values to infinity distance from source to source is 0 in the heap, we will store the next point only, but we will use the distance array for minHeap property we can use Queue and use the distance array similarly we will relax the edge and update new distance for the end node
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int v = 3;
 		int s = 0;
 		List<List<List<Integer>>> adj = List.of(
@@ -70,10 +74,13 @@ private static void type3() {
 
 ### Approach 2
 
-Dijkstra is always solved using Priority Queue, but it can be solved using Queue also we can use TreeSet but that will be a over kill similar to the previous type, but here we will use a priority queue or a min heap. queue will introduce multiple unnecessary edges, so we can use priority queue time complexity of Dijkstra algorithm using Priority Queue will be 2e*log(v) where e is the number of edges and v is the number of nodes for a dense graph one node we can go to all v-1 nodes total edges will be v*(v-1) so e is almost equals to v^2 At max there will be all edges in the priority queue and we have to relax all that edges so the inner while loop can go e times and for max polling time of Priority queue will be log(e) so total time will be e*log(e) which is e*log(v^2) => 2e*log(v)
+Dijkstra is always solved using Priority Queue, but it can be solved using Queue also we can use TreeSet but that will be a over kill similar to the previous type, but here we will use a priority queue or a min heap. queue will introduce multiple unnecessary edges, so we can use priority queue where e is the number of edges and v is the number of nodes for a dense graph one node we can go to all v-1 nodes total edges will be v*(v-1) so e is almost equals to v^2 At max there will be all edges in the priority queue and we have to relax all that edges so the inner while loop can go e times and for max polling time of Priority queue will be log(e) so total time will be e*log(e) which is e*log(v^2) => 2e*log(v) setting all the values to infinity distance from source to source is 0 in the heap, we will store the next point and distance to source.
+
+the only difference from the previous is that we will use a priority queue we will relax the edge and update new distance for the end node
+
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int v = 3;
 		int s = 0;
 		List<List<List<Integer>>> adj = List.of(
@@ -118,12 +125,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-We will use a queue for storing the edges and current distance from the source, and we will relax the edges everytime
+We will use a queue for storing the edges and current distance from the source, and we will relax the edges everytime setting all the values to infinity distance from source to source is 0 in the queue, we will store the next point and distance to source we will start from the source node and explore all it's neighbor nodes and try to relax the edges.
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int v = 3;
 		int s = 0;
 		List<List<List<Integer>>> adj = List.of(
@@ -167,4 +174,7 @@ private static void type1() {
 
 		print(distance);
 	}
+
+
+}
 ```

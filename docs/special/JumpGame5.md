@@ -17,6 +17,10 @@ public class JumpGame5 {
 
 ```
 
+## 📝 Problem Statement
+
+Maximum number of indices you can visit given decreasing-value constraint.
+
 ## Source Code
 
 ```java

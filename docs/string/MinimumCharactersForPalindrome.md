@@ -1,30 +1,34 @@
 # MinimumCharactersForPalindrome
 
-**Topic:** `string` | **File:** `com/problems/string/MinimumCharactersForPalindrome.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/shortest-palindrome)
 - [📄 InterviewBit](https://www.interviewbit.com/problems/minimum-characters-required-to-make-a-string-palindromic/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/893000)
 
-## Solution Links
+## 🎥 Solution Links
 
 - Consistent Code : https://www.youtube.com/watch?v=rLq2vMILp-c
 - GeeksforGeeks Practice : https://www.youtube.com/watch?v=j-1NLHybCSg
 - Let's Practice Together : https://www.youtube.com/watch?v=pE4D55Yti7o
 - Sagar Malhotra : https://www.youtube.com/watch?v=y1o7ygP-VpQ
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **6** approaches, progressing from brute force to optimal:
+it a palindrome.the string will become cbabc
 
-### Approach 6 — Optimal
+## 💡 Approaches
 
-Study it later
+This problem can be solved in **6** different ways, each improving upon the previous:
+
+### Approach 6: 🏆 Optimal Solution
+
+appending the reversed string with space to avoid mixing the original and reversed string. eg, aaaa and aaaa used the start subsequence of reversed string using the LPS array.
 
 ```java
-private static void type6() {
+	private static void type6() {
 		String text = "AACECAAAA";
 		String reverse = new StringBuilder(text).reverse().toString();
 		//appending the reversed string with space to avoid mixing the original and reversed string. eg, aaaa and aaaa
@@ -49,10 +53,8 @@ private static void type6() {
 
 ### Approach 5
 
-Improved approach
-
 ```java
-private static void type5() {
+	private static void type5() {
 		String s = "AACECAAAA";
 		int pow = 1, p = 31;
 		int hash1 = 0, hash2 = 0;
@@ -72,10 +74,10 @@ private static void type5() {
 
 ### Approach 4
 
-Best solution in leetcode
+best solution in leetcode
 
 ```java
-private static void type4() {
+	private static void type4() {
 		String s = "AACECAAAA";
 		int n = s.length();
 		int prefix = 0, postfix = 0, base = 31, pow = 1;
@@ -99,12 +101,12 @@ private static void type4() {
 
 ### Approach 3
 
-Study it later using manacher's algorithm time complexity O(2n)
+study it later using manacher's algorithm initializing the transformed array modification on manacher's algorithm when the left window is from start
 
-**Complexity:** Time: o(2n)
+**Time Complexity:** `O(2n)`
 
 ```java
-private static void type3() {
+	private static void type3() {
 		String s = "AACECAAAA";
 		int max = 0;
 		int n = 2 * s.length() + 3;
@@ -143,10 +145,10 @@ private static void type3() {
 
 ### Approach 2
 
-Two pointer approach slightly better than previous approach
+two pointer approach slightly better than previous approach
 
 ```java
-private static void type2() {
+	private static void type2() {
 		String s = "abcd";
 		char[] arr = s.toCharArray();
 		int n = arr.length;
@@ -179,12 +181,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach we will check 0 to n if it is a palindrome or not if it is not, then we will decrease from the end if a string is aac then the minimum character addition to make it a palindrome is c at the start the string will be caac if the string is abc then we have to add cb at the start to make it a palindrome.the string will become cbabc
+brute force approach we will check 0 to n if it is a palindrome or not if it is not, then we will decrease from the end if a string is aac then the minimum character addition to make it a palindrome is c at the start the string will be caac if the string is abc then we have to add cb at the start to make it a palindrome.the string will become cbabc
 
 ```java
-private static void type1() {
+	private static void type1() {
 		String s = "abcd";
 		char[] arr = s.toCharArray();
 		int n = arr.length, end = arr.length;
@@ -204,6 +206,7 @@ private static void type1() {
 		String output = new String(answer);
 		System.out.println(output);
 	}
+
 	private static boolean isPalindrome(char[] arr, int right) {
 		int left = 0;
 		while (left < right) {
@@ -213,4 +216,6 @@ private static void type1() {
 		}
 		return true;
 	}
+
+}
 ```

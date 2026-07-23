@@ -1,27 +1,31 @@
 # CountAndSay
 
-**Topic:** `string` | **File:** `com/problems/string/CountAndSay.java`
+**Topic:** `string`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/count-and-say/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/1090543)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/look-and-say-sequence_668478)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9fI_26Dl1IA)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Generate the nth term of the count-and-say sequence.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Check the solution
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+if(n==1) return s;
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 30;
 		String s = "1";
 //		if(n==1) return s;
@@ -30,6 +34,7 @@ private static void type2() {
 		}
 		System.out.println(s);
 	}
+
 	private static String nextAnswer(String answer) {
 		StringBuilder sb = new StringBuilder();
 		char prev = answer.charAt(0);
@@ -52,16 +57,17 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+for the last iteration
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 30;
 		String answer = countAndSay(n);
 		System.out.println(answer);
 	}
+
 	private static String countAndSay(int n) {
 		if (n == 1) return "1";
 		String prev = countAndSay(n - 1);
@@ -82,7 +88,10 @@ private static void type1() {
 		sb.append(count).append(currentNum);
 		return sb.toString();
 	}
+
 	private static int toInt(char[] arr, int i) {
 		return arr[i] - '0';
 	}
+
+}
 ```

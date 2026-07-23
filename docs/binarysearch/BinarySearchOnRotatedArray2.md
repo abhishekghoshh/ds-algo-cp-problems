@@ -1,32 +1,37 @@
 # BinarySearchOnRotatedArray2
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/BinarySearchOnRotatedArray2.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/search-in-a-rotated-sorted-array-ii_7449547)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=w2G2W8l__pc&t=1s)
 - [📄 takeUforward](https://takeuforward.org/arrays/search-element-in-rotated-sorted-array-ii/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Search in a rotated sorted array (with duplicates).
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+if mid-points the target if left part is sorted: element does not exist:
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {1, 0, 1, 1, 1};
         int target = 0;
         boolean found = rotatedSearch(nums, target);
         System.out.println(found);
     }
+
     private static boolean rotatedSearch(int[] nums, int target) {
         int n = nums.length; // size of the array.
         int low = 0, high = n - 1;
@@ -63,11 +68,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
     }
+}
 ```

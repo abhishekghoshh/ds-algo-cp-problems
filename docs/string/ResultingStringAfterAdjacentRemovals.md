@@ -1,27 +1,31 @@
 # ResultingStringAfterAdjacentRemovals
 
-**Topic:** `string` | **File:** `com/problems/string/ResultingStringAfterAdjacentRemovals.java`
-
+**Topic:** `string`  
 **Tags:** String, Stack, Greedy
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/resulting-string-after-adjacent-removals/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+but here we are using string builder as stack and return the final string
 
-### Implementation
+## 💡 Approaches
 
-This is a very optimized approach using stack, but here we are using string builder as stack and return the final string
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+this is a very optimized approach using stack, but here we are using string builder as stack and return the final string
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "bcda";
         String ans = resultingString(s);
         System.out.println(ans);
     }
+
     public static String resultingString(String s) {
         StringBuilder sb = new StringBuilder();
         for (char ch : s.toCharArray()) {
@@ -37,4 +41,13 @@ private static void type1() {
         }
         return sb.toString();
     }
+
+    static boolean isConsecutive(char x, char y) {
+        if (x == 'a' && y == 'z') return true;
+        if (x == 'z' && y == 'a') return true;
+        int x1 = x - 'a';
+        int y1 = y - 'a';
+        return (x1 - y1 == 1) || (y1 - x1 == 1);
+    }
+}
 ```

@@ -3,6 +3,10 @@
 **Topic:** `special` | **File:** `com/problems/special/dsapumbai/Week51KBeauty.java`
 
 
+## 📝 Problem Statement
+
+Count substrings of length k that divide the number (K-Beauty).
+
 ## Source Code
 
 ```java

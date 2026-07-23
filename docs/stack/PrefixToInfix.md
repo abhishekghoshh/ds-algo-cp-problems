@@ -1,25 +1,27 @@
 # PrefixToInfix
 
-**Topic:** `stack` | **File:** `com/problems/stack/PrefixToInfix.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/prefix-to-infix_1215000)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=MuF5p8-oWc8)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Convert a prefix expression to infix notation.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         String exp = "/-ab+-cde";
         char[] arr = exp.toCharArray();
         int n = arr.length;
@@ -40,12 +42,12 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Same as postfix to infix operation just here we will go from back
+same as postfix to infix operation just here we will go from back
 
 ```java
-private static void type1() {
+    private static void type1() {
         String exp = "/-ab+-cde";
         char[] arr = exp.toCharArray();
         int n = arr.length;
@@ -70,4 +72,5 @@ private static void type1() {
         String answer = stack.pop().toString();
         System.out.println(answer);
     }
+}
 ```

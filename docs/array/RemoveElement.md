@@ -1,26 +1,31 @@
 # RemoveElement
 
-**Topic:** `array` | **File:** `com/problems/array/RemoveElement.java`
+**Topic:** `array`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/remove-element/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Remove all occurrences of a value in-place.
 
-### Implementation
+## 💡 Approaches
 
-Brute force approach
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+shrinking the end till the end is on val if start < end that means we can not swap the elements now now we will swap the elements finding the first element where the val exists
 
 ```java
-private static void type1() {
+    private static void type1() {
         int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
         int val = 2;
         int count = removeElement1(nums, val);
         System.out.println(count);
     }
+
     private static int removeElement1(int[] nums, int val) {
         int n = nums.length;
         if (n == 0) return 0;
@@ -46,4 +51,6 @@ private static void type1() {
         }
         return count;
     }
+
+}
 ```

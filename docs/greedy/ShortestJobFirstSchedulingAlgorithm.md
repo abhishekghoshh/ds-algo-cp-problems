@@ -1,26 +1,30 @@
 # ShortestJobFirstSchedulingAlgorithm
 
-**Topic:** `greedy` | **File:** `com/problems/greedy/ShortestJobFirstSchedulingAlgorithm.java`
+**Topic:** `greedy`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/sjf_1172165)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=9PDUOx4MtKo)
 - [📄 GeeksforGeeks](https://www.geeksforgeeks.org/program-for-shortest-job-first-or-sjf-cpu-scheduling-set-1-non-preemptive/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Implement Shortest Job First CPU scheduling.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimized approach this can be improved
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+optimized approach this can be improved if we store the index alongside, then we can get the jobs sequence also jobs will be sorted by their arrival time then their burst time min heap will be used to get the jobs by their burst time we are starting the clock from the arrival of the first job the clock will be started from the arrival of the first job and the wait time is initialized from 0 we poll the job with the least burst time total wait time will be current time - job's arrival time now the current time will be current time + job's burst time we start from the last job and go till the job's arrival time is less than the current time there can be one edge case here that is if the remaining jobs are coming pretty late then our program will not go to this loop to avoid this edge case we can initialize the current time with the next jobs we can code it like this i is not equal to n that mean we have not gone till last item still the queue is empty so we will take the next job from array and initialize the current time with the arrival time of the ne
 
 ```java
-private static void type2() {
+    private static void type2() {
         int n = 3;
         int[] arrivalTime = {0, 0, 0};
         int[] burstTime = {3, 1, 2};
@@ -77,15 +81,16 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         int n = 3;
         int[] arrivalTime = {0, 0, 0};
         int[] burstTime = {3, 1, 2};
 
     }
+}
 ```

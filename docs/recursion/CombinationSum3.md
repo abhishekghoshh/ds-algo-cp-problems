@@ -1,22 +1,28 @@
 # CombinationSum3
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/CombinationSum3.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/combination-sum-iii/description/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/combination-sum-iii_5038357)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+and also we don't have to think about an array
 
-### Implementation
+## 💡 Approaches
 
-All the numbers are unique, and also we don't have to think about an array
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+all the numbers are unique, and also we don't have to think about an array if the k is 0 and remaining means the list can be one of the answers if the num reaches to 10 or all k digits consumed, then we will return directly we do not have to check the remaining variable because we are only starting the recursion call.
+
+if num is less than or equal to remaining, so num can never be less than 0 we are considering the num to be a part of the answer. so we will update all the variables we will be skipping the current num
 
 ```java
-private static void type1() {
+    private static void type1() {
         int k = 3;
         int n = 9;
         List<List<Integer>> answer = new ArrayList<>();
@@ -24,6 +30,7 @@ private static void type1() {
         combinationSum1(1, k, n, list, answer);
         System.out.println(answer);
     }
+
     private static void combinationSum1(int num, int k, int remaining,
                                         LinkedList<Integer> list, List<List<Integer>> answer) {
         // if the k is 0 and remaining means the list can be one of the answers
@@ -45,4 +52,7 @@ private static void type1() {
             combinationSum1(num + 1, k, remaining, list, answer);
         }
     }
+
+
+}
 ```

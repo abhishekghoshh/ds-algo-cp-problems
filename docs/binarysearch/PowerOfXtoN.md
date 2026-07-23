@@ -1,34 +1,40 @@
 # PowerOfXtoN
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/PowerOfXtoN.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/powx-n/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/codestudio/problems/1082146)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/power-of-numbers_8157729)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/find-x-raised-to-power-n-_626560)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=l0YC3876qxg&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=16)
 - [📄 takeUforward](https://takeuforward.org/data-structure/implement-powxn-x-raised-to-the-power-n/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+multiplies x to itself n times
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Using recursion and binary search exactly the same as previous
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+using recursion and binary search exactly the same as previous we have to convert it to long because 2147483648 is greater that INT_MAX
 
 ```java
-private static void type3() {
+	private static void type3() {
 		double x = 2;
 		int n = -2147483648;
 		double answer = myPow3(x, n);
 		System.out.printf("pow(%f,%d) is %f%n", x, n, answer);
 	}
+
+
 	public static double myPow3(double x, int n) {
 		if (x == 1) return 1;
 		else if (x == 0) return 0;
@@ -41,6 +47,7 @@ private static void type3() {
 		double result = pow3(1, x, pow);
 		return isPositivePower ? result : (1.0 / result);
 	}
+
 	private static double pow3(double result, double x, long n) {
 		System.out.println(n);
 		if (n == 0) return result;
@@ -51,15 +58,16 @@ private static void type3() {
 
 ### Approach 2
 
-Binary search approach we are dividing the power by 2 if its even and multiplying the number by itself at the same time, given that 3^6 is 9^3 if the power is 15. we will divide the power by 2 everytime we get even power else we will make it even by subtracting 1 15 will be 14, see the solution, and you will find it very easy
+binary search approach we are dividing the power by 2 if its even and multiplying the number by itself at the same time, given that 3^6 is 9^3 if the power is 15. we will divide the power by 2 everytime we get even power else we will make it even by subtracting 1 15 will be 14, see the solution, and you will find it very easy
 
 ```java
-private static void type2() {
+	private static void type2() {
 		double x = 2;
 		int n = -2147483648;
 		double answer = pow(x, n);
 		System.out.printf("pow(%f,%d) is %f%n", x, n, answer);
 	}
+
 	private static double pow(double x, int n) {
 		if (x == 1) return 1;
 		else if (x == 0) return 0;
@@ -83,16 +91,18 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach multiplies x to itself n times
+brute force approach multiplies x to itself n times
 
 ```java
-private static void type1() {
+	private static void type1() {
 		double x = 2;
 		int n = 10;
 		double answer = 1;
 		for (int i = 0; i < n; i++) answer = answer * x;
 		System.out.printf("pow(%f,%d) is %f%n", x, n, answer);
 	}
+
+}
 ```

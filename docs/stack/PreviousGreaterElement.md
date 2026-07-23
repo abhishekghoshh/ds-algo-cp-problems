@@ -1,21 +1,25 @@
 # PreviousGreaterElement
 
-**Topic:** `stack` | **File:** `com/problems/stack/PreviousGreaterElement.java`
+**Topic:** `stack`  
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=T5s96ynzArg&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=3)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given an array, find the Previous Greater Element for each element.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as the previous type2 just a little compact, we have reduced the unnecessary if checks
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as the previous type2 just a little compact, we have reduced the unnecessary if checks as we are checking the previous larger element, so we will start from the beginning
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int[] arr = { 1, 3, 2, 4, 3, 3 };
 		int n = arr.length;
 		Stack<Integer> stack = new Stack<>();
@@ -32,10 +36,10 @@ private static void type3() {
 
 ### Approach 2
 
-Same as the next greater element as we will calculate the previous greater elements do we will go from the start
+same as the next greater element as we will calculate the previous greater elements do we will go from the start as we are checking previous larger element so we will start from the begining
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int[] arr = { 1, 3, 2, 4, 3, 3 };
 		int n = arr.length;
 		Stack<Integer> stack = new Stack<>();
@@ -60,12 +64,14 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force
+brute force
 
 ```java
-private static void type1() {
+	private static void type1() {
 
 	}
+
+}
 ```

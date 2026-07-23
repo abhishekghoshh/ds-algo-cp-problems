@@ -1,27 +1,31 @@
 # KthPermutationSequence
 
-**Topic:** `recursion` | **File:** `com/problems/recursion/KthPermutationSequence.java`
+**Topic:** `recursion`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/permutation-sequence/)
 - [📄 Coding Ninjas](https://www.naukri.com/code360/problems/1112626)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=wT7gcXLYoao&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=56)
 - [📄 takeUforward](https://takeuforward.org/data-structure/find-k-th-permutation-sequence/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given n and k, return the kth permutation sequence of [1..n].
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Check the solution again iterative way
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+iterative way 0 to n - 1 factorial getting the position appending the num to the result now updating the k again we will remove the num from the num array
 
 ```java
-private static void type3() {
+	private static void type3() {
 		int n = 4;
 		int k = 19;
 
@@ -56,10 +60,12 @@ private static void type3() {
 
 ### Approach 2
 
-Suppose we have the number 1234, this number will have 24 permutations out of which 1st 6 numbers will be starting with 1, second 6 numbers will be starting from 2 and so on. so if we take 10th number, we know one thing that it will start from 2 so first item 2 is fixed remaining number is 134 now we know we have 6 numbers and out of which 1st 2 numbers starts with 1, second 2 numbers starts with, this we can find the remaining
+suppose we have the number 1234, this number will have 24 permutations out of which 1st 6 numbers will be starting with 1, second 6 numbers will be starting from 2 and so on. so if we take 10th number, we know one thing that it will start from 2 so first item 2 is fixed remaining number is 134 now we know we have 6 numbers and out of which 1st 2 numbers starts with 1, second 2 numbers starts with, this we can find the remaining as the group will be formed in 0 indexing formats like 0 to n-1 so subtracting k to 1 currently factorial is n!
+
+where n is the size of numbers, so there will be n groups of (n-1)! numbers, if we divide it by numbers.size() then we will find (n-1)! now we will find in which group it will fall once we get that number, we will remove that from numbers let our number is 1234 and the position is 2, so we will take 3 and remove it, so we will have 124 now we will find our next group
 
 ```java
-private static void type2() {
+	private static void type2() {
 		int n = 4;
 		int k = 19;
 		List<Integer> numbers = new ArrayList<>();
@@ -74,6 +80,7 @@ private static void type2() {
 		computeKthPermutation(numbers, fact, answer, k - 1);
 		System.out.println(answer);
 	}
+
 	private static void computeKthPermutation(List<Integer> num, int fact, StringBuilder sb, int k) {
 		if (num.isEmpty()) return;
 		// currently factorial is n!
@@ -93,12 +100,12 @@ private static void type2() {
 	}
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-First explain this approach brute force will be to find all the permutation and then store it in list then, then return n-1
+first explain this approach brute force will be to find all the permutation and then store it in list then, then return n-1 find all the permutations get the kth permutation
 
 ```java
-private static void type1() {
+	private static void type1() {
 		int n = 4;
 		int k = 19;
 
@@ -113,6 +120,7 @@ private static void type1() {
 		// get the kth permutation
 		System.out.println(answer.get(k - 1));
 	}
+
 	private static void computePermutation1(char[] array, int start, List<String> answer) {
 		int n = array.length;
 		if (start == n) {
@@ -125,9 +133,11 @@ private static void type1() {
 			swap(array, i, start);
 		}
 	}
+
 	private static void swap(char[] array, int left, int right) {
 		char ch = array[left];
 		array[left] = array[right];
 		array[right] = ch;
 	}
+}
 ```

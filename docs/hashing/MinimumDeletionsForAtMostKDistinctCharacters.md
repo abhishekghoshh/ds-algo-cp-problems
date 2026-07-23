@@ -1,26 +1,31 @@
 # MinimumDeletionsForAtMostKDistinctCharacters
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/MinimumDeletionsForAtMostKDistinctCharacters.java`
+**Topic:** `hashing`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/minimum-deletions-for-at-most-k-distinct-characters/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+very simple hashing problem
 
-### Implementation
+## 💡 Approaches
 
-Very simple hashing problem
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+very simple hashing problem
 
 ```java
-private static void type1() {
+    private static void type1() {
         String s = "yyyzz";
         int k = 1;
         int ans = minDeletion1(s, k);
         System.out.println(ans);
     }
+
     public static int minDeletion1(String s, int k) {
         int[] freq = new int[26];
         int f = 0;
@@ -39,4 +44,6 @@ private static void type1() {
         }
         return count;
     }
+
+}
 ```

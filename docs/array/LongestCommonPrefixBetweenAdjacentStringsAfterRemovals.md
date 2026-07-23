@@ -1,27 +1,31 @@
 # LongestCommonPrefixBetweenAdjacentStringsAfterRemovals
 
-**Topic:** `array` | **File:** `com/problems/array/LongestCommonPrefixBetweenAdjacentStringsAfterRemovals.java`
-
+**Topic:** `array`  
 **Tags:** Arrays, hashing, prefix array
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/longest-common-prefix-between-adjacent-strings-after-removals/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Longest common prefix between adjacent strings after some removals.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Using a prefix and suffix array
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+using a prefix and suffix array
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] words = {"jump", "run", "run", "jump", "run"};
         int[] ans = longestCommonPrefix2(words);
         PrintUtl.print(ans);
     }
+
     private static int[] longestCommonPrefix2(String[] words) {
         int n = words.length;
         int[] ans = new int[n];
@@ -35,16 +39,17 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force solution using priority queue
+brute force solution using priority queue
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] words = {"jump", "run", "run", "jump", "run"};
         int[] ans = longestCommonPrefix1(words);
         PrintUtl.print(ans);
     }
+
     public static int[] longestCommonPrefix1(String[] words) {
         int n = words.length;
         PriorityQueue<Pair> pq = new PriorityQueue<>();
@@ -72,6 +77,7 @@ private static void type1() {
         }
         return ans;
     }
+
     public static int prefix(String a, String b) {
         int n1 = a.length();
         int n2 = b.length();
@@ -86,4 +92,25 @@ private static void type1() {
         }
         return Math.min(n1, n2);
     }
+
+    static class Pair implements Comparable<Pair> {
+        int start;
+        int end;
+        int prefix;
+
+        Pair(int start, int end, int prefix) {
+            this.start = start;
+            this.end = end;
+            this.prefix = prefix;
+        }
+
+        public int compareTo(Pair pair) {
+            return Integer.compare(pair.prefix, this.prefix);
+        }
+
+        public String toString() {
+            return "[" + start + "," + end + ":" + prefix + "]";
+        }
+    }
+}
 ```

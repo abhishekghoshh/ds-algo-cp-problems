@@ -1,28 +1,32 @@
 # NextGreaterElementInCircle
 
-**Topic:** `stack` | **File:** `com/problems/stack/NextGreaterElementInCircle.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/next-greater-element-ii/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/next-greater-element-ii_6212757)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=NXOOYYwpbg4&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=2)
 - [▶ YouTube](https://www.youtube.com/watch?v=Du881K7Jtk8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=75)
 - [📄 takeUforward](https://takeuforward.org/data-structure/next-greater-element-using-stack/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Given a circular array, find the Next Greater Element for each element.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous type4 here we are using an array as stack instead of in build stack class of java
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous type4 here we are using an array as stack instead of in build stack class of java we will start from 2*n-1 its like we are copying the same array and append it after the original so i%n will give the index which will be 0 to n-1
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums = {5, 7, 1, 2, 6, 0};
         int n = nums.length;
         int[] answer = new int[n];
@@ -45,10 +49,10 @@ private static void type3() {
 
 ### Approach 2
 
-This is also the next greater element problem but it will check circular
+this is also the next greater element problem but it will check circular we will start from 2*n-1 its like we are copying the same array and append it after the original so i%n will give the index which will be 0 to n-1
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {5, 7, 1, 2, 6, 0};
         int n = nums.length;
         int[] answer = new int[n];
@@ -68,12 +72,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force to check
+brute force to check
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

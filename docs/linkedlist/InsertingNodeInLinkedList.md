@@ -1,30 +1,35 @@
 # InsertingNodeInLinkedList
 
-**Topic:** `linkedlist` | **File:** `com/problems/linkedlist/InsertingNodeInLinkedList.java`
+**Topic:** `linkedlist`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/insert-node-at-the-beginning_8144739)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [📄 takeUforward](https://takeuforward.org/data-structure/insert-node-at-beginning-of-linked-list/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+the old head address will still refer to the head
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Recursive way to insert a node in the tail
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+recursive way to insert a node in the tail
 
 ```java
-private static void type2() {
+    private static void type2() {
         Node node = new Node(4, 10, 3, 5);
         int k = 9;
         Node head = insertAtTail2(node, k);
         print(head);
     }
+
     private static Node insertAtTail2(Node head, int k) {
         if (head == null) return new Node(k);
         head.next = insertAtTail2(head.next, k);
@@ -32,12 +37,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Here we will create a node then append the head node to the newly created node. we can do another thing, we can replace the data of the head node with the new value and then append a new node to the head and add the previous head data to that newly created node. hence we don't need to return the new pointer address the old head address will still refer to the head
+here we will create a node then append the head node to the newly created node. we can do another thing, we can replace the data of the head node with the new value and then append a new node to the head and add the previous head data to that newly created node.
+
+hence we don't need to return the new pointer address the old head address will still refer to the head
 
 ```java
-private static void type1() {
+    private static void type1() {
         Node list = new Node(4, 2, 5, 1);
         int newValue = -1;
         Node node = new Node(newValue);
@@ -45,4 +52,6 @@ private static void type1() {
         list = node;
         print(list);
     }
+
+}
 ```

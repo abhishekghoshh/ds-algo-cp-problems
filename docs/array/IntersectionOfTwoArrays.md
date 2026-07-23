@@ -1,32 +1,36 @@
 # IntersectionOfTwoArrays
 
-**Topic:** `array` | **File:** `com/problems/array/IntersectionOfTwoArrays.java`
-
+**Topic:** `array`  
 **Tags:** Array, Hashing
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/intersection-of-two-arrays/description/)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=fwUTXaMom6U)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **3** approaches, progressing from brute force to optimal:
+Find the intersection of two arrays.
 
-### Approach 3 — Optimal
+## 💡 Approaches
 
-Same as previous approach but here we will use int array instead of hashmap as it is easy to use, and we know the max range of the input which is 1000 we could use an int array we iterate through the first array and mark the number as 1 then we will go to second array and mark the character with 2 but only for the number which is previously marked as 1, it will help us to discard the duplicates we could also use a boolean array and instead of marking 2 we could mark that to false again
+This problem can be solved in **3** different ways, each improving upon the previous:
+
+### Approach 3: 🏆 Optimal Solution
+
+same as previous approach but here we will use int array instead of hashmap as it is easy to use, and we know the max range of the input which is 1000 we could use an int array we iterate through the first array and mark the number as 1 then we will go to second array and mark the character with 2 but only for the number which is previously marked as 1, it will help us to discard the duplicates we could also use a boolean array and instead of marking 2 we could mark that to false again marking the numbers as 1 marking the characters as 2 only for the character which was one before also counting as we need to store the result in a different array iterating through the array and saving the answer in array
 
 ```java
-private static void type3() {
+    private static void type3() {
         int[] nums1 = {4, 9, 5};
         int[] nums2 = {9, 4, 9, 8, 4};
         int[] ans = intersection3(nums1, nums2);
         print(ans);
     }
+
     public static int[] intersection3(int[] nums1, int[] nums2) {
         int N = 1000;
         int[] map = new int[N + 1];
@@ -55,15 +59,16 @@ private static void type3() {
 
 ### Approach 2
 
-Optimized approach a classic example of hashing we will use a hashmap we iterate through the first array and mark the number as 1 then we will go to second array and mark the character with 2 but only for the number which is previously marked as 1, it will help us to discard the duplicates
+optimized approach a classic example of hashing we will use a hashmap we iterate through the first array and mark the number as 1 then we will go to second array and mark the character with 2 but only for the number which is previously marked as 1, it will help us to discard the duplicates marking the numbers as 1 marking the characters as 2 only for the character which was one before also counting as we need to store the result in a different array iterating through the array and saving the answer in array
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums1 = {4, 9, 5};
         int[] nums2 = {9, 4, 9, 8, 4};
         int[] ans = intersection2(nums1, nums2);
         print(ans);
     }
+
     public static int[] intersection2(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
         // marking the numbers as 1
@@ -90,12 +95,13 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+}
 ```

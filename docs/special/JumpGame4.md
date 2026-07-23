@@ -16,6 +16,10 @@ public class JumpGame4 {
 
 ```
 
+## 📝 Problem Statement
+
+Minimum jumps to reach last; you can jump to i+1, i-1, or any index with same value.
+
 ## Source Code
 
 ```java

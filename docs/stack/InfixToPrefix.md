@@ -1,26 +1,30 @@
 # InfixToPrefix
 
-**Topic:** `stack` | **File:** `com/problems/stack/InfixToPrefix.java`
+**Topic:** `stack`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/prefix-to-infix_1215000)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=snDDBjT8jYA)
 - [📄 takeUforward](https://takeuforward.org/data-structure/infix-to-prefix/)
 
-## Approaches
+## 📝 Problem Statement
 
-Implementation:
+Convert an infix expression to prefix notation.
 
-### Implementation
+## 💡 Approaches
 
-We will do this in four steps first we will reverse the string then we will change ( to ) and ) to ( then we will calculate the postfix expression, then again we will reverse the postfix expression
+This problem can be solved in **1** different ways, each improving upon the previous:
+
+### Approach: Implementation
+
+we will do this in four steps first we will reverse the string then we will change ( to ) and ) to ( then we will calculate the postfix expression, then again we will reverse the postfix expression
 
 ```java
-private static void type1() {
+    private static void type1() {
         String infix = "(p+q)*(c-d)";
         char[] arr = infix.toCharArray();
         reverse(arr);
@@ -46,6 +50,7 @@ private static void type1() {
         String ans = answer.reverse().toString();
         System.out.println(ans);
     }
+
     private static void reverse(char[] arr) {
         int start = 0, end = arr.length - 1;
         while (start < end) {
@@ -56,4 +61,12 @@ private static void type1() {
             end--;
         }
     }
+
+    static int precedence(char ch) {
+        if (ch == '+' || ch == '-') return 1;
+        else if (ch == '*' || ch == '/') return 2;
+        else if (ch == '^') return 3;
+        return -1;
+    }
+}
 ```

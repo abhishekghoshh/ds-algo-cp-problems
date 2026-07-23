@@ -1,26 +1,29 @@
 # CalculateScoreAfterPerformingInstructions
 
-**Topic:** `hashing` | **File:** `com/problems/hashing/CalculateScoreAfterPerformingInstructions.java`
+**Topic:** `hashing`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/calculate-score-after-performing-instructions/description/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Calculate final score after performing a set of instructions.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Optimal approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
 
 ```java
-private static void type2() {
+    private static void type2() {
         String[] instructions = {"jump", "add", "add", "jump", "add", "jump"};
         int[] values = {2, 1, 3, 1, -2, -3};
         long ans = calculateScore2(instructions, values);
         System.out.println(ans);
     }
+
     public static long calculateScore2(String[] instructions, int[] values) {
         long sum = 0;
         int i = 0;
@@ -39,17 +42,18 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Optimized approach
+optimized approach
 
 ```java
-private static void type1() {
+    private static void type1() {
         String[] instructions = {"jump", "add", "add", "jump", "add", "jump"};
         int[] values = {2, 1, 3, 1, -2, -3};
         long ans = calculateScore1(instructions, values);
         System.out.println(ans);
     }
+
     public static long calculateScore1(String[] instructions, int[] values) {
         long score = 0;
         int n = instructions.length;
@@ -66,4 +70,5 @@ private static void type1() {
         }
         return score;
     }
+}
 ```

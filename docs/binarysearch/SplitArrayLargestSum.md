@@ -1,27 +1,31 @@
 # SplitArrayLargestSum
 
-**Topic:** `binarysearch` | **File:** `com/problems/binarysearch/SplitArrayLargestSum.java`
+**Topic:** `binarysearch`  
 
-## Problem Links
+## 🔗 Problem Links
 
 - [📄 LeetCode](https://leetcode.com/problems/split-array-largest-sum/description/)
 - [📄 Coding Ninjas](https://www.codingninjas.com/studio/problems/largest-subarray-sum-minimized_7461751)
 
-## Solution Links
+## 🎥 Solution Links
 
 - [▶ YouTube](https://www.youtube.com/watch?v=thUd_WJn6wk)
 - [📄 takeUforward](https://takeuforward.org/arrays/split-array-largest-sum/)
 
-## Approaches
+## 📝 Problem Statement
 
-This problem has **2** approaches, progressing from brute force to optimal:
+Given an array nums and an integer k, split the array into k non-empty subarrays to minimize the largest sum among them.
 
-### Approach 2 — Optimal
+## 💡 Approaches
 
-Binary search on answer approach
+This problem can be solved in **2** different ways, each improving upon the previous:
+
+### Approach 2: 🏆 Optimal Solution
+
+binary search on answer approach
 
 ```java
-private static void type2() {
+    private static void type2() {
         int[] nums = {7, 2, 5, 10, 8};
         int k = 2;
         int max = 0, sum = 0;
@@ -40,6 +44,7 @@ private static void type2() {
         }
         System.out.println(answer);
     }
+
     private static int countForMid(int[] nums, int mid, int k) {
         int count = 1, sum = 0;
         for (int num : nums) {
@@ -53,12 +58,14 @@ private static void type2() {
     }
 ```
 
-### Approach 1 — Brute Force
+### Approach 1: 🔨 Brute Force
 
-Brute force approach
+brute force approach
 
 ```java
-private static void type1() {
+    private static void type1() {
 
     }
+
+}
 ```
