@@ -1,52 +1,7 @@
 ## String
 
 
-### General
-- [Is Subsequence](com/problems/string/IsSubsequence.java)
-- [Length of Last Word](com/problems/string/LengthOfLastWord.java)
-- [Generate Tag for Video Caption](com/problems/string/GenerateTagForVideoCaption.java)
-- [Word Pattern](com/problems/string/WordPattern.java)
-- [Find Words That Can Be Formed by Characters](com/problems/string/FindWordsThatCanBeFormedByCharacters.java)
-- [Largest 3-Same-Digit Number in String](com/problems/string/Largest3SameDigitNumberInString.java)
-- [Destination City](com/problems/string/DestinationCity.java)
-- [Maximum Score After Splitting a String](com/problems/string/MaximumScoreAfterSplittingString.java)
-- [Minimum Changes To Make Alternating Binary String](com/problems/string/MinimumChangesToMakeAlternatingBinaryString.java)
-- [Redistribute Characters to Make All Strings Equal](com/problems/string/RedistributeCharactersToMakeAllStringsEqual.java)
-- [First Unique Character in a String](com/problems/string/FirstUniqueCharacterInAString.java)
-- [Merge Strings Alternately](com/problems/string/MergeStringsAlternately.java)
-- [Backspace String Compare](com/problems/string/BackspaceStringCompare.java)
-- [Check If Two String Arrays are Equivalent](com/problems/string/CheckIfTwoStringArraysAreEquivalent.java)
-
-- [Encode and Decode TinyURL](com/problems/array/EncodeAndDecodeTinyURL.java)
-- [Encode and Decode Strings](com/problems/string/EncodeAndDecodeStrings.java)
-- [Decode String](com/problems/string/DecodeString.java)
-- [Unique Length 3 Palindromic Subsequences](com/problems/array/UniqueLength3PalindromicSubsequences.java)
-- [Compare version number](com/problems/string/CompareVersionNumber.java)
-- [Remove Outermost Parentheses](com/problems/string/RemoveOutermostParentheses.java)
-
-- [Reverse String](com/problems/string/ReverseString.java)
-- [Reverse Words in a String](com/problems/string/ReverseWordsInString.java)
-- [Reverse Words in a String III](com/problems/string/ReverseWordsInString3.java)
-
-- [Largest Odd Number in String](com/problems/string/LargestOddNumberInString.java)
-- [Longest Common Prefix](com/problems/string/LongestCommonPrefix.java)
-- [Repeated DNA Sequences](com/problems/string/RepeatedDNASequences.java)
-- [Unique Email Addresses](com/problems/string/UniqueEmailAddresses.java)
-- [Isomorphic Strings](com/problems/string/IsomorphicStrings.java)
-- [Rotate String](com/problems/string/RotateString.java)
-- [Check if two Strings are anagrams of each other](com/problems/string/CheckForAnagrams.java)
-- [Group anagrams](com/problems/string/GroupAnagrams.java)
-- [Sort Characters by frequency](com/problems/string/SortCharactersByFrequency.java)
-- [Maximum Nesting Depth of the Parentheses](com/problems/string/MaximumNestingDepthOfTheParentheses.java)
-- [Roman to Integer](com/problems/string/RomanToInteger.java)
-- [Integer to Roman](com/problems/string/IntegerToRoman.java)
-- [Implement Atoi](com/problems/string/StringToInteger.java)
-- [Count With K Different Characters](com/problems/string/CountSubstringsOfLengthK.java)
-- [Sum of Beauty of All Substrings](com/problems/string/SumOfBeautyOfAllSubstrings.java)
-- [Minimum Add to Make Parentheses Valid](com/problems/string/MinimumAddToMakeParenthesesValid.java)
-- [Count and Say](com/problems/string/CountAndSay.java)
-- [Resulting String After Adjacent Removals](com/problems/string/ResultingStringAfterAdjacentRemovals.java)
-
+### Palindrome Problems
 - [Valid palindrome](com/problems/string/ValidPalindrome.java)
 - [Valid Palindrome II](com/problems/string/ValidPalindrome2.java)
 - [Find First Palindromic String in the Array](com/problems/string/FindFirstPalindromicStringInTheArray.java)
@@ -58,15 +13,72 @@
 - [Longest Palindrome After Substring Concatenation II](com/problems/dp/LongestPalindromeAfterSubstringConcatenation.java)
 - [Smallest Palindromic Rearrangement I](com/problems/string/SmallestPalindromicRearrangement1.java)
 - [Smallest Palindromic Rearrangement II](com/problems/string/SmallestPalindromicRearrangement2.java)
+- [Unique Length 3 Palindromic Subsequences](com/problems/array/UniqueLength3PalindromicSubsequences.java)
 
+### Anagram & Character Frequency
+- [Check if two Strings are anagrams of each other](com/problems/string/CheckForAnagrams.java)
+- [Group anagrams](com/problems/string/GroupAnagrams.java)
+- [Sort Characters by frequency](com/problems/string/SortCharactersByFrequency.java)
+- [Redistribute Characters to Make All Strings Equal](com/problems/string/RedistributeCharactersToMakeAllStringsEqual.java)
+- [Find Words That Can Be Formed by Characters](com/problems/string/FindWordsThatCanBeFormedByCharacters.java)
+- [First Unique Character in a String](com/problems/string/FirstUniqueCharacterInAString.java)
+
+### Pattern Mapping / Isomorphism
+- [Word Pattern](com/problems/string/WordPattern.java)
+- [Isomorphic Strings](com/problems/string/IsomorphicStrings.java)
+
+### Parentheses / Bracket Problems
+- [Remove Outermost Parentheses](com/problems/string/RemoveOutermostParentheses.java)
+- [Maximum Nesting Depth of the Parentheses](com/problems/string/MaximumNestingDepthOfTheParentheses.java)
+- [Minimum Add to Make Parentheses Valid](com/problems/string/MinimumAddToMakeParenthesesValid.java)
+- [Minimum Remove to Make Valid Parentheses](com/problems/string/MinimumRemoveToMakeValidParentheses.java)
+
+### Encode & Decode
+- [Encode and Decode TinyURL](com/problems/array/EncodeAndDecodeTinyURL.java)
+- [Encode and Decode Strings](com/problems/string/EncodeAndDecodeStrings.java)
+- [Decode String](com/problems/string/DecodeString.java)
+
+### Reverse & Rotate
+- [Reverse String](com/problems/string/ReverseString.java)
+- [Reverse Words in a String](com/problems/string/ReverseWordsInString.java)
+- [Reverse Words in a String III](com/problems/string/ReverseWordsInString3.java)
+- [Rotate String](com/problems/string/RotateString.java)
+
+### String Matching
 - [Repeated String Match](com/problems/string/RepeatedStringMatch.java)
 - [Longest happy prefix](com/problems/string/LongestHappyPrefix.java)
 - [Find the index of first occurrence of a word in a string](com/problems/string/FindTheIndexOfFirstOccurrenceInAString.java)
+- [Repeated DNA Sequences](com/problems/string/RepeatedDNASequences.java)
+
+### String to Number Conversions
+- [Roman to Integer](com/problems/string/RomanToInteger.java)
+- [Integer to Roman](com/problems/string/IntegerToRoman.java)
+- [Implement Atoi](com/problems/string/StringToInteger.java)
+- [Compare version number](com/problems/string/CompareVersionNumber.java)
+
+### Substring & Subsequence Problems
+- [Is Subsequence](com/problems/string/IsSubsequence.java)
+- [Largest 3-Same-Digit Number in String](com/problems/string/Largest3SameDigitNumberInString.java)
+- [Count With K Different Characters](com/problems/string/CountSubstringsOfLengthK.java)
+- [Sum of Beauty of All Substrings](com/problems/string/SumOfBeautyOfAllSubstrings.java)
+- [Count and Say](com/problems/string/CountAndSay.java)
+- [Resulting String After Adjacent Removals](com/problems/string/ResultingStringAfterAdjacentRemovals.java)
 - [Splitting string into descending consecutive values](com/problems/string/SplittingStringIntoDescendingConsecutiveValues.java)
 - [Find the Sequence of Strings Appeared on the Screen](com/problems/string/FindTheSequenceOfStringsAppearedOnTheScreen.java)
-- [Minimum Remove to Make Valid Parentheses](com/problems/string/MinimumRemoveToMakeValidParentheses.java)
-
 - [Partition String](com/problems/string/PartitionString.java)
+
+### General
+- [Length of Last Word](com/problems/string/LengthOfLastWord.java)
+- [Generate Tag for Video Caption](com/problems/string/GenerateTagForVideoCaption.java)
+- [Destination City](com/problems/string/DestinationCity.java)
+- [Maximum Score After Splitting a String](com/problems/string/MaximumScoreAfterSplittingString.java)
+- [Minimum Changes To Make Alternating Binary String](com/problems/string/MinimumChangesToMakeAlternatingBinaryString.java)
+- [Merge Strings Alternately](com/problems/string/MergeStringsAlternately.java)
+- [Backspace String Compare](com/problems/string/BackspaceStringCompare.java)
+- [Check If Two String Arrays are Equivalent](com/problems/string/CheckIfTwoStringArraysAreEquivalent.java)
+- [Largest Odd Number in String](com/problems/string/LargestOddNumberInString.java)
+- [Longest Common Prefix](com/problems/string/LongestCommonPrefix.java)
+- [Unique Email Addresses](com/problems/string/UniqueEmailAddresses.java)
 
 ### Advanced
 - [Rabin Karp](com/algo/string/RabinKarp.java)

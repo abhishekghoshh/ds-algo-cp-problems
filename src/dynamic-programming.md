@@ -122,19 +122,22 @@
 - [Count Sub matrices With Equal Frequency of X and Y](com/problems/dp/CountSubmatricesWithEqualFrequencyOfXandY.java)
 
 
-### others
+### Subsequence / Subarray Counting DP
 
 - [More subsequence](com/problems/recursion/MoreSubsequence.java)
 - [Word Break](com/problems/dp/WordBreak.java)
 - [Maximize Total Cost of Alternating Subarrays](com/problems/dp/MaximizeTotalCostOfAlternatingSubarrays.java)
-- [Minimum Cost for Cutting Cake I](com/problems/dp/MinimumCostForCuttingCakeI.java)
 - [Sum of Good Subarrays](com/problems/dp/SumOfGoodSubsequences.java)
 - [Sum of Good Subsequences](com/problems/dp/SumOfGoodSubsequences.java)
 - [Count Paths With the Given XOR Value](com/problems/dp/CountPathsWithTheGivenXORValue.java)
-- [Champagne Tower](com/problems/dp/ChampagneTower.java)
-- [Maximum Amount of Money Robot Can Earn](com/problems/dp/MaximumAmountOfMoneyRobotCanEarn.java)
 - [Count Substrings Divisible By Last Digit](com/problems/dp/CountSubstringsDivisibleByLastDigit.java)
 - [Find X Value of Array I](com/problems/dp/FindXValueOfArray1.java)
 - [Maximum Product of Subsequences With an Alternating Sum Equal to K](com/problems/dp/MaximumProductOfSubsequencesWithAnAlternatingSumEqualToK.java)
 - [Inverse Coin Change](com/problems/dp/InverseCoinChange.java)
+
+### Miscellaneous DP
+
+- [Minimum Cost for Cutting Cake I](com/problems/dp/MinimumCostForCuttingCakeI.java)
+- [Champagne Tower](com/problems/dp/ChampagneTower.java)
+- [Maximum Amount of Money Robot Can Earn](com/problems/dp/MaximumAmountOfMoneyRobotCanEarn.java)
 

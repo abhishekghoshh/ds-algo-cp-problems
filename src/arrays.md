@@ -13,59 +13,115 @@
 - [Dynamic array](com/ds/array/Array.java)
 
 
-### General
+### Two/Three/Four Sum
 
 - [Two Sum : Check if a pair with given sum exists in Array](com/problems/array/TwoSum.java)
 - [Two Sum II - Input Array Is Sorted](com/problems/array/TwoSum2InputArrayIsSorted.java)
 - [3 Sum : Find triplets that add up to a zero](com/problems/array/ThreeSum.java)
+- [3Sum Closest](com/problems/array/ThreeSumClosest.java)
 - [4 Sum / Find Quads that add up to a target value](com/problems/array/FourSum.java)
 - [Valid Triangle Number](com/problems/array/ValidTriangleNumber.java)
 
-- [Largest Element in an Array](com/problems/array/LargestElementInArray.java)
-- [Longest Continuous Increasing Subsequence](com/problems/array/LongestContinuousIncreasingSubsequence.java)
-- [Find Second Smallest and Second-Largest Element in an array](com/problems/array/SecondLargestElementInArray.java)
-- [Check if the array is sorted](com/problems/array/CheckIfArrayIsSortedAndRotated.java)
-- [Minimum Average of Smallest and Largest Elements](com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
-- [Find the Minimum Area to Cover All Ones I](com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java)
-- [Distribute Elements Into Two Arrays I](com/problems/array/DistributeElementsIntoTwoArrays1.java)
-- [Find the duplicate in an array of N+1 integers](com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
-- [Linear Search](com/problems/array/LinearSearch.java)
-- [Union of Two Sorted Arrays](com/problems/array/UnionOfTwoSortedArrays.java)
-- [Vowels Game in a String](com/problems/array/VowelsGameInAString.java)
-- [Maximum Consecutive Ones](com/problems/array/MaxConsecutiveOnes.java)
+
+### Kadane's Algorithm / Maximum Subarray
+
 - [Kadane's Algorithm : Maximum Subarray Sum in an Array for consecutive elements](com/problems/array/MaxSumForConsecutiveElements.java)
 - [Print maximum Subarray Sum in an Array for consecutive elements](com/problems/array/PrintMaxSumForConsecutiveElements.java)
 - [Maximum Product Subarray in an Array](com/problems/array/MaximumProductSubarrayInAnArray.java)
-- [next_permutation : find next lexicographically greater permutation](com/problems/array/NextPermutation.java)
-- [Leaders in an Array](com/problems/array/LeadersInAnArray.java)
+
+
+### Matrix Problems
+
 - [Set Matrix Zero](com/problems/array/SetMatrixToZero.java)
 - [Rotate Image by 90 degree](com/problems/array/RotateMatrix.java)
 - [Spiral Traversal of Matrix](com/problems/array/SpiralTraversalOfMatrix.java)
-- [Merge Overlapping Sub-intervals](com/problems/array/MergeOverlappingSubIntervals.java)
-- [3Sum Closest](com/problems/array/ThreeSumClosest.java)
-- [Find the Count of Monotonic Pairs I](com/problems/array/FindTheCountOfMonotonicPairs.java)
-- [Adjacent Increasing Subarrays Detection I](com/problems/array/AdjacentIncreasingSubarraysDetection1.java)
-- [Adjacent Increasing Subarrays Detection II](com/problems/array/AdjacentIncreasingSubarraysDetection2.java)
-- [Fruits Into Baskets](com/problems/array/FruitsIntoBaskets.java)
-- [Count Pairs That Form a Complete Day II](com/problems/array/CountPairsThatFormCompleteDay2.java)
+- [Valid Sudoku](com/problems/array/ValidSudoku.java)
+
+
+### Contains Duplicate
 
 - [Contains Duplicate](com/problems/hashing/ContainsDuplicate.java)
 - [Contains Duplicate II](com/problems/hashing/ContainsDuplicate2.java)
 
-- [Replace Elements with Greatest Element on Right Side](com/problems/array/ReplaceElementsWithGreatestElementOnRightSide.java)
+
+### Pascal's Triangle
 
 - [Program to generate Pascal’s Triangle](com/problems/array/PascalTriangle.java)
 - [Program to generate Pascal’s Triangle one row](com/problems/array/PascalTriangleOneRow.java)
 - [Program to generate Pascal’s Triangle one element](com/problems/array/PascalTriangleOneElement.java)
 
-- [Remove Element](com/problems/array/RemoveElement.java)
+
+### Majority Element
 
 - [Majority Element I | Find the Majority Element that occurs more than N/2 times](com/problems/array/MajorityElements1.java)
 - [Majority Element II | Find the elements that appear more than N/3 times in the array](com/problems/array/MajorityElements2.java)
 
+
+### Rotate Array
+
 - [Left Rotate an array by one place](com/problems/array/LeftRotateByOne.java)
 - [Rotate Array](com/problems/array/RotateArray.java)
 
+
+### Design Problems
+
+- [Design Parking System](com/problems/array/DesignParkingSystem.java)
+- [Design Underground System](com/problems/array/DesignUndergroundSystem.java)
+- [Design a Food Rating System](com/problems/array/DesignAFoodRatingSystem.java)
+- [Insert Delete GetRandom O(1)](com/problems/array/RandomizedSetProblem.java)
+
+
+### Inversion Count
+
+- [Merge two Sorted Arrays Without Extra Space](com/problems/array/MergeTwoSortedArraysWithoutExtraSpace.java)
+- [Count inversions in an array](com/problems/array/CountInversionInArray.java)
+- [Count Reverse Pairs](com/problems/array/ReversePairs.java)
+
+
+### Sorting
+
+- [Sort an array of 0's 1's and 2's](com/problems/array/SortZeroOneTwo.java)
+- [Largest Number](com/problems/array/LargestNumber.java)
+
+
+### Sorted / Monotonic Array Checks
+
+- [Check if the array is sorted](com/problems/array/CheckIfArrayIsSortedAndRotated.java)
+- [Monotonic Array](com/problems/array/MonotonicArray.java)
+
+
+### Adjacent Increasing Subarrays
+
+- [Adjacent Increasing Subarrays Detection I](com/problems/array/AdjacentIncreasingSubarraysDetection1.java)
+- [Adjacent Increasing Subarrays Detection II](com/problems/array/AdjacentIncreasingSubarraysDetection2.java)
+
+
+### Intervals
+
+- [Merge Overlapping Sub-intervals](com/problems/array/MergeOverlappingSubIntervals.java)
+
+
+### General
+
+- [Largest Element in an Array](com/problems/array/LargestElementInArray.java)
+- [Longest Continuous Increasing Subsequence](com/problems/array/LongestContinuousIncreasingSubsequence.java)
+- [Find Second Smallest and Second-Largest Element in an array](com/problems/array/SecondLargestElementInArray.java)
+- [Minimum Average of Smallest and Largest Elements](com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
+- [Find the Minimum Area to Cover All Ones I](com/problems/array/FindTheMinimumAreaToCoverAllOnes1.java)
+- [Distribute Elements Into Two Arrays I](com/problems/array/DistributeElementsIntoTwoArrays1.java)
+- [Find the duplicate in an array of N+1 integers](com/problems/array/MinimumAverageOfSmallestAndLargestElements.java)
+- [Find the Duplicate Number](com/problems/array/FindDuplicateNumber.java)
+- [Linear Search](com/problems/array/LinearSearch.java)
+- [Union of Two Sorted Arrays](com/problems/array/UnionOfTwoSortedArrays.java)
+- [Vowels Game in a String](com/problems/array/VowelsGameInAString.java)
+- [Maximum Consecutive Ones](com/problems/array/MaxConsecutiveOnes.java)
+- [next_permutation : find next lexicographically greater permutation](com/problems/array/NextPermutation.java)
+- [Leaders in an Array](com/problems/array/LeadersInAnArray.java)
+- [Find the Count of Monotonic Pairs I](com/problems/array/FindTheCountOfMonotonicPairs.java)
+- [Fruits Into Baskets](com/problems/array/FruitsIntoBaskets.java)
+- [Count Pairs That Form a Complete Day II](com/problems/array/CountPairsThatFormCompleteDay2.java)
+- [Replace Elements with Greatest Element on Right Side](com/problems/array/ReplaceElementsWithGreatestElementOnRightSide.java)
+- [Remove Element](com/problems/array/RemoveElement.java)
 - [Shuffle the Array](com/problems/array/ShuffleTheArray.java)
 - [Add to Array-Form of Integer](com/problems/array/AddToArrayFormOfInteger.java)
 - [Minimum Operations to Make Columns Strictly Increasing](com/problems/array/MinimumOperationsToMakeColumnsStrictlyIncreasing.java)
@@ -73,7 +129,6 @@
 - [Next Greater Element for different array](com/problems/stack/NextGreaterElementForDifferentArray.java)
 - [Find All Numbers Disappeared in an Array](com/problems/array/FindAllNumbersDisappearedInAnArray.java)
 - [Maximum Number of Balloons](com/problems/array/MaximumNumberOfBalloons.java)
-- [Monotonic Array](com/problems/array/MonotonicArray.java)
 - [Number of Good Pairs](com/problems/array/NumberOfGoodPairs.java)
 - [Maximum Product Difference Between Two Pairs](com/problems/array/MaximumProductDifferenceBetweenTwoPairs.java)
 - [Minimum Changes To Make Alternating Binary String](com/problems/string/MinimumChangesToMakeAlternatingBinaryString.java)
@@ -81,35 +136,21 @@
 - [Number of Students Unable to Eat Lunch](com/problems/array/NumberOfStudentsUnableToEatLunch.java)
 - [Time Needed to Buy Tickets](com/problems/array/TimeNeededToBuyTickets.java)
 - [Special Array With X Elements Greater Than or Equal X](com/problems/array/SpecialArrayWithXElementsGreaterThanOrEqualX.java)
-- [Valid Sudoku](com/problems/array/ValidSudoku.java)
 - [Longest Consecutive Sequence in an Array](com/problems/array/LongestConsecutiveSequence.java)
-- [Sort an array of 0's 1's and 2's](com/problems/array/SortZeroOneTwo.java)
 - [Minimum Number of Operations to Make Elements in Array Distinct](com/problems/array/MinimumNumberOfOperationsToMakeElementsInArrayDistinct.java)
-
 - [Minimum Number of Swaps to Make The String Balanced](com/problems/array/MinimumNumberOfSwapsToMakeTheStringBalanced.java)
 - [Number of Pairs of Interchangeable Rectangles](com/problems/array/NumberOfPairsOfInterchangeableRectangles.java)
 - [Maximum Product of the Length of Two Palindromic Subsequences](com/problems/array/MaximumProductOfTheLengthOfTwoPalindromicSubsequences.java)
 - [Grid Game](com/problems/array/GridGame.java)
-- [Largest Number](com/problems/array/LargestNumber.java)
-- [Insert Delete GetRandom O(1)](com/problems/array/RandomizedSetProblem.java)
 - [Push Dominoes](com/problems/array/PushDominoes.java)
 - [Non-decreasing Array](com/problems/greedy/NonDecreasingArray.java)
 - [Sign of the Product of an Array](com/problems/array/SignOfTheProductOfAnArray.java)
 - [Find the Difference of Two Arrays](com/problems/array/FindTheDifferenceOfTwoArrays.java)
-- [Design Parking System](com/problems/array/DesignParkingSystem.java)
-- [Design Underground System](com/problems/array/DesignUndergroundSystem.java)
 - [Minimum Penalty for a Shop](com/problems/array/MinimumPenaltyForAShop.java)
 - [Champagne Tower](com/problems/dp/ChampagneTower.java)
-- [Design a Food Rating System](com/problems/array/DesignAFoodRatingSystem.java)
 - [Minimum Number of Operations to Make Array Empty](com/problems/array/MinimumNumberOfOperationsToMakeArrayEmpty.java)
 - [Divide Array Into Arrays With Max Difference](com/problems/array/DivideArrayIntoArraysWithMaxDifference.java)
 - [Sequential Digits](com/problems/array/SequentialDigits.java)
-
-
-- [Merge two Sorted Arrays Without Extra Space](com/problems/array/MergeTwoSortedArraysWithoutExtraSpace.java)
-- [Count inversions in an array](com/problems/array/CountInversionInArray.java)
-- [Count Reverse Pairs](com/problems/array/ReversePairs.java)
-
 - [Car Fleet](com/problems/array/CarFleet.java)
 
 

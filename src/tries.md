@@ -6,13 +6,15 @@
 - [L2 / Tries - FAANG Problems / Tries Master Class by Striver (for revise only)](https://www.youtube.com/watch?v=vAF8Wvs10Ts)
 
 
-### General
+### Trie Implementation
 - [Implement Trie (Prefix Tree)](com/problems/trie/ImplementTrie.java)
 - [Implement Trie - 2 (Prefix Tree)](com/problems/trie/ImplementTrie2.java)
+- [Design Add and Search Words Data Structure](com/problems/trie/WordDictionary.java)
+
+### String / Word Problems
 - [Longest String with All Prefixes](com/problems/trie/LongestStringWithAllPrefixes.java)
 - [Number of Distinct Substrings in a String](com/problems/trie/CountDistinctSubstrings.java)
 - [Longest duplicate substring in a String](com/problems/trie/LongestDuplicateSubstring.java)
-- [Design Add and Search Words Data Structure](com/problems/trie/WordDictionary.java)
 - [Power Set](com/problems/trie/PowerSet.java)
 - [Word Search 2](com/problems/recursion/WordSearch2.java)
 - [Extra Characters in a String](com/problems/trie/ExtraCharactersInAString.java)

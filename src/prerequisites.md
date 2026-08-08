@@ -13,7 +13,7 @@
 - [Radix sort](com/algo/sort/RadixSort.java)
 - [Heap sort](com/algo/sort/HeapSort.java)
 
-### logic building
+### Logic Building
 - [Concatenation of Array](com/problems/logicbuilding/ConcatenationOfArray.java)
 - [Check if Two Chessboard Squares Have the Same Color](com/problems/logicbuilding/CheckTwoChessboards.java)
 - [Smallest Number With All Set Bits](com/problems/logicbuilding/SmallestNumberWithAllSetBits.java)

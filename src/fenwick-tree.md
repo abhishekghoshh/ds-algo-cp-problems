@@ -17,10 +17,13 @@
 - [Prerequisites](com/problems/fenwicktree/FenwickTreePrerequisites.java)
 - [Fenwick tree](com/problems/fenwicktree/FenwickTree.java)
 
-### General
+### Inversion / Counting Problems
 
 - [Inversion count](com/problems/segmenttree/InversionCount.java)
 - [Count of Smaller Numbers After Self](com/problems/fenwicktree/CountOfSmallerNumbersAfterSelf.java)
+
+### Range Query & Update Problems
+
 - [Distribute Elements Into Two Arrays II](com/problems/fenwicktree/DistributeElementsIntoTwoArrays2.java)
 - [Block Placement Queries](com/problems/fenwicktree/BlockPlacementQueries.java)
 - [Find Subarray With Bitwise OR Closest to K](com/problems/fenwicktree/FindSubarrayWithBitwiseORClosestToK.java)

@@ -8,14 +8,18 @@
 
 ### Prerequisites
 
+- [Queue Interface](com/ds/queue/Queue.java)
 - [Array Queue](com/ds/queue/ArrayQueue.java)
 - [Linked list queue](com/ds/queue/LinkedListQueue.java)
 - [Double Ended Queue](com/ds/queue/Deque.java)
 
-### General
+### Queue Implementations
 
 - [Implement Queue using Arrays](com/problems/queue/Queue.java)
 - [Implement Queue using Stack](com/problems/queue/QueueUsingStack.java)
 - [Implement queue using Linkedlist](com/problems/queue/QueueUsingLinkedlist.java)
 - [Implement Deque using Linkedlist](com/problems/queue/DequeUsingLinkedlist.java)
+
+### Sliding Window
+
 - [Sliding Window maximum](com/problems/queue/SlidingWindowMaximum.java)

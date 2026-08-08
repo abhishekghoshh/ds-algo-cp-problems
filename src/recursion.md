@@ -6,64 +6,75 @@
 - [Recursion Playlist / Coding / Interview Questions / Algorithm / Tutorials](https://www.youtube.com/playlist?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)
 - [Recursion](https://www.youtube.com/playlist?list=PLjkkQ3iH4jy82KRn9jXeFyWzvX7sqYrjE)
 
-### General
+### Basics
 - [Recursion theory](com/problems/recursion/RecursionTheory.java)
-- [Sum of All Subset XOR Totals](com/problems/recursion/SumOfAllSubsetXORTotals.java)
 - [Factorial](com/problems/recursion/Factorial.java)
 - [Fibonacci](com/problems/recursion/FibonacciNumber.java)
 - [Tower of hanoi](com/problems/recursion/TowerOfHanoi.java)
 - [Binary search recursively](com/problems/recursion/BinarySearchRecursively.java)
 - [Reverse of an array](com/problems/recursion/ReverseOfAnArray.java)
-- [String is palindrome or not](com/problems/recursion/StringIsPalindrome.java)
 - [Height of a binary tree/Max depth of a Binary tree](com/problems/binarytree/HeightOfBinaryTree.java)
 - [Zigzag Grid Traversal With Skip](com/problems/binarytree/ZigzagGridTraversalWithSkip.java)
-- [Recursive Implementation of atoi()](com/problems/string/StringToInteger.java)
 - [Pow(x, n)](com/problems/binarysearch/PowerOfXtoN.java)
 - [Count Good Numbers](com/problems/recursion/CountGoodNumbers.java)
 - [Sort an array](com/problems/recursion/SortArray.java)
 - [Sort a stack using recursion](com/problems/recursion/SortStack.java)
 - [Reverse a stack using recursion](com/problems/recursion/ReverseStack.java)
 - [Delete the middle element of the stack](com/problems/recursion/DeleteMiddleElementOfStack.java)
+
+### Recursion on Strings
+- [String is palindrome or not](com/problems/recursion/StringIsPalindrome.java)
+- [Recursive Implementation of atoi()](com/problems/string/StringToInteger.java)
 - [Generate all binary strings with no consecutive 1s](com/problems/recursion/GenerateAllBinaryStringsWithNoConsecutiveOnes.java)
 - [Generate Parentheses](com/problems/recursion/GenerateAllBalancedParenthesis.java)
 - [Print N-bit binary numbers having more 1s than 0s](com/problems/recursion/GenerateNBitBinaryNumberHavingMore1sInAllPrefixes.java)
+- [K-th Symbol in Grammar](com/problems/recursion/KthSymbolInAGrammar.java)
+- [Find Kth Bit in Nth Binary String](com/problems/recursion/FindKthBitInNthBinaryString.java)
+
+### Recursion on Arrays
+- [Sum of All Subset XOR Totals](com/problems/recursion/SumOfAllSubsetXORTotals.java)
 - [Subarrays with Sum k](com/problems/recursion/SubarraysWithSumK.java)
 - [Fill a Special Grid](com/problems/recursion/FillASpecialGrid.java)
 
-
+### Backtracking - Subsets / Power Set
 - [Print all subsequences/Power Set with unique elements](com/problems/recursion/PowerSet1.java)
 - [Print all subsequences/Power Set with duplicate elements](com/problems/recursion/PowerSet2.java)
+- [Subset sum](com/problems/recursion/SubsetSum.java)
+- [Count of Subset sum equal to k](com/problems/recursion/CountOfSubsetSumEqualToK.java)
+- [Print subset sum divisible by K](com/problems/recursion/PrintSubsetSumDivisibleByK.java)
 
+### Backtracking - Combination Sum
 - [Combination sum 1](com/problems/recursion/CombinationSum1.java)
 - [Combination sum 2](com/problems/recursion/CombinationSum2.java)
 - [Combination sum 2](com/problems/recursion/CombinationSum3.java)
 - [Combination Sum 4](com/problems/recursion/CombinationSum4.java)
 
+### Backtracking - Permutations
 - [Permutation with spaces](com/problems/recursion/PermutationWithSpaces.java)
 - [Letter case permutation](com/problems/recursion/LetterCasePermutation.java)
 - [Print all permutations of string or array](com/problems/recursion/Permutations1.java)
 - [Permutations II](com/problems/recursion/Permutations2.java)
 - [Kth permutation sequence](com/problems/recursion/KthPermutationSequence.java)
 
-- [Subset sum](com/problems/recursion/SubsetSum.java)
-- [Count of Subset sum equal to k](com/problems/recursion/CountOfSubsetSumEqualToK.java)
-- [Print subset sum divisible by K](com/problems/recursion/PrintSubsetSumDivisibleByK.java)
-- [Letter Combinations of a Phone Number](com/problems/recursion/LetterCombinationsOfAPhoneNumber.java)
-- [Palindrome Partitioning](com/problems/recursion/PalindromePartitioning.java)
+### Backtracking - Grid & Board Problems
 - [Word Search 1](com/problems/recursion/WordSearch1.java)
 - [Word Search 2](com/problems/recursion/WordSearch2.java)
 - [N Queen problem](com/problems/recursion/NQueenProblem.java)
 - [Rat In a Maze](com/problems/recursion/RatInAMaze.java)
 - [M Coloring Problem](com/problems/recursion/MColoringProblem.java)
 - [Sudoku Solver](com/problems/recursion/SudokuSolver.java)
-- [K-th Symbol in Grammar](com/problems/recursion/KthSymbolInAGrammar.java)
-- [Find Kth Bit in Nth Binary String](com/problems/recursion/FindKthBitInNthBinaryString.java)
-- [Expression Add Operators](com/problems/recursion/ExpressionAddOperators.java)
 
+### Backtracking - Strings & Expressions
+- [Letter Combinations of a Phone Number](com/problems/recursion/LetterCombinationsOfAPhoneNumber.java)
+- [Palindrome Partitioning](com/problems/recursion/PalindromePartitioning.java)
+- [Expression Add Operators](com/problems/recursion/ExpressionAddOperators.java)
+- [Parsing A Boolean Expression](com/problems/recursion/ParsingABooleanExpression.java)
+
+### Miscellaneous
+- [Construct String With Minimum Cost](com/problems/recursion/ConstructStringWithMinimumCost.java)
 - [Largest number in K swaps](com/problems/recursion/LargestNumberAfterKSwaps.java)
 - [N Digit numbers with digits in increasing order](com/problems/recursion/NDigitNumbersWithDigitsInIncreasingOrder.java)
 - [Print all word breaks](com/problems/recursion/PrintAllWordBreaks.java)
 - [Josephus problem](com/problems/recursion/JosephusProblem.java)
-- [Parsing A Boolean Expression](com/problems/recursion/ParsingABooleanExpression.java)
 - [LRU Cache](com/problems/linkedlist/LRUCache.java)
 - [LFU Cache](com/problems/linkedlist/LFUCache.java)
